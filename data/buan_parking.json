@@ -1,0 +1,4542 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 11:35",
+  "generated_at_iso": "2026-11-20T11:35:04+09:00",
+  "snapshot_at": "2026-11-20 11:35",
+  "region": {
+   "province": "전북특별자치도",
+   "city": "부안군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-16",
+    "rows_total": 18994,
+    "rows_city": 37,
+    "fetched_at": "2026-11-20 11:35 (KST)",
+    "note": "부안군으로 등록된 행 37행(전부 공영·노외 25·부설 10·노상 2)을 읽어 중복 제거 0건으로 37곳을 실었다. 무료 33곳, 유료 4곳이다. 좌표는 전부 등록돼 있고 도로명주소는 31곳이 결측이다. 조례 대조 완료 — 「부안군 주차장 조례」 제2999호(시행 2026-01-01, ordinSeq 2091451) 제3조·제6조·별표 1 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「부안군 주차장 조례」 제2999호(시행 2026-01-01, 일부개정)",
+    "org": "전북특별자치도 부안군청",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2091451",
+    "file": "buan-ordinance-b1.txt",
+    "sha256": "b0aa1480969eb38c80d8cbf194a3668e1ff29317ca84d2561124f89adbf1de97",
+    "license": "자치법규(공개)",
+    "base_date": "2026-01-01",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 11:35 (KST)",
+    "note": "부안군이 설치·관리하는 공영주차장에 적용하는 조례다. 부안군 공영주차장 37곳(노외 25·부설 10·노상 2)은 총 6,236면이며, 33곳은 요금을 받지 않는 무료 주차장이고 요금을 받는 곳은 4곳(돌팍공영주차장·마실공영주차장·오리정로 공영주차장·부안터미널 공영주차장)이다. 「부안군 주차장 조례」 제2999호(시행 2026-01-01, ordinSeq 2091451) 제3조제1항은 공영주차장 요금을 별표 1로 정한다 — 별표 1(개정 2024-04-19)은 급지 구분이 없이 세 구분으로 나뉜다. 돌팍거리 공영주차장(평일 적용)은 최초 24시간 무료·24시간 초과 1시간마다 1,000원·1일 10,000원, 마실 공영주차장은 최초 2시간 무료·2시간 초과 10분마다 1,000원·1일 20,000원, 기타 공영주차장(무료주차장 제외)은 최초 2시간 무료·2시간 초과 10분마다 500원·1일 6,000원·월정기 주·야 50,000원이다. 돌팍공영주차장과 마실공영주차장은 등록값이 별표와 구조·금액 모두 다르고 1일 요금도 등록돼 있지 않아 조례 구조로 계산하고, 오리정로 공영주차장과 부안터미널 공영주차장은 등록값(기본 120분 500원·추가 10분당 500원)이 완전한 구조라 등록값으로 계산하되 요금표에는 조례값을 실었다. 돌팍공영주차장은 별표가 평일에만 적용하므로 토요일·일요일·공휴일에 무료다. 무료 33곳에 대해 요금표는 조례 기준 요금의 참고표이고, 별표 1 비고 5는 유료로 운영 중인 공영주차장을 군수가 필요하다고 인정하면 무료로 운영할 수 있다고 정한다. 감면은 조례 제3조제2항과 제6조를 따른다(긴급자동차 면제, 장애인·국가유공자·경형·저공해·환경친화적·병역명문가·다자녀·장기기증자 50%, 관광활성화 이용권·카드 2시간 이내 100%, 모범납세자 100%, 재래시장 상인·고객 50% 경감). 좌표는 37곳 전부 등록돼 있고, 도로명주소는 31곳이 등록돼 있지 않다. (조례 본문: data/raw/buan-ordinance.txt, 별표 1 원문: data/raw/buan-ordinance-b1.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "부안군",
+   "slug": "buan"
+  }
+ ],
+ "lots": [
+  {
+   "id": "jb-buan-001",
+   "mgmt_no": "319-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "격포 공영주차장",
+   "gu": "부안군",
+   "dong": "변산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 변산면 격포리 259-26",
+   "addr_road": "",
+   "road": null,
+   "spaces": 270,
+   "tel": "063-580-4177",
+   "lat": 35.6320389055,
+   "lng": 126.4720238486,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-002",
+   "mgmt_no": "319-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "격포채석강주차장",
+   "gu": "부안군",
+   "dong": "변산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 변산면 격포리 283-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 175,
+   "tel": "063-580-4177",
+   "lat": 35.62829867,
+   "lng": 126.47102,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-003",
+   "mgmt_no": "319-3-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "격포항주차장",
+   "gu": "부안군",
+   "dong": "변산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전북특별자치도 부안군 변산면 격포리 788-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 229,
+   "tel": "063-580-4489",
+   "lat": 35.6203202922,
+   "lng": 126.4707088088,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-004",
+   "mgmt_no": "319-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "궁항공영주차장",
+   "gu": "부안군",
+   "dong": "변산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 변산면 격포리 720-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 77,
+   "tel": "063-580-4177",
+   "lat": 35.603392422,
+   "lng": 126.4687337122,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-005",
+   "mgmt_no": "319-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "모항해수욕장주차장",
+   "gu": "부안군",
+   "dong": "변산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 변산면 도청리 172",
+   "addr_road": "",
+   "road": null,
+   "spaces": 266,
+   "tel": "063-580-4738",
+   "lat": 35.58287,
+   "lng": 126.50866,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-006",
+   "mgmt_no": "319-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "변산해수욕장주차장",
+   "gu": "부안군",
+   "dong": "변산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 변산면 대항리 609",
+   "addr_road": "",
+   "road": null,
+   "spaces": 875,
+   "tel": "063-580-4738",
+   "lat": 35.68258,
+   "lng": 126.53451,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-007",
+   "mgmt_no": "319-3-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부안누에타운주차장",
+   "gu": "부안군",
+   "dong": "변산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전북특별자치도 부안군 변산면 마포리 87-26",
+   "addr_road": "전북특별자치도 부안군 변산면 참뽕로 434-20",
+   "road": null,
+   "spaces": 93,
+   "tel": "063-580-4616",
+   "lat": 35.63185,
+   "lng": 126.51301,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-008",
+   "mgmt_no": "319-3-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부안영상테마파트주차장",
+   "gu": "부안군",
+   "dong": "변산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전북특별자치도 부안군 변산면 격포리 804",
+   "addr_road": "",
+   "road": null,
+   "spaces": 146,
+   "tel": "063-580-4361",
+   "lat": 35.61993,
+   "lng": 126.48211,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-009",
+   "mgmt_no": "319-3-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부안청자박물관주차장",
+   "gu": "부안군",
+   "dong": "보안면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전북특별자치도 부안군 보안면 유천리 798-4",
+   "addr_road": "전북특별자치도 부안군 보안면 청자로 1493",
+   "road": null,
+   "spaces": 78,
+   "tel": "063-580-3958",
+   "lat": 35.61149913,
+   "lng": 126.65133,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-010",
+   "mgmt_no": "319-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "돌팍공영주차장",
+   "gu": "부안군",
+   "dong": "부안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 부안읍 서외리 238-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 217,
+   "tel": "063-580-4806",
+   "lat": 35.7318892906,
+   "lng": 126.7318187492,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "토요일·일요일·공휴일은 무료입니다(조례 별표 1 '평일 적용'·비고 6)",
+   "fee": {
+    "type": "유료",
+    "base_min": 1440,
+    "base_fee": 0,
+    "unit_min": 60,
+    "unit_fee": 1000,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 1000,
+     "unit_min": 60,
+     "unit_fee": 1000,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 돌팍거리 공영주차장 행(최초 24시간 무료·24시간 초과 1시간마다 1,000원·1일 10,000원, 평일 적용)을 적용했다 — 등록값(기본 1440분 1,000원·추가 60분당 1,000원)은 기본 구조가 별표와 다르고 1일 요금이 빠져 있다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-011",
+   "mgmt_no": "319-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동중3 공영주차장",
+   "gu": "부안군",
+   "dong": "부안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 부안읍 동중리 108-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "063-580-4177",
+   "lat": 35.7305366084,
+   "lng": 126.738095216,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-012",
+   "mgmt_no": "319-3-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동중4경로당 주차장",
+   "gu": "부안군",
+   "dong": "부안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전북특별자치도 부안군 부안읍 동중리 132-57",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "063-580-4177",
+   "lat": 35.729680206,
+   "lng": 126.7357534864,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-013",
+   "mgmt_no": "319-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "마실공영주차장",
+   "gu": "부안군",
+   "dong": "부안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 부안읍 서외리 13-3",
+   "addr_road": "전북특별자치도 부안군 부안읍 번영로 121",
+   "road": null,
+   "spaces": 99,
+   "tel": "063-580-4117",
+   "lat": 35.72654,
+   "lng": 126.7337063046,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 1000,
+    "daily_fee": 20000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 120,
+     "base_fee": 2000,
+     "unit_min": 20,
+     "unit_fee": 1000,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 마실 공영주차장 행(최초 2시간 무료·2시간 초과 10분마다 1,000원·1일 20,000원)을 적용했다 — 등록값(기본 120분 2,000원·추가 20분당 1,000원)은 구조·금액이 별표와 다르고 1일 요금이 빠져 있다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-014",
+   "mgmt_no": "319-3-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보건소 주차장",
+   "gu": "부안군",
+   "dong": "부안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전북특별자치도 부안군 부안읍 봉덕리 551-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 73,
+   "tel": "063-580-3787",
+   "lat": 35.7228284884,
+   "lng": 126.7355845937,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-015",
+   "mgmt_no": "319-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부림공영주차장",
+   "gu": "부안군",
+   "dong": "부안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 부안읍 서외리 25-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "063-580-4177",
+   "lat": 35.7277404667,
+   "lng": 126.73286,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-016",
+   "mgmt_no": "319-3-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부안군청 주차장",
+   "gu": "부안군",
+   "dong": "부안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전북특별자치도 부안군 부안읍 동중리 222-1",
+   "addr_road": "전북특별자치도 부안군 부안읍 당산로 91",
+   "road": null,
+   "spaces": 250,
+   "tel": "063-580-4806",
+   "lat": 35.7317157124,
+   "lng": 126.7330782237,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-017",
+   "mgmt_no": "319-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부안터미널 공영주차장",
+   "gu": "부안군",
+   "dong": "부안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 부안읍 서외리 10-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 45,
+   "tel": "063-580-4177",
+   "lat": 35.726501255,
+   "lng": 126.7358183817,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 120,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 120,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 120분 500원·추가 10분당 500원)을 적용했다 — 조례 별표 1 기타 공영주차장 행은 최초 2시간 무료·10분당 500원·1일 6,000원·월정기 50,000원으로, 최초 2시간 무료 여부와 1일·월정기가 등록값과 달라 그 차이는 요금표와 급지_요금_차이에 남겼다(공주 선례)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-018",
+   "mgmt_no": "319-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부풍로공영주차장",
+   "gu": "부안군",
+   "dong": "부안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 부안읍 서외리 103-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "063-580-4873",
+   "lat": 35.72851,
+   "lng": 126.73252,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-019",
+   "mgmt_no": "319-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상설시장주차장",
+   "gu": "부안군",
+   "dong": "부안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 부안읍 서외리 55-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 134,
+   "tel": "063-580-4177",
+   "lat": 35.72718,
+   "lng": 126.73125,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-020",
+   "mgmt_no": "319-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "석동산 공영주차장",
+   "gu": "부안군",
+   "dong": "부안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 부안읍 연곡리 350-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "063-580-4177",
+   "lat": 35.7088440393,
+   "lng": 126.7396960225,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-021",
+   "mgmt_no": "319-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "석동지구 주차장",
+   "gu": "부안군",
+   "dong": "부안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 부안읍 봉덕리 752-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "063-580-4536",
+   "lat": 35.725149271,
+   "lng": 126.7334692103,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-022",
+   "mgmt_no": "319-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송신공영주차장",
+   "gu": "부안군",
+   "dong": "부안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 부안읍 봉덕리 804",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "063-580-4177",
+   "lat": 35.7267,
+   "lng": 126.73934,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-023",
+   "mgmt_no": "319-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수생정원 주차장",
+   "gu": "부안군",
+   "dong": "부안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 부안읍 선은리 4-19",
+   "addr_road": "",
+   "road": null,
+   "spaces": 345,
+   "tel": "063-580-4660",
+   "lat": 35.72585043,
+   "lng": 126.7469150219,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-024",
+   "mgmt_no": "319-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "시장내 공영주차장",
+   "gu": "부안군",
+   "dong": "부안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 부안읍 동중리 132-23",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "063-580-4177",
+   "lat": 35.728893328,
+   "lng": 126.7355411678,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-025",
+   "mgmt_no": "319-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "쌈지주차장",
+   "gu": "부안군",
+   "dong": "부안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 부안읍 선은리 25-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 53,
+   "tel": "063-580-4177",
+   "lat": 35.72737,
+   "lng": 126.73984,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-026",
+   "mgmt_no": "319-3-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "예술회관부설주차장",
+   "gu": "부안군",
+   "dong": "부안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전북특별자치도 부안군 부안읍 서외리 455-51",
+   "addr_road": "전북특별자치도 부안군 부안읍 예술회관길 11",
+   "road": null,
+   "spaces": 91,
+   "tel": "063-580-3923",
+   "lat": 35.72431,
+   "lng": 126.72548,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-027",
+   "mgmt_no": "319-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오리정로 공영주차장",
+   "gu": "부안군",
+   "dong": "부안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 부안읍 서외리 539-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 55,
+   "tel": "063-580-4177",
+   "lat": 35.7229176123,
+   "lng": 126.7323483097,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 120,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 120,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 120분 500원·추가 10분당 500원)을 적용했다 — 조례 별표 1 기타 공영주차장 행은 최초 2시간 무료·10분당 500원·1일 6,000원·월정기 50,000원으로, 최초 2시간 무료 여부와 1일·월정기가 등록값과 달라 그 차이는 요금표와 급지_요금_차이에 남겼다(공주 선례)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-028",
+   "mgmt_no": "319-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오정주차장",
+   "gu": "부안군",
+   "dong": "부안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 부안읍 서외리 30-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 190,
+   "tel": "063-580-4177",
+   "lat": 35.72544,
+   "lng": 126.73267,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-029",
+   "mgmt_no": "319-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "읍사무소 옆 주차장",
+   "gu": "부안군",
+   "dong": "부안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 부안읍 동중리 123-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "063-580-4536",
+   "lat": 35.7299162286,
+   "lng": 126.7365954602,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-030",
+   "mgmt_no": "319-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "개암사 주차장",
+   "gu": "부안군",
+   "dong": "상서면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 상서면 감교리 721-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 56,
+   "tel": "063-580-4177",
+   "lat": 35.6611217374,
+   "lng": 126.6522806775,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-031",
+   "mgmt_no": "319-3-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부안자연생태공원주차장",
+   "gu": "부안군",
+   "dong": "줄포면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전북특별자치도 부안군 줄포면 우포리 132",
+   "addr_road": "",
+   "road": null,
+   "spaces": 215,
+   "tel": "063-580-3176",
+   "lat": 35.5857814953,
+   "lng": 126.6761823504,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-032",
+   "mgmt_no": "319-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "줄포시내 공영주차장",
+   "gu": "부안군",
+   "dong": "줄포면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 줄포면 줄포리 635",
+   "addr_road": "",
+   "road": null,
+   "spaces": 236,
+   "tel": "063-580-4177",
+   "lat": 35.5894982782,
+   "lng": 126.6781527713,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-033",
+   "mgmt_no": "319-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "곰소다용도부지공영주차장 (진서면 곰소리 911)",
+   "gu": "부안군",
+   "dong": "진서면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 진서면 곰소리 911",
+   "addr_road": "",
+   "road": null,
+   "spaces": 400,
+   "tel": "063-580-4877",
+   "lat": 35.5888,
+   "lng": 126.61245,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-034",
+   "mgmt_no": "319-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "곰소다용도부지공영주차장 (진서면 곰소리 960)",
+   "gu": "부안군",
+   "dong": "진서면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 부안군 진서면 곰소리 960",
+   "addr_road": "",
+   "road": null,
+   "spaces": 110,
+   "tel": "063-580-4877",
+   "lat": 35.58834,
+   "lng": 126.61725,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-035",
+   "mgmt_no": "319-3-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부안스포츠파트주차장",
+   "gu": "부안군",
+   "dong": "행안면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전북특별자치도 부안군 행안면 진동리 817",
+   "addr_road": "전북특별자치도 부안군 행안면 체육공원길 32",
+   "road": null,
+   "spaces": 1092,
+   "tel": "063-580-4691",
+   "lat": 35.70217,
+   "lng": 126.72204,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-s001",
+   "mgmt_no": "319-1-000035",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "창북간재로 노상주차장",
+   "gu": "부안군",
+   "dong": "계화면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전북특별자치도 부안군 계화면 창북리 259-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 70,
+   "tel": "063-580-4177",
+   "lat": 35.7612912264,
+   "lng": 126.7001701701,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  },
+  {
+   "id": "jb-buan-s002",
+   "mgmt_no": "319-1-000033",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "서외2길 노상주차장",
+   "gu": "부안군",
+   "dong": "부안읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전북특별자치도 부안군 부안읍 서외리 145-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "063-580-4177",
+   "lat": 35.728406059,
+   "lng": 126.7302228987,
+   "base_date": "2026-10-16",
+   "manager": "전북특별자치도 부안군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "부안군",
+   "city_slug": "buan",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 11:35",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 37,
+  "원자료_부안군행수": 37,
+  "원자료_받은행수": 37,
+  "구별": {
+   "부안군": 35
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 35,
+  "노외_부설": {
+   "노외": 25,
+   "부설": 10
+  },
+  "노상_구간": 2,
+  "총_구획수": 6146,
+  "노상_구획수": 90,
+  "동별": {
+   "부안읍": 20,
+   "변산면": 8,
+   "줄포면": 2,
+   "진서면": 2,
+   "보안면": 1,
+   "상서면": 1,
+   "행안면": 1
+  },
+  "동수": 7,
+  "동_미상": [],
+  "동_보정": [
+   "이름이 겹치는 주차장 곰소다용도부지공영주차장 — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다"
+  ],
+  "동_근거": {
+   "지번주소": 35
+  },
+  "요금구분": {
+   "무료": 33,
+   "유료": 4
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 4,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 15건 있다 — 서외2길 노상주차장·상설시장주차장(164m), 동중4경로당 주차장·시장내 공영주차장(89m), 동중4경로당 주차장·읍사무소 옆 주차장(80m), 부안군청 주차장·돌팍공영주차장(115m), 부안터미널 공영주차장·마실공영주차장(190m), 동중3 공영주차장·읍사무소 옆 주차장(151m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 37행은 전부 공영이고 데이터기준일자는 전부 2026-10-16이다. 관리기관은 37곳 전부 전북특별자치도 부안군청이고 전화번호는 063-580-4177이 18곳으로 가장 많고 나머지는 곳마다 다르다",
+   "도로명주소는 31곳이 등록돼 있지 않아 동(읍·면) 판정과 표기는 지번주소를 기준으로 했다",
+   "등록 급지는 37곳 전부 '기타'인데 조례 별표 1에는 급지 구분이 없어 요금표 행 판정에 쓰지 않았다",
+   "운영요일은 전부 평일+토요일+공휴일이고 운영시간은 전부 00:00~23:59이다. 특기사항은 37곳 전부 공란이고, 부제시행구분은 부안군청 주차장과 돌팍공영주차장 2곳만 '5부제'이고 나머지는 '미시행'이다. 결제방법은 37곳 전부 등록돼 있지 않다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "오리정로 공영주차장: 등록 요금(기본 120분 500원·추가 10분당 500원·1일·월정기 없음)이 조례 별표 1 기타 공영주차장 행(최초 2시간 무료·2시간 초과 10분마다 500원·1일 6,000원·월정기 주·야 50,000원)과 최초 2시간 무료 여부와 1일·월정기에서 다르다 — 등록값이 완전한 구조이고 추가 단위가 별표와 일치하며 기준일이 별표 개정보다 뒤라 계산기는 등록값을 쓰고, 별표 값은 요금표에만 실었다(공주 선례). 실제 징수 기준은 군청 확인 과제",
+   "부안터미널 공영주차장: 등록 요금(기본 120분 500원·추가 10분당 500원·1일·월정기 없음)이 조례 별표 1 기타 공영주차장 행(최초 2시간 무료·2시간 초과 10분마다 500원·1일 6,000원·월정기 주·야 50,000원)과 최초 2시간 무료 여부와 1일·월정기에서 다르다 — 등록값이 완전한 구조이고 추가 단위가 별표와 일치하며 기준일이 별표 개정보다 뒤라 계산기는 등록값을 쓰고, 별표 값은 요금표에만 실었다(공주 선례). 실제 징수 기준은 군청 확인 과제",
+   "돌팍공영주차장: 등록 요금(기본 1440분 1000원·추가 60분당 1000원·1일 요금 없음)이 조례 별표 1 돌팍거리 공영주차장 행(최초 24시간 무료·24시간 초과 1시간마다 1,000원·1일 10,000원)과 기본 구조가 다르고 1일 요금이 빠져 있어, 불완전한 등록으로 보고 조례 구조를 계산기에 적용했다(음성·남원 선례) — 실제 징수 기준은 군청 확인 과제",
+   "마실공영주차장: 등록 요금(기본 120분 2000원·추가 20분당 1000원·1일 요금 없음)이 조례 별표 1 마실 공영주차장 행(최초 2시간 무료·2시간 초과 10분마다 1,000원·1일 20,000원)과 구조·금액 모두 다르고 1일 요금이 빠져 있어, 불완전한 등록으로 보고 조례 구조를 계산기에 적용했다(논산·부여 선례) — 실제 징수 기준은 군청 확인 과제"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "격포 공영주차장",
+   "격포채석강주차장",
+   "격포항주차장",
+   "궁항공영주차장",
+   "모항해수욕장주차장",
+   "변산해수욕장주차장",
+   "부안영상테마파트주차장",
+   "돌팍공영주차장",
+   "동중3 공영주차장",
+   "동중4경로당 주차장",
+   "보건소 주차장",
+   "부림공영주차장",
+   "부안터미널 공영주차장",
+   "부풍로공영주차장",
+   "상설시장주차장",
+   "석동산 공영주차장",
+   "석동지구 주차장",
+   "송신공영주차장",
+   "수생정원 주차장",
+   "시장내 공영주차장",
+   "쌈지주차장",
+   "오리정로 공영주차장",
+   "오정주차장",
+   "읍사무소 옆 주차장",
+   "개암사 주차장",
+   "부안자연생태공원주차장",
+   "줄포시내 공영주차장",
+   "곰소다용도부지공영주차장 (진서면 곰소리 911)",
+   "곰소다용도부지공영주차장 (진서면 곰소리 960)",
+   "창북간재로 노상주차장",
+   "서외2길 노상주차장"
+  ],
+  "감면_출처": "「부안군 주차장 조례」 제2999호 제3조제2항·제6조 — 면제(제3조제2항): 「도로교통법」 제2조제20호에 따른 긴급 자동차는 주차요금을 면제할 수 있다. 감면(제6조제3항): 장애인 50퍼센트(제1호), 국가유공자 50퍼센트(제2호), 경형자동차 50퍼센트(제3호), 저공해자동차 표지 부착 차량 50퍼센트(제4호), 환경친화적 자동차 50퍼센트(제5호), 전북특별자치도 관광활성화를 위한 이용권 또는 카드 등을 소지한 자 100퍼센트(개소당 2시간 이내)(제6호), 병역명문가증 소지 예우대상자 자가운전 자동차 50퍼센트(제7호), 모범납세자 100퍼센트(선정일로부터 3년간)(제8호), 다자녀가정 50퍼센트(제9호), 장기기증자 및 장기기증희망자 50퍼센트(제10호). 경감(제6조제4항): 재래시장 활성화를 위하여 공영노외주차장을 이용하는 상인 및 고객들에게 주차요금의 100분의 50을 경감할 수 있다. 본문 원문(data/raw/buan-ordinance.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 제3조제1항·별표 1(개정 2024-04-19) — 군수가 설치하는 노상주차장 및 노외주차장(공영주차장)의 주차요금은 별표 1과 같다. 별표 1은 급지 구분이 없이 돌팍거리 공영주차장(평일 적용) 최초 24시간 무료·24시간 초과 1시간마다 1,000원·1일 10,000원, 마실 공영주차장 최초 2시간 무료·2시간 초과 10분마다 1,000원·1일 20,000원, 기타 공영주차장(무료주차장 제외) 최초 2시간 무료·2시간 초과 10분마다 500원·1일 6,000원·월정기 주·야 50,000원이다. 표준데이터 등록 37곳 가운데 33곳은 무료이고, 유료 4곳 가운데 돌팍·마실은 등록값이 별표와 달라 조례 구조로 계산하고, 오리정로·부안터미널은 등록값(기본 120분 500원·추가 10분당 500원)으로 계산하되 요금표는 조례값을 실었다",
+  "급지_출처": "조례 별표 1에는 급지 구분이 없고 돌팍거리·마실·기타 공영주차장으로 구분한다. 표준데이터 등록 급지는 37곳 전부 '기타'라 요금표 행 판정에 쓰지 않았다(익산·남원 선례)",
+  "무료요일_출처": "조례 별표 1은 돌팍거리 공영주차장의 요금을 '(평일 적용)'으로 정하고 비고 6은 '평일'을 토요일·일요일·공휴일을 제외한 보통날로 정의해, 돌팍공영주차장의 free_days는 토요일·일요일 True로 모델링했다(고창 타워 선례, 판단 지점). 공휴일 당일 무료는 요일 모델로 표현할 수 없어 돌팍 안내 문구에 함께 적었다. 무료 33곳은 요금구분 자체가 '무료'다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 부안군 등록 37행 전부 공영(노외 25·부설 10·노상 2) — 민영 제외 0건",
+   "「부안군 주차장 조례」 제2999호(시행 2026-01-01, 공포 2025-12-10, 일부개정, ordinSeq 2091451) 본문 원문(data/raw/buan-ordinance.txt) 대조 완료(2026-11-20) — 함께 검색된 「부안군 주차장 무료개방 지원 조례」와 「부안군 주차장 특별회계 설치 조례」는 요금 조례가 아니라 제외했다",
+   "별표 1은 HWP 원본(flSeq 159070915)을 data/raw/buan-ordinance-b1.hwp로 저장하고 미리보기 텍스트를 추출해 확정했다(data/raw/buan-ordinance-b1.txt) — 급지 구분이 없는 세 구분(돌팍거리·마실·기타) 요금표이고 개정일은 2024-04-19이다",
+   "돌팍공영주차장(등록 기본 1440분 1,000원·추가 60분당 1,000원·1일 없음)은 별표 돌팍거리 행(최초 24시간 무료·초과 1시간마다 1,000원·1일 10,000원)과 기본 구조가 다르고 1일 요금이 빠져 있어 조례 구조를 계산기에 적용했다(음성·남원 선례, 판단 지점) — 실제 징수 기준은 군청 확인 과제다",
+   "마실공영주차장(등록 기본 120분 2,000원·추가 20분당 1,000원·1일 없음)은 별표 마실 행(최초 2시간 무료·초과 10분마다 1,000원·1일 20,000원)과 구조·금액 모두 달라 조례 구조를 계산기에 적용했다(논산·부여 선례, 판단 지점) — 실제 징수 기준은 군청 확인 과제다",
+   "오리정로 공영주차장과 부안터미널 공영주차장(등록 기본 120분 500원·추가 10분당 500원)은 완전한 구조이고 추가 단위가 별표 기타 행과 일치하며 기준일(2026-10-16)이 별표 개정(2024-04-19)보다 뒤라 계산기는 등록값을 쓰고 요금표는 조례값을 실었다(공주 선례, 판단 지점) — 최초 2시간 무료 여부와 1일·월정기의 실제 적용은 군청 확인 과제다",
+   "돌팍공영주차장의 free_days는 별표 1 구분란의 '(평일 적용)'과 비고 6(평일은 토·일·공휴일 제외)을 근거로 토요일·일요일 True로 모델링했다(고창 타워 선례, 판단 지점)",
+   "등록 33곳은 요금 구분이 '무료'라 요금을 받는 곳이 아니고, 별표 1 비고 5가 유료 운영 중인 공영주차장의 무료 운영을 정하고 있어 군이 무료로 운영하는 곳으로 보고 요금표는 조례 기준 요금의 참고표로 실었다(서천·예산·보은·영동·진천·군산·무주 선례) — 개별 곳의 무료 지정 여부는 군청 확인 과제다",
+   "중복 판정은 전체 이름 기준 가드(옥천·영동 선례) — 이름+같은 자리+좌표 200m 이내 중복이 0건이라 합친 행이 없다. 이름이 같은 곰소다용도부지공영주차장 2곳(진서면 곰소리 911·400면, 곰소리 960·110면)은 자리가 달라 둘 다 싣고 이름 뒤에 주소 끝부분을 붙여 구분했다",
+   "좌표는 37곳 전부 등록돼 있어 지오코딩 보완이 필요 없었고, 부안군 범위 밖 좌표도 없었다",
+   "도로명주소는 31곳이 등록돼 있지 않아 동(읍·면) 판정은 지번주소를 기준으로 했다. 전화번호는 063-580-4177이 18곳으로 가장 많고 나머지는 곳마다 다르다",
+   "등록 급지 '기타'는 37곳 전부 같은 값이고 조례 별표 1에는 급지 구분이 없어 요금표 행 판정에 쓰지 않았다(익산·남원 선례)"
+  ],
+  "무료개방_표기": [
+   "돌팍공영주차장"
+  ],
+  "거주자우선": [],
+  "무료_요금구분": 33,
+  "무료_구획수": 5820,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-10-16"
+  ],
+  "관리기관": {
+   "전북특별자치도 부안군청": 37
+  }
+ },
+ "fee_table": {
+  "style": "buan_grade",
+  "unit_min": 10,
+  "base_min": 120,
+  "applies": "조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「부안군 주차장 조례」 제2999호(시행 2026-01-01, 일부개정), ordinSeq 2091451. 본문 사본 data/raw/buan-ordinance.txt. 별표 1(공영주차장 주차요금표)은 HWP 원본을 data/raw/buan-ordinance-b1.hwp로 저장하고 미리보기 텍스트를 추출해 data/raw/buan-ordinance-b1.txt로 확인했다.",
+  "rows": [
+   {
+    "label": "돌팍거리 공영주차장 (평일 적용)",
+    "grade": "dolpak",
+    "unit_label": "1회 주차요금 최초 24시간 무료 · 24시간 초과 1시간마다 1,000원 · 1일 10,000원 · 월정기 없음",
+    "hour": 0,
+    "two_hour": 0,
+    "day": 10000,
+    "month": null,
+    "lots": 1
+   },
+   {
+    "label": "마실 공영주차장",
+    "grade": "masil",
+    "unit_label": "1회 주차요금 최초 2시간 무료 · 2시간 초과 10분마다 1,000원 · 1일 20,000원 · 월정기 없음",
+    "hour": 0,
+    "two_hour": 0,
+    "day": 20000,
+    "month": null,
+    "lots": 1
+   },
+   {
+    "label": "기타 공영주차장 (무료주차장 제외)",
+    "grade": "etc",
+    "unit_label": "1회 주차요금 최초 2시간 무료 · 2시간 초과 10분마다 500원 · 1일 6,000원 · 월정기 주·야 50,000원",
+    "hour": 0,
+    "two_hour": 0,
+    "day": 6000,
+    "month": 50000,
+    "lots": 2
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 4,
+   "street_paid": 0,
+   "free": 33,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "돌팍거리 공영주차장",
+    "hours": "평일만 적용 — 토요일·일요일·공휴일 무료",
+    "free": "조례 별표 1은 돌팍거리 공영주차장의 요금을 '(평일 적용)'으로 정하고 비고 6은 평일을 토요일·일요일·공휴일을 제외한 보통날로 정의한다. 등록 운영시간은 전 곳 00:00~23:59다"
+   },
+   {
+    "group": "월정기 주간·야간 구분 (기타 공영주차장)",
+    "hours": "주간 4~10월 08:00~20:00 · 11~3월 09:00~19:30, 그 외 야간",
+    "free": "조례 별표 1 비고 2의 주간 시간구분이다. 월정기주차요금 주·야 50,000원은 기타 공영주차장 행에만 있다"
+   }
+  ],
+  "notes": "별표 1에는 급지 구분이 없어 부안군 공영주차장은 돌팍거리·마실·기타 세 구분으로 나뉜다 — 등록 급지 '기타'(전 37곳)는 조례 구분과 대응하지 않아 요금표 행 판정에 쓰지 않았다(익산·남원 선례). 1일 주차요금과 월정기주차요금은 노외주차장에 한한다(비고 1). 주차요금은 군의 특성 및 차종에 따라 군수가 정하되 주차시간에 따른 체증 또는 체감방식을 적용할 수 있고(비고 3), 군수는 필요한 경우 노상주차장과 노외주차장의 주차요금을 구분하여 정할 수 있다(비고 4). 유료로 운영 중인 공영주차장에 한하여 군수가 주차 질서의 확립이나 주차장의 관리에 필요하다고 인정한 경우에는 무료로 운영한다(비고 5). 주차요금 징수 및 시설물관리는 각 주차장 운영관리 부서에서 한다(비고 7) — 돌팍거리 공영주차장은 재무과, 마실 공영주차장은 지역경제과가 담당 부서로 별표에 적혀 있다. 감면은 긴급자동차 면제(제3조제2항), 장애인·국가유공자·경형·저공해·환경친화적·병역명문가·다자녀가정·장기기증자 50%, 관광활성화 이용권·카드 100%(개소당 2시간 이내), 모범납세자 100%(선정일로부터 3년간)(이상 제6조제3항), 재래시장 상인·고객 50% 경감(제6조제4항)이다.",
+  "basis": "요금표는 「부안군 주차장 조례」 제2999호(시행 2026-01-01) 제3조·별표 1(개정 2024-04-19)과 표준데이터(기준일 2026-10-16)를 대조해 실었다. 등록된 37곳 가운데 33곳은 무료이고, 유료 4곳 가운데 돌팍·마실은 별표 값을 계산에도 쓰고, 기타 행의 유료 2곳(오리정로·부안터미널)은 계산기가 등록값이라 이 표의 조례값과 다르다 — 무료인 곳에 대해 이 표는 조례 기준 요금의 참고표다. (조례 본문: data/raw/buan-ordinance.txt, 별표 1 원문: data/raw/buan-ordinance-b1.txt)"
+ },
+ "slug": "buan",
+ "province": "전북특별자치도",
+ "province_slug": "jeonbuk",
+ "dong_page_min_lots": 3,
+ "city": "부안군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제3조제2항 — 「도로교통법」 제2조제20호에 따른 긴급 자동차에 대하여는 주차요금을 면제할 수 있다"
+  },
+  {
+   "label": "장애인 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제3항제1호 — 「장애인복지법 시행규칙」 제2조에 따른 장애인은 주차요금을 50퍼센트 감면할 수 있다"
+  },
+  {
+   "label": "국가유공자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제3항제2호 — 「국가유공자 등 예우 및 지원에 관한 법률」 제4조에 따른 국가유공자는 주차요금을 50퍼센트 감면할 수 있다"
+  },
+  {
+   "label": "경형자동차 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제3항제3호 — 「자동차관리법 시행규칙」 제2조에 따른 경형자동차는 주차요금을 50퍼센트 감면할 수 있다"
+  },
+  {
+   "label": "저공해자동차 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제3항제4호 — 「대기환경보전법」 제58조제9항에 따른 저공해자동차 표지를 부착한 차량은 주차요금을 50퍼센트 감면할 수 있다"
+  },
+  {
+   "label": "환경친화적 자동차 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제3항제5호 — 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조제2호에 따른 환경친화적 자동차는 주차요금을 50퍼센트 감면할 수 있다"
+  },
+  {
+   "label": "관광활성화 이용권·카드 2시간 무료",
+   "rate": 0.0,
+   "exempt_min": 120,
+   "note": "조례 제6조제3항제6호 — 전북특별자치도 관광활성화를 위한 이용권 또는 카드 등을 소지한 자는 주차요금을 100퍼센트 감면할 수 있다(개소당 2시간 이내)"
+  },
+  {
+   "label": "병역명문가 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제3항제7호 — 「부안군 병역명문가 예우에 관한 조례」에 따라 병역명문가증을 소지한 예우대상자가 자가운전하는 자동차는 주차요금을 50퍼센트 감면할 수 있다"
+  },
+  {
+   "label": "모범납세자 100% 감면",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제6조제3항제8호 — 「부안군 성실납세자 등 우대 및 지원 조례」 제2조제2호에 따른 모범납세자는 주차요금을 100퍼센트 감면할 수 있다(선정일로부터 3년간)"
+  },
+  {
+   "label": "다자녀가정 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제3항제9호 — 「부안군 다자녀가정 지원에 관한 조례」에 따른 다자녀가정은 주차요금을 50퍼센트 감면할 수 있다"
+  },
+  {
+   "label": "장기기증자·장기기증희망자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제3항제10호 — 「부안군 장기등·인체조직 기증 장려에 관한 조례」에 따른 장기기증자 및 장기기증희망자는 주차요금을 50퍼센트 감면할 수 있다"
+  },
+  {
+   "label": "재래시장 상인·고객 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제4항 — 군수는 재래시장 활성화를 위하여 공영노외주차장을 이용하는 상인 및 고객들에게 주차요금의 100분의 50을 경감할 수 있다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
