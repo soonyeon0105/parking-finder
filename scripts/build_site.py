@@ -9014,6 +9014,23 @@ def build_dong(city, d, dong, lots, site, slug_override=None):
         jsonld=[jsonld_breadcrumb(crumbs, path), jsonld_itemlist(lots_sorted, path), jsonld_faq(qa, path)])
 
 
+CITY_UI.update({
+    # 사천시 — 표준데이터 등록이 노상 구간 9곳뿐이라 시 허브 목록 자체가
+    #   노상 구간이다. 개수 문구는 노상 기준으로 적는다(이중 계산 방지).
+    "사천시": {
+        "count_note": ("공공데이터포털 전국주차장정보표준데이터에 등록된 사천시 공영주차장은 "
+                       "노상(거리) 주차 구간 {street_n}곳뿐이고, 주차 구획은 총 {street_spaces:,}면입니다. "
+                       "노외·부설 공영주차장은 표준데이터에 등록되어 있지 않습니다."),
+        "manager": "사천시청 교통행정과(055-831-3369)",
+        "manager_inquiry": "사천시청 교통행정과(055-831-3369)",
+        "std_base_date": "2026-09-30",
+        "area_label": "시", "dong_unit_label": "동·읍",
+        "price_basis": ("「사천시 주차장 조례」 제7조제1항·별표 1(소형 기준) · 표준데이터 등록요금 대조"
+                        " — 등록값이 별표 소형 행과 일치"),
+    },
+})
+
+
 def fee_table_block(city) -> str:
     """도시별 급지 요금표(데이터에 fee_table 이 있을 때만).
 
@@ -12120,6 +12137,48 @@ def fee_table_block(city) -> str:
 요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "sacheon_grade":
+        # 사천시 — 공영 9구간(전부 노상, 총 235면)이 전부
+        #   '혼합'으로 등록돼 있다. 「사천시 주차장 조례」
+        #   제2287호(시행 2026-02-26) 제7조제1항·별표 1
+        #   (개정 2020. 10. 5.)은 차종(소형·대형) 요금표로,
+        #   소형은 기본(30분) 500원·15분 초과마다 250원·
+        #   1일 5,000원·월정기 주간 50,000원·야간
+        #   45,000원이고 대형은 기본(30분) 1,000원·15분
+        #   초과마다 500원·1일 10,000원·월정기 주간
+        #   100,000원·야간 90,000원이다. 등록 9곳이 전부
+        #   소형 행(월정기는 주간 금액)과 정확히 같아
+        #   등록값을 그대로 계산한다. 별표 금액은
+        #   상한선이다(비고 1). 운영시간은 매일
+        #   08:00~20:00이다(비고 2).
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td><td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">사천시 공영주차장은 표준데이터에 노상 <b>9구간</b>만 등록돼 있고, 전부 요금 구분이
+‘혼합’입니다. 아래 표는 「사천시 주차장 조례」 제2287호 별표 1이 정한 기준 요금입니다. 별표 1은
+차종(소형·대형)으로 요금을 정합니다 — <b>소형</b>은 기본 30분 <b>500원</b>에 15분 초과마다
+<b>250원</b>, 1일 <b>5,000원</b>이고, <b>대형</b>은 기본 30분 <b>1,000원</b>에 15분 초과마다
+<b>500원</b>, 1일 <b>10,000원</b>입니다. 등록된 9곳의 요금이 전부 소형 행과 정확히 같아
+이 사이트도 등록값으로 계산합니다. 별표 금액은 상한선이라 실제 징수액은 그 이하일 수 있습니다.
+운영시간은 매일 08:00~20:00입니다. 궁금한 점은 사천시청 교통행정과(055-831-3369)에
+확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월정기(주간)</th>
+  <th class="num">월정기(야간)</th><th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료·혼합’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}곳),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
@@ -13984,6 +14043,93 @@ def build_city(city, lots, site):
         jsonld=[jsonld_breadcrumb(crumbs, path), jsonld_itemlist(cheap, path), jsonld_faq(qa, path)])
 
 
+def build_street_only_hub(city, site):
+    """노상 구간만 등록된 시(사천시)의 시 허브 — 카드 목록이 없어 구 페이지 구조가
+    성립하지 않으므로, 조례 요금표와 구간 표 중심으로 따로 만든다.
+
+    QA 규칙상 노상 구간은 카드로 그리지 않으므로 이 페이지에는 카드가 없다.
+    상세 구간 표와 예상요금 표는 노상 전용 페이지가 맡는다.
+    """
+    path = city_path(city)
+    ui = city_ui(city)
+    street = city.get("_street_lots", [])
+    s = stats_for(street)
+    total_spaces = s["spaces"]
+    by_place = {}
+    for l in street:
+        by_place.setdefault(street_place(city, l), []).append(l)
+    place_rows = "".join(
+        f'<tr><td>{esc(g)}</td><td class="num">{len(v)}</td>'
+        f'<td class="num">{sum(x["spaces"] or 0 for x in v):,}</td>'
+        f'<td class="num">{won(next((x["fee"]["base_fee"] for x in v if x["fee"]["base_fee"]), None))}</td></tr>'
+        for g, v in sorted(by_place.items()))
+    sample = street[0]
+    two_h = price_for(sample, 120, "weekday").get("amount")
+    gap = [l for l in street if capa_note(l)]
+    gap_line = (f"기준이 달라 {len(gap)}곳에서 숫자가 다르며(예: {esc(gap[0]['name'])} 구획 "
+                f"{gap[0]['spaces']:,}면 ↔ 스냅샷 {gap[0]['realtime']['total']:,}면), 표에 차이를 함께 적었습니다."
+                if gap else "이 시 주차장은 두 값이 모두 일치합니다.")
+    dataset_lines = district_dataset_lines(city, ui, gap_line)
+    qa = [
+        (f"{city['city']} 공영주차장은 모두 몇 곳인가요?",
+         (ui["count_note"].format(n=s["n"], street_n=len(street), total=s["n"],
+                                   spaces=total_spaces, street_spaces=total_spaces)
+          if ui.get("count_note") else
+          f"공공데이터포털 전국주차장정보표준데이터에 등록된 {city['city']} 공영주차장은 "
+          f"노상(거리) 주차 구간 {len(street)}곳, 주차 구획 {total_spaces:,}면입니다.")),
+        (f"{city['city']}에서 일요일·공휴일에 무료로 주차할 수 있는 곳은?",
+         f"자료에 무료 개방으로 표기된 곳은 {s['sun_free']}곳입니다. 노상 구간은 전 요일 "
+         "08:00~20:00 유료 운영으로 등록되어 있어 주말에도 요금이 부과됩니다. "
+         f"표에 없는 주차장의 현장 무료 개방 여부는 관리기관({ui['manager']})에 확인하세요."),
+        (f"{city['city']} 노상주차장 2시간 요금은 얼마인가요?",
+         f"등록요금 기준 2시간 예상요금은 {won(two_h)}입니다. 기본 30분 500원, 이후 15분마다 "
+         "250원씩 더하고 1일 주차권 5,000원이 상한입니다(조례 별표 1 소형 기준과 일치)."),
+        ("이 페이지의 요금·운영시간은 최신인가요?",
+         f"요금·운영시간은 공공데이터포털 표준데이터(데이터 기준일 {ui['std_base_date']})를 그대로 반영했습니다. "
+         "요금 개편이나 현장 정책으로 실제와 다를 수 있으니 방문 전에 관리기관에 확인하시기 바랍니다."),
+    ]
+    body = f"""
+<h1>{city['city']} 공영주차장 {s['n']}곳 · 요금과 무료 개방 한눈에</h1>
+<p class="lede">{city['city']} 공영주차장은 공공데이터에 <b>노상(거리) 주차 구간 {len(street)}곳</b>만 등록되어 있습니다.
+노외·부설 공영주차장은 표준데이터에 등록이 없어, 도로변 유료 구간의 요금과 운영시간을 정리했습니다.</p>
+<p class="updated">자료 기준일 {esc(ui['std_base_date'])}</p>
+{stat_cards(street, extra_free_label=free_label(city))}
+{ad_slot()}
+<h2>동·읍별 현황</h2>
+<table class="data">
+  <thead><tr><th>동·읍</th><th class="num">구간</th><th class="num">구획</th><th class="num">기본요금(30분)</th></tr></thead>
+  <tbody>{place_rows}</tbody>
+</table>
+
+{fee_table_block(city)}
+<h2>{city['city']} 노상(거리) 주차 구간 {len(street)}곳</h2>
+<p class="lede">구간별 요금과 위치는 <a href="{street_path(city)}">노상주차장 요금 페이지</a>에 정리했습니다.</p>
+{street_rows(street, with_price=True, unit_label=street_unit_label(city))}
+{ad_slot()}
+{faq_block(qa)}
+
+<section class="note-box" style="margin-top:20px">
+  <h2>데이터 출처와 한계</h2>
+  <ul>
+{dataset_lines}
+  </ul>
+</section>
+"""
+    crumbs = [("홈", "/"), (city.get("province") or "경기도", None), (f"{city['city']} 공영주차장", "")]
+    title, description = hub_meta(city, city["city"], s["n"])
+    if ui.get("hub_title_tpl"):
+        title = ui["hub_title_tpl"].format(gu=city["city"], n=s["n"], site=SITE_NAME)
+    if ui.get("hub_description_tpl"):
+        description = ui["hub_description_tpl"].format(gu=city["city"], n=s["n"], site=SITE_NAME)
+    return path, layout(
+        title=title,
+        description=description,
+        path=path, body=body, crumbs=crumbs, nav_active="city", city=city,
+        jsonld=[jsonld_breadcrumb(crumbs, path),
+                jsonld_itemlist(street, path),
+                jsonld_faq(qa, path)])
+
+
 def build_street(city, street, site):
     """노상(거리) 주차 구간 전용 페이지 — 구간 이름이 번호·설명이라 카드 대신 표로 정리한다.
 
@@ -15439,7 +15585,13 @@ def main():
         if is_city_wide(city):
             # 자치구가 없는 시(평택시) — 시 페이지가 계산기·목록 페이지를 겸하고,
             # 그 아래에 읍·면·동 페이지를 둔다. 시 허브는 따로 만들지 않는다(같은 주소).
-            groups = [(city["districts"][0], card_lots, True)]
+            if not card_lots and city["_street_lots"]:
+                # 노상 구간만 등록된 시(사천시) — 카드가 없어 구 페이지 구조가
+                #   성립하지 않으므로 요금표·구간 표 중심의 전용 허브를 만든다.
+                pages.append(build_street_only_hub(city, site))
+                groups = []
+            else:
+                groups = [(city["districts"][0], card_lots, True)]
         else:
             pages.append(build_city(city, card_lots, site))
             groups = [(d, [l for l in card_lots if l["gu"] == d["name"]], False)

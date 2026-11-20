@@ -1,0 +1,1245 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 21:15",
+  "generated_at_iso": "2026-11-20T21:15:01+09:00",
+  "snapshot_at": "2026-11-20 21:15",
+  "region": {
+   "province": "경상남도",
+   "city": "사천시"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-09-30",
+    "rows_total": 18994,
+    "rows_city": 9,
+    "fetched_at": "2026-11-20 21:15 (KST)",
+    "note": "사천시로 등록된 행 9행 중 공영 9행을 읽어 중복 제거 0건, 제외 0건으로 9곳을 실었다. 유료 9곳·무료 0곳이다. 좌표 결측은 0곳이다. 조례 대조 완료 — 「사천시 주차장 조례」 제2287호(시행 2026-02-26, ordinSeq 2112747) 제7조·별표 1 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「사천시 주차장 조례」 제2287호(시행 2026-02-26, 일부개정)",
+    "org": "경상남도 사천시",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2112747",
+    "file": "sacheon-ordinance-b1.txt",
+    "sha256": "e15949b23a6bb93d8785d8fd197c7fb96928d769facf0e301f56fac862ed312a",
+    "license": "자치법규(공개)",
+    "base_date": "2026-02-26",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 21:15 (KST)",
+    "note": "사천시가 설치·관리하는 공영주차장에 적용하는 조례다. 사천시 공영주차장 9구간(전부 노상, 총 235면)은 전부 '혼합'으로 등록돼 있다. 「사천시 주차장 조례」 제2287호(시행 2026-02-26, ordinSeq 2112747) 제7조제1항은 공영주차장의 주차요금을 별표 1과 같이 한다고 정한다. 별표 1(개정 2020. 10. 5.)은 차종(소형·대형) 요금표로, 소형은 기본(30분) 500원·15분 초과마다 250원·1일 주차권 5,000원·월 정기주차요금 주간 50,000원·야간 45,000원이고, 대형은 기본(30분) 1,000원·15분 초과마다 500원·1일 주차권 10,000원·월 정기주차요금 주간 100,000원·야간 90,000원이다. 별표 금액은 상한선이라 시장이 그 아래로 따로 정할 수 있다(비고 1). 등록 9곳이 전부 소형 행(기본 30분 500원·추가 15분 250원·1일 5,000원·월정기 50,000원)과 정확히 같아 등록값을 그대로 계산에 쓴다 — 월정기 등록값은 별표의 주간 금액과 대응한다. 주차장 운영시간은 매일 08:00~20:00이다(비고 2, 등록 운영시간과 같다). 면제는 제7조제3항(긴급자동차·공무용자동차·시장이 인정하는 자동차), 경감은 별표 1 비고 4·6·7·8이 정한다 — 장애인·국가유공자 등 50%, 경형·저공해 50%, 환경친화적 50%(충전 시 2시간 면제), 모범납세자 성실납세증 차량 1년간 면제. 좌표는 9곳 전부 등록돼 있고 전부 사천시 범위 안이다. 표준데이터에 사천시로 등록된 공영주차장은 이 노상 9구간뿐이라 노외·부설 공영주차장이 없는 것인지 등록 누락인지는 시청 확인 과제다. (조례 본문: data/raw/sacheon-ordinance.txt, 별표 원문: data/raw/sacheon-ordinance-b1.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "사천시",
+   "slug": "sacheon"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gn-sacheon-s001",
+   "mgmt_no": "384-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "햐얀피부과앞노상주차장",
+   "gu": "사천시",
+   "dong": "동금동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 사천시 동금동 143",
+   "addr_road": "경상남도 사천시 남일로 72-7",
+   "road": "남일로",
+   "spaces": 18,
+   "tel": "055-831-2114",
+   "lat": 34.93191429,
+   "lng": 128.0847863,
+   "base_date": "2026-09-30",
+   "manager": "경상남도 사천시청",
+   "note": "민간위탁",
+   "notice": "요금 구분이 '혼합'으로 등록돼 있습니다 — 조례가 정한 운영시간(매일 08:00~20:00) 안에서 요금을 받는 주차장입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 15,
+    "unit_fee": 250,
+    "daily_fee": 5000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 15,
+     "unit_fee": 250,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 소형 요금(기본 30분 500원·15분 초과마다 250원·1일 5,000원·월정기 주간 50,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "사천시",
+   "city_slug": "sacheon",
+   "zone": null
+  },
+  {
+   "id": "gn-sacheon-s002",
+   "mgmt_no": "384-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동동복개천노상주차장",
+   "gu": "사천시",
+   "dong": "동동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 사천시 동동 184-6",
+   "addr_road": "경상남도 사천시 수남길 65",
+   "road": "수남길",
+   "spaces": 21,
+   "tel": "055-831-2114",
+   "lat": 34.928301,
+   "lng": 128.0705933,
+   "base_date": "2026-09-30",
+   "manager": "경상남도 사천시청",
+   "note": "민간위탁",
+   "notice": "요금 구분이 '혼합'으로 등록돼 있습니다 — 조례가 정한 운영시간(매일 08:00~20:00) 안에서 요금을 받는 주차장입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 15,
+    "unit_fee": 250,
+    "daily_fee": 5000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 15,
+     "unit_fee": 250,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 소형 요금(기본 30분 500원·15분 초과마다 250원·1일 5,000원·월정기 주간 50,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "사천시",
+   "city_slug": "sacheon",
+   "zone": null
+  },
+  {
+   "id": "gn-sacheon-s003",
+   "mgmt_no": "384-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "사천읍시장노상주차장",
+   "gu": "사천시",
+   "dong": "사천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 사천시 사천읍 정의리 396-28",
+   "addr_road": "경상남도 사천시 사천읍 정의3길 13",
+   "road": "정의3길",
+   "spaces": 37,
+   "tel": "055-831-2114",
+   "lat": 35.08481588,
+   "lng": 128.0890157,
+   "base_date": "2026-09-30",
+   "manager": "경상남도 사천시청",
+   "note": "민간위탁",
+   "notice": "요금 구분이 '혼합'으로 등록돼 있습니다 — 조례가 정한 운영시간(매일 08:00~20:00) 안에서 요금을 받는 주차장입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 15,
+    "unit_fee": 250,
+    "daily_fee": 5000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 15,
+     "unit_fee": 250,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 소형 요금(기본 30분 500원·15분 초과마다 250원·1일 5,000원·월정기 주간 50,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "사천시",
+   "city_slug": "sacheon",
+   "zone": null
+  },
+  {
+   "id": "gn-sacheon-s004",
+   "mgmt_no": "384-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제일의원노상주차장",
+   "gu": "사천시",
+   "dong": "사천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 사천시 사천읍 수석리 254-21",
+   "addr_road": "경상남도 사천시 사천읍 수석2길 34",
+   "road": "수석2길",
+   "spaces": 44,
+   "tel": "055-831-2114",
+   "lat": 35.08430637,
+   "lng": 128.085497,
+   "base_date": "2026-09-30",
+   "manager": "경상남도 사천시청",
+   "note": "민간위탁",
+   "notice": "요금 구분이 '혼합'으로 등록돼 있습니다 — 조례가 정한 운영시간(매일 08:00~20:00) 안에서 요금을 받는 주차장입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 15,
+    "unit_fee": 250,
+    "daily_fee": 5000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 15,
+     "unit_fee": 250,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 소형 요금(기본 30분 500원·15분 초과마다 250원·1일 5,000원·월정기 주간 50,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "사천시",
+   "city_slug": "sacheon",
+   "zone": null
+  },
+  {
+   "id": "gn-sacheon-s005",
+   "mgmt_no": "384-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "평화복개노상주차장",
+   "gu": "사천시",
+   "dong": "사천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 사천시 사천읍 평화리 194",
+   "addr_road": "경상남도 사천시 사천읍 평화3길 18",
+   "road": "평화3길",
+   "spaces": 22,
+   "tel": "055-831-2114",
+   "lat": 35.08032871,
+   "lng": 128.090285,
+   "base_date": "2026-09-30",
+   "manager": "경상남도 사천시청",
+   "note": "민간위탁",
+   "notice": "요금 구분이 '혼합'으로 등록돼 있습니다 — 조례가 정한 운영시간(매일 08:00~20:00) 안에서 요금을 받는 주차장입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 15,
+    "unit_fee": 250,
+    "daily_fee": 5000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 15,
+     "unit_fee": 250,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 소형 요금(기본 30분 500원·15분 초과마다 250원·1일 5,000원·월정기 주간 50,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "사천시",
+   "city_slug": "sacheon",
+   "zone": null
+  },
+  {
+   "id": "gn-sacheon-s006",
+   "mgmt_no": "384-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "평화지구노상주차장",
+   "gu": "사천시",
+   "dong": "사천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 사천시 사천읍 평화리 163-45",
+   "addr_road": "경상남도 사천시 사천읍 평화1길 35",
+   "road": "평화1길",
+   "spaces": 25,
+   "tel": "055-831-2114",
+   "lat": 35.0819688,
+   "lng": 128.087941,
+   "base_date": "2026-09-30",
+   "manager": "경상남도 사천시청",
+   "note": "민간위탁",
+   "notice": "요금 구분이 '혼합'으로 등록돼 있습니다 — 조례가 정한 운영시간(매일 08:00~20:00) 안에서 요금을 받는 주차장입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 15,
+    "unit_fee": 250,
+    "daily_fee": 5000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 15,
+     "unit_fee": 250,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 소형 요금(기본 30분 500원·15분 초과마다 250원·1일 5,000원·월정기 주간 50,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "사천시",
+   "city_slug": "sacheon",
+   "zone": null
+  },
+  {
+   "id": "gn-sacheon-s007",
+   "mgmt_no": "384-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "농협공판장노상주차장",
+   "gu": "사천시",
+   "dong": "선구동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 사천시 선구동 333-3",
+   "addr_road": "경상남도 사천시 중앙로 73-10",
+   "road": "중앙로",
+   "spaces": 30,
+   "tel": "055-831-2114",
+   "lat": 34.92920301,
+   "lng": 128.0769967,
+   "base_date": "2026-09-30",
+   "manager": "경상남도 사천시청",
+   "note": "민간위탁",
+   "notice": "요금 구분이 '혼합'으로 등록돼 있습니다 — 조례가 정한 운영시간(매일 08:00~20:00) 안에서 요금을 받는 주차장입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 15,
+    "unit_fee": 250,
+    "daily_fee": 5000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 15,
+     "unit_fee": 250,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 소형 요금(기본 30분 500원·15분 초과마다 250원·1일 5,000원·월정기 주간 50,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "사천시",
+   "city_slug": "sacheon",
+   "zone": null
+  },
+  {
+   "id": "gn-sacheon-s008",
+   "mgmt_no": "384-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "삼천포농협앞노상주차장",
+   "gu": "사천시",
+   "dong": "선구동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 사천시 선구동 41-2",
+   "addr_road": "경상남도 사천시 시장2길 33",
+   "road": "시장2길",
+   "spaces": 14,
+   "tel": "055-831-2114",
+   "lat": 34.92858357,
+   "lng": 128.0735763,
+   "base_date": "2026-09-30",
+   "manager": "경상남도 사천시청",
+   "note": "민간위탁",
+   "notice": "요금 구분이 '혼합'으로 등록돼 있습니다 — 조례가 정한 운영시간(매일 08:00~20:00) 안에서 요금을 받는 주차장입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 15,
+    "unit_fee": 250,
+    "daily_fee": 5000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 15,
+     "unit_fee": 250,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 소형 요금(기본 30분 500원·15분 초과마다 250원·1일 5,000원·월정기 주간 50,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "사천시",
+   "city_slug": "sacheon",
+   "zone": null
+  },
+  {
+   "id": "gn-sacheon-s009",
+   "mgmt_no": "384-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "축협삼천포지소앞노상주차장",
+   "gu": "사천시",
+   "dong": "선구동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 사천시 선구동 41-96",
+   "addr_road": "경상남도 사천시 중앙로 21",
+   "road": "중앙로",
+   "spaces": 24,
+   "tel": "055-831-2114",
+   "lat": 34.9284092387,
+   "lng": 128.0737905691,
+   "base_date": "2026-09-30",
+   "manager": "경상남도 사천시청",
+   "note": "민간위탁",
+   "notice": "요금 구분이 '혼합'으로 등록돼 있습니다 — 조례가 정한 운영시간(매일 08:00~20:00) 안에서 요금을 받는 주차장입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 15,
+    "unit_fee": 250,
+    "daily_fee": 5000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 15,
+     "unit_fee": 250,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 소형 요금(기본 30분 500원·15분 초과마다 250원·1일 5,000원·월정기 주간 50,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "사천시",
+   "city_slug": "sacheon",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 21:15",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 9,
+  "원자료_사천시행수": 9,
+  "원자료_받은행수": 9,
+  "구별": {
+   "사천시": 9
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 0,
+  "노외_부설": {},
+  "노상_구간": 9,
+  "총_구획수": 0,
+  "노상_구획수": 235,
+  "동별": {
+   "사천읍": 4,
+   "선구동": 3,
+   "동금동": 1,
+   "동동": 1
+  },
+  "동수": 4,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 9
+  },
+  "요금구분": {
+   "유료": 9
+  },
+  "요금_미상": [],
+  "유료_노상": 9,
+  "유료_노외": 0,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 1건 있다 — 삼천포농협앞노상주차장·축협삼천포지소앞노상주차장(27m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 9행이 전부 공영·노상·혼합이라 민영 제외 없이 9구간을 실었다. 데이터기준일자는 9행 전부 2026-09-30이고 제공기관명은 전부 '경상남도 사천시'다",
+   "표준데이터에 사천시로 등록된 공영주차장은 노상 9구간뿐이다 — 노외·부설 공영주차장이 없는 것인지 등록 누락인지는 시청 확인 과제다",
+   "요금 구분 '혼합'의 세부 의미(시간대별 유·무료 구분)는 시청 확인 과제다 — 조례 별표 1 비고 2의 운영시간(매일 08:00~20:00)과 등록 운영시간이 같아 운영시간 안 유료로 계산했다",
+   "장애인전용주차구역 보유여부는 9곳 전부 공란으로 등록돼 있다",
+   "좌표는 9곳 전부 등록돼 있고 전부 사천시 범위 안이라 지오코딩 보완이 0건이다",
+   "부제시행구분은 9곳 전부 5부제이고, 운영요일은 9곳 전부 평일+토요일+공휴일, 운영시간은 전 요일 08:00~20:00이다. 특기사항은 9곳 전부 '민간위탁', 결제방법은 9곳 전부 현금이다. 전화번호는 9곳 전부 055-831-2114다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [],
+  "감면_출처": "「사천시 주차장 조례」 제2287호 제7조제3항·별표 1 비고 4·6·7·8 — 면제(할 수 있다, 제7조제3항): 긴급자동차, 국가 또는 지방자치단체 소유의 공무용자동차, 그 밖에 시장이 특별한 사유가 있다고 인정하는 자동차. 50% 경감(비고 4): 장애인, 국가유공자, 고엽제후유의증환자, 5·18민주유공자, 병역명문가 예우대상자(본인 소유 비사업용 승용자동차를 직접 운전하거나 대리 운전하게 하는 경우). 50% 경감(비고 6): 배기량 1천시시 미만의 경형자동차, 저공해 자동차 표지 부착 차량. 50% 경감(비고 7): 환경친화적자동차 표지 부착차량(충전목적으로 충전시설에 주차하는 경우 2시간 면제). 면제(비고 8): 모범납세자로 표창을 받은 자로서 성실납세증 표지를 부착한 차량은 1년간 면제. 본문 원문(data/raw/sacheon-ordinance.txt)·별표 원문(data/raw/sacheon-ordinance-b1.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 제7조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같다. 별표 1은 차종(소형·대형) 요금표로 소형은 기본(30분) 500원·15분 초과마다 250원·1일 주차권 5,000원·월 정기주차요금 주간 50,000원·야간 45,000원이고, 대형은 기본(30분) 1,000원·15분 초과마다 500원·1일 주차권 10,000원·월 정기주차요금 주간 100,000원·야간 90,000원이다. 표준데이터 등록 9곳이 전부 소형 행(월정기는 주간 금액)과 같아 등록값을 그대로 계산에 쓴다",
+  "급지_출처": "조례 별표 1에는 급지 구분이 없고 차종(소형·대형)으로만 요금을 정한다. 표준데이터 등록 급지는 9곳 전부 '기타'다",
+  "무료요일_출처": "조례에 주말·공휴일 상시 무료 규정이 없어 9곳 전부 free_days는 전부 False다 — 별표 1 비고 2의 운영시간(매일 08:00~20:00) 안에서 요금을 받고, 제7조제3항의 면제는 대상 차량에 대한 것이다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 사천시 등록 9행이 전부 공영·노상·혼합이라 민영 제외 0건으로 9구간·235면을 실었다. 중복 제거 0건, 구획수 0 등록 0건이다. 동별로는 사천읍 4구간·선구동 3구간·동금동 1구간·동동 1구간이고, 표준데이터에 사천시로 등록된 공영주차장은 이 노상 9구간뿐이다 — 노외·부설 공영주차장이 없는 것인지 등록 누락인지는 시청 확인 과제다",
+   "「사천시 주차장 조례」 제2287호(표제 시행 2026-02-26, 공포 2026-02-26, 일부개정, ordinSeq 2112747) 본문 원문(data/raw/sacheon-ordinance.txt) 대조 완료(2026-11-20) — 최신 부칙(조례 제2287호, 2026. 2. 26.)은 '공포한 날부터 시행'이고 제2조·제13조의2 등의 인용·용어를 정비한 것이다. '사천시 주차장'으로 함께 검색되는 조례는 이 조례의 연혁(제2160호·제1913호 등)뿐이라 주차장특별회계·무료개방 같은 별도 요금 조례는 없다",
+   "별표 1은 HWP 원본(flSeq 161976135)을 data/raw/sacheon-ordinance-b1.hwp로 저장하고 PrvText 추출과 BodyText 전문 파싱을 교차 확인해 확정했다 — 차종(소형·대형) 요금표로 소형은 기본(30분) 500원·15분 초과마다 250원·1일 주차권 5,000원·월 정기주차요금 주간 50,000원·야간 45,000원, 대형은 기본(30분) 1,000원·15분 초과마다 500원·1일 주차권 10,000원·월 정기주차요금 주간 100,000원·야간 90,000원이다. 별표 1 표제는 <개정 2020. 10. 5.>로 요금표 금액의 최신 개정은 조례 제1708호(2020. 10. 5.)이다. 본문 제7조제1항이 별표 1을 참조하고 첨부에도 별표 1이 들어 있어 첨부파일 오등록이 아니다",
+   "등록 요금은 9곳 전부 기본 30분 500원·추가 15분 250원·1일 5,000원·월정기 50,000원으로 별표 소형 행과 정확히 같다 — 월정기 등록값은 별표의 주간 금액(50,000원)과 대응한다(야간 45,000원은 등록 칸이 없어 요금표에만 싣는다). 등록값이 완전하고 별표와 대응하므로 계산기는 등록값을 그대로 쓴다(공주·청양·창원·진주 선례)",
+   "요금 구분은 9곳 전부 '혼합'이다 — 별표 1 비고 2가 주차장 운영시간을 매일 08:00~20:00로 정하고 등록 운영시간도 전 요일 08:00~20:00이라, 운영시간 안에서 요금을 받는 혼합 운영으로 보고 요금 계산은 등록값으로 한다. '혼합'의 세부 의미(시간대별 유·무료 구분)는 시청 확인 과제다",
+   "좌표는 9곳 전부 등록돼 있고 전부 사천시 범위 안이라 지오코딩 보완이 0건이다 — 오버레이(좌표누락_지오코딩_20261118.json)는 718행 그대로다",
+   "등록 급지는 9곳 전부 '기타'이고 조례 별표 1에는 급지 구분 자체가 없다",
+   "부제시행구분은 9곳 전부 5부제이고, 운영요일은 9곳 전부 평일+토요일+공휴일, 운영시간은 평일·토요일·공휴일 전부 08:00~20:00이다. 특기사항은 9곳 전부 '민간위탁', 결제방법은 9곳 전부 현금, 장애인전용주차구역 보유여부는 9곳 전부 공란이다. 전화번호는 9곳 전부 055-831-2114, 관리기관명은 전부 경상남도 사천시청, 제공기관명은 전부 경상남도 사천시, 데이터기준일자는 9곳 전부 2026-09-30이다"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 0,
+  "무료_구획수": 0,
+  "평균_기본요금": 500,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-09-30"
+  ],
+  "관리기관": {
+   "경상남도 사천시청": 9
+  }
+ },
+ "fee_table": {
+  "style": "sacheon_grade",
+  "unit_min": 15,
+  "base_min": 30,
+  "applies": "조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「사천시 주차장 조례」 제2287호(시행 2026-02-26, 일부개정), ordinSeq 2112747. 본문 사본 data/raw/sacheon-ordinance.txt. 별표 1(공영주차장 주차요금)은 HWP 원본을 data/raw/sacheon-ordinance-b1.hwp로 저장하고 PrvText 추출과 BodyText 전문 파싱을 교차 확인해 data/raw/sacheon-ordinance-b1.txt로 옮겼다. 본문 제7조제1항이 별표 1을 참조하고 첨부에도 별표 1이 들어 있어 첨부파일 오등록이 아니다. 최신 부칙(2026. 2. 26. 조례 제2287호)은 '공포한 날부터 시행'이고 제2조·제13조의2 등의 인용·용어를 정비한 것으로, 요금표 금액의 최신 개정은 별표 1 자체 표기(개정 2020. 10. 5., 조례 제1708호)이다. '사천시 주차장'으로 함께 검색되는 조례는 이 조례의 연혁뿐이라 주차장특별회계·무료개방 같은 별도 요금 조례는 없다.",
+  "rows": [
+   {
+    "label": "소형",
+    "grade": "small",
+    "unit_label": "기본 30분 500원 · 15분 초과마다 250원 · 1일 5,000원 · 월정기 주간 50,000원·야간 45,000원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": 5000,
+    "month": 50000,
+    "month_night": 45000,
+    "lots": 9
+   },
+   {
+    "label": "대형",
+    "grade": "large",
+    "unit_label": "기본 30분 1,000원 · 15분 초과마다 500원 · 1일 10,000원 · 월정기 주간 100,000원·야간 90,000원",
+    "hour": 2000,
+    "two_hour": 4000,
+    "day": 10000,
+    "month": 100000,
+    "month_night": 90000,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 0,
+   "street_paid": 9,
+   "free": 0,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "운영시간 (조례 별표 1 비고 2)",
+    "hours": "매일 08:00~20:00",
+    "free": "주차장 운영시간으로, 등록 9곳의 운영시간과 같다"
+   }
+  ],
+  "notes": "별표 1 금액은 상한선으로, 시장은 그 아래로 따로 정할 수 있다(비고 1). 소형차는 전 승용자동차와 15인승 이하의 승합자동차 및 2.5톤 미만 화물자동차로 하고 대형차는 소형차 이외의 전 차종으로 한다(비고 5). 한 개 구획은 규칙 제3조에 따른 표준규격을 기준으로 하되, 1구획을 초과하는 자동차에 대하여는 그 점용 구획수에 따라 징수한다(비고 3). 경감은 장애인·국가유공자 등 50%(비고 4), 경형·저공해 자동차 50%(비고 6), 환경친화적 자동차 50%·충전 시 2시간 면제(비고 7), 모범납세자 성실납세증 부착 차량 1년간 면제(비고 8)이다. 등록 급지는 9곳 전부 '기타'이고 별표 1에는 급지 구분이 없다.",
+  "basis": "요금표는 「사천시 주차장 조례」 제2287호(시행 2026-02-26) 제7조·별표 1과 표준데이터(기준일 2026-09-30)를 대조해 실었다. 등록된 9곳이 전부 별표 1의 소형 행과 같아 등록값을 계산에 쓴다. (조례 본문: data/raw/sacheon-ordinance.txt, 별표 원문: data/raw/sacheon-ordinance-b1.txt)"
+ },
+ "slug": "sacheon",
+ "province": "경상남도",
+ "province_slug": "gyeongnam",
+ "dong_page_min_lots": 3,
+ "city": "사천시",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·공무용 자동차 등 면제(가능)",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제7조제3항 — 긴급자동차, 국가 또는 지방자치단체 소유의 공무용자동차, 그 밖에 시장이 특별한 사유가 있다고 인정하는 자동차는 주차요금을 면제할 수 있다"
+  },
+  {
+   "label": "장애인·국가유공자·고엽제·5·18·병역명문가 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 4 — 장애인, 국가유공자, 고엽제후유의증환자, 5·18민주유공자, 「사천시 병역명문가 예우에 관한 조례」에 따른 예우대상자가 본인 소유의 비사업용 승용자동차를 직접 운전하거나 장애 정도가 심하여 타인으로 하여금 대리 운전하게 하는 경우에는 주차요금의 50%를 경감한다"
+  },
+  {
+   "label": "경형자동차·저공해 자동차 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 6 — 배기량 1천시시 미만의 경형자동차와 저공해 자동차 표지를 부착한 차량은 주차요금의 50%를 경감한다"
+  },
+  {
+   "label": "환경친화적 자동차 50% 경감 (충전 시 2시간 면제)",
+   "rate": 0.5,
+   "exempt_min": 120,
+   "note": "조례 별표 1 비고 7 — 환경친화적자동차 표지 부착차량은 주차요금의 50%를 경감한다. 다만, 환경친화적자동차가 충전목적으로 충전시설에 주차하는 경우 2시간 범위에서 주차요금을 면제한다"
+  },
+  {
+   "label": "모범납세자 성실납세증 부착 차량 1년간 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 8 — 모범납세자로 표창을 받은 자로서 성실납세증 표지를 부착한 차량에 대하여는 1년간 주차요금을 면제한다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
