@@ -1,0 +1,8522 @@
+{
+ "meta": {
+  "generated_at": "2026-11-21 02:23",
+  "generated_at_iso": "2026-11-21T02:23:23+09:00",
+  "snapshot_at": "2026-11-21 02:23",
+  "region": {
+   "province": "경상남도",
+   "city": "거창군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-04-16",
+    "rows_total": 18994,
+    "rows_city": 74,
+    "fetched_at": "2026-11-21 02:23 (KST)",
+    "note": "거창군으로 등록된 행 74행 중 공영 71행을 읽어 중복 제거 0건, 제외 3건으로 71곳을 실었다. 유료 5곳·무료 66곳·미상 0곳이다. 데이터기준일자는 74행 전부 2026-04-16이다. 좌표 결측은 0곳이다. 조례 대조 완료 — 「거창군 주차장 설치 및 관리 조례」 제3012호(시행 2025-12-31, ordinSeq 2103757) 제3조제1항·별표 1 원문 대조 완료(2026-11-21)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "거창군 주차장 설치 및 관리 조례",
+    "org": "경상남도 거창군",
+    "url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2103757&ordinId=2023361&gubun=ELIS",
+    "file": "geochang-ordinance-b1.txt",
+    "sha256": "fe11a1d27a8a74c88ee10315ee08166b0f645e0f5795b225b9988641a7bcab11",
+    "license": "자치법규(공개)",
+    "base_date": "2025-12-31",
+    "rows_total": null,
+    "fetched_at": "2026-11-21 02:23 (KST)",
+    "note": "거창군이 설치·관리하는 공영주차장에 적용하는 조례다. 표준데이터에 등록된 거창군 공영주차장 71곳(노외 49곳·노상 22구간, 총 3,740면)입니다. 요금 구분은 무료 66곳·유료 5곳입니다. 유료 5곳 중 중앙교~북부주유소 사거리 구간은 등록 요금이 조례 별표 1(최초 30분 500원·이후 10분마다 200원·1일 5,000원·월 50,000원)과 일치해 등록값으로 계산하고, 거창읍 거점·재래시장 2곳은 추가 단위요금이 비어 있어 별표 1의 단위를 적용해 계산합니다. 위천 수승대는 등록 요금(최초 30분 1,000원·이후 10분마다 400원)으로, 금원산자연휴양림은 등록된 1일 3,000원 정액으로 계산합니다. (조례 본문: data/raw/geochang-ordinance.txt, 별표 1 원문 HWP: data/raw/geochang-ordinance-b1.hwp)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "거창군",
+   "slug": "geochang"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gn-geochang-001",
+   "mgmt_no": "397-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가조 3.1묘역 주차장",
+   "gu": "거창군",
+   "dong": "가조면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 가조면 장기리 1205-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 74,
+   "tel": "055-940-3380",
+   "lat": 35.71351895,
+   "lng": 127.991064,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-002",
+   "mgmt_no": "397-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가조 온천관광지 주차장",
+   "gu": "거창군",
+   "dong": "가조면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 가조면 일부리 1264",
+   "addr_road": "",
+   "road": null,
+   "spaces": 201,
+   "tel": "055-940-3380",
+   "lat": 35.69887056,
+   "lng": 128.0220816,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-003",
+   "mgmt_no": "397-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고견사 주차장",
+   "gu": "거창군",
+   "dong": "가조면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 가조면 수월리 산19-1",
+   "addr_road": "경상남도 거창군 가조면 의상봉길 830",
+   "road": null,
+   "spaces": 100,
+   "tel": "055-940-3380",
+   "lat": 35.73662049,
+   "lng": 128.0408983,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-004",
+   "mgmt_no": "397-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "강변 둔치주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 중앙리 487-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 368,
+   "tel": "055-940-3380",
+   "lat": 35.68502689,
+   "lng": 127.9144044,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-005",
+   "mgmt_no": "397-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "거창버스터미널 공영주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 대평리 998-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 108,
+   "tel": "055-940-3382",
+   "lat": 35.68503477,
+   "lng": 127.9227335,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-006",
+   "mgmt_no": "397-2-000057",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "거창읍 거점 공영주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 대동리 780-3",
+   "addr_road": "경상남도 거창군 거창읍 중앙로1길 42",
+   "road": null,
+   "spaces": 50,
+   "tel": "055-940-3840",
+   "lat": 35.6884287,
+   "lng": 127.91481,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "등록된 기본요금(30분 500원)·1일 주차권(5,000원)·월 정기권(50,000원)으로 계산하되, 추가 단위요금이 등록에 없어 조례 별표 1의 10분당 200원을 적용한다 — 실제 부과 단위는 현장 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-007",
+   "mgmt_no": "397-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "거창읍사무소 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 상림리 821",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "055-940-7224",
+   "lat": 35.68744523,
+   "lng": 127.9041599,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-008",
+   "mgmt_no": "397-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "건계정 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 송정리 산 116-1",
+   "addr_road": "경상남도 거창군 거창읍 거안로 1173-7",
+   "road": null,
+   "spaces": 18,
+   "tel": "055-940-3380",
+   "lat": 35.69202671,
+   "lng": 127.8793554,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-009",
+   "mgmt_no": "397-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상동 택지개발지역 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 상림리 797",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "055-940-3380",
+   "lat": 35.68856174,
+   "lng": 127.9060581,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-010",
+   "mgmt_no": "397-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "스포츠파크 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 양평리 1160",
+   "addr_road": "경상남도 거창군 거창읍 심소정길 39-36",
+   "road": null,
+   "spaces": 248,
+   "tel": "055-940-3380",
+   "lat": 35.69513581,
+   "lng": 127.9263505,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-011",
+   "mgmt_no": "397-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "재래시장 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 중앙리 149-4",
+   "addr_road": "경상남도 거창군 거창읍 시장길 64-2",
+   "road": null,
+   "spaces": 148,
+   "tel": "055-944-2581",
+   "lat": 35.68633674,
+   "lng": 127.9142509,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "등록된 기본요금(30분 500원)·1일 주차권(5,000원)·월 정기권(50,000원)으로 계산하되, 추가 단위요금이 등록에 없어 조례 별표 1의 10분당 200원을 적용한다 — 실제 부과 단위는 현장 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 510,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:30",
+      "22:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 510,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:30",
+      "22:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 510,
+     "end": 1320,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:30",
+      "22:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-012",
+   "mgmt_no": "397-2-000054",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제10주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 중앙리 328-3",
+   "addr_road": "경상남도 거창군 거창읍 아림로2길 13-5",
+   "road": null,
+   "spaces": 15,
+   "tel": "055-940-3840",
+   "lat": 35.68817736,
+   "lng": 127.9101472,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-013",
+   "mgmt_no": "397-2-000055",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제11주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 중앙리 48-2",
+   "addr_road": "경상남도 거창군 거창읍 아림로3길 72-3",
+   "road": null,
+   "spaces": 7,
+   "tel": "055-940-3840",
+   "lat": 35.68955118,
+   "lng": 127.9133881,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-014",
+   "mgmt_no": "397-2-000056",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제12주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 대동리 749-8",
+   "addr_road": "경상남도 거창군 거창읍 강변로9길 55",
+   "road": null,
+   "spaces": 9,
+   "tel": "055-940-3840",
+   "lat": 35.68919161,
+   "lng": 127.9172956,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-015",
+   "mgmt_no": "397-2-000058",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제13주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 중앙리 353",
+   "addr_road": "경상남도 거창군 거창읍 죽전길 67",
+   "road": null,
+   "spaces": 14,
+   "tel": "055-940-3840",
+   "lat": 35.69011991,
+   "lng": 127.9100497,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-016",
+   "mgmt_no": "397-2-000059",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제14주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 대평리 1063-14",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "055-940-3840",
+   "lat": 35.6841557,
+   "lng": 127.9200066,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-017",
+   "mgmt_no": "397-2-000060",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제15주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 중앙리 314-24",
+   "addr_road": "경상남도 거창군 거창읍 하동1길 28",
+   "road": null,
+   "spaces": 13,
+   "tel": "055-940-3840",
+   "lat": 35.68803202,
+   "lng": 127.9120364,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-018",
+   "mgmt_no": "397-2-000061",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제16주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 중앙리 342-5",
+   "addr_road": "경상남도 거창군 거창읍 거열로 163",
+   "road": null,
+   "spaces": 7,
+   "tel": "055-940-3840",
+   "lat": 35.69014251,
+   "lng": 127.9113397,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-019",
+   "mgmt_no": "397-2-000062",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제17주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 대평리 1237-3",
+   "addr_road": "경상남도 거창군 거창읍 창남4길 62-3",
+   "road": null,
+   "spaces": 12,
+   "tel": "055-940-3840",
+   "lat": 35.68357994,
+   "lng": 127.916584,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-020",
+   "mgmt_no": "397-2-000063",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제18주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 상림리 98-7",
+   "addr_road": "경상남도 거창군 거창읍 상동1길 12-3",
+   "road": null,
+   "spaces": 9,
+   "tel": "055-940-3840",
+   "lat": 35.68573818,
+   "lng": 127.9068337,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-021",
+   "mgmt_no": "397-2-000064",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제19주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 대동리 791-7",
+   "addr_road": "경상남도 거창군 거창읍 강양5길 56",
+   "road": null,
+   "spaces": 7,
+   "tel": "055-940-3840",
+   "lat": 35.68926471,
+   "lng": 127.9183493,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-022",
+   "mgmt_no": "397-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제1주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 중앙리 38-7",
+   "addr_road": "경상남도 거창군 거창읍 죽전길 120",
+   "road": null,
+   "spaces": 6,
+   "tel": "055-940-3382",
+   "lat": 35.6906892,
+   "lng": 127.9127669,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-023",
+   "mgmt_no": "397-2-000065",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제20주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 대동리 135-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "055-940-3840",
+   "lat": 35.69132509,
+   "lng": 127.9182812,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-024",
+   "mgmt_no": "397-2-000066",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제21주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 상림리 31-47",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "055-940-3840",
+   "lat": 35.68715042,
+   "lng": 127.9085087,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-025",
+   "mgmt_no": "397-2-000067",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제22주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 김천리 267-1",
+   "addr_road": "경상남도 거창군 거창읍 수남로 2223",
+   "road": null,
+   "spaces": 11,
+   "tel": "055-940-3840",
+   "lat": 35.67741057,
+   "lng": 127.9111444,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-026",
+   "mgmt_no": "397-2-000068",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제23주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 대동리 598-9",
+   "addr_road": "경상남도 거창군 거창읍 개봉길 43-12",
+   "road": null,
+   "spaces": 7,
+   "tel": "055-940-3840",
+   "lat": 35.69306318,
+   "lng": 127.9154004,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-027",
+   "mgmt_no": "397-2-000069",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제24주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 중앙리 449-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "055-940-3840",
+   "lat": 35.69198205,
+   "lng": 127.9085805,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-028",
+   "mgmt_no": "397-2-000070",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제25주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 대동리 82-1",
+   "addr_road": "경상남도 거창군 거창읍 동동9길 41-5",
+   "road": null,
+   "spaces": 8,
+   "tel": "055-940-3840",
+   "lat": 35.68855333,
+   "lng": 127.919614,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-029",
+   "mgmt_no": "397-2-000071",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제26주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 중앙리 327-9",
+   "addr_road": "경상남도 거창군 거창읍 아림로2길 13-10",
+   "road": null,
+   "spaces": 11,
+   "tel": "055-940-3840",
+   "lat": 35.68843639,
+   "lng": 127.9104901,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-030",
+   "mgmt_no": "397-2-000072",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제27주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 상림리 68-2",
+   "addr_road": "경상남도 거창군 거창읍 상동4길 4",
+   "road": null,
+   "spaces": 5,
+   "tel": "055-940-3840",
+   "lat": 35.68719074,
+   "lng": 127.9094232,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-031",
+   "mgmt_no": "397-2-000073",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제28주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 중앙리 324-13",
+   "addr_road": "경상남도 거창군 거창읍 아림로3길 59",
+   "road": null,
+   "spaces": 6,
+   "tel": "055-940-3840",
+   "lat": 35.68956149,
+   "lng": 127.9124438,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-032",
+   "mgmt_no": "397-2-000074",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제29주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 대평리 1232-26",
+   "addr_road": "경상남도 거창군 거창읍 창남1길 68",
+   "road": null,
+   "spaces": 4,
+   "tel": "055-940-3840",
+   "lat": 35.68331772,
+   "lng": 127.9148484,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-033",
+   "mgmt_no": "397-2-000046",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제2주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 중앙리 351-1",
+   "addr_road": "경상남도 거창군 거창읍 죽전길 77-4",
+   "road": null,
+   "spaces": 5,
+   "tel": "055-940-3382",
+   "lat": 35.69033011,
+   "lng": 127.9107374,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-034",
+   "mgmt_no": "397-2-000075",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제30주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 대동리 88-49",
+   "addr_road": "경상남도 거창군 거창읍 동동7길 18-1",
+   "road": null,
+   "spaces": 9,
+   "tel": "055-940-3840",
+   "lat": 35.68831336,
+   "lng": 127.9216714,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-035",
+   "mgmt_no": "397-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제3주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 상림리 272-21",
+   "addr_road": "경상남도 거창군 거창읍 공수들8길 73-3",
+   "road": null,
+   "spaces": 16,
+   "tel": "055-940-3382",
+   "lat": 35.68573348,
+   "lng": 127.9041991,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-036",
+   "mgmt_no": "397-2-000048",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제4주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 상림리 30-11",
+   "addr_road": "경상남도 거창군 거창읍 상동7길 65-5",
+   "road": null,
+   "spaces": 5,
+   "tel": "055-940-3382",
+   "lat": 35.68797015,
+   "lng": 127.9078811,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-037",
+   "mgmt_no": "397-2-000049",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제5주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 상림리 97-4",
+   "addr_road": "경상남도 거창군 거창읍 상동8길 48-6",
+   "road": null,
+   "spaces": 14,
+   "tel": "055-940-3840",
+   "lat": 35.68583013,
+   "lng": 127.9076319,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-038",
+   "mgmt_no": "397-2-000050",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제6주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 대동리 27-2",
+   "addr_road": "경상남도 거창군 거창읍 동동8길 4",
+   "road": null,
+   "spaces": 10,
+   "tel": "055-940-3840",
+   "lat": 35.68756031,
+   "lng": 127.9187202,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-039",
+   "mgmt_no": "397-2-000051",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제7주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 중앙리 35-8",
+   "addr_road": "경상남도 거창군 거창읍 죽전길 121",
+   "road": null,
+   "spaces": 10,
+   "tel": "055-940-3840",
+   "lat": 35.69093288,
+   "lng": 127.9127695,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-040",
+   "mgmt_no": "397-2-000052",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제8주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 상림리 87-16",
+   "addr_road": "경상남도 거창군 거창읍 상동1길 22-4",
+   "road": null,
+   "spaces": 12,
+   "tel": "055-940-3840",
+   "lat": 35.68622912,
+   "lng": 127.9067583,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-041",
+   "mgmt_no": "397-2-000053",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제9주택가 공동주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 대동리 649-2",
+   "addr_road": "경상남도 거창군 거창읍 개봉길 17-5",
+   "road": null,
+   "spaces": 8,
+   "tel": "055-940-3840",
+   "lat": 35.69291885,
+   "lng": 127.917525,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-042",
+   "mgmt_no": "397-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "향교 충효회관 입구 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 거창읍 가지리 318-4",
+   "addr_road": "경상남도 거창군 거창읍 교촌길 61",
+   "road": null,
+   "spaces": 25,
+   "tel": "055-940-3380",
+   "lat": 35.69151035,
+   "lng": 127.9035779,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-043",
+   "mgmt_no": "397-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "둔마리벽화고분 주차장",
+   "gu": "거창군",
+   "dong": "남하면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 남하면 둔마리 647",
+   "addr_road": "경상남도 거창군 남하면 대촌1길 116-16",
+   "road": null,
+   "spaces": 30,
+   "tel": "055-940-3380",
+   "lat": 35.7160163,
+   "lng": 127.9640633,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-044",
+   "mgmt_no": "397-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "심소정 주차장",
+   "gu": "거창군",
+   "dong": "남하면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 남하면 양항리 1048",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "055-940-3380",
+   "lat": 35.68242997,
+   "lng": 127.9411861,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-045",
+   "mgmt_no": "397-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "북상 황점 주차장",
+   "gu": "거창군",
+   "dong": "북상면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 북상면 월성리 1783",
+   "addr_road": "경상남도 거창군 북상면 덕유월성로 1170-12",
+   "road": null,
+   "spaces": 68,
+   "tel": "055-940-3380",
+   "lat": 35.77020671,
+   "lng": 127.7173898,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-046",
+   "mgmt_no": "397-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "거창사건사업소 주차장",
+   "gu": "거창군",
+   "dong": "신원면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 신원면 대현리 551",
+   "addr_road": "",
+   "road": null,
+   "spaces": 160,
+   "tel": "055-940-8510",
+   "lat": 35.55481868,
+   "lng": 127.924857,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-047",
+   "mgmt_no": "397-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신원면사무소 앞 주차장",
+   "gu": "거창군",
+   "dong": "신원면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 신원면 과정리 170-36",
+   "addr_road": "경상남도 거창군 신원면 과정2길 11-3",
+   "road": null,
+   "spaces": 18,
+   "tel": "055-940-3380",
+   "lat": 35.56771102,
+   "lng": 127.9259715,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-048",
+   "mgmt_no": "397-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금원산자연휴양림 주차장",
+   "gu": "거창군",
+   "dong": "위천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 위천면 상천리 산61-1",
+   "addr_road": "경상남도 거창군 위천면 금원산길 404-118",
+   "road": null,
+   "spaces": 400,
+   "tel": "055-254-3971",
+   "lat": 35.7334596,
+   "lng": 127.7929677,
+   "base_date": "2026-04-16",
+   "manager": "경상남도청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 1440,
+    "base_fee": 3000,
+    "unit_min": 1440,
+    "unit_fee": 3000,
+    "daily_fee": 3000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": true,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 3000,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "등록 기본요금(1,440분 3,000원)을 1일 정액 요금으로 읽어 그대로 적용한다. 조례 별표 1의 일반 요금과 다른 금액이라 시설별 요금표 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 3000,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-049",
+   "mgmt_no": "397-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "위천 수승대 주차장",
+   "gu": "거창군",
+   "dong": "위천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거창군 위천면 황산리 750-3",
+   "addr_road": "경상남도 거창군 위천면 은하리길 2",
+   "road": null,
+   "spaces": 242,
+   "tel": "055-940-8530",
+   "lat": 35.76092327,
+   "lng": 127.8336769,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 1000,
+    "unit_min": 10,
+    "unit_fee": 400,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 1000,
+     "unit_min": 10,
+     "unit_fee": 400,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "등록 요금(기본 30분 1,000원·추가 10분마다 400원)으로 계산한다. 조례 별표 1의 일반 요금과 다른 금액이라 시설별 요금표 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-s001",
+   "mgmt_no": "397-1-000015",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "KT~우체국앞 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거창군 거창읍 상림리 155-143",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "055-940-3380",
+   "lat": 35.68448309,
+   "lng": 127.9084465,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-s002",
+   "mgmt_no": "397-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "개봉교~노인회관 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거창군 거창읍 대동리 191",
+   "addr_road": "경상남도 거창군 거창읍 창동로 191",
+   "road": "창동로",
+   "spaces": 47,
+   "tel": "055-940-3380",
+   "lat": 35.69432794,
+   "lng": 127.9195328,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-s003",
+   "mgmt_no": "397-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "개봉교~중앙교회 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거창군 거창읍 대동리 678-9",
+   "addr_road": "경상남도 거창군 거창읍 거열로 209-1",
+   "road": "거열로",
+   "spaces": 76,
+   "tel": "055-940-3380",
+   "lat": 35.69140609,
+   "lng": 127.916273,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-s004",
+   "mgmt_no": "397-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "거열교~거창교 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거창군 거창읍 송정리 38-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 211,
+   "tel": "055-940-3380",
+   "lat": 35.68311338,
+   "lng": 127.9087291,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-s005",
+   "mgmt_no": "397-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "거창교~원상동 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거창군 거창읍 상림리 155-31",
+   "addr_road": "경상남도 거창군 거창읍 강변로 69",
+   "road": "강변로",
+   "spaces": 74,
+   "tel": "055-940-3380",
+   "lat": 35.68404307,
+   "lng": 127.904576,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-s006",
+   "mgmt_no": "397-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "거창교~중앙교 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거창군 거창읍 김천리 472-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 106,
+   "tel": "055-940-3380",
+   "lat": 35.68412698,
+   "lng": 127.9143797,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-s007",
+   "mgmt_no": "397-1-000020",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "거창교회 옆 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거창군 거창읍 중앙리 51-5",
+   "addr_road": "경상남도 거창군 거창읍 아림로2길 94-6",
+   "road": "아림로2길",
+   "spaces": 9,
+   "tel": "055-940-3380",
+   "lat": 35.68901979,
+   "lng": 127.9144116,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-s008",
+   "mgmt_no": "397-1-000019",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "거창초등학교 뒤 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거창군 거창읍 중앙리 48-7",
+   "addr_road": "경상남도 거창군 거창읍 하동4길 53",
+   "road": "하동4길",
+   "spaces": 23,
+   "tel": "055-940-3380",
+   "lat": 35.68945245,
+   "lng": 127.9131685,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-s009",
+   "mgmt_no": "397-1-000022",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "건계정가는길 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거창군 거창읍 상림리 495",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "055-940-3380",
+   "lat": 35.68648926,
+   "lng": 127.8943328,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-s010",
+   "mgmt_no": "397-1-000018",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "경찰서옆~적십자병원앞 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거창군 거창읍 상림리 74-1",
+   "addr_road": "경상남도 거창군 거창읍 중앙로 91",
+   "road": "중앙로",
+   "spaces": 7,
+   "tel": "055-940-3380",
+   "lat": 35.68669196,
+   "lng": 127.9088661,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-s011",
+   "mgmt_no": "397-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "금천당~교육지원청앞사거리 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거창군 거창읍 김천리 99-1",
+   "addr_road": "경상남도 거창군 거창읍 창남1길 40",
+   "road": "창남1길",
+   "spaces": 28,
+   "tel": "055-940-3380",
+   "lat": 35.68192092,
+   "lng": 127.9151401,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-s012",
+   "mgmt_no": "397-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "드림마트위~삼천포횟집 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거창군 거창읍 대평리 1496-7",
+   "addr_road": "경상남도 거창군 거창읍 창동로 91",
+   "road": "창동로",
+   "spaces": 43,
+   "tel": "055-940-3380",
+   "lat": 35.68542911,
+   "lng": 127.9214358,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-s013",
+   "mgmt_no": "397-1-000014",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "시외버스터미널~4차선종점 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거창군 거창읍 대평리 1005-39",
+   "addr_road": "경상남도 거창군 거창읍 강남로 242",
+   "road": "강남로",
+   "spaces": 47,
+   "tel": "055-940-3380",
+   "lat": 35.68702091,
+   "lng": 127.9231392,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-s014",
+   "mgmt_no": "397-1-000017",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "우체국뒤~세무서앞 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거창군 거창읍 상림리 74-1",
+   "addr_road": "경상남도 거창군 거창읍 중앙로 91",
+   "road": "중앙로",
+   "spaces": 6,
+   "tel": "055-940-3380",
+   "lat": 35.68669196,
+   "lng": 127.9088661,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-s015",
+   "mgmt_no": "397-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중동주유소~구실내포장마차 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거창군 거창읍 대평리 947-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 60,
+   "tel": "055-940-3380",
+   "lat": 35.682597,
+   "lng": 127.9211193,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-s016",
+   "mgmt_no": "397-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙교~북부주유소 사거리 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거창군 거창읍 대동리 127-3",
+   "addr_road": "경상남도 거창군 거창읍 창동로 163",
+   "road": "창동로",
+   "spaces": 44,
+   "tel": "055-942-9978",
+   "lat": 35.69170363,
+   "lng": 127.9194942,
+   "base_date": "2026-04-16",
+   "manager": "경남거창지역자활센터",
+   "note": "평일 운영시간 외 무료",
+   "notice": "특기사항에 ‘평일 운영시간 외 무료’가 등록돼 있어 평일 09:00~18:00 외의 시간은 무료로 운영됩니다(이 구간에만 적용)",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 5,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "등록 요금(기본 30분 500원·추가 10분마다 200원·1일 5,000원·월 50,000원)이 조례 별표 1과 일치해 등록값으로 계산한다. 노상주차장이라 별표 1 비고 2에 따라 5분 이하 주차·정차는 면제다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-s017",
+   "mgmt_no": "397-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙교~중동주유소 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거창군 거창읍 대평리 1265-5",
+   "addr_road": "경상남도 거창군 거창읍 거창대로 19",
+   "road": "거창대로",
+   "spaces": 84,
+   "tel": "055-940-3380",
+   "lat": 35.68352986,
+   "lng": 127.9174556,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-s018",
+   "mgmt_no": "397-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙교~창동교 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거창군 거창읍 대평리 1005-39",
+   "addr_road": "경상남도 거창군 거창읍 강남로 242",
+   "road": "강남로",
+   "spaces": 109,
+   "tel": "055-940-3380",
+   "lat": 35.68702091,
+   "lng": 127.9231392,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-s019",
+   "mgmt_no": "397-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙교회~충혼탑입구 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거창군 거창읍 가지리 256-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "055-940-3380",
+   "lat": 35.69282516,
+   "lng": 127.9073763,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-s020",
+   "mgmt_no": "397-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "창동교~오토월드 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거창군 거창읍 대평리 1017-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 56,
+   "tel": "055-940-3380",
+   "lat": 35.68537873,
+   "lng": 127.9217565,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-s021",
+   "mgmt_no": "397-1-000016",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "충혼탑사거리~중앙교회 주차장",
+   "gu": "거창군",
+   "dong": "거창읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거창군 거창읍 중앙리 342-5",
+   "addr_road": "경상남도 거창군 거창읍 거열로 163",
+   "road": "거열로",
+   "spaces": 29,
+   "tel": "055-940-3380",
+   "lat": 35.69014251,
+   "lng": 127.9113397,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  },
+  {
+   "id": "gn-geochang-s022",
+   "mgmt_no": "397-1-000021",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "위천-북상우회도로(남산) 주차장",
+   "gu": "거창군",
+   "dong": "위천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거창군 위천면 남산리 308-2",
+   "addr_road": "경상남도 거창군 위천면 원학길 170",
+   "road": "원학길",
+   "spaces": 5,
+   "tel": "055-940-3380",
+   "lat": 35.74358812,
+   "lng": 127.8381164,
+   "base_date": "2026-04-16",
+   "manager": "경상남도 거창군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "거창군",
+   "city_slug": "geochang",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-21 02:23",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 74,
+  "원자료_거창군행수": 74,
+  "원자료_받은행수": 74,
+  "구별": {
+   "거창군": 71
+  },
+  "민영_제외": 3,
+  "제외_행수": 3,
+  "제외_행": [
+   {
+    "name": "중앙유료주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "로타리유료주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "고센시티주차장",
+    "reason": "민영 주차장(공영 아님)"
+   }
+  ],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 49,
+  "노외_부설": {
+   "노외": 49
+  },
+  "노상_구간": 22,
+  "총_구획수": 2612,
+  "노상_구획수": 1128,
+  "동별": {
+   "거창읍": 60,
+   "가조면": 3,
+   "위천면": 3,
+   "남하면": 2,
+   "신원면": 2,
+   "북상면": 1
+  },
+  "동수": 6,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 71
+  },
+  "요금구분": {
+   "무료": 66,
+   "유료": 5
+  },
+  "요금_미상": [],
+  "유료_노상": 1,
+  "유료_노외": 4,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "같은 자리·같은 좌표에 이름만 다른 등록: 경찰서옆~적십자병원앞 주차장·우체국뒤~세무서앞 주차장 — 경상남도 거창군 거창읍 상림리 74-1에 좌표(35.68669196, 127.9088661)가 같게 등록돼 있다. 이름이 다른 별개 등록이라 합치지 않고 전부 실었고, 같은 시설의 중복 등록인지는 거창군청 확인이 필요하다",
+   "같은 자리·같은 좌표에 이름만 다른 등록: 시외버스터미널~4차선종점 주차장·중앙교~창동교 주차장 — 경상남도 거창군 거창읍 대평리 1005-39에 좌표(35.68702091, 127.9231392)가 같게 등록돼 있다. 이름이 다른 별개 등록이라 합치지 않고 전부 실었고, 같은 시설의 중복 등록인지는 거창군청 확인이 필요하다",
+   "같은 자리·같은 좌표에 이름만 다른 등록: 제16주택가 공동주차장·충혼탑사거리~중앙교회 주차장 — 경상남도 거창군 거창읍 중앙리 342-5에 좌표(35.69014251, 127.9113397)가 같게 등록돼 있다. 이름이 다른 별개 등록이라 합치지 않고 전부 실었고, 같은 시설의 중복 등록인지는 거창군청 확인이 필요하다",
+   "표준데이터 등록 74행 중 공영 71행을 싣고 민영 3행(중앙유료주차장 중앙리 101-3 28면, 로타리유료주차장 중앙리 280-1 35면, 고센시티주차장 중앙리 90-4 55면, 전부 거창읍 노외)을 제외했다. 데이터기준일자는 74행 전부 2026-04-16, 제공기관명은 전부 경상남도 거창군이다",
+   "등록 급지구분은 노상 22곳 전부 '1', 노외 49곳 전부 '2'로 주차장 유형에 따라 갈려 있다. 조례 별표 1에는 급지 구분이 없어 계산에 쓰지 않았다",
+   "좌표는 71곳 전부 등록돼 있고 전부 거창군 범위 안이라 지오코딩 보완이 0건이다. 특기사항은 중앙교~북부주유소 사거리 주차장의 ‘평일 운영시간 외 무료’ 1건뿐이고 나머지는 전부 비어 있다",
+   "운영요일은 71곳 전부 평일+토요일+공휴일이고 부제시행구분은 전부 미시행이다. 평일 운영시간은 68곳이 00:00~23:59, 위천 수승대·중앙교~북부주유소 사거리 구간이 09:00~18:00, 재래시장이 08:30~22:00이다. 도로명주소는 52곳만 등록돼 있다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "거창읍 거점 공영주차장: 등록값은 기본 30분 500원·1일 5,000원·월 50,000원만 있고 추가 단위요금이 비어 있다 — 계산에는 조례 별표 1의 단위(10분마다 200원)를 적용했고, 실제 부과 단위는 현장 확인 과제다(인스팅트 패키지 판단안: 공란 2곳 추가요금은 현장 확인 후 보완)",
+   "금원산자연휴양림 주차장: 등록 기본요금이 1,440분 3,000원으로 조례 별표 1의 일반 요금과 달라, 등록값을 1일 정액으로 읽어 그대로 실었다 — 시설별 요금표(휴양림 조례 등)를 먼저 확인하고 일반 500/200으로 덮어쓰지 않는다는 인스팅트 패키지 판단안이다",
+   "위천 수승대 주차장: 등록 요금(기본 30분 1,000원·추가 10분 400원)이 조례 별표 1의 일반 요금(30분 500원·10분 200원)과 달라 등록값을 그대로 실었다 — 시설별 요금표를 먼저 확인하고 일반 요금으로 덮어쓰지 않는다는 인스팅트 패키지 판단안이다. 1일·월 정기권은 등록에 없다",
+   "재래시장 주차장: 등록값은 기본 30분 500원·1일 5,000원·월 50,000원만 있고 추가 단위요금이 비어 있다 — 계산에는 조례 별표 1의 단위(10분마다 200원)를 적용했고, 실제 부과 단위는 현장 확인 과제다(인스팅트 패키지 판단안: 공란 2곳 추가요금은 현장 확인 후 보완)"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "가조 3.1묘역 주차장",
+   "가조 온천관광지 주차장",
+   "강변 둔치주차장",
+   "거창버스터미널 공영주차장",
+   "거창읍사무소 주차장",
+   "상동 택지개발지역 주차장",
+   "제14주택가 공동주차장",
+   "제20주택가 공동주차장",
+   "제21주택가 공동주차장",
+   "제24주택가 공동주차장",
+   "심소정 주차장",
+   "거창사건사업소 주차장",
+   "KT~우체국앞 주차장",
+   "거열교~거창교 주차장",
+   "거창교~중앙교 주차장",
+   "건계정가는길 주차장",
+   "중동주유소~구실내포장마차 주차장",
+   "중앙교회~충혼탑입구 주차장",
+   "창동교~오토월드 주차장"
+  ],
+  "감면_출처": "「거창군 주차장 설치 및 관리 조례」 제3012호 제9조 — 제1항 긴급자동차·국가 또는 지방자치단체의 공용차량·성실납세 표창 차량(스티커 교부일부터 1년 이내)·국가유공자 및 참전유공자 자가운전 자동차·장기등 및 인체조직 기증자 및 기증희망자 본인 소유의 비영업용 승용자동차 면제, 제2항 장애인·승용차 10부제 참여(1일 회수권 이용)·경형자동차(배기량 1,000시시 미만)·환경친화적 자동차(전기자동차는 충전 목적으로 충전시설에 주차하는 경우 면제)·경남i다누리카드·병역명문가·임산부·자원봉사활동 지원 조례 제6조제2항 해당자 50% 감경. 국가법령정보센터 본문 원문(ordinSeq 2103757)으로 확인했다",
+  "요금_출처": "조례 제3조제1항·별표 1 — 공영주차장 주차요금은 별표 1과 같고 군청사 부설주차장의 주차요금은 군수가 따로 규정으로 정한다. 별표 1은 최초 30분 500원·이후 10분마다 200원·1일 5,000원·월 정기주차권 50,000원이고, 주차시간이 30분 미만이면 최초 30분으로 보며 노상주차장에 한정해 5분 이하로 주차하거나 정차하는 경우 요금을 면제한다. 별표 1 HWP 원본(flSeq 160339077)을 받아 텍스트를 추출해 대조했다",
+  "급지_출처": "조례 별표 1에는 급지 구분이 없다. 표준데이터 등록 급지구분은 노상 22곳 전부 '1', 노외 49곳 전부 '2'로 주차장 유형에 따라 갈려 있어 요금 계산에 쓰지 않았다",
+  "무료요일_출처": "조례 본문·별표 1 어디에도 군 전체 일괄 주말·공휴일 무료 근거가 없고, 특기사항은 중앙교~북부주유소 사거리 구간의 ‘평일 운영시간 외 무료’ 1건뿐이라 그 구간에만 적용했다(인스팅트 앞단 패키지 확인)",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 거창군 등록 74행 중 공영 71행(노외 49·노상 22, 총 3,740면)을 싣고 민영 3행(중앙유료주차장·로타리유료주차장·고센시티주차장, 전부 거창읍 중앙리 노외)을 제외했다. 중복 제거 0건, 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다. 인스팅트 앞단 패키지(2026-11-20)의 집계(공영 71곳·3,740면, 무료 66·유료 5, 기준일 2026-04-16)와 표준데이터 원본 대조 결과가 일치한다",
+   "「거창군 주차장 설치 및 관리 조례」 제3012호(시행 2025-12-31, ordinSeq 2103757) — 제3조제1항이 공영주차장 요금을 별표 1로 정하고 군청사 부설주차장은 군수가 따로 규정으로 정한다. 별표 1은 HWP 원본(flSeq 160339077)을 받아 텍스트를 추출해 대조했고(최초 30분 500원·이후 10분마다 200원·1일 5,000원·월 정기주차권 50,000원, 비고 1·2 포함), 감면은 제9조 본문 원문으로 확인했다",
+   "유료 5곳의 계산 기준은 인스팅트 패키지 판단안을 따른다. 중앙교~북부주유소 사거리 주차장(노상 44면)은 등록값이 별표 1과 일치해 등록값으로 계산하고 노상 5분 이하 면제를 free_min=5로 구현했다. 거창읍 거점 공영주차장(노외 50면)·재래시장 주차장(노외 148면)은 기본·1일·월 값만 있고 추가 단위요금이 비어 있어, 등록 가산이 불완전하면 조례로 계산하는 논산·부여·하동 선례에 따라 별표 1의 단위(10분당 200원)를 적용했다 — 실제 부과 단위는 현장 확인 과제다(판단안: 공란 2곳 추가요금은 현장 확인 후 보완)",
+   "위천 수승대 주차장(노외 242면)은 등록 요금(기본 30분 1,000원·추가 10분 400원)이 별표 1의 일반 요금과 달라 등록값을 그대로 유지했고, 금원산자연휴양림 주차장(노외 400면)은 등록 기본요금(1,440분 3,000원)을 1일 정액으로 읽어 그대로 실었다 — 둘 다 시설별 요금표를 먼저 확인하고 일반 요금으로 덮어쓰지 않는다는 판단안이며, 시설별 조례·요금표 확인이 과제다",
+   "같은 지번·같은 좌표에 이름만 다르게 등록된 쌍이 3건 있다 — 거창읍 중앙리 342-5(제16주택가 공동주차장·충혼탑사거리~중앙교회 주차장), 상림리 74-1(경찰서옆~적십자병원앞 주차장·우체국뒤~세무서앞 주차장), 대평리 1005-39(시외버스터미널~4차선종점 주차장·중앙교~창동교 주차장). 이름이 다른 별개 등록이라 합치지 않고 전부 실었고, 같은 시설의 중복 등록인지는 거창군청 확인이 필요하다",
+   "등록 급지구분은 노상 22곳 전부 '1', 노외 49곳 전부 '2'로 주차장 유형에 따라 갈려 있다. 조례 별표 1에는 급지 구분이 없어 계산에는 쓰지 않았다",
+   "주말·공휴일 무료는 조례 본문·별표 1 어디에도 군 전체 일괄 면제 근거가 없어 표기하지 않았다. 중앙교~북부주유소 사거리 구간의 특기사항 ‘평일 운영시간 외 무료’는 그 구간에만 적용했다 — 이 구간은 평일 09:00~18:00, 토요일·공휴일 00:00~23:59로 등록돼 있다. 중앙교 구간의 휴일 운영 공고 확인은 과제다",
+   "좌표는 71곳 전부 등록돼 있고 전부 거창군 범위(위도 35.5548~35.7702, 경도 127.7174~128.0409) 안이다. 관리기관은 거창군청 69곳·경상남도청 1곳·경남거창지역자활센터 1곳(중앙교~북부주유소 사거리 주차장)이다. 도로명주소는 52곳만 등록돼 있다. 데이터기준일자는 74행 전부 2026-04-16이다"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 66,
+  "무료_구획수": 2856,
+  "평균_기본요금": 1100,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-16"
+  ],
+  "관리기관": {
+   "경상남도 거창군청": 69,
+   "경상남도청": 1,
+   "경남거창지역자활센터": 1
+  }
+ },
+ "fee_table": {
+  "style": "geochang_grade",
+  "unit_min": 10,
+  "base_min": 30,
+  "applies": "「거창군 주차장 설치 및 관리 조례」 제3012호(시행 2025-12-31) 제3조제1항·별표 1 — 국가법령정보센터 ordinSeq 2103757에서 확인",
+  "source_url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2103757&ordinId=2023361&gubun=ELIS",
+  "grade_system": "조례 별표 1에는 급지 구분이 없고 공영주차장 전체에 같은 요금을 적용한다. 표준데이터 등록 급지구분은 노상 22곳 전부 '1', 노외 49곳 전부 '2'로 주차장 유형에 따라 갈려 있어 요금 계산에는 쓰지 않는다",
+  "rows": [
+   {
+    "label": "공영주차장 (조례 별표 1)",
+    "grade": "standard",
+    "unit_label": "최초 30분 500원 · 이후 10분마다 200원 · 노상 5분 이하 주차·정차 면제",
+    "hour": 1100,
+    "two_hour": 2300,
+    "day": 5000,
+    "month": 50000,
+    "lots": 3
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 4,
+   "street_paid": 1,
+   "free": 66,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "등록 운영시간",
+    "hours": "평일·토요일·공휴일 00:00~23:59 (68곳)",
+    "free": "대부분의 주차장이 연중 24시간으로 등록돼 있다. 유료 5곳 중 위천 수승대는 09:00~18:00, 재래시장은 08:30~22:00, 중앙교~북부주유소 사거리 구간은 평일 09:00~18:00(토요일·공휴일은 00:00~23:59)으로 등록돼 있고, 중앙교 구간은 특기사항에 ‘평일 운영시간 외 무료’가 적혀 있다"
+   }
+  ],
+  "discounts": [
+   {
+    "label": "긴급자동차·공용차량 등 면제",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 제9조제1항 — 「도로교통법」 제2조제22호에 따른 긴급자동차, 국가 또는 지방자치단체의 공용차량"
+   },
+   {
+    "label": "국가유공자·참전유공자 자가운전 자동차 면제",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 제9조제1항제4호 — 국가유공자·참전유공자 적용대상자의 자가운전 자동차"
+   },
+   {
+    "label": "성실납세 표창 차량 면제 (스티커 교부 1년 이내)",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 제9조제1항제3호 — 모범납세 표창을 받은 자의 소유차량으로 성실납세 스티커를 부착한 차량. 다만 스티커 교부일부터 1년이 경과하지 않은 차량에 한정한다"
+   },
+   {
+    "label": "장기·인체조직 기증자 등 면제",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 제9조제1항제5호 — 「거창군 장기등 및 인체조직 기증 장려에 관한 조례」 제6조에 따른 기증자 및 기증희망자 본인 소유의 비영업용 승용자동차"
+   },
+   {
+    "label": "장애인·경형자동차·환경친화적 자동차 등 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제9조제2항 — 장애인 자가운전 자동차 및 장애인을 동반한 승용자동차, 승용차 10부제 참여를 위해 1일 회수권을 이용하는 자동차, 배기량 1,000시시 미만 경형자동차, 환경친화적 자동차(전기자동차는 충전 목적으로 충전시설에 주차하는 경우 면제), 경남i다누리카드 소지자, 병역명문가증 소지자, 임산부가 직접 운전하거나 동승한 차량, 「거창군 자원봉사활동 지원 조례」 제6조제2항에 해당하는 사람의 자동차"
+   }
+  ],
+  "notes": "주차시간이 30분 미만이면 최초 30분으로 봅니다(별표 1 비고 1). 노상주차장은 5분 이하로 주차하거나 정차하면 요금이 면제됩니다(비고 2). 군청사 부설주차장의 요금은 조례 제3조제1항 단서에 따라 군수가 따로 규정으로 정합니다. 위천 수승대 주차장은 별표 1과 다른 등록 요금(최초 30분 1,000원·이후 10분마다 400원, 1일·월 정기권 없음)으로 계산합니다 — 시설별 요금표가 따로 있는지는 확인이 필요합니다. 금원산자연휴양림 주차장은 등록된 기본요금(1,440분 3,000원)을 1일 정액으로 읽어 계산합니다. 거창읍 거점·재래시장 2곳은 추가 단위요금이 등록에 없어 별표 1의 10분당 200원을 적용했습니다 — 실제 부과 단위는 현장 확인이 필요합니다.",
+  "basis": "요금표는 「거창군 주차장 설치 및 관리 조례」 제3012호(시행 2025-12-31) 제3조제1항·별표 1과 표준데이터(기준일 2026-04-16)를 대조해 실었다. (조례 본문: data/raw/geochang-ordinance.txt, 별표 1 원문 HWP: data/raw/geochang-ordinance-b1.hwp)"
+ },
+ "slug": "geochang",
+ "province": "경상남도",
+ "province_slug": "gyeongnam",
+ "dong_page_min_lots": 3,
+ "city": "거창군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·공용차량 등 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제9조제1항 — 「도로교통법」 제2조제22호에 따른 긴급자동차, 국가 또는 지방자치단체의 공용차량"
+  },
+  {
+   "label": "국가유공자·참전유공자 자가운전 자동차 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제9조제1항제4호 — 국가유공자·참전유공자 적용대상자의 자가운전 자동차"
+  },
+  {
+   "label": "성실납세 표창 차량 면제 (스티커 교부 1년 이내)",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제9조제1항제3호 — 모범납세 표창을 받은 자의 소유차량으로 성실납세 스티커를 부착한 차량. 다만 스티커 교부일부터 1년이 경과하지 않은 차량에 한정한다"
+  },
+  {
+   "label": "장기·인체조직 기증자 등 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제9조제1항제5호 — 「거창군 장기등 및 인체조직 기증 장려에 관한 조례」 제6조에 따른 기증자 및 기증희망자 본인 소유의 비영업용 승용자동차"
+  },
+  {
+   "label": "장애인·경형자동차·환경친화적 자동차 등 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제9조제2항 — 장애인 자가운전 자동차 및 장애인을 동반한 승용자동차, 승용차 10부제 참여를 위해 1일 회수권을 이용하는 자동차, 배기량 1,000시시 미만 경형자동차, 환경친화적 자동차(전기자동차는 충전 목적으로 충전시설에 주차하는 경우 면제), 경남i다누리카드 소지자, 병역명문가증 소지자, 임산부가 직접 운전하거나 동승한 차량, 「거창군 자원봉사활동 지원 조례」 제6조제2항에 해당하는 사람의 자동차"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
