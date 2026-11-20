@@ -724,6 +724,12 @@ for _slug in ("jung-gu", "seo-gu", "dong-gu", "yeongdo-gu", "busanjin-gu", "dong
               "suyeong-gu", "sasang-gu", "gijang-gun"):
     MIX[_slug] = _busan_outside
 
+# 나주시 — MIX에 없던 도시라 동 페이지 슬러그 ‘seongbuk-dong’이 서울 성북구 키
+#   ‘seongbuk’와 앞부분이 겹쳐 엉뚱한 기준을 대던 것을 막는다(부산 gangseo와 같은 부류).
+#   나주의 도 이름 ‘전남광주통합특별시’에 든 ‘광주’는 나주 페이지에 정당하게 나오므로
+#   금지 토큰에서 뺀다(‘광주시’는 그대로 둬 경기 광주 자료 혼입은 계속 잡는다).
+MIX["naju"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
+
 _ALL_ADDRS = sorted({(l.get("addr_jibun") or "") for l in LOTS}
                      | {(l.get("addr_road") or "") for l in LOTS}, key=len, reverse=True)
 _ALL_NAMES = [l["name"] for l in LOTS]
