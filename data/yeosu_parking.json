@@ -1,0 +1,4643 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 22:19",
+  "generated_at_iso": "2026-11-20T22:19:34+09:00",
+  "snapshot_at": "2026-11-20 22:19",
+  "region": {
+   "province": "전남광주통합특별시",
+   "city": "여수시"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-04-16",
+    "rows_total": 18994,
+    "rows_city": 37,
+    "fetched_at": "2026-11-20 22:19 (KST)",
+    "note": "여수시로 등록된 행 37행(전부 공영·노외 32·노상 5)을 읽어 중복 제거 0건으로 37곳을 실었다. 무료 0곳, 유료 37곳이다. 좌표는 전부 등록돼 있고 도로명주소는 21곳이 결측이다. 조례 대조 완료 — 「여수시 주차장 조례」 제2311호(시행 2026-11-11, ordinSeq 2184495) 제6조·별표 1 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「여수시 주차장 조례」 제2311호(시행 2026-11-11, 일부개정)",
+    "org": "전남광주통합특별시 여수시청",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2184495",
+    "file": "yeosu-ordinance-b1.txt",
+    "sha256": "a400c2a07f37a15538003525aba9e161f948557790bf287eeaf2036a646ac936",
+    "license": "자치법규(공개)",
+    "base_date": "2026-11-11",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 22:19 (KST)",
+    "note": "여수시가 설치·관리하는 공영주차장에 적용하는 조례다. 여수시 공영주차장 37곳(노외 32·노상 5)은 총 4,651면이며, 37곳 전부 요금을 받는 유료 주차장으로 등록돼 있다. 「여수시 주차장 조례」 제2311호(시행 2026-11-11, ordinSeq 2184495) 제6조제1항은 공영주차장 요금을 별표 1로 정한다 — 별표 1(개정 2020-05-27)은 노외·노상으로 나뉜 급지(1·2급지)×차종(소형·대형) 요금표로, 노외 1급지 소형은 최초 1시간 무료·초과 10분마다 200원·1일 5,000원·월정기 주간 60,000원(야간 50,000원·주야간 100,000원), 노외 2급지 소형은 10분마다 100원·1일 3,500원·월정기 주간 40,000원, 노상 1급지 소형은 최초 30분 무료·30분마다 500원·1일 5,000원·월정기 60,000원, 노상 2급지 소형은 10분마다 100원·1일 3,500원·월정기 30,000원이다. 표준데이터는 37곳 전부 요금 금액(기본·추가·1일·월정기)이 공란이라 계산에 쓸 등록값이 없어, 조례 별표 1의 소형 요금을 등록 급지·유형별로 계산기에 적용했다(판단 지점). 시장은 고시한 공영주차장의 요금을 50% 범위에서 할증 또는 할인할 수 있고(제6조제1항 단서), 월 통합 정기주차권(소형 기준)은 130,000원으로 관내 모든 유료 공영주차장을 한 달 동안 이용할 수 있다(제6조제7항). 감면은 조례 제6조를 따른다(긴급자동차 면제, 모범·우수납세자 1년간 면제, 국가유공자·5·18부상자·고엽제 환자·장애인·자원봉사자·장기기증자·환경친화적차·병역명문가·여순사건 희생자·유족·두 자녀 세대 50%, 경형자동차 60%, 10부제·카풀 20%, 세 자녀 이상·임산부 세대 100%). 좌표는 37곳 전부 등록돼 있고, 도로명주소는 21곳이 등록돼 있지 않으며, 전화번호는 37곳 전부 등록돼 있지 않다. (조례 본문: data/raw/yeosu-ordinance.txt, 별표 1 원문: data/raw/yeosu-ordinance-b1.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "여수시",
+   "slug": "yeosu"
+  }
+ ],
+ "lots": [
+  {
+   "id": "jn-yeosu-001",
+   "mgmt_no": "325-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "박람회장 정문 앞",
+   "gu": "여수시",
+   "dong": "공화동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 공화동 323",
+   "addr_road": "전라남도 여수시 동문로 141",
+   "road": null,
+   "spaces": 82,
+   "tel": "",
+   "lat": 34.74858537,
+   "lng": 127.744773,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": "차량 5부제가 시행되는 곳입니다(등록 부제시행구분)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-002",
+   "mgmt_no": "325-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "진남상가",
+   "gu": "여수시",
+   "dong": "교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 교동 221",
+   "addr_road": "전라남도 여수시 통제영3길 14-13",
+   "road": null,
+   "spaces": 100,
+   "tel": "",
+   "lat": 34.741440052,
+   "lng": 127.7350332739,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-003",
+   "mgmt_no": "325-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수산시장 1",
+   "gu": "여수시",
+   "dong": "남산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 남산동 7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 81,
+   "tel": "",
+   "lat": 34.7368640048,
+   "lng": 127.7324465125,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-004",
+   "mgmt_no": "325-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수산시장 2",
+   "gu": "여수시",
+   "dong": "남산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 남산동 493",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "",
+   "lat": 34.7369405379,
+   "lng": 127.7318363779,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-005",
+   "mgmt_no": "325-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수산시장 3",
+   "gu": "여수시",
+   "dong": "남산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 남산동 1165",
+   "addr_road": "",
+   "road": null,
+   "spaces": 148,
+   "tel": "",
+   "lat": 34.7384011447,
+   "lng": 127.7295395604,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-006",
+   "mgmt_no": "325-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "덕충동 엑스포타운",
+   "gu": "여수시",
+   "dong": "덕충동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 덕충동 2036",
+   "addr_road": "",
+   "road": null,
+   "spaces": 70,
+   "tel": "",
+   "lat": 34.7532792547,
+   "lng": 127.7451132073,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": "차량 5부제가 시행되는 곳입니다(등록 부제시행구분)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-007",
+   "mgmt_no": "325-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "돌산공원",
+   "gu": "여수시",
+   "dong": "돌산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 돌산읍 우두리 801-20",
+   "addr_road": "전라남도 여수시 돌산읍 돌산로 3578-35",
+   "road": null,
+   "spaces": 225,
+   "tel": "",
+   "lat": 34.730838612,
+   "lng": 127.7401880799,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-008",
+   "mgmt_no": "325-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "향일암",
+   "gu": "여수시",
+   "dong": "돌산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 돌산읍 율림리 6-5",
+   "addr_road": "전라남도 여수시 돌산읍 향일암로 70-4",
+   "road": null,
+   "spaces": 87,
+   "tel": "",
+   "lat": 34.5942697951,
+   "lng": 127.8043549647,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-009",
+   "mgmt_no": "325-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "여문공원",
+   "gu": "여수시",
+   "dong": "문수동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 문수동 169",
+   "addr_road": "전라남도 여수시 문수로 53-32",
+   "road": null,
+   "spaces": 241,
+   "tel": "",
+   "lat": 34.7542205644,
+   "lng": 127.7010515577,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-010",
+   "mgmt_no": "325-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서교동",
+   "gu": "여수시",
+   "dong": "서교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 서교동 153",
+   "addr_road": "",
+   "road": null,
+   "spaces": 242,
+   "tel": "",
+   "lat": 34.7432877079,
+   "lng": 127.7289634803,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-011",
+   "mgmt_no": "325-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "선원동",
+   "gu": "여수시",
+   "dong": "선원동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 선원동 1277-1",
+   "addr_road": "전라남도 여수시 무선8길 8",
+   "road": null,
+   "spaces": 123,
+   "tel": "",
+   "lat": 34.7764262739,
+   "lng": 127.6513721854,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-012",
+   "mgmt_no": "325-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "소호요트마리나",
+   "gu": "여수시",
+   "dong": "소호동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 소호동 505-2",
+   "addr_road": "전라남도 여수시 소호로 392",
+   "road": null,
+   "spaces": 71,
+   "tel": "",
+   "lat": 34.7387944398,
+   "lng": 127.6508591937,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": "차량 5부제가 시행되는 곳입니다(등록 부제시행구분)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-013",
+   "mgmt_no": "325-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오동도",
+   "gu": "여수시",
+   "dong": "수정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 수정동 332-55",
+   "addr_road": "전라남도 여수시 오동도로 116",
+   "road": null,
+   "spaces": 237,
+   "tel": "",
+   "lat": 34.7409530321,
+   "lng": 127.7537041473,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-014",
+   "mgmt_no": "325-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "여문",
+   "gu": "여수시",
+   "dong": "여서동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 여서동 237",
+   "addr_road": "",
+   "road": null,
+   "spaces": 164,
+   "tel": "",
+   "lat": 34.751333149,
+   "lng": 127.7029427609,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-015",
+   "mgmt_no": "325-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "여서동로타리",
+   "gu": "여수시",
+   "dong": "여서동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 여서동 874",
+   "addr_road": "",
+   "road": null,
+   "spaces": 69,
+   "tel": "",
+   "lat": 34.748855157,
+   "lng": 127.7041004204,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-016",
+   "mgmt_no": "325-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서교연등천",
+   "gu": "여수시",
+   "dong": "연등동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 연등동 314-5",
+   "addr_road": "전라남도 여수시 연등1길 23-1",
+   "road": null,
+   "spaces": 74,
+   "tel": "",
+   "lat": 34.7486145903,
+   "lng": 127.7286930333,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-017",
+   "mgmt_no": "325-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오림동",
+   "gu": "여수시",
+   "dong": "오림동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 오림동 380-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "",
+   "lat": 34.7592468608,
+   "lng": 127.7174989572,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-018",
+   "mgmt_no": "325-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "웅천 친수공원",
+   "gu": "여수시",
+   "dong": "웅천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 웅천동 1691",
+   "addr_road": "",
+   "road": null,
+   "spaces": 468,
+   "tel": "",
+   "lat": 34.7480149266,
+   "lng": 127.6685427263,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-019",
+   "mgmt_no": "325-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "웅천해변공원1",
+   "gu": "여수시",
+   "dong": "웅천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 웅천동 1883-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 172,
+   "tel": "",
+   "lat": 34.7399246804,
+   "lng": 127.6766229288,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-020",
+   "mgmt_no": "325-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "웅천해변공원2",
+   "gu": "여수시",
+   "dong": "웅천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 웅천동 1878-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 82,
+   "tel": "",
+   "lat": 34.7414430954,
+   "lng": 127.6742421449,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": "차량 5부제가 시행되는 곳입니다(등록 부제시행구분)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-021",
+   "mgmt_no": "325-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "종화동 물양장",
+   "gu": "여수시",
+   "dong": "종화동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 종화동 526-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 229,
+   "tel": "",
+   "lat": 34.7377623263,
+   "lng": 127.7441660269,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-022",
+   "mgmt_no": "325-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "이순신광장",
+   "gu": "여수시",
+   "dong": "중앙동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 중앙동 383",
+   "addr_road": "전라남도 여수시 선어시장길 6",
+   "road": null,
+   "spaces": 102,
+   "tel": "",
+   "lat": 34.7398631733,
+   "lng": 127.7357161943,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-023",
+   "mgmt_no": "325-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "진남관",
+   "gu": "여수시",
+   "dong": "중앙동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 중앙동 505",
+   "addr_road": "",
+   "road": null,
+   "spaces": 95,
+   "tel": "",
+   "lat": 34.7415139475,
+   "lng": 127.7362270219,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-024",
+   "mgmt_no": "325-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "시청로터리",
+   "gu": "여수시",
+   "dong": "학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 학동 158",
+   "addr_road": "",
+   "road": null,
+   "spaces": 93,
+   "tel": "",
+   "lat": 34.7614703388,
+   "lng": 127.6641705496,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-025",
+   "mgmt_no": "325-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "용기공원",
+   "gu": "여수시",
+   "dong": "학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 학동 202-4",
+   "addr_road": "전라남도 여수시 시청서1길 54-3",
+   "road": null,
+   "spaces": 83,
+   "tel": "",
+   "lat": 34.7573611501,
+   "lng": 127.6596318687,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": "차량 5부제가 시행되는 곳입니다(등록 부제시행구분)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-026",
+   "mgmt_no": "325-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "학동선소상가 1",
+   "gu": "여수시",
+   "dong": "학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 학동 180",
+   "addr_road": "전라남도 여수시 시청동3길 31",
+   "road": null,
+   "spaces": 235,
+   "tel": "",
+   "lat": 34.7575307324,
+   "lng": 127.6645666594,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-027",
+   "mgmt_no": "325-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "학동선소상가 2",
+   "gu": "여수시",
+   "dong": "학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 학동 90-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 41,
+   "tel": "",
+   "lat": 34.7580942549,
+   "lng": 127.6656506222,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-028",
+   "mgmt_no": "325-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "학동선소상가 3",
+   "gu": "여수시",
+   "dong": "학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 학동 96-4",
+   "addr_road": "전라남도 여수시 시청동3길 8",
+   "road": null,
+   "spaces": 100,
+   "tel": "",
+   "lat": 34.7595528146,
+   "lng": 127.6655735313,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-029",
+   "mgmt_no": "325-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "학동선소상가 4",
+   "gu": "여수시",
+   "dong": "학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 학동 184",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "",
+   "lat": 34.7573205924,
+   "lng": 127.6629269711,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-030",
+   "mgmt_no": "325-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "흥국체육관",
+   "gu": "여수시",
+   "dong": "학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 학동 79",
+   "addr_road": "전라남도 여수시 선소로 93",
+   "road": null,
+   "spaces": 211,
+   "tel": "",
+   "lat": 34.7610192121,
+   "lng": 127.6678980934,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-031",
+   "mgmt_no": "325-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화장동",
+   "gu": "여수시",
+   "dong": "화장동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 화장동 795-1",
+   "addr_road": "전라남도 여수시 성산1길 8-3",
+   "road": null,
+   "spaces": 287,
+   "tel": "",
+   "lat": 34.7759067847,
+   "lng": 127.648149121,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-032",
+   "mgmt_no": "325-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백야항",
+   "gu": "여수시",
+   "dong": "화정면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 여수시 화정면 백야리 58-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 157,
+   "tel": "",
+   "lat": 34.620485874,
+   "lng": 127.6411598346,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 40000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노외 2급지 소형 요금(최초 60분 무료·초과 10분마다 100원·1일 3500원·월정기 주간 40000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-s001",
+   "mgmt_no": "325-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "이순신광장로(1)",
+   "gu": "여수시",
+   "dong": "교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 여수시 교동 542-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 45,
+   "tel": "",
+   "lat": 34.7392090727,
+   "lng": 127.7334805,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 30,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노상 1급지 소형 요금(최초 30분 무료·초과 30분마다 500원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-s002",
+   "mgmt_no": "325-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "이순신광장로(2)",
+   "gu": "여수시",
+   "dong": "중앙동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 여수시 중앙동 385-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "",
+   "lat": 34.7389566731,
+   "lng": 127.7370693114,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 30,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노상 1급지 소형 요금(최초 30분 무료·초과 30분마다 500원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-s003",
+   "mgmt_no": "325-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "이순신광장로(3)",
+   "gu": "여수시",
+   "dong": "중앙동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 여수시 중앙동 244",
+   "addr_road": "",
+   "road": null,
+   "spaces": 51,
+   "tel": "",
+   "lat": 34.7371069722,
+   "lng": 127.7418387757,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 30,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노상 1급지 소형 요금(최초 30분 무료·초과 30분마다 500원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-s004",
+   "mgmt_no": "325-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙로",
+   "gu": "여수시",
+   "dong": "충무동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 여수시 충무동 630-1",
+   "addr_road": "전라남도 여수시 군자2길 26",
+   "road": "군자2길",
+   "spaces": 12,
+   "tel": "",
+   "lat": 34.7447733156,
+   "lng": 127.7320112568,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 30,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노상 1급지 소형 요금(최초 30분 무료·초과 30분마다 500원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  },
+  {
+   "id": "jn-yeosu-s005",
+   "mgmt_no": "325-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "흥국로",
+   "gu": "여수시",
+   "dong": "학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 여수시 학동 155",
+   "addr_road": "",
+   "road": null,
+   "spaces": 55,
+   "tel": "",
+   "lat": 34.7634995646,
+   "lng": 127.664343711,
+   "base_date": "2026-04-16",
+   "manager": "전라남도 여수시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 30,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "조례 별표 1 노상 1급지 소형 요금(최초 30분 무료·초과 30분마다 500원·1일 5000원·월정기 주간 60000원)을 적용했다 — 표준데이터는 요금 금액이 전부 공란이라 등록값으로는 계산할 수 없다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "여수시",
+   "city_slug": "yeosu",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 22:19",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 37,
+  "원자료_여수시행수": 37,
+  "원자료_받은행수": 37,
+  "구별": {
+   "여수시": 32
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 32,
+  "노외_부설": {
+   "노외": 32
+  },
+  "노상_구간": 5,
+  "총_구획수": 4464,
+  "노상_구획수": 187,
+  "동별": {
+   "학동": 7,
+   "남산동": 3,
+   "웅천동": 3,
+   "돌산읍": 2,
+   "여서동": 2,
+   "중앙동": 2,
+   "공화동": 1,
+   "교동": 1,
+   "덕충동": 1,
+   "문수동": 1,
+   "서교동": 1,
+   "선원동": 1,
+   "소호동": 1,
+   "수정동": 1,
+   "연등동": 1,
+   "오림동": 1,
+   "종화동": 1,
+   "화장동": 1,
+   "화정면": 1
+  },
+  "동수": 19,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 32
+  },
+  "요금구분": {
+   "유료": 37
+  },
+  "요금_미상": [],
+  "유료_노상": 5,
+  "유료_노외": 32,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 8건 있다 — 학동선소상가 4·학동선소상가 1(149m), 학동선소상가 3·학동선소상가 2(162m), 학동선소상가 2·학동선소상가 1(116m), 진남상가·진남관(108m), 진남상가·이순신광장(185m), 진남관·이순신광장(189m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 37행은 전부 공영이고 데이터기준일자는 전부 2026-04-16이다. 관리기관은 37곳 전부 전라남도 여수시이고 전화번호는 37곳 전부 등록돼 있지 않다",
+   "도로명주소는 21곳이 등록돼 있지 않아 동(법정동·읍·면) 판정과 표기는 지번주소를 기준으로 했다",
+   "등록 급지는 1급지 36곳·2급지 1곳(백야항)이고 조례 별표 1 비고 1의 급지 정의와 방향이 같아 요금표 행 판정에 썼다",
+   "운영요일은 노외 32곳이 전부 평일+토요일+공휴일이고 노상 5구간은 평일만이며, 운영시간은 전부 08:00~20:00이다. 특기사항은 37곳 전부 공란이고, 부제시행구분은 웅천해변공원2·용기공원·소호요트마리나·박람회장 정문 앞·덕충동 엑스포타운 5곳만 '5부제'이고 나머지는 '미시행'이다. 결제방법은 37곳 전부 등록돼 있지 않다",
+   "여수시도시관리공단 유료 공영주차장 현황은 36개소 4,792면(노상 3개소 87면·노외 33개소 4,705면)으로 표준데이터(37곳 4,651면)와 곳수·면수가 다르다 — 공단 현황에만 있는 박람회장(249면)·선소(193면)·종포 해양공원(225면)·덕충동(69면), 표준데이터에만 있는 흥국로·이순신광장로(1) 노상 구간, 면수가 다른 여문공원(241↔248면)·돌산공원(225↔249면)·학동선소상가 1(235↔242면)·화장동(287↔292면) 등은 시청·공단 확인 과제로 남기고 표준데이터 등록 기준으로 실었다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "흥국체육관: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "화장동: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "향일암: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "학동선소상가 4: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "학동선소상가 3: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "학동선소상가 2: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "학동선소상가 1: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "진남상가: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "진남관: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "종화동 물양장: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "이순신광장: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "웅천해변공원2: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "웅천해변공원1: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "웅천 친수공원: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "용기공원: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "오림동: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "오동도: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "여서동로타리: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "여문공원: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "여문: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "시청로터리: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "수산시장 3: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "수산시장 2: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "수산시장 1: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "소호요트마리나: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "선원동: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "서교연등천: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "서교동: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "백야항: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 2급지 소형 요금(최초 60분 무료·초과 10분마다 100원·1일 3500원·월정기 주간 40000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "박람회장 정문 앞: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "돌산공원: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "덕충동 엑스포타운: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 10분) 계산에 쓸 등록값이 없어 조례 별표 1 노외 1급지 소형 요금(최초 60분 무료·초과 10분마다 200원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "흥국로: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 30분) 계산에 쓸 등록값이 없어 조례 별표 1 노상 1급지 소형 요금(최초 30분 무료·초과 30분마다 500원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "중앙로: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 30분) 계산에 쓸 등록값이 없어 조례 별표 1 노상 1급지 소형 요금(최초 30분 무료·초과 30분마다 500원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "이순신광장로(3): '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 30분) 계산에 쓸 등록값이 없어 조례 별표 1 노상 1급지 소형 요금(최초 30분 무료·초과 30분마다 500원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "이순신광장로(2): '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 30분) 계산에 쓸 등록값이 없어 조례 별표 1 노상 1급지 소형 요금(최초 30분 무료·초과 30분마다 500원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제",
+   "이순신광장로(1): '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 공란이라(등록 기본시간 30분) 계산에 쓸 등록값이 없어 조례 별표 1 노상 1급지 소형 요금(최초 30분 무료·초과 30분마다 500원·1일 5000원·월정기 주간 60000원)을 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인 여부는 시청 확인 과제"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "수산시장 1",
+   "수산시장 2",
+   "수산시장 3",
+   "덕충동 엑스포타운",
+   "서교동",
+   "여문",
+   "여서동로타리",
+   "오림동",
+   "웅천 친수공원",
+   "웅천해변공원1",
+   "웅천해변공원2",
+   "종화동 물양장",
+   "진남관",
+   "시청로터리",
+   "학동선소상가 2",
+   "학동선소상가 4",
+   "백야항",
+   "이순신광장로(1)",
+   "이순신광장로(2)",
+   "이순신광장로(3)",
+   "흥국로"
+  ],
+  "감면_출처": "「여수시 주차장 조례」 제2311호 제6조 — 면제(제6조제2항): 우수납세자 또는 모범납세자 중 스티커를 부착한 자동차는 스티커교부일로부터 1년간 주차요금을 면제할 수 있다. 면제(제6조제9항): 「도로교통법」 제2조제22호에 따른 긴급자동차는 주차요금을 면제할 수 있다. 감면(제6조제4항): 국가유공자 50퍼센트(제1호), 5·18민주화운동부상자 50퍼센트(제2호), 고엽제 후유증환자 50퍼센트(제3호), 장애인(본인 명의 등록·직접 운전) 50퍼센트(제4호), 경형자동차 60퍼센트(제5호), 10부제 운행 또는 승용차 함께 타기(3인 이상) 20퍼센트(제6호), 자원봉사자증 제시 50퍼센트(제7호), 장기기증자 및 장기기증등록자 50퍼센트(제8호), 환경친화적자동차 50퍼센트(제9호), 병역명문가 50퍼센트(제10호), 여수·순천 10·19사건 희생자 및 유족 50퍼센트(제11호), 두 자녀 세대 50퍼센트(제12호), 세 자녀 이상 세대 100퍼센트(제13호), 임산부 세대 100퍼센트(제14호). 감면이 중복되는 경우에는 감면비율이 높은 1개 항목만 적용한다. 본문 원문(data/raw/yeosu-ordinance.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 제6조제1항·별표 1(개정 2020-05-27) — 공영주차장의 주차요금은 별표 1과 같고, 시장은 고시한 공영주차장의 요금을 50% 범위에서 할증 또는 할인할 수 있다. 별표 1은 노외 1급지 소형 최초 1시간 무료·초과 10분마다 200원·1일 5,000원·월정기 주간 60,000원(야간 50,000원·주야간 100,000원), 노외 2급지 소형 10분마다 100원·1일 3,500원·월정기 주간 40,000원, 노상 1급지 소형 최초 30분 무료·30분마다 500원·1일 5,000원·월정기 60,000원, 노상 2급지 소형 10분마다 100원·1일 3,500원·월정기 30,000원이다. 표준데이터 등록 37곳은 전부 유료이나 요금 금액이 전부 공란이라 계산기는 별표 1 소형 요금을 등록 급지·유형별로 적용하고 요금표도 조례값을 실었다",
+  "급지_출처": "조례 별표 1 비고 1 — 1급지는 주거지역·상업지역·지구단위계획구역과 시장이 1급지로 지정고시한 지역, 2급지는 1급지 이외의 지역이다. 표준데이터 등록 급지는 1급지 36곳·2급지 1곳(백야항)으로 이 정의와 방향이 같아 행 판정에 썼다",
+  "무료요일_출처": "조례에 주말·공휴일 상시 무료 규정은 없어 유료 37곳의 free_days는 전부 False로 뒀다. 제6조의2의 행사·설·추석 무료 개방과 별표 1 주석의 중식·야간 무료는 고시·승인에 따른 재량 사항이라 요일 모델에 넣지 않고 요금표 창구와 안내 문구에 남겼다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 여수시 등록 37행 전부 공영(노외 32·노상 5) — 민영 제외 0건",
+   "「여수시 주차장 조례」 제2311호(시행 2026-11-11, 공포 2026-11-11, 일부개정, ordinSeq 2184495) 본문 원문(data/raw/yeosu-ordinance.txt) 대조 완료(2026-11-20) — 함께 검색된 「여수시 개방주차장 지원에 관한 조례」·「여수시 주차장특별회계 설치 조례」·「여수시 주차장 조례 시행규칙」은 요금 조례가 아니라 제외했다. 제2311호 개정은 제3조의3 신설·제6조 인용 조문 정비·별표 10·별표 12 개정뿐이라 요금표와 감면율은 바뀌지 않았고 부칙은 공포한 날부터 시행한다고 정함을 여수시청 공포문(조례 제2311호 PDF)으로도 교차 확인했다",
+   "별표 1은 HWP 원본(flSeq 171407443)을 data/raw/yeosu-ordinance-b1.hwp로 저장하고 본문 텍스트를 추출해 확정했다(data/raw/yeosu-ordinance-b1.txt) — 노외·노상으로 나뉜 급지(1·2급지)×차종(소형·대형) 요금표이고 개정일은 2020-05-27이다",
+   "등록 37곳은 전부 '유료'이나 기본·추가·1일·월정기 금액이 전부 공란이라 계산에 쓸 등록값이 없어, 금액이 전부 비어 구조 자체가 없는 불완전한 등록으로 보고 조례 별표 1 소형 요금을 등록 급지·유형별로 계산기에 적용했다(논산·부여·음성·남원·부안 선례, 판단 지점) — 제6조제1항 단서의 고시 할증·할인(50% 범위)과 별표 1의 특별 지정고시 주차장 기준이 실제로 적용되는 곳이 있는지는 시청 확인 과제다",
+   "여수시도시관리공단의 유료 공영주차장 현황(36개소 4,792면 — 노상 3개소 87면·노외 33개소 4,705면)과 요금표(조례 제6조 관련 표기, data/raw/yumcorp.or.kr_공영주차장_현황_요금_감면_20261120.html)는 별표 1 금액과 일치함을 교차 확인했다. 다만 공단 현황은 표준데이터에 없는 박람회장(249면)·선소(193면)·종포 해양공원(225면)·덕충동(69면)을 싣고 표준데이터의 흥국로·이순신광장로(1) 노상 구간과 종화동 물양장·덕충동 엑스포타운·박람회장 정문 앞은 공단 유료 현황에 없어, 두 자료의 대응 관계와 면수 차이(여문공원 241↔248면, 돌산공원 225↔249면 등)는 시청·공단 확인 과제로 남기고 이 사이트는 표준데이터 등록을 기준으로 실었다",
+   "중복 판정은 전체 이름 기준 가드(옥천·영동 선례) — 이름+같은 자리+좌표 200m 이내 중복이 0건이라 합친 행이 없고, 이름이 겹치는 주차장도 없다",
+   "좌표는 37곳 전부 등록돼 있고 여수시 범위 밖 좌표도 없어 지오코딩 보완이 필요 없었다",
+   "도로명주소는 21곳이 등록돼 있지 않아 동(법정동·읍·면) 판정은 지번주소를 기준으로 했다. 전화번호는 37곳 전부 등록돼 있지 않다(시청 확인 과제)",
+   "등록 급지(1급지 36곳·2급지 1곳)는 조례 별표 1 비고 1의 급지 정의와 방향이 같아 요금표 행 판정에 썼다 — 다만 곳별 급지의 지정고시 근거는 시청 확인 과제다"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 0,
+  "무료_구획수": 0,
+  "평균_기본요금": 0,
+  "토요일_미운영": 5,
+  "일공휴일_미운영": 5,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 37,
+  "데이터기준일": [
+   "2026-04-16"
+  ],
+  "관리기관": {
+   "전라남도 여수시": 37
+  }
+ },
+ "fee_table": {
+  "style": "yeosu_grade",
+  "unit_min": 10,
+  "base_min": 60,
+  "applies": "조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「여수시 주차장 조례」 제2311호(시행 2026-11-11, 일부개정), ordinSeq 2184495. 본문 사본 data/raw/yeosu-ordinance.txt. 별표 1(유료 공영주차장 주차요금표)은 HWP 원본을 data/raw/yeosu-ordinance-b1.hwp로 저장하고 본문 텍스트를 추출해 data/raw/yeosu-ordinance-b1.txt로 확인했다.",
+  "rows": [
+   {
+    "label": "노외 1급지 소형",
+    "grade": "off1_small",
+    "unit_label": "최초 1시간 무료 · 초과 10분마다 200원 · 1일 5,000원 · 월정기 주간 60,000원/야간 50,000원/주야간 100,000원",
+    "hour": 0,
+    "two_hour": 1200,
+    "day": 5000,
+    "month": 60000,
+    "lots": 31
+   },
+   {
+    "label": "노외 1급지 대형",
+    "grade": "off1_large",
+    "unit_label": "최초 1시간 무료 · 초과 10분마다 300원 · 1일 8,000원 · 월정기 주간 90,000원/야간 75,000원/주야간 155,000원",
+    "hour": 0,
+    "two_hour": 1800,
+    "day": 8000,
+    "month": 90000,
+    "lots": 0
+   },
+   {
+    "label": "노외 2급지 소형",
+    "grade": "off2_small",
+    "unit_label": "최초 1시간 무료 · 초과 10분마다 100원 · 1일 3,500원 · 월정기 주간 40,000원/야간 30,000원/주야간 60,000원",
+    "hour": 0,
+    "two_hour": 600,
+    "day": 3500,
+    "month": 40000,
+    "lots": 1
+   },
+   {
+    "label": "노외 2급지 대형",
+    "grade": "off2_large",
+    "unit_label": "최초 1시간 무료 · 초과 10분마다 200원 · 1일 5,000원 · 월정기 주간 70,000원/야간 50,000원/주야간 110,000원",
+    "hour": 0,
+    "two_hour": 1200,
+    "day": 5000,
+    "month": 70000,
+    "lots": 0
+   },
+   {
+    "label": "노상 1급지 소형",
+    "grade": "st1_small",
+    "unit_label": "최초 30분 무료 · 초과 30분마다 500원 · 1일 5,000원 · 월정기 60,000원",
+    "hour": 500,
+    "two_hour": 1500,
+    "day": 5000,
+    "month": 60000,
+    "lots": 5
+   },
+   {
+    "label": "노상 1급지 대형",
+    "grade": "st1_large",
+    "unit_label": "최초 30분 무료 · 초과 10분마다 300원 · 1일 8,000원 · 월정기 해당 없음",
+    "hour": 900,
+    "two_hour": 2700,
+    "day": 8000,
+    "month": null,
+    "lots": 0
+   },
+   {
+    "label": "노상 2급지 소형",
+    "grade": "st2_small",
+    "unit_label": "최초 30분 무료 · 초과 10분마다 100원 · 1일 3,500원 · 월정기 30,000원",
+    "hour": 300,
+    "two_hour": 900,
+    "day": 3500,
+    "month": 30000,
+    "lots": 0
+   },
+   {
+    "label": "노상 2급지 대형",
+    "grade": "st2_large",
+    "unit_label": "최초 30분 무료 · 초과 10분마다 200원 · 1일 5,000원 · 월정기 해당 없음",
+    "hour": 600,
+    "two_hour": 1800,
+    "day": 5000,
+    "month": null,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 32,
+   "street_paid": 5,
+   "free": 0,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "주간 시간구분 (월정기 주·야간 구분)",
+    "hours": "주간 08:00~20:00, 그 외 야간",
+    "free": "조례 별표 1 비고 2의 주·야간 구분이다. 등록 운영시간은 노외 37곳 중 32곳이 전 요일 08:00~20:00이고 노상 5구간은 평일만 08:00~20:00이다"
+   },
+   {
+    "group": "중식·야간 무료 (노외, 지정 고시)",
+    "hours": "중식 12:00~14:00 · 야간 20:00~08:00",
+    "free": "조례 별표 1 노외주차장 주석 2 — 주차장별 지정 고시를 통하여 중식시간과 야간시간에 무료로 운영할 수 있다. 다만, 주차장별 상황에 따라 요금과 운영시간을 따로 정할 수 있다. 이용률이 극히 저조하거나 특별한 관리가 필요한 노외주차장은 지정 고시로 2시간 이내 무료로 운영할 수 있다(주석 1)"
+   }
+  ],
+  "notes": "별표 1 비고 1의 급지 구분은 1급지(주거지역·상업지역·지구단위계획구역·시장이 1급지로 지정고시한 지역)와 2급지(1급지 이외의 지역)이고, 등록 급지(1급지 36곳·2급지 1곳)가 이 정의와 방향이 같아 행 판정에 썼다. 차종 구분은 승용차·15인승 이하 승합차·2.5톤 미만 화물자동차는 소형, 그 외의 차량은 대형이다(비고 3). 시설물 관리에 추가 비용이 드는 등 특별한 사정이 있어 시장이 따로 지정 고시한 주차장은 별도 기준(소형 10분마다 200원·1일 최대 평일 5,000원/토·일·공휴일 10,000원, 대형 10분마다 300원·1일 최대 평일 8,000원/토·일·공휴일 16,000원, 최초 무료시간 없음)을 적용한다. 노상주차장은 주차 시 1,000원을 징수한 후 주차 완료 시에 사용 시간에 따라 정산하고, 수익성·효율성을 분석하여 무료로 운영할 수 있다(노상 주석). 시장은 고시한 공영주차장의 요금을 50% 범위에서 할증 또는 할인할 수 있다(제6조제1항 단서). 월 통합 정기주차권(소형 기준, 130,000원)은 관내 모든 유료 공영주차장을 한 달 동안 이용할 수 있다(제6조제7항). 감면은 긴급자동차 면제(제6조제9항), 모범·우수납세자 1년간 면제(제6조제2항), 국가유공자·5·18부상자·고엽제·장애인·자원봉사자·장기기증자·환경친화적차·병역명문가·여순사건 희생자·유족·두 자녀 세대 50%, 경형자동차 60%, 10부제·카풀 20%, 세 자녀 이상·임산부 세대 100%(이상 제6조제4항, 중복 시 높은 1개만 적용)이다.",
+  "basis": "요금표는 「여수시 주차장 조례」 제2311호(시행 2026-11-11) 제6조·별표 1(개정 2020-05-27)과 표준데이터(기준일 2026-04-16)를 대조해 실었다. 등록된 37곳은 전부 유료이나 요금 금액이 전부 공란이라 계산기도 별표 1 소형 요금을 쓴다. 여수시도시관리공단의 유료 공영주차장 요금표(조례 제6조 관련 표기)도 같은 금액임을 교차 확인했다. (조례 본문: data/raw/yeosu-ordinance.txt, 별표 1 원문: data/raw/yeosu-ordinance-b1.txt)"
+ },
+ "slug": "yeosu",
+ "province": "전남광주통합특별시",
+ "province_slug": "jeonnam",
+ "dong_page_min_lots": 3,
+ "city": "여수시",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제6조제9항 — 「도로교통법」 제2조제22호에 따른 긴급자동차는 주차요금을 면제할 수 있다"
+  },
+  {
+   "label": "모범·우수납세자 면제 (1년간)",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제6조제2항 — 우수납세자 또는 모범납세자 중 스티커를 부착한 자동차에 대하여는 스티커교부일로부터 1년간 주차요금을 면제할 수 있다"
+  },
+  {
+   "label": "국가유공자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제4항제1호 — 「국가유공자 등 예우 및 지원에 관한 법률」 제4조제1항제4호 및 같은 항 제6호, 제12호, 제15호 및 제17호에 해당하는 국가유공자의 자동차는 주차요금의 50퍼센트를 감면한다"
+  },
+  {
+   "label": "5·18민주화운동부상자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제4항제2호 — 「5·18민주유공자예우 및 단체설립에 관한 법률」 제4조제2호에 따른 5·18민주화운동부상자의 자동차는 주차요금의 50퍼센트를 감면한다"
+  },
+  {
+   "label": "고엽제 후유증환자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제4항제3호 — 「고엽제후유의증 등 환자지원 및 단체설립에 관한 법률」 제2조제2호에 따른 고엽제 후유증환자의 자동차는 주차요금의 50퍼센트를 감면한다"
+  },
+  {
+   "label": "장애인 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제4항제4호 — 「장애인복지법」 제32조에 따라 등록한 장애인의 명의로 등록하여 해당 장애인이 직접 운전하는 자동차는 주차요금의 50퍼센트를 감면한다"
+  },
+  {
+   "label": "경형자동차 60% 감면",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "조례 제6조제4항제5호 — 경형자동차는 주차요금의 60퍼센트를 감면한다"
+  },
+  {
+   "label": "10부제·승용차 함께 타기 20% 감면",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "조례 제6조제4항제6호 — 10부제 운행 또는 승용차 함께 타기(3인 이상)에 참여 중인 자동차는 주차요금의 20퍼센트를 감면한다"
+  },
+  {
+   "label": "자원봉사자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제4항제7호 — 「여수시 자원봉사활동 지원 조례 시행규칙」 제12조제2항에 따라 발급받은 자원봉사자증을 제시하는 자동차는 주차요금의 50퍼센트를 감면한다"
+  },
+  {
+   "label": "장기기증자·장기기증등록자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제4항제8호 — 「여수시 장기등·인체조직 기증 장려에 관한 조례」에 따른 장기 기증자 및 장기기증등록자로서 장기기증 등록증을 소지한 자의 차량은 주차요금의 50퍼센트를 감면한다"
+  },
+  {
+   "label": "환경친화적 자동차 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제4항제9호 — 「여수시 환경친화적 자동차의 보급 및 이용 활성화를 위한 조례」 제2조제1호의 환경친화적자동차는 주차요금의 50퍼센트를 감면한다"
+  },
+  {
+   "label": "병역명문가 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제4항제10호 — 「여수시 병역명문가 예우에 관한 조례」 제2조에 따른 병역명문가 예우 대상자가 그 증서를 제시한 경우는 주차요금의 50퍼센트를 감면한다"
+  },
+  {
+   "label": "여수·순천 10·19사건 희생자·유족 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제4항제11호 — 「여수·순천 10·19사건 진상규명 및 희생자 명예회복에 관한 특별법」 제2조제2호에 따른 희생자 및 제2조제3호에 따른 유족의 자동차는 주차요금의 50퍼센트를 감면한다"
+  },
+  {
+   "label": "두 자녀 세대 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제4항제12호 — 두 자녀 세대에서 막내 자녀의 나이가 신청일 기준으로 18세 이하인 세대의 차량 중 공영주차장 요금 감면 신청을 완료한 차량 1대는 주차요금의 50퍼센트를 감면한다(부모와 자녀 모두 여수시에 주민등록을 둔 시민에 한정, 신청일로부터 1년간)"
+  },
+  {
+   "label": "세 자녀 이상 세대 100% 감면",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제6조제4항제13호 — 세 자녀 이상 세대에서 막내 자녀의 나이가 신청일 기준으로 18세 이하인 세대의 차량 중 공영주차장 요금 감면 신청을 완료한 차량 1대는 주차요금의 100퍼센트를 감면한다(주민등록 요건 있음, 신청일로부터 1년간)"
+  },
+  {
+   "label": "임산부 세대 100% 감면",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제6조제4항제14호 — 「모자보건법」 제2조제1호에 따른 임산부가 있는 세대의 차량 중 공영주차장 요금 감면 신청을 완료한 차량 1대는 주차요금의 100퍼센트를 감면한다(여수시에 주민등록을 둔 시민에 한정, 신청일로부터 1년간)"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}

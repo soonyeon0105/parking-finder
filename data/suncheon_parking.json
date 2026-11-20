@@ -1,0 +1,3252 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 22:19",
+  "generated_at_iso": "2026-11-20T22:19:34+09:00",
+  "snapshot_at": "2026-11-20 22:19",
+  "region": {
+   "province": "전남광주통합특별시",
+   "city": "순천시"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-10",
+    "rows_total": 18994,
+    "rows_city": 26,
+    "fetched_at": "2026-11-20 22:19 (KST)",
+    "note": "순천시로 등록된 행 26행(전부 공영·노외 10·노상 16)을 읽어 중복 제거 0건으로 26곳을 실었다. 무료 0곳, 유료 26곳이다. 좌표는 26곳 전부 등록돼 있고 도로명주소는 22곳이 결측이다. 조례 대조 완료 — 「순천시 주차장 설치 및 관리 조례」 제2851호(시행 2025-09-30, ordinSeq 2074069) 제4조·별표 2 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「순천시 주차장 설치 및 관리 조례」 제2851호(시행 2025-09-30, 일부개정)",
+    "org": "전남광주통합특별시 순천시청",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2074069",
+    "file": "suncheon-ordinance-b2.txt",
+    "sha256": "d102d637a5be0b272336aef679dc5d1542afda36ece010138082aacb21324859",
+    "license": "자치법규(공개)",
+    "base_date": "2025-09-30",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 22:19 (KST)",
+    "note": "순천시가 설치·관리하는 공영주차장에 적용하는 조례다. 순천시 공영주차장 26곳(노외 10·노상 16)은 총 1,031면이며, 26곳 전부 요금을 받는 유료 주차장이다. 「순천시 주차장 설치 및 관리 조례」 제2851호(시행 2025-09-30, ordinSeq 2074069) 제4조제1항은 공영주차장 요금을 별표 2로 정한다 — 별표 2(개정 2020-06-30)는 급지·차종 요금표로, 1회 주차요금은 1구획당 30분마다 1급지 소형 500원·대형 700원, 2급지 소형 400원·대형 600원이고, 1일주차권은 1급지 소형 8,000원·대형 11,000원, 2급지 소형 5,000원·대형 8,000원, 월 정기주차권은 1급지 소형 80,000원 이하·대형 100,000원 이하, 2급지 소형 50,000원 이하·대형 80,000원 이하다. 등록 26곳은 전부 1급지이고 단위요금(30분마다 500원)·노외 1일주차권(8,000원)·월정기(80,000원)가 별표 2의 1급지 소형 요금과 일치해 계산기도 등록값으로 계산한다. 다만 노외 5곳(금당 제1·시민·왕지 제1·왕지 제2·왕조2동)은 기본시간이 60분 500원으로 등록돼 조례 산식(1시간 1,000원)보다 첫 1시간이 싸다 — 별표 2 비고 7·비고 8의 시장 조정 범위일 수 있어 등록값을 유지하고 시청 확인 과제로 남긴다. 노상 16곳은 별표 2 비고 1에 따라 1일주차권·월정기가 없어 등록 공란이 정상이다. 운영시간은 별표 2 비고 2와 등록이 같이 08:00~20:00이고, 등록 운영요일은 26곳 전부 평일뿐이라 토요일·공휴일은 운영하지 않는다. 감면은 조례 제4조를 따른다(긴급자동차·국가·지자체 공사·업무 차량 면제, 유공납세자·모범납세자 1년간 면제, 국가유공자·고엽제 환자·5.18 부상자·장애인·경형·순천시민카드 소지 세대·장기기증등록자·의사상자·저공해·환경친화적·병역명문가·임산부 50% 감면). 좌표는 26곳 전부 등록돼 있고, 도로명주소는 4곳만 등록돼 있다. (조례 본문: data/raw/suncheon-ordinance.txt, 별표 2 원문: data/raw/suncheon-ordinance-b2.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "순천시",
+   "slug": "suncheon"
+  }
+ ],
+ "lots": [
+  {
+   "id": "jn-suncheon-001",
+   "mgmt_no": "326-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성동 공영주차장",
+   "gu": "순천시",
+   "dong": "동외동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 순천시 동외동 83",
+   "addr_road": "전남광주통합특별시 순천시 강남로 115",
+   "road": null,
+   "spaces": 84,
+   "tel": "061-749-4898",
+   "lat": 34.95467582,
+   "lng": 127.4868485,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 8000,
+    "daily_hours": 12,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 8000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록값(단위 30분마다 500원·1일 8,000원·월정기 80,000원)이 조례 별표 2 1급지 소형 요금과 일치해 등록값을 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-002",
+   "mgmt_no": "326-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "역전 제3공영주차장",
+   "gu": "순천시",
+   "dong": "연향동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 순천시 연향동 1320-4",
+   "addr_road": "전남광주통합특별시 순천시 연향상가8길 9",
+   "road": null,
+   "spaces": 19,
+   "tel": "061-749-4898",
+   "lat": 34.9514276,
+   "lng": 127.517149,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 8000,
+    "daily_hours": 12,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 8000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록값(단위 30분마다 500원·1일 8,000원·월정기 80,000원)이 조례 별표 2 1급지 소형 요금과 일치해 등록값을 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-003",
+   "mgmt_no": "326-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "연향 제1공영주차장",
+   "gu": "순천시",
+   "dong": "연향동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 순천시 연향동 1325-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 62,
+   "tel": "061-749-4898",
+   "lat": 34.953366,
+   "lng": 127.5192805,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 8000,
+    "daily_hours": 12,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 8000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록값(단위 30분마다 500원·1일 8,000원·월정기 80,000원)이 조례 별표 2 1급지 소형 요금과 일치해 등록값을 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-004",
+   "mgmt_no": "326-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "연향 주차타워",
+   "gu": "순천시",
+   "dong": "연향동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 순천시 연향동 1320-4,5",
+   "addr_road": "전남광주통합특별시 순천시 연향상가8길 9",
+   "road": null,
+   "spaces": 81,
+   "tel": "061-749-4898",
+   "lat": 34.9514276,
+   "lng": 127.517149,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 8000,
+    "daily_hours": 12,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 8000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록값(단위 30분마다 500원·1일 8,000원·월정기 80,000원)이 조례 별표 2 1급지 소형 요금과 일치해 등록값을 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-005",
+   "mgmt_no": "326-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "왕지 제1공영주차장",
+   "gu": "순천시",
+   "dong": "왕지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 순천시 왕지동 852-1,2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 136,
+   "tel": "061-749-4898",
+   "lat": 34.9703264,
+   "lng": 127.5235736,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 8000,
+    "daily_hours": 12,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 8000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록값(단위 30분마다 500원·1일 8,000원·월정기 80,000원)이 조례 별표 2 1급지 소형 요금과 일치해 등록값을 적용했다 — 다만 기본시간 60분 등록은 조례 산식보다 첫 1시간이 싸 비고 7·비고 8의 조정 범위인지 시청 확인 과제다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-006",
+   "mgmt_no": "326-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "왕지 제2공영주차장",
+   "gu": "순천시",
+   "dong": "왕지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 순천시 왕지동 853-1,2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 135,
+   "tel": "061-749-4898",
+   "lat": 34.970243,
+   "lng": 127.5248225,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 8000,
+    "daily_hours": 12,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 8000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록값(단위 30분마다 500원·1일 8,000원·월정기 80,000원)이 조례 별표 2 1급지 소형 요금과 일치해 등록값을 적용했다 — 다만 기본시간 60분 등록은 조례 산식보다 첫 1시간이 싸 비고 7·비고 8의 조정 범위인지 시청 확인 과제다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-007",
+   "mgmt_no": "326-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "시민 공영주차장",
+   "gu": "순천시",
+   "dong": "장천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 순천시 장천동 234",
+   "addr_road": "전남광주통합특별시 순천시 시민로 29",
+   "road": null,
+   "spaces": 52,
+   "tel": "061-749-4898",
+   "lat": 34.95254306,
+   "lng": 127.4857625,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 8000,
+    "daily_hours": 12,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 8000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록값(단위 30분마다 500원·1일 8,000원·월정기 80,000원)이 조례 별표 2 1급지 소형 요금과 일치해 등록값을 적용했다 — 다만 기본시간 60분 등록은 조례 산식보다 첫 1시간이 싸 비고 7·비고 8의 조정 범위인지 시청 확인 과제다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-008",
+   "mgmt_no": "326-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금당 제1공영주차장",
+   "gu": "순천시",
+   "dong": "조례동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 순천시 조례동 1605-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 68,
+   "tel": "061-749-4898",
+   "lat": 34.95306217,
+   "lng": 127.5250965,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 8000,
+    "daily_hours": 12,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 8000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록값(단위 30분마다 500원·1일 8,000원·월정기 80,000원)이 조례 별표 2 1급지 소형 요금과 일치해 등록값을 적용했다 — 다만 기본시간 60분 등록은 조례 산식보다 첫 1시간이 싸 비고 7·비고 8의 조정 범위인지 시청 확인 과제다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-009",
+   "mgmt_no": "326-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "왕조2동공영주차장",
+   "gu": "순천시",
+   "dong": "조례동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 순천시 조례동 1824",
+   "addr_road": "",
+   "road": null,
+   "spaces": 67,
+   "tel": "061-749-4898",
+   "lat": 34.95499347,
+   "lng": 127.5326513,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 8000,
+    "daily_hours": 12,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 8000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록값(단위 30분마다 500원·1일 8,000원·월정기 80,000원)이 조례 별표 2 1급지 소형 요금과 일치해 등록값을 적용했다 — 다만 기본시간 60분 등록은 조례 산식보다 첫 1시간이 싸 비고 7·비고 8의 조정 범위인지 시청 확인 과제다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-010",
+   "mgmt_no": "326-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "조례 제1공영주차장",
+   "gu": "순천시",
+   "dong": "조례동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 순천시 조례동 1722-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 43,
+   "tel": "061-749-4898",
+   "lat": 34.9545775,
+   "lng": 127.520339,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 8000,
+    "daily_hours": 12,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 8000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록값(단위 30분마다 500원·1일 8,000원·월정기 80,000원)이 조례 별표 2 1급지 소형 요금과 일치해 등록값을 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-s001",
+   "mgmt_no": "326-1-000021",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "강남로 제1공영주차장",
+   "gu": "순천시",
+   "dong": "동외동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 순천시 동외동 100-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "061-749-4898",
+   "lat": 34.95569098,
+   "lng": 127.4863504,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(30분마다 500원)이 조례 별표 2 1급지 소형 요금과 일치하고, 1일주차권·월정기가 없는 것도 별표 2 비고 1(노상주차장에는 1일주차권·월 정기주차권을 적용하지 않는다)과 일치해 등록값을 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-s002",
+   "mgmt_no": "326-1-000022",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "강남로 제2공영주차장",
+   "gu": "순천시",
+   "dong": "동외동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 순천시 동외동 100-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "061-749-4898",
+   "lat": 34.95565214,
+   "lng": 127.4863504,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(30분마다 500원)이 조례 별표 2 1급지 소형 요금과 일치하고, 1일주차권·월정기가 없는 것도 별표 2 비고 1(노상주차장에는 1일주차권·월 정기주차권을 적용하지 않는다)과 일치해 등록값을 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-s003",
+   "mgmt_no": "326-1-000023",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "의료원R 제1공영주차장",
+   "gu": "순천시",
+   "dong": "매곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 순천시 매곡동 127-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "061-749-4898",
+   "lat": 34.95741319,
+   "lng": 127.4844268,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(30분마다 500원)이 조례 별표 2 1급지 소형 요금과 일치하고, 1일주차권·월정기가 없는 것도 별표 2 비고 1(노상주차장에는 1일주차권·월 정기주차권을 적용하지 않는다)과 일치해 등록값을 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-s004",
+   "mgmt_no": "326-1-000016",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동부 제1공영주차장",
+   "gu": "순천시",
+   "dong": "연향동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 순천시 연향동 1427",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "061-749-4898",
+   "lat": 34.9507529,
+   "lng": 127.5196414,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(30분마다 500원)이 조례 별표 2 1급지 소형 요금과 일치하고, 1일주차권·월정기가 없는 것도 별표 2 비고 1(노상주차장에는 1일주차권·월 정기주차권을 적용하지 않는다)과 일치해 등록값을 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-s005",
+   "mgmt_no": "326-1-000017",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동부 제2공영주차장",
+   "gu": "순천시",
+   "dong": "연향동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 순천시 연향동 1427",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "061-749-4898",
+   "lat": 34.9507529,
+   "lng": 127.5196414,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(30분마다 500원)이 조례 별표 2 1급지 소형 요금과 일치하고, 1일주차권·월정기가 없는 것도 별표 2 비고 1(노상주차장에는 1일주차권·월 정기주차권을 적용하지 않는다)과 일치해 등록값을 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-s006",
+   "mgmt_no": "326-1-000018",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동부 제3공영주차장",
+   "gu": "순천시",
+   "dong": "연향동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 순천시 연향동 1427",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "061-749-4898",
+   "lat": 34.9507529,
+   "lng": 127.5196414,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(30분마다 500원)이 조례 별표 2 1급지 소형 요금과 일치하고, 1일주차권·월정기가 없는 것도 별표 2 비고 1(노상주차장에는 1일주차권·월 정기주차권을 적용하지 않는다)과 일치해 등록값을 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-s007",
+   "mgmt_no": "326-1-000019",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동부 제4공영주차장",
+   "gu": "순천시",
+   "dong": "연향동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 순천시 연향동 1423",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "061-749-4898",
+   "lat": 34.95193299,
+   "lng": 127.518246,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(30분마다 500원)이 조례 별표 2 1급지 소형 요금과 일치하고, 1일주차권·월정기가 없는 것도 별표 2 비고 1(노상주차장에는 1일주차권·월 정기주차권을 적용하지 않는다)과 일치해 등록값을 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-s008",
+   "mgmt_no": "326-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "연향 제2공영주차장",
+   "gu": "순천시",
+   "dong": "연향동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 순천시 연향동 1423",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "061-749-4898",
+   "lat": 34.95193299,
+   "lng": 127.518246,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(30분마다 500원)이 조례 별표 2 1급지 소형 요금과 일치하고, 1일주차권·월정기가 없는 것도 별표 2 비고 1(노상주차장에는 1일주차권·월 정기주차권을 적용하지 않는다)과 일치해 등록값을 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-s009",
+   "mgmt_no": "326-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "연향 제3공영주차장",
+   "gu": "순천시",
+   "dong": "연향동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 순천시 연향동 1423",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "061-749-4898",
+   "lat": 34.95193299,
+   "lng": 127.518246,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(30분마다 500원)이 조례 별표 2 1급지 소형 요금과 일치하고, 1일주차권·월정기가 없는 것도 별표 2 비고 1(노상주차장에는 1일주차권·월 정기주차권을 적용하지 않는다)과 일치해 등록값을 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-s010",
+   "mgmt_no": "326-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "연향 제4공영주차장",
+   "gu": "순천시",
+   "dong": "연향동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 순천시 연향동 1423",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "061-749-4898",
+   "lat": 34.95193299,
+   "lng": 127.518246,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(30분마다 500원)이 조례 별표 2 1급지 소형 요금과 일치하고, 1일주차권·월정기가 없는 것도 별표 2 비고 1(노상주차장에는 1일주차권·월 정기주차권을 적용하지 않는다)과 일치해 등록값을 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-s011",
+   "mgmt_no": "326-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "연향 제5공영주차장",
+   "gu": "순천시",
+   "dong": "연향동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 순천시 연향동 1423",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "061-749-4898",
+   "lat": 34.95193299,
+   "lng": 127.518246,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(30분마다 500원)이 조례 별표 2 1급지 소형 요금과 일치하고, 1일주차권·월정기가 없는 것도 별표 2 비고 1(노상주차장에는 1일주차권·월 정기주차권을 적용하지 않는다)과 일치해 등록값을 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-s012",
+   "mgmt_no": "326-1-000014",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "연향 제6공영주차장",
+   "gu": "순천시",
+   "dong": "연향동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 순천시 연향동 1416",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "061-749-4898",
+   "lat": 34.94754855,
+   "lng": 127.5150886,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(30분마다 500원)이 조례 별표 2 1급지 소형 요금과 일치하고, 1일주차권·월정기가 없는 것도 별표 2 비고 1(노상주차장에는 1일주차권·월 정기주차권을 적용하지 않는다)과 일치해 등록값을 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-s013",
+   "mgmt_no": "326-1-000015",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "연향 제7공영주차장",
+   "gu": "순천시",
+   "dong": "연향동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 순천시 연향동 1431",
+   "addr_road": "",
+   "road": null,
+   "spaces": 42,
+   "tel": "061-749-4898",
+   "lat": 34.95239204,
+   "lng": 127.521408,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(30분마다 500원)이 조례 별표 2 1급지 소형 요금과 일치하고, 1일주차권·월정기가 없는 것도 별표 2 비고 1(노상주차장에는 1일주차권·월 정기주차권을 적용하지 않는다)과 일치해 등록값을 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-s014",
+   "mgmt_no": "326-1-000025",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "역전R 공영주차장",
+   "gu": "순천시",
+   "dong": "조곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 순천시 조곡동 150",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "061-749-4898",
+   "lat": 34.94610207,
+   "lng": 127.498464,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(30분마다 500원)이 조례 별표 2 1급지 소형 요금과 일치하고, 1일주차권·월정기가 없는 것도 별표 2 비고 1(노상주차장에는 1일주차권·월 정기주차권을 적용하지 않는다)과 일치해 등록값을 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-s015",
+   "mgmt_no": "326-1-000020",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "조례 제2공영주차장",
+   "gu": "순천시",
+   "dong": "조례동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 순천시 조례동 1249-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "061-749-4898",
+   "lat": 34.95112451,
+   "lng": 127.5159748,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(30분마다 500원)이 조례 별표 2 1급지 소형 요금과 일치하고, 1일주차권·월정기가 없는 것도 별표 2 비고 1(노상주차장에는 1일주차권·월 정기주차권을 적용하지 않는다)과 일치해 등록값을 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  },
+  {
+   "id": "jn-suncheon-s016",
+   "mgmt_no": "326-1-000024",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "의료원R 제2공영주차장",
+   "gu": "순천시",
+   "dong": "행동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 순천시 행동 1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "061-749-4898",
+   "lat": 34.95708778,
+   "lng": 127.4837775,
+   "base_date": "2026-10-10",
+   "manager": "전남광주통합특별시 순천시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(30분마다 500원)이 조례 별표 2 1급지 소형 요금과 일치하고, 1일주차권·월정기가 없는 것도 별표 2 비고 1(노상주차장에는 1일주차권·월 정기주차권을 적용하지 않는다)과 일치해 등록값을 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "순천시",
+   "city_slug": "suncheon",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 22:19",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 26,
+  "원자료_순천시행수": 26,
+  "원자료_받은행수": 26,
+  "구별": {
+   "순천시": 10
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 10,
+  "노외_부설": {
+   "노외": 10
+  },
+  "노상_구간": 16,
+  "총_구획수": 747,
+  "노상_구획수": 284,
+  "동별": {
+   "연향동": 3,
+   "조례동": 3,
+   "왕지동": 2,
+   "동외동": 1,
+   "장천동": 1
+  },
+  "동수": 5,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 10
+  },
+  "요금구분": {
+   "유료": 26
+  },
+  "요금_미상": [],
+  "유료_노상": 16,
+  "유료_노외": 10,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 52건 있다 — 연향 제1공영주차장·조례 제1공영주차장(165m), 연향 제1공영주차장·연향 제2공영주차장(184m), 연향 제1공영주차장·연향 제3공영주차장(184m), 연향 제1공영주차장·연향 제4공영주차장(184m), 연향 제1공영주차장·연향 제5공영주차장(184m), 연향 제1공영주차장·동부 제4공영주차장(184m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 26행은 전부 공영이고 데이터기준일자는 전부 2026-10-10이다. 관리기관은 26곳 전부 전남광주통합특별시 순천시청이고 전화번호는 26곳 전부 061-749-4898로 같다",
+   "도로명주소는 22곳이 등록돼 있지 않아 동 판정과 표기는 지번주소를 기준으로 했다",
+   "등록 급지는 26곳 전부 1급지이고 조례 별표 2 비고 4의 급지 구분과 어긋나는 곳은 없다",
+   "운영요일은 전부 평일이고 운영시간은 26곳 전부 08:00~20:00이며 토요일·공휴일은 운영하지 않는다. 특기사항은 26곳 전부 공란이고, 부제시행구분은 26곳 전부 '5부제', 결제방법은 전부 '현금+카드'다. 장애인전용주차구역 보유는 12곳(Y)·미보유는 14곳(N)으로 등록돼 있다",
+   "연향 주차타워(연향동 1320-4,5·81면)와 역전 제3공영주차장(연향동 1320-4·19면)은 지번이 겹치고 등록 좌표가 같지만 이름·구획수가 다른 별개 등록이라 둘 다 실었다 — 같은 시설의 이중 등록인지는 시청 확인 과제다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "금당 제1공영주차장: 기본시간이 60분 500원으로 등록돼 조례 별표 2 산식(30분마다 500원 → 1시간 1,000원)보다 첫 1시간이 싸다 — 별표 2 비고 7(수요가 많은 곳은 최초 1시간 이내 무료 운영 가능)·비고 8(시장의 요금 조정) 범위일 수 있어 등록값을 유지하고 시청 확인 과제로 남긴다(공주 선례, 판단 지점)",
+   "시민 공영주차장: 기본시간이 60분 500원으로 등록돼 조례 별표 2 산식(30분마다 500원 → 1시간 1,000원)보다 첫 1시간이 싸다 — 별표 2 비고 7(수요가 많은 곳은 최초 1시간 이내 무료 운영 가능)·비고 8(시장의 요금 조정) 범위일 수 있어 등록값을 유지하고 시청 확인 과제로 남긴다(공주 선례, 판단 지점)",
+   "왕지 제1공영주차장: 기본시간이 60분 500원으로 등록돼 조례 별표 2 산식(30분마다 500원 → 1시간 1,000원)보다 첫 1시간이 싸다 — 별표 2 비고 7(수요가 많은 곳은 최초 1시간 이내 무료 운영 가능)·비고 8(시장의 요금 조정) 범위일 수 있어 등록값을 유지하고 시청 확인 과제로 남긴다(공주 선례, 판단 지점)",
+   "왕지 제2공영주차장: 기본시간이 60분 500원으로 등록돼 조례 별표 2 산식(30분마다 500원 → 1시간 1,000원)보다 첫 1시간이 싸다 — 별표 2 비고 7(수요가 많은 곳은 최초 1시간 이내 무료 운영 가능)·비고 8(시장의 요금 조정) 범위일 수 있어 등록값을 유지하고 시청 확인 과제로 남긴다(공주 선례, 판단 지점)",
+   "왕조2동공영주차장: 기본시간이 60분 500원으로 등록돼 조례 별표 2 산식(30분마다 500원 → 1시간 1,000원)보다 첫 1시간이 싸다 — 별표 2 비고 7(수요가 많은 곳은 최초 1시간 이내 무료 운영 가능)·비고 8(시장의 요금 조정) 범위일 수 있어 등록값을 유지하고 시청 확인 과제로 남긴다(공주 선례, 판단 지점)"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "연향 제1공영주차장",
+   "왕지 제1공영주차장",
+   "왕지 제2공영주차장",
+   "금당 제1공영주차장",
+   "왕조2동공영주차장",
+   "조례 제1공영주차장",
+   "강남로 제1공영주차장",
+   "강남로 제2공영주차장",
+   "의료원R 제1공영주차장",
+   "동부 제1공영주차장",
+   "동부 제2공영주차장",
+   "동부 제3공영주차장",
+   "동부 제4공영주차장",
+   "연향 제2공영주차장",
+   "연향 제3공영주차장",
+   "연향 제4공영주차장",
+   "연향 제5공영주차장",
+   "연향 제6공영주차장",
+   "연향 제7공영주차장",
+   "역전R 공영주차장",
+   "조례 제2공영주차장",
+   "의료원R 제2공영주차장"
+  ],
+  "감면_출처": "「순천시 주차장 설치 및 관리 조례」 제2851호 제4조 — 면제(제4조제3항): 「도로교통법」 규정에 따른 긴급자동차와 국가 또는 지방자치단체 소유의 자동차 중 공사 또는 업무수행 차량에 대해서는 주차요금을 면제할 수 있다. 면제(제4조제5항): 유공납세자·모범납세자 중 성실납세필증 표시 부착차량에 대하여는 1년간 주차요금을 면제할 수 있다. 감면(제4조제4항): 국가유공자, 고엽제후유의증환자, 광주민주화운동부상자 및 장애인이 사용하는 자동차(제1호), 경형자동차(제2호), 순천시민카드 또는 1개월 이내 주민등록 등본을 소지한 세대주 및 그 세대원이 운전한 자동차(제3호), 장기 및 인체조직 등 기증등록증을 소지한 자가 운전한 자동차(제4호), 의사상자 예우 조례에 따른 의상자가 운전한 자동차(제5호), 저공해자동차 표지 부착 자동차(제6호), 환경친화적 자동차 표지 부착 자동차(제7호, 단 전기자동차를 충전할 경우에는 2시간 범위에서 주차요금을 면제), 병역명문가 예우대상자 및 그 가족이 운전한 자동차(제8호), 산모수첩 등 임산부 증명자료를 소지한 임산부가 탑승한 자동차(제9호)는 주차요금의 50%를 면제한다. 본문 원문(data/raw/suncheon-ordinance.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 제4조제1항·별표 2(개정 2020-06-30) — 공영주차장의 주차요금은 별표 2에 따른다. 별표 2는 급지·차종 요금표로 1회 주차요금은 1구획당 30분마다 1급지 소형 500원·대형 700원, 2급지 소형 400원·대형 600원이고, 1일주차권은 1급지 소형 8,000원·대형 11,000원, 2급지 소형 5,000원·대형 8,000원, 월 정기주차권은 1급지 소형 80,000원 이하·대형 100,000원 이하, 2급지 소형 50,000원 이하·대형 80,000원 이하다. 비고 1은 노상주차장에 1일주차권·월 정기주차권을 적용하지 않고, 비고 2는 운영시간을 08:00부터 20:00까지로 하며, 비고 3은 30분 단위 올림을 정한다. 표준데이터 등록 26곳은 전부 1급지·유료로 단위요금(30분마다 500원)·노외 1일(8,000원)·월정기(80,000원)가 별표 2의 1급지 소형 요금과 일치해 계산기는 등록값을 쓰고 요금표는 조례값을 실었다 — 노외 5곳의 기본 60분 500원 등록은 급지_요금_차이에 판단 지점으로 남겼다",
+  "급지_출처": "조례 별표 2 비고 4 — 1급지는 도시계획구역 내 상업지역·주거지역, 2급지는 1급지 이외의 지역이다. 표준데이터 등록 급지는 26곳 전부 1급지라 요금표 행 판정에 그대로 썼다",
+  "무료요일_출처": "조례에 주말·공휴일 상시 무료 규정은 없어 유료 26곳의 free_days는 전부 False로 뒀다. 등록 운영요일이 26곳 전부 평일뿐이라 토요일·공휴일은 요금 이전에 운영 자체를 하지 않는다(운영시간 칸에 반영). 별표 2 비고 2의 운영시간(08:00~20:00) 외 시간의 개방·요금 여부는 조례에 규정이 없어 시청 확인 과제다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 순천시 등록 26행 전부 공영(노외 10·노상 16) — 민영 제외 0건",
+   "「순천시 주차장 설치 및 관리 조례」 제2851호(시행 2025-09-30, 공포 2025-09-30, 일부개정, ordinSeq 2074069) 본문 원문(data/raw/suncheon-ordinance.txt) 대조 완료(2026-11-20) — 부칙이 '공포한 날부터 시행'이라 2025-09-30 공포본이 현행 시행본이다",
+   "별표 2는 HWP 원본(flSeq 166662091)을 data/raw/suncheon-ordinance-b2.hwp로 저장하고 본문 텍스트를 추출해 확정했다(data/raw/suncheon-ordinance-b2.txt) — 급지(1·2급지)×차종(소형·대형) 요금표이고 개정일은 2020-06-30이다",
+   "등록 26곳의 단위요금(30분마다 500원)과 노외 10곳의 1일주차권(8,000원)·월정기(80,000원)는 조례 별표 2의 1급지 소형 요금과 일치해 계산기는 등록값을 쓴다(공주 선례) — 월정기 80,000원은 별표의 '80,000원 이하' 상한과 같다",
+   "노외 5곳(금당 제1·시민·왕지 제1·왕지 제2·왕조2동)의 기본 60분 500원 등록은 조례 산식(30분마다 500원 → 1시간 1,000원)보다 첫 1시간이 싸다 — 별표 2 비고 7·비고 8의 시장 조정 범위일 수 있어 등록값을 유지하고 급지_요금_차이에 판단 지점으로 남겼다(시청 확인 과제)",
+   "노상 16곳의 1일주차권·월정기 공란은 별표 2 비고 1(노상주차장에는 1일주차권·월 정기주차권을 적용하지 않는다)과 일치하는 정상 등록이라 요금 차이로 세지 않았다",
+   "중복 판정은 전체 이름 기준 가드(옥천·영동 선례) — 같은 이름 중복이 0건이라 합친 행이 없다. 연향 주차타워(연향동 1320-4,5·81면)와 역전 제3공영주차장(연향동 1320-4·19면)은 지번이 겹치고 좌표가 같지만 이름·구획수가 다른 별개 등록이라 둘 다 실었다 — 같은 시설의 이중 등록인지는 시청 확인 과제다",
+   "좌표는 26곳 전부 등록돼 있고 전부 순천시 범위 안이라 비우거나 지오코딩으로 채운 곳이 없다(오버레이 무변경)",
+   "도로명주소는 4곳(시민·성동·연향 주차타워·역전 제3공영주차장)만 등록돼 있어 동 판정은 지번주소를 기준으로 했다. 전화번호는 26곳 전부 061-749-4898로 같다",
+   "등록 급지는 26곳 전부 1급지이고, 운영요일은 전부 평일(08:00~20:00)뿐이며 토요일·공휴일은 운영하지 않는다. 부제시행구분은 26곳 전부 5부제, 결제방법은 전부 현금+카드, 특기사항은 전부 공란이다"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 0,
+  "무료_구획수": 0,
+  "평균_기본요금": 0,
+  "토요일_미운영": 26,
+  "일공휴일_미운영": 26,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-10-10"
+  ],
+  "관리기관": {
+   "전남광주통합특별시 순천시청": 26
+  }
+ },
+ "fee_table": {
+  "style": "suncheon_grade",
+  "unit_min": 30,
+  "base_min": 30,
+  "applies": "조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「순천시 주차장 설치 및 관리 조례」 제2851호(시행 2025-09-30, 일부개정), ordinSeq 2074069. 본문 사본 data/raw/suncheon-ordinance.txt. 별표 2(공영주차장 요금표)는 HWP 원본을 data/raw/suncheon-ordinance-b2.hwp로 저장하고 본문 텍스트를 추출해 data/raw/suncheon-ordinance-b2.txt로 확인했다.",
+  "rows": [
+   {
+    "label": "1급지 소형 (승용·16인승 미만 승합·2.5톤 미만 화물)",
+    "grade": "1-small",
+    "unit_label": "1회 주차요금 30분마다 500원 · 1일 8,000원 · 월정기 80,000원 이하",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": 8000,
+    "month": 80000,
+    "lots": 26
+   },
+   {
+    "label": "1급지 대형 (그 외 차량)",
+    "grade": "1-large",
+    "unit_label": "1회 주차요금 30분마다 700원 · 1일 11,000원 · 월정기 100,000원 이하",
+    "hour": 1400,
+    "two_hour": 2800,
+    "day": 11000,
+    "month": 100000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 소형",
+    "grade": "2-small",
+    "unit_label": "1회 주차요금 30분마다 400원 · 1일 5,000원 · 월정기 50,000원 이하",
+    "hour": 800,
+    "two_hour": 1600,
+    "day": 5000,
+    "month": 50000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 대형",
+    "grade": "2-large",
+    "unit_label": "1회 주차요금 30분마다 600원 · 1일 8,000원 · 월정기 80,000원 이하",
+    "hour": 1200,
+    "two_hour": 2400,
+    "day": 8000,
+    "month": 80000,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 10,
+   "street_paid": 16,
+   "free": 0,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "운영시간 (조례 별표 2 비고 2)",
+    "hours": "08:00~20:00",
+    "free": "등록 운영시간도 26곳 전부 평일 08:00~20:00으로 같고, 토요일·공휴일은 운영요일에 없어 운영하지 않는다"
+   }
+  ],
+  "notes": "별표 2의 급지는 1급지를 도시계획구역 내 상업지역·주거지역으로, 2급지를 그 외 지역으로 구분한다(비고 4) — 등록 26곳은 전부 1급지다. 차종 구분은 승용차·16인승 미만 승합자동차·2.5톤 미만 화물자동차는 소형, 그 외의 차량은 대형이다(비고 5). 이 요금표는 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용하고, 노상주차장에 대하여는 1일주차권 및 월 정기주차권을 적용하지 않는다(비고 1). 최초 주차시간이 30분 미만일 경우에는 30분으로 하고, 초과시간 30분 미만일지라도 30분으로 본다(비고 3). 시장은 주차장 회전율을 높이기 위해 주차수요가 많은 공영주차장의 경우 최초 1시간 이내를 무료로 운영할 수 있고(비고 7), 필요한 경우 주차요금 및 이용시간 등을 조정할 수 있다(비고 8). 감면은 긴급자동차·국가·지자체 공사·업무 차량 면제, 유공납세자·모범납세자 1년간 면제(이상 제4조제3항·제5항), 국가유공자·고엽제 환자·5.18 부상자·장애인·경형·순천시민카드 소지 세대·장기기증등록자·의사상자·저공해·환경친화적·병역명문가·임산부 50% 감면(제4조제4항)이다.",
+  "basis": "요금표는 「순천시 주차장 설치 및 관리 조례」 제2851호(시행 2025-09-30) 제4조·별표 2(개정 2020-06-30)와 표준데이터(기준일 2026-10-10)를 대조해 실었다. 등록된 26곳은 전부 1급지·유료이고 단위요금·1일·월정기가 별표 2의 1급지 소형 요금과 일치한다 — 노외 5곳의 기본 60분 500원 등록만 조례 산식과 달라 계산기는 등록값으로 계산하고 차이를 본문에 남겼다. (조례 본문: data/raw/suncheon-ordinance.txt, 별표 2 원문: data/raw/suncheon-ordinance-b2.txt)"
+ },
+ "slug": "suncheon",
+ "province": "전남광주통합특별시",
+ "province_slug": "jeonnam",
+ "dong_page_min_lots": 3,
+ "city": "순천시",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·국가·지자체 공사·업무 차량 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제4조제3항 — 「도로교통법」 규정에 따른 긴급자동차와 국가 또는 지방자치단체 소유의 자동차 중 공사 또는 업무수행 차량에 대해서는 주차요금을 면제할 수 있다"
+  },
+  {
+   "label": "유공납세자·모범납세자 면제 (1년간)",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제4조제5항 — 유공납세자·모범납세자 중 성실납세필증 표시 부착차량에 대하여는 1년간 주차요금을 면제할 수 있다"
+  },
+  {
+   "label": "국가유공자·고엽제 환자·5.18 부상자·장애인 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제4조제4항제1호 — 국가유공자, 고엽제후유의증환자, 광주민주화운동부상자 및 장애인이 사용하는 자동차는 주차요금의 50%를 면제한다"
+  },
+  {
+   "label": "경형자동차 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제4조제4항제2호 — 「자동차관리법 시행규칙」 규정에 따른 경형자동차는 주차요금의 50%를 면제한다"
+  },
+  {
+   "label": "순천시민카드 소지 세대 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제4조제4항제3호 — 「순천시 저출산 대책 및 출산장려 지원에 관한 조례」에 따른 순천시민카드 또는 1개월 이내 주민등록 등본을 소지한 세대주 및 그 세대원이 운전한 자동차는 주차요금의 50%를 면제한다"
+  },
+  {
+   "label": "장기기증등록자·의사상자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제4조제4항제4호·제5호 — 장기 및 인체조직 등 기증등록증을 소지한 자가 운전한 자동차와 의사상자 예우 조례에 따른 의상자가 운전한 자동차는 주차요금의 50%를 면제한다"
+  },
+  {
+   "label": "저공해·환경친화적 자동차 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제4조제4항제6호·제7호 — 저공해자동차 표지 부착 자동차와 환경친화적 자동차 표지 부착 자동차는 주차요금의 50%를 면제한다(단, 전기자동차를 충전할 경우에는 2시간 범위에서 주차요금을 면제한다)"
+  },
+  {
+   "label": "병역명문가·임산부 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제4조제4항제8호·제9호 — 병역명문가 예우대상자 및 그 가족이 운전한 자동차와 산모수첩 등 임산부 증명자료를 소지한 임산부가 탑승한 자동차는 주차요금의 50%를 면제한다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
