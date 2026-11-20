@@ -11156,6 +11156,51 @@ def fee_table_block(city) -> str:
 <p class="updated">{esc(ft.get('notes') or '')}</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "haenam_grade":
+        # 해남군 — 공영 47곳(전부 노외, 총 1,766면) 전부 무료.
+        #   「해남군 주차장 조례」 제3484호(시행 2026-04-01)
+        #   제12조·제18조·별표 1은 급지(1·2급지)×차종(소형·
+        #   대형) 요금표로, 주차요금은 30분마다 1급지 소형
+        #   500원·대형 600원, 2급지 소형 400원·대형 500원이고
+        #   1일 주차요금은 1급지 소형 5,000원·대형 6,000원,
+        #   2급지 소형 4,000원·대형 5,000원, 월정기는 주간
+        #   1급지 소형 50,000원·대형 70,000원, 2급지 소형
+        #   40,000원·대형 50,000원, 야간 1급지 소형 40,000원·
+        #   대형 60,000원, 2급지 소형 30,000원·대형
+        #   40,000원이다. 등록 47곳이 전부 무료라 이 표는
+        #   조례 기준 요금의 참고표로만 싣는다(서천·순창·영암
+        #   선례). 등록 급지는 1급지 37곳·2급지 10곳이나 전부
+        #   무료라 행 판정에 쓰지 않았다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1 — 참고표)</h2>
+<p class="lede">해남군 공영주차장 <b>47곳은 전부 무료</b>로 등록돼 있습니다. 아래 표는
+「해남군 주차장 조례」 제3484호 별표 1이 정한 기준 요금으로, 실제로 요금을 받는 곳은
+없습니다. 별표 1은 급지(1·2급지)와 차종(소형·대형)으로 요금을 정합니다 —
+<b>1급지 소형</b>은 30분마다 <b>500원</b>(1시간 1,000원), <b>1일 5,000원</b>이고,
+<b>2급지 소형</b>은 30분마다 <b>400원</b>, 1일 <b>4,000원</b>입니다. 급지는 1급지가
+해남읍, 2급지가 그 밖의 전 지역이며(별표 1 비고 2), 차종은 승용차·15인 미만
+승합자동차·2.5톤 미만 화물자동차가 소형이고 그 외의 차량은 대형입니다(비고 4).
+주간은 4~10월 08:00~20:00, 11~3월 08:00~19:00이고 나머지는 야간입니다(비고 1).
+궁금한 점은 해남군청 안전교통과(061-530-5645)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차요금</th><th class="num">월정기(주간)</th>
+  <th class="num">월정기(야간)</th><th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 {corp.get('free', 0)}곳은 전부 요금 구분이
+‘무료’라 요일과 관계없이 무료이고, 유료 주차장은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
