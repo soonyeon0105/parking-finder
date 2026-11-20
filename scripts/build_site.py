@@ -6298,6 +6298,24 @@ def jsonld_itemlist(lots, path):
     }
 
 
+def jsonld_link_itemlist(name, items):
+    """허브 페이지용 ItemList — 개별 주차장이 아니라 페이지에 실제로 있는
+    지역 카드 링크(이름·URL)만 넣는다. items 는 (표시 이름, 절대 경로) 쌍."""
+    return {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": name,
+        "numberOfItems": len(items),
+        "itemListOrder": "https://schema.org/ItemListOrderAscending",
+        "itemListElement": [
+            {"@type": "ListItem", "position": i + 1,
+             "name": label,
+             "url": f"{SITE_BASE}{href}"}
+            for i, (label, href) in enumerate(items)
+        ],
+    }
+
+
 def jsonld_faq(qa, path):
     return {
         "@context": "https://schema.org",
@@ -14722,7 +14740,8 @@ def region_filter_block() -> str:
     """지역명 검색 필터 — data-name 이 붙은 지역 카드를 이름으로 거른다.
 
     외부 라이브러리 없이 페이지 안 스크립트로만 동작한다. data-group 섹션은
-    안의 카드가 전부 숨으면 함께 숨긴다.
+    안의 카드가 전부 숨으면 함께 숨긴다. 이 블록은 카드 섹션보다 앞에 출력되므로
+    스크립트는 DOMContentLoaded 이후에 실행해 카드가 모두 파싱된 뒤에 찾는다.
     """
     return """
 <div class="hero-search">
@@ -14733,7 +14752,7 @@ def region_filter_block() -> str:
   <p class="ff-status" id="region-q-status" aria-live="polite"></p>
 </div>
 <script>
-(function () {
+document.addEventListener('DOMContentLoaded', function () {
   var input = document.getElementById('region-q');
   if (!input) return;
   var items = Array.prototype.slice.call(document.querySelectorAll('[data-name]'));
@@ -14760,7 +14779,7 @@ def region_filter_block() -> str:
     }
   }
   input.addEventListener('input', apply);
-})();
+});
 </script>
 """
 
@@ -14807,6 +14826,7 @@ def build_free_hub(site):
     free_type = [l for l in free_open_lots(all_lots) if "무료" in lot_free_tags(l)]
 
     sections = []
+    card_links = []
     for prov in province_order(site):
         cards = []
         prov_slug = ""
@@ -14817,9 +14837,10 @@ def build_free_hub(site):
                 continue
             sf = strict_free_stats(city.get("_card_lots") or [])
             href = city_free_path(city) if c["union"] >= 5 else city_path(city)
+            card_links.append((f"{prov} {city['city']}", href))
             cards.append(f'''<a class="link-card" data-name="{esc(prov)} {esc(city['city'])}" href="{rel(path, href)}">
   <span class="t">{city['city']}<span class="go">{c['union']}곳 →</span></span>
-  <span class="d">무료 {c['free']}곳 · {sf['spaces']:,}면 · 주말·공휴일 {c['weekend']} · 야간 {c['night']}</span>
+  <span class="d">무료로 쓸 수 있는 곳 {c['union']}곳 — 요금 무료 {c['free']}곳({sf['spaces']:,}면) · 주말·공휴일 무료 {c['weekend']}곳 · 야간 무료 {c['night']}곳</span>
 </a>''')
         if cards:
             sections.append(
@@ -14943,7 +14964,7 @@ def build_free_hub(site):
                      f"{total['union']}곳을 지역별로 정리했습니다. 공휴일 기준과 야간 무료 시간대도 함께 확인하세요."),
         path=path, body=body, crumbs=crumbs, nav_active="free", city=None,
         jsonld=[jsonld_breadcrumb(crumbs, path),
-                jsonld_itemlist(free_open_lots(all_lots)[:60], path),
+                jsonld_link_itemlist("지역별 무료 공영주차장", card_links),
                 jsonld_faq(qa, path)])
 
 
@@ -15036,7 +15057,8 @@ def build_province_free(prov, site):
                      "시·군별로 정리했습니다. 지역명으로 검색해 무료 주차장을 찾으세요."),
         path=path, body=body, crumbs=crumbs, nav_active="free", city=None,
         jsonld=[jsonld_breadcrumb(crumbs, path),
-                jsonld_itemlist(sorted(all_free, key=lambda l: -(l["spaces"] or 0))[:60], path),
+                jsonld_link_itemlist(f"{prov} 시·군별 무료 주차장",
+                                     [(r[0]["city"], r[2]) for r in rows]),
                 jsonld_faq(qa, path)])
 
 
