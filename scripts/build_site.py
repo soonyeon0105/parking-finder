@@ -8111,6 +8111,86 @@ def district_dataset_lines(city, ui, gap_line) -> str:
     <li>표준데이터에는 일요일 전용 운영시간 칸이 없어 <b>일요일은 공휴일 칸을 준용</b>했습니다.</li>"""
 
 
+def _fee_row_phrase(row, *, full=True) -> str:
+    """fee_table 한 행을 메타용 짧은 문구로 바꾼다.
+
+    · 일반 행(label·unit_label): "1급지 (읍 지역) 1시간 500원 · 초과 30분마다 500원"
+      (unit_label 의 앞 두 덩어리까지만 쓴다 — 월정기 등 뒤쪽 정보는 메타에서 뺀다)
+    · 평택 grade_flat 행(grade·base_min·base_fee·free_min·unit_fee): 필드로 문구를 만든다.
+    """
+    label = (row.get("label") or "").strip()
+    unit = (row.get("unit_label") or "").strip()
+    if unit:
+        segs = unit.split(" · ")
+        head = " · ".join(segs[:2] if full else segs[:1])
+        return f"{label} {head}" if label else head
+    grade = row.get("grade")
+    if isinstance(grade, int):
+        if row.get("free_min"):
+            return (f"{grade}급지 최초 {row['free_min']}분 무료"
+                    + (f"·이후 10분당 {won(row['unit_fee'])}"
+                       if full and row.get("unit_fee") else ""))
+        if row.get("base_fee") is not None:
+            return (f"{grade}급지 {row.get('base_min', 30)}분 {won(row['base_fee'])}"
+                    + (f"·10분당 {won(row['unit_fee'])}"
+                       if full and row.get("unit_fee") else ""))
+    return ""
+
+
+def fee_meta_phrases(city) -> list:
+    """그 도시 fee_table 에서 급지별 대표 문구를 뽑는다(급지당 첫 행, 최대 3개).
+
+    행 전체가 같은 grade 키를 공유하면(보령시 — 급지가 아니라 시설군 구분)
+    급지 기준으로는 한 줄로 접히므로, 그때는 행(label) 기준으로 뽑는다.
+    """
+    ft = city.get("fee_table") or {}
+    rows = ft.get("rows") or []
+    by_label = len({r.get("grade") for r in rows}) <= 1 and len(rows) > 1
+    seen, out = set(), []
+    for row in rows:
+        key = row.get("label") if by_label else row.get("grade", row.get("label"))
+        if key in seen:
+            continue
+        seen.add(key)
+        phrase = _fee_row_phrase(row)
+        if phrase:
+            out.append(phrase)
+        if len(out) >= 3:
+            break
+    return out
+
+
+def hub_meta(city, gu, n):
+    """구가 없는 시·군 페이지(hub)의 제목·메타 설명 — 도시별 템플릿이 없을 때 쓴다.
+
+    예전에는 평택시 문구("1급지 90분 무료·2급지 30분 800원·3급지 30분 600원")가
+    기본값으로 박혀 있어, hub_title_tpl/hub_description_tpl 이 없는 시·군 35곳이
+    전부 자기 조례와 다른 같은 메타를 내보냈다. 이제는 각 도시의 fee_table
+    데이터에서 그 지역 요금을 뽑아 만들므로, 어떤 지역에도 남의 요금 문구가
+    그대로 나가지 않는다. fee_table 이 없는 도시는 요금 숫자가 없는 중립
+    문구로 떨어진다.
+    """
+    ft = city.get("fee_table") or {}
+    rows = ft.get("rows") or []
+    phrases = fee_meta_phrases(city)
+    if not phrases:
+        return (f"{gu} 공영주차장 {n}곳 요금·무료 개방 총정리 | {SITE_NAME}",
+                f"{gu} 공영주차장 {n}곳의 주차요금, 운영시간, 구획수, 주말·공휴일 무료 개방 정보를 "
+                f"공공데이터로 정리했습니다. 2시간 주차 예상요금과 무료 개방 여부를 바로 계산해 보세요.")
+    title = (f"{gu} 공영주차장 {n}곳 주차요금 계산 — "
+             f"{_fee_row_phrase(rows[0], full=False)} | {SITE_NAME}")
+    fee_part = ", ".join(phrases)
+    corp = ft.get("corp") or {}
+    if corp.get("paid") == 0 and corp.get("free"):
+        # 유료 주차장이 한 곳도 없는 지역 — 조례 요금표는 참고표로만 싣는다.
+        description = (f"{gu} 공영주차장 {n}곳은 모두 무료로 등록돼 있습니다. 조례 요금표"
+                       f"({fee_part})와 운영시간·구획수를 공공데이터로 정리했습니다.")
+    else:
+        description = (f"{gu} 공영주차장 {n}곳의 주차요금({fee_part})과 운영시간·구획수를 "
+                       f"공공데이터로 정리했습니다. 2시간·하루 주차비를 바로 계산해 보세요.")
+    return title, description
+
+
 def build_district(city, d, lots, site, path=None, hub=False):
     """구(또는 구가 없는 시) 페이지 — 계산기·주차장 목록·동별 표.
 
@@ -8707,14 +8787,14 @@ def build_district(city, d, lots, site, path=None, hub=False):
     crumbs = ([("홈", "/"), (city.get("province") or "경기도", None), (f"{gu} 공영주차장", "")] if hub
               else [("홈", "/"), (city.get("province") or "경기도", None), (city["city"], city_path(city)),
                     (f"{gu} 공영주차장", "")])
-    title = (f"{gu} 공영주차장 {s['n']}곳 주차요금 계산 — 1급지 90분 무료·급지별 요금 | {SITE_NAME}"
-             if hub else f"{gu} 공영주차장 {s['n']}곳 요금·무료 개방 총정리 | {SITE_NAME}")
-    description = (f"{gu} 공영주차장 {s['n']}곳의 급지별 주차요금(1급지 90분 무료·2급지 30분 800원·"
-                   f"3급지 30분 600원)과 운영시간·구획수를 공공데이터로 정리했습니다. "
-                   f"2시간·하루 주차비를 바로 계산해 보세요."
-                   if hub else
-                   f"{gu} 공영주차장 {s['n']}곳의 주차요금, 운영시간, 구획수, 주말·공휴일 무료 개방 정보를 "
-                   f"공공데이터로 정리했습니다. 2시간 주차 예상요금과 무료 개방 여부를 바로 계산해 보세요.")
+    if hub:
+        # 구가 없는 시·군 — 메타는 그 도시 fee_table 에서 뽑는다(hub_meta).
+        # 도시별 템플릿(hub_title_tpl 등)이 있으면 아래에서 그것으로 덮는다.
+        title, description = hub_meta(city, gu, s["n"])
+    else:
+        title = f"{gu} 공영주차장 {s['n']}곳 요금·무료 개방 총정리 | {SITE_NAME}"
+        description = (f"{gu} 공영주차장 {s['n']}곳의 주차요금, 운영시간, 구획수, 주말·공휴일 무료 개방 정보를 "
+                       f"공공데이터로 정리했습니다. 2시간 주차 예상요금과 무료 개방 여부를 바로 계산해 보세요.")
     # 자치구가 없는 시는 시 이름·문구가 도시별로 다르다(평택시·남양주시) — 화면 문구가 있으면 그것을 쓴다.
     if hub and ui.get("hub_title_tpl"):
         title = ui["hub_title_tpl"].format(gu=gu, n=s["n"], site=SITE_NAME)
