@@ -777,6 +777,12 @@ MIX["jangseong"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
 #   금산 페이지에 정당하게 나오는 다른 지역 이름은 없어 전 토큰을 그대로 쓴다.
 MIX["geumsan"] = tuple(sorted(_all_mix_tokens))
 
+# 영광군 — 나주와 같은 부류. 영광의 도 이름 ‘전남광주통합특별시’에 든 ‘광주’는
+#   영광 페이지에 정당하게 나오므로 금지 토큰에서 뺀다(‘광주시’는 그대로 둬
+#   경기 광주 자료 혼입은 계속 잡는다). 조례 제4조제7호의 ‘5·18민주유공자’
+#   표기도 영광 페이지에 정당하게 나온다.
+MIX["yeonggwang"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
+
 _ALL_ADDRS = sorted({(l.get("addr_jibun") or "") for l in LOTS}
                      | {(l.get("addr_road") or "") for l in LOTS}, key=len, reverse=True)
 _ALL_NAMES = [l["name"] for l in LOTS]
