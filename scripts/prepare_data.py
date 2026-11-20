@@ -63236,6 +63236,636 @@ def build_jindo():
     return payload
 
 
+# ── 전남광주통합특별시 신안군 ─────────────────────────
+#   「신안군 주차장 설치 및 관리 조례」 제2814호(시행
+#   2025-03-01, ordinSeq 2018729) 제4조·제4조의2·
+#   별표 1 원문 대조 완료(2026-11-20). 표준데이터 등록
+#   공영 152곳(노외 93곳·부설 59곳, 총 6,750면)이 전부
+#   '무료'로 등록돼 있어 조례 별표 1 요금표는 참고표로만
+#   싣는다 — 제4조는 공영주차장 중 '유료주차장'의 요금을
+#   별표 1로 정하고 별표 1 비고 1도 이 표가 군수가 설치한
+#   유료주차장에 적용된다고 정한다(서천·순창·영암·해남·
+#   고흥·보성·장흥·완도 선례와 같은 구조). 좌표는 등록
+#   7곳뿐이고 결측 145곳 중 130곳은 ArcGIS World
+#   Geocoding으로 보완했고(반환 주소가 등록 지번주소와
+#   번지까지 일치·score 100·PointAddress인 경우만 채택)
+#   15곳은 일치 후보가 없어 비워 뒀다.
+SINAN_PROVINCE = "전남광주통합특별시"
+SINAN_PROVINCE_SLUG = "jeonnam"
+SINAN_ORD_URL = "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2018729"
+SINAN_ORD_TXT = RAW / "sinan-ordinance-b1.txt"
+SINAN_ORD_NOTE = ("조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — "
+                  "「신안군 주차장 설치 및 관리 조례」 제2814호(시행 2025-03-01, "
+                  "일부개정), ordinSeq 2018729. 본문 사본 "
+                  "data/raw/sinan-ordinance.txt. 별표 1(공영주차장 "
+                  "주차요금표)은 HWP 원본을 data/raw/sinan-ordinance-b1.hwp로 "
+                  "저장하고 PrvText 추출과 BodyText 스트림 직접 스캔으로 교차 "
+                  "확인해 data/raw/sinan-ordinance-b1.txt로 확정했다.")
+
+SINAN_DISCOUNTS = [
+    {"label": "긴급자동차 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제4조의2제1항제1호 — 「도로교통법」에 따른 긴급자동차는 주차요금을 면제할 수 있다"},
+    {"label": "국가·지방자치단체 공무수행차량 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제4조의2제1항제2호 — 국가 또는 지방자치단체 소속의 공무수행차량은 주차요금을 면제할 수 있다"},
+    {"label": "성실 납세증 부착 자동차 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제4조의2제1항제3호 — 군수 또는 국세청장이 교부하는 국·지방세 성실 납세증을 부착한 자동차는 교부받은 날부터 1년간 주차요금을 면제할 수 있다"},
+    {"label": "환경친화적 자동차 충전 진입 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제4조의2제1항제4호 — 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」에 따른 환경친화적 자동차가 충전을 위하여 공영주차장에 진입한 경우에는 주차요금을 면제할 수 있다"},
+    {"label": "장애인 최초 1시간 면제·초과분 50% 감경", "rate": 0.5, "exempt_min": 60,
+     "note": "조례 제4조의2제2항제1호 — 「장애인복지법 시행규칙」에 따라 장애인으로 등록된 사람이 본인 소유의 비사업용자동차에 승차한 차량은 최초 1시간의 주차요금을 면제하고 1시간 초과 시마다 100분의 50을 감경할 수 있다"},
+    {"label": "국가유공자(상이등급) 최초 1시간 면제·초과분 50% 감경", "rate": 0.5, "exempt_min": 60,
+     "note": "조례 제4조의2제2항제2호 — 「국가유공자 등 예우 및 지원에 관한 법률 시행령」에 따라 상이등급을 받은 국가유공자가 본인 소유의 비사업용자동차에 승차한 차량은 최초 1시간 면제·초과분 50% 감경이다"},
+    {"label": "5·18민주유공자 부상자 최초 1시간 면제·초과분 50% 감경", "rate": 0.5, "exempt_min": 60,
+     "note": "조례 제4조의2제2항제3호 — 「5·18민주유공자예우 및 단체설립에 관한 법률」에 따른 5·18민주화운동부상자가 본인 소유의 비사업용자동차에 승차한 차량은 최초 1시간 면제·초과분 50% 감경이다"},
+    {"label": "고엽제후유의증환자 최초 1시간 면제·초과분 50% 감경", "rate": 0.5, "exempt_min": 60,
+     "note": "조례 제4조의2제2항제4호 — 「고엽제후유의증 등 환자지원 및 단체설립에 관한 법률」에 따른 고엽제후유증환자가 본인 소유의 비사업용자동차(국가보훈처장이 발행한 차량표지 부착)에 승차한 차량은 최초 1시간 면제·초과분 50% 감경이다"},
+    {"label": "장기등기증자 최초 1시간 면제·초과분 50% 감경", "rate": 0.5, "exempt_min": 60,
+     "note": "조례 제4조의2제2항제5호 — 「장기등 이식에 관한 법률」에 따른 장기등기증자가 본인 소유의 비사업용자동차에 승차한 차량은 최초 1시간 면제·초과분 50% 감경이다"},
+    {"label": "의사상자 최초 1시간 면제·초과분 50% 감경", "rate": 0.5, "exempt_min": 60,
+     "note": "조례 제4조의2제2항제6호 — 「의사상자 등 예우 및 지원에 관한 법률」에 따른 의사상자가 본인 소유의 비사업용자동차에 승차한 차량은 최초 1시간 면제·초과분 50% 감경이다"},
+    {"label": "경형자동차 50% 감경", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제4조의2제3항제1호가목 — 「자동차관리법」에 따른 경형자동차(배기량 1000cc 미만)는 주차요금의 100분의 50을 감경할 수 있다"},
+    {"label": "환경친화적 자동차 50% 감경", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제4조의2제3항제1호나목 — 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」에 따른 환경친화적 자동차는 주차요금의 100분의 50을 감경할 수 있다"},
+    {"label": "장애인 등 제2항 차량의 월 정기주차 50% 감경", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제4조의2제3항제1호다목 — 제2항에 따른 차량이 공영주차장에 월 정기주차하는 경우에는 주차요금의 100분의 50을 감경할 수 있다"},
+    {"label": "임산부 탑승 차량 50% 감경", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제4조의2제3항제1호라목 — 「모자보건법」에 따른 임산부가 탑승한 경우에는 주차요금의 100분의 50을 감경할 수 있다"},
+    {"label": "병역명문가 예우대상자 50% 감경", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제4조의2제3항제1호마목 — 「신안군 병역명문가 예우 및 지원에 관한 조례」에 따른 예우대상자가 본인 소유의 비사업용자동차에 승차한 차량은 주차요금의 100분의 50을 감경할 수 있다"},
+    {"label": "밤샘주차 지역주민 월 정기주차 30% 감경", "rate": 0.3, "exempt_min": 0,
+     "note": "조례 제4조의2제3항제2호가목 — 밤샘 주차를 목적으로 하는 지역주민이 월 정기주차하는 경우에는 주차요금의 100분의 30을 감경할 수 있다"},
+    {"label": "월 10대 이상 계약 업소 30% 감경", "rate": 0.3, "exempt_min": 0,
+     "note": "조례 제4조의2제3항제2호나목 — 월 10대 이상의 차량을 정기주차하도록 계약된 업소의 경우에는 주차요금의 100분의 30을 감경할 수 있다"},
+    {"label": "승용차 요일제 준수 차량 20% 감경", "rate": 0.2, "exempt_min": 0,
+     "note": "조례 제4조의2제3항제3호 — 군수가 따로 정하는 기준 및 방법에 따라 승용차 요일제 운행을 준수하는 차량은 주차요금의 100분의 20을 감경할 수 있다"},
+]
+
+SINAN_CONF = {
+    "city": "신안군",
+    "slug": "sinan",
+    "manager": "전남광주통합특별시 신안군청",
+    "manager_inquiry": "신안군청 교통지원과(조례 담당 061-240-8166, 국가법령정보센터 표기 — 표준데이터 등록 전화는 152곳 전부 공란이다)",
+    "ordinance": ("「신안군 주차장 설치 및 관리 조례」 제2814호(시행 2025-03-01, 일부개정)",
+                  SINAN_ORD_URL, SINAN_ORD_NOTE),
+    "notes": ("신안군 공영주차장 152곳(노외 93곳·부설 59곳, 총 6,750면)은 전부 "
+              "요금 구분 '무료'로 등록돼 있다. 「신안군 주차장 설치 및 관리 "
+              "조례」 제2814호(시행 2025-03-01, ordinSeq 2018729) 제4조는 "
+              "공영주차장 중 유료주차장의 주차요금을 별표 1과 같다고 정하고, "
+              "별표 1 비고 1도 이 표가 군수가 설치한 유료주차장에 적용된다고 "
+              "정하므로, 등록 152곳이 전부 무료인 이 군에서는 별표 1을 조례 "
+              "기준 요금의 참고표로만 싣는다. 별표 1은 급지(1급지·2급지)×차종"
+              "(대형·소형) 요금표로, 시간제 주차요금은 1구획당 30분마다 1급지 "
+              "대형 600원·소형 300원, 2급지 대형 300원·소형 200원, 1일 주차권"
+              "(8시간 기준)은 1급지 대형 5,000원·소형 3,000원, 2급지 대형 "
+              "3,000원·소형 2,000원, 월 정기 주차요금(주간)은 1급지 대형 "
+              "40,000원·소형 30,000원, 2급지 대형 25,000원·소형 20,000원이다"
+              "(월정기 야간 열은 없다). 표준데이터 등록 급지는 152곳 전부 "
+              "'2'인데 별표 1 비고 5가 급지구분을 주차장의 설치자 또는 관리자가 "
+              "정한다고 해 등록값을 그대로 둔다(전부 무료라 요금에는 영향이 "
+              "없다). 감면은 조례 제4조의2를 따른다(전액 면제: 긴급자동차·"
+              "국가/지자체 공무수행차량·성실납세증 부착 자동차(1년)·환경친화적 "
+              "자동차 충전 진입 / 최초 1시간 면제+초과분 50% 감경: 장애인·"
+              "국가유공자 상이등급·5·18민주유공자 부상자·고엽제후유의증환자·"
+              "장기등기증자·의사상자 / 50% 감경: 경형자동차·환경친화적 자동차·"
+              "제2항 차량의 월 정기주차·임산부·병역명문가 / 30% 감경: 밤샘주차 "
+              "지역주민 월 정기주차·월 10대 이상 계약 업소 / 20% 감경: 승용차 "
+              "요일제 준수 차량). 좌표는 등록 7곳뿐이라 결측 145곳 중 130곳을 "
+              "지오코딩으로 보완했고 15곳은 비워 뒀다."),
+    "discounts": SINAN_DISCOUNTS,
+}
+
+SINAN_BBOX = (33.9, 35.2, 125.0, 126.45)
+
+SINAN_DONGS = {"압해읍", "지도읍", "임자면", "증도면", "자은면", "암태면", "팔금면",
+               "안좌면", "장산면", "신의면", "하의면", "흑산면", "도초면", "비금면"}
+
+
+def sinan_dong_of(addr):
+    """신안군 법정 읍·면 판정 — 지번주소의 신안군 다음 토큰이
+    읍·면이다. 이름 기반 보정은 쓰지 않는다."""
+    if addr:
+        m = re.search(r"신안군\s*([가-힣0-9]+?(?:읍|면|동\d+가|동))(?=[\s0-9-]|$)", addr)
+        if m:
+            return m.group(1)
+    return None
+
+
+def sinan_fee(row, name, note_bits, fee_diff):
+    """신안군 공영주차장 한 곳의 요금 — 등록 152곳이 전부
+    '무료'다. 조례 제4조는 공영주차장 중 유료주차장의
+    주차요금을 별표 1로 정하고 별표 1 비고 1도 이 표가
+    군수가 설치한 유료주차장에 적용된다고 정하므로,
+    등록이 무료인 곳들은 무료로 표기하고 별표 1은
+    참고표로만 싣는다(서천·순창·영암·해남·고흥·보성·
+    장흥·완도 선례). 요금 칸이 비어 있거나 금액만으로
+    구분할 수 없는 행이 나오면 미상으로 돌린다."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장 중 유료주차장의 주차요금을 별표 1로 정하고 별표 1 비고 1도 이 표가 군수가 설치한 유료주차장에 적용된다고 정해 이 곳은 군이 무료로 운영하는 공영주차장으로 본다"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 군청 확인 필요"})
+        return fee
+    if not base_fee and not unit_fee and not day and not month:
+        fee_diff.append(f"{name}: '{raw_type}'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 "
+                        "비어 있어 금액을 확정할 수 없다 — 조례 별표 1의 요금은 요금표에만 "
+                        "싣고 이 곳은 요금 미상으로 표기한다(군산 선례, 군청 확인 필요)")
+        fee.update({"type": "미상",
+                    "basis": "요금 구분은 ‘유료’이나 요금 금액이 전부 비어 있음 — "
+                             "조례 별표 1 요금은 요금표에 있고, 금액은 신안군청 확인 필요"})
+        return fee
+    fee_diff.append(f"{name}: 등록 요금(기본 {base_min}분 {base_fee}원·추가 {unit_min}분 "
+                    f"{unit_fee}원·1일 {day}원·월정기 {month}원)을 그대로 실었다 — 조례 "
+                    "별표 1의 급지별 요금과 대조가 필요해 군청 확인 과제로 남긴다")
+    fee.update({"type": "유료", "base_min": base_min, "base_fee": base_fee,
+                "unit_min": unit_min, "unit_fee": unit_fee,
+                "daily_fee": day if day else None,
+                "monthly": month if month else None,
+                "basis": "표준데이터 등록값을 그대로 적용했다 — 조례 별표 1 요금과의 대조는 군청 확인 과제다"})
+    return fee
+
+
+def sinan_fee_table(conf, lots):
+    """요금표 — 조례 별표 1(급지×차종)은 등록 152곳이
+    전부 무료라 참고표로만 표기한다. 별표 1의 시간제
+    주차요금은 1구획당 30분마다 부과되는 단위 요금이라
+    1시간·2시간 예상액은 그 구조로 계산한 조례 기준액
+    이다. 월 정기 주차요금은 주간 열만 있고 야간 열은
+    없다."""
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+
+    def _row(label, grade, per30, day, month_day, unit_label):
+        f = {"base_min": 30, "base_fee": per30, "unit_min": 30,
+             "unit_fee": per30, "daily_fee": day}
+        return {"label": label, "grade": grade, "unit_label": unit_label,
+                "hour": sj_charge(f, 60), "two_hour": sj_charge(f, 120),
+                "day": day, "month": month_day, "month_night": None, "lots": 0}
+
+    rows = [
+        _row("1급지 대형", "g1_large", 600, 5000, 40000,
+             "30분마다 600원 · 1일 5,000원 · 월정기(주간) 40,000원"),
+        _row("1급지 소형", "g1_small", 300, 3000, 30000,
+             "30분마다 300원 · 1일 3,000원 · 월정기(주간) 30,000원"),
+        _row("2급지 대형", "g2_large", 300, 3000, 25000,
+             "30분마다 300원 · 1일 3,000원 · 월정기(주간) 25,000원"),
+        _row("2급지 소형", "g2_small", 200, 2000, 20000,
+             "30분마다 200원 · 1일 2,000원 · 월정기(주간) 20,000원"),
+    ]
+    return {
+        "style": "sinan_grade",
+        "unit_min": 30,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["list_mode"] == "card"]),
+                 "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [{"group": "주간·야간 구분 (조례 별표 1 비고 3)",
+                     "hours": "4월~10월 08:00~20:00, 11월~3월 09:00~19:30, 나머지는 야간",
+                     "free": ("별표 1의 월 정기 주차요금은 주간 열만 있어 야간 금액이 "
+                              "없다 — 등록 152곳이 전부 무료라 실제 요금에는 쓰이지 "
+                              "않는다")}],
+        "notes": ("급지구분은 지역별 주차장의 실태 및 주차난을 참작하여 주차장의 설치자 "
+                  "또는 관리자가 정한다(별표 1 비고 5). 표준데이터 등록 급지는 152곳 "
+                  "전부 '2'라 별표 1의 2급지 행과 같아 보이지만, 비고 5가 급지 지정을 "
+                  "설치자·관리자에게 맡기고 있어 등록값을 그대로 둔다(전부 무료라 "
+                  "요금에는 영향이 없다). 주차요금은 주차수요 등 당해지역 여건과 차종을 "
+                  "고려하여 군수가 조정할 수 있다(비고 2). 차량구분은 승용차, 16인승 "
+                  "미만 승합자동차, 2.5톤 미만 화물자동차를 소형으로 보며 그 이외 "
+                  "차량은 대형으로 본다(비고 4). 감면은 긴급자동차·국가/지자체 "
+                  "공무수행차량·성실납세증 부착 자동차(1년)·환경친화적 자동차 충전 "
+                  "진입 전액 면제(조례 제4조의2제1항), 장애인·국가유공자 상이등급·"
+                  "5·18민주유공자 부상자·고엽제후유의증환자·장기등기증자·의사상자 "
+                  "최초 1시간 면제+초과분 50% 감경(제2항), 경형자동차·환경친화적 "
+                  "자동차·제2항 차량의 월 정기주차·임산부·병역명문가 50% 감경, "
+                  "밤샘주차 지역주민 월 정기주차·월 10대 이상 계약 업소 30% 감경, "
+                  "승용차 요일제 준수 차량 20% 감경(제3항)이다."),
+        "basis": ("요금표는 「신안군 주차장 설치 및 관리 조례」 제2814호(시행 "
+                  "2025-03-01) 제4조·별표 1과 표준데이터(기준일 2026-08-04)를 "
+                  "대조해 실었다. 등록된 152곳이 전부 '무료'라 별표 1은 조례 기준 "
+                  "요금의 참고표이다. (조례 본문: data/raw/sinan-ordinance.txt, "
+                  "별표 원문: data/raw/sinan-ordinance-b1.txt)"),
+    }
+
+
+def sinan_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                  space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(card)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「신안군 주차장 설치 및 관리 조례」 제2814호 제4조의2 — 전액 면제: "
+                      "긴급자동차(제1항제1호), 국가 또는 지방자치단체 소속의 공무수행차량"
+                      "(제2호), 군수 또는 국세청장이 교부하는 국·지방세 성실 납세증을 부착한 "
+                      "자동차(제3호, 교부일부터 1년), 환경친화적 자동차가 충전을 위하여 "
+                      "진입한 경우(제4호). 최초 1시간 면제+1시간 초과분 50% 감경: 장애인"
+                      "(제2항제1호), 국가유공자 상이등급(제2호), 5·18민주유공자 부상자"
+                      "(제3호), 고엽제후유의증환자(제4호), 장기등기증자(제5호), 의사상자"
+                      "(제6호). 50% 감경: 경형자동차·환경친화적 자동차·제2항 차량의 월 "
+                      "정기주차·임산부·병역명문가(제3항제1호). 30% 감경: 밤샘주차 지역주민 "
+                      "월 정기주차·월 10대 이상 계약 업소(제3항제2호). 20% 감경: 승용차 "
+                      "요일제 준수 차량(제3항제3호). 본문 원문(data/raw/sinan-ordinance.txt)·"
+                      "별표 원문(data/raw/sinan-ordinance-b1.txt) 대조 완료(2026-11-20)"),
+        "요금_출처": ("조례 제4조·별표 1 — 공영주차장 중 유료주차장의 주차요금은 별표 1과 "
+                      "같다. 별표 1은 급지(1급지·2급지)×차종 요금표로 시간제 주차요금은 "
+                      "1구획당 30분마다 1급지 대형 600원·소형 300원, 2급지 대형 300원·"
+                      "소형 200원, 1일 주차권(8시간 기준)은 1급지 대형 5,000원·소형 "
+                      "3,000원, 2급지 대형 3,000원·소형 2,000원, 월 정기 주차요금(주간)은 "
+                      "1급지 대형 40,000원·소형 30,000원, 2급지 대형 25,000원·소형 "
+                      "20,000원이다. 표준데이터 등록 152곳이 전부 무료라 별표 1은 "
+                      "참고표로만 싣는다"),
+        "급지_출처": ("조례 별표 1 비고 5 — 급지구분은 지역별 주차장의 실태 및 주차난을 "
+                      "참작하여 주차장의 설치자 또는 관리자가 정한다. 표준데이터 등록 "
+                      "급지는 152곳 전부 '2'이고 전부 무료라 급지_요금_차이에는 남기지 "
+                      "않는다"),
+        "무료요일_출처": ("등록 152곳은 요금 구분 '무료'로 요일과 관계없이 무료다 — 조례 "
+                          "제4조는 공영주차장 중 유료주차장의 요금만을 별표 1로 정하고 "
+                          "별표 1 비고 1도 이 표가 군수가 설치한 유료주차장에 적용된다고 "
+                          "정한다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 신안군 등록 171행 중 공영 152곳(노외 93곳·부설 59곳, 총 6,750면)을 싣고 민영 19곳(하은엔밥차·대우병원 주차장·비금농협 주차장·증도농협 주차장·이학식당주차장·함초식당주차장·엘도라도리조트주차장·우리치과 주차장·지도초등학교 관사 주차장·북신안농협 미곡처리장 주차장·북신안농협 장례식장 주차장·신안의원 주차장·지명골든빌 주차장·가도스타디움 주차장·북신안농협 하나로마트 주차장·서울의원 주차장·지도읍 복지센터·지도버스공용터미널 주차장·LX한국국토정보공사 주차장)은 제외했다. 중복 제거 0건·그 밖의 제외 0건이다(구획수 0·이름 없음·주소 없음 행이 없다). 읍·면별로는 압해읍 41곳·안좌면 16곳·하의면 15곳·임자면 12곳·장산면 9곳·지도읍 9곳·증도면 8곳·팔금면 7곳·신의면 7곳·도초면 7곳·자은면 7곳·흑산면 5곳·비금면 5곳·암태면 4곳으로 신안군 14개 읍·면 전부에 등록이 있다",
+            "「신안군 주차장 설치 및 관리 조례」 제2814호(표제 시행 2025-03-01, 공포 2025-03-01, 일부개정, ordinSeq 2018729) 본문 원문(data/raw/sinan-ordinance.txt) 대조 완료(2026-11-20) — 연혁의 부칙(제2814호, 2025. 3. 1.)은 '이 조례는 공포한 날부터 시행한다'고 정해 표제 시행일과 같고, law.go.kr 검색에서 신안군 주차장 관련 자치법규 중 요금 조례는 이 조례뿐이다(「신안군 태양광발전사업의 주차장 조성 촉진 지원 등에 관한 조례」 제2344호는 요금 조례가 아니다). 직전 공포본은 제2654호(공포 2023-10-10)다",
+            "별표 1은 HWP 원본(flSeq 152682295)을 data/raw/sinan-ordinance-b1.hwp로 저장하고 PrvText 추출과 BodyText 스트림 직접 스캔으로 교차 확인해 확정했다 — 급지(1급지·2급지)×차종 요금표로 시간제 주차요금은 1구획당 30분마다 1급지 대형 600원·소형 300원, 2급지 대형 300원·소형 200원, 1일 주차권(8시간 기준)은 1급지 대형 5,000원·소형 3,000원, 2급지 대형 3,000원·소형 2,000원, 월 정기 주차요금(주간)은 1급지 대형 40,000원·소형 30,000원, 2급지 대형 25,000원·소형 20,000원이다. 월정기 야간 열은 없다. 본문 제4조가 별표 1을 참조하고 첨부에도 별표 1이 들어 있어 첨부파일 오등록이 아니다",
+            "등록 152곳이 전부 '무료'라 조례 별표 1 요금표는 참고표로만 싣는다(서천·순창·영암·해남·고흥·보성·장흥·완도 선례) — 조례 제4조가 공영주차장 중 '유료주차장'의 요금을 별표 1로 정하고 별표 1 비고 1도 이 표가 군수가 설치한 유료주차장에 적용된다고 정해, 무료 운영 중인 곳에는 별표 요금이 적용되지 않는 구조다. 등록 금액 칸은 152곳 전부 기본시간 0·기본요금 0이고 추가·1일·월정기 칸은 공란이다",
+            "도명 변경(전라남도→전남광주통합특별시) 스냅숏 중복은 없다 — 지번주소는 171행 전부 '전남광주통합특별시 신안군' 표기이고 관리기관명·제공기관명도 전부 '전남광주통합특별시 신안군(청)'인 단일 스냅숏이며, 같은 이름+같은 자리의 재등록 쌍이 0건이다(광양 선례 대조)",
+            "같은 지번 다른 이름 쌍이 6건 있다 — 팔금면 읍리 411-1(신안군관광협의회 팔금면지회·팔금면사무소 주차장), 자은면 한운리 산 231-2(둔장체험마을·무한의 다리 주차장), 임자면 진리 265-11(임자면종합복지센터 주차장·임자면보건지소 주차장), 증도면 증동리 1756-1(증도면복지센터 주차장·증도면사무소주차장), 압해읍 복룡리 400-6(압해농협 복룡지소 주차장·압해농협 주차장(신규)), 압해읍 학교리 589-2(가족센터 주차장·압해읍사무소). 전부 이름·등록이 달라 별개 등록으로 둘 다 실었다(옥천·영동 선례) — 같은 시설의 이중 등록인지는 군청 확인 과제다",
+            "좌표는 152곳 중 7곳(안좌면 퍼플 마을공동 주차장2, 임자면 6곳)만 등록돼 있고 145곳이 결측이라 ArcGIS World Geocoding으로 보완했다 — 반환 주소가 등록 지번주소와 번지까지 정확히 일치(score 100·PointAddress)한 130곳만 채택해 오버레이(좌표누락_지오코딩_20261118.json)에 근거를 남겼고, 15곳(장산중학교·장산도역사문화관·삼도공원·모래구미전·신안 철새 전시관·흑산 현충답·둔장체험마을·신안자연휴양림 주차장·무한의 다리 주차장·두모체육공원 주차장·백길해수욕장 주차장·증도우전캠핑주차장·증도대교(셔틀)주차장·신안젓갈타운 무료주차장·신안군 공설운동장 주차장)은 정확히 일치하는 후보가 없어 비워 뒀다(추정 기입 금지). '산' 번지 10곳은 리 단위 후보만 돌아와 대부분 미채택이다. 등록 좌표 7곳은 전부 신안군 범위(본섬·부속섬 포함) 안이다",
+            "전화번호는 152곳 전부 공란이고 특기사항·결제방법도 152곳 전부 공란이다 — 실제 문의는 조례 표기 담당(신안군청 교통지원과 061-240-8166)으로 안내한다. 운영시간은 152곳 전부 00:00~23:59(24시간)이고 운영요일은 전부 평일+토요일+공휴일, 부제시행구분은 전부 '미시행'이다. 장애인전용주차구역 보유여부는 Y 82곳·N 70곳이다. 데이터기준일자는 171행 전부 2026-08-04이다",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] or 0 for l in paid) / len(paid)) if paid else 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_sinan():
+    """신안군 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「신안군 주차장 설치 및 관리 조례」
+    제2814호(시행 2025-03-01, ordinSeq 2018729)
+    제4조·제4조의2·별표 1 원문 대조 완료(2026-11-20).
+    표준데이터 등록 공영 152곳(노외 93곳·부설 59곳,
+    총 6,750면)을 싣는다. 152곳이 전부 무료라 조례
+    별표 1 요금표는 참고표로만 싣는다. 좌표 결측 145곳
+    중 130곳은 오버레이로 보완했다."""
+    conf = SINAN_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "신안군" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "신안군" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 신안군은
+    #   해당 중복이 0건이다(이름이 완전히 같은 쌍 자체가 없다).
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (SINAN_BBOX[0] < lat < SINAN_BBOX[1]
+                                                        and SINAN_BBOX[2] < lng < SINAN_BBOX[3]):
+            # 신안군 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 신안군 범위 밖 — "
+                               "좌표 없음으로 표기하고 지오코딩 보완 대상으로 넘김")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음(0으로 등록)"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = sinan_dong_of(jibun)
+        if dong:
+            dong_src = "지번주소"
+        elif sinan_dong_of(road):
+            dong = sinan_dong_of(road)
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 읍·면 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:읍|면|동))", std_name)
+        if _name_head and _name_head.group(1) in SINAN_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 동({_name_head.group(1)})과 지번주소 기준 "
+                              f"동({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = sinan_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "신안군", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다")
+
+    # 이름이 다른 주차장이 200m 안에 이웃한 쌍 — 전부 다른 등록이라 합치지
+    #   않고 전부 싣는다(옥천·영동 선례). 등록 좌표가 있는 곳끼리만 센다.
+    _pairs = []
+    _have = [l for l in lots if l["lat"] is not None and l["lng"] is not None]
+    for _a in range(len(_have)):
+        for _b in range(_a + 1, len(_have)):
+            _d = 111000 * math.sqrt((_have[_a]["lat"] - _have[_b]["lat"]) ** 2
+                                    + ((_have[_a]["lng"] - _have[_b]["lng"]) * 0.81) ** 2)
+            if _d < 200:
+                _pairs.append(f"{_have[_a]['name']}·{_have[_b]['name']}({round(_d)}m)")
+    if _pairs:
+        note_fixed.append("이름이 다른 주차장이 200m 안에 이웃한 쌍이 "
+                          f"{len(_pairs)}건 있다 — " + ", ".join(_pairs[:6])
+                          + " 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다")
+    note_fixed.append("표준데이터 등록 171행은 공영 152행·민영 19행이고 데이터기준일자는 "
+                      "전부 2026-08-04이다. 관리기관 표기는 152곳 전부 '전남광주"
+                      "통합특별시 신안군청', 제공기관 표기도 전부 '전남광주통합특별시 "
+                      "신안군'인 단일 스냅숏이다")
+    note_fixed.append("전화번호는 152곳 전부 공란이고 특기사항·결제방법도 전부 공란이다 "
+                      "— 실제 문의는 조례 표기 담당(신안군청 교통지원과 061-240-8166)"
+                      "으로 안내한다")
+    note_fixed.append("등록 152곳의 읍·면 분포는 압해읍 41곳·안좌면 16곳·하의면 15곳·"
+                      "임자면 12곳·장산면 9곳·지도읍 9곳·증도면 8곳·팔금면 7곳·신의면 "
+                      "7곳·도초면 7곳·자은면 7곳·흑산면 5곳·비금면 5곳·암태면 4곳으로, "
+                      "신안군 14개 읍·면 전부에 등록이 있다")
+    note_fixed.append("같은 지번에 이름이 다른 주차장이 함께 등록된 쌍이 6건 있다 — "
+                      "팔금면 읍리 411-1(신안군관광협의회 팔금면지회·팔금면사무소 "
+                      "주차장), 자은면 한운리 산 231-2(둔장체험마을·무한의 다리 주차장), "
+                      "임자면 진리 265-11(임자면종합복지센터 주차장·임자면보건지소 "
+                      "주차장), 증도면 증동리 1756-1(증도면복지센터 주차장·증도면사무소"
+                      "주차장), 압해읍 복룡리 400-6(압해농협 복룡지소 주차장·압해농협 "
+                      "주차장(신규)), 압해읍 학교리 589-2(가족센터 주차장·압해읍사무소) "
+                      "— 전부 이름·등록이 달라 별개 등록으로 둘 다 실었다. 같은 시설의 "
+                      "이중 등록인지는 군청 확인 과제다")
+    note_fixed.append("좌표가 등록돼 있지 않은 145곳 중 130곳은 지오코딩 반환 주소가 "
+                      "번지까지 일치해 오버레이(좌표누락_지오코딩_20261118.json)로 "
+                      "보완했고, 15곳(장산중학교·장산도역사문화관·삼도공원·모래구미전·"
+                      "신안 철새 전시관·흑산 현충답·둔장체험마을·신안자연휴양림 주차장·"
+                      "무한의 다리 주차장·두모체육공원 주차장·백길해수욕장 주차장·"
+                      "증도우전캠핑주차장·증도대교(셔틀)주차장·신안젓갈타운 무료주차장·"
+                      "신안군 공설운동장 주차장)은 일치 후보가 없어 비워 뒀다")
+    note_fixed.append("도로명주소는 152곳 전부 등록이 없어 지번주소만 실었다(품질 기록의 "
+                      "도로명주소_없음에 전수 기록)")
+    note_fixed.append("운영시간은 152곳 전부 00:00~23:59(24시간)이고 운영요일은 전부 "
+                      "평일+토요일+공휴일이다. 부제시행구분은 152곳 전부 '미시행', "
+                      "급지구분은 전부 '2', 장애인전용주차구역 보유여부는 Y 82곳·N "
+                      "70곳이다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"jn-sinan-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"jn-sinan-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 신안군은 좌표 결측 145곳 중 130곳이 오버레이로 채워진다.
+    apply_coord_fix(lots)
+
+    fee_table = sinan_fee_table(conf, lots)
+    quality = sinan_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                            fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-08-04",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"신안군으로 등록된 행 {len(rows_std)}행(공영 152행·민영 19행)을 읽어 중복 "
+                 f"제거 {len(merged)}건으로 {len(lots)}곳을 실었다. 무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳·유료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '유료'])}곳이다. 좌표는 "
+                 f"결측 145곳 중 130곳을 오버레이로 보완했고 15곳은 비워 뒀다. "
+                 f"조례 대조 완료 — 「신안군 주차장 설치 및 관리 조례」 제2814호(시행 "
+                 f"2025-03-01, ordinSeq 2018729) 제4조·제4조의2·별표 1 원문 대조 완료(2026-11-20)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": SINAN_ORD_TXT.name if SINAN_ORD_TXT.exists() else None,
+            "sha256": sha256(SINAN_ORD_TXT) if SINAN_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2025-03-01",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"신안군이 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/sinan-ordinance.txt, 별표 원문: "
+                    f"data/raw/sinan-ordinance-b1.txt)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": SINAN_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "신안군", "slug": "sinan"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": SINAN_PROVINCE,
+        "province_slug": SINAN_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "sinan_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -63248,7 +63878,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -63266,7 +63896,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -63319,7 +63949,7 @@ def main():
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
-             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "iksan": ["익산시"], "jeongeup": ["정읍시"], "namwon": ["남원시"], "gimje": ["김제시"], "wanju": ["완주군"], "jinan": ["진안군"], "muju": ["무주군"], "jangsu": ["장수군"], "imsil": ["임실군"], "sunchang": ["순창군"], "gochang": ["고창군"], "buan": ["부안군"], "mokpo": ["목포시"], "yeosu": ["여수시"], "suncheon": ["순천시"], "naju": ["나주시"], "gwangyang": ["광양시"], "muan": ["무안군"], "yeongam": ["영암군"], "haenam": ["해남군"], "goheung": ["고흥군"], "boseong": ["보성군"], "hwasun": ["화순군"], "jangheung": ["장흥군"], "gangjin": ["강진군"], "hampyeong": ["함평군"], "geumsan": ["금산군"], "yeonggwang": ["영광군"], "jangseong": ["장성군"], "wando": ["완도군"], "jindo": ["진도군"]}[args.city])
+             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "iksan": ["익산시"], "jeongeup": ["정읍시"], "namwon": ["남원시"], "gimje": ["김제시"], "wanju": ["완주군"], "jinan": ["진안군"], "muju": ["무주군"], "jangsu": ["장수군"], "imsil": ["임실군"], "sunchang": ["순창군"], "gochang": ["고창군"], "buan": ["부안군"], "mokpo": ["목포시"], "yeosu": ["여수시"], "suncheon": ["순천시"], "naju": ["나주시"], "gwangyang": ["광양시"], "muan": ["무안군"], "yeongam": ["영암군"], "haenam": ["해남군"], "goheung": ["고흥군"], "boseong": ["보성군"], "hwasun": ["화순군"], "jangheung": ["장흥군"], "gangjin": ["강진군"], "hampyeong": ["함평군"], "geumsan": ["금산군"], "yeonggwang": ["영광군"], "jangseong": ["장성군"], "wando": ["완도군"], "jindo": ["진도군"], "sinan": ["신안군"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -63538,6 +64168,8 @@ def main():
         cities.append(build_wando())
     if "진도군" in want:
         cities.append(build_jindo())
+    if "신안군" in want:
+        cities.append(build_sinan())
 
     if args.city == "all":
         site = build_site_payload(cities)
