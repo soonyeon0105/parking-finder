@@ -11130,49 +11130,30 @@ def fee_table_block(city) -> str:
 관계없이 무료입니다. {street_tail}</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
-    if ft.get("style") == "yeongam_grade":
-        # 영암군 — 공영 42곳(노외 36·노상 6, 총 4,399면) 전부 무료.
-        #   「영암군 주차장 조례」 제3022호(시행 2026-08-06) 제4조·
-        #   별표 1(<개정 2025. 12. 18.>)은 급지(1·2급지)×차종
-        #   (소형·대형) 요금표로, 1회 주차권은 기본 30분이내 1급지
-        #   소형 250원·대형 300원, 2급지 200원이고 30분초과
-        #   매15분마다 1급지 소형 120원·대형 150원, 2급지 100원이며
-        #   1일주차권은 1급지 소형 5,000원·대형 6,000원, 2급지
-        #   2,500원, 월정기는 주간 1급지 소형 50,000원·대형
-        #   65,000원, 2급지 30,000원, 야간 1급지 소형 40,000원·
-        #   대형 52,000원, 2급지 소형 20,000원·대형 22,000원이다.
-        #   등록 42곳이 전부 무료라 이 표는 조례 기준 요금의
-        #   참고표로만 싣는다(서천·순창 선례). 등록 급지는 전부
-        #   '2'이나 전부 무료라 행 판정에 쓰지 않았다.
+    if ft.get("style") == "muan_grade":
+        # 무안군 조례 별표 1 (급지 없는 차종 요금표 · 최초 120분 무료 · 토·공휴일·야간 무료)
+        rows = ft["rows"]
         rows_html = "".join(
-            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
-            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
-            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
-            f'<td class="num">{won(r["month_night"])}</td>'
-            f'<td class="num">{r["lots"]}곳</td></tr>'
-            for r in ft["rows"])
-        corp = ft.get("corp") or {}
+            f"""<tr><td>{esc(r['label'])}</td><td>{esc(r['unit_label'])}</td>
+<td class="num">{won(r['hour'])}</td><td class="num">{won(r['two_hour'])}</td>
+<td class="num">{won(r['day'])}</td><td class="num">{won(r['month'])}</td>
+<td class="num">{r['lots']}곳</td></tr>""" for r in rows)
         return f"""
-<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1 — 참고표)</h2>
-<p class="lede">영암군 공영주차장 <b>42곳은 전부 무료</b>로 등록돼 있습니다. 아래 표는
-「영암군 주차장 조례」 제3022호 별표 1이 정한 기준 요금으로, 실제로 요금을 받는 곳은
-없습니다. 별표 1은 급지(1·2급지)와 차종(소형·대형)으로 요금을 정합니다 —
-<b>1급지 소형</b>은 기본 30분 <b>250원</b>에 30분을 넘으면 15분마다 <b>120원</b>,
-<b>1일 5,000원</b>이고, <b>2급지 소형</b>은 기본 30분 <b>200원</b>·15분마다
-<b>100원</b>, 1일 <b>2,500원</b>입니다. 급지는 1급지가 영암관내 전 상업지역,
-2급지가 그 밖의 전 지역이며(별표 1 비고 3), 차종은 소형이 2.5톤 이하(승용차 포함),
-대형이 2.5톤 초과입니다(비고 4). 주간은 4~10월 08:00~20:00, 11~3월
-09:00~19:30이고 나머지는 야간입니다(비고 2). 궁금한 점은 영암군청 건설교통과
-(061-470-2044)에 확인하세요.</p>
+<h2>무안군 공영주차장 요금표 (조례 별표 1)</h2>
+<p>무안군 공영주차장 3곳은 전부 <b>최초 120분이 무료</b>이고, 그 뒤로는 30분마다 요금이 붙습니다.
+요금은 급지 구분이 없는 차종(소형·대형) 요금표 하나로 정해집니다 — 승용차·16인승 미만 승합자동차·
+2.5톤 미만 화물자동차는 소형이고 그 외의 차량은 대형입니다. <b>토요일·공휴일·야간(20:00~다음날 08:00)은
+무료</b>입니다(야간은 조례 별표 1 비고 1의 주간 08:00~20:00을 뺀 나머지 시간입니다). 1시간·2시간 칸은
+최초 120분이 무료라 둘 다 0원입니다. 등록된 3곳은 전부 소형 기준(등록 특기사항 표기)으로, 이 표의
+소형 행과 등록 요금이 완전히 일치합니다. 궁금한 점은 무안군청 교통행정과 교통시설팀
+(061-450-5681)에 확인하세요.</p>
 <table class="data">
   <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
-  <th class="num">2시간</th><th class="num">1일 주차요금</th><th class="num">월정기(주간)</th>
-  <th class="num">월정기(야간)</th><th class="num">이 사이트 유료 주차장</th></tr></thead>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월정기(주간)</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
   <tbody>{rows_html}</tbody>
 </table>
 <p class="updated">{esc(ft.get('notes') or '')}</p>
-<p class="updated">이 사이트에 실은 공영 주차장 {corp.get('free', 0)}곳은 전부 요금 구분이
-‘무료’라 요일과 관계없이 무료이고, 유료 주차장은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
     if ft.get("style") == "daejeon_grade":
