@@ -1,0 +1,5921 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 20:58",
+  "generated_at_iso": "2026-11-20T20:58:21+09:00",
+  "snapshot_at": "2026-11-20 20:58",
+  "region": {
+   "province": "경상남도",
+   "city": "통영시"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-20",
+    "rows_total": 18994,
+    "rows_city": 49,
+    "fetched_at": "2026-11-20 20:58 (KST)",
+    "note": "통영시로 등록된 행 49행 중 공영 49행을 읽어 중복 제거 0건, 제외 0건으로 49곳을 실었다. 유료 28곳·무료 21곳이다. 좌표 결측은 0곳이다. 조례 대조 완료 — 「통영시 주차장 조례」 제1983호(시행 2025-05-16, ordinSeq 2039005) 제4조·별표 1 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「통영시 주차장 조례」 제1983호(시행 2025-05-16, 일부개정)",
+    "org": "경상남도 통영시",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2039005",
+    "file": "tongyeong-ordinance-b1.txt",
+    "sha256": "115acdf2c8b80db70c8819a122bb5e8aa7459091f796882730468b9a17ac6478",
+    "license": "자치법규(공개)",
+    "base_date": "2025-05-16",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 20:58 (KST)",
+    "note": "통영시가 설치·관리하는 공영주차장에 적용하는 조례다. 통영시 공영주차장 49곳(노외 37곳·노상 9구간·부설 3곳, 총 3,932면)은 유료 28곳·무료 21곳으로 등록돼 있다. 「통영시 주차장 조례」 제1983호(시행 2025-05-16, ordinSeq 2039005) 제4조제1항은 공영주차장의 주차요금을 별표 1과 같이 한다고 정한다. 별표 1은 급지(1급지·2급지)×차종(소형·대형) 요금표로, 1회 주차요금은 최초 30분까지 1급지 소형 500원·대형 1,000원, 2급지 소형 300원·대형 500원이고 30분을 초과하면 10분마다 1급지 소형 200원·대형 400원, 2급지 소형 100원·대형 200원이 붙으며, 1일 주차요금은 1급지 소형 6,000원·대형 12,000원, 2급지 소형 3,000원·대형 6,000원, 월 정기주차요금은 1급지 소형 주간 70,000원·야간 40,000원·주야간 90,000원, 대형 주간 140,000원·야간 80,000원·주야간 180,000원, 2급지 소형 주간 35,000원·야간 20,000원·주야간 45,000원, 대형 주간 70,000원·야간 40,000원·주야간 90,000원이다. 급지는 행정구역 기준 1급지가 동지역, 2급지가 읍·면지역이다(별표 1 비고 3, 제4조의2제2항). 등록 유료 28곳 중 24곳의 기본·추가·1일 요금이 별표 1급지 소형 행과 정확히 같고, 월정기는 15곳이 주간 금액 70,000원, 9곳은 등록이 비어 있다(공란 8곳·0원 1곳). 통제영주차장은 기본 15분·월 주야간 90,000원으로, 유람선터미널주차장은 1일 2,500원으로 별표와 달라 등록값을 그대로 싣고 확인 과제로 남겼다. 통영시청 1·2청사 부설주차장 2곳은 「통영시 시청사 부설주차장 관리 조례」 제5조가 정하는 별도 요금이다(최초 1시간 무료, 초과 30분 500원·10분마다 200원, 1일 5,000원, 직원 월 정기권 15,000원). 면제는 제4조제3항(긴급자동차·공무용 자동차·공공행사 참여·성실납세자), 경감은 별표 1 비고 5~7이 정한다 — 경형·장애인·국가유공자 등 50%, 전기자동차 충전 시 2시간 면제 후 50%, 승용차 10부제 20%, 투표확인증 제출 시 1회 2,000원까지 감면. 좌표는 49곳 전부 등록돼 있고 전부 통영시 범위 안이다. 도로명주소는 49곳 전부 공란으로 등록돼 있다. (조례 본문: data/raw/tongyeong-ordinance.txt, 별표 원문: data/raw/tongyeong-ordinance-b1.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "통영시",
+   "slug": "tongyeong"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gn-tongyeong-001",
+   "mgmt_no": "383-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "내죽도공원주차장",
+   "gu": "통영시",
+   "dong": "광도면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 광도면 죽림리 1574-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "055-650-1414",
+   "lat": 34.8812971,
+   "lng": 128.4207613,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-002",
+   "mgmt_no": "383-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "안정주차장",
+   "gu": "통영시",
+   "dong": "광도면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 광도면 황리 1645-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 519,
+   "tel": "055-650-5335",
+   "lat": 34.958145,
+   "lng": 128.4207474,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-003",
+   "mgmt_no": "383-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "죽림공영임시주차장",
+   "gu": "통영시",
+   "dong": "광도면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 광도면 죽림리 1564",
+   "addr_road": "",
+   "road": null,
+   "spaces": 33,
+   "tel": "055-650-5335",
+   "lat": 34.8893435,
+   "lng": 128.4187853,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-004",
+   "mgmt_no": "383-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "용문주차장",
+   "gu": "통영시",
+   "dong": "당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 당동 1-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "055-650-5335",
+   "lat": 34.8360902,
+   "lng": 128.411698,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-005",
+   "mgmt_no": "383-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "착량묘앞주차장",
+   "gu": "통영시",
+   "dong": "당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 당동 20-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "055-650-5335",
+   "lat": 34.8354263,
+   "lng": 128.4107703,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-006",
+   "mgmt_no": "383-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "미륵공원주차장",
+   "gu": "통영시",
+   "dong": "도남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 도남동 307-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 383,
+   "tel": "055-650-5335",
+   "lat": 34.8235944,
+   "lng": 128.422633,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-007",
+   "mgmt_no": "383-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "유람선터미널주차장",
+   "gu": "통영시",
+   "dong": "도남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 도남동 635",
+   "addr_road": "",
+   "road": null,
+   "spaces": 207,
+   "tel": "055-650-0542",
+   "lat": 34.8283109,
+   "lng": 128.432905,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 2500,
+    "daily_hours": 60,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 2500,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값을 그대로 적용했다 — 조례 별표 1의 행과 대응하지 않아 시청 확인 과제다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-008",
+   "mgmt_no": "383-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동호주차장",
+   "gu": "통영시",
+   "dong": "동호동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 동호동 315",
+   "addr_road": "",
+   "road": null,
+   "spaces": 47,
+   "tel": "055-650-5335",
+   "lat": 34.8415203,
+   "lng": 128.4315429,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-009",
+   "mgmt_no": "383-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "디피랑 1(남망산주차장)",
+   "gu": "통영시",
+   "dong": "동호동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 동호동 200",
+   "addr_road": "",
+   "road": null,
+   "spaces": 78,
+   "tel": "055-650-5335",
+   "lat": 34.843371,
+   "lng": 128.4282503,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(최초 30분 500원·초과 10분마다 200원·1일 6,000원)이 조례 별표 1의 1급지 소형 요금과 정확히 같아 등록값을 그대로 적용했다. 월정기는 표준데이터에 등록이 없어 싣지 않았다(별표 1의 1급지 소형 월정기는 주간 70,000원·야간 40,000원·주야간 90,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-010",
+   "mgmt_no": "383-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "디피랑 2(시민문화회관밑주차장)",
+   "gu": "통영시",
+   "dong": "동호동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 동호동 250",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "055-650-5335",
+   "lat": 34.8429654,
+   "lng": 128.4268716,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 1급지 소형 요금(최초 30분 500원·초과 10분마다 200원·1일 6,000원·월정기 주간 70,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-011",
+   "mgmt_no": "383-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "디피랑 3(남망산조각공원밑주차장)",
+   "gu": "통영시",
+   "dong": "동호동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 동호동 239-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 123,
+   "tel": "055-650-5335",
+   "lat": 34.8418426,
+   "lng": 128.4271016,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(최초 30분 500원·초과 10분마다 200원·1일 6,000원)이 조례 별표 1의 1급지 소형 요금과 정확히 같아 등록값을 그대로 적용했다. 월정기는 표준데이터에 등록이 없어 싣지 않았다(별표 1의 1급지 소형 월정기는 주간 70,000원·야간 40,000원·주야간 90,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-012",
+   "mgmt_no": "383-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "열무정주차장",
+   "gu": "통영시",
+   "dong": "동호동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 동호동 304-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "055-650-5335",
+   "lat": 34.8395246,
+   "lng": 128.4299689,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-013",
+   "mgmt_no": "383-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "명정주차장",
+   "gu": "통영시",
+   "dong": "명정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 명정동 470-38",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "055-650-5335",
+   "lat": 34.8465903,
+   "lng": 128.4149812,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-014",
+   "mgmt_no": "383-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "충렬사주차장",
+   "gu": "통영시",
+   "dong": "명정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 명정동 217-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 62,
+   "tel": "055-645-3229",
+   "lat": 34.8471475,
+   "lng": 128.4184868,
+   "base_date": "2026-10-20",
+   "manager": "재단법인통영충렬사",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 1급지 소형 요금(최초 30분 500원·초과 10분마다 200원·1일 6,000원·월정기 주간 70,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-015",
+   "mgmt_no": "383-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "무전골프장앞주차장",
+   "gu": "통영시",
+   "dong": "무전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 무전동 244-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 37,
+   "tel": "055-650-5335",
+   "lat": 34.8557578,
+   "lng": 128.4356966,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-016",
+   "mgmt_no": "383-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "무전제1주차장",
+   "gu": "통영시",
+   "dong": "무전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 무전동 1035",
+   "addr_road": "",
+   "road": null,
+   "spaces": 45,
+   "tel": "055-650-5335",
+   "lat": 34.8590675,
+   "lng": 128.4277523,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 1급지 소형 요금(최초 30분 500원·초과 10분마다 200원·1일 6,000원·월정기 주간 70,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-017",
+   "mgmt_no": "383-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "무전제2주차장",
+   "gu": "통영시",
+   "dong": "무전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 무전동 1022",
+   "addr_road": "",
+   "road": null,
+   "spaces": 75,
+   "tel": "055-650-5335",
+   "lat": 34.8594782,
+   "lng": 128.4237735,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 1급지 소형 요금(최초 30분 500원·초과 10분마다 200원·1일 6,000원·월정기 주간 70,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-018",
+   "mgmt_no": "383-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "무전제3주차장",
+   "gu": "통영시",
+   "dong": "무전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 무전동 1057-18",
+   "addr_road": "",
+   "road": null,
+   "spaces": 33,
+   "tel": "055-650-5335",
+   "lat": 34.8610106,
+   "lng": 128.4237924,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(최초 30분 500원·초과 10분마다 200원·1일 6,000원)이 조례 별표 1의 1급지 소형 요금과 정확히 같아 등록값을 그대로 적용했다. 월정기는 표준데이터에 등록이 없어 싣지 않았다(별표 1의 1급지 소형 월정기는 주간 70,000원·야간 40,000원·주야간 90,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-019",
+   "mgmt_no": "383-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "무전제4주차장",
+   "gu": "통영시",
+   "dong": "무전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 무전동 1061-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "055-650-5335",
+   "lat": 34.8611849,
+   "lng": 128.4255213,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(최초 30분 500원·초과 10분마다 200원·1일 6,000원)이 조례 별표 1의 1급지 소형 요금과 정확히 같아 등록값을 그대로 적용했다. 월정기는 표준데이터에 등록이 없어 싣지 않았다(별표 1의 1급지 소형 월정기는 주간 70,000원·야간 40,000원·주야간 90,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-020",
+   "mgmt_no": "383-3-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보건소 주차장",
+   "gu": "통영시",
+   "dong": "무전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상남도 통영시 무전동 401-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 71,
+   "tel": "055-650-6014",
+   "lat": 34.859974,
+   "lng": 128.431754,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-021",
+   "mgmt_no": "383-3-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "통영시청 1청사 주차장",
+   "gu": "통영시",
+   "dong": "무전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상남도 통영시 무전동 357",
+   "addr_road": "",
+   "road": null,
+   "spaces": 187,
+   "tel": "055-650-4443",
+   "lat": 34.8543423,
+   "lng": 128.4331779,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": "통영시청 청사 부설주차장입니다 — 「통영시 시청사 부설주차장 관리 조례」에 따라 토요일·공휴일은 무료 개방하고, 민원 방문은 최초 1시간 무료입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": 260,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 15000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 60,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 90,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 15000
+    },
+    "basis": "「통영시 시청사 부설주차장 관리 조례」 제1983호 제5조제1항의 요금으로 계산한다 — 민원 방문 자동차는 최초 1시간 무료, 1시간 초과 30분까지 500원, 매 10분 초과 시 200원 가산, 1일 5,000원이고 직원 자동차 월 정기권은 15,000원이다. 표준데이터 등록값(기본 90분 500원·추가 10분 200원·1일 5,000원·월정기 15,000원)은 이 구조를 기본시간 90분으로 환산한 표현이라 총액은 같고, 1시간 이내 무료를 반영해 이쪽 구조로 계산한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-022",
+   "mgmt_no": "383-3-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "통영시청 2청사 주차장",
+   "gu": "통영시",
+   "dong": "무전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상남도 통영시 무전동 376-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 196,
+   "tel": "055-650-4443",
+   "lat": 34.856053,
+   "lng": 128.430933,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": "통영시청 청사 부설주차장입니다 — 「통영시 시청사 부설주차장 관리 조례」에 따라 토요일·공휴일은 무료 개방하고, 민원 방문은 최초 1시간 무료입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": 260,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 15000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 60,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 90,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 15000
+    },
+    "basis": "「통영시 시청사 부설주차장 관리 조례」 제1983호 제5조제1항의 요금으로 계산한다 — 민원 방문 자동차는 최초 1시간 무료, 1시간 초과 30분까지 500원, 매 10분 초과 시 200원 가산, 1일 5,000원이고 직원 자동차 월 정기권은 15,000원이다. 표준데이터 등록값(기본 90분 500원·추가 10분 200원·1일 5,000원·월정기 15,000원)은 이 구조를 기본시간 90분으로 환산한 표현이라 총액은 같고, 1시간 이내 무료를 반영해 이쪽 구조로 계산한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-023",
+   "mgmt_no": "383-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙전통시장 주차장",
+   "gu": "통영시",
+   "dong": "문화동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 문화동 159",
+   "addr_road": "",
+   "road": null,
+   "spaces": 202,
+   "tel": "055-650-5213",
+   "lat": 34.8458477,
+   "lng": 128.4232531,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 1급지 소형 요금(최초 30분 500원·초과 10분마다 200원·1일 6,000원·월정기 주간 70,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-024",
+   "mgmt_no": "383-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "통제영주차장",
+   "gu": "통영시",
+   "dong": "문화동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 문화동 109",
+   "addr_road": "",
+   "road": null,
+   "spaces": 154,
+   "tel": "055-640-5641",
+   "lat": 34.8468689,
+   "lng": 128.4237468,
+   "base_date": "2026-10-20",
+   "manager": "통영문화재단",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 15,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 295,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 90000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 15,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 90000
+    },
+    "basis": "표준데이터 등록값을 그대로 적용했다 — 조례 별표 1의 행과 대응하지 않아 시청 확인 과제다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-025",
+   "mgmt_no": "383-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "해양공원주차장",
+   "gu": "통영시",
+   "dong": "미수동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 미수동 913-22",
+   "addr_road": "",
+   "road": null,
+   "spaces": 80,
+   "tel": "055-650-1414",
+   "lat": 34.8298439,
+   "lng": 128.4060523,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-026",
+   "mgmt_no": "383-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "미륵도공영주차장",
+   "gu": "통영시",
+   "dong": "봉평동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 봉평동 446",
+   "addr_road": "",
+   "road": null,
+   "spaces": 67,
+   "tel": "055-650-5335",
+   "lat": 34.832841,
+   "lng": 128.4128347,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(최초 30분 500원·초과 10분마다 200원·1일 6,000원)이 조례 별표 1의 1급지 소형 요금과 정확히 같아 등록값을 그대로 적용했다. 월정기는 표준데이터에 등록이 없어 싣지 않았다(별표 1의 1급지 소형 월정기는 주간 70,000원·야간 40,000원·주야간 90,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-027",
+   "mgmt_no": "383-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "용화사광장밑주차장",
+   "gu": "통영시",
+   "dong": "봉평동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 봉평동 288",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "055-650-5335",
+   "lat": 34.8229012,
+   "lng": 128.415102,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-028",
+   "mgmt_no": "383-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "용화사주차장",
+   "gu": "통영시",
+   "dong": "봉평동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 봉평동 358-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 84,
+   "tel": "055-650-5335",
+   "lat": 34.8221712,
+   "lng": 128.4143554,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 1급지 소형 요금(최초 30분 500원·초과 10분마다 200원·1일 6,000원·월정기 주간 70,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-029",
+   "mgmt_no": "383-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "북신시장주차장",
+   "gu": "통영시",
+   "dong": "북신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 북신동 690",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "055-650-5214",
+   "lat": 34.8558352,
+   "lng": 128.4266091,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 1급지 소형 요금(최초 30분 500원·초과 10분마다 200원·1일 6,000원·월정기 주간 70,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-030",
+   "mgmt_no": "383-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "북신전통시장 주차장",
+   "gu": "통영시",
+   "dong": "북신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 북신동 662-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 87,
+   "tel": "055-650-5214",
+   "lat": 34.8550285,
+   "lng": 128.4278626,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 1급지 소형 요금(최초 30분 500원·초과 10분마다 200원·1일 6,000원·월정기 주간 70,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-031",
+   "mgmt_no": "383-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "충무체육관주차장",
+   "gu": "통영시",
+   "dong": "북신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 북신동 80-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 52,
+   "tel": "055-650-5335",
+   "lat": 34.8510953,
+   "lng": 128.4289366,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-032",
+   "mgmt_no": "383-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서호동노외주차장",
+   "gu": "통영시",
+   "dong": "서호동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 서호동 163-23",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "055-650-5335",
+   "lat": 34.84279,
+   "lng": 128.4194028,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 1급지 소형 요금(최초 30분 500원·초과 10분마다 200원·1일 6,000원·월정기 주간 70,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-033",
+   "mgmt_no": "383-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서호벼락당주차장",
+   "gu": "통영시",
+   "dong": "서호동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 서호동 139",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "055-650-5335",
+   "lat": 34.8431827,
+   "lng": 128.4202235,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 1급지 소형 요금(최초 30분 500원·초과 10분마다 200원·1일 6,000원·월정기 주간 70,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-034",
+   "mgmt_no": "383-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서호복개천주차장",
+   "gu": "통영시",
+   "dong": "서호동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 서호동 301",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "055-650-5335",
+   "lat": 34.8425241,
+   "lng": 128.4188373,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 1급지 소형 요금(최초 30분 500원·초과 10분마다 200원·1일 6,000원·월정기 주간 70,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-035",
+   "mgmt_no": "383-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "이순신공원주차장",
+   "gu": "통영시",
+   "dong": "정량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 정량동 692-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 238,
+   "tel": "055-650-1414",
+   "lat": 34.8438475,
+   "lng": 128.4408691,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 1급지 소형 요금(최초 30분 500원·초과 10분마다 200원·1일 6,000원·월정기 주간 70,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-036",
+   "mgmt_no": "383-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "정량 침사지 주차장",
+   "gu": "통영시",
+   "dong": "정량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 정량동 1407",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "055-650-5335",
+   "lat": 34.8446462,
+   "lng": 128.4340495,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-037",
+   "mgmt_no": "383-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청마문학관주차장",
+   "gu": "통영시",
+   "dong": "정량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 정량동 1396-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "055-650-2661",
+   "lat": 34.8446155,
+   "lng": 128.4348633,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-038",
+   "mgmt_no": "383-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "태평주차장",
+   "gu": "통영시",
+   "dong": "태평동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 태평동 528-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "055-650-5335",
+   "lat": 34.8467337,
+   "lng": 128.4256216,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 0
+    },
+    "basis": "표준데이터 등록값(최초 30분 500원·초과 10분마다 200원·1일 6,000원)이 조례 별표 1의 1급지 소형 요금과 정확히 같아 등록값을 그대로 적용했다. 월정기는 표준데이터에 등록이 없어 싣지 않았다(별표 1의 1급지 소형 월정기는 주간 70,000원·야간 40,000원·주야간 90,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-039",
+   "mgmt_no": "383-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한산대첩광장주차장",
+   "gu": "통영시",
+   "dong": "항남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 항남동 129-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 159,
+   "tel": "055-650-0542",
+   "lat": 34.8404088,
+   "lng": 128.4246267,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 1급지 소형 요금(최초 30분 500원·초과 10분마다 200원·1일 6,000원·월정기 주간 70,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 420,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 420,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 420,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "07:00",
+      "19:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-040",
+   "mgmt_no": "383-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "항남주차장",
+   "gu": "통영시",
+   "dong": "항남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 통영시 항남동 240",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "055-650-5335",
+   "lat": 34.8414889,
+   "lng": 128.4225329,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 1급지 소형 요금(최초 30분 500원·초과 10분마다 200원·1일 6,000원·월정기 주간 70,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-s001",
+   "mgmt_no": "383-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "내죽도공원 제1 노상주차장",
+   "gu": "통영시",
+   "dong": "광도면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 통영시 광도면 죽림리 1574-42",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "055-650-5335",
+   "lat": 34.8811665,
+   "lng": 128.4190983,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-s002",
+   "mgmt_no": "383-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "내죽도공원 제2 노상주차장",
+   "gu": "통영시",
+   "dong": "광도면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 통영시 광도면 죽림리 1574-66",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "055-650-5335",
+   "lat": 34.8802097,
+   "lng": 128.422164,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-s003",
+   "mgmt_no": "383-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "도천동횟집거리주차장",
+   "gu": "통영시",
+   "dong": "도천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 통영시 도천동 997",
+   "addr_road": "",
+   "road": null,
+   "spaces": 51,
+   "tel": "055-650-5335",
+   "lat": 34.8368961,
+   "lng": 128.4136747,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1의 1급지 소형 요금(최초 30분 500원·초과 10분마다 200원·1일 6,000원·월정기 주간 70,000원)과 정확히 같아 등록값을 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-s004",
+   "mgmt_no": "383-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "무전노상주차장",
+   "gu": "통영시",
+   "dong": "무전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 통영시 무전동 1051",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "055-650-5335",
+   "lat": 34.8586592,
+   "lng": 128.4285048,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(최초 30분 500원·초과 10분마다 200원·1일 6,000원)이 조례 별표 1의 1급지 소형 요금과 정확히 같아 등록값을 그대로 적용했다. 월정기는 표준데이터에 등록이 없어 싣지 않았다(별표 1의 1급지 소형 월정기는 주간 70,000원·야간 40,000원·주야간 90,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-s005",
+   "mgmt_no": "383-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "미륵도횟집거리노상주차장",
+   "gu": "통영시",
+   "dong": "미수동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 통영시 미수동 1-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 78,
+   "tel": "055-650-5335",
+   "lat": 34.8330107,
+   "lng": 128.4126729,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(최초 30분 500원·초과 10분마다 200원·1일 6,000원)이 조례 별표 1의 1급지 소형 요금과 정확히 같아 등록값을 그대로 적용했다. 월정기는 표준데이터에 등록이 없어 싣지 않았다(별표 1의 1급지 소형 월정기는 주간 70,000원·야간 40,000원·주야간 90,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-s006",
+   "mgmt_no": "383-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "삼성생명앞주차장",
+   "gu": "통영시",
+   "dong": "북신동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 통영시 북신동 678",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "055-650-5335",
+   "lat": 34.8571094,
+   "lng": 128.4283035,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 310,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(최초 30분 500원·초과 10분마다 200원·1일 6,000원)이 조례 별표 1의 1급지 소형 요금과 정확히 같아 등록값을 그대로 적용했다. 월정기는 표준데이터에 등록이 없어 싣지 않았다(별표 1의 1급지 소형 월정기는 주간 70,000원·야간 40,000원·주야간 90,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-s007",
+   "mgmt_no": "383-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "인평동주차장",
+   "gu": "통영시",
+   "dong": "인평동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 통영시 인평동 380-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 44,
+   "tel": "055-650-5335",
+   "lat": 34.8402724,
+   "lng": 128.3956726,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-s008",
+   "mgmt_no": "383-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "정량노상주차장",
+   "gu": "통영시",
+   "dong": "정량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 통영시 정량동 1394",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "055-650-5335",
+   "lat": 34.84451,
+   "lng": 128.431449,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  },
+  {
+   "id": "gn-tongyeong-s009",
+   "mgmt_no": "383-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "정량복개천주차장",
+   "gu": "통영시",
+   "dong": "정량동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 통영시 정량동 1346-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "055-650-5335",
+   "lat": 34.8459525,
+   "lng": 128.4323735,
+   "base_date": "2026-10-20",
+   "manager": "경상남도 통영시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "통영시",
+   "city_slug": "tongyeong",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 20:58",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 49,
+  "원자료_통영시행수": 49,
+  "원자료_받은행수": 49,
+  "구별": {
+   "통영시": 49
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 40,
+  "노외_부설": {
+   "노외": 37,
+   "부설": 3
+  },
+  "노상_구간": 9,
+  "총_구획수": 3582,
+  "노상_구획수": 350,
+  "동별": {
+   "무전동": 9,
+   "광도면": 5,
+   "동호동": 5,
+   "정량동": 5,
+   "북신동": 4,
+   "봉평동": 3,
+   "서호동": 3,
+   "당동": 2,
+   "도남동": 2,
+   "명정동": 2,
+   "문화동": 2,
+   "미수동": 2,
+   "항남동": 2,
+   "도천동": 1,
+   "인평동": 1,
+   "태평동": 1
+  },
+  "동수": 16,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 49
+  },
+  "요금구분": {
+   "무료": 21,
+   "유료": 28
+  },
+  "요금_미상": [],
+  "유료_노상": 4,
+  "유료_노외": 22,
+  "유료_부설": 2,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 21건 있다 — 태평주차장·통제영주차장(169m), 정량 침사지 주차장·청마문학관주차장(73m), 서호복개천주차장·서호동노외주차장(59m), 서호복개천주차장·서호벼락당주차장(144m), 서호동노외주차장·서호벼락당주차장(86m), 북신시장주차장·북신전통시장 주차장(144m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 49행이 전부 공영(노외 37곳·노상 9구간·부설 3곳)이라 민영 제외 없이 49곳을 실었다. 데이터기준일자는 49행 전부 2026-10-20이고 제공기관명은 전부 '경상남도 통영시'다",
+   "읍·면 지역 등록은 광도면 5곳뿐이다 — 다른 읍·면(산양읍·용남면·도산면·원량면·한산면·사량면·욕지면)에 공영주차장이 없는 것인지 등록 누락인지는 시청 확인 과제다",
+   "도로명주소는 49곳 전부 공란으로 등록돼 있다",
+   "통영시청 1청사·2청사 주차장은 등록 운영시간이 평일 09:00~18:00인데 「통영시 시청사 부설주차장 관리 조례」 제3조의 유료 운영시간은 평일 08:00~19:00이다 — 운영시간은 등록값을 그대로 싣고 차이는 시청 확인 과제로 남긴다",
+   "좌표는 49곳 전부 등록돼 있고 전부 통영시 범위 안이라 지오코딩 보완이 0건이다",
+   "부제시행구분은 5부제 9곳(이순신공원주차장·보건소 주차장·통영시청 1·2청사 주차장·통제영주차장·무전제1~제4주차장)·미시행 40곳이고, 운영요일은 49곳 전부 평일+토요일+공휴일이다. 평일 운영시간은 00:00~23:59 22곳·09:00~23:59 14곳·09:00~19:00 7곳·09:00~18:00 4곳·07:00~19:00 2곳이고 토요일·공휴일 시간은 시청 1·2청사를 빼면 평일과 같다. 특기사항은 49곳 전부 공란, 결제방법은 현금+신용카드 15곳·신용카드 13곳·공란 21곳(무료 21곳과 일치), 장애인전용주차구역 보유여부는 Y 31곳·N 18곳이다. 전화번호는 055-650-5335가 35곳이다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "통제영주차장: 등록 요금(기본 15분 500원·추가 10분 200원·1일 6000원·월정기 90000원)이 조례 별표 1의 어느 급지·차종 행과도 맞지 않아 등록값을 그대로 실었다 — 시청 확인 과제",
+   "유람선터미널주차장: 등록 요금(기본 30분 500원·추가 10분 200원·1일 2500원·월정기 70000원)이 조례 별표 1의 어느 급지·차종 행과도 맞지 않아 등록값을 그대로 실었다 — 시청 확인 과제"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "내죽도공원주차장",
+   "안정주차장",
+   "죽림공영임시주차장",
+   "용문주차장",
+   "착량묘앞주차장",
+   "미륵공원주차장",
+   "유람선터미널주차장",
+   "동호주차장",
+   "디피랑 1(남망산주차장)",
+   "디피랑 2(시민문화회관밑주차장)",
+   "디피랑 3(남망산조각공원밑주차장)",
+   "열무정주차장",
+   "명정주차장",
+   "충렬사주차장",
+   "무전골프장앞주차장",
+   "무전제1주차장",
+   "무전제2주차장",
+   "무전제3주차장",
+   "무전제4주차장",
+   "보건소 주차장",
+   "통영시청 1청사 주차장",
+   "통영시청 2청사 주차장",
+   "중앙전통시장 주차장",
+   "통제영주차장",
+   "해양공원주차장",
+   "미륵도공영주차장",
+   "용화사광장밑주차장",
+   "용화사주차장",
+   "북신시장주차장",
+   "북신전통시장 주차장",
+   "충무체육관주차장",
+   "서호동노외주차장",
+   "서호벼락당주차장",
+   "서호복개천주차장",
+   "이순신공원주차장",
+   "정량 침사지 주차장",
+   "청마문학관주차장",
+   "태평주차장",
+   "한산대첩광장주차장",
+   "항남주차장",
+   "내죽도공원 제1 노상주차장",
+   "내죽도공원 제2 노상주차장",
+   "도천동횟집거리주차장",
+   "무전노상주차장",
+   "미륵도횟집거리노상주차장",
+   "삼성생명앞주차장",
+   "인평동주차장",
+   "정량노상주차장",
+   "정량복개천주차장"
+  ],
+  "감면_출처": "「통영시 주차장 조례」 제1983호 제4조제3항·별표 1 비고 5~7 — 면제(할 수 있다, 제4조제3항): 긴급자동차, 국가 또는 지방자치단체 소유의 공무용 자동차, 공공 행사 및 회의에 참여하는 자동차(사전 서면 신청·승인 시), 성실납세증 부착 자동차(발행일로부터 1년). 50% 경감(비고 5): 경형자동차, 장애인, 임산부 표지 자동차, 국가유공자, 고엽제후유의증환자, 5·18민주부상자, 다자녀가정 우대카드(경남 아이 다누리 카드), 전통시장 이용 확인 자료 제출, 장기등 및 인체조직 기증자·기증희망자, 병역명문가, 저공해자동차, 환경친화적 자동차(전기자동차 충전 시 2시간 면제), 미륵도 관광특구 공영주차장. 20% 경감(비고 6): 자가용 승용차 10부제 참여차량. 투표확인증 제출 시 1회 2,000원까지 감면(비고 7). 시청사 부설 2곳은 「통영시 시청사 부설주차장 관리 조례」 제4조(1시간 이내 민원 방문 등 면제)·제5조제2항(50% 감면)을 따로 적용한다. 본문 원문(data/raw/tongyeong-ordinance.txt)·별표 원문(data/raw/tongyeong-ordinance-b1.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 제4조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같다. 별표 1은 급지(1급지·2급지)×차종 요금표로 1회 주차요금은 최초 30분까지 1급지 소형 500원·대형 1,000원, 2급지 소형 300원·대형 500원, 30분 초과 후 10분마다 1급지 소형 200원·대형 400원, 2급지 소형 100원·대형 200원이고, 1일 주차요금은 1급지 소형 6,000원·대형 12,000원, 2급지 소형 3,000원·대형 6,000원, 월 정기주차요금은 1급지 소형 주간 70,000원·야간 40,000원·주야간 90,000원, 대형 주간 140,000원·야간 80,000원·주야간 180,000원, 2급지 소형 주간 35,000원·야간 20,000원·주야간 45,000원, 대형 주간 70,000원·야간 40,000원·주야간 90,000원이다. 표준데이터 등록 유료 28곳 중 24곳의 패턴이 별표의 1급지 소형 행과 같아 등록값을 그대로 계산에 쓴다. 시청 1·2청사 부설 2곳은 시청사 부설주차장 관리 조례 제5조의 요금으로 계산한다",
+  "급지_출처": "조례 별표 1 비고 3·제4조의2제2항제1호 — 급지구분은 행정구역을 기준으로 1급지는 동지역, 2급지는 읍·면지역이다. 표준데이터 등록 급지는 49곳 전부 '1'이고, 읍·면 지역 등록은 광도면 5곳뿐이며 전부 무료라 요금에 영향이 없다",
+  "무료요일_출처": "조례에 주말·공휴일 상시 무료 규정이 없어 유료 49곳 중 47곳의 free_days는 전부 False다 — 제4조제3항의 면제는 대상 차량에 대한 것이다. 통영시청 1·2청사 부설 2곳만 「통영시 시청사 부설주차장 관리 조례」 제3조가 야간 및 공휴일(토요일 및 법정공휴일) 무료 개방을 정해 free_days를 토·일 True로 뒀다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 통영시 등록 49행이 전부 공영(노외 37곳·노상 9구간·부설 3곳)이라 민영 제외 0건으로 49곳·3,932면(노외 3,128면·노상 350면·부설 454면)을 실었다. 중복 제거 0건, 구획수 0 등록 0건이다. 동별로는 무전동 9곳·정량동 5곳·동호동 5곳·광도면 5곳·북신동 4곳·서호동 3곳·봉평동 3곳·항남동 2곳·미수동 2곳·문화동 2곳·명정동 2곳·도남동 2곳·당동 2곳·태평동 1곳·인평동 1곳·도천동 1곳이고, 읍·면 지역 등록은 광도면 5곳뿐이다 — 다른 읍·면(산양읍·용남면·도산면·원량면·한산면·사량면·욕지면)에 공영주차장이 없는 것인지 등록 누락인지는 시청 확인 과제다",
+   "「통영시 주차장 조례」 제1983호(표제 시행 2025-05-16, 공포 2025-05-16, 일부개정, ordinSeq 2039005) 본문 원문(data/raw/tongyeong-ordinance.txt) 대조 완료(2026-11-20) — 최신 부칙(조례 제1983호, 2025. 5. 16.)은 별표 1 비고 5호 자목의 용어만 정비했고 요금표 금액의 최신 개정은 부칙(조례 제1885호, 2024. 5. 16.)의 별표 1 개정이다. 검색에 함께 걸리는 통영시 도시교통사업특별회계 설치 조례 제1853호(2023-12-28)는 특별회계 조례라 요금 조례가 아니고, 통영시 부설 주차장의 설치비용 산정기준 등에 관한 조례 제1718호는 설치비용 전용이며, 통영시 시청사 부설주차장 관리 조례는 시청사 부설 2곳에만 적용되는 별도 조례로 따로 대조했다",
+   "별표 1은 HWP 원본(flSeq 154529027)을 data/raw/tongyeong-ordinance-b1.hwp로 저장하고 PrvText 추출과 BodyText 전문 파싱을 교차 확인해 확정했다 — 급지(1급지·2급지)×차종(소형·대형) 요금표로 1회 주차요금은 최초 30분까지 1급지 소형 500원·대형 1,000원, 2급지 소형 300원·대형 500원이고 초과 10분마다 1급지 소형 200원·대형 400원, 2급지 소형 100원·대형 200원, 1일 주차요금은 1급지 소형 6,000원·대형 12,000원, 2급지 소형 3,000원·대형 6,000원, 월 정기주차요금은 1급지 소형 주간 70,000원·야간 40,000원·주야간 90,000원, 대형 주간 140,000원·야간 80,000원·주야간 180,000원, 2급지 소형 주간 35,000원·야간 20,000원·주야간 45,000원, 대형 주간 70,000원·야간 40,000원·주야간 90,000원이다. 본문 제4조제1항이 별표 1을 참조하고 첨부에도 별표 1이 들어 있어 첨부파일 오등록이 아니다",
+   "등록 요금은 유료 28곳 중 24곳이 최초 30분 500원·초과 10분마다 200원·1일 6,000원으로 별표 1급지 소형 행과 정확히 같다 — 월정기는 15곳이 주간 금액 70,000원으로 등록됐고 9곳(미륵도공영주차장·무전제3·제4주차장·디피랑 1·3·삼성생명앞주차장·미륵도횟집거리노상주차장·무전노상주차장·태평주차장)은 등록이 비어 있다(공란 8곳, 태평주차장은 0원). 등록값이 완전한 곳은 별표와 대응하므로 계산기는 등록값을 그대로 쓴다(공주·청양·창원·진주 선례)",
+   "통제영주차장은 기본 15분 500원·월정기 90,000원으로 별표 1급지 소형(기본 30분·월 주간 70,000원)과 다르고, 유람선터미널주차장은 1일 요금이 2,500원(적용시간 60분)으로 별표 1일 6,000원과 다르다 — 두 곳 다 등록값을 그대로 실었고 시청 확인 과제로 남겼다",
+   "통영시청 1청사·2청사 주차장(부설)은 「통영시 시청사 부설주차장 관리 조례」 제1983호(ordinSeq 2039003) 제5조제1항의 요금표(이미지 원본 data/raw/tongyeong-cityhall-ordinance-table.jpg)로 대조했다 — 민원 방문 자동차는 최초 1시간 무료, 1시간 초과 30분까지 500원, 매 10분 초과 200원 가산, 1일 주차 5,000원이고 직원 자동차는 1일 5,000원·월 정기권 15,000원이다. 표준데이터 등록값(기본 90분 500원·추가 10분 200원·1일 260분 5,000원·월 15,000원)은 이 구조의 총액 환산 표현이라 1시간 이내 무료를 살려 free_min 60으로 계산한다. 같은 조례 제3조는 유료 운영시간을 평일 08:00~19:00로 정하고 야간 및 공휴일(토요일 및 법정공휴일)은 무료 개방한다고 정해 free_days를 토·일로 뒀다 — 등록 운영시간(평일 09:00~18:00)과 조례 유료시간이 다른 점은 시청 확인 과제다",
+   "좌표는 49곳 전부 등록돼 있고 전부 통영시 범위 안이라 지오코딩 보완이 0건이다 — 오버레이(좌표누락_지오코딩_20261118.json)는 718행 그대로다",
+   "도로명주소는 49곳 전부 공란으로 등록돼 있다",
+   "등록 급지는 49곳 전부 '1'이다. 조례 기준 2급지(읍·면지역)에 해당하는 광도면 5곳(안정주차장·죽림공영임시주차장·내죽도공원주차장·내죽도공원 제1·제2 노상주차장)도 '1'로 등록돼 있으나 전부 무료라 요금에 영향이 없다",
+   "부제시행구분은 5부제 9곳(이순신공원주차장·보건소 주차장·통영시청 1·2청사 주차장·통제영주차장·무전제1~제4주차장)·미시행 40곳이고, 운영요일은 49곳 전부 평일+토요일+공휴일이다. 평일 운영시간은 00:00~23:59 22곳·09:00~23:59 14곳·09:00~19:00 7곳·09:00~18:00 4곳·07:00~19:00 2곳이고 토요일·공휴일 시간은 시청 1·2청사를 빼면 평일과 같다. 특기사항은 49곳 전부 공란, 결제방법은 현금+신용카드 15곳·신용카드 13곳·공란 21곳(무료 21곳과 일치), 장애인전용주차구역 보유여부는 Y 31곳·N 18곳이다. 전화번호는 055-650-5335가 35곳으로 가장 많다. 관리기관명은 통영시청 47곳, 통제영주차장은 통영문화재단, 충렬사주차장은 재단법인통영충렬사다. 데이터기준일자는 49곳 전부 2026-10-20이다"
+  ],
+  "무료개방_표기": [
+   "통영시청 1청사 주차장",
+   "통영시청 2청사 주차장"
+  ],
+  "거주자우선": [],
+  "무료_요금구분": 21,
+  "무료_구획수": 1602,
+  "평균_기본요금": 500,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-10-20"
+  ],
+  "관리기관": {
+   "경상남도 통영시청": 47,
+   "재단법인통영충렬사": 1,
+   "통영문화재단": 1
+  }
+ },
+ "fee_table": {
+  "style": "tongyeong_grade",
+  "unit_min": 10,
+  "base_min": 30,
+  "applies": "조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「통영시 주차장 조례」 제1983호(시행 2025-05-16, 일부개정), ordinSeq 2039005. 본문 사본 data/raw/tongyeong-ordinance.txt. 별표 1(공영주차장 주차 요금표)은 HWP 원본을 data/raw/tongyeong-ordinance-b1.hwp로 저장하고 PrvText 추출과 BodyText 전문 파싱을 교차 확인해 data/raw/tongyeong-ordinance-b1.txt로 옮겼다. 본문 제4조제1항이 별표 1을 참조하고 첨부에도 별표 1이 들어 있어 첨부파일 오등록이 아니다. 최신 부칙(2025. 5. 16. 조례 제1983호)은 별표 1 비고 5호 자목의 용어만 정비했고, 요금표 금액의 최신 개정은 부칙(조례 제1885호, 2024. 5. 16.)의 별표 1 개정이다. 검색에 함께 걸리는 통영시 도시교통사업특별회계 설치 조례 제1853호는 특별회계 조례라 요금 조례가 아니고, 통영시 부설 주차장의 설치비용 산정기준 등에 관한 조례 제1718호는 설치비용 전용이다. 통영시청 1·2청사 부설주차장은 별도 조례 「통영시 시청사 부설주차장 관리 조례」 제1983호(시행 2025-05-16, ordinSeq 2039003)가 정한다 — 본문 사본 data/raw/tongyeong-cityhall-ordinance.txt, 제5조제1항 요금표는 이미지 원본을 data/raw/tongyeong-cityhall-ordinance-table.jpg로 저장했다.",
+  "rows": [
+   {
+    "label": "1급지 소형",
+    "grade": "g1_small",
+    "unit_label": "최초 30분 500원 · 초과 10분마다 200원 · 1일 6,000원 · 월정기 주간 70,000원·야간 40,000원·주야간 90,000원",
+    "hour": 1100,
+    "two_hour": 2300,
+    "day": 6000,
+    "month": 70000,
+    "month_night": 40000,
+    "lots": 24
+   },
+   {
+    "label": "1급지 대형",
+    "grade": "g1_large",
+    "unit_label": "최초 30분 1,000원 · 초과 10분마다 400원 · 1일 12,000원 · 월정기 주간 140,000원·야간 80,000원·주야간 180,000원",
+    "hour": 2200,
+    "two_hour": 4600,
+    "day": 12000,
+    "month": 140000,
+    "month_night": 80000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 소형",
+    "grade": "g2_small",
+    "unit_label": "최초 30분 300원 · 초과 10분마다 100원 · 1일 3,000원 · 월정기 주간 35,000원·야간 20,000원·주야간 45,000원",
+    "hour": 600,
+    "two_hour": 1200,
+    "day": 3000,
+    "month": 35000,
+    "month_night": 20000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 대형",
+    "grade": "g2_large",
+    "unit_label": "최초 30분 500원 · 초과 10분마다 200원 · 1일 6,000원 · 월정기 주간 70,000원·야간 40,000원·주야간 90,000원",
+    "hour": 1100,
+    "two_hour": 2300,
+    "day": 6000,
+    "month": 70000,
+    "month_night": 40000,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 24,
+   "street_paid": 4,
+   "free": 21,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "주간·야간 구분 (조례 별표 1 비고 2)",
+    "hours": "주간 09:00~20:00, 야간 20:00~다음 날 09:00",
+    "free": "별표 1 월정기 주간·야간 금액의 구분 기준이다"
+   }
+  ],
+  "notes": "급지는 행정구역을 기준으로 1급지는 동지역, 2급지는 읍·면지역이다(별표 1 비고 3). 소형은 승용자동차, 승차정원 16인승 미만 승합자동차, 적재정량 2.5톤 미만의 화물자동차와 이륜자동차를 말하고 나머지는 대형으로 본다(비고 4). 노상주차장에는 1일 및 월 정기주차를 제한하고(비고 1), 1일 주차권 및 월정기 주차권제는 노외주차장에 한하여 실시하되 시행 여부는 시장이 따로 정할 수 있다(비고 9). 경감은 경형·장애인·국가유공자 등 50%(비고 5), 전기자동차 충전 시 2시간 면제 후 50%, 자가용 승용차 10부제 참여차량 20%(비고 6), 투표확인증 제출 시 1회에 한해 2,000원까지 감면(비고 7)이다. 통영시청 1·2청사 부설주차장은 이 표가 아니라 「통영시 시청사 부설주차장 관리 조례」 제5조의 요금(최초 1시간 무료·초과 30분 500원·10분마다 200원·1일 5,000원·월 정기권 15,000원)을 적용한다. 등록 급지는 49곳 전부 '1'이다 — 광도면 5곳은 조례 기준으로는 2급지(읍·면지역)이나 전부 무료로 등록돼 있어 요금에 영향이 없다.",
+  "basis": "요금표는 「통영시 주차장 조례」 제1983호(시행 2025-05-16) 제4조·별표 1과 표준데이터(기준일 2026-10-20)를 대조해 실었다. 등록된 유료 28곳 중 24곳의 요금이 별표 1의 1급지 소형 행과 같아 등록값을 계산에 쓴다. (조례 본문: data/raw/tongyeong-ordinance.txt, 별표 원문: data/raw/tongyeong-ordinance-b1.txt)"
+ },
+ "slug": "tongyeong",
+ "province": "경상남도",
+ "province_slug": "gyeongnam",
+ "dong_page_min_lots": 3,
+ "city": "통영시",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·공무용 자동차 등 면제(가능)",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제4조제3항 — 긴급자동차, 국가 또는 지방자치단체 소유의 공무용 자동차, 공공 행사 및 회의에 참여하는 자동차(사전 서면 신청·승인 시), 성실납세증 부착 자동차(발행일로부터 1년)는 주차요금을 면제할 수 있다"
+  },
+  {
+   "label": "경형자동차·장애인·국가유공자 등 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 5 가·나·라·마·바 — 경형자동차, 장애인등록증 소지자가 직접 운전하거나 동승한 경우, 국가유공자, 고엽제후유의증환자, 5·18민주화운동부상자 본인 소유의 비사업용 승용차는 주차요금의 50%를 경감한다"
+  },
+  {
+   "label": "임산부·다자녀·전통시장 이용 등 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 5 다·사·아·자·차 — 임산부 자동차 표지를 부착하고 임산부가 탑승한 자동차, 다자녀가정 우대카드(경남 아이 다누리 카드) 소지자가 운전하는 비사업용 자동차, 시장이 지정하는 공영주차장에서 전통시장 이용사실을 확인할 수 있는 자료를 제출하는 경우, 장기등 및 인체조직 기증자·기증희망자, 병역명문가 예우대상자는 주차요금의 50%를 경감한다"
+  },
+  {
+   "label": "저공해·환경친화적 자동차 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 5 카·타 — 저공해자동차(표지 부착) 또는 배출가스저감장치 부착·저공해엔진 개조 자동차와 환경친화적 자동차는 주차요금의 50%를 경감한다"
+  },
+  {
+   "label": "전기자동차 충전 시 2시간 면제 후 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 120,
+   "note": "조례 별표 1 비고 5 타 — 환경친화적 자동차 50% 경감 중 전기자동차는 충전할 경우 2시간 범위에서 주차요금을 면제한다"
+  },
+  {
+   "label": "미륵도 관광특구 공영주차장 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 5 파 — 「관광진흥법」 제70조에 따라 지정된 미륵도 관광특구 지역의 공영주차장을 이용하는 자동차는 주차요금의 50%를 경감한다"
+  },
+  {
+   "label": "자가용 승용차 10부제 참여차량 20% 경감",
+   "rate": 0.8,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 6 — 자가용 승용차 10부제 참여차량은 주차요금의 20%를 경감한다"
+  },
+  {
+   "label": "시청사 부설주차장 50% 감면 (통영시청 1·2청사에만 적용)",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "「통영시 시청사 부설주차장 관리 조례」 제5조제2항 — 장애인·5·18민주부상자·경형자동차·저공해자동차·환경친화적 자동차·장기기증자·병역명문가·임산부·자원봉사증 소지 자동차는 주차요금의 50%를 감면한다(둘 이상 해당해도 하나만 적용). 같은 조례 제4조는 1시간 이내 민원 방문 자동차 등을 면제한다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}

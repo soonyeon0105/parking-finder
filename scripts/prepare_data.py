@@ -67031,6 +67031,710 @@ def build_jinju():
     return payload
 
 
+# ---------------------------------------------------------------- 통영시
+#   표준데이터 통영시 등록 49행이 전부 공영이다(노외
+#   37곳·노상 9구간·부설 3곳, 총 3,932면). 유료
+#   28곳·무료 21곳. 「통영시 주차장 조례」 제1983호
+#   (시행 2025-05-16, ordinSeq 2039005) 제4조제1항·
+#   별표 1(<개정 2025. 5. 16.>)은 급지(1급지 동지역·
+#   2급지 읍면지역)×차종 요금표로 1급지 소형 최초
+#   30분 500원·초과 10분 200원·1일 6,000원·월정기
+#   주간 70,000원·야간 40,000원·주야간 90,000원이다.
+#   등록 유료 28곳 중 24곳이 1급지 소형 행(기본·추가·
+#   1일)과 같고 월정기는 15곳이 주간 금액 70,000원,
+#   9곳은 미등록(공란 8곳·0원 1곳)이다. 통제영주차장은
+#   기본 15분·월 주야간 금액으로, 유람선터미널주차장은
+#   1일 2,500원으로 별표와 달라 등록값을 그대로 싣고
+#   fee_diff에 남긴다. 시청 1·2청사 부설 2곳은 별도
+#   조례 「통영시 시청사 부설주차장 관리 조례」 제1983호
+#   (ordinSeq 2039003) 제5조가 정한다 — 최초 1시간
+#   무료·초과 30분 500원·10분 200원·1일 5,000원·
+#   월정기 15,000원. 등록값(기본 90분 500원)은 이
+#   구조의 총액 환산 표현이라 1시간 무료를 살려
+#   free_min 60으로 계산한다. 좌표는 49곳 전부 등록돼
+#   있고 전부 통영시 범위 안이라 보완 0건이다.
+TONGYEONG_PROVINCE = "경상남도"
+TONGYEONG_PROVINCE_SLUG = "gyeongnam"
+TONGYEONG_ORD_URL = "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2039005"
+TONGYEONG_CH_URL = "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2039003"
+TONGYEONG_ORD_TXT = RAW / "tongyeong-ordinance-b1.txt"
+TONGYEONG_ORD_NOTE = ("조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — "
+                  "「통영시 주차장 조례」 제1983호(시행 2025-05-16, "
+                  "일부개정), ordinSeq 2039005. 본문 사본 "
+                  "data/raw/tongyeong-ordinance.txt. 별표 1(공영주차장 "
+                  "주차 요금표)은 HWP 원본을 data/raw/tongyeong-ordinance-b1.hwp로 "
+                  "저장하고 PrvText 추출과 BodyText 전문 파싱을 교차 확인해 "
+                  "data/raw/tongyeong-ordinance-b1.txt로 옮겼다. 본문 "
+                  "제4조제1항이 별표 1을 참조하고 첨부에도 별표 1이 들어 있어 "
+                  "첨부파일 오등록이 아니다. 최신 부칙(2025. 5. 16. 조례 "
+                  "제1983호)은 별표 1 비고 5호 자목의 용어만 정비했고, 요금표 "
+                  "금액의 최신 개정은 부칙(조례 제1885호, 2024. 5. 16.)의 "
+                  "별표 1 개정이다. 검색에 함께 걸리는 통영시 도시교통사업"
+                  "특별회계 설치 조례 제1853호는 특별회계 조례라 요금 조례가 "
+                  "아니고, 통영시 부설 주차장의 설치비용 산정기준 등에 관한 "
+                  "조례 제1718호는 설치비용 전용이다. 통영시청 1·2청사 "
+                  "부설주차장은 별도 조례 「통영시 시청사 부설주차장 관리 "
+                  "조례」 제1983호(시행 2025-05-16, ordinSeq 2039003)가 "
+                  "정한다 — 본문 사본 data/raw/tongyeong-cityhall-ordinance.txt, "
+                  "제5조제1항 요금표는 이미지 원본을 "
+                  "data/raw/tongyeong-cityhall-ordinance-table.jpg로 저장했다.")
+
+TONGYEONG_DISCOUNTS = [
+    {"label": "긴급자동차·공무용 자동차 등 면제(가능)", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제4조제3항 — 긴급자동차, 국가 또는 지방자치단체 소유의 공무용 자동차, 공공 행사 및 회의에 참여하는 자동차(사전 서면 신청·승인 시), 성실납세증 부착 자동차(발행일로부터 1년)는 주차요금을 면제할 수 있다"},
+    {"label": "경형자동차·장애인·국가유공자 등 50% 경감", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1 비고 5 가·나·라·마·바 — 경형자동차, 장애인등록증 소지자가 직접 운전하거나 동승한 경우, 국가유공자, 고엽제후유의증환자, 5·18민주화운동부상자 본인 소유의 비사업용 승용차는 주차요금의 50%를 경감한다"},
+    {"label": "임산부·다자녀·전통시장 이용 등 50% 경감", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1 비고 5 다·사·아·자·차 — 임산부 자동차 표지를 부착하고 임산부가 탑승한 자동차, 다자녀가정 우대카드(경남 아이 다누리 카드) 소지자가 운전하는 비사업용 자동차, 시장이 지정하는 공영주차장에서 전통시장 이용사실을 확인할 수 있는 자료를 제출하는 경우, 장기등 및 인체조직 기증자·기증희망자, 병역명문가 예우대상자는 주차요금의 50%를 경감한다"},
+    {"label": "저공해·환경친화적 자동차 50% 경감", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1 비고 5 카·타 — 저공해자동차(표지 부착) 또는 배출가스저감장치 부착·저공해엔진 개조 자동차와 환경친화적 자동차는 주차요금의 50%를 경감한다"},
+    {"label": "전기자동차 충전 시 2시간 면제 후 50% 경감", "rate": 0.5, "exempt_min": 120,
+     "note": "조례 별표 1 비고 5 타 — 환경친화적 자동차 50% 경감 중 전기자동차는 충전할 경우 2시간 범위에서 주차요금을 면제한다"},
+    {"label": "미륵도 관광특구 공영주차장 50% 경감", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1 비고 5 파 — 「관광진흥법」 제70조에 따라 지정된 미륵도 관광특구 지역의 공영주차장을 이용하는 자동차는 주차요금의 50%를 경감한다"},
+    {"label": "자가용 승용차 10부제 참여차량 20% 경감", "rate": 0.8, "exempt_min": 0,
+     "note": "조례 별표 1 비고 6 — 자가용 승용차 10부제 참여차량은 주차요금의 20%를 경감한다"},
+    {"label": "시청사 부설주차장 50% 감면 (통영시청 1·2청사에만 적용)", "rate": 0.5, "exempt_min": 0,
+     "note": "「통영시 시청사 부설주차장 관리 조례」 제5조제2항 — 장애인·5·18민주부상자·경형자동차·저공해자동차·환경친화적 자동차·장기기증자·병역명문가·임산부·자원봉사증 소지 자동차는 주차요금의 50%를 감면한다(둘 이상 해당해도 하나만 적용). 같은 조례 제4조는 1시간 이내 민원 방문 자동차 등을 면제한다"},
+]
+
+TONGYEONG_CONF = {
+    "city": "통영시",
+    "slug": "tongyeong",
+    "manager": "경상남도 통영시",
+    "manager_inquiry": "통영시청 교통과(055-650-5300, 국가법령정보센터 표기)",
+    "ordinance": ("「통영시 주차장 조례」 제1983호(시행 2025-05-16, 일부개정)",
+                  TONGYEONG_ORD_URL, TONGYEONG_ORD_NOTE),
+    "notes": ("통영시 공영주차장 49곳(노외 37곳·노상 9구간·부설 3곳, 총 3,932면)은 "
+              "유료 28곳·무료 21곳으로 등록돼 있다. 「통영시 주차장 조례」 제1983호"
+              "(시행 2025-05-16, ordinSeq 2039005) 제4조제1항은 공영주차장의 "
+              "주차요금을 별표 1과 같이 한다고 정한다. 별표 1은 급지(1급지·2급지)"
+              "×차종(소형·대형) 요금표로, 1회 주차요금은 최초 30분까지 1급지 소형 "
+              "500원·대형 1,000원, 2급지 소형 300원·대형 500원이고 30분을 초과하면 "
+              "10분마다 1급지 소형 200원·대형 400원, 2급지 소형 100원·대형 200원이 "
+              "붙으며, 1일 주차요금은 1급지 소형 6,000원·대형 12,000원, 2급지 소형 "
+              "3,000원·대형 6,000원, 월 정기주차요금은 1급지 소형 주간 70,000원·"
+              "야간 40,000원·주야간 90,000원, 대형 주간 140,000원·야간 80,000원·"
+              "주야간 180,000원, 2급지 소형 주간 35,000원·야간 20,000원·주야간 "
+              "45,000원, 대형 주간 70,000원·야간 40,000원·주야간 90,000원이다. "
+              "급지는 행정구역 기준 1급지가 동지역, 2급지가 읍·면지역이다(별표 1 "
+              "비고 3, 제4조의2제2항). 등록 유료 28곳 중 24곳의 기본·추가·1일 "
+              "요금이 별표 1급지 소형 행과 정확히 같고, 월정기는 15곳이 주간 금액 "
+              "70,000원, 9곳은 등록이 비어 있다(공란 8곳·0원 1곳). 통제영주차장은 "
+              "기본 15분·월 주야간 90,000원으로, 유람선터미널주차장은 1일 2,500원"
+              "으로 별표와 달라 등록값을 그대로 싣고 확인 과제로 남겼다. 통영시청 "
+              "1·2청사 부설주차장 2곳은 「통영시 시청사 부설주차장 관리 조례」 "
+              "제5조가 정하는 별도 요금이다(최초 1시간 무료, 초과 30분 500원·"
+              "10분마다 200원, 1일 5,000원, 직원 월 정기권 15,000원). 면제는 "
+              "제4조제3항(긴급자동차·공무용 자동차·공공행사 참여·성실납세자), "
+              "경감은 별표 1 비고 5~7이 정한다 — 경형·장애인·국가유공자 등 50%, "
+              "전기자동차 충전 시 2시간 면제 후 50%, 승용차 10부제 20%, "
+              "투표확인증 제출 시 1회 2,000원까지 감면. 좌표는 49곳 전부 등록돼 "
+              "있고 전부 통영시 범위 안이다. 도로명주소는 49곳 전부 공란으로 "
+              "등록돼 있다."),
+    "discounts": TONGYEONG_DISCOUNTS,
+}
+
+TONGYEONG_BBOX = (34.50, 35.05, 128.10, 128.80)
+
+TONGYEONG_DONGS = {"산양읍", "용남면", "도산면", "광도면", "원량면", "한산면",
+                   "사량면", "욕지면", "도남동", "도천동", "명정동", "무전동",
+                   "미수동", "봉평동", "북신동", "서호동", "인평동", "정량동",
+                   "중앙동", "태평동", "항남동", "동호동", "문화동", "당동"}
+
+
+def tongyeong_dong_of(addr):
+    """통영시 법정 동·읍·면 판정 — 지번주소의 통영시 다음
+    토큰이 동·읍·면이다. 이름 기반 보정은 쓰지 않는다."""
+    if addr:
+        m = re.search(r"통영시\s*([가-힣0-9]+?(?:읍|면|동\d+가|동))(?=[\s0-9-]|$)", addr)
+        if m:
+            return m.group(1)
+    return None
+
+
+# 등록 요금 패턴 — (기본시간, 기본요금, 추가단위시간, 추가단위요금, 1일, 월정기)
+#   P1은 별표 1의 1급지 소형(월정기는 주간 금액), P1N은 같은 행에서
+#   월정기만 등록이 비어 있는 경우(공란 8곳·0원 1곳)다.
+TONGYEONG_P1 = (30, 500, 10, 200, 6000, 70000)
+TONGYEONG_P1N = (30, 500, 10, 200, 6000, 0)
+
+
+def tongyeong_fee(row, name, note_bits, fee_diff):
+    """통영시 공영주차장 한 곳의 요금 — 등록 49곳은 유료
+    28곳·무료 21곳이다. 유료 24곳의 기본·추가·1일 요금이
+    조례 별표 1의 1급지 소형 행과 정확히 같아 등록값을
+    그대로 계산에 쓴다(공주·청양·창원·진주 선례). 월정기는
+    등록 칸이 하나뿐이라 별표의 주간 금액과 대응시키고,
+    등록이 비어 있으면 없는 대로 둔다. 별표와 어긋나는
+    통제영주차장(기본 15분·월 주야간)·유람선터미널주차장
+    (1일 2,500원)은 등록값을 그대로 싣고 fee_diff에
+    남긴다. 시청 1·2청사 부설 2곳은 별도 조례(시청사
+    부설주차장 관리 조례 제5조)의 요금 구조로 계산한다."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    day_hours = to_int(row.get("1일주차권요금적용시간"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    ptype = (row.get("주차장유형") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 시청 확인 필요"})
+        return fee
+    if not base_fee and not unit_fee and not day and not month:
+        fee_diff.append(f"{name}: '{raw_type}'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 "
+                        "비어 있어 금액을 확정할 수 없다 — 조례 별표 1의 요금은 요금표에만 "
+                        "싣고 이 곳은 요금 미상으로 표기한다(군산 선례, 시청 확인 필요)")
+        fee.update({"type": "미상",
+                    "basis": "요금 구분은 ‘유료’이나 요금 금액이 전부 비어 있음 — "
+                             "조례 별표 1 요금은 요금표에 있고, 금액은 통영시청 확인 필요"})
+        return fee
+    if ptype == "부설" and name.startswith("통영시청"):
+        # 시청사 부설주차장 관리 조례 제5조제1항: 민원 방문 자동차는 최초
+        #   1시간 무료, 1시간 초과 30분까지 500원, 매 10분 초과 200원
+        #   가산, 1일 5,000원. 직원 자동차는 1일 5,000원·월 정기권
+        #   15,000원. 등록값(기본 90분 500원·추가 10분 200원·1일
+        #   5,000원·월 15,000원)은 이 구조의 총액 환산 표현이라, 1시간
+        #   이내 무료를 살려 free_min 60 + 기본 30분 500원으로 계산한다.
+        fee.update({"type": "유료", "base_min": 30, "base_fee": 500,
+                    "unit_min": 10, "unit_fee": 200,
+                    "daily_fee": 5000, "daily_hours": day_hours,
+                    "monthly": 15000, "free_min": 60,
+                    "grade": int(grade) if grade.isdigit() else None,
+                    "grade_label": f"{grade}급지" if grade else None,
+                    "basis": ("「통영시 시청사 부설주차장 관리 조례」 제1983호 제5조제1항의 "
+                              "요금으로 계산한다 — 민원 방문 자동차는 최초 1시간 무료, "
+                              "1시간 초과 30분까지 500원, 매 10분 초과 시 200원 가산, "
+                              "1일 5,000원이고 직원 자동차 월 정기권은 15,000원이다. "
+                              "표준데이터 등록값(기본 90분 500원·추가 10분 200원·1일 "
+                              "5,000원·월정기 15,000원)은 이 구조를 기본시간 90분으로 "
+                              "환산한 표현이라 총액은 같고, 1시간 이내 무료를 반영해 "
+                              "이쪽 구조로 계산한다")})
+        return fee
+    pat = (base_min, base_fee, unit_min, unit_fee, day, month or 0)
+    if pat == TONGYEONG_P1:
+        basis = ("표준데이터 등록값이 조례 별표 1의 1급지 소형 요금(최초 30분 "
+                 "500원·초과 10분마다 200원·1일 6,000원·월정기 주간 "
+                 "70,000원)과 정확히 같아 등록값을 그대로 적용했다")
+    elif pat == TONGYEONG_P1N:
+        basis = ("표준데이터 등록값(최초 30분 500원·초과 10분마다 200원·1일 "
+                 "6,000원)이 조례 별표 1의 1급지 소형 요금과 정확히 같아 "
+                 "등록값을 그대로 적용했다. 월정기는 표준데이터에 등록이 없어 "
+                 "싣지 않았다(별표 1의 1급지 소형 월정기는 주간 70,000원·야간 "
+                 "40,000원·주야간 90,000원)")
+    else:
+        fee_diff.append(f"{name}: 등록 요금(기본 {base_min}분 {base_fee}원·추가 {unit_min}분 "
+                        f"{unit_fee}원·1일 {day}원·월정기 {month}원)이 조례 별표 1의 어느 "
+                        "급지·차종 행과도 맞지 않아 등록값을 그대로 실었다 — 시청 확인 과제")
+        basis = "표준데이터 등록값을 그대로 적용했다 — 조례 별표 1의 행과 대응하지 않아 시청 확인 과제다"
+    fee.update({"type": "유료", "base_min": base_min, "base_fee": base_fee,
+                "unit_min": unit_min, "unit_fee": unit_fee,
+                "daily_fee": day if day else None,
+                "daily_hours": day_hours if day_hours else None,
+                "monthly": month if month else None,
+                "grade": int(grade) if grade.isdigit() else None,
+                "grade_label": f"{grade}급지" if grade else None,
+                "basis": basis})
+    return fee
+
+
+def tongyeong_fee_table(conf, lots):
+    """요금표 — 조례 별표 1(급지×차종)을 싣는다. 등록
+    유료 28곳 중 24곳의 요금은 1급지 소형 행과 같고
+    대형·2급지 행은 등록된 곳이 없어 조례 기준 행으로
+    함께 싣는다. 시청 1·2청사 부설 2곳은 별도 조례
+    요금이라 표 아래 안내로 분리한다. 1시간·2시간
+    예상액은 별표 구조(최초 30분 + 초과 10분 단위,
+    1일 상한)로 계산한 조례 기준액이다."""
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+
+    def _n(pat):
+        def _std_pat(l):
+            s = l["fee"]["std"] or {}
+            return (s.get("base_min"), s.get("base_fee"), s.get("unit_min"),
+                    s.get("unit_fee"), s.get("day"), s.get("monthly") or 0)
+        return len([l for l in lots if _std_pat(l) == pat])
+
+    def _row(label, grade, base_fee, unit_fee, day, month_day, month_night, month_all,
+             unit_label, n_lots=0):
+        f = {"base_min": 30, "base_fee": base_fee, "unit_min": 10,
+             "unit_fee": unit_fee, "daily_fee": day}
+        return {"label": label, "grade": grade, "unit_label": unit_label,
+                "hour": sj_charge(f, 60), "two_hour": sj_charge(f, 120),
+                "day": day, "month": month_day, "month_night": month_night, "lots": n_lots}
+
+    rows = [
+        _row("1급지 소형", "g1_small", 500, 200, 6000, 70000, 40000, 90000,
+             "최초 30분 500원 · 초과 10분마다 200원 · 1일 6,000원 · 월정기 주간 70,000원·야간 40,000원·주야간 90,000원",
+             _n(TONGYEONG_P1) + _n(TONGYEONG_P1N)),
+        _row("1급지 대형", "g1_large", 1000, 400, 12000, 140000, 80000, 180000,
+             "최초 30분 1,000원 · 초과 10분마다 400원 · 1일 12,000원 · 월정기 주간 140,000원·야간 80,000원·주야간 180,000원"),
+        _row("2급지 소형", "g2_small", 300, 100, 3000, 35000, 20000, 45000,
+             "최초 30분 300원 · 초과 10분마다 100원 · 1일 3,000원 · 월정기 주간 35,000원·야간 20,000원·주야간 45,000원"),
+        _row("2급지 대형", "g2_large", 500, 200, 6000, 70000, 40000, 90000,
+             "최초 30분 500원 · 초과 10분마다 200원 · 1일 6,000원 · 월정기 주간 70,000원·야간 40,000원·주야간 90,000원"),
+    ]
+    return {
+        "style": "tongyeong_grade",
+        "unit_min": 10,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["list_mode"] == "card"]),
+                 "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [{"group": "주간·야간 구분 (조례 별표 1 비고 2)",
+                     "hours": "주간 09:00~20:00, 야간 20:00~다음 날 09:00",
+                     "free": "별표 1 월정기 주간·야간 금액의 구분 기준이다"}],
+        "notes": ("급지는 행정구역을 기준으로 1급지는 동지역, 2급지는 읍·면지역이다"
+                  "(별표 1 비고 3). 소형은 승용자동차, 승차정원 16인승 미만 "
+                  "승합자동차, 적재정량 2.5톤 미만의 화물자동차와 이륜자동차를 "
+                  "말하고 나머지는 대형으로 본다(비고 4). 노상주차장에는 1일 및 "
+                  "월 정기주차를 제한하고(비고 1), 1일 주차권 및 월정기 주차권제는 "
+                  "노외주차장에 한하여 실시하되 시행 여부는 시장이 따로 정할 수 "
+                  "있다(비고 9). 경감은 경형·장애인·국가유공자 등 50%(비고 5), "
+                  "전기자동차 충전 시 2시간 면제 후 50%, 자가용 승용차 10부제 "
+                  "참여차량 20%(비고 6), 투표확인증 제출 시 1회에 한해 2,000원까지 "
+                  "감면(비고 7)이다. 통영시청 1·2청사 부설주차장은 이 표가 아니라 "
+                  "「통영시 시청사 부설주차장 관리 조례」 제5조의 요금(최초 1시간 "
+                  "무료·초과 30분 500원·10분마다 200원·1일 5,000원·월 정기권 "
+                  "15,000원)을 적용한다. 등록 급지는 49곳 전부 '1'이다 — 광도면 "
+                  "5곳은 조례 기준으로는 2급지(읍·면지역)이나 전부 무료로 등록돼 "
+                  "있어 요금에 영향이 없다."),
+        "basis": ("요금표는 「통영시 주차장 조례」 제1983호(시행 2025-05-16) "
+                  "제4조·별표 1과 표준데이터(기준일 2026-10-20)를 대조해 실었다. "
+                  "등록된 유료 28곳 중 24곳의 요금이 별표 1의 1급지 소형 행과 "
+                  "같아 등록값을 계산에 쓴다. (조례 본문: data/raw/tongyeong-ordinance.txt, "
+                  "별표 원문: data/raw/tongyeong-ordinance-b1.txt)"),
+    }
+
+
+def tongyeong_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                      space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(lots)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in lots).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in lots if l["dong"]}),
+        "동_미상": [l["name"] for l in lots if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in lots)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「통영시 주차장 조례」 제1983호 제4조제3항·별표 1 비고 5~7 — "
+                      "면제(할 수 있다, 제4조제3항): 긴급자동차, 국가 또는 지방자치단체 "
+                      "소유의 공무용 자동차, 공공 행사 및 회의에 참여하는 자동차(사전 "
+                      "서면 신청·승인 시), 성실납세증 부착 자동차(발행일로부터 1년). "
+                      "50% 경감(비고 5): 경형자동차, 장애인, 임산부 표지 자동차, "
+                      "국가유공자, 고엽제후유의증환자, 5·18민주부상자, 다자녀가정 "
+                      "우대카드(경남 아이 다누리 카드), 전통시장 이용 확인 자료 제출, "
+                      "장기등 및 인체조직 기증자·기증희망자, 병역명문가, 저공해자동차, "
+                      "환경친화적 자동차(전기자동차 충전 시 2시간 면제), 미륵도 "
+                      "관광특구 공영주차장. 20% 경감(비고 6): 자가용 승용차 10부제 "
+                      "참여차량. 투표확인증 제출 시 1회 2,000원까지 감면(비고 7). "
+                      "시청사 부설 2곳은 「통영시 시청사 부설주차장 관리 조례」 "
+                      "제4조(1시간 이내 민원 방문 등 면제)·제5조제2항(50% 감면)을 "
+                      "따로 적용한다. 본문 원문(data/raw/tongyeong-ordinance.txt)·"
+                      "별표 원문(data/raw/tongyeong-ordinance-b1.txt) 대조 "
+                      "완료(2026-11-20)"),
+        "요금_출처": ("조례 제4조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같다. 별표 1은 "
+                      "급지(1급지·2급지)×차종 요금표로 1회 주차요금은 최초 30분까지 1급지 "
+                      "소형 500원·대형 1,000원, 2급지 소형 300원·대형 500원, 30분 초과 후 "
+                      "10분마다 1급지 소형 200원·대형 400원, 2급지 소형 100원·대형 "
+                      "200원이고, 1일 주차요금은 1급지 소형 6,000원·대형 12,000원, 2급지 "
+                      "소형 3,000원·대형 6,000원, 월 정기주차요금은 1급지 소형 주간 "
+                      "70,000원·야간 40,000원·주야간 90,000원, 대형 주간 140,000원·야간 "
+                      "80,000원·주야간 180,000원, 2급지 소형 주간 35,000원·야간 "
+                      "20,000원·주야간 45,000원, 대형 주간 70,000원·야간 40,000원·주야간 "
+                      "90,000원이다. 표준데이터 등록 유료 28곳 중 24곳의 패턴이 별표의 "
+                      "1급지 소형 행과 같아 등록값을 그대로 계산에 쓴다. 시청 1·2청사 "
+                      "부설 2곳은 시청사 부설주차장 관리 조례 제5조의 요금으로 계산한다"),
+        "급지_출처": ("조례 별표 1 비고 3·제4조의2제2항제1호 — 급지구분은 행정구역을 기준으로 "
+                      "1급지는 동지역, 2급지는 읍·면지역이다. 표준데이터 등록 급지는 "
+                      "49곳 전부 '1'이고, 읍·면 지역 등록은 광도면 5곳뿐이며 전부 "
+                      "무료라 요금에 영향이 없다"),
+        "무료요일_출처": ("조례에 주말·공휴일 상시 무료 규정이 없어 유료 49곳 중 47곳의 "
+                          "free_days는 전부 False다 — 제4조제3항의 면제는 대상 차량에 "
+                          "대한 것이다. 통영시청 1·2청사 부설 2곳만 「통영시 시청사 "
+                          "부설주차장 관리 조례」 제3조가 야간 및 공휴일(토요일 및 "
+                          "법정공휴일) 무료 개방을 정해 free_days를 토·일 True로 뒀다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 통영시 등록 49행이 전부 공영(노외 37곳·노상 9구간·부설 3곳)이라 민영 제외 0건으로 49곳·3,932면(노외 3,128면·노상 350면·부설 454면)을 실었다. 중복 제거 0건, 구획수 0 등록 0건이다. 동별로는 무전동 9곳·정량동 5곳·동호동 5곳·광도면 5곳·북신동 4곳·서호동 3곳·봉평동 3곳·항남동 2곳·미수동 2곳·문화동 2곳·명정동 2곳·도남동 2곳·당동 2곳·태평동 1곳·인평동 1곳·도천동 1곳이고, 읍·면 지역 등록은 광도면 5곳뿐이다 — 다른 읍·면(산양읍·용남면·도산면·원량면·한산면·사량면·욕지면)에 공영주차장이 없는 것인지 등록 누락인지는 시청 확인 과제다",
+            "「통영시 주차장 조례」 제1983호(표제 시행 2025-05-16, 공포 2025-05-16, 일부개정, ordinSeq 2039005) 본문 원문(data/raw/tongyeong-ordinance.txt) 대조 완료(2026-11-20) — 최신 부칙(조례 제1983호, 2025. 5. 16.)은 별표 1 비고 5호 자목의 용어만 정비했고 요금표 금액의 최신 개정은 부칙(조례 제1885호, 2024. 5. 16.)의 별표 1 개정이다. 검색에 함께 걸리는 통영시 도시교통사업특별회계 설치 조례 제1853호(2023-12-28)는 특별회계 조례라 요금 조례가 아니고, 통영시 부설 주차장의 설치비용 산정기준 등에 관한 조례 제1718호는 설치비용 전용이며, 통영시 시청사 부설주차장 관리 조례는 시청사 부설 2곳에만 적용되는 별도 조례로 따로 대조했다",
+            "별표 1은 HWP 원본(flSeq 154529027)을 data/raw/tongyeong-ordinance-b1.hwp로 저장하고 PrvText 추출과 BodyText 전문 파싱을 교차 확인해 확정했다 — 급지(1급지·2급지)×차종(소형·대형) 요금표로 1회 주차요금은 최초 30분까지 1급지 소형 500원·대형 1,000원, 2급지 소형 300원·대형 500원이고 초과 10분마다 1급지 소형 200원·대형 400원, 2급지 소형 100원·대형 200원, 1일 주차요금은 1급지 소형 6,000원·대형 12,000원, 2급지 소형 3,000원·대형 6,000원, 월 정기주차요금은 1급지 소형 주간 70,000원·야간 40,000원·주야간 90,000원, 대형 주간 140,000원·야간 80,000원·주야간 180,000원, 2급지 소형 주간 35,000원·야간 20,000원·주야간 45,000원, 대형 주간 70,000원·야간 40,000원·주야간 90,000원이다. 본문 제4조제1항이 별표 1을 참조하고 첨부에도 별표 1이 들어 있어 첨부파일 오등록이 아니다",
+            "등록 요금은 유료 28곳 중 24곳이 최초 30분 500원·초과 10분마다 200원·1일 6,000원으로 별표 1급지 소형 행과 정확히 같다 — 월정기는 15곳이 주간 금액 70,000원으로 등록됐고 9곳(미륵도공영주차장·무전제3·제4주차장·디피랑 1·3·삼성생명앞주차장·미륵도횟집거리노상주차장·무전노상주차장·태평주차장)은 등록이 비어 있다(공란 8곳, 태평주차장은 0원). 등록값이 완전한 곳은 별표와 대응하므로 계산기는 등록값을 그대로 쓴다(공주·청양·창원·진주 선례)",
+            "통제영주차장은 기본 15분 500원·월정기 90,000원으로 별표 1급지 소형(기본 30분·월 주간 70,000원)과 다르고, 유람선터미널주차장은 1일 요금이 2,500원(적용시간 60분)으로 별표 1일 6,000원과 다르다 — 두 곳 다 등록값을 그대로 실었고 시청 확인 과제로 남겼다",
+            "통영시청 1청사·2청사 주차장(부설)은 「통영시 시청사 부설주차장 관리 조례」 제1983호(ordinSeq 2039003) 제5조제1항의 요금표(이미지 원본 data/raw/tongyeong-cityhall-ordinance-table.jpg)로 대조했다 — 민원 방문 자동차는 최초 1시간 무료, 1시간 초과 30분까지 500원, 매 10분 초과 200원 가산, 1일 주차 5,000원이고 직원 자동차는 1일 5,000원·월 정기권 15,000원이다. 표준데이터 등록값(기본 90분 500원·추가 10분 200원·1일 260분 5,000원·월 15,000원)은 이 구조의 총액 환산 표현이라 1시간 이내 무료를 살려 free_min 60으로 계산한다. 같은 조례 제3조는 유료 운영시간을 평일 08:00~19:00로 정하고 야간 및 공휴일(토요일 및 법정공휴일)은 무료 개방한다고 정해 free_days를 토·일로 뒀다 — 등록 운영시간(평일 09:00~18:00)과 조례 유료시간이 다른 점은 시청 확인 과제다",
+            "좌표는 49곳 전부 등록돼 있고 전부 통영시 범위 안이라 지오코딩 보완이 0건이다 — 오버레이(좌표누락_지오코딩_20261118.json)는 718행 그대로다",
+            "도로명주소는 49곳 전부 공란으로 등록돼 있다",
+            "등록 급지는 49곳 전부 '1'이다. 조례 기준 2급지(읍·면지역)에 해당하는 광도면 5곳(안정주차장·죽림공영임시주차장·내죽도공원주차장·내죽도공원 제1·제2 노상주차장)도 '1'로 등록돼 있으나 전부 무료라 요금에 영향이 없다",
+            "부제시행구분은 5부제 9곳(이순신공원주차장·보건소 주차장·통영시청 1·2청사 주차장·통제영주차장·무전제1~제4주차장)·미시행 40곳이고, 운영요일은 49곳 전부 평일+토요일+공휴일이다. 평일 운영시간은 00:00~23:59 22곳·09:00~23:59 14곳·09:00~19:00 7곳·09:00~18:00 4곳·07:00~19:00 2곳이고 토요일·공휴일 시간은 시청 1·2청사를 빼면 평일과 같다. 특기사항은 49곳 전부 공란, 결제방법은 현금+신용카드 15곳·신용카드 13곳·공란 21곳(무료 21곳과 일치), 장애인전용주차구역 보유여부는 Y 31곳·N 18곳이다. 전화번호는 055-650-5335가 35곳으로 가장 많다. 관리기관명은 통영시청 47곳, 통제영주차장은 통영문화재단, 충렬사주차장은 재단법인통영충렬사다. 데이터기준일자는 49곳 전부 2026-10-20이다",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] or 0 for l in paid) / len(paid)) if paid else 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_tongyeong():
+    """통영시 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「통영시 주차장 조례」
+    제1983호(시행 2025-05-16, ordinSeq
+    2039005) 제4조·별표 1 원문 대조 완료
+    (2026-11-20). 표준데이터 등록 49행이 전부
+    공영(노외 37곳·노상 9구간·부설 3곳, 총
+    3,932면)이고 유료 28곳·무료 21곳이라 49곳을
+    싣고 제외는 0건이다. 좌표 결측은 0곳이다."""
+    conf = TONGYEONG_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "통영시" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "통영시" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 통영시는
+    #   해당 중복이 0건이다(같은 이름·같은 지번 쌍 자체가 없다 — 이름 중복
+    #   자체가 0건이다).
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (TONGYEONG_BBOX[0] < lat < TONGYEONG_BBOX[1]
+                                                        and TONGYEONG_BBOX[2] < lng < TONGYEONG_BBOX[3]):
+            # 통영시 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 통영시 범위 밖 — "
+                               "좌표 없음으로 표기하고 지오코딩 보완 대상으로 넘김")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음(0으로 등록)"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = tongyeong_dong_of(jibun)
+        if dong:
+            dong_src = "지번주소"
+        elif tongyeong_dong_of(road):
+            dong = tongyeong_dong_of(road)
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 동 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:읍|면|동))", std_name)
+        if _name_head and _name_head.group(1) in TONGYEONG_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 동({_name_head.group(1)})과 지번주소 기준 "
+                              f"동({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = tongyeong_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        if ptype == "부설" and std_name.startswith("통영시청"):
+            # 시청사 부설주차장 관리 조례 제3조 — 유료 운영시간은 평일이고
+            #   야간 및 공휴일(토요일 및 법정공휴일)은 무료 개방한다.
+            free_days = {"sat": True, "sun": True}
+            note_bits.append("통영시청 청사 부설주차장입니다 — 「통영시 시청사 "
+                             "부설주차장 관리 조례」에 따라 토요일·공휴일은 무료 "
+                             "개방하고, 민원 방문은 최초 1시간 무료입니다")
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "통영시", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다")
+
+    # 이름이 다른 주차장이 200m 안에 이웃한 쌍 — 전부 다른 등록이라 합치지
+    #   않고 전부 싣는다(옥천·영동 선례). 등록 좌표가 있는 곳끼리만 센다.
+    #   통영시는 구도심 공영주차장이 밀집해 있어 쌍이 많다.
+    _pairs = []
+    _have = [l for l in lots if l["lat"] is not None and l["lng"] is not None]
+    for _a in range(len(_have)):
+        for _b in range(_a + 1, len(_have)):
+            _d = 111000 * math.sqrt((_have[_a]["lat"] - _have[_b]["lat"]) ** 2
+                                    + ((_have[_a]["lng"] - _have[_b]["lng"]) * 0.81) ** 2)
+            if _d < 200:
+                _pairs.append(f"{_have[_a]['name']}·{_have[_b]['name']}({round(_d)}m)")
+    if _pairs:
+        note_fixed.append("이름이 다른 주차장이 200m 안에 이웃한 쌍이 "
+                          f"{len(_pairs)}건 있다 — " + ", ".join(_pairs[:6])
+                          + " 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다")
+    note_fixed.append("표준데이터 등록 49행이 전부 공영(노외 37곳·노상 9구간·부설 "
+                      "3곳)이라 민영 제외 없이 49곳을 실었다. 데이터기준일자는 "
+                      "49행 전부 2026-10-20이고 제공기관명은 전부 '경상남도 "
+                      "통영시'다")
+    note_fixed.append("읍·면 지역 등록은 광도면 5곳뿐이다 — 다른 읍·면(산양읍·"
+                      "용남면·도산면·원량면·한산면·사량면·욕지면)에 공영주차장이 "
+                      "없는 것인지 등록 누락인지는 시청 확인 과제다")
+    note_fixed.append("도로명주소는 49곳 전부 공란으로 등록돼 있다")
+    note_fixed.append("통영시청 1청사·2청사 주차장은 등록 운영시간이 평일 "
+                      "09:00~18:00인데 「통영시 시청사 부설주차장 관리 조례」 "
+                      "제3조의 유료 운영시간은 평일 08:00~19:00이다 — 운영시간은 "
+                      "등록값을 그대로 싣고 차이는 시청 확인 과제로 남긴다")
+    note_fixed.append("좌표는 49곳 전부 등록돼 있고 전부 통영시 범위 안이라 지오코딩 "
+                      "보완이 0건이다")
+    note_fixed.append("부제시행구분은 5부제 9곳(이순신공원주차장·보건소 주차장·"
+                      "통영시청 1·2청사 주차장·통제영주차장·무전제1~제4주차장)·"
+                      "미시행 40곳이고, 운영요일은 49곳 전부 평일+토요일+공휴일이다. "
+                      "평일 운영시간은 00:00~23:59 22곳·09:00~23:59 14곳·"
+                      "09:00~19:00 7곳·09:00~18:00 4곳·07:00~19:00 2곳이고 "
+                      "토요일·공휴일 시간은 시청 1·2청사를 빼면 평일과 같다. "
+                      "특기사항은 49곳 전부 공란, 결제방법은 현금+신용카드 15곳·"
+                      "신용카드 13곳·공란 21곳(무료 21곳과 일치), 장애인전용"
+                      "주차구역 보유여부는 Y 31곳·N 18곳이다. 전화번호는 "
+                      "055-650-5335가 35곳이다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"gn-tongyeong-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"gn-tongyeong-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 통영시는 좌표 결측이 없어 오버레이로 채워지는 곳이 없다.
+    apply_coord_fix(lots)
+
+    fee_table = tongyeong_fee_table(conf, lots)
+    quality = tongyeong_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                                fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-10-20",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"통영시로 등록된 행 {len(rows_std)}행 중 공영 49행을 읽어 중복 "
+                 f"제거 {len(merged)}건, 제외 {len(excluded)}건으로 {len(lots)}곳을 실었다. "
+                 f"유료 {len([l for l in lots if l['fee']['type'] == '유료'])}곳·무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳이다. "
+                 f"좌표 결측은 0곳이다. "
+                 f"조례 대조 완료 — 「통영시 주차장 조례」 제1983호(시행 "
+                 f"2025-05-16, ordinSeq 2039005) 제4조·별표 1 원문 대조 완료(2026-11-20)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": TONGYEONG_ORD_TXT.name if TONGYEONG_ORD_TXT.exists() else None,
+            "sha256": sha256(TONGYEONG_ORD_TXT) if TONGYEONG_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2025-05-16",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"통영시가 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/tongyeong-ordinance.txt, 별표 원문: "
+                    f"data/raw/tongyeong-ordinance-b1.txt)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": TONGYEONG_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "통영시", "slug": "tongyeong"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": TONGYEONG_PROVINCE,
+        "province_slug": TONGYEONG_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "tongyeong_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -67043,7 +67747,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -67061,7 +67765,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -67115,7 +67819,8 @@ def main():
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
              "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "iksan": ["익산시"], "jeongeup": ["정읍시"], "namwon": ["남원시"], "gimje": ["김제시"], "wanju": ["완주군"], "jinan": ["진안군"], "muju": ["무주군"], "jangsu": ["장수군"], "imsil": ["임실군"], "sunchang": ["순창군"], "gochang": ["고창군"], "buan": ["부안군"], "mokpo": ["목포시"], "yeosu": ["여수시"], "suncheon": ["순천시"], "naju": ["나주시"], "gwangyang": ["광양시"], "muan": ["무안군"], "yeongam": ["영암군"], "haenam": ["해남군"], "goheung": ["고흥군"], "boseong": ["보성군"], "hwasun": ["화순군"], "jangheung": ["장흥군"], "gangjin": ["강진군"], "hampyeong": ["함평군"], "geumsan": ["금산군"], "yeonggwang": ["영광군"], "jangseong": ["장성군"], "wando": ["완도군"], "jindo": ["진도군"], "sinan": ["신안군"], "gurye": ["구례군"], "gokseong": ["곡성군"], "damyang": ["담양군"], "changwon": ["창원시"],
-                                "jinju": ["진주시"]}[args.city])
+                                "jinju": ["진주시"],
+                                "tongyeong": ["통영시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -67345,6 +68050,8 @@ def main():
         cities.append(build_changwon())
     if "진주시" in want:
         cities.append(build_jinju())
+    if "통영시" in want:
+        cities.append(build_tongyeong())
 
     if args.city == "all":
         site = build_site_payload(cities)

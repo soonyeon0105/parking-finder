@@ -820,6 +820,7 @@ MIX["damyang"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
 #   (금산 선례). 창원 페이지에 정당하게 나오는 다른 지역 이름은 없다.
 MIX["changwon"] = tuple(sorted(_all_mix_tokens))
 MIX["jinju"] = tuple(sorted(_all_mix_tokens))
+MIX["tongyeong"] = tuple(sorted(_all_mix_tokens))
 
 _ALL_ADDRS = sorted({(l.get("addr_jibun") or "") for l in LOTS}
                      | {(l.get("addr_road") or "") for l in LOTS}, key=len, reverse=True)
