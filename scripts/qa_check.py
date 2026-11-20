@@ -811,6 +811,11 @@ MIX["gurye"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
 #   ‘5·18민주유공자’ 표기도 곡성 페이지에 정당하게 나온다.
 MIX["gokseong"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
 
+# 담양군 — 나주·진도·신안·구례·곡성과 같은 부류. 담양의 도 이름 ‘전남광주통합특별시’에 든
+#   ‘광주’는 담양 페이지에 정당하게 나오므로 금지 토큰에서 뺀다(‘광주시’는
+#   그대로 둬 경기 광주 자료 혼입은 계속 잡는다).
+MIX["damyang"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
+
 _ALL_ADDRS = sorted({(l.get("addr_jibun") or "") for l in LOTS}
                      | {(l.get("addr_road") or "") for l in LOTS}, key=len, reverse=True)
 _ALL_NAMES = [l["name"] for l in LOTS]

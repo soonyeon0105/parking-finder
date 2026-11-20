@@ -1,0 +1,6201 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 19:54",
+  "generated_at_iso": "2026-11-20T19:54:31+09:00",
+  "snapshot_at": "2026-11-20 19:54",
+  "region": {
+   "province": "전남광주통합특별시",
+   "city": "담양군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-08-09",
+    "rows_total": 18994,
+    "rows_city": 52,
+    "fetched_at": "2026-11-20 19:54 (KST)",
+    "note": "담양군으로 등록된 행 52행 중 공영 52행을 읽어 중복 제거 0건, 제외 0건으로 52곳을 실었다. 무료 52곳이다. 좌표 결측은 0곳이다. 조례 대조 완료 — 「담양군 주차장 조례」 제3094호(시행 2026-08-10, ordinSeq 2159627) 제4조·별표 1 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「담양군 주차장 조례」 제3094호(시행 2026-08-10, 일부개정)",
+    "org": "전남광주통합특별시 담양군",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2159627",
+    "file": "damyang-ordinance-b1.txt",
+    "sha256": "6379e7d94172502f557a92b2d5a51fe6ed774e88be9173c03574e658302fe5d7",
+    "license": "자치법규(공개)",
+    "base_date": "2026-08-10",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 19:54 (KST)",
+    "note": "담양군이 설치·관리하는 공영주차장에 적용하는 조례다. 담양군 공영주차장 52곳(전부 노외, 총 1,848면)은 전부 요금 구분 '무료'로 등록돼 있다. 「담양군 주차장 조례」 제3094호(시행 2026-08-10, ordinSeq 2159627) 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하므로, 별표 1은 지금은 받지 않는 요금의 참고표로 함께 싣는다. 별표 1은 급지(1급지·2급지)×차종(소형·대형) 요금표로, 주차요금은 30분마다 1급지 소형 500원·대형 600원, 2급지 소형 500원·대형 600원이고, 1일 주차요금은 1급지 소형 8,000원·대형 9,000원, 2급지 소형 5,000원·대형 6,000원이며, 월정기는 1급지 소형 주간 60,000원·야간 50,000원·주야간 80,000원, 대형 주간 80,000원·야간 70,000원·주야간 110,000원, 2급지 소형 주간 50,000원·야간 40,000원·주야간 70,000원, 대형 주간 70,000원·야간 60,000원·주야간 100,000원이다. 급지는 1급지가 담양읍 지역, 2급지가 기타의 지역이다(별표 1 비고 3) — 표준데이터 등록 급지는 '1' 48곳·'2' 4곳인데 담양읍의 지침리 공영주차장이 '2'로, 담양읍 밖의 금성면공영주차장·덕성리 공영주차장·고서면공영주차장·월산지구 공영주차장이 '1'로 등록돼 있어 조례의 지역 기준과 어긋나는 등록이 있으나 전부 무료라 요금에는 영향이 없다. 경감은 별표 1 비고 5가 정한다 — 장애인 자가운전차량·장애인 동반 일반차량·국가유공자 보철용 차량·경자동차 50% 경감, 군수 시책(차량10부제 등) 참여 차량 20% 경감(가능). 좌표는 52곳 전부 등록돼 있고 전부 담양군 범위 안이다. (조례 본문: data/raw/damyang-ordinance.txt, 별표 원문: data/raw/damyang-ordinance-b1.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "담양군",
+   "slug": "damyang"
+  }
+ ],
+ "lots": [
+  {
+   "id": "jn-damyang-001",
+   "mgmt_no": "329-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고서면공영주차장",
+   "gu": "담양군",
+   "dong": "고서면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 고서면 동운리 1612",
+   "addr_road": "",
+   "road": null,
+   "spaces": 112,
+   "tel": "",
+   "lat": 35.22332931,
+   "lng": 126.9722056,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-002",
+   "mgmt_no": "329-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금성면공영주차장",
+   "gu": "담양군",
+   "dong": "금성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 금성면 석현리 93-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "",
+   "lat": 35.34419642,
+   "lng": 127.0272035,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-003",
+   "mgmt_no": "329-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "덕성리 공영주차장",
+   "gu": "담양군",
+   "dong": "금성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 금성면 덕성리 780",
+   "addr_road": "전남광주통합특별시 담양군 금성면 덕성길 28",
+   "road": null,
+   "spaces": 9,
+   "tel": "",
+   "lat": 35.35208751,
+   "lng": 127.0532248,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-004",
+   "mgmt_no": "329-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가정교회 인근 공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 객사리 147-4",
+   "addr_road": "전남광주통합특별시 담양군 담양읍 객사4길 30",
+   "road": null,
+   "spaces": 12,
+   "tel": "",
+   "lat": 35.32248871,
+   "lng": 126.9844669,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-005",
+   "mgmt_no": "329-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "객사1길공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 객사리 247-2",
+   "addr_road": "전남광주통합특별시 담양군 담양읍 객사1길 7",
+   "road": null,
+   "spaces": 36,
+   "tel": "",
+   "lat": 35.32146098,
+   "lng": 126.9829007,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-006",
+   "mgmt_no": "329-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "객사1지구공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 객사리 148",
+   "addr_road": "",
+   "road": null,
+   "spaces": 53,
+   "tel": "",
+   "lat": 35.32249307,
+   "lng": 126.9847317,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-007",
+   "mgmt_no": "329-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "객사2지구공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 객사리 52-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "",
+   "lat": 35.32064362,
+   "lng": 126.9874022,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-008",
+   "mgmt_no": "329-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "객사3지구공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 객사리 220-14",
+   "addr_road": "",
+   "road": null,
+   "spaces": 7,
+   "tel": "",
+   "lat": 35.32237033,
+   "lng": 126.9819757,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-009",
+   "mgmt_no": "329-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "객사4지구 공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 객사리 125",
+   "addr_road": "",
+   "road": null,
+   "spaces": 5,
+   "tel": "",
+   "lat": 35.3212043,
+   "lng": 126.9850692,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-010",
+   "mgmt_no": "329-2-000048",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "국수거리 인근 공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 객사리 178",
+   "addr_road": "전남광주통합특별시 담양군 담양읍 객사3길 11",
+   "road": null,
+   "spaces": 5,
+   "tel": "",
+   "lat": 35.32370195,
+   "lng": 126.9821479,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-011",
+   "mgmt_no": "329-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "국수거리공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 객사리 211-33",
+   "addr_road": "전남광주통합특별시 담양군 담양읍 객사3길 30",
+   "road": null,
+   "spaces": 18,
+   "tel": "",
+   "lat": 35.32411783,
+   "lng": 126.9841272,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-012",
+   "mgmt_no": "329-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남산리 공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 남산리 279-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 263,
+   "tel": "",
+   "lat": 35.31652836,
+   "lng": 126.9872207,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-013",
+   "mgmt_no": "329-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "농협지점옆공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 객사리 125",
+   "addr_road": "",
+   "road": null,
+   "spaces": 7,
+   "tel": "",
+   "lat": 35.3212043,
+   "lng": 126.9850692,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-014",
+   "mgmt_no": "329-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "담양군청 인근 공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 객사리 120-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "",
+   "lat": 35.3218018,
+   "lng": 126.9861454,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-015",
+   "mgmt_no": "329-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "담양시장 인근 공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 담주리 35-1",
+   "addr_road": "전남광주통합특별시 담양군 담양읍 담주4길 24-72",
+   "road": null,
+   "spaces": 26,
+   "tel": "",
+   "lat": 35.32276064,
+   "lng": 126.9812531,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-016",
+   "mgmt_no": "329-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "담양읍교회옆 공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 지침리 108",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "",
+   "lat": 35.31725941,
+   "lng": 126.9846868,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-017",
+   "mgmt_no": "329-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "담주1지구공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 담주리 72-3",
+   "addr_road": "전남광주통합특별시 담양군 담양읍 담주2길 26-10",
+   "road": null,
+   "spaces": 15,
+   "tel": "",
+   "lat": 35.32192804,
+   "lng": 126.9816146,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-018",
+   "mgmt_no": "329-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "담주2지구공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 담주리 95",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "",
+   "lat": 35.32053018,
+   "lng": 126.9809022,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-019",
+   "mgmt_no": "329-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "담주리 공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 담주리 40",
+   "addr_road": "전남광주통합특별시 담양군 담양읍 담주2길 29-4",
+   "road": null,
+   "spaces": 12,
+   "tel": "",
+   "lat": 35.32238615,
+   "lng": 126.9813413,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-020",
+   "mgmt_no": "329-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동산지구공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 백동리 671-2",
+   "addr_road": "전남광주통합특별시 담양군 담양읍 천변7길 5-6",
+   "road": null,
+   "spaces": 86,
+   "tel": "",
+   "lat": 35.31388184,
+   "lng": 126.9823976,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-021",
+   "mgmt_no": "329-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "레인보우아파트공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 백동리 244-11",
+   "addr_road": "전남광주통합특별시 담양군 담양읍 미리산길 59-8",
+   "road": null,
+   "spaces": 33,
+   "tel": "",
+   "lat": 35.31312094,
+   "lng": 126.9858809,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-022",
+   "mgmt_no": "329-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "만성지구공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 만성리 117-1",
+   "addr_road": "전남광주통합특별시 담양군 담양읍 완동길 16",
+   "road": null,
+   "spaces": 18,
+   "tel": "",
+   "lat": 35.32490381,
+   "lng": 126.9805061,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-023",
+   "mgmt_no": "329-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문화회관공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 지침리 690",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "",
+   "lat": 35.31655334,
+   "lng": 126.9864243,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-024",
+   "mgmt_no": "329-2-000052",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "반룡회관주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 반룡리 137",
+   "addr_road": "전남광주통합특별시 담양군 담양읍 반룡길 31",
+   "road": null,
+   "spaces": 32,
+   "tel": "",
+   "lat": 35.29942052,
+   "lng": 126.9824449,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-025",
+   "mgmt_no": "329-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백동1지구공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 백동리 243-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 86,
+   "tel": "",
+   "lat": 35.31314384,
+   "lng": 126.9860073,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-026",
+   "mgmt_no": "329-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백동2지구공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 백동리 158-1",
+   "addr_road": "전남광주통합특별시 담양군 담양읍 서당골길 11-11",
+   "road": null,
+   "spaces": 15,
+   "tel": "",
+   "lat": 35.30986191,
+   "lng": 126.9868497,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-027",
+   "mgmt_no": "329-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백동리 공영주차장 (담양읍 백동리 252-1)",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 백동리 252-1",
+   "addr_road": "전남광주통합특별시 담양군 담양읍 죽향대로 1186",
+   "road": null,
+   "spaces": 5,
+   "tel": "",
+   "lat": 35.3114902,
+   "lng": 126.9821781,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-028",
+   "mgmt_no": "329-2-000046",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백동리 공영주차장 (담양읍 백동리 268-8)",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 백동리 268-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 31,
+   "tel": "",
+   "lat": 35.31119368,
+   "lng": 126.9828458,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-029",
+   "mgmt_no": "329-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백동신기길 공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 백동리 478-1",
+   "addr_road": "전남광주통합특별시 담양군 담양읍 백동신기길 15-2",
+   "road": null,
+   "spaces": 13,
+   "tel": "",
+   "lat": 35.30473305,
+   "lng": 126.9792941,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-030",
+   "mgmt_no": "329-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백동청전지구공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 백동리 97-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "",
+   "lat": 35.30881933,
+   "lng": 126.9858976,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-031",
+   "mgmt_no": "329-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "복민교회앞 공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 백동리 671-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 31,
+   "tel": "",
+   "lat": 35.31414883,
+   "lng": 126.9822006,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-032",
+   "mgmt_no": "329-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "운교지구 공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 운교리 183",
+   "addr_road": "",
+   "road": null,
+   "spaces": 7,
+   "tel": "",
+   "lat": 35.33663056,
+   "lng": 126.9840604,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-033",
+   "mgmt_no": "329-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 지침리 86-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 73,
+   "tel": "",
+   "lat": 35.31767986,
+   "lng": 126.9849318,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-034",
+   "mgmt_no": "329-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "지침2지구공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 지침리 54-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "",
+   "lat": 35.31906819,
+   "lng": 126.9862087,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-035",
+   "mgmt_no": "329-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "지침3지구공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 지침리 107-10",
+   "addr_road": "전남광주통합특별시 담양군 담양읍 죽녹원로 24",
+   "road": null,
+   "spaces": 7,
+   "tel": "",
+   "lat": 35.31716426,
+   "lng": 126.9859521,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-036",
+   "mgmt_no": "329-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "지침4지구공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 지침리 115-4",
+   "addr_road": "전남광주통합특별시 담양군 담양읍 지침6길 24-1",
+   "road": null,
+   "spaces": 30,
+   "tel": "",
+   "lat": 35.31559393,
+   "lng": 126.9858433,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-037",
+   "mgmt_no": "329-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "지침5지구 공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 지침리 88-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "",
+   "lat": 35.31777724,
+   "lng": 126.9855016,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-038",
+   "mgmt_no": "329-2-000049",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "지침리 공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 지침리 135-6",
+   "addr_road": "전남광주통합특별시 담양군 담양읍 지침2길 6",
+   "road": null,
+   "spaces": 67,
+   "tel": "",
+   "lat": 35.31685635,
+   "lng": 126.983754,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-039",
+   "mgmt_no": "329-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "천변1지구공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 천변리 170-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 54,
+   "tel": "",
+   "lat": 35.31718964,
+   "lng": 126.9823621,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-040",
+   "mgmt_no": "329-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "천변2지구공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 천변리 21(삭제)",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "",
+   "lat": 35.31857003,
+   "lng": 126.9813004,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-041",
+   "mgmt_no": "329-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "천변3지구공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 천변리 76-1",
+   "addr_road": "전남광주통합특별시 담양군 담양읍 천변1길 20",
+   "road": null,
+   "spaces": 32,
+   "tel": "",
+   "lat": 35.31790122,
+   "lng": 126.9809485,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-042",
+   "mgmt_no": "329-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "천변4지구공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 천변리 87",
+   "addr_road": "",
+   "road": null,
+   "spaces": 4,
+   "tel": "",
+   "lat": 35.31823099,
+   "lng": 126.9805171,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-043",
+   "mgmt_no": "329-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "천변5지구공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 천변리 182-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "",
+   "lat": 35.31498116,
+   "lng": 126.9827766,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-044",
+   "mgmt_no": "329-2-000051",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청전공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 백동리 100-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 131,
+   "tel": "",
+   "lat": 35.30823421,
+   "lng": 126.9873142,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-045",
+   "mgmt_no": "329-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "태영빌라공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 천변리 59-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 7,
+   "tel": "",
+   "lat": 35.31843117,
+   "lng": 126.9818544,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-046",
+   "mgmt_no": "329-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "행복교회 공영주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 객사리 178",
+   "addr_road": "전남광주통합특별시 담양군 담양읍 객사3길 11",
+   "road": null,
+   "spaces": 40,
+   "tel": "",
+   "lat": 35.32370195,
+   "lng": 126.9821479,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-047",
+   "mgmt_no": "329-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "형운카센터끝주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 지침리 98-1",
+   "addr_road": "전남광주통합특별시 담양군 담양읍 지침5길 32",
+   "road": null,
+   "spaces": 42,
+   "tel": "",
+   "lat": 35.31859693,
+   "lng": 126.9885751,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-048",
+   "mgmt_no": "329-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "형운카센터옆주차장",
+   "gu": "담양군",
+   "dong": "담양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 담양읍 지침리 33-4",
+   "addr_road": "전남광주통합특별시 담양군 담양읍 지침5길 33-8",
+   "road": null,
+   "spaces": 36,
+   "tel": "",
+   "lat": 35.31933796,
+   "lng": 126.988969,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-049",
+   "mgmt_no": "329-2-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대치리 공영주차장",
+   "gu": "담양군",
+   "dong": "대전면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 대전면 대치리 512-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "",
+   "lat": 35.28126991,
+   "lng": 126.8865248,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-050",
+   "mgmt_no": "329-2-000050",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동산리공영주차장",
+   "gu": "담양군",
+   "dong": "무정면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 무정면 동산리 258-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 36,
+   "tel": "",
+   "lat": 35.28532633,
+   "lng": 127.0444705,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-051",
+   "mgmt_no": "329-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수북공영주차장",
+   "gu": "담양군",
+   "dong": "수북면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 수북면 수북리 126",
+   "addr_road": "전남광주통합특별시 담양군 수북면 한수동로 571",
+   "road": null,
+   "spaces": 82,
+   "tel": "",
+   "lat": 35.30232594,
+   "lng": 126.9289401,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  },
+  {
+   "id": "jn-damyang-052",
+   "mgmt_no": "329-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "월산지구 공영주차장",
+   "gu": "담양군",
+   "dong": "월산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 담양군 월산면 월산리 623-1",
+   "addr_road": "전남광주통합특별시 담양군 월산면 월산동산길 69",
+   "road": null,
+   "spaces": 10,
+   "tel": "",
+   "lat": 35.34691183,
+   "lng": 126.956563,
+   "base_date": "2026-08-09",
+   "manager": "전남광주통합특별시 담양군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조는 공영주차장의 주차요금을 별표 1과 같이 한다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기하고, 별표 1은 요금표에 참고표로 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "담양군",
+   "city_slug": "damyang",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 19:54",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 52,
+  "원자료_담양군행수": 52,
+  "원자료_받은행수": 52,
+  "구별": {
+   "담양군": 52
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 52,
+  "노외_부설": {
+   "노외": 52
+  },
+  "노상_구간": 0,
+  "총_구획수": 1848,
+  "노상_구획수": 0,
+  "동별": {
+   "담양읍": 45,
+   "금성면": 2,
+   "고서면": 1,
+   "대전면": 1,
+   "무정면": 1,
+   "수북면": 1,
+   "월산면": 1
+  },
+  "동수": 7,
+  "동_미상": [],
+  "동_보정": [
+   "이름이 겹치는 주차장 백동리 공영주차장 — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다"
+  ],
+  "동_근거": {
+   "지번주소": 52
+  },
+  "요금구분": {
+   "무료": 52
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 0,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 76건 있다 — 청전공영주차장·백동청전지구공영주차장(143m), 청전공영주차장·백동2지구공영주차장(185m), 담양시장 인근 공영주차장·담주리 공영주차장(42m), 담양시장 인근 공영주차장·국수거리 인근 공영주차장(132m), 담양시장 인근 공영주차장·행복교회 공영주차장(132m), 담양시장 인근 공영주차장·담주1지구공영주차장(98m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 52행이 전부 공영(노외 52곳)이라 민영 제외 없이 52곳을 실었다. 데이터기준일자는 52행 전부 2026-08-09이고 제공기관명은 전부 '전남광주통합특별시 담양군'이다",
+   "봉산면·창평면·대덕면·용면·가사문학면에는 공영 등록이 0곳이다 — 이 면들에 공영주차장이 없는 것인지 등록 누락인지는 군청 확인 과제다",
+   "같은 지번에 이름이 다른 등록이 겹치는 자리가 2곳 있다 — 담양읍 객사리 178의 2곳(국수거리 인근 공영주차장·행복교회 공영주차장, 등록 좌표까지 같다), 담양읍 객사리 125의 2곳(농협지점옆공영주차장·객사4지구 공영주차장, 등록 좌표까지 같다). 전부 별개 등록이라 합치지 않고 전부 실었다",
+   "천변2지구공영주차장의 지번주소가 '담양읍 천변리 21(삭제)'로 등록돼 있어 '(삭제)' 표기를 포함해 등록값을 그대로 실었다",
+   "전화번호는 52곳 전부 공란으로 등록돼 있다. 조례 표기 담당은 담양군청 경제교통과 061-380-3131이다",
+   "좌표는 52곳 전부 등록돼 있고 전부 담양군 범위 안이라 지오코딩 보완이 0건이다",
+   "운영시간은 52곳 전부 00:00~23:59(24시간)이고 운영요일은 전부 평일+토요일+공휴일이다. 부제시행구분은 52곳 전부 미시행이고, 특기사항·결제방법은 52곳 전부 공란, 장애인전용주차구역 보유여부는 Y 49곳·N 3곳이다. 도로명주소가 없는 곳이 28곳이다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "고서면공영주차장",
+   "금성면공영주차장",
+   "객사1지구공영주차장",
+   "객사2지구공영주차장",
+   "객사3지구공영주차장",
+   "객사4지구 공영주차장",
+   "남산리 공영주차장",
+   "농협지점옆공영주차장",
+   "담양군청 인근 공영주차장",
+   "담양읍교회옆 공영주차장",
+   "담주2지구공영주차장",
+   "문화회관공영주차장",
+   "백동1지구공영주차장",
+   "백동리 공영주차장 (담양읍 백동리 268-8)",
+   "백동청전지구공영주차장",
+   "복민교회앞 공영주차장",
+   "운교지구 공영주차장",
+   "중앙공영주차장",
+   "지침2지구공영주차장",
+   "지침5지구 공영주차장",
+   "천변1지구공영주차장",
+   "천변2지구공영주차장",
+   "천변4지구공영주차장",
+   "천변5지구공영주차장",
+   "청전공영주차장",
+   "태영빌라공영주차장",
+   "대치리 공영주차장",
+   "동산리공영주차장"
+  ],
+  "감면_출처": "「담양군 주차장 조례」 제3094호 별표 1 비고 5 — 50% 경감(가목): 장애인 자가운전차량, 장애인을 동반한 일반차량, 국가유공자가 직접 사용하는 보철용 차량, 경자동차. 20% 경감(나목, 경감할 수 있다): 군수가 추진하는 시책(차량10부제 운행 등)에 참여하는 차량. 본문에는 별도의 면제·감면 조항이 없고 제4조가 요금을 별표 1로 정한다. 본문 원문(data/raw/damyang-ordinance.txt)·별표 원문(data/raw/damyang-ordinance-b1.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 제4조·별표 1 — 공영주차장의 주차요금은 별표 1과 같다. 별표 1은 급지(1급지·2급지)×차종 요금표로 주차요금은 30분마다 1급지 소형 500원·대형 600원, 2급지 소형 500원·대형 600원, 1일 주차요금은 1급지 소형 8,000원·대형 9,000원, 2급지 소형 5,000원·대형 6,000원, 월정기는 1급지 소형 주간 60,000원·야간 50,000원·주야간 80,000원, 대형 주간 80,000원·야간 70,000원·주야간 110,000원, 2급지 소형 주간 50,000원·야간 40,000원·주야간 70,000원, 대형 주간 70,000원·야간 60,000원·주야간 100,000원이다. 표준데이터 등록 52곳이 전부 무료라 별표 1은 참고표로만 싣는다",
+  "급지_출처": "조례 별표 1 비고 3 — 1급지는 담양읍 지역, 2급지는 기타의 지역이고, 급지구분은 주차장의 실태 및 주차수요, 토지등급을 참작해 세분하여 지정할 수 있다. 표준데이터 등록 급지는 '1' 48곳·'2' 4곳인데 조례의 지역 기준과 어긋나는 등록이 5곳 있다(담양읍 지침리 공영주차장 '2', 담양읍 밖 금성면공영주차장·덕성리 공영주차장·고서면공영주차장·월산지구 공영주차장 '1') — 전부 무료라 급지별 요금 차이는 없다",
+  "무료요일_출처": "등록 52곳 전부 요금 구분 '무료'로 요일과 관계없이 무료다 — 조례 제4조는 공영주차장 요금을 별표 1로 정하나 실제 징수는 등록이 전부 무료인 상태로 운영되고 있다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 담양군 등록 52행이 전부 공영(노외 52곳)이라 민영 제외 0건으로 52곳·1,848면을 실었다. 중복 제거 0건, 구획수 0 등록 0건이다. 읍·면별로는 담양읍 45곳·금성면 2곳·무정면 1곳·대전면 1곳·고서면 1곳·수북면 1곳·월산면 1곳이고, 봉산면·창평면·대덕면·용면·가사문학면은 공영 등록이 0곳이다 — 이 면들에 공영주차장이 없는 것인지 등록 누락인지는 군청 확인 과제다",
+   "「담양군 주차장 조례」 제3094호(표제 시행 2026-08-10, 공포 2026-08-10, 일부개정, ordinSeq 2159627) 본문 원문(data/raw/damyang-ordinance.txt) 대조 완료(2026-11-20) — 최신 부칙(제3094호, 담양군 78개 조례 일부개정조례)은 '이 조례는 공포한 날부터 시행한다'고 정해 표제 시행일과 같고, 이 개정과 직전 본문 개정 제3081호(2026-03-10, 제6조 인용 조문 정비)는 모두 표기·인용 정비라 제4조·별표 1의 요금을 바꾸지 않았다. 담양군의회가 2026-01-27 입법예고한 일부개정조례안(부설주차장 설치기준 정비)도 요금과 무관하다",
+   "별표 1은 HWP 원본(flSeq 168124437)을 data/raw/damyang-ordinance-b1.hwp로 저장하고 PrvText 추출로 확정했다 — 급지(1급지·2급지)×차종 요금표로 주차요금은 30분마다 1급지 소형 500원·대형 600원, 2급지 소형 500원·대형 600원, 1일 주차요금은 1급지 소형 8,000원·대형 9,000원, 2급지 소형 5,000원·대형 6,000원, 월정기는 1급지 소형 주간 60,000원·야간 50,000원·주야간 80,000원, 대형 주간 80,000원·야간 70,000원·주야간 110,000원, 2급지 소형 주간 50,000원·야간 40,000원·주야간 70,000원, 대형 주간 70,000원·야간 60,000원·주야간 100,000원이다. 본문 제4조가 별표 1을 참조하고 첨부에도 별표 1이 들어 있어 첨부파일 오등록이 아니다. 비고 8은 PrvText 미리보기가 '주차 시간에 따른 체증 또는 체감방'에서 절단돼 전문을 확인하지 못했으나 요금 판단에는 영향이 없다",
+   "등록 52곳 전부 '무료'라 조례 별표 1 요금표는 참고표로만 싣는다 — 조례 제4조에 무료 개방 단서 조항은 없으나 등록이 전부 무료인 상태로 운영되고 있어 등록대로 표기한다",
+   "좌표는 52곳 전부 등록돼 있고 전부 담양군 범위 안이라 지오코딩 보완이 0건이다 — 오버레이(좌표누락_지오코딩_20261118.json)는 718행 그대로다",
+   "같은 지번에 이름이 다른 등록이 겹치는 자리가 2곳 있다 — 담양읍 객사리 178의 2곳(국수거리 인근 공영주차장 5면·행복교회 공영주차장 40면, 등록 좌표까지 같다), 담양읍 객사리 125의 2곳(농협지점옆공영주차장 7면·객사4지구 공영주차장 5면, 등록 좌표까지 같다). 전부 이름·구획수가 다른 별개 등록이라 합치지 않고 전부 실었다 — 같은 시설의 구역별 등록인지 군청 확인 과제다. 이름이 같은 '백동리 공영주차장' 2곳은 지번이 서로 달라(백동리 268-8·252-1) 별개로 싣고 이름에 자리 표기를 붙여 구분했다",
+   "천변2지구공영주차장의 지번주소가 '담양읍 천변리 21(삭제)'로 등록돼 있다 — '(삭제)' 표기를 포함해 등록값을 그대로 실었고, 실제 지번인지는 군청 확인 과제다",
+   "전화번호는 52곳 전부 공란으로 등록돼 있다. 조례 표기 담당은 담양군청 경제교통과 061-380-3131이다",
+   "운영시간은 52곳 전부 00:00~23:59(24시간)이고 운영요일은 전부 평일+토요일+공휴일이다. 부제시행구분은 52곳 전부 미시행, 특기사항·결제방법은 52곳 전부 공란, 장애인전용주차구역 보유여부는 Y 49곳·N 3곳이다. 도로명주소가 없는 곳이 28곳이다. 데이터기준일자는 52곳 전부 2026-08-09이고, 관리기관명은 52곳 전부 '전남광주통합특별시 담양군청'이다"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 52,
+  "무료_구획수": 1848,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 52,
+  "데이터기준일": [
+   "2026-08-09"
+  ],
+  "관리기관": {
+   "전남광주통합특별시 담양군청": 52
+  }
+ },
+ "fee_table": {
+  "style": "damyang_grade",
+  "unit_min": 30,
+  "base_min": 30,
+  "applies": "조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「담양군 주차장 조례」 제3094호(시행 2026-08-10, 일부개정), ordinSeq 2159627. 본문 사본 data/raw/damyang-ordinance.txt. 별표 1(공영주차장 주차요금표)은 HWP 원본을 data/raw/damyang-ordinance-b1.hwp로 저장하고 PrvText 추출로 확정해 data/raw/damyang-ordinance-b1.txt로 옮겼다. 본문 제4조가 별표 1을 참조하고 첨부에도 별표 1이 들어 있어 첨부파일 오등록이 아니다. 최신 공포본 제3094호는 '담양군 주민 감사 청구 조례 등 78개 조례의 일부개정조례'(타법 일괄개정)로 제8조의 표기 등을 고친 것이고, 직전 본문 개정 제3081호(2026-03-10)도 제6조의 인용 조문 정비라 어느 쪽도 제4조·별표 1의 요금을 바꾸지 않았다.",
+  "rows": [
+   {
+    "label": "1급지 소형",
+    "grade": "g1_small",
+    "unit_label": "30분마다 500원 · 1일 8,000원 · 월정기 주간 60,000원·야간 50,000원·주야간 80,000원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": 8000,
+    "month": 60000,
+    "month_night": 50000,
+    "lots": 0
+   },
+   {
+    "label": "1급지 대형",
+    "grade": "g1_large",
+    "unit_label": "30분마다 600원 · 1일 9,000원 · 월정기 주간 80,000원·야간 70,000원·주야간 110,000원",
+    "hour": 1200,
+    "two_hour": 2400,
+    "day": 9000,
+    "month": 80000,
+    "month_night": 70000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 소형",
+    "grade": "g2_small",
+    "unit_label": "30분마다 500원 · 1일 5,000원 · 월정기 주간 50,000원·야간 40,000원·주야간 70,000원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": 5000,
+    "month": 50000,
+    "month_night": 40000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 대형",
+    "grade": "g2_large",
+    "unit_label": "30분마다 600원 · 1일 6,000원 · 월정기 주간 70,000원·야간 60,000원·주야간 100,000원",
+    "hour": 1200,
+    "two_hour": 2400,
+    "day": 6000,
+    "month": 70000,
+    "month_night": 60000,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 0,
+   "street_paid": 0,
+   "free": 52,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "주간·야간 구분 (조례 별표 1 비고 2)",
+    "hours": "3월~10월 08:00~20:00, 11월~2월 09:00~19:00, 나머지는 야간",
+    "free": "별표 1 월정기 주간·야간 금액의 구분 기준이다 — 등록 52곳이 전부 무료라 지금은 적용되는 곳이 없다"
+   }
+  ],
+  "notes": "급지는 1급지가 담양읍 지역, 2급지가 기타의 지역이며, 급지구분은 주차장의 실태 및 주차수요, 토지등급을 참작해 세분하여 지정할 수 있다(별표 1 비고 3). 표준데이터 등록 급지는 '1' 48곳·'2' 4곳인데 담양읍의 지침리 공영주차장이 '2'로, 담양읍 밖의 금성면공영주차장·덕성리 공영주차장·고서면공영주차장·월산지구 공영주차장이 '1'로 등록돼 있어 조례의 지역 기준과 어긋나는 등록이 있으나 전부 무료라 요금에는 영향이 없다. 차량구분은 승용차, 15인 미만 승합자동차, 2.5톤 미만 화물자동차를 소형으로 보며 그 이외의 차량은 대형으로 본다(비고 7). 주차시간은 30분 단위로 하며 30분 미만일 때는 30분으로 본다(비고 6). 정당한 이유 없이 요구징수 방법에 의하지 않은 자동차는 1시간의 불법주차로 보고 1시간 요금과 200%의 가산금을 받을 수 있다(비고 4). 경감은 장애인 자가운전차량·장애인 동반 일반차량·국가유공자 보철용 차량·경자동차 50%, 군수 시책 참여 차량 20%(비고 5)이다.",
+  "basis": "요금표는 「담양군 주차장 조례」 제3094호(시행 2026-08-10) 제4조·별표 1과 표준데이터(기준일 2026-08-09)를 대조해 실었다. 등록된 52곳이 전부 '무료'라 별표 1은 조례 기준 요금의 참고표다. (조례 본문: data/raw/damyang-ordinance.txt, 별표 원문: data/raw/damyang-ordinance-b1.txt)"
+ },
+ "slug": "damyang",
+ "province": "전남광주통합특별시",
+ "province_slug": "jeonnam",
+ "dong_page_min_lots": 3,
+ "city": "담양군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "장애인 자가운전차량·장애인 동반 일반차량 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 5가목 — 장애인 자가운전차량과 장애인을 동반한 일반차량은 주차요금의 50%를 경감한다"
+  },
+  {
+   "label": "국가유공자 보철용 차량 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 5가목 — 국가유공자가 직접 사용하는 보철용 차량은 주차요금의 50%를 경감한다"
+  },
+  {
+   "label": "경자동차 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 5가목 — 경자동차는 주차요금의 50%를 경감한다"
+  },
+  {
+   "label": "군수 시책 참여 차량 20% 경감(가능)",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "조례 별표 1 비고 5나목 — 군수가 추진하는 시책(차량10부제 운행 등)에 참여하는 차량에 대하여 주차장 요금의 20%를 경감할 수 있다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}

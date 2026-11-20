@@ -11941,6 +11941,46 @@ def fee_table_block(city) -> str:
 ‘무료’라 요일과 관계없이 무료이고, 유료 주차장은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "damyang_grade":
+        # 담양군 — 공영 52곳(전부 노외, 총 1,848면)이 전부
+        #   무료로 등록돼 있다. 「담양군 주차장 조례」
+        #   제3094호(시행 2026-08-10) 제4조·별표 1은
+        #   급지(1급지 담양읍 지역·2급지 기타 지역)×차종
+        #   (소형·대형) 요금표로, 주차요금은 30분마다 1급지
+        #   소형 500원·대형 600원, 2급지 소형 500원·대형
+        #   600원이고 1일 주차요금은 1급지 소형 8,000원·
+        #   대형 9,000원, 2급지 소형 5,000원·대형 6,000원,
+        #   월정기는 주간·야간·주야간 금액이 있다. 주간은
+        #   3~10월 08:00~20:00, 11~2월 09:00~19:00이고
+        #   나머지는 야간이다(비고 2). 전부 무료라 이 표는
+        #   참고표로 싣는다. 등록 급지는 '1' 48곳·'2' 4곳이다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td><td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">담양군 공영주차장 <b>52곳은 전부 무료</b>로 등록돼 있습니다. 아래 표는
+「담양군 주차장 조례」 제3094호 별표 1이 정한 기준 요금으로, 지금은 받지 않는
+요금의 참고표입니다. 별표 1은 급지(1급지 담양읍 지역·2급지 기타 지역)와
+차종(소형·대형)으로 요금을 정합니다 — <b>1급지 소형</b>은 30분마다 <b>500원</b>,
+1일 <b>8,000원</b>이고, <b>2급지 소형</b>은 30분마다 <b>500원</b>, 1일
+<b>5,000원</b>입니다. 궁금한 점은 담양군청 경제교통과(061-380-3131)에
+확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월정기(주간)</th>
+  <th class="num">월정기(야간)</th><th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 {corp.get('free', 0)}곳은 요금 구분이
+‘무료’라 요일과 관계없이 무료이고, 유료 주차장은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
