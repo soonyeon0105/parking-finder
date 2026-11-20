@@ -13300,23 +13300,25 @@ def fee_table_block(city) -> str:
 요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
-    if ft.get("style") == "gumi_grade":
-        # 구미시 — 공영 241곳(노외 173곳·부설 57곳·노상
-        #   11구간, 총 21,177면)이 무료 188곳·유료 53곳으로
-        #   등록돼 있다. 「구미시 주차장 설치 및 관리 조례」
-        #   제2143호(시행 2026-10-28) 제4조제1항·별표 1은
-        #   급지(1급지: 송정동·원평동 등 16개 동, 2급지:
-        #   선산읍·고아읍·산동읍, 3급지: 그 밖)와 차종으로
-        #   요금을 나누고, 승용·소형 1급지는 최초 30분
-        #   400원에 10분마다 200원이다. 유료 53곳 중 표준
-        #   패턴 43곳이 등록 급지 단가와 정확히 일치해
-        #   등록값으로 계산하고(인스팅트 패키지 판정 명세),
-        #   금오산 10곳은 1회 정액이라 이 표에 넣지 않는다.
+    if ft.get("style") == "andong_grade":
+        # 안동시 — 공영 132곳(노외 82곳·노상 49구간·부설
+        #   1곳, 총 8,221면)이 무료 96곳·유료 33곳·요금
+        #   미상 3곳으로 등록돼 있다. 「안동시 주차장
+        #   조례」 제2252호(시행 2025-07-04) 제5조제1항·
+        #   별표 1은 급지별 요금표(1급지 기본 30분 500원·
+        #   10분마다 200원, 2급지 200원·100원)를 두고,
+        #   1일·월정기는 노외 한정이다. 노상은 비고 6의
+        #   최초 15분 면제가 있다. 등록 단가가 별표 1
+        #   1급지와 같은 곳만 계산하고, 단가가 어긋나는
+        #   3곳은 요금 미상으로 표기한다(김해·함안 선례).
+        def _month_cell(v):
+            return won(v) if v else "—"
         rows_html = "".join(
             f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
             f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
             f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
-            f'<td class="num">{won(r["month_night"])}</td><td class="num">{won(r["month_all"])}</td>'
+            f'<td class="num">{_month_cell(r["month_night"])}</td>'
+            f'<td class="num">{_month_cell(r["month_all"])}</td>'
             f'<td class="num">{r["lots"]}곳</td></tr>'
             for r in ft["rows"])
         win_rows = "".join(
@@ -13325,21 +13327,18 @@ def fee_table_block(city) -> str:
         corp = ft.get("corp") or {}
         return f"""
 <h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
-<p class="lede">구미시 공영주차장 <b>241곳</b>(노외 173곳·부설 57곳·노상 11구간, 총 21,177면)은
-무료 <b>188곳</b>·유료 <b>53곳</b>으로 등록돼 있습니다. 「구미시 주차장 설치 및
-관리 조례」 제2143호 별표 1은 <b>1급지</b>(송정동·원평동·지산동·도량동·선주원남동·
-형곡1·2동·신평1·2동·비산동·공단동·광평동·인동동·임오동·진미동·양포동·상모사곡동)·
-<b>2급지</b>(선산읍·고아읍·산동읍)·<b>3급지</b>(그 밖의 지역)와 차종으로 요금을 나누며,
-승용·소형 기준 1급지는 최초 30분 <b>400원</b>에 10분마다 <b>200원</b>, 2급지는
-<b>300원·100원</b>, 3급지는 <b>200원·100원</b>입니다. 유료 53곳 중 43곳은 등록 요금이
-별표 단가와 일치해 이 사이트도 등록값으로 계산합니다. 금오산 공영주차장 10곳은
-1회 정액(승용 1,500원)이라 이 표에 넣지 않았습니다.
-궁금한 점은 구미도시공사 주차시설팀(054-480-2030)에 확인하세요.</p>
+<p class="lede">안동시 공영주차장 <b>132곳</b>(노외 82곳·노상 49구간·부설 1곳, 총 8,221면)은
+무료 <b>96곳</b>·유료 <b>33곳</b>·요금 미상 <b>3곳</b>입니다.
+「안동시 주차장 조례」 제2252호 별표 1은 <b>1급지</b> 기본(최초 30분) <b>500원</b>에
+10분마다 <b>200원</b>, <b>2급지</b> <b>200원·100원</b>으로 정하고, 1일 요금과 월정기는
+<b>노외주차장만</b> 적용합니다. 노상주차장은 1일 1회에 한해 <b>최초 15분</b>까지 요금이
+면제됩니다. 아래 표의 1시간·2시간 금액은 노외 기준 부과액입니다. 궁금한 점은 안동시청
+교통행정과(054-840-5424)에 확인하세요.</p>
 <table class="data">
   <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
-  <th class="num">2시간</th><th class="num">1일 주차요금</th>
-  <th class="num">월정기(주간)</th><th class="num">월정기(야간)</th>
-  <th class="num">월정기(주야간)</th><th class="num">이 사이트 주차장</th></tr></thead>
+  <th class="num">2시간</th><th class="num">1일 (노외 한정)</th>
+  <th class="num">월정기 주간</th><th class="num">월정기 야간</th>
+  <th class="num">월정기 주야간</th><th class="num">이 사이트 주차장</th></tr></thead>
   <tbody>{rows_html}</tbody>
 </table>
 <table class="data">
@@ -13347,7 +13346,7 @@ def fee_table_block(city) -> str:
   <tbody>{win_rows}</tbody>
 </table>
 <p class="updated">{esc(ft.get('notes') or '')}</p>
-<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금으로 계산하는 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
 요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
