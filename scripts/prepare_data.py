@@ -44849,6 +44849,653 @@ def build_iksan():
     return payload
 
 
+# ---------------------------------------------------------------- 남원시 (T-03 전북 5)
+# 남원시는 표준데이터 54행 전부 공영·노외이다(민영 0). 총 3,045면이고
+#   요금은 무료 46·유료 8인데, 유료 8곳 중 광한루원 광장·서문주차장
+#   2곳은 금액 항목이 전부 0이라 요금 미상으로 싣고(군산 선례), 금액이
+#   있는 유료는 6곳이다. 유료 6곳은 전부 법정동(동지역) 노외이고 등록
+#   금액(기본 500원·추가 10분당 200원·1일 6,000원·월정기 60,000원)이
+#   조례 별표 1의 노외 동지역 소형과 전부 일치한다. 다만 등록 기본
+#   시간이 '1'로 돼 있는데, 별표 1 머리글이 기본주차요금을 '(1시간)'
+#   으로 명시하므로 '1'은 1시간의 오기로 보고 계산기는 조례 구조
+#   (1시간 미만 무료·1시간 500원·이후 10분마다 200원·1일 상한
+#   6,000원)를 적용한다(음성·부여 선례) — 차이는 fee_diff에 전건
+#   남긴다. 1일 적용시간 등록 24시간은 조례 비고 4의 상한 구조와
+#   실질이 같아 등록 1일 요금을 상한으로 적용한다. 조례는 「남원시
+#   주차장 조례」 제2325호(시행 2026-11-06, 일부개정, ordinSeq
+#   2183037) 제3조와 별표 1(개정 2024-02-05)을 국가법령정보센터에서
+#   직접 대조했다. 등록 급지는 54곳 전부 '3'인데 조례에는 급지
+#   구분이 없고 동지역·읍면지역 구분만 있어, 요금표 행은 지번주소의
+#   동·읍면으로 판정하고 급지 '3'은 품질 기록에 남긴다(익산 선례).
+#   무료 46곳은 조례에 상시 무료의 근거 조항이 따로 없어(비고 5는
+#   주말·공휴일·야간 무료개방 재량) 시가 무료로 운영하는 곳으로
+#   보고 요금표는 조례 기준 요금의 참고표로 싣는다(서천·군산 선례)
+#   — 무료 운영의 근거(고시 등)는 시청 확인 과제다. 도로명주소는
+#   54곳 전부 결측이라 동 판정은 지번주소로만 한다. 좌표는 전부
+#   등록돼 있어 지오코딩 보완이 필요 없다. 이름·중복·관리번호 중복
+#   은 없고, 이름이 다른 주차장이 200m 안에 이웃한 쌍은 전부 다른
+#   등록이라 합치지 않았다.
+NAMWON_PROVINCE = "전북특별자치도"
+NAMWON_PROVINCE_SLUG = "jeonbuk"
+NAMWON_ORD_URL = "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2183037"
+NAMWON_ORD_HWP = RAW / "namwon-ordinance-b1.hwp"
+NAMWON_ORD_NOTE = ("조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — "
+                   "「남원시 주차장 조례」 제2325호(시행 2026-11-06, "
+                   "일부개정), ordinSeq 2183037. 본문 사본 data/raw/namwon-ordinance.txt. "
+                   "별표 1(노상·노외주차장 요금표) 원문 HWP "
+                   "data/raw/namwon-ordinance-b1.hwp·추출문 namwon-ordinance-b1.txt.")
+
+NAMWON_DISCOUNTS = [
+    {"label": "긴급자동차 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제3조제2항 — 「도로교통법」 제2조제22호에 따른 긴급자동차는 주차요금을 면제할 수 있다"},
+    {"label": "전기자동차 충전 최초 1시간 면제", "rate": 0.0, "exempt_min": 60,
+     "note": "조례 제3조제4항제3호다목 단서 — 전기자동차가 충전을 위하여 주차하는 경우에는 최초 1시간의 주차요금은 면제한다"},
+    {"label": "성실납세자 전액 감면 (발급일로부터 1년)", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제3조제4항제5호 — 모범납세자로 표창을 받은 사람으로서 국세청장 및 시장이 교부한 성실납세자증(스티커) 표시를 부착한 차량은 전액 감면한다"},
+    {"label": "장애인·국가유공자 등 보훈대상자 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조제4항제1호·제2호 — 장애인이 자가운전 및 장애인을 동승한 차량, 별표 5에 따른 국가유공자 등 보훈대상자가 운전하는 차량은 주차요금의 50퍼센트를 경감한다"},
+    {"label": "경형·저공해·환경친화적 자동차 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조제4항제3호 — 에너지절약시책(경형승용자동차)·교통난 해소시책·저공해 자동차 표지를 부착한 차량·환경친화적 자동차는 주차요금의 50퍼센트를 경감한다"},
+    {"label": "전통시장 이용 상인·고객 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조제4항제4호 — 「전통시장 및 상점가 육성을 위한 특별법」 제19조에 따라 시장을 이용하는 상인 및 고객이 공영주차장을 이용하는 차량은 주차요금의 50퍼센트를 경감한다"},
+    {"label": "관광 이용권·카드 50% (개소당 2시간 이내)", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조제4항제6호 — 전북특별자치도가 발행하는 도내 관광 이용권 또는 카드 등을 소지한 사람이 운전하는 차량은 주차요금의 50퍼센트를 경감한다(단, 개소당 2시간 이내)"},
+    {"label": "병역명문가·임산부·자원봉사자 50%", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조제4항제7호·제8호·제9호 — 병역명문가증을 소지한 사람이 운전하는 차량, 산모수첩 등 임산부 증명 자료를 제시하는 임산부가 운전하는 차량, 자원봉사자증을 소지한 사람이 운전하는 차량은 주차요금의 50퍼센트를 경감한다"},
+]
+
+NAMWON_CONF = {
+    "city": "남원시",
+    "slug": "namwon",
+    "manager": "전북특별자치도 남원시청",
+    "manager_inquiry": "남원시청 교통과(교통시설)(063-620-6576, 조례 담당)·063-620-6578(표준데이터 등록 전화)·063-620-8903(광한루원 2곳 등록 전화)",
+    "ordinance": ("「남원시 주차장 조례」 제2325호(시행 2026-11-06, 일부개정)",
+                  NAMWON_ORD_URL, NAMWON_ORD_NOTE),
+    "notes": ("남원시 공영주차장 54곳은 전부 노외이고 총 3,045면이다(무료 46곳, "
+              "유료 6곳, 요금 미상 2곳). 「남원시 주차장 조례」 제2325호(시행 "
+              "2026-11-06, ordinSeq 2183037) 별표 1은 지역을 동지역·읍면지역으로 "
+              "나누고, 노외 소형 기준 동지역은 1시간 미만 무료·1시간 500원·"
+              "10분마다 200원·1일 6,000원·월정기 60,000원, 읍면지역은 400원·"
+              "100원·4,000원·30,000원이다(대형은 요금표에 병기, 노상 요금표도 "
+              "별표 1에 함께 있다). 유료 6곳(전부 동지역)의 등록 금액은 별표 1의 "
+              "노외 동지역 소형과 전부 일치하는데 기본시간만 '1'로 등록돼 있어, "
+              "별표 머리글의 '(1시간)' 표기에 따라 1시간의 오기로 보고 계산기는 "
+              "조례 구조로 계산한다(차이는 데이터 품질 기록에 전건 기록). 광한루원 "
+              "광장·서문주차장 2곳은 '유료'로 등록됐으나 금액이 전부 0이라 요금 "
+              "미상으로 표기한다. 무료 46곳은 시가 무료로 운영하는 곳으로 보고 "
+              "요금표는 조례 기준 요금의 참고표로 싣는다. 감면은 조례 제3조를 "
+              "따른다(긴급자동차 면제, 전기차 충전 최초 1시간 면제, 성실납세자 "
+              "전액 감면, 장애인·보훈대상자·경형·저공해·환경친화적·전통시장 "
+              "이용객·관광 이용권·병역명문가·임산부·자원봉사자 50%). 좌표는 "
+              "54곳 전부 등록돼 있고, 도로명주소는 전부 등록돼 있지 않다."),
+    "discounts": NAMWON_DISCOUNTS,
+}
+
+NAMWON_BBOX = (35.30, 35.58, 127.28, 127.70)
+
+NAMWON_DONGS = {"천거동", "금동", "동충동", "하정동", "왕정동", "도통동",
+                "쌍교동", "향교동", "노암동", "죽항동", "조산동", "신정동",
+                "화정동", "용정동", "월락동", "고죽동", "식정동", "갈치동",
+                "내척동", "운봉읍", "주생면", "송동면", "주천면", "금지면",
+                "대강면", "대산면", "덕과면", "보절면", "사매면", "산내면",
+                "이백면", "아영면", "인월면", "산동면"}
+
+
+def namwon_dong_of(addr):
+    """남원시 동(법정동)·읍·면 판정 — 지번주소의 남원시 다음 토큰이
+    법정동이거나 읍·면이다. 남원시는 표준데이터에 도로명주소가 전부
+    등록돼 있지 않아 지번주소로만 판정한다. 이름 기반 보정은 쓰지
+    않는다."""
+    if addr:
+        m = re.search(r"남원시\s*([가-힣0-9]+?(?:읍|면|동\d+가|동))(?=[\s0-9-]|$)", addr)
+        if m:
+            return m.group(1)
+    return None
+
+
+def _namwon_tier_of(lot):
+    """요금표 지역 행 판정 — 지번주소의 동·읍면 기준. 법정동이면
+    동지역, 읍·면이면 읍면지역이다."""
+    d = lot.get("dong") or ""
+    if d.endswith("동"):
+        return "dong"
+    if d.endswith("읍") or d.endswith("면"):
+        return "eup"
+    return "etc"
+
+
+def namwon_fee(row, name, note_bits, fee_diff):
+    """남원시 공영주차장 한 곳의 요금 — 무료 46·유료 6·미상 2.
+    유료 6곳의 등록 금액(기본 500원·추가 10분당 200원·1일 6,000원·
+    월정기 60,000원)은 조례 별표 1의 노외 동지역 소형과 전부 일치
+    하고, 기본시간만 '1'로 등록돼 있다. 별표 1 머리글이 기본주차
+    요금을 '(1시간)'으로 명시하므로 '1'은 1시간의 오기로 보고,
+    계산기는 조례 구조(1시간 미만 무료·1시간 500원·이후 10분마다
+    200원·1일 상한 6,000원)를 적용한다(음성·부여 선례). 1일 적용
+    시간 등록 24시간은 조례 비고 4의 상한 구조와 실질이 같아 등록
+    1일 요금을 상한으로 적용한다. 광한루원 2곳은 '유료'이나 금액이
+    전부 0이라 요금 미상으로 싣는다(군산 선례)."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례에 상시 무료 운영의 근거 조항이 따로 없어(별표 1 비고 5는 주말·공휴일·임시휴일·야간 무료개방 재량) 시가 무료로 운영하는 공영주차장으로 본다"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 시청 확인 필요"})
+        return fee
+    if not base_fee and not unit_fee and not day and not month:
+        fee_diff.append(f"{name}: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 "
+                        "0이고 결제방법도 등록돼 있지 않아 금액을 확정할 수 없다 — "
+                        "조례 별표 1의 노외 동지역 요금(소형 1시간 500원·10분마다 "
+                        "200원·1일 6,000원·월정기 60,000원)은 요금표에만 싣고 이 "
+                        "곳은 요금 미상으로 표기한다(군산 선례, 시청 확인 필요)")
+        fee.update({"type": "미상",
+                    "basis": "요금 구분은 ‘유료’이나 요금 금액이 전부 0으로 등록돼 있음 — "
+                             "조례 별표 1 노외 동지역 요금은 요금표에 있고, 금액은 남원시청 확인 필요"})
+        return fee
+    day_hours = to_int(row.get("1일주차권요금적용시간"))
+    fee_diff.append(f"{name}: 기본시간이 '{base_min}'로 등록돼 있으나 조례 별표 1의 "
+                    "노외주차장 요금표 머리글은 기본주차요금을 '(1시간)'으로 명시하고, "
+                    "금액 항목(기본 500원·추가 10분당 200원·1일 6,000원·월정기 "
+                    "60,000원)이 별표의 동지역 소형과 전부 일치하므로 '1'은 1시간의 "
+                    "오기로 보고 계산기는 조례 구조(1시간 미만 무료·1시간 500원·"
+                    "이후 10분마다 200원)를 적용했다(음성·부여 선례) — 실제 징수 "
+                    "개시 시점은 시청 확인 필요")
+    if day and day_hours and day_hours != 1:
+        fee_diff.append(f"{name}: 1일 주차요금 적용시간이 {day_hours}시간으로 등록돼 "
+                        "있으나 조례 별표 1 비고 4는 '시간제 주차요금이 1일 주차권 "
+                        "요금을 초과하는 경우에는 1일 주차권 요금을 징수한다'고 정해 "
+                        "1일 요금이 상한으로 작동한다 — 계산기는 등록 1일 요금"
+                        f"({day:,}원)을 상한으로 적용하고 차이는 여기에 남긴다")
+    fee.update({"type": "유료", "base_min": 60, "base_fee": base_fee,
+                "unit_min": unit_min, "unit_fee": unit_fee,
+                "daily_fee": day if day else None,
+                "daily_hours": day_hours,
+                "monthly": month if month else None,
+                "monthly_all": None, "monthly_label": None,
+                "grade": None, "grade_label": None,
+                "free_min": 59,
+                "steps": None,
+                "steps_label": ("1시간 미만 무료 · 1시간 500원 · 이후 10분마다 "
+                                "200원 · 1일 최대 6,000원"),
+                "basis": ("「남원시 주차장 조례」 제2325호 별표 1(노외 동지역 소형) "
+                          "— 등록 금액(기본 500원·추가 10분당 200원·1일 6,000원·"
+                          "월정기 60,000원)이 별표와 전부 일치하고, 기본시간 등록 "
+                          "'1'은 별표 머리글의 '(1시간)' 표기에 따라 1시간으로 "
+                          "적용했다. 계산 모델은 '1시간 미만 무료'를 분 단위 상한 "
+                          "59분으로 표현한다")})
+    note_bits.append("요금은 조례 별표 1 기준입니다 — 1시간 미만은 무료이고 "
+                     "1시간에 500원, 그 뒤로는 10분마다 200원이며 하루 최대 "
+                     "6,000원입니다")
+    return fee
+
+
+def namwon_fee_table(conf, lots):
+    """요금표 — 조례 별표 1의 노외주차장 요금표 값으로 표기한다.
+    유료 6곳은 전부 동지역 소형 행에 몰아 센다. 무료 46곳·미상
+    2곳에 대해서는 조례 기준 요금의 참고표다(서천·군산 선례).
+    노상 요금표도 별표 1에 있으나 이 사이트에 실린 노상 구간이
+    없어 notes에만 적는다."""
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    ds = {"base_min": 60, "base_fee": 500, "unit_min": 10, "unit_fee": 200,
+          "daily_fee": 6000, "free_min": 59}
+    dl = {"base_min": 60, "base_fee": 600, "unit_min": 10, "unit_fee": 200,
+          "daily_fee": 7000, "free_min": 59}
+    es = {"base_min": 60, "base_fee": 400, "unit_min": 10, "unit_fee": 100,
+          "daily_fee": 4000, "free_min": 59}
+    el = {"base_min": 60, "base_fee": 500, "unit_min": 10, "unit_fee": 100,
+          "daily_fee": 5000, "free_min": 59}
+    rows = [
+        {"label": "동지역 · 소형", "grade": "dong",
+         "unit_label": "소형: 1시간 미만 무료 · 1시간 500원 · 10분마다 200원 · 월정기 60,000원",
+         "hour": sj_charge(ds, 60), "two_hour": sj_charge(ds, 120),
+         "day": 6000, "month": 60000,
+         "lots": len([l for l in paid if _namwon_tier_of(l) == "dong"])},
+        {"label": "동지역 · 대형", "grade": "dong",
+         "unit_label": "대형: 1시간 미만 무료 · 1시간 600원 · 10분마다 200원 · 월정기 70,000원",
+         "hour": sj_charge(dl, 60), "two_hour": sj_charge(dl, 120),
+         "day": 7000, "month": 70000,
+         "lots": 0},
+        {"label": "읍면지역 · 소형", "grade": "eup",
+         "unit_label": "소형: 1시간 미만 무료 · 1시간 400원 · 10분마다 100원 · 월정기 30,000원",
+         "hour": sj_charge(es, 60), "two_hour": sj_charge(es, 120),
+         "day": 4000, "month": 30000,
+         "lots": len([l for l in paid if _namwon_tier_of(l) == "eup"])},
+        {"label": "읍면지역 · 대형", "grade": "eup",
+         "unit_label": "대형: 1시간 미만 무료 · 1시간 500원 · 10분마다 100원 · 월정기 40,000원",
+         "hour": sj_charge(el, 60), "two_hour": sj_charge(el, 120),
+         "day": 5000, "month": 40000,
+         "lots": 0},
+    ]
+    return {
+        "style": "namwon_grade",
+        "unit_min": 10,
+        "base_min": 60,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["list_mode"] == "card"]),
+                 "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [{"group": "공통", "hours": "주간 08:00~18:00 · 야간 18:00~익일 08:00",
+                     "free": ("조례 별표 1 비고 2의 시간 구분이다 — 등록 운영시간은 "
+                              "광한루원 2곳(08:00~18:30)을 빼고 전 곳 00:00~23:59다")}],
+        "notes": ("노상주차장 요금도 별표 1에 있다 — 동지역 소형 1시간 미만 무료·"
+                  "1시간 500원·가산금 10분마다 200원(대형 600원·200원), 읍면지역 "
+                  "소형 300원·100원(대형 400원·100원)이고 1일·월정기 칸은 없다. "
+                  "이 사이트에 실린 남원시 노상 구간은 없다. 요금은 별표 1의 "
+                  "금액을 상한선으로 하되 시의 특성 및 차종에 따라 조정할 수 "
+                  "있다(비고 3). 시장은 주말·공휴일·임시휴일·야간시간에 주차 "
+                  "수요 등을 고려하여 공영주차장을 무료개방 할 수 있다(비고 5). "
+                  "감면은 긴급자동차 면제, 전기차 충전 최초 1시간 면제, 성실"
+                  "납세자 전액 감면, 장애인·보훈대상자·경형·저공해·환경친화적·"
+                  "전통시장 이용객·관광 이용권·병역명문가·임산부·자원봉사자 "
+                  "50%이다."),
+        "basis": ("요금표는 「남원시 주차장 조례」 제2325호(시행 2026-11-06) "
+                  "별표 1과 표준데이터(기준일 2026-10-16)를 대조해 실었다. "
+                  "유료 6곳의 등록 금액은 별표 1의 노외 동지역 소형과 전부 "
+                  "일치하고 기본시간 표기만 다르며, 무료 46곳·요금 미상 2곳에 "
+                  "대해서는 조례 기준 요금의 참고표다. (조례 본문: "
+                  "data/raw/namwon-ordinance.txt, 별표 1 원문 HWP: "
+                  "data/raw/namwon-ordinance-b1.hwp)"),
+    }
+
+
+def namwon_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                   space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(card)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「남원시 주차장 조례」 제2325호 제3조 — 긴급자동차는 면제할 수 "
+                      "있다(제2항). 전액 감면: 성실납세자증 부착 차량(발급일로부터 "
+                      "1년, 제4항제5호). 최초 1시간 면제: 전기자동차 충전 시"
+                      "(제4항제3호다목 단서). 50% 경감(제4항): 장애인 자가운전·"
+                      "동승, 국가유공자 등 보훈대상자(별표 5), 경형·저공해·환경"
+                      "친화적 자동차, 전통시장 이용 상인·고객, 관광 이용권·카드 "
+                      "소지(개소당 2시간 이내), 병역명문가, 임산부, 자원봉사자. "
+                      "본문 원문(data/raw/namwon-ordinance.txt) 대조 완료"
+                      "(2026-11-20)"),
+        "요금_출처": ("조례 별표 1 — 노외 동지역 소형 1시간 미만 무료·1시간 500원·"
+                      "10분마다 200원·1일 6,000원·월정기 60,000원, 대형 600원·"
+                      "200원·7,000원·70,000원. 읍면지역 소형 400원·100원·4,000원·"
+                      "30,000원, 대형 500원·100원·5,000원·40,000원. 노외 요금표와 "
+                      "함께 노상 요금표(동지역 소형 500원·가산금 200원 등)도 별표 "
+                      "1에 있다. 표준데이터 유료 6곳의 등록 금액은 노외 동지역 "
+                      "소형과 전부 일치하고, 기본시간 등록 '1'과 1일 적용시간 "
+                      "24시간만 달라 급지_요금_차이에 전건 기록했다"),
+        "급지_출처": ("조례 별표 1에는 급지 구분이 없고 동지역·읍면지역 구분만 있다. "
+                      "표준데이터 등록 급지는 54곳 전부 '3'이라 조례 구분과 "
+                      "대응하지 않아, 요금표 행은 지번주소의 동·읍면으로 판정했다"
+                      "(익산 선례) — 등록 급지 '3'의 실제 뜻은 시청 확인 과제다"),
+        "무료요일_출처": ("조례 별표 1 비고 5는 시장이 주말·공휴일·임시휴일·야간에 "
+                          "무료개방 '할 수 있다'고만 정해 free_days는 적용하지 "
+                          "않았다. 무료 46곳은 요금구분 자체가 '무료'다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 남원시 등록 54행 전부 공영·노외 — 민영 제외 0건",
+            "「남원시 주차장 조례」 제2325호(시행 2026-11-06, 일부개정, ordinSeq 2183037) 본문 원문(data/raw/namwon-ordinance.txt) 대조 완료(2026-11-20)",
+            "별표 1 원문 HWP(data/raw/namwon-ordinance-b1.hwp) 파싱으로 노상·노외 요금표 확정 — 현행본(제2325호) 첨부 별표이며 별표 개정일은 2024-02-05다",
+            "유료 6곳의 등록 금액이 별표 1의 노외 동지역 소형과 전부 일치하고 기본시간만 '1'로 등록돼 있어, 별표 머리글의 '(1시간)' 표기에 따라 1시간의 오기로 보고 계산기는 조례 구조(1시간 미만 무료·1시간 500원·이후 10분마다 200원·1일 상한 6,000원)를 적용했다(음성·부여 선례) — 차이는 급지_요금_차이에 전건 기록",
+            "광한루원 광장·서문주차장 2곳은 '유료'로 등록됐으나 금액이 전부 0이라 금액을 확정할 수 없어 요금 미상으로 실었다(군산 선례) — 시청 확인 과제다",
+            "무료 46곳은 조례에 상시 무료 운영의 근거 조항이 따로 없어 시가 무료로 운영하는 곳으로 보고 요금표는 참고표로 실었다(서천·예산·보은·영동·진천·군산 선례) — 무료 운영의 근거(고시 등)는 시청 확인 과제다",
+            "중복 판정은 전체 이름 기준 가드(옥천·영동 선례) — 이름+같은 자리+좌표 200m 이내 중복이 0건이라 합친 행이 없고, 이름이 다른 이웃 쌍은 전부 다른 등록이라 합치지 않았다",
+            "좌표는 54곳 전부 등록돼 있어 지오코딩 보완이 필요 없었고, 남원시 범위 밖 좌표도 없었다",
+            "도로명주소는 54곳 전부 등록돼 있지 않아 동 판정은 지번주소로만 했다",
+            "등록 급지 '3'은 조례 별표 1의 구분(동지역·읍면지역)과 대응하지 않아 요금표 행 판정에 쓰지 않았다(익산 선례)",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_namwon():
+    """남원시 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「남원시 주차장 조례」 제2325호(시행 2026-11-06,
+    ordinSeq 2183037) 제3조·별표 1 원문 대조 완료(2026-11-20).
+    표준데이터 등록 54행 전부 공영·노외(무료 46·유료 8)를 싣는다.
+    유료 8곳 중 금액이 있는 6곳은 등록 금액이 조례와 일치하고 기본
+    시간 표기만 달라 계산기는 조례 구조를 적용하고(음성·부여 선례)
+    차이는 품질 기록에 전건 남기며, 금액이 전부 0인 광한루원 2곳은
+    요금 미상으로 싣는다(군산 선례). 좌표는 전부 등록돼 있다."""
+    conf = NAMWON_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "남원시" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "남원시" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 남원시는
+    #   해당 중복이 0건이다.
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (NAMWON_BBOX[0] < lat < NAMWON_BBOX[1]
+                                                        and NAMWON_BBOX[2] < lng < NAMWON_BBOX[3]):
+            # 남원시 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 남원시 범위 밖 — "
+                               "좌표 없음으로 표기")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = namwon_dong_of(jibun) or namwon_dong_of(road)
+        if namwon_dong_of(jibun):
+            dong_src = "지번주소"
+        elif namwon_dong_of(road):
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 법정동·읍면 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:읍|면|동))", std_name)
+        if _name_head and _name_head.group(1) in NAMWON_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 동({_name_head.group(1)})과 지번주소 기준 "
+                              f"동({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = namwon_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "남원시", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다")
+
+    # 이름이 다른 주차장이 200m 안에 이웃한 쌍 — 전부 다른 등록이라 합치지
+    #   않고 전부 싣는다(옥천·영동 선례). 등록 좌표가 있는 곳끼리만 센다.
+    _pairs = []
+    _have = [l for l in lots if l["lat"] is not None and l["lng"] is not None]
+    for _a in range(len(_have)):
+        for _b in range(_a + 1, len(_have)):
+            _d = 111000 * math.sqrt((_have[_a]["lat"] - _have[_b]["lat"]) ** 2
+                                    + ((_have[_a]["lng"] - _have[_b]["lng"]) * 0.81) ** 2)
+            if _d < 200:
+                _pairs.append(f"{_have[_a]['name']}·{_have[_b]['name']}({round(_d)}m)")
+    if _pairs:
+        note_fixed.append("이름이 다른 주차장이 200m 안에 이웃한 쌍이 "
+                          f"{len(_pairs)}건 있다 — " + ", ".join(_pairs[:6])
+                          + " 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다")
+    note_fixed.append("표준데이터 등록 54행은 전부 공영·노외이고 데이터기준일자는 전부 "
+                      "2026-10-16이다. 관리기관은 남원시청 52곳·남원시 관광시설사업소 "
+                      "2곳(광한루원 광장·서문주차장)이다")
+    note_fixed.append("도로명주소는 54곳 전부 등록돼 있지 않아 동 판정과 표기는 "
+                      "지번주소로만 했다")
+    note_fixed.append("등록 급지는 54곳 전부 '3'인데 조례 별표 1에는 급지 구분이 "
+                      "없어(동지역·읍면지역 구분만 있다) 요금표 행 판정에 쓰지 않았다")
+    note_fixed.append("운영요일은 전부 평일+토요일+공휴일이고 운영시간은 광한루원 "
+                      "2곳(08:00~18:30)을 빼고 전부 00:00~23:59, 특기사항은 전 곳 "
+                      "공란이다")
+    note_fixed.append("등록 전화는 063-620-6578이 51곳, 063-620-8903이 2곳"
+                      "(광한루원 광장·서문주차장), 063-620-6563이 1곳(화물자동차 "
+                      "공영차고지)이다")
+    note_fixed.append("결제방법은 금액이 있는 유료 6곳만 '카드결제'로 등록돼 있다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"jb-namwon-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"jb-namwon-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 남원시는 좌표 결측이 없어 채워지는 곳은 없다.
+    apply_coord_fix(lots)
+
+    fee_table = namwon_fee_table(conf, lots)
+    quality = namwon_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                             fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-10-16",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"남원시로 등록된 행 {len(rows_std)}행(전부 공영·노외)을 읽어 중복 제거 "
+                 f"{len(merged)}건으로 {len(lots)}곳을 실었다. 무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳·유료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '유료'])}곳·요금 미상 "
+                 f"{len([l for l in lots if l['fee']['type'] == '미상'])}곳이며, 유료 "
+                 f"6곳의 등록 금액은 조례 별표 1과 전부 일치하고 기본시간 표기만 "
+                 f"다르다. 좌표는 전부 등록돼 있고 도로명주소는 전부 결측이다. 조례 "
+                 f"대조 완료 — 「남원시 주차장 조례」 제2325호(시행 2026-11-06, "
+                 f"ordinSeq 2183037) 제3조·별표 1 원문 대조 완료(2026-11-20)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": NAMWON_ORD_HWP.name if NAMWON_ORD_HWP.exists() else None,
+            "sha256": sha256(NAMWON_ORD_HWP) if NAMWON_ORD_HWP.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2026-11-06",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"남원시가 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/namwon-ordinance.txt, 별표 1 원문 HWP: "
+                    f"data/raw/namwon-ordinance-b1.hwp, 추출문: "
+                    f"data/raw/namwon-ordinance-b1.txt)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": NAMWON_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "남원시", "slug": "namwon"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": NAMWON_PROVINCE,
+        "province_slug": NAMWON_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "namwon_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -44861,7 +45508,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -44879,7 +45526,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -44932,7 +45579,7 @@ def main():
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
-             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "iksan": ["익산시"], "jeongeup": ["정읍시"]}[args.city])
+             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "iksan": ["익산시"], "jeongeup": ["정읍시"], "namwon": ["남원시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -45093,6 +45740,8 @@ def main():
         cities.append(build_iksan())
     if "정읍시" in want:
         cities.append(build_jeongeup())
+    if "남원시" in want:
+        cities.append(build_namwon())
 
     if args.city == "all":
         site = build_site_payload(cities)
