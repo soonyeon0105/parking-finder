@@ -741,7 +741,17 @@ _MIX_ADDRS = {k: [a for a in _ALL_ADDRS if len(a) > 4 and any(b in a for b in v)
 for p in pages:
     rel = p.relative_to(DIST).as_posix()
     _hits = [k for k in MIX if f"/{k}/" in f"/{rel}"]
-    city_key = max(_hits, key=len) if _hits else next((k for k in MIX if f"/{k}" in rel), None)
+    # 폴백은 경로 조각 경계에서만 본다 — '/jung'(서울 중구)이 광양시 'jung-dong'
+    #   (중동) 페이지에 부분 일치해 엉뚱한 기준을 대는 것을 막는다(부산 gangseo 선례).
+    def _seg_hit(k):
+        i = rel.find("/" + k)
+        while i != -1:
+            j = i + len(k) + 1
+            if j >= len(rel) or rel[j] in "/.":
+                return True
+            i = rel.find("/" + k, i + 1)
+        return False
+    city_key = max(_hits, key=len) if _hits else next((k for k in MIX if _seg_hit(k)), None)
     if not city_key:
         continue
     html = p.read_text()
