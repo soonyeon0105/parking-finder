@@ -1,0 +1,7119 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 11:47",
+  "generated_at_iso": "2026-11-20T11:47:53+09:00",
+  "snapshot_at": "2026-11-20 11:47",
+  "region": {
+   "province": "전남광주통합특별시",
+   "city": "목포시"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-08-07",
+    "rows_total": 18994,
+    "rows_city": 60,
+    "fetched_at": "2026-11-20 11:47 (KST)",
+    "note": "목포시로 등록된 행 60행(전부 공영·노외 52·노상 8)을 읽어 중복 제거 0건으로 60곳을 실었다. 무료 51곳, 유료 9곳이다. 좌표는 용당2동 1곳의 등록 좌표가 범위 밖이라 비우고 지오코딩으로 채웠고 도로명주소는 13곳이 결측이다. 조례 대조 완료 — 「목포시 주차장 설치 및 관리 조례」 제3708호(시행 2023-07-03, ordinSeq 1831167) 제3조·별표 1 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「목포시 주차장 설치 및 관리 조례」 제3708호(시행 2023-07-03, 일부개정)",
+    "org": "전남광주통합특별시 목포시청",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=1831167",
+    "file": "mokpo-ordinance-b1.txt",
+    "sha256": "29067b83284a284ad05acbb0df36d4e25c591c12303f7fbde211f3e727a1fcc7",
+    "license": "자치법규(공개)",
+    "base_date": "2023-07-03",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 11:47 (KST)",
+    "note": "목포시가 설치·관리하는 공영주차장에 적용하는 조례다. 목포시 공영주차장 60곳(노외 52·노상 8)은 총 3,519면이며, 51곳은 요금을 받지 않는 무료 주차장이고 요금을 받는 곳은 9곳(행정타운공영주차장·해안공영·동부시장공영·오거리문화센터공영·남교공영·동아공영·원형1공영·원형2공영·호남공영, 전부 노외)이다. 「목포시 주차장 설치 및 관리 조례」 제3708호(시행 2023-07-03, ordinSeq 1831167) 제3조제1항은 공영주차장 요금을 별표 1로 정한다 — 별표 1(개정 2018-12-17)은 급지 구분이 없는 차종 요금표로, 1회 주차요금은 소형 최소 60분까지 무료·60분 초과 후 30분마다 500원, 대형 최소 60분까지 600원·30분 초과 후 30분마다 600원이고, 1일 주차권은 소형 5,000원·대형 8,000원, 월 정기 주차권은 소형 주간 50,000원·야간 40,000원·주야간 85,000원, 대형 주간 65,000원·야간 52,000원·주야간 115,000원이다. 유료 9곳의 등록 요금(기본 60분 0원·추가 30분당 500원·1일 5,000원·월정기 50,000원)은 별표 1 소형 요금(월정기는 주간 요금)과 완전히 일치해 계산기도 등록값으로 계산한다. 무료 51곳은 시가 무료로 운영하는 곳으로 보이며, 이들에 대해 요금표는 조례 기준 요금의 참고표다. 감면은 조례 제3조를 따른다(긴급자동차·공용차량 면제, 모범납세자 1년간 면제, 장애인·국가유공자·5.18 부상자·고엽제 환자·장기기증자·의사상자·전통시장 상인·고객·경형·저공해·65세 이상 경로 우대자·자원봉사 마일리지증·병역명문가 60% 감면). 좌표는 용당2동 1곳의 등록 좌표가 목포시 범위 밖이라 비우고 지오코딩으로 채웠고, 도로명주소는 13곳이 등록돼 있지 않으며, 전화번호는 60곳 전부 등록돼 있지 않다. (조례 본문: data/raw/mokpo-ordinance.txt, 별표 1 원문: data/raw/mokpo-ordinance-b1.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "목포시",
+   "slug": "mokpo"
+  }
+ ],
+ "lots": [
+  {
+   "id": "jn-mokpo-001",
+   "mgmt_no": "324-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "종합수산시장공영",
+   "gu": "목포시",
+   "dong": "광동1가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 광동1가 2",
+   "addr_road": "전남광주통합특별시 목포시 송도길 6 (광동1가)",
+   "road": null,
+   "spaces": 64,
+   "tel": "",
+   "lat": 34.7882066634,
+   "lng": 126.3902838338,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-002",
+   "mgmt_no": "324-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보리마당",
+   "gu": "목포시",
+   "dong": "금화동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 금화동 7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "",
+   "lat": 34.78126026,
+   "lng": 126.3774439,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-003",
+   "mgmt_no": "324-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남교공영",
+   "gu": "목포시",
+   "dong": "남교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 남교동 57-3",
+   "addr_road": "전남광주통합특별시 목포시 수문로 60-1 (남교동)",
+   "road": null,
+   "spaces": 62,
+   "tel": "",
+   "lat": 34.7939182811,
+   "lng": 126.3802406751,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "운영시간 외 무료개방",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1 소형 요금(최소 60분까지 무료·60분 초과 후 30분마다 500원·1일 5,000원·월정기 주간 50,000원)과 완전히 일치해 등록값을 적용했다 — 별표 1의 월정기 야간 40,000원·주야간 85,000원은 등록값에 없어 계산에는 쓰지 않는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-004",
+   "mgmt_no": "324-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "행정타운공영주차장",
+   "gu": "목포시",
+   "dong": "남교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 남교동 88-16",
+   "addr_road": "전남광주통합특별시 목포시 삼일로9번길 9 (남교동)",
+   "road": null,
+   "spaces": 100,
+   "tel": "",
+   "lat": 34.79335192,
+   "lng": 126.3821261,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "무인시설",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1 소형 요금(최소 60분까지 무료·60분 초과 후 30분마다 500원·1일 5,000원·월정기 주간 50,000원)과 완전히 일치해 등록값을 적용했다 — 별표 1의 월정기 야간 40,000원·주야간 85,000원은 등록값에 없어 계산에는 쓰지 않는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-005",
+   "mgmt_no": "324-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고하도마을 공영",
+   "gu": "목포시",
+   "dong": "달동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 달동 787-35",
+   "addr_road": "",
+   "road": null,
+   "spaces": 49,
+   "tel": "",
+   "lat": 34.76497435,
+   "lng": 126.3699958,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "4",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-006",
+   "mgmt_no": "324-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대성동공영",
+   "gu": "목포시",
+   "dong": "대성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 대성동 20-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 54,
+   "tel": "",
+   "lat": 34.8000594935,
+   "lng": 126.3844148232,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-007",
+   "mgmt_no": "324-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오거리문화센터공영",
+   "gu": "목포시",
+   "dong": "무안동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 무안동 2-4",
+   "addr_road": "전남광주통합특별시 목포시 영산로75번길 5 (무안동)",
+   "road": null,
+   "spaces": 33,
+   "tel": "",
+   "lat": 34.7896570661,
+   "lng": 126.3843244979,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "무인시설",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1 소형 요금(최소 60분까지 무료·60분 초과 후 30분마다 500원·1일 5,000원·월정기 주간 50,000원)과 완전히 일치해 등록값을 적용했다 — 별표 1의 월정기 야간 40,000원·주야간 85,000원은 등록값에 없어 계산에는 쓰지 않는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-008",
+   "mgmt_no": "324-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "북항노을공원공영",
+   "gu": "목포시",
+   "dong": "산정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 산정동 1110-13",
+   "addr_road": "전남광주통합특별시 목포시 청호로219번길 34-12 (산정동)",
+   "road": null,
+   "spaces": 163,
+   "tel": "",
+   "lat": 34.8089167319,
+   "lng": 126.3665832595,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-009",
+   "mgmt_no": "324-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "산정공영",
+   "gu": "목포시",
+   "dong": "산정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 산정동 20-15",
+   "addr_road": "전남광주통합특별시 목포시 산대로 16 (산정동)",
+   "road": null,
+   "spaces": 8,
+   "tel": "",
+   "lat": 34.8016375936,
+   "lng": 126.390877586,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-010",
+   "mgmt_no": "324-2-000049",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신중앙시장",
+   "gu": "목포시",
+   "dong": "산정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 산정동 1730-8",
+   "addr_road": "전남광주통합특별시 목포시 죽산로30번길 5 (산정동)",
+   "road": null,
+   "spaces": 66,
+   "tel": "",
+   "lat": 34.8099611887,
+   "lng": 126.3767208549,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-011",
+   "mgmt_no": "324-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "연동공영",
+   "gu": "목포시",
+   "dong": "산정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 산정동 1082-1",
+   "addr_road": "전남광주통합특별시 목포시 산정로64번길 1 (산정동)",
+   "road": null,
+   "spaces": 25,
+   "tel": "",
+   "lat": 34.79420829,
+   "lng": 126.3934040976,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-012",
+   "mgmt_no": "324-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "자유시장공영",
+   "gu": "목포시",
+   "dong": "산정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 산정동 1383-5",
+   "addr_road": "전남광주통합특별시 목포시 용당로 58 (산정동)",
+   "road": null,
+   "spaces": 76,
+   "tel": "",
+   "lat": 34.79275833,
+   "lng": 126.4025248243,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-013",
+   "mgmt_no": "324-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "놀부정공영",
+   "gu": "목포시",
+   "dong": "상동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 상동 830-1",
+   "addr_road": "전남광주통합특별시 목포시 백년대로297번길 16-2 (상동)",
+   "road": null,
+   "spaces": 52,
+   "tel": "",
+   "lat": 34.8055058566,
+   "lng": 126.4197911748,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-014",
+   "mgmt_no": "324-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동백1공영",
+   "gu": "목포시",
+   "dong": "상동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 상동 781",
+   "addr_road": "전남광주통합특별시 목포시 하당로241번길 32 (상동)",
+   "road": null,
+   "spaces": 29,
+   "tel": "",
+   "lat": 34.81114394,
+   "lng": 126.4201019869,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-015",
+   "mgmt_no": "324-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동백2공영",
+   "gu": "목포시",
+   "dong": "상동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 상동 782",
+   "addr_road": "전남광주통합특별시 목포시 양을로532번길 33 (상동)",
+   "road": null,
+   "spaces": 28,
+   "tel": "",
+   "lat": 34.81146009,
+   "lng": 126.4203111184,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-016",
+   "mgmt_no": "324-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동아공영",
+   "gu": "목포시",
+   "dong": "상동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 상동 868-5",
+   "addr_road": "전남광주통합특별시 목포시 번영로 78 (상동)",
+   "road": null,
+   "spaces": 52,
+   "tel": "",
+   "lat": 34.8059552447,
+   "lng": 126.4265656852,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "무인시설",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1 소형 요금(최소 60분까지 무료·60분 초과 후 30분마다 500원·1일 5,000원·월정기 주간 50,000원)과 완전히 일치해 등록값을 적용했다 — 별표 1의 월정기 야간 40,000원·주야간 85,000원은 등록값에 없어 계산에는 쓰지 않는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-017",
+   "mgmt_no": "324-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부영1공영",
+   "gu": "목포시",
+   "dong": "상동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 상동 1032",
+   "addr_road": "전남광주통합특별시 목포시 하당남부로61번길 5 (상동)",
+   "road": null,
+   "spaces": 35,
+   "tel": "",
+   "lat": 34.80071178,
+   "lng": 126.4301701173,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-018",
+   "mgmt_no": "324-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부영2공영",
+   "gu": "목포시",
+   "dong": "상동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 상동 1033",
+   "addr_road": "전남광주통합특별시 목포시 하당남부로51번길 8 (상동)",
+   "road": null,
+   "spaces": 34,
+   "tel": "",
+   "lat": 34.80054208,
+   "lng": 126.4296969496,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-019",
+   "mgmt_no": "324-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "비파공영",
+   "gu": "목포시",
+   "dong": "상동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 상동 32",
+   "addr_road": "전남광주통합특별시 목포시 하당로214번길 8 (상동)",
+   "road": null,
+   "spaces": 82,
+   "tel": "",
+   "lat": 34.8074541626,
+   "lng": 126.4201929913,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-020",
+   "mgmt_no": "324-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상동저류지공영",
+   "gu": "목포시",
+   "dong": "상동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 상동 1021-1",
+   "addr_road": "전남광주통합특별시 목포시 하당남부로 16 (상동)",
+   "road": null,
+   "spaces": 66,
+   "tel": "",
+   "lat": 34.79821649,
+   "lng": 126.4264549,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-021",
+   "mgmt_no": "324-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "시외버스터미널공영",
+   "gu": "목포시",
+   "dong": "상동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 상동 199",
+   "addr_road": "전남광주통합특별시 목포시 영산로 533 (상동)",
+   "road": null,
+   "spaces": 52,
+   "tel": "",
+   "lat": 34.8135593599,
+   "lng": 126.4181272542,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-022",
+   "mgmt_no": "324-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "우미공영",
+   "gu": "목포시",
+   "dong": "상동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 상동 1127",
+   "addr_road": "전남광주통합특별시 목포시 평화로107번길 25 (상동)",
+   "road": null,
+   "spaces": 54,
+   "tel": "",
+   "lat": 34.8000112422,
+   "lng": 126.4344129672,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-023",
+   "mgmt_no": "324-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "원형1공영",
+   "gu": "목포시",
+   "dong": "상동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 상동 1133",
+   "addr_road": "전남광주통합특별시 목포시 원형로 8 (상동)",
+   "road": null,
+   "spaces": 104,
+   "tel": "",
+   "lat": 34.798078313,
+   "lng": 126.4302578,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "운영시간 외 무료개방",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1 소형 요금(최소 60분까지 무료·60분 초과 후 30분마다 500원·1일 5,000원·월정기 주간 50,000원)과 완전히 일치해 등록값을 적용했다 — 별표 1의 월정기 야간 40,000원·주야간 85,000원은 등록값에 없어 계산에는 쓰지 않는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-024",
+   "mgmt_no": "324-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "원형2공영",
+   "gu": "목포시",
+   "dong": "상동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 상동 1130",
+   "addr_road": "전남광주통합특별시 목포시 원형로 42 (상동)",
+   "road": null,
+   "spaces": 101,
+   "tel": "",
+   "lat": 34.7991111057,
+   "lng": 126.4324099003,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "운영시간 외 무료개방",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1 소형 요금(최소 60분까지 무료·60분 초과 후 30분마다 500원·1일 5,000원·월정기 주간 50,000원)과 완전히 일치해 등록값을 적용했다 — 별표 1의 월정기 야간 40,000원·주야간 85,000원은 등록값에 없어 계산에는 쓰지 않는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-025",
+   "mgmt_no": "324-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "입암공영",
+   "gu": "목포시",
+   "dong": "상동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 상동 1135",
+   "addr_road": "전남광주통합특별시 목포시 평화로 11 (상동)",
+   "road": null,
+   "spaces": 50,
+   "tel": "",
+   "lat": 34.797137522,
+   "lng": 126.4283272011,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-026",
+   "mgmt_no": "324-2-000051",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중화마을소공원",
+   "gu": "목포시",
+   "dong": "상동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 상동 163-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "",
+   "lat": 34.8106877245,
+   "lng": 126.4160777356,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-027",
+   "mgmt_no": "324-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "평화1공영",
+   "gu": "목포시",
+   "dong": "상동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 상동 1158",
+   "addr_road": "전남광주통합특별시 목포시 평화로 84 (상동)",
+   "road": null,
+   "spaces": 47,
+   "tel": "",
+   "lat": 34.79664454,
+   "lng": 126.4340905089,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-028",
+   "mgmt_no": "324-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "평화2공영",
+   "gu": "목포시",
+   "dong": "상동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 상동 1156",
+   "addr_road": "전남광주통합특별시 목포시 평화로 62 (상동)",
+   "road": null,
+   "spaces": 47,
+   "tel": "",
+   "lat": 34.79561766,
+   "lng": 126.4320063,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-029",
+   "mgmt_no": "324-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "평화3공영",
+   "gu": "목포시",
+   "dong": "상동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 상동 1119-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 89,
+   "tel": "",
+   "lat": 34.79487484,
+   "lng": 126.4273014,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-030",
+   "mgmt_no": "324-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청호시장공영",
+   "gu": "목포시",
+   "dong": "석현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 석현동 1170-9",
+   "addr_road": "전남광주통합특별시 목포시 석현로 24 (석현동)",
+   "road": null,
+   "spaces": 59,
+   "tel": "",
+   "lat": 34.81596712,
+   "lng": 126.4234727,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-031",
+   "mgmt_no": "324-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "1897개항장 공영",
+   "gu": "목포시",
+   "dong": "수강동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 수강동 1가 1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 33,
+   "tel": "",
+   "lat": 34.7858834863,
+   "lng": 126.3856122,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-032",
+   "mgmt_no": "324-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동명동물양장공영",
+   "gu": "목포시",
+   "dong": "수강동1가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 수강동1가 7-2",
+   "addr_road": "전남광주통합특별시 목포시 해안로 222 (수강동1가)",
+   "road": null,
+   "spaces": 243,
+   "tel": "",
+   "lat": 34.7849059386,
+   "lng": 126.386611,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-033",
+   "mgmt_no": "324-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "미항공영",
+   "gu": "목포시",
+   "dong": "옥암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 옥암동 1098-10",
+   "addr_road": "전남광주통합특별시 목포시 미항로 167 (옥암동)",
+   "road": null,
+   "spaces": 34,
+   "tel": "",
+   "lat": 34.7985165795,
+   "lng": 126.4377127623,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-034",
+   "mgmt_no": "324-2-000052",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "옥암동화물",
+   "gu": "목포시",
+   "dong": "옥암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 옥암동1060-1",
+   "addr_road": "전남광주통합특별시 목포시 복산길 7 (옥암동)",
+   "road": null,
+   "spaces": 6,
+   "tel": "",
+   "lat": 34.81449623,
+   "lng": 126.4283475,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-035",
+   "mgmt_no": "324-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장미공영",
+   "gu": "목포시",
+   "dong": "옥암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 옥암동 1015",
+   "addr_road": "전남광주통합특별시 목포시 옥암로46번길 39 (옥암동)",
+   "road": null,
+   "spaces": 27,
+   "tel": "",
+   "lat": 34.8056140424,
+   "lng": 126.4330921,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-036",
+   "mgmt_no": "324-2-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "평화4공영",
+   "gu": "목포시",
+   "dong": "옥암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 옥암동 1100",
+   "addr_road": "전남광주통합특별시 목포시 미항로 173",
+   "road": null,
+   "spaces": 41,
+   "tel": "",
+   "lat": 34.7984869246,
+   "lng": 126.4383753625,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-037",
+   "mgmt_no": "324-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동부시장공영",
+   "gu": "목포시",
+   "dong": "용당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 용당동 1053",
+   "addr_road": "전남광주통합특별시 목포시 영산로257번길 15",
+   "road": null,
+   "spaces": 121,
+   "tel": "",
+   "lat": 34.804394329,
+   "lng": 126.3930607741,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "무인시설(위탁 관리)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1 소형 요금(최소 60분까지 무료·60분 초과 후 30분마다 500원·1일 5,000원·월정기 주간 50,000원)과 완전히 일치해 등록값을 적용했다 — 별표 1의 월정기 야간 40,000원·주야간 85,000원은 등록값에 없어 계산에는 쓰지 않는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-038",
+   "mgmt_no": "324-2-000048",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "용당2동",
+   "gu": "목포시",
+   "dong": "용당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 용당동 1128-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "",
+   "lat": 34.80231967047,
+   "lng": 126.394633253289,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번주소)·ArcGIS World Geocoding)"
+  },
+  {
+   "id": "jn-mokpo-039",
+   "mgmt_no": "324-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "용당동공영",
+   "gu": "목포시",
+   "dong": "용당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 용당동 965-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "",
+   "lat": 34.805989,
+   "lng": 126.392642,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-040",
+   "mgmt_no": "324-2-000050",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "용당동주차타워",
+   "gu": "목포시",
+   "dong": "용당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 용당동 965-25",
+   "addr_road": "전남광주통합특별시 목포시 동부로31번길 16 (용당동)",
+   "road": null,
+   "spaces": 124,
+   "tel": "",
+   "lat": 34.8059935402,
+   "lng": 126.3919445271,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-041",
+   "mgmt_no": "324-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "용당빗물펌프장",
+   "gu": "목포시",
+   "dong": "용당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 용당동 1069-61",
+   "addr_road": "",
+   "road": null,
+   "spaces": 48,
+   "tel": "",
+   "lat": 34.79620316,
+   "lng": 126.4015438,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-042",
+   "mgmt_no": "324-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "이로시장공영",
+   "gu": "목포시",
+   "dong": "용당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 용당동 993-2",
+   "addr_road": "전남광주통합특별시 목포시 이로로4번길 8 (용당동)",
+   "road": null,
+   "spaces": 129,
+   "tel": "",
+   "lat": 34.8051264022,
+   "lng": 126.4038739741,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-043",
+   "mgmt_no": "324-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남해화물공영",
+   "gu": "목포시",
+   "dong": "용해동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 용해동 959-9",
+   "addr_road": "전남광주통합특별시 목포시 삼학로 262 (용해동)",
+   "road": null,
+   "spaces": 86,
+   "tel": "",
+   "lat": 34.7945116527,
+   "lng": 126.4087254788,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-044",
+   "mgmt_no": "324-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양을산 공영",
+   "gu": "목포시",
+   "dong": "용해동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 용해동 338-2",
+   "addr_road": "전남광주통합특별시 목포시 양을산길 37-1",
+   "road": null,
+   "spaces": 40,
+   "tel": "",
+   "lat": 34.8136138212,
+   "lng": 126.4029756984,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-045",
+   "mgmt_no": "324-2-000046",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "돌골어린이공원",
+   "gu": "목포시",
+   "dong": "죽교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 죽교동 580-23",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "",
+   "lat": 34.80051042,
+   "lng": 126.3719085,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-046",
+   "mgmt_no": "324-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "북항광장공영",
+   "gu": "목포시",
+   "dong": "죽교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 죽교동 620-72",
+   "addr_road": "전남광주통합특별시 목포시 죽교천로 131 (죽교동)",
+   "road": null,
+   "spaces": 92,
+   "tel": "",
+   "lat": 34.8025778266,
+   "lng": 126.3688476711,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-047",
+   "mgmt_no": "324-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "죽동1공영",
+   "gu": "목포시",
+   "dong": "죽동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 죽동 51",
+   "addr_road": "전남광주통합특별시 목포시 마인계터로39번길 12 (죽동)",
+   "road": null,
+   "spaces": 79,
+   "tel": "",
+   "lat": 34.7916340923,
+   "lng": 126.3827587157,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-048",
+   "mgmt_no": "324-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "항동시장공영",
+   "gu": "목포시",
+   "dong": "항동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 항동 1-148",
+   "addr_road": "전남광주통합특별시 목포시 수강로3번길 17 (항동, 가락파크)",
+   "road": null,
+   "spaces": 24,
+   "tel": "",
+   "lat": 34.7841599755,
+   "lng": 126.3852317696,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-049",
+   "mgmt_no": "324-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "목포일번가",
+   "gu": "목포시",
+   "dong": "해안동1가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 해안동1가 2-17",
+   "addr_road": "전남광주통합특별시 목포시 해안로177번길 7 (해안동1가)",
+   "road": null,
+   "spaces": 18,
+   "tel": "",
+   "lat": 34.7829611,
+   "lng": 126.3828592,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-050",
+   "mgmt_no": "324-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "해안공영",
+   "gu": "목포시",
+   "dong": "해안동3가",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 해안동3가 9",
+   "addr_road": "전남광주통합특별시 목포시 유동로 3 (해안동3가)",
+   "road": null,
+   "spaces": 46,
+   "tel": "",
+   "lat": 34.7818170471,
+   "lng": 126.3808222351,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "무인시설",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1 소형 요금(최소 60분까지 무료·60분 초과 후 30분마다 500원·1일 5,000원·월정기 주간 50,000원)과 완전히 일치해 등록값을 적용했다 — 별표 1의 월정기 야간 40,000원·주야간 85,000원은 등록값에 없어 계산에는 쓰지 않는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-051",
+   "mgmt_no": "324-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙공영",
+   "gu": "목포시",
+   "dong": "호남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 호남동 9-5",
+   "addr_road": "전남광주통합특별시 목포시 호남로 65",
+   "road": null,
+   "spaces": 53,
+   "tel": "",
+   "lat": 34.7944401571,
+   "lng": 126.3859604499,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-052",
+   "mgmt_no": "324-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "호남공영",
+   "gu": "목포시",
+   "dong": "호남동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 목포시 호남동 107",
+   "addr_road": "전남광주통합특별시 목포시 영산로110번길 22-1 (호남동)",
+   "road": null,
+   "spaces": 96,
+   "tel": "",
+   "lat": 34.7934518,
+   "lng": 126.3876193,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "무인시설",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": 0,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "표준데이터 등록값이 조례 별표 1 소형 요금(최소 60분까지 무료·60분 초과 후 30분마다 500원·1일 5,000원·월정기 주간 50,000원)과 완전히 일치해 등록값을 적용했다 — 별표 1의 월정기 야간 40,000원·주야간 85,000원은 등록값에 없어 계산에는 쓰지 않는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-s001",
+   "mgmt_no": "324-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남교로가변차로노상공영",
+   "gu": "목포시",
+   "dong": "남교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 목포시 남교동 121-1",
+   "addr_road": "전남광주통합특별시 목포시 수문로 38",
+   "road": "수문로",
+   "spaces": 45,
+   "tel": "",
+   "lat": 34.79289082,
+   "lng": 126.3822082,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-s002",
+   "mgmt_no": "324-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "세무서노상공영",
+   "gu": "목포시",
+   "dong": "대안동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 목포시 대안동 3-2",
+   "addr_road": "전남광주통합특별시 목포시 호남로 58번길 19",
+   "road": "호남로",
+   "spaces": 35,
+   "tel": "",
+   "lat": 34.7929063589,
+   "lng": 126.3847949762,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-s003",
+   "mgmt_no": "324-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "노벨평화기념관",
+   "gu": "목포시",
+   "dong": "산정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 목포시 산정동 1629-16",
+   "addr_road": "",
+   "road": null,
+   "spaces": 43,
+   "tel": "",
+   "lat": 34.78248715,
+   "lng": 126.3928278,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-s004",
+   "mgmt_no": "324-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "북항차관주택노상",
+   "gu": "목포시",
+   "dong": "산정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 목포시 산정동 1676-1",
+   "addr_road": "전남광주통합특별시 목포시 원산로 39",
+   "road": "원산로",
+   "spaces": 51,
+   "tel": "",
+   "lat": 34.8039251372,
+   "lng": 126.3737466,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-s005",
+   "mgmt_no": "324-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "상동고가",
+   "gu": "목포시",
+   "dong": "상동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 목포시 상동 193-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "",
+   "lat": 34.81479569,
+   "lng": 126.4157858,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-s006",
+   "mgmt_no": "324-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "반석교회 옆 노상",
+   "gu": "목포시",
+   "dong": "용당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 목포시 용당동 972-163",
+   "addr_road": "전남광주통합특별시 목포시 산정로 225",
+   "road": "산정로",
+   "spaces": 15,
+   "tel": "",
+   "lat": 34.80775634,
+   "lng": 126.3886136,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-s007",
+   "mgmt_no": "324-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "용호노상공영",
+   "gu": "목포시",
+   "dong": "용당동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 목포시 용당동 197-2",
+   "addr_road": "전남광주통합특별시 목포시 용해로86번길 1",
+   "road": "용해로86번길",
+   "spaces": 54,
+   "tel": "",
+   "lat": 34.80378472,
+   "lng": 126.4019854,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  },
+  {
+   "id": "jn-mokpo-s008",
+   "mgmt_no": "324-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "순천당약국~죽교파출소간",
+   "gu": "목포시",
+   "dong": "죽교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 목포시 죽교동 573-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 113,
+   "tel": "",
+   "lat": 34.7989616059,
+   "lng": 126.3783191698,
+   "base_date": "2026-08-07",
+   "manager": "전남광주통합특별시 목포시청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 시가 무료로 운영하는 공영주차장으로 본다(개별 무료 지정 여부는 시청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "목포시",
+   "city_slug": "mokpo",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 11:47",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 60,
+  "원자료_목포시행수": 60,
+  "원자료_받은행수": 60,
+  "구별": {
+   "목포시": 52
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 52,
+  "노외_부설": {
+   "노외": 52
+  },
+  "노상_구간": 8,
+  "총_구획수": 3133,
+  "노상_구획수": 386,
+  "동별": {
+   "상동": 17,
+   "용당동": 6,
+   "산정동": 5,
+   "옥암동": 4,
+   "남교동": 2,
+   "용해동": 2,
+   "죽교동": 2,
+   "호남동": 2,
+   "광동1가": 1,
+   "금화동": 1,
+   "달동": 1,
+   "대성동": 1,
+   "무안동": 1,
+   "석현동": 1,
+   "수강동": 1,
+   "수강동1가": 1,
+   "죽동": 1,
+   "항동": 1,
+   "해안동1가": 1,
+   "해안동3가": 1
+  },
+  "동수": 20,
+  "동_미상": [],
+  "동_보정": [
+   "연동공영: 이름의 동(연동)과 지번주소 기준 동(산정동)이 달라 지번주소 기준으로 판정",
+   "동명동물양장공영: 이름의 동(동명동)과 지번주소 기준 동(수강동1가)이 달라 지번주소 기준으로 판정"
+  ],
+  "동_근거": {
+   "지번주소": 52
+  },
+  "요금구분": {
+   "무료": 51,
+   "유료": 9
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 9,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 14건 있다 — 용당동주차타워·용당동공영(63m), 평화4공영·미항공영(60m), 1897개항장 공영·동명동물양장공영(141m), 1897개항장 공영·항동시장공영(194m), 행정타운공영주차장·죽동1공영(199m), 행정타운공영주차장·남교공영(181m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 60행은 전부 공영이고 데이터기준일자는 전부 2026-08-07이다. 관리기관은 60곳 전부 전남광주통합특별시 목포시청이고 전화번호는 60곳 전부 등록돼 있지 않다",
+   "도로명주소는 13곳이 등록돼 있지 않아 동 판정과 표기는 지번주소를 기준으로 했다",
+   "등록 급지는 1급지 53곳·3급지 5곳·2급지 1곳·4급지 1곳으로 갈리지만 조례 별표 1에는 급지 구분이 없어 요금표 행 판정에 쓰지 않았다",
+   "운영요일은 전부 평일+토요일+공휴일이고 운영시간은 00:00~23:59가 55곳, 09:00~19:00(공휴일 09:00~18:00)가 4곳, 08:00~20:00이 1곳이다. 특기사항은 무인시설 5곳·무인시설(위탁 관리) 1곳·운영시간 외 무료개방 3곳이고 나머지는 공란이며, 부제시행구분은 60곳 전부 '미시행'이다. 결제방법은 유료 9곳만 카드 또는 현금+카드로 등록돼 있다",
+   "용당2동은 등록 좌표가 목포시 범위 밖이라 비우고 지오코딩으로 채운 1곳이다 — 자세한 근거는 좌표 오버레이(data/raw/좌표누락_지오코딩_20261118.json, jn-mokpo-038)에 있다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [
+   "용당2동: 등록 좌표(35.4291464494, 129.1721842451)가 목포시 범위 밖 — 좌표 없음으로 표기하고 지오코딩 보완 대상으로 넘김"
+  ],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "보리마당",
+   "고하도마을 공영",
+   "대성동공영",
+   "중화마을소공원",
+   "평화3공영",
+   "1897개항장 공영",
+   "용당2동",
+   "용당동공영",
+   "용당빗물펌프장",
+   "돌골어린이공원",
+   "노벨평화기념관",
+   "상동고가",
+   "순천당약국~죽교파출소간"
+  ],
+  "감면_출처": "「목포시 주차장 설치 및 관리 조례」 제3708호 제3조 — 면제(제3조제2항): 「도로교통법」 제2조제22호에 따른 긴급자동차, 국가 또는 지방자치단체의 공용차량에 대하여는 주차요금을 면제한다. 면제(제3조제3항): 모범납세자 중 성실납세필증 표시 부착차량에 대하여는 1년간 주차요금을 면제할 수 있다. 감면(제3조제4항): 장애인 및 국가유공자, 5.18 민주화 운동 부상자, 고엽제후유증 환자(제1호), 장기기증자 및 장기기증 등록자, 의사상자 본인과 유가족(제2호), 전통시장 상인 및 고객이 사용하는 자동차·경형 자동차·저공해 자동차 표지 부착 자동차(제3호, 단 전기자동차의 충전을 위해 주차하는 경우에는 1시간의 주차요금을 면제), 65세 이상 경로 우대자(제4호), 그 외 원도심 활성화 및 도시 교통의 원활한 소통을 위하여 필요하다고 인정하는 자동차(제5호), 전라남도지사가 발급한 자원봉사 마일리지증 소지자(제6호), 병역명문가 예우대상자(제7호)는 주차요금의 100분의 60을 감면할 수 있다. 감면은 신청에 의한다(제3조제5항). 본문 원문(data/raw/mokpo-ordinance.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 제3조제1항·별표 1(개정 2018-12-17) — 공영주차장의 주차요금은 별표 1에 따라 부과·징수할 수 있다. 별표 1은 급지 구분이 없는 차종 요금표로 1회 주차요금(1구획당)은 소형 최소 60분까지 무료·60분 초과 후 30분마다 500원, 대형 최소 60분까지 600원·60분 초과 후 30분마다 600원이고, 1일 주차권은 소형 5,000원·대형 8,000원, 월 정기 주차권은 소형 주간 50,000원·야간 40,000원·주야간 85,000원, 대형 주간 65,000원·야간 52,000원·주야간 115,000원이다. 제3조제1항 단서는 유료 공영주차장은 1구획당 60분까지 무료로 운영할 수 있고 공휴일 등 시장이 필요하다고 인정하는 시간에는 무료로 개방할 수 있다고 정한다. 표준데이터 등록 60곳 가운데 51곳은 무료이고, 유료 9곳의 등록 요금(기본 60분 0원·추가 30분당 500원·1일 5,000원·월정기 50,000원)은 별표 1 소형 요금과 완전히 일치해 계산기는 등록값을 쓰고 요금표는 조례값을 실었다",
+  "급지_출처": "조례 별표 1에는 급지 구분이 없고 차종(소형·대형)으로만 나뉜다. 표준데이터 등록 급지는 1급지 53곳·3급지 5곳·2급지 1곳·4급지 1곳으로 갈리지만 조례 급지와 대응하지 않아 요금표 행 판정에 쓰지 않았다(익산·남원 선례)",
+  "무료요일_출처": "조례에 주말·공휴일 상시 무료 규정은 없어 유료 9곳의 free_days는 전부 False로 뒀다. 제3조제1항 단서의 공휴일 무료 개방은 시장이 필요하다고 인정하는 시간에 한하는 재량 사항이라 요일 모델에 넣지 않았다. 특기사항에 '운영시간 외 무료개방'이 적힌 3곳(남교공영·원형1공영·원형2공영)은 요일이 아니라 운영시간 기준이다. 무료 51곳은 요금구분 자체가 '무료'다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 목포시 등록 60행 전부 공영(노외 52·노상 8) — 민영 제외 0건",
+   "「목포시 주차장 설치 및 관리 조례」 제3708호(시행 2023-07-03, 공포 2023-07-03, 일부개정, ordinSeq 1831167) 본문 원문(data/raw/mokpo-ordinance.txt) 대조 완료(2026-11-20) — 함께 검색된 「목포시 교통사업 특별회계 설치 조례」·「목포시 주차공유 활성화 지원 조례」·「목포시 주차장 조례 시행규칙」은 요금 조례가 아니라 제외했다",
+   "별표 1은 HWP 원본(flSeq 153848741)을 data/raw/mokpo-ordinance-b1.hwp로 저장하고 본문 텍스트를 추출해 확정했다(data/raw/mokpo-ordinance-b1.txt) — 급지 구분이 없는 차종(소형·대형) 요금표이고 개정일은 2018-12-17이다",
+   "유료 9곳의 등록 요금(기본 60분 0원·추가 30분당 500원·1일 5,000원·월정기 50,000원)은 조례 별표 1 소형 요금(최소 60분까지 무료·60분 초과 후 30분마다 500원·1일 5,000원·월정기 주간 50,000원)과 완전히 일치해 계산기는 등록값을 쓰고 급지_요금_차이는 없다 — 별표의 월정기 야간 40,000원·주야간 85,000원은 등록값에 없어 계산에 쓰지 않는다",
+   "등록 51곳은 요금 구분이 '무료'라 요금을 받는 곳이 아니고, 제3조제1항 단서가 시장이 필요하다고 인정하는 시간의 무료 개방을 정하고 있어 시가 무료로 운영하는 곳으로 보고 요금표는 조례 기준 요금의 참고표로 실었다(서천·예산·보은·영동·진천·군산·무주 선례) — 개별 곳의 무료 지정 여부는 시청 확인 과제다",
+   "중복 판정은 전체 이름 기준 가드(옥천·영동 선례) — 이름+같은 자리+좌표 200m 이내 중복이 0건이라 합친 행이 없고, 이름이 겹치는 주차장도 없다",
+   "좌표는 용당2동 1곳의 등록 좌표(35.4291, 129.1722)가 목포시 범위 밖(부산 방면)이라 등록 오류로 비웠고, 등록 지번주소(목포시 용당동 1128-2)로 ArcGIS World Geocoding한 결과 반환 주소가 번지까지 일치(score 100·PointAddress)해 오버레이(data/raw/좌표누락_지오코딩_20261118.json, jn-mokpo-038)로 채웠다. 나머지 59곳은 좌표가 등록돼 있다",
+   "도로명주소는 13곳이 등록돼 있지 않아 동 판정은 지번주소를 기준으로 했다. 전화번호는 60곳 전부 등록돼 있지 않다(시청 확인 과제)",
+   "등록 급지(1급지 53곳·3급지 5곳·2급지 1곳·4급지 1곳)는 조례 별표 1에 급지 구분이 없어 요금표 행 판정에 쓰지 않았다(익산·남원 선례)"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 51,
+  "무료_구획수": 2804,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 60,
+  "데이터기준일": [
+   "2026-08-07"
+  ],
+  "관리기관": {
+   "전남광주통합특별시 목포시청": 60
+  }
+ },
+ "fee_table": {
+  "style": "mokpo_grade",
+  "unit_min": 30,
+  "base_min": 60,
+  "applies": "조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「목포시 주차장 설치 및 관리 조례」 제3708호(시행 2023-07-03, 일부개정), ordinSeq 1831167. 본문 사본 data/raw/mokpo-ordinance.txt. 별표 1(공영주차장 주차요금표)은 HWP 원본을 data/raw/mokpo-ordinance-b1.hwp로 저장하고 본문 텍스트를 추출해 data/raw/mokpo-ordinance-b1.txt로 확인했다.",
+  "rows": [
+   {
+    "label": "소형 (승용·16인승 미만 승합·2.5톤 미만 화물)",
+    "grade": "small",
+    "unit_label": "1회 주차요금 최소 60분까지 무료 · 60분 초과 후 30분마다 500원 · 1일 5,000원 · 월정기 주간 50,000원/야간 40,000원/주야간 85,000원",
+    "hour": 0,
+    "two_hour": 1000,
+    "day": 5000,
+    "month": 50000,
+    "lots": 9
+   },
+   {
+    "label": "대형 (그 외 차량)",
+    "grade": "large",
+    "unit_label": "1회 주차요금 최소 60분까지 600원 · 60분 초과 후 30분마다 600원 · 1일 8,000원 · 월정기 주간 65,000원/야간 52,000원/주야간 115,000원",
+    "hour": 600,
+    "two_hour": 1800,
+    "day": 8000,
+    "month": 65000,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 9,
+   "street_paid": 0,
+   "free": 51,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "주간 시간구분 (노상주차장)",
+    "hours": "4~10월 09:00~19:00 · 11~3월 09:00~18:00, 그 외 야간",
+    "free": "조례 별표 1 비고 2의 월정기 주·야간 구분이다. 필요한 경우 시장은 주간 시간을 따로 정할 수 있다"
+   },
+   {
+    "group": "주간 시간구분 (노외주차장)",
+    "hours": "4~10월 09:00~20:00 · 11~3월 09:00~19:30, 그 외 야간",
+    "free": "조례 별표 1 비고 2의 월정기 주·야간 구분이다. 등록 운영시간은 곳마다 다르다(전 곳 00:00~23:59인 곳이 55곳, 09:00~19:00인 곳이 4곳, 08:00~20:00인 곳이 1곳)"
+   }
+  ],
+  "notes": "별표 1에는 급지 구분이 없어 목포시 공영주차장 전체에 같은 요금이 적용되고 차종으로만 나뉜다 — 등록 급지(1급지 53곳·3급지 5곳·2급지 1곳·4급지 1곳)는 조례 급지와 대응하지 않아 요금표 행 판정에 쓰지 않았다(익산·남원 선례). 차종 구분은 승용차·16인승 미만 승합자동차·2.5톤 미만 화물자동차는 소형, 그 외의 차량은 대형이다(비고 3). 이 요금표는 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용한다(비고 1). 조례 제3조제1항 단서는 유료 공영주차장은 1구획당 60분까지 무료로 운영할 수 있고, 공휴일 등 시장이 필요하다고 인정하는 시간에는 무료로 개방할 수 있다고 정한다. 감면은 긴급자동차·공용차량 면제, 모범납세자 1년간 면제(이상 제3조제2항·제3항), 장애인·국가유공자·5.18 부상자·고엽제 환자·장기기증자·의사상자·전통시장 상인·고객·경형·저공해·65세 이상 경로 우대자·자원봉사 마일리지증·병역명문가 60% 감면(제3조제4항)이다.",
+  "basis": "요금표는 「목포시 주차장 설치 및 관리 조례」 제3708호(시행 2023-07-03) 제3조·별표 1(개정 2018-12-17)과 표준데이터(기준일 2026-08-07)를 대조해 실었다. 등록된 60곳 가운데 51곳은 무료이고, 유료 9곳의 등록 요금은 별표 1 소형 요금과 완전히 일치한다 — 무료인 곳에 대해 이 표는 조례 기준 요금의 참고표다. (조례 본문: data/raw/mokpo-ordinance.txt, 별표 1 원문: data/raw/mokpo-ordinance-b1.txt)"
+ },
+ "slug": "mokpo",
+ "province": "전남광주통합특별시",
+ "province_slug": "jeonnam",
+ "dong_page_min_lots": 3,
+ "city": "목포시",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·공용차량 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제3조제2항 — 「도로교통법」 제2조제22호에 따른 긴급자동차, 국가 또는 지방자치단체의 공용차량에 대하여는 주차요금을 면제한다(공공행사·회의 참여 차량은 관리부서 서면 신청·승인 시)"
+  },
+  {
+   "label": "모범납세자 면제 (1년간)",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제3조제3항 — 모범납세자 중 성실납세필증 표시 부착차량에 대하여는 1년간 주차요금을 면제할 수 있다"
+  },
+  {
+   "label": "장애인·국가유공자·5.18 부상자·고엽제 환자 60% 감면",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제1호 — 장애인 및 국가 유공자, 5.18 민주화 운동 부상자, 고엽제후유증 환자는 주차요금의 100분의 60을 감면할 수 있다"
+  },
+  {
+   "label": "장기기증자·의사상자 60% 감면",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제2호 — 장기기증자 및 장기기증 등록자, 의사상자 본인과 유가족은 주차요금의 100분의 60을 감면할 수 있다"
+  },
+  {
+   "label": "전통시장 상인·고객·경형·저공해 60% 감면",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제3호 — 전통시장 상인 및 고객이 사용하는 자동차, 경형 자동차, 저공해 자동차 표지 부착 자동차는 주차요금의 100분의 60을 감면할 수 있다(단, 전기자동차의 충전을 위해 주차하는 경우에는 1시간의 주차요금을 면제한다)"
+  },
+  {
+   "label": "65세 이상 경로 우대자 60% 감면",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제4호 — 「노인복지법」에 따른 65세 이상 경로 우대자는 주차요금의 100분의 60을 감면할 수 있다"
+  },
+  {
+   "label": "자원봉사 마일리지증 소지자 60% 감면",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제6호 — 전라남도지사가 발급한 자원봉사 마일리지증 소지자는 주차요금의 100분의 60을 감면할 수 있다"
+  },
+  {
+   "label": "병역명문가 예우대상자 60% 감면",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제7호 — 「목포시 병역명문가 예우 및 지원에 관한 조례」에 따른 예우대상자로서 병역명문가증과 주소가 기입된 신분증을 제시하는 경우는 주차요금의 100분의 60을 감면할 수 있다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
