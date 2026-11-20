@@ -315,8 +315,10 @@ def derive_free_fields(lot):
     # 00:00~00:00(미운영)이라 공휴일 태그를 붙이지 않는다.
     # 김해시도 마찬가지다 — 장유전통시장 1곳의 일요일 무료는 등록 특기사항 '일요일 무료'
     # 근거뿐이고 공휴일은 특기사항·조례 어디에도 언급이 없어 공휴일 태그를 붙이지 않는다.
+    # 거제시도 마찬가지다 — 36곳의 토·일 무료는 등록 특기사항 '토요일, 일요일 무료 운영'
+    # 근거뿐이고 공휴일은 특기사항·조례 어디에도 언급이 없어 공휴일 태그를 붙이지 않는다.
     # (다른 도시는 '주말 및 공휴일 무료' 특기사항 관행대로 sun=True면 공휴일도 무료로 본다.)
-    if lot["free_holiday"] or (fd["sun"] and lot.get("city") not in ("공주시", "보령시", "제천시", "김해시")):
+    if lot["free_holiday"] or (fd["sun"] and lot.get("city") not in ("공주시", "보령시", "제천시", "김해시", "거제시")):
         tags.append("공휴일")
     if overlaps_night(fw):
         tags.append("심야")
@@ -69744,6 +69746,697 @@ def build_miryang():
     (DATA / "miryang_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
     return payload
 
+# ======================= 경상남도 거제시 =======================
+# 조례: 「거제시 주차장 조례」 제2434호(시행 2026-11-12, 일부개정 — 부칙이
+#   '공포한 날부터 시행'이라 시행일이 곧 공포일이다), ordinSeq 2184983.
+#   제3조제1항이 공영주차장 요금을 별표 1로 정한다. 별표 1은 급지
+#   (1급지 동지역·2급지 면지역)×차종(소형·대형) 요금표로, 1급지 소형은
+#   10분 초과~30분 500원·30분 초과 10분마다 200원·최초 1시간 1,000원·
+#   1시간 초과 30분마다 500원·1일 6,000원(노상 제외)·월 정기 주간
+#   80,000원·야간 60,000원·주야간 120,000원(노상 제외)이다. 별표 원문
+#   (HWPX)을 국가법령정보센터에서 받아 section0.xml 전문을 파싱해
+#   PrvText와 교차 확인했다(data/raw/geoje-ordinance-b1.txt). 감면은
+#   제3조의2·별표 1의3이다.
+# 표준데이터 거제시 등록 39행은 전부 공영·유료·급지 '1'이고, 시간제
+#   등록값(기본 60분 1,000원·추가 30분 500원)이 39곳 전부 같아 별표
+#   1급지 소형의 1시간 이상 금액과 정확히 같다. 1일·월정기 등록은
+#   시장 3곳(1일 4,000원·월정기 80,000원)과 노상 7곳(1일 6,000원·
+#   적용시간 6시간·월정기 80,000원)뿐이다.
+GEOJE_PROVINCE = "경상남도"
+GEOJE_PROVINCE_SLUG = "gyeongnam"
+GEOJE_ORD_URL = ("https://www.law.go.kr/LSW/ordinInfoR.do?"
+                 "ordinSeq=2184983&ordinId=2184983&gubun=ELIS")
+GEOJE_ORD_TXT = RAW / "geoje-ordinance-b1.txt"
+GEOJE_ORD_NOTE = ("「거제시 주차장 조례」 제2434호(시행 2026-11-12) 제3조제1항·별표 1"
+                  "(개정 2026.11.12) — 국가법령정보센터 ordinSeq 2184983에서 확인")
+
+GEOJE_DISCOUNTS = [
+    {"label": "긴급자동차 면제 (노상주차장에 한함)", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 별표 1의3 1호 가목 — 「도로교통법」 제2조제22호에 따른 긴급자동차. 단, 법 제7조제1항의 규정에 따라 설치한 노상주차장에 한한다"},
+    {"label": "세정 유공납세자 주차증 부착 차량 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 별표 1의3 1호 나목 — 「거제시 성실납세자 등 지원에 관한 조례」 제5조제2항에 따른 '세정 유공납세자 주차증'을 부착한 차량(다만, 면제기간은 유효기간까지로 한다)"},
+    {"label": "거제시민상 수상자 차량 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 별표 1의3 1호 다목 — 「거제시민상 조례」 제13조제3호에 따른 거제시민상 수상자로서 '자랑스러운 거제시민증'을 소지한 사람이 운전하는 차량"},
+    {"label": "장애인·국가보훈대상자 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1의3 2호 가목 — 장애인의 자가운전차량(장애인을 동반한 일반차량 포함) 및 「거제시 국가보훈대상자 등 예우 및 지원에 관한 조례」 제4조에 따른 국가보훈대상자 본인 소유의 비영업용 승용자동차(1대에 한함)"},
+    {"label": "경형자동차 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1의3 2호 나목 — 「자동차관리법 시행규칙」 제2조에 따른 경형자동차"},
+    {"label": "장기등 및 인체조직 기증자·기증희망자 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1의3 2호 다목 — 「거제시 장기등 및 인체조직 기증 장려에 관한 조례」 제9조에 따라 장기등 및 인체조직 기증자ㆍ장기등 및 인체조직 기증희망자 본인 소유의 비영업용 승용자동차(1대에 한함)"},
+    {"label": "고엽제·5·18 증서 소지자 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1의3 2호 라목 — 고엽제후유의증 환자로 국가 또는 지방보훈청장이 발행한 증서를 소지한 자와 5·18 민주유공자 증서를 소지한 자가 운전하는 자동차"},
+    {"label": "기초생활수급자 차량 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1의3 2호 마목 — 「국민기초생활 보장법」에 따른 수급자 차량으로 시장이 발행한 증명서를 제출하는 자동차"},
+    {"label": "임산부 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1의3 2호 바목 — 모자보건수첩, 임산부 자동차 표지 등 임산부 증명자료를 소지한 임산부가 운전하거나 동승한 자동차"},
+    {"label": "경남 아이 다누리카드 소지자 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1의3 2호 사목 — 경남 아이 다누리카드 소지자가 운전하는 자동차"},
+    {"label": "저공해·환경친화적 자동차 50% 감면 (충전 시 최초 2시간 면제)", "rate": 0.5, "exempt_min": 120,
+     "note": "조례 별표 1의3 2호 아목 — 「대기환경보전법」 제2조제16호에 따른 저공해 자동차 또는 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조제2호에 따른 환경친화적 자동차. 단, 충전목적으로 충전시설을 이용한 경우 최초 2시간 범위에서 주차요금을 면제한다"},
+    {"label": "65세 이상 경로대상자 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1의3 2호 자목 — 경로사상 고취를 위하여 65세 이상 경로대상자가 운전하는 자동차"},
+    {"label": "자원봉사증 소지자 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1의3 2호 차목 — 「거제시 자원봉사활동 지원 조례」 제13조에 따른 유효한 자원봉사증을 소지한 사람이 운전하는 자동차"},
+    {"label": "다회 헌혈자 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1의3 2호 카목 — 「거제시 헌혈 권장 조례」 제10조의2에 따라 다회 헌혈자(감면 확인증 발급일로부터 3년간)가 운전하는 자동차"},
+]
+
+GEOJE_CONF = {
+    "city": "거제시",
+    "slug": "geoje",
+    "manager": "경상남도 거제시",
+    "manager_inquiry": "거제시청 교통과(055-639-4542, 국가법령정보센터 표기)",
+    "ordinance": ("거제시 주차장 조례", GEOJE_ORD_URL, GEOJE_ORD_NOTE),
+    "notes": (
+        "표준데이터에 등록된 거제시 공영주차장 39곳(노외 3곳·노상 35구간·부설 1곳, 총 1,672면)입니다. "
+        "등록은 전부 공영이고 요금 구분은 39곳 전부 '유료', 급지구분은 전부 '1'로 등록돼 있습니다. "
+        "39곳 전부 기본 60분 1,000원·추가 30분 500원으로, 조례 별표 1의 1급지(동지역) 소형 행"
+        "(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 같습니다. "
+        "시장 공영주차장 3곳(고현종합시장·옥포국제시장·고현중앙)은 1일 4,000원·월정기 80,000원이, "
+        "노상 7곳은 1일 적용시간 6시간·1일 6,000원·월정기 80,000원이 등록돼 있습니다. "
+        "시장 3곳을 뺀 36곳은 특기사항에 토요일·일요일 무료 운영으로 등록돼 있습니다. "
+        "운영시간은 39곳 전부 08:00~20:00입니다."),
+    "discounts": GEOJE_DISCOUNTS,
+}
+
+GEOJE_BBOX = (34.55, 35.05, 128.40, 129.00)
+GEOJE_DONGS = {"고현동", "상동동", "상문동", "문동동", "삼거동", "두모동", "덕포동",
+               "소랑동", "양정동", "수월동", "장평동", "옥포동", "마전동", "장승포동",
+               "능포동", "아주동", "거제면", "남부면", "동부면", "둔덕면", "사등면",
+               "연초면", "일운면", "장목면", "하청면"}
+# 전통시장 공영주차장 3곳 — 특기사항이 '2시간 무료 시행'이고 1일 4,000원·
+#   월정기 80,000원이 등록돼 있다.
+GEOJE_MARKETS = ("고현종합시장 공영주차장", "옥포국제시장 공영주차장", "고현중앙 공영주차장")
+# 등록 시간제 공통 패턴 — (기본시간, 기본요금, 추가단위시간, 추가단위요금)
+GEOJE_PAID_PAT = (60, 1000, 30, 500)
+
+
+def geoje_dong_of(addr):
+    """거제시 법정 동·면 판정 — 지번주소의 거제시 다음 토큰이
+    동·면이다. 김해·밀양과 같은 정규식을 쓴다.
+    이름 기반 보정은 쓰지 않는다."""
+    if addr:
+        m = re.search(r"거제시\s*([가-힣0-9]+?(?:읍|면|동\d+가|동))(?=[\s0-9-]|$)", addr)
+        if m:
+            return m.group(1)
+    return None
+
+
+def geoje_fee(row, name, note_bits, fee_diff):
+    """거제시 공영주차장 한 곳의 요금 — 등록 39곳이 전부
+    기본 60분 1,000원·추가 30분 500원으로, 조례 별표 1의
+    1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과
+    30분마다 500원)과 금액이 정확히 같아 등록값을 그대로
+    계산에 쓴다(공주·청양·창원·진주·통영 선례). 1일·월정기는
+    등록이 있는 곳(시장 3곳·노상 7곳)만 등록값으로 싣고,
+    별표와 다른 부분은 fee_diff에 남긴다."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    day_hours = to_int(row.get("1일주차권요금적용시간"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    ptype = (row.get("주차장유형") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None, "monthly_night": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": False, "progressive": False,
+           "steps": None, "steps_label": None, "bands": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"})
+        return fee
+    if raw_type != "유료":
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 시청 확인 필요"})
+        return fee
+    if not base_fee and not unit_fee and not day and not month:
+        fee_diff.append(f"{name}: '유료'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 "
+                        "비어 있어 금액을 확정할 수 없다 — 요금 미상으로 표기한다(시청 확인 필요)")
+        fee.update({"type": "미상",
+                    "basis": "요금 구분은 ‘유료’이나 요금 금액이 전부 비어 있음 — "
+                             "조례 별표 1 요금은 요금표에 있고, 금액은 거제시청 확인 필요"})
+        return fee
+    pat = (base_min, base_fee, unit_min, unit_fee)
+    if pat != GEOJE_PAID_PAT:
+        fee_diff.append(f"{name}: 등록 요금(기본 {base_min}분 {base_fee}원·추가 {unit_min}분 "
+                        f"{unit_fee}원·1일 {day}원·월정기 {month}원)이 조례 별표 1의 1급지 "
+                        "소형 행과 달라 등록값을 그대로 실었다 — 시청 확인 과제")
+        fee.update({"type": "유료", "base_min": base_min, "base_fee": base_fee,
+                    "unit_min": unit_min, "unit_fee": unit_fee,
+                    "daily_fee": day if day else None,
+                    "daily_hours": day_hours if day_hours else None,
+                    "monthly": month if month else None,
+                    "monthly_label": "주간" if month else None,
+                    "basis": "표준데이터 등록값을 그대로 적용했다 — 조례 별표 1의 행과 대응하지 않아 시청 확인 과제다"})
+        return fee
+    if name in GEOJE_MARKETS:
+        fee_diff.append(f"{name}: 1일 요금 등록값 {day:,}원이 조례 별표 1의 1급지 소형 "
+                        "1일 요금 6,000원보다 낮다 — 등록값이 완전해 등록값을 그대로 "
+                        "계산에 썼다(조례 제3조제4항은 개별 공영주차장의 주차요금을 "
+                        "가감조정하여 징수할 수 있게 한다). 실제 징수 기준은 시청 확인 과제")
+        fee.update({"type": "유료", "base_min": 60, "base_fee": 1000,
+                    "unit_min": 30, "unit_fee": 500,
+                    "daily_fee": day if day else None,
+                    "daily_hours": day_hours if day_hours else None,
+                    "monthly": month if month else None,
+                    "monthly_label": "주간" if month else None,
+                    "basis": ("표준데이터 등록값(기본 60분 1,000원·추가 30분 500원·1일 "
+                              "4,000원·월정기 80,000원) 중 시간제 금액이 조례 별표 1의 "
+                              "1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 "
+                              "500원)과 정확히 같고 월정기 80,000원도 별표 주간 금액과 같아 "
+                              "등록값을 그대로 적용했다. 1일 요금만 별표(6,000원)보다 낮은 "
+                              "4,000원으로 등록돼 있어 등록값을 쓴다")})
+        return fee
+    if ptype == "노상" and day:
+        fee_diff.append(f"{name}: 조례 별표 1의 월 정기 주차권은 '노상주차장 제외'라 "
+                        "노상에는 월 정기권이 없으나 표준데이터에는 월정기 80,000원이 "
+                        "등록돼 있어 등록값을 실었다 — 시청 확인 과제. 1일 요금 6,000원은 "
+                        "별표 비고 3(주차시간 6시간 이상은 1일로 본다)의 적용시간 6시간과 "
+                        "대응하고, 시간제로 계산한 6시간 요금과 금액이 같다")
+        fee.update({"type": "유료", "base_min": 60, "base_fee": 1000,
+                    "unit_min": 30, "unit_fee": 500,
+                    "daily_fee": day, "daily_hours": day_hours,
+                    "monthly": month if month else None,
+                    "monthly_label": "주간" if month else None,
+                    "basis": ("표준데이터 등록값(기본 60분 1,000원·추가 30분 500원·1일 "
+                              "6,000원(적용시간 6시간)·월정기 80,000원) 중 시간제 금액이 "
+                              "조례 별표 1의 1급지(동지역) 소형 행과 정확히 같아 등록값을 "
+                              "그대로 적용했다. 1일 요금은 별표 비고 3의 '주차시간 6시간 "
+                              "이상은 1일로 본다'와 대응한다")})
+        return fee
+    if ptype == "노외":
+        fee_diff.append(f"{name}: 노외주차장이라 조례 별표 1의 1일 요금(6,000원)·월 정기 "
+                        "주차권이 있는 자리이나 표준데이터에 1일·월정기 금액이 등록돼 "
+                        "있지 않아 일일 상한을 적용하지 않았다 — 시청 확인 과제(김해 선례)")
+        basis = ("표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 "
+                 "1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 "
+                 "금액이 정확히 같아 등록값을 그대로 적용했다. 1일·월정기 금액은 등록돼 "
+                 "있지 않다")
+    else:
+        basis = ("표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 "
+                 "1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 "
+                 "금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 "
+                 "따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 "
+                 "별표에서 노상은 제외된다")
+    fee.update({"type": "유료", "base_min": 60, "base_fee": 1000,
+                "unit_min": 30, "unit_fee": 500, "basis": basis})
+    return fee
+
+
+def geoje_fee_table(conf, lots):
+    """요금표 — 조례 별표 1을 싣는다. 등록 39곳은 전부
+    1급지(동지역) 소형 행과 같고, 나머지 행(대형·2급지)은
+    등록된 주차장이 없어 조례 기준 행으로 함께 싣는다."""
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+
+    def _row(label, grade, f, day, month_day, month_night, unit_label, n_lots=0,
+             manual=None):
+        r = {"label": label, "grade": grade, "unit_label": unit_label,
+             "hour": sj_charge(f, 60) if f.get("base_fee") is not None else None,
+             "two_hour": sj_charge(f, 120) if f.get("base_fee") is not None else None,
+             "day": day, "month": month_day, "month_night": month_night, "lots": n_lots}
+        if manual:
+            r.update(manual)
+        return r
+
+    def _sj(bm, bf, um, uf):
+        return {"base_min": bm, "base_fee": bf, "unit_min": um, "unit_fee": uf,
+                "daily_fee": None}
+
+    rows = [
+        _row("1급지 (동지역) 소형", "grade1_small", _sj(60, 1000, 30, 500),
+             6000, 80000, 60000,
+             "최초 1시간 1,000원 · 1시간 초과 30분마다 500원 · 1일 6,000원(노상 제외) · 월정기 주야간 120,000원",
+             len(paid)),
+        _row("1급지 (동지역) 대형", "grade1_large", _sj(60, 2500, 30, 1500),
+             12000, 160000, 80000,
+             "최초 1시간 2,500원 · 1시간 초과 30분마다 1,500원 · 1일 12,000원(노상 제외) · 월정기 주야간 200,000원"),
+        _row("2급지 (면지역) 소형", "grade2_small", _sj(60, 500, 30, 200),
+             3000, 40000, 30000,
+             "최초 1시간 500원 · 1시간 초과 30분마다 200원 · 1일 3,000원(노상 제외) · 월정기 주야간 60,000원"),
+        _row("2급지 (면지역) 대형", "grade2_large", _sj(60, 1500, 30, 1200),
+             6000, 60000, 50000,
+             "최초 1시간 1,500원 · 1시간 초과 30분마다 1,200원 · 1일 6,000원(노상 제외) · 월정기 주야간 100,000원"),
+    ]
+    return {
+        "style": "geoje_grade",
+        "unit_min": 30,
+        "base_min": 60,
+        "applies": conf["ordinance"][2],
+        "source_url": conf["ordinance"][1],
+        "grade_system": ("등록 급지구분은 39곳 전부 '1'이고, 조례 별표 1은 1급지(동지역)·"
+                         "2급지(면지역)와 차종(소형·대형)으로 요금을 나눈다. 등록된 "
+                         "39곳은 전부 동 지역이라 1급지다"),
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["list_mode"] == "card"]),
+                 "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [{"group": "주간·야간 시간 구분 (조례 별표 1 비고 2)",
+                     "hours": "주간 08:00~20:00 · 나머지 시간은 야간",
+                     "free": "등록된 39곳은 전부 주간 시간대(08:00~20:00)에만 운영하는 것으로 등록돼 있다"}],
+        "discounts": conf["discounts"],
+        "notes": ("요금은 후불 징수를 원칙으로 하고, 노상주차장은 18:00 이후 1시간 이상 "
+                  "주차를 요하는 차량에 대해 선불로 징수할 수 있다(비고 1). 주차시간 "
+                  "6시간 이상은 1일로 보되 노상주차장은 시간당 주차요금으로 징수한다"
+                  "(비고 3). 무료 주차 이용 횟수는 1일 1회로 한정한다(비고 4). 소형은 "
+                  "승용차, 25인승 미만 승합자동차, 2.5톤 미만 화물자동차다(비고 5). "
+                  "시장은 주차수요 등을 감안해 체증 또는 체감방식을 적용할 수 있고"
+                  "(비고 6), 개별 공영주차장의 요금을 가감조정하여 징수할 수 있다"
+                  "(제3조제4항). 전통시장 등 이용 촉진을 위해 시장이 지정하는 공영주차장은 "
+                  "1시간까지 무료이고, 이용 확인증(할인권)을 제시하면 당일 2시간까지 "
+                  "무료다(별표 1의3 3호 라·마목). 거제시의 다른 조례에 별도 규정이 있는 "
+                  "주차장은 이 요금표를 적용하지 않는다(비고 7). 별표 1의2(영업점 앞 "
+                  "노상 주차구획 사용요금, 월정료 80,000원)는 영업점 앞 구획 사용허가 "
+                  "전용 제도라 이 표에 싣지 않았다. 대형·2급지(면지역) 행은 등록된 "
+                  "주차장이 없어 조례 기준 행이다."),
+        "basis": ("요금표는 「거제시 주차장 조례」 제2434호(시행 2026-11-12) 제3조제1항·별표 1"
+                  "(개정 2026.11.12)과 표준데이터(기준일 2026-10-15)를 대조해 실었다. 등록 "
+                  "39곳 전부 급지 '1'·동 지역에 있고 시간제 등록값이 별표 1급지 소형 행과 "
+                  "같아 등록값으로 계산한다. (조례 본문: data/raw/geoje-ordinance.txt, "
+                  "별표 원문: data/raw/geoje-ordinance-b1.txt)"),
+    }
+
+
+def geoje_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                  space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(lots)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in lots).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in lots if l["dong"]}),
+        "동_미상": [l["name"] for l in lots if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in lots)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「거제시 주차장 조례」 제2434호 제3조의2·별표 1의3 — 면제: 긴급자동차"
+                      "(법 제7조제1항에 따라 설치한 노상주차장에 한함), 세정 유공납세자 "
+                      "주차증을 부착한 차량(유효기간까지), 거제시민상 수상자로서 '자랑스러운 "
+                      "거제시민증'을 소지한 사람이 운전하는 차량. 50% 감면: 장애인 "
+                      "자가운전차량(장애인을 동반한 일반차량 포함)·국가보훈대상자 본인 소유 "
+                      "비영업용 승용자동차(1대 한함), 경형자동차, 장기등 및 인체조직 "
+                      "기증자·기증희망자 본인 소유 비영업용 승용자동차(1대 한함), 고엽제후유의증 "
+                      "환자·5·18 민주유공자 증서 소지자가 운전하는 자동차, 수급자 차량(시장이 "
+                      "발행한 증명서 제출), 임산부 증명자료를 소지한 임산부가 운전하거나 동승한 "
+                      "자동차, 경남 아이 다누리카드 소지자가 운전하는 자동차, 저공해·환경친화적 "
+                      "자동차(다만 충전목적으로 충전시설을 이용한 경우 최초 2시간 면제), "
+                      "65세 이상 경로대상자가 운전하는 자동차, 유효한 자원봉사증을 소지한 사람이 "
+                      "운전하는 자동차, 다회 헌혈자(감면 확인증 발급일로부터 3년간)가 운전하는 "
+                      "자동차. 그 밖에 투표확인증 제출 시 2,000원까지 감면, 자가용 승용차 부제 "
+                      "자율참여 표지 부착 차량 20% 경감, 인근 상가 등의 주차권 선구매(1,000매 "
+                      "이상 20%·2,000매 이상 30%) 경감, 시장이 지정하는 공영주차장 1시간 무료와 "
+                      "시장 등 이용 확인증 제시 시 당일 2시간 무료가 있다. 감면액의 100원 미만은 "
+                      "절사하고 둘 이상의 감면사유에 해당하면 감면율이 높은 하나만 적용한다"
+                      "(제3조의2제1항). 본문 원문(data/raw/geoje-ordinance.txt)·별표 1의3 "
+                      "원문(data/raw/geoje-ordinance-b13.txt) 대조 완료(2026-11-20)"),
+        "요금_출처": ("조례 제3조제1항·별표 1 — 공영주차장 주차요금은 별표 1과 같다. 별표 1은 "
+                      "1급지(동지역) 소형 기준 10분 초과~30분 500원·30분 초과 10분마다 200원·"
+                      "최초 1시간 1,000원·1시간 초과 30분마다 500원·1일 6,000원(노상 제외)·"
+                      "월 정기 주간 80,000원·야간 60,000원·주야간 120,000원(노상 제외)이고, "
+                      "대형 행과 2급지(면지역) 소형·대형 행도 둔다. 표준데이터 등록 39곳이 전부 "
+                      "기본 60분 1,000원·추가 30분 500원이라 별표 1급지 소형의 1시간 이상 "
+                      "금액과 같아 등록값을 쓴다"),
+        "급지_출처": ("표준데이터 등록 급지구분은 39곳 전부 '1'이고, 조례 별표 1의 1급지는 "
+                      "동지역, 2급지는 면지역이다 — 등록된 39곳은 전부 동 지역(고현동·상동동·"
+                      "옥포동·장평동·아주동)이라 전부 1급지다"),
+        "무료요일_출처": ("표준데이터 특기사항 — 시장 공영주차장 3곳을 뺀 36곳이 '토요일, "
+                          "일요일 무료 운영'으로 등록돼 있어 토·일 무료로 표기했다. 조례 "
+                          "별표 1·1의3에는 주말 무료 규정이 없고, 공휴일 무료도 특기사항·조례 "
+                          "어디에도 없어 공휴일은 무료로 표기하지 않았다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 거제시 등록 39행이 전부 공영(노외 3·노상 35·부설 1)이라 민영 제외 0건으로 39곳·1,672면을 실었다. 중복 제거 0건, 구획수 0 등록 0건, 주소 없음 0건이다. 동별로는 고현동 18곳·옥포동 12곳·장평동 6곳·상동동 2곳·아주동 1곳으로 5개 동이다",
+            "「거제시 주차장 조례」 제2434호(시행 2026-11-12, 공포 2026-11-12, 일부개정, ordinSeq 2184983) 본문 원문(data/raw/geoje-ordinance.txt) 대조 완료(2026-11-20) — 부칙(조례 제2434호)은 '공포한 날부터 시행'이라 표제 시행일과 같다. 국가법령정보센터에서 함께 검색되는 「거제시 도시재생 공동이용시설 부설 주차장 관리 및 운영 조례」(제2371호)는 도시재생 공동이용시설 전용이라 등록 39곳에 해당 시설이 없고, 「거제시 고현종합시장 주차장 내 판매시설 관리 운영 조례」(제1285호)는 판매시설 관리 조례라, 공영주차장 요금 조례는 이 조례가 유일하다. 본문 제3조제1항이 공영주차장 요금을 별표 1로 정한다",
+            "별표 1은 HWPX 원본(flSeq 171495199)을 data/raw/geoje-ordinance-b1.hwpx로 저장하고 PrvText 추출과 Contents/section0.xml 전문 파싱을 교차 확인해 확정했다(개정 2026.11.12) — 1급지(동지역)·2급지(면지역)×소형·대형 4행과 비고 7개가 들어 있다. 본문 제3조제1항이 별표 1을 참조하고 첨부에도 별표 1이 들어 있어 첨부파일 오등록이 아니다. 감면 기준인 별표 1의3(flSeq 171495203, HWPX)과 영업점 앞 노상 주차구획 사용요금인 별표 1의2(flSeq 171495201, HWP)도 함께 저장했다 — 별표 1의2는 사용허가 전용 제도라 등록 39곳의 요금에는 적용하지 않는다",
+            "등록 39곳이 전부 기본 60분 1,000원·추가 30분 500원으로, 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 정확히 같아 등록값을 그대로 계산에 쓴다(공주·청양·창원·진주·통영 선례). 원등록값은 각 주차장의 std 필드에 그대로 남겼다. 별표 소형 행의 단시간 구간(10분 초과~30분 500원·30분 초과 10분마다 200원)은 등록값이 담지 못해 급지_요금_차이에 남겼다",
+            "1일 요금 등록은 시장 공영주차장 3곳의 4,000원과 노상 7곳의 6,000원(적용시간 6시간)뿐이다. 시장 3곳의 4,000원은 별표 1일 요금 6,000원보다 낮으나 등록값이 완전해 등록값을 쓰고 차이를 남겼다(조례 제3조제4항은 개별 공영주차장의 요금 가감조정을 허용한다). 노상 7곳의 6,000원은 별표 비고 3(주차시간 6시간 이상은 1일로 본다)과 대응하고 시간제로 계산한 6시간 요금과 동액이다. 노상 7곳의 월정기 80,000원은 별표가 월 정기 주차권에서 노상을 제외하는데도 등록돼 있어 등록값을 실었다. 아주노외(노외)는 별표상 1일 요금이 있는 자리이나 등록이 비어 있어 일일 상한을 적용하지 않았다(김해 선례)",
+            "시장 공영주차장 3곳을 뺀 36곳은 등록 특기사항에 '토요일, 일요일 무료 운영'으로 적혀 있어 토요일·일요일 무료로 표기했다. 조례 별표에는 주말 무료 규정이 없어 시 운영 등록이 근거이고, 공휴일은 특기사항·조례 어디에도 언급이 없어 무료로 표기하지 않았다 — derive_free_fields의 공휴일 태그 예외에 거제시를 공주·보령·제천·김해와 함께 뒀다",
+            "시장 공영주차장 3곳의 특기사항 '2시간 무료 시행'은 조례 별표 1의3 3호 마목(시장 등 이용 확인증(할인권) 제시 시 당일 2시간까지 무료)과 대응한다 — 확인증 제시가 조건인 감면이라 계산기의 무조건 무료시간으로는 넣지 않고 안내 문구로 적었다. 같은 호 라목(시장이 지정하는 공영주차장은 1시간까지 무료)도 함께 안내한다",
+            "좌표는 39곳 전부 등록돼 있고 전부 거제시 범위 안이라 지오코딩 보완이 0건이다 — 오버레이(좌표누락_지오코딩_20261118.json)는 718행 그대로다",
+            "장평우체국과 장평3은 지번주소(장평동 45-2)·도로명주소(장평로53)가 같고 좌표도 같은 자리이나 이름이 다른 별개 등록이라 합치지 않고 둘 다 실었다(옥천·영동 선례) — 같은 시설의 이중 등록인지는 시청 확인 과제다. 고현3·고현4는 이름이 고현 지역을 가리키나 지번주소가 상동동으로 등록돼 있어 주소 기준 동(상동동)으로 묶었다",
+            "운영요일은 39곳 전부 평일+토요일+공휴일, 운영시간은 전부 08:00~20:00이고, 부제시행구분은 39곳 전부 미시행이다. 전화번호는 39곳 전부 등록돼 있다(거제시청 055-639-4548이 36곳, 아주노외 055-639-4549, 고현6 055-639-4565, 고현종합시장 공영주차장 055-639-8179). 장애인전용주차구역 보유여부는 24곳 Y·15곳 N이다. 데이터기준일자는 고현종합시장 공영주차장만 2026-10-14이고 나머지 38곳은 2026-10-15다. 관리기관은 거제시청 38곳·거제해양관광개발공사 1곳(고현종합시장 공영주차장)이다",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] or 0 for l in paid) / len(paid)) if paid else 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_geoje():
+    """거제시 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「거제시 주차장 조례」
+    제2434호(시행 2026-11-12, ordinSeq
+    2184983) 제3조제1항·별표 1 원문 대조
+    완료(2026-11-20). 표준데이터 등록 39행이
+    전부 공영(노외 3·노상 35·부설 1, 총
+    1,672면)이라 39곳을 싣고 제외는 0건이다.
+    좌표 결측은 0곳이다."""
+    conf = GEOJE_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "거제시" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "거제" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 거제시는
+    #   해당 중복이 0건이다(장평우체국·장평3은 이름이 달라 합치지 않는다).
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, space_diff, dong_fixed, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (GEOJE_BBOX[0] < lat < GEOJE_BBOX[1]
+                                                        and GEOJE_BBOX[2] < lng < GEOJE_BBOX[3]):
+            # 거제시 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 거제시 범위 밖 — "
+                               "좌표 없음으로 표기하고 지오코딩 보완 대상으로 넘김")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음(0으로 등록)"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = geoje_dong_of(jibun)
+        if dong:
+            dong_src = "지번주소"
+        elif geoje_dong_of(road):
+            dong = geoje_dong_of(road)
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 동 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:읍|면|동))", std_name)
+        if _name_head and _name_head.group(1) in GEOJE_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 동({_name_head.group(1)})과 지번주소 기준 "
+                              f"동({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = geoje_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        if fee["type"] == "유료" and "토요일, 일요일 무료" in note:
+            # 등록 특기사항 '토요일, 일요일 무료 운영' — 조례 별표에는
+            #   주말 무료 규정이 없어 시 운영 등록이 근거다. 공휴일은
+            #   특기사항·조례 어디에도 없어 넣지 않는다.
+            free_days = {"sat": True, "sun": True}
+            note_bits.append("토요일·일요일은 무료로 운영합니다(등록 특기사항)")
+        if std_name in GEOJE_MARKETS:
+            note_bits.append("전통시장 등 이용 확인증(할인권)을 제시하면 당일 2시간까지 "
+                             "무료입니다(조례 별표 1의3). 시장이 지정하는 공영주차장은 "
+                             "1시간까지 무료입니다")
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "거제시", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다")
+
+    # 이름이 다른 주차장이 200m 안에 이웃한 쌍 — 전부 다른 등록이라 합치지
+    #   않고 전부 싣는다(옥천·영동 선례). 등록 좌표가 있는 곳끼리만 센다.
+    _pairs = []
+    _have = [l for l in lots if l["lat"] is not None and l["lng"] is not None]
+    for _a in range(len(_have)):
+        for _b in range(_a + 1, len(_have)):
+            _d = 111000 * math.sqrt((_have[_a]["lat"] - _have[_b]["lat"]) ** 2
+                                    + ((_have[_a]["lng"] - _have[_b]["lng"]) * 0.81) ** 2)
+            if _d < 200:
+                _pairs.append(f"{_have[_a]['name']}·{_have[_b]['name']}({round(_d)}m)")
+    if _pairs:
+        note_fixed.append("이름이 다른 주차장이 200m 안에 이웃한 쌍이 "
+                          f"{len(_pairs)}건 있다 — " + ", ".join(_pairs[:6])
+                          + " 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다")
+    fee_diff.append("공통: 조례 별표 1의 1급지 소형 행에는 10분 초과~30분 500원·30분 "
+                    "초과 10분마다 200원의 단시간 구간이 따로 있으나, 표준데이터 등록값은 "
+                    "39곳 전부 기본 60분 1,000원·추가 30분 500원이라 1시간 이상 요금은 "
+                    "별표와 같고 1시간 미만 구간만 등록값으로 계산한다 — 단시간 실제 "
+                    "부과가 별표 구간대로인지는 시청 확인 과제")
+    note_fixed.append("표준데이터 등록 39행이 전부 공영이라 민영 제외 없이 39곳을 "
+                      "실었다. 데이터기준일자는 고현종합시장 공영주차장만 2026-10-14이고 "
+                      "나머지 38곳은 2026-10-15, 제공기관명은 경상남도 거제시 38곳·"
+                      "거제해양관광개발공사 1곳, 관리기관명은 경상남도 거제시청 38곳·"
+                      "경상남도 거제해양관광개발공사 1곳이다")
+    note_fixed.append("유료 39곳의 등록 요금이 전부 같은 패턴(기본 60분 1,000원·추가 "
+                      "30분 500원)이다. 1일·월정기는 시장 공영주차장 3곳(1일 4,000원·"
+                      "월정기 80,000원)과 노상 7곳(1일 6,000원·적용시간 6시간·월정기 "
+                      "80,000원)만 등록돼 있다")
+    note_fixed.append("전화번호는 39곳 전부 등록돼 있다 — 거제시청 055-639-4548이 "
+                      "36곳, 아주노외 055-639-4549, 고현6 055-639-4565, 고현종합시장 "
+                      "공영주차장 055-639-8179다")
+    note_fixed.append("좌표는 39곳 전부 등록돼 있고 전부 거제시 범위 안이라 지오코딩 "
+                      "보완이 0건이다")
+    note_fixed.append("고현3·고현4는 이름이 고현 지역을 가리키나 지번주소는 상동동으로 "
+                      "등록돼 있어 주소 기준 동(상동동)으로 묶었다")
+    note_fixed.append("시장 공영주차장 3곳(고현종합시장·옥포국제시장·고현중앙)의 "
+                      "특기사항 '2시간 무료 시행'은 조례 별표 1의3의 확인증 제시 시 "
+                      "2시간 무료와 대응하는 조건부 감면이라 계산기 무료시간으로 넣지 "
+                      "않고 안내 문구로만 적었다")
+    note_fixed.append("부제시행구분은 39곳 전부 미시행이고, 운영요일은 39곳 전부 "
+                      "평일+토요일+공휴일, 운영시간은 전부 08:00~20:00이다. "
+                      "장애인전용주차구역 보유여부는 24곳 Y, 15곳 N이다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"gn-geoje-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"gn-geoje-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 거제시는 좌표 결측이 없어 오버레이로 채워지는 곳이 없다.
+    apply_coord_fix(lots)
+
+    fee_table = geoje_fee_table(conf, lots)
+    quality = geoje_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                            fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-10-15",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"거제시로 등록된 행 {len(rows_std)}행 중 공영 39행을 읽어 중복 "
+                 f"제거 {len(merged)}건, 제외 {len(excluded)}건으로 {len(lots)}곳을 실었다. "
+                 f"유료 {len([l for l in lots if l['fee']['type'] == '유료'])}곳·무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳·미상 "
+                 f"{len([l for l in lots if l['fee']['type'] == '미상'])}곳이다. "
+                 f"데이터기준일자는 38곳이 2026-10-15, 고현종합시장 공영주차장 1곳이 "
+                 f"2026-10-14다. 좌표 결측은 0곳이다. "
+                 f"조례 대조 완료 — 「거제시 주차장 조례」 제2434호(시행 "
+                 f"2026-11-12, ordinSeq 2184983) 제3조제1항·별표 1 원문 대조 완료(2026-11-20)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": GEOJE_ORD_TXT.name if GEOJE_ORD_TXT.exists() else None,
+            "sha256": sha256(GEOJE_ORD_TXT) if GEOJE_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2026-11-12",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"거제시가 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/geoje-ordinance.txt, 별표 원문: "
+                    f"data/raw/geoje-ordinance-b1.txt, 감면 별표: "
+                    f"data/raw/geoje-ordinance-b13.txt)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": GEOJE_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "거제시", "slug": "geoje"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": GEOJE_PROVINCE,
+        "province_slug": GEOJE_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "geoje_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -69756,7 +70449,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -69774,7 +70467,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -69831,7 +70524,8 @@ def main():
                                 "jinju": ["진주시"],
                                 "tongyeong": ["통영시"],
                                 "sacheon": ["사천시"],
-                                "gimhae": ["김해시"], "miryang": ["밀양시"]}[args.city])
+                                "gimhae": ["김해시"], "miryang": ["밀양시"],
+                                "geoje": ["거제시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -70069,6 +70763,8 @@ def main():
         cities.append(build_gimhae())
     if "밀양시" in want:
         cities.append(build_miryang())
+    if "거제시" in want:
+        cities.append(build_geoje())
 
     if args.city == "all":
         site = build_site_payload(cities)
