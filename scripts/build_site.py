@@ -12678,22 +12678,21 @@ def fee_table_block(city) -> str:
 요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
-    if ft.get("style") == "namhae_grade":
-        # 남해군 — 공영 62곳(노외 36곳·노상 26구간, 총
-        #   4,289면)이 무료 57곳·유료 5곳으로 등록돼 있다.
-        #   「남해군 주차장 조례」 제2738호(시행 2024-04-30)
-        #   제5조제1항·별표 1은 급지(1·2·3급지)×차종(소형·
-        #   대형) 요금표로 10분당 요금이다 — 소형은 1급지
-        #   500원(최초 10분 무료, 1일·월 해당없음)·2급지
-        #   200원(1일 6,000원·월 60,000원)·3급지 100원
-        #   (1일 3,000원·월 30,000원)이고 대형은 각 2배다.
-        #   유료 5곳은 전부 남해읍에 있고 등록 급지의 소형
-        #   금액과 등록값이 전부 일치해 등록값으로 계산한다.
+    if ft.get("style") == "goseong_grade":
+        # 고성군 — 공영 15곳(노외 12곳·노상 3구간, 총 784면)이
+        #   무료 3곳·유료 11곳·혼합 1곳으로 등록돼 있다. 「고성군
+        #   주차장 조례」 제2890호(시행 2024-06-25) 제3조제1항·
+        #   별표 1(개정 2020.11.5)은 노상·노외 공통 급지표로,
+        #   1급지는 최초 30분 500원·30분 초과 10분마다 200원·
+        #   1시간까지 1,000원·1시간 초과 30분마다 500원·1일
+        #   4,000원이다. 등록 급지구분은 15곳 전부 '1'이고 유료·
+        #   혼합 12곳의 등록값이 별표 1급지의 첫 구간 단가·1일
+        #   요금과 같아 등록값으로 계산한다. 월정기 등록은 없다.
         rows_html = "".join(
             f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
             f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
             f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
-            f'<td class="num">{r["lots"]}곳</td></tr>'
+            f'<td class="num">{won(r["month_night"])}</td><td class="num">{r["lots"]}곳</td></tr>'
             for r in ft["rows"])
         win_rows = "".join(
             f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
@@ -12701,19 +12700,17 @@ def fee_table_block(city) -> str:
         corp = ft.get("corp") or {}
         return f"""
 <h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
-<p class="lede">남해군 공영주차장 <b>62곳</b>은 무료 <b>57곳</b>·유료 <b>5곳</b>으로 등록돼
-있습니다. 아래 표는 「남해군 주차장 조례」 제2738호 별표 1이 정한 기준 요금입니다.
-별표 1은 급지(1·2·3급지)와 차종(소형·대형)으로 10분당 요금을 정합니다 — 소형은
-<b>1급지</b> 10분마다 <b>500원</b>(최초 10분 무료, 1일·월 해당없음), <b>2급지</b>
-<b>200원</b>(1일 6,000원·월 60,000원), <b>3급지</b> <b>100원</b>(1일 3,000원·월
-30,000원)이고, 대형은 각 금액의 2배입니다. 유료로 등록된 5곳은 전부 남해읍에 있고
-(3급지 2곳·2급지 2곳·1급지 1곳), 등록값이 등록 급지의 소형 금액과 전부 일치해
-이 사이트도 등록값으로 계산합니다. 궁금한 점은 남해군청
-건설교통과(055-860-3451)에 확인하세요.</p>
+<p class="lede">고성군 공영주차장 <b>15곳</b>은 무료 3곳·유료 11곳·혼합 1곳으로 등록돼 있습니다. 아래 표는
+「고성군 주차장 조례」 제2890호 별표 1이 정한 기준 요금입니다. 별표 1은 노상·노외 공통으로
+1급지·2급지로 요금을 나누는데, <b>1급지</b>는 최초 30분 <b>500원</b>에 30분 초과 후 10분마다
+<b>200원</b>, 1시간까지 <b>1,000원</b>, 1시간 초과 후 30분마다 <b>500원</b>, 1일 <b>4,000원</b>입니다.
+등록된 15곳은 전부 1급지이고 유료·혼합 12곳의 등록값이 별표의 첫 구간 단가·1일 요금과 같아
+이 사이트도 등록값으로 계산합니다. 월정기 요금은 등록된 곳이 없습니다. 궁금한 점은 고성군청
+(055-670-2335)에 확인하세요.</p>
 <table class="data">
   <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
-  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월정기</th>
-  <th class="num">이 사이트 주차장</th></tr></thead>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월정기(주간)</th>
+  <th class="num">월정기(야간)</th><th class="num">이 사이트 주차장</th></tr></thead>
   <tbody>{rows_html}</tbody>
 </table>
 <table class="data">
@@ -12721,7 +12718,7 @@ def fee_table_block(city) -> str:
   <tbody>{win_rows}</tbody>
 </table>
 <p class="updated">{esc(ft.get('notes') or '')}</p>
-<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
 요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
