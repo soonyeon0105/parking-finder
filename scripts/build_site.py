@@ -13102,6 +13102,55 @@ def fee_table_block(city) -> str:
 요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "changnyeong_grade":
+        # 창녕군 — 공영 113곳(노외 106곳·노상 7구간, 총
+        #   6,042면)이 전부 무료로 등록돼 있다. 「창녕군
+        #   주차장 조례」 제2610호(시행 2021-04-05) 제3조
+        #   제1항·별표 1은 급지·차종별 유료 요금표를 두고,
+        #   1급지는 창녕읍·남지읍 도시계획구역 안과 부곡
+        #   온천지구, 2급지는 그 밖의 지역이다. 전량 무료
+        #   등록이라 표는 조례 참고표로 싣고 계산은 하지
+        #   않는다(의령 선례). 별표 1의 1시간 초과 구간은
+        #   '1시간까지'·'30분마다' 금액을 따로 두는 병합열
+        #   구조라 2시간 금액은 참고값으로만 싣는다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">창녕군 공영주차장 <b>113곳</b>(노외 106곳·노상 7구간, 총 6,042면)은
+표준데이터에 <b>전부 무료</b>로 등록돼 있습니다. 다만 「창녕군 주차장 조례」 제2610호
+별표 1은 급지·차종별 유료 요금표를 두고 있어, 아래 표는 그 조례 요금표(참고)입니다.
+<b>1급지</b>(창녕읍·남지읍 도시계획구역 안·부곡온천지구)는 승용·소형 기준 최초 30분
+<b>500원</b>에 10분마다 <b>200원</b>, <b>2급지</b>(그 밖의 지역)는 <b>400원·150원</b>이고,
+1시간을 넘기면 구간 금액이 따로 정해져 있습니다. 주차시간 <b>5시간 이상</b>은 1일로
+봅니다. 주간 시간구분은 4~10월 <b>08:00~20:00</b>, 11~3월 <b>09:00~19:30</b>이고
+나머지는 야간입니다. 무료로 운영하는 근거(군 공고 등)는 창녕군청 건설교통과
+(055-530-1723) 확인이 필요합니다.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간 (참고)</th><th class="num">1일 주차료</th>
+  <th class="num">월정기(주간)</th><th class="num">월정기(야간)</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
