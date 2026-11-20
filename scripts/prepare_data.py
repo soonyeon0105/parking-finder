@@ -67735,6 +67735,610 @@ def build_tongyeong():
     return payload
 
 
+# ── 사천시 (경상남도) ──────────────────────────────────────────
+#   표준데이터 사천시 등록 9행이 전부 공영·노상·혼합이라
+#   9구간·235면을 싣는다. 「사천시 주차장 조례」 제2287호
+#   (시행 2026-02-26, ordinSeq 2112747) 제7조제1항·별표 1
+#   (개정 2020. 10. 5.)은 차종(소형·대형) 요금표로 소형은
+#   기본(30분) 500원·15분 초과마다 250원·1일 5,000원·
+#   월정기 주간 50,000원·야간 45,000원이다. 등록 9곳이
+#   전부 이 소형 행(월정기는 주간 금액)과 정확히 같아
+#   등록값을 그대로 계산에 쓴다. 별표 금액은 상한선이다
+#   (비고 1). 좌표는 9곳 전부 등록돼 있고 전부 사천시
+#   범위 안이라 보완 0건이다.
+SACHEON_PROVINCE = "경상남도"
+SACHEON_PROVINCE_SLUG = "gyeongnam"
+SACHEON_ORD_URL = "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2112747"
+SACHEON_ORD_TXT = RAW / "sacheon-ordinance-b1.txt"
+SACHEON_ORD_NOTE = ("조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — "
+                  "「사천시 주차장 조례」 제2287호(시행 2026-02-26, "
+                  "일부개정), ordinSeq 2112747. 본문 사본 "
+                  "data/raw/sacheon-ordinance.txt. 별표 1(공영주차장 "
+                  "주차요금)은 HWP 원본을 data/raw/sacheon-ordinance-b1.hwp로 "
+                  "저장하고 PrvText 추출과 BodyText 전문 파싱을 교차 확인해 "
+                  "data/raw/sacheon-ordinance-b1.txt로 옮겼다. 본문 "
+                  "제7조제1항이 별표 1을 참조하고 첨부에도 별표 1이 들어 있어 "
+                  "첨부파일 오등록이 아니다. 최신 부칙(2026. 2. 26. 조례 "
+                  "제2287호)은 '공포한 날부터 시행'이고 제2조·제13조의2 등의 "
+                  "인용·용어를 정비한 것으로, 요금표 금액의 최신 개정은 별표 1 "
+                  "자체 표기(개정 2020. 10. 5., 조례 제1708호)이다. '사천시 "
+                  "주차장'으로 함께 검색되는 조례는 이 조례의 연혁뿐이라 "
+                  "주차장특별회계·무료개방 같은 별도 요금 조례는 없다.")
+
+SACHEON_DISCOUNTS = [
+    {"label": "긴급자동차·공무용 자동차 등 면제(가능)", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제7조제3항 — 긴급자동차, 국가 또는 지방자치단체 소유의 공무용자동차, 그 밖에 시장이 특별한 사유가 있다고 인정하는 자동차는 주차요금을 면제할 수 있다"},
+    {"label": "장애인·국가유공자·고엽제·5·18·병역명문가 50% 경감", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1 비고 4 — 장애인, 국가유공자, 고엽제후유의증환자, 5·18민주유공자, 「사천시 병역명문가 예우에 관한 조례」에 따른 예우대상자가 본인 소유의 비사업용 승용자동차를 직접 운전하거나 장애 정도가 심하여 타인으로 하여금 대리 운전하게 하는 경우에는 주차요금의 50%를 경감한다"},
+    {"label": "경형자동차·저공해 자동차 50% 경감", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1 비고 6 — 배기량 1천시시 미만의 경형자동차와 저공해 자동차 표지를 부착한 차량은 주차요금의 50%를 경감한다"},
+    {"label": "환경친화적 자동차 50% 경감 (충전 시 2시간 면제)", "rate": 0.5, "exempt_min": 120,
+     "note": "조례 별표 1 비고 7 — 환경친화적자동차 표지 부착차량은 주차요금의 50%를 경감한다. 다만, 환경친화적자동차가 충전목적으로 충전시설에 주차하는 경우 2시간 범위에서 주차요금을 면제한다"},
+    {"label": "모범납세자 성실납세증 부착 차량 1년간 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 별표 1 비고 8 — 모범납세자로 표창을 받은 자로서 성실납세증 표지를 부착한 차량에 대하여는 1년간 주차요금을 면제한다"},
+]
+
+SACHEON_CONF = {
+    "city": "사천시",
+    "slug": "sacheon",
+    "manager": "경상남도 사천시",
+    "manager_inquiry": "사천시청 교통행정과(055-831-3369, 국가법령정보센터 표기)",
+    "ordinance": ("「사천시 주차장 조례」 제2287호(시행 2026-02-26, 일부개정)",
+                  SACHEON_ORD_URL, SACHEON_ORD_NOTE),
+    "notes": ("사천시 공영주차장 9구간(전부 노상, 총 235면)은 전부 '혼합'으로 "
+              "등록돼 있다. 「사천시 주차장 조례」 제2287호(시행 2026-02-26, "
+              "ordinSeq 2112747) 제7조제1항은 공영주차장의 주차요금을 별표 1과 "
+              "같이 한다고 정한다. 별표 1(개정 2020. 10. 5.)은 차종(소형·대형) "
+              "요금표로, 소형은 기본(30분) 500원·15분 초과마다 250원·1일 "
+              "주차권 5,000원·월 정기주차요금 주간 50,000원·야간 45,000원이고, "
+              "대형은 기본(30분) 1,000원·15분 초과마다 500원·1일 주차권 "
+              "10,000원·월 정기주차요금 주간 100,000원·야간 90,000원이다. "
+              "별표 금액은 상한선이라 시장이 그 아래로 따로 정할 수 있다(비고 "
+              "1). 등록 9곳이 전부 소형 행(기본 30분 500원·추가 15분 250원·"
+              "1일 5,000원·월정기 50,000원)과 정확히 같아 등록값을 그대로 "
+              "계산에 쓴다 — 월정기 등록값은 별표의 주간 금액과 대응한다. "
+              "주차장 운영시간은 매일 08:00~20:00이다(비고 2, 등록 운영시간과 "
+              "같다). 면제는 제7조제3항(긴급자동차·공무용자동차·시장이 인정하는 "
+              "자동차), 경감은 별표 1 비고 4·6·7·8이 정한다 — 장애인·"
+              "국가유공자 등 50%, 경형·저공해 50%, 환경친화적 50%(충전 시 "
+              "2시간 면제), 모범납세자 성실납세증 차량 1년간 면제. 좌표는 9곳 "
+              "전부 등록돼 있고 전부 사천시 범위 안이다. 표준데이터에 사천시로 "
+              "등록된 공영주차장은 이 노상 9구간뿐이라 노외·부설 공영주차장이 "
+              "없는 것인지 등록 누락인지는 시청 확인 과제다."),
+    "discounts": SACHEON_DISCOUNTS,
+}
+
+SACHEON_BBOX = (34.70, 35.30, 127.90, 128.40)
+
+SACHEON_DONGS = {"사천읍", "정동면", "사남면", "용현면", "축동면", "곤양면",
+                 "곤명면", "서포면", "동동", "서동", "선구동", "동금동",
+                 "동서동", "벌용동", "향촌동", "남양동", "와룡동", "봉명동",
+                 "이금동", "궁지동", "좌룡동", "실안동", "송지동", "마도동",
+                 "늑도동", "신수동", "신벽동", "대방동", "송포동", "죽림동",
+                 "백천동", "노룡동", "이홀동", "동림동"}
+
+
+def sacheon_dong_of(addr):
+    """사천시 법정 동·읍·면 판정 — 지번주소의 사천시 다음
+    토큰이 동·읍·면이다. 이름 기반 보정은 쓰지 않는다."""
+    if addr:
+        m = re.search(r"사천시\s*([가-힣0-9]+?(?:읍|면|동\d+가|동))(?=[\s0-9-]|$)", addr)
+        if m:
+            return m.group(1)
+    return None
+
+
+# 등록 요금 패턴 — (기본시간, 기본요금, 추가단위시간, 추가단위요금, 1일, 월정기)
+#   등록 9곳이 전부 이 패턴으로, 조례 별표 1의 소형 행(월정기는
+#   주간 금액)과 정확히 같다.
+SACHEON_P = (30, 500, 15, 250, 5000, 50000)
+
+
+def sacheon_fee(row, name, note_bits, fee_diff):
+    """사천시 공영주차장 한 곳의 요금 — 등록 9곳이 전부
+    '혼합'이고 기본 30분 500원·추가 15분 250원·1일
+    5,000원·월정기 50,000원으로 조례 별표 1의 소형 행
+    (월정기는 주간 금액)과 정확히 같아 등록값을 그대로
+    계산에 쓴다(공주·청양·창원·진주 선례). '혼합'은
+    운영시간(매일 08:00~20:00, 별표 1 비고 2) 안에서
+    요금을 받는 운영으로 보고 type은 유료, mixed만
+    True로 둔다(통영 선례)."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    day_hours = to_int(row.get("1일주차권요금적용시간"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 제7조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 시청 확인 필요"})
+        return fee
+    if not base_fee and not unit_fee and not day and not month:
+        fee_diff.append(f"{name}: '{raw_type}'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 "
+                        "비어 있어 금액을 확정할 수 없다 — 조례 별표 1의 요금은 요금표에만 "
+                        "싣고 이 곳은 요금 미상으로 표기한다(군산 선례, 시청 확인 필요)")
+        fee.update({"type": "미상",
+                    "basis": "요금 구분은 ‘유료’이나 요금 금액이 전부 비어 있음 — "
+                             "조례 별표 1 요금은 요금표에 있고, 금액은 사천시청 확인 필요"})
+        return fee
+    pat = (base_min, base_fee, unit_min, unit_fee, day, month or 0)
+    if pat == SACHEON_P:
+        basis = ("표준데이터 등록값이 조례 별표 1의 소형 요금(기본 30분 "
+                 "500원·15분 초과마다 250원·1일 5,000원·월정기 주간 "
+                 "50,000원)과 정확히 같아 등록값을 그대로 적용했다")
+    else:
+        fee_diff.append(f"{name}: 등록 요금(기본 {base_min}분 {base_fee}원·추가 {unit_min}분 "
+                        f"{unit_fee}원·1일 {day}원·월정기 {month}원)이 조례 별표 1의 어느 "
+                        "차종 행과도 맞지 않아 등록값을 그대로 실었다 — 시청 확인 과제")
+        basis = "표준데이터 등록값을 그대로 적용했다 — 조례 별표 1의 행과 대응하지 않아 시청 확인 과제다"
+    fee.update({"type": "유료", "base_min": base_min, "base_fee": base_fee,
+                "unit_min": unit_min, "unit_fee": unit_fee,
+                "daily_fee": day if day else None,
+                "daily_hours": day_hours if day_hours else None,
+                "monthly": month if month else None,
+                "basis": basis})
+    return fee
+
+
+def sacheon_fee_table(conf, lots):
+    """요금표 — 조례 별표 1(차종)을 싣는다. 등록 9곳이
+    전부 소형 행과 같고 대형 행은 등록된 곳이 없어 조례
+    기준 행으로 함께 싣는다. 1시간·2시간 예상액은 별표
+    구조(기본 30분 + 15분 단위, 1일 상한)로 계산한 조례
+    기준액이다."""
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+
+    def _n(pat):
+        def _std_pat(l):
+            s = l["fee"]["std"] or {}
+            return (s.get("base_min"), s.get("base_fee"), s.get("unit_min"),
+                    s.get("unit_fee"), s.get("day"), s.get("monthly") or 0)
+        return len([l for l in lots if _std_pat(l) == pat])
+
+    def _row(label, grade, base_fee, unit_fee, day, month_day, month_night,
+             unit_label, n_lots=0):
+        f = {"base_min": 30, "base_fee": base_fee, "unit_min": 15,
+             "unit_fee": unit_fee, "daily_fee": day}
+        return {"label": label, "grade": grade, "unit_label": unit_label,
+                "hour": sj_charge(f, 60), "two_hour": sj_charge(f, 120),
+                "day": day, "month": month_day, "month_night": month_night, "lots": n_lots}
+
+    rows = [
+        _row("소형", "small", 500, 250, 5000, 50000, 45000,
+             "기본 30분 500원 · 15분 초과마다 250원 · 1일 5,000원 · 월정기 주간 50,000원·야간 45,000원",
+             _n(SACHEON_P)),
+        _row("대형", "large", 1000, 500, 10000, 100000, 90000,
+             "기본 30분 1,000원 · 15분 초과마다 500원 · 1일 10,000원 · 월정기 주간 100,000원·야간 90,000원"),
+    ]
+    return {
+        "style": "sacheon_grade",
+        "unit_min": 15,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["list_mode"] == "card"]),
+                 "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [{"group": "운영시간 (조례 별표 1 비고 2)",
+                     "hours": "매일 08:00~20:00",
+                     "free": "주차장 운영시간으로, 등록 9곳의 운영시간과 같다"}],
+        "notes": ("별표 1 금액은 상한선으로, 시장은 그 아래로 따로 정할 수 있다"
+                  "(비고 1). 소형차는 전 승용자동차와 15인승 이하의 승합자동차 "
+                  "및 2.5톤 미만 화물자동차로 하고 대형차는 소형차 이외의 전 "
+                  "차종으로 한다(비고 5). 한 개 구획은 규칙 제3조에 따른 "
+                  "표준규격을 기준으로 하되, 1구획을 초과하는 자동차에 대하여는 "
+                  "그 점용 구획수에 따라 징수한다(비고 3). 경감은 장애인·"
+                  "국가유공자 등 50%(비고 4), 경형·저공해 자동차 50%(비고 6), "
+                  "환경친화적 자동차 50%·충전 시 2시간 면제(비고 7), 모범납세자 "
+                  "성실납세증 부착 차량 1년간 면제(비고 8)이다. 등록 급지는 "
+                  "9곳 전부 '기타'이고 별표 1에는 급지 구분이 없다."),
+        "basis": ("요금표는 「사천시 주차장 조례」 제2287호(시행 2026-02-26) "
+                  "제7조·별표 1과 표준데이터(기준일 2026-09-30)를 대조해 실었다. "
+                  "등록된 9곳이 전부 별표 1의 소형 행과 같아 등록값을 계산에 "
+                  "쓴다. (조례 본문: data/raw/sacheon-ordinance.txt, "
+                  "별표 원문: data/raw/sacheon-ordinance-b1.txt)"),
+    }
+
+
+def sacheon_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                    space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(lots)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in lots).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in lots if l["dong"]}),
+        "동_미상": [l["name"] for l in lots if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in lots)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「사천시 주차장 조례」 제2287호 제7조제3항·별표 1 비고 4·6·7·8 — "
+                      "면제(할 수 있다, 제7조제3항): 긴급자동차, 국가 또는 지방자치단체 "
+                      "소유의 공무용자동차, 그 밖에 시장이 특별한 사유가 있다고 인정하는 "
+                      "자동차. 50% 경감(비고 4): 장애인, 국가유공자, 고엽제후유의증환자, "
+                      "5·18민주유공자, 병역명문가 예우대상자(본인 소유 비사업용 승용자동차를 "
+                      "직접 운전하거나 대리 운전하게 하는 경우). 50% 경감(비고 6): 배기량 "
+                      "1천시시 미만의 경형자동차, 저공해 자동차 표지 부착 차량. 50% 경감"
+                      "(비고 7): 환경친화적자동차 표지 부착차량(충전목적으로 충전시설에 "
+                      "주차하는 경우 2시간 면제). 면제(비고 8): 모범납세자로 표창을 받은 "
+                      "자로서 성실납세증 표지를 부착한 차량은 1년간 면제. 본문 "
+                      "원문(data/raw/sacheon-ordinance.txt)·별표 원문"
+                      "(data/raw/sacheon-ordinance-b1.txt) 대조 완료(2026-11-20)"),
+        "요금_출처": ("조례 제7조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같다. 별표 1은 "
+                      "차종(소형·대형) 요금표로 소형은 기본(30분) 500원·15분 초과마다 "
+                      "250원·1일 주차권 5,000원·월 정기주차요금 주간 50,000원·야간 "
+                      "45,000원이고, 대형은 기본(30분) 1,000원·15분 초과마다 500원·1일 "
+                      "주차권 10,000원·월 정기주차요금 주간 100,000원·야간 90,000원이다. "
+                      "표준데이터 등록 9곳이 전부 소형 행(월정기는 주간 금액)과 같아 "
+                      "등록값을 그대로 계산에 쓴다"),
+        "급지_출처": ("조례 별표 1에는 급지 구분이 없고 차종(소형·대형)으로만 요금을 정한다. "
+                      "표준데이터 등록 급지는 9곳 전부 '기타'다"),
+        "무료요일_출처": ("조례에 주말·공휴일 상시 무료 규정이 없어 9곳 전부 free_days는 "
+                          "전부 False다 — 별표 1 비고 2의 운영시간(매일 08:00~20:00) "
+                          "안에서 요금을 받고, 제7조제3항의 면제는 대상 차량에 대한 "
+                          "것이다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 사천시 등록 9행이 전부 공영·노상·혼합이라 민영 제외 0건으로 9구간·235면을 실었다. 중복 제거 0건, 구획수 0 등록 0건이다. 동별로는 사천읍 4구간·선구동 3구간·동금동 1구간·동동 1구간이고, 표준데이터에 사천시로 등록된 공영주차장은 이 노상 9구간뿐이다 — 노외·부설 공영주차장이 없는 것인지 등록 누락인지는 시청 확인 과제다",
+            "「사천시 주차장 조례」 제2287호(표제 시행 2026-02-26, 공포 2026-02-26, 일부개정, ordinSeq 2112747) 본문 원문(data/raw/sacheon-ordinance.txt) 대조 완료(2026-11-20) — 최신 부칙(조례 제2287호, 2026. 2. 26.)은 '공포한 날부터 시행'이고 제2조·제13조의2 등의 인용·용어를 정비한 것이다. '사천시 주차장'으로 함께 검색되는 조례는 이 조례의 연혁(제2160호·제1913호 등)뿐이라 주차장특별회계·무료개방 같은 별도 요금 조례는 없다",
+            "별표 1은 HWP 원본(flSeq 161976135)을 data/raw/sacheon-ordinance-b1.hwp로 저장하고 PrvText 추출과 BodyText 전문 파싱을 교차 확인해 확정했다 — 차종(소형·대형) 요금표로 소형은 기본(30분) 500원·15분 초과마다 250원·1일 주차권 5,000원·월 정기주차요금 주간 50,000원·야간 45,000원, 대형은 기본(30분) 1,000원·15분 초과마다 500원·1일 주차권 10,000원·월 정기주차요금 주간 100,000원·야간 90,000원이다. 별표 1 표제는 <개정 2020. 10. 5.>로 요금표 금액의 최신 개정은 조례 제1708호(2020. 10. 5.)이다. 본문 제7조제1항이 별표 1을 참조하고 첨부에도 별표 1이 들어 있어 첨부파일 오등록이 아니다",
+            "등록 요금은 9곳 전부 기본 30분 500원·추가 15분 250원·1일 5,000원·월정기 50,000원으로 별표 소형 행과 정확히 같다 — 월정기 등록값은 별표의 주간 금액(50,000원)과 대응한다(야간 45,000원은 등록 칸이 없어 요금표에만 싣는다). 등록값이 완전하고 별표와 대응하므로 계산기는 등록값을 그대로 쓴다(공주·청양·창원·진주 선례)",
+            "요금 구분은 9곳 전부 '혼합'이다 — 별표 1 비고 2가 주차장 운영시간을 매일 08:00~20:00로 정하고 등록 운영시간도 전 요일 08:00~20:00이라, 운영시간 안에서 요금을 받는 혼합 운영으로 보고 요금 계산은 등록값으로 한다. '혼합'의 세부 의미(시간대별 유·무료 구분)는 시청 확인 과제다",
+            "좌표는 9곳 전부 등록돼 있고 전부 사천시 범위 안이라 지오코딩 보완이 0건이다 — 오버레이(좌표누락_지오코딩_20261118.json)는 718행 그대로다",
+            "등록 급지는 9곳 전부 '기타'이고 조례 별표 1에는 급지 구분 자체가 없다",
+            "부제시행구분은 9곳 전부 5부제이고, 운영요일은 9곳 전부 평일+토요일+공휴일, 운영시간은 평일·토요일·공휴일 전부 08:00~20:00이다. 특기사항은 9곳 전부 '민간위탁', 결제방법은 9곳 전부 현금, 장애인전용주차구역 보유여부는 9곳 전부 공란이다. 전화번호는 9곳 전부 055-831-2114, 관리기관명은 전부 경상남도 사천시청, 제공기관명은 전부 경상남도 사천시, 데이터기준일자는 9곳 전부 2026-09-30이다",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] or 0 for l in paid) / len(paid)) if paid else 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_sacheon():
+    """사천시 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「사천시 주차장 조례」
+    제2287호(시행 2026-02-26, ordinSeq
+    2112747) 제7조·별표 1 원문 대조 완료
+    (2026-11-20). 표준데이터 등록 9행이 전부
+    공영·노상·혼합(총 235면)이라 9구간을 싣고
+    제외는 0건이다. 좌표 결측은 0곳이다."""
+    conf = SACHEON_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "사천시" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "사천시" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 사천시는
+    #   해당 중복이 0건이다(같은 이름·같은 지번 쌍 자체가 없다 — 이름 중복
+    #   자체가 0건이다).
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (SACHEON_BBOX[0] < lat < SACHEON_BBOX[1]
+                                                        and SACHEON_BBOX[2] < lng < SACHEON_BBOX[3]):
+            # 사천시 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 사천시 범위 밖 — "
+                               "좌표 없음으로 표기하고 지오코딩 보완 대상으로 넘김")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음(0으로 등록)"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = sacheon_dong_of(jibun)
+        if dong:
+            dong_src = "지번주소"
+        elif sacheon_dong_of(road):
+            dong = sacheon_dong_of(road)
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 동 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:읍|면|동))", std_name)
+        if _name_head and _name_head.group(1) in SACHEON_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 동({_name_head.group(1)})과 지번주소 기준 "
+                              f"동({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = sacheon_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        if fee["type"] == "유료" and fee.get("mixed"):
+            note_bits.append("요금 구분이 '혼합'으로 등록돼 있습니다 — 조례가 정한 "
+                             "운영시간(매일 08:00~20:00) 안에서 요금을 받는 "
+                             "주차장입니다")
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "사천시", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다")
+
+    # 이름이 다른 주차장이 200m 안에 이웃한 쌍 — 전부 다른 등록이라 합치지
+    #   않고 전부 싣는다(옥천·영동 선례). 등록 좌표가 있는 곳끼리만 센다.
+    _pairs = []
+    _have = [l for l in lots if l["lat"] is not None and l["lng"] is not None]
+    for _a in range(len(_have)):
+        for _b in range(_a + 1, len(_have)):
+            _d = 111000 * math.sqrt((_have[_a]["lat"] - _have[_b]["lat"]) ** 2
+                                    + ((_have[_a]["lng"] - _have[_b]["lng"]) * 0.81) ** 2)
+            if _d < 200:
+                _pairs.append(f"{_have[_a]['name']}·{_have[_b]['name']}({round(_d)}m)")
+    if _pairs:
+        note_fixed.append("이름이 다른 주차장이 200m 안에 이웃한 쌍이 "
+                          f"{len(_pairs)}건 있다 — " + ", ".join(_pairs[:6])
+                          + " 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다")
+    note_fixed.append("표준데이터 등록 9행이 전부 공영·노상·혼합이라 민영 제외 없이 "
+                      "9구간을 실었다. 데이터기준일자는 9행 전부 2026-09-30이고 "
+                      "제공기관명은 전부 '경상남도 사천시'다")
+    note_fixed.append("표준데이터에 사천시로 등록된 공영주차장은 노상 9구간뿐이다 — "
+                      "노외·부설 공영주차장이 없는 것인지 등록 누락인지는 시청 "
+                      "확인 과제다")
+    note_fixed.append("요금 구분 '혼합'의 세부 의미(시간대별 유·무료 구분)는 시청 "
+                      "확인 과제다 — 조례 별표 1 비고 2의 운영시간(매일 "
+                      "08:00~20:00)과 등록 운영시간이 같아 운영시간 안 유료로 "
+                      "계산했다")
+    note_fixed.append("장애인전용주차구역 보유여부는 9곳 전부 공란으로 등록돼 있다")
+    note_fixed.append("좌표는 9곳 전부 등록돼 있고 전부 사천시 범위 안이라 지오코딩 "
+                      "보완이 0건이다")
+    note_fixed.append("부제시행구분은 9곳 전부 5부제이고, 운영요일은 9곳 전부 "
+                      "평일+토요일+공휴일, 운영시간은 전 요일 08:00~20:00이다. "
+                      "특기사항은 9곳 전부 '민간위탁', 결제방법은 9곳 전부 "
+                      "현금이다. 전화번호는 9곳 전부 055-831-2114다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"gn-sacheon-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"gn-sacheon-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 사천시는 좌표 결측이 없어 오버레이로 채워지는 곳이 없다.
+    apply_coord_fix(lots)
+
+    fee_table = sacheon_fee_table(conf, lots)
+    quality = sacheon_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                              fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-09-30",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"사천시로 등록된 행 {len(rows_std)}행 중 공영 9행을 읽어 중복 "
+                 f"제거 {len(merged)}건, 제외 {len(excluded)}건으로 {len(lots)}곳을 실었다. "
+                 f"유료 {len([l for l in lots if l['fee']['type'] == '유료'])}곳·무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳이다. "
+                 f"좌표 결측은 0곳이다. "
+                 f"조례 대조 완료 — 「사천시 주차장 조례」 제2287호(시행 "
+                 f"2026-02-26, ordinSeq 2112747) 제7조·별표 1 원문 대조 완료(2026-11-20)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": SACHEON_ORD_TXT.name if SACHEON_ORD_TXT.exists() else None,
+            "sha256": sha256(SACHEON_ORD_TXT) if SACHEON_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2026-02-26",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"사천시가 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/sacheon-ordinance.txt, 별표 원문: "
+                    f"data/raw/sacheon-ordinance-b1.txt)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": SACHEON_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "사천시", "slug": "sacheon"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": SACHEON_PROVINCE,
+        "province_slug": SACHEON_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "sacheon_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -67747,7 +68351,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -67765,7 +68369,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -67820,7 +68424,8 @@ def main():
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
              "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "iksan": ["익산시"], "jeongeup": ["정읍시"], "namwon": ["남원시"], "gimje": ["김제시"], "wanju": ["완주군"], "jinan": ["진안군"], "muju": ["무주군"], "jangsu": ["장수군"], "imsil": ["임실군"], "sunchang": ["순창군"], "gochang": ["고창군"], "buan": ["부안군"], "mokpo": ["목포시"], "yeosu": ["여수시"], "suncheon": ["순천시"], "naju": ["나주시"], "gwangyang": ["광양시"], "muan": ["무안군"], "yeongam": ["영암군"], "haenam": ["해남군"], "goheung": ["고흥군"], "boseong": ["보성군"], "hwasun": ["화순군"], "jangheung": ["장흥군"], "gangjin": ["강진군"], "hampyeong": ["함평군"], "geumsan": ["금산군"], "yeonggwang": ["영광군"], "jangseong": ["장성군"], "wando": ["완도군"], "jindo": ["진도군"], "sinan": ["신안군"], "gurye": ["구례군"], "gokseong": ["곡성군"], "damyang": ["담양군"], "changwon": ["창원시"],
                                 "jinju": ["진주시"],
-                                "tongyeong": ["통영시"]}[args.city])
+                                "tongyeong": ["통영시"],
+                                "sacheon": ["사천시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -68052,6 +68657,8 @@ def main():
         cities.append(build_jinju())
     if "통영시" in want:
         cities.append(build_tongyeong())
+    if "사천시" in want:
+        cities.append(build_sacheon())
 
     if args.city == "all":
         site = build_site_payload(cities)
