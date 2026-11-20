@@ -57520,6 +57520,612 @@ def build_boseong():
     return payload
 
 
+# ---------------------------------------------------------------------------
+# 화순군 (전남광주통합특별시) — 표준데이터 등록 공영 10곳(전부 노외·
+#   전부 무료, 총 789면). 조례는 「화순군 주차장 조례」 제3220호
+#   (시행 2025-12-22, ordinSeq 2095555)이고 제10조제1항이 요금을
+#   별표 1로 정한다. 별표 1(<개정 2016.3.21.>)은 급지(특급지·
+#   1급지·2급지)×차종 요금표로, 1급지(도시지역 읍)는 30분마다
+#   소형 500원·대형 700원, 2급지(농촌지역 면)는 소형 300원·
+#   대형 500원이고 1일 주차권 칸은 없다. 특급지(온천지구)는
+#   30분 단위 칸이 비어 있고 1회 주차요금(원)이 주간·야간으로
+#   나뉜다. 등록 10곳이 전부 무료라 요금표는 참고표로만 싣는다
+#   (서천·순창·영암·해남·고흥·보성 선례). 별표 1 비고 8은
+#   군수가 인정하는 경우 주차요금을 징수하지 않을 수 있다고
+#   정해 전 구간 무료 운영의 조례상 근거가 될 수 있다. 등록
+#   급지는 화순읍 7곳 '1'·면 지역 3곳 '2'로 조례의 급지 구분
+#   (읍=1급지·면=2급지)과 전부 일치한다. 좌표는 10곳 전부
+#   등록돼 있고 전부 군 범위 안이라 지오코딩이 필요 없다.
+HWASUN_PROVINCE = "전남광주통합특별시"
+HWASUN_PROVINCE_SLUG = "jeonnam"
+HWASUN_ORD_URL = "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2095555"
+HWASUN_ORD_TXT = RAW / "hwasun-ordinance-b1.txt"
+HWASUN_ORD_NOTE = ("조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — "
+                   "「화순군 주차장 조례」 제3220호(시행 2025-12-22, "
+                   "일부개정), ordinSeq 2095555. 본문 사본 "
+                   "data/raw/hwasun-ordinance.txt. 별표 1(공영주차장 "
+                   "주차 요금표)은 HWP 원본을 data/raw/hwasun-ordinance-b1.hwp로 "
+                   "저장하고 본문 레코드를 파싱해 표 격자를 확정해 "
+                   "data/raw/hwasun-ordinance-b1.txt로 확인했다.")
+
+HWASUN_DISCOUNTS = [
+    {"label": "긴급자동차·국가 또는 지방자치단체 공용차량 100% 감면", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 별표 1 비고 5 다목 — 「도로교통법」제2조제20호에 따른 긴급자동차, 국가 또는 지방자치단체의 공용차량은 주차요금의 100퍼센트를 감면할 수 있다. 본문 제10조제1항 단서도 노상주차장에 긴급 자동차가 주차하는 경우에는 요금 규정을 적용하지 않는다고 정한다"},
+    {"label": "장애인·국가유공자 등 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1 비고 5 가목 — 장애인 자가운전 차량 및 장애인을 동반한 일반차량, 국가유공자, 고엽제후유의증 환자, 광주민주화운동부상자는 주차요금의 50퍼센트를 감면할 수 있다"},
+    {"label": "경자동차 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1 비고 5 나목 — 「자동차관리법」시행규칙 제2조제2항 별표 1에 따른 경자동차는 주차요금의 50퍼센트를 감면할 수 있다"},
+    {"label": "저공해자동차 표지 부착 차량 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1 비고 5 라목 — 대기환경보전법에 따른 저공해자동차로서 저공해자동차 표지가 부착된 자동차는 주차요금의 50퍼센트를 감면할 수 있다"},
+]
+
+HWASUN_CONF = {
+    "city": "화순군",
+    "slug": "hwasun",
+    "manager": "전남광주통합특별시 화순군청",
+    "manager_inquiry": "화순군청 건설교통실(표준데이터 등록 전화 061-379-3785, 국가법령정보센터 표기)",
+    "ordinance": ("「화순군 주차장 조례」 제3220호(시행 2025-12-22, 일부개정)",
+                  HWASUN_ORD_URL, HWASUN_ORD_NOTE),
+    "notes": ("화순군 공영주차장 10곳(전부 노외, 총 789면)은 10곳 전부 "
+              "요금 구분 '무료'(특기사항 '24시간 무료개방')로 등록돼 있다. "
+              "「화순군 주차장 조례」 제3220호(시행 2025-12-22, ordinSeq "
+              "2095555) 제10조제1항은 공영주차장 요금을 별표 1로 정한다 — "
+              "별표 1(<개정 2016.3.21.>)은 급지(특급지·1급지·2급지)×차종 "
+              "요금표로, 1급지(도시지역 읍)는 1회 주차요금이 30분마다 소형 "
+              "500원·대형 700원이고 월정기는 주간 소형 50,000원·대형 "
+              "70,000원, 야간 소형 40,000원·대형 60,000원이며, 2급지"
+              "(농촌지역 면)는 30분마다 소형 300원·대형 500원이고 월정기는 "
+              "주간 소형 30,000원·대형 40,000원, 야간 소형 20,000원·대형 "
+              "30,000원이다. 1일 주차권은 별표 1에 없다. 특급지(온천지구)는 "
+              "30분 단위 칸이 비어 있고 1회 주차요금(원)이 주간·야간으로 "
+              "나뉜다(승용차 주간 1,000원·야간 2,000원, 버스·화물차 주간 "
+              "2,000원·야간 4,000원). 등록 10곳이 전부 무료라 이 요금표는 "
+              "조례 기준 요금의 참고표로만 싣는다. 주간은 4~10월 08:00~20:00, "
+              "11~3월 09:00~19:00이고 나머지는 야간이다(별표 1 비고 3). "
+              "급지는 군수가 지정한다(비고 4). 감면은 별표 1 비고 5를 "
+              "따른다(장애인 자가운전 차량 및 장애인을 동반한 일반차량·"
+              "국가유공자·고엽제후유의증 환자·광주민주화운동부상자 50%, "
+              "경자동차 50%, 긴급자동차·국가 또는 지방자치단체 공용차량 "
+              "100%, 저공해자동차 표지 부착 차량 50% — 군수가 감면할 수 "
+              "있는 재량 규정이다). 등록 급지는 화순읍 7곳이 '1', 면 지역 "
+              "3곳이 '2'로 조례의 급지 구분과 일치하고, 좌표는 10곳 전부 "
+              "등록돼 있다."),
+    "discounts": HWASUN_DISCOUNTS,
+}
+
+HWASUN_BBOX = (34.82, 35.12, 126.80, 127.15)
+
+HWASUN_DONGS = {"화순읍", "한천면", "춘양면", "청풍면", "이양면", "능주면",
+                "도암면", "동복면", "남면", "동면", "백아면", "북면"}
+
+
+def hwasun_dong_of(addr):
+    """화순군 법정 읍·면 판정 — 지번주소의 화순군 다음 토큰이
+    읍·면이다. 이름 기반 보정은 쓰지 않는다."""
+    if addr:
+        m = re.search(r"화순군\s*([가-힣0-9]+?(?:읍|면|동\d+가|동))(?=[\s0-9-]|$)", addr)
+        if m:
+            return m.group(1)
+    return None
+
+
+def hwasun_fee(row, name, note_bits, fee_diff):
+    """화순군 공영주차장 한 곳의 요금 — 등록 10곳 전부
+    '무료'다. 조례 제10조제1항은 공영주차장 요금을 별표 1로
+    정하지만, 등록이 전부 무료라 요금표는 참고표로만 싣고
+    이 곳들은 무료로 표기한다(서천·순창·영암·해남·고흥·
+    보성 선례). 요금 칸이 비어 있거나 금액만으로 구분할 수
+    없는 행이 나오면 미상으로 돌린다."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 제10조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 8은 군수가 인정하는 경우에 주차요금을 징수하지 않을 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 군청 확인 필요"})
+        return fee
+    if not base_fee and not unit_fee and not day and not month:
+        fee_diff.append(f"{name}: '{raw_type}'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 "
+                        "비어 있어 금액을 확정할 수 없다 — 조례 별표 1의 요금은 요금표에만 "
+                        "싣고 이 곳은 요금 미상으로 표기한다(군산 선례, 군청 확인 필요)")
+        fee.update({"type": "미상",
+                    "basis": "요금 구분은 ‘유료’이나 요금 금액이 전부 비어 있음 — "
+                             "조례 별표 1 요금은 요금표에 있고, 금액은 화순군청 확인 필요"})
+        return fee
+    fee_diff.append(f"{name}: 등록 요금(기본 {base_min}분 {base_fee}원·추가 {unit_min}분당 "
+                    f"{unit_fee}원·1일 {day}원·월정기 {month}원)이 있으나 조례 별표 1과의 "
+                    "대응을 확정할 수 없어 등록값을 그대로 싣는다 — 실제 징수 기준은 "
+                    "군청 확인 과제")
+    fee.update({"type": "유료", "base_min": base_min, "base_fee": base_fee,
+                "unit_min": unit_min, "unit_fee": unit_fee,
+                "daily_fee": day if day else None,
+                "monthly": month if month else None,
+                "basis": "표준데이터 등록값을 그대로 적용했다 — 조례 별표 1과의 대응은 군청 확인 과제다"})
+    return fee
+
+
+def hwasun_fee_table(conf, lots):
+    """요금표 — 조례 별표 1의 공영주차장 주차 요금표 값을
+    참고표로 표기한다. 별표 1은 급지(특급지·1급지·2급지)×
+    차종(소형·대형) 요금표로, 1·2급지는 1회 주차요금이
+    30분마다 붙는 구조이고 1일 주차권 칸이 없다. 특급지
+    (온천지구)는 30분 단위 칸이 비어 있고 1회 주차요금(원)이
+    주간·야간으로 나뉘어 행 구조가 달라 이 표의 행에는 넣지
+    않고 아래 비고에 적는다. 등록 10곳은 전부 무료라 행별
+    유료 곳수는 전부 0이고, 1시간·2시간 예상액은 별표 1
+    구조로 계산한 조례 기준액이다."""
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+
+    def _row(label, grade, per30, month_day, month_night, unit_label):
+        f = {"base_min": 30, "base_fee": per30, "unit_min": 30,
+             "unit_fee": per30, "daily_fee": None}
+        return {"label": label, "grade": grade, "unit_label": unit_label,
+                "hour": sj_charge(f, 60), "two_hour": sj_charge(f, 120),
+                "day": None, "month": month_day, "month_night": month_night, "lots": 0}
+
+    rows = [
+        _row("1급지 소형", "g1_small", 500, 50000, 40000,
+             "30분마다 500원 · 월정기 주간 50,000원·야간 40,000원"),
+        _row("1급지 대형", "g1_large", 700, 70000, 60000,
+             "30분마다 700원 · 월정기 주간 70,000원·야간 60,000원"),
+        _row("2급지 소형", "g2_small", 300, 30000, 20000,
+             "30분마다 300원 · 월정기 주간 30,000원·야간 20,000원"),
+        _row("2급지 대형", "g2_large", 500, 40000, 30000,
+             "30분마다 500원 · 월정기 주간 40,000원·야간 30,000원"),
+    ]
+    return {
+        "style": "hwasun_grade",
+        "unit_min": 30,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["list_mode"] == "card"]),
+                 "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [{"group": "주간·야간 구분 (조례 별표 1 비고 3)",
+                     "hours": "4월~10월 08:00~20:00, 11월~3월 09:00~19:00, 나머지는 야간",
+                     "free": ("월정기 주간·야간 금액과 특급지 1회 요금의 주간·야간 구분 "
+                              "기준이다 — 등록 10곳은 전부 무료라 실제 요금에는 "
+                              "쓰이지 않는다")}],
+        "notes": ("급지의 구분은 주차장의 실태 및 주차수요를 참작하여 군수가 지정하되 "
+                  "지역의 특성 및 주차장의 위치에 따라 세분할 수 있다(비고 4). 별표 1의 "
+                  "지역 표기는 1급지가 도시지역(읍), 2급지가 농촌지역(면)이고, 표준데이터 "
+                  "등록 급지는 화순읍 7곳이 전부 '1', 능주면·도암면·이양면 3곳이 전부 "
+                  "'2'로 이 구분과 일치한다. 특급지(온천지구)는 이 표의 행과 구조가 "
+                  "다르다 — 30분 단위 칸과 월정기 칸이 비어 있고 1회 주차요금(원)이 "
+                  "주간·야간으로 나뉜다(승용차 주간 1,000원·야간 2,000원, 버스·화물차 "
+                  "주간 2,000원·야간 4,000원). 등록 10곳 중 특급지는 없다. 주차시간은 "
+                  "30분 단위로 하며 30분 미만은 30분으로 본다(비고 2). 군수는 필요한 "
+                  "경우 노상주차장과 노외주차장의 주차요금을 구분하여 정할 수 있고"
+                  "(비고 6), 군수가 인정하는 경우에는 주차요금을 징수하지 않을 수 "
+                  "있다(비고 8). 감면은 별표 1 비고 5를 따른다 — 장애인 자가운전 차량 "
+                  "및 장애인을 동반한 일반차량·국가유공자·고엽제후유의증 환자·"
+                  "광주민주화운동부상자 50%, 경자동차 50%, 긴급자동차·국가 또는 "
+                  "지방자치단체의 공용차량 100%, 저공해자동차 표지 부착 차량 50%로, "
+                  "모두 군수가 주차 수요를 감안하여 감면할 수 있는 재량 규정이다."),
+        "basis": ("요금표는 「화순군 주차장 조례」 제3220호(시행 2025-12-22) 제10조·"
+                  "별표 1과 표준데이터(기준일 2026-07-30)를 대조해 실었다. "
+                  "등록된 10곳은 전부 '무료'라 이 표는 조례 기준 요금의 참고표이고, "
+                  "실제 요금은 전 구간 무료다. (조례 본문: "
+                  "data/raw/hwasun-ordinance.txt, 별표 1 원문: "
+                  "data/raw/hwasun-ordinance-b1.txt)"),
+    }
+
+
+def hwasun_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                   space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(card)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in card).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in card if l["dong"]}),
+        "동_미상": [l["name"] for l in card if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in card)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「화순군 주차장 조례」 제3220호 별표 1 비고 5 — 군수는 해당 지역의 주차 "
+                      "수요를 감안하여 다음 각 목과 같이 주차요금을 감면할 수 있다(재량 규정). "
+                      "가. 장애인 자가운전 차량 및 장애인을 동반한 일반차량, 국가유공자, "
+                      "고엽제후유의증 환자, 광주민주화운동부상자: 50퍼센트. 나. 「자동차관리법」"
+                      "시행규칙 제2조제2항 별표 1에 따른 경자동차: 50퍼센트. 다. 「도로교통법」"
+                      "제2조제20호에 따른 긴급자동차, 국가 또는 지방자치단체의 공용차량: "
+                      "100퍼센트. 라. 대기환경보전법에 따른 저공해자동차로서 저공해자동차 표지가 "
+                      "부착된 자동차: 50퍼센트. 본문에는 별도의 감면 조항이 없고, 제10조제1항 "
+                      "단서는 노상주차장에 긴급 자동차가 주차하는 경우에는 요금 규정을 적용하지 "
+                      "않는다고 정한다. 본문 원문(data/raw/hwasun-ordinance.txt)·별표 1 원문"
+                      "(data/raw/hwasun-ordinance-b1.txt) 대조 완료(2026-11-20)"),
+        "요금_출처": ("조례 제10조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같이 한다. 별표 1은 "
+                      "급지(특급지·1급지·2급지)×차종(소형·대형) 요금표로 1·2급지의 1회 주차요금은 "
+                      "30분마다 1급지 소형 500원·대형 700원, 2급지 소형 300원·대형 500원이고 "
+                      "월정기는 주간 1급지 소형 50,000원·대형 70,000원, 2급지 소형 30,000원·대형 "
+                      "40,000원, 야간 1급지 소형 40,000원·대형 60,000원, 2급지 소형 20,000원·대형 "
+                      "30,000원이다. 1일 주차권 칸은 표에 없다. 특급지(온천지구)는 1회 주차요금(원)이 "
+                      "주간·야간으로 나뉜다(승용차 1,000원·2,000원, 버스·화물차 2,000원·4,000원). "
+                      "표준데이터 등록 10곳이 전부 무료라 요금표는 참고표로만 싣는다"),
+        "급지_출처": ("조례 별표 1 — 1급지는 도시지역(읍), 2급지는 농촌지역(면)으로 적혀 있고 특급지는 "
+                      "온천지구다. 비고 4는 급지 구분을 주차장의 실태 및 주차수요를 참작하여 군수가 "
+                      "지정하되 지역의 특성 및 주차장의 위치에 따라 세분할 수 있다고 정한다. "
+                      "표준데이터 등록 급지는 화순읍 7곳이 전부 '1', 능주면·도암면·이양면 3곳이 "
+                      "전부 '2'로 별표 1의 지역 구분과 전부 일치해 행 판정에 그대로 썼다"),
+        "무료요일_출처": ("등록 10곳은 특기사항 '24시간 무료개방'으로 요일과 관계없이 무료다 — "
+                          "조례 별표 1 비고 3의 주간·야간 구분(4~10월 08:00~20:00, 11~3월 "
+                          "09:00~19:00)은 월정기 주·야간 금액과 특급지 1회 요금의 구분 기준이라 "
+                          "참고로만 실었다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 화순군 등록 10행 전부 공영(전부 노외, 총 789면)을 싣고 민영 제외 0건·중복 제거 0건이다. 읍면별로는 화순읍 7곳·능주면 1곳·도암면 1곳·이양면 1곳이고, 화순군 1읍 11면 중 한천면·춘양면·청풍면·동복면·남면·동면·백아면·북면 8개 면에는 등록된 공영주차장이 없다(실제 운영 여부는 군청 확인 과제)",
+            "「화순군 주차장 조례」 제3220호(표제 시행 2025-12-22, 공포 2025-12-22, 일부개정, ordinSeq 2095555) 본문 원문(data/raw/hwasun-ordinance.txt) 대조 완료(2026-11-20) — law.go.kr 검색 결과의 화순군 주차장 관련 자치법규는 이 조례와 시행규칙뿐이라 요금 조례의 최신 시행본은 제3220호가 맞고, 제10조제1항이 주차요금을 별표 1로 정한다",
+            "별표 1은 HWP 원본(flSeq 159453767)을 data/raw/hwasun-ordinance-b1.hwp로 저장하고 PrvText 미리보기가 1,023자에서 잘려 특급지 행의 열 배치를 확정할 수 없어, HWP 본문(BodyText) 레코드를 직접 파싱해 셀 좌표로 표 격자를 확정했다 — 급지(특급지·1급지·2급지)×차종(소형·대형) 요금표로, 1급지(도시지역 읍)는 30분마다 소형 500원·대형 700원에 월정기 주간 소형 50,000원·대형 70,000원, 야간 소형 40,000원·대형 60,000원이고, 2급지(농촌지역 면)는 30분마다 소형 300원·대형 500원에 월정기 주간 소형 30,000원·대형 40,000원, 야간 소형 20,000원·대형 30,000원이다. 1일 주차권 칸은 표에 없다. 별표 1에는 <개정 2016.3.21.> 표시가 있어 요금표의 실내용은 2016-03-21 개정본이 현행이다",
+            "특급지(온천지구)는 30분 단위 칸과 월정기 칸이 공란이고 1회 주차요금(원)만 주간·야간으로 나뉜다(승용차 주간 1,000원·야간 2,000원, 버스·화물차 주간 2,000원·야간 4,000원) — 등록 10곳 중 특급지는 없어 요금표 행에는 넣지 않고 비고에만 적었다. 이 금액이 1회 주차 기준인지의 세부 운용은 표만으로 확정할 수 없어 단정하지 않는다",
+            "등록 10곳 전부 '무료'(특기사항 '24시간 무료개방')라 조례 별표 1 요금표는 참고표로만 싣고 유료 계산은 하지 않는다(서천·순창·영암·해남·고흥·보성 선례) — 등록 요금 금액 칸은 10곳 전부 공란이고 주차기본시간은 0으로 적혀 있다. 별표 1 비고 8(군수가 인정하는 경우에 주차요금을 징수하지 않을 수 있다)이 전 구간 무료 운영의 조례상 근거가 될 수 있어 함께 기록한다",
+            "등록 급지와 조례 급지를 대조했다 — 화순읍 7곳이 전부 '1'(조례 1급지 도시지역 읍), 능주면·도암면·이양면 3곳이 전부 '2'(조례 2급지 농촌지역 면)로 전부 일치한다",
+            "같은 자리 다른 이름 쌍 1건은 둘 다 실었다 — 군청광장주차장(훈리 35, 노외 32면)과 민원인전용주차장(훈리 35, 노외 64면)은 필지·좌표(35.0643556743, 126.9864854896)·도로명주소(동헌길 23)가 전부 같고 이름·면수·관리번호만 다르다. 군청 광장 안의 별도 구역일 수도 있고 같은 곳의 이중 등록일 수도 있어 표준데이터로 판정할 수 없어 둘 다 싣고 군청 확인 과제로 남긴다(옥천·영동 선례)",
+            "이름이 비슷한 다른 자리 쌍은 합치지 않았다 — 오일시장주차장(향청리 81-7, 48면)과 오일시장내주차장(삼천리 620-25, 78면), 만연공영주차장(만연리 237-2, 104면)과 광덕공영지하주차장(만연리 219, 136면)은 필지와 좌표가 서로 다르다",
+            "좌표는 10곳 전부 등록돼 있고 전부 화순군 범위 안이라 비운 곳이 없고 지오코딩 보완도 필요 없다(오버레이 무변경). 도명 변경(전라남도→전남광주통합특별시) 스냅숏 중복도 없다 — 주소 표기가 10행 전부 전남광주통합특별시 화순군이다(광양 선례 대조)",
+            "도로명주소가 없는 4곳(능주면주차장·향청리공영주차장·오일시장주차장·오일시장내주차장)은 지번주소로 읍·면을 판정했고, 지번주소는 10곳 전부 등록돼 있다",
+            "전화번호는 10곳 전부 061-379-3785이고 관리기관은 전부 전남광주통합특별시 화순군이다. 조례 담당 표기 전화(건설교통실 379-3785)와 같다. 운영시간은 10곳 전부 00:00~23:59, 운영요일은 전부 평일+토요일+공휴일, 특기사항은 전부 '24시간 무료개방'이다. 장애인전용주차구역 보유여부는 Y 3곳(만연공영주차장·광덕공영지하주차장·향청리공영주차장)·N 7곳이다",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_hwasun():
+    """화순군 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「화순군 주차장 조례」 제3220호(시행
+    2025-12-22, ordinSeq 2095555) 제10조·별표 1 원문 대조
+    완료(2026-11-20). 표준데이터 등록 공영 10곳(전부 노외,
+    총 789면)을 싣는다. 10곳 전부 무료라 조례 별표 1
+    요금표는 참고표로만 싣는다. 좌표는 10곳 전부 등록돼
+    있다."""
+    conf = HWASUN_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "화순군" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "화순군" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 화순군은
+    #   해당 중복이 0건이다(이름이 완전히 같은 쌍 자체가 없다).
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (HWASUN_BBOX[0] < lat < HWASUN_BBOX[1]
+                                                        and HWASUN_BBOX[2] < lng < HWASUN_BBOX[3]):
+            # 화순군 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 화순군 범위 밖 — "
+                               "좌표 없음으로 표기하고 지오코딩 보완 대상으로 넘김")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음(0으로 등록)"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = hwasun_dong_of(jibun)
+        if dong:
+            dong_src = "지번주소"
+        elif hwasun_dong_of(road):
+            dong = hwasun_dong_of(road)
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 읍·면 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:읍|면|동))", std_name)
+        if _name_head and _name_head.group(1) in HWASUN_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 동({_name_head.group(1)})과 지번주소 기준 "
+                              f"동({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = hwasun_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "화순군", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다")
+
+    # 이름이 다른 주차장이 200m 안에 이웃한 쌍 — 전부 다른 등록이라 합치지
+    #   않고 전부 싣는다(옥천·영동 선례). 등록 좌표가 있는 곳끼리만 센다.
+    _pairs = []
+    _have = [l for l in lots if l["lat"] is not None and l["lng"] is not None]
+    for _a in range(len(_have)):
+        for _b in range(_a + 1, len(_have)):
+            _d = 111000 * math.sqrt((_have[_a]["lat"] - _have[_b]["lat"]) ** 2
+                                    + ((_have[_a]["lng"] - _have[_b]["lng"]) * 0.81) ** 2)
+            if _d < 200:
+                _pairs.append(f"{_have[_a]['name']}·{_have[_b]['name']}({round(_d)}m)")
+    if _pairs:
+        note_fixed.append("이름이 다른 주차장이 200m 안에 이웃한 쌍이 "
+                          f"{len(_pairs)}건 있다 — " + ", ".join(_pairs[:6])
+                          + " 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다")
+    note_fixed.append("표준데이터 등록 10행은 전부 공영이고 데이터기준일자는 "
+                      "전부 2026-07-30이다. 관리기관은 10곳 전부 전남광주통합특별시 "
+                      "화순군이고 전화번호는 10곳 전부 061-379-3785이다")
+    note_fixed.append("군청광장주차장과 민원인전용주차장은 훈리 35 같은 "
+                      "자리에 면수(32면·64면)·좌표까지 같고 이름·관리번호만 다른 등록이다 "
+                      "— 군청 광장 안의 별도 구역일 수도 있고 같은 곳의 이중 등록일 수도 "
+                      "있어 표준데이터로 판정할 수 없어 둘 다 싣고 군청 확인 과제로 남긴다")
+    note_fixed.append("이름이 비슷한 다른 자리 쌍은 합치지 않았다 — 오일시장주차장"
+                      "(향청리 81-7, 48면)과 오일시장내주차장(삼천리 620-25, 78면), "
+                      "만연공영주차장(만연리 237-2, 104면)과 광덕공영지하주차장(만연리 219, "
+                      "136면)은 필지와 좌표가 서로 다르다")
+    note_fixed.append("등록 급지는 화순읍 7곳이 전부 '1', 능주면·도암면·이양면 3곳이 "
+                      "전부 '2'로 조례 별표 1의 급지 구분(1급지 도시지역 읍·2급지 "
+                      "농촌지역 면)과 전부 일치한다")
+    note_fixed.append("좌표는 10곳 전부 등록돼 있고 전부 화순군 범위 안이라 비운 곳이 "
+                      "없다. 도명 변경(전라남도→전남광주통합특별시) 스냅숏 중복도 없다")
+    note_fixed.append("화순군 1읍 11면 중 한천면·춘양면·청풍면·동복면·남면·동면·"
+                      "백아면·북면 8개 면에는 표준데이터에 등록된 공영주차장이 없다 — "
+                      "실제로 운영하는 무료 주차장이 있는지는 군청 확인 과제다")
+    _no_road = [l["name"] for l in lots if not l["addr_road"]]
+    note_fixed.append(f"도로명주소는 {len(_no_road)}곳({', '.join(_no_road)})이 등록돼 있지 않아 "
+                      "동 판정과 표기는 지번주소를 기준으로 했다")
+    _no_jibun = [l["name"] for l in lots if not l["addr_jibun"]]
+    if _no_jibun:
+        note_fixed.append(f"지번주소는 {len(_no_jibun)}곳({', '.join(_no_jibun)})이 등록돼 있지 "
+                          "않아 도로명주소로 판정·표기했다")
+    note_fixed.append("운영시간은 10곳 전부 00:00~23:59이고 운영요일은 전부 "
+                      "평일+토요일+공휴일이다. 특기사항은 10곳 전부 "
+                      "'24시간 무료개방'이다. 장애인전용주차구역 보유여부는 Y 3곳"
+                      "(만연공영주차장·광덕공영지하주차장·향청리공영주차장)·N 7곳이다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"jn-hwasun-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"jn-hwasun-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 화순군은 좌표 결측이 없어 채워지는 곳이 없다.
+    apply_coord_fix(lots)
+
+    fee_table = hwasun_fee_table(conf, lots)
+    quality = hwasun_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                             fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-07-30",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"화순군으로 등록된 행 {len(rows_std)}행(전부 공영)을 읽어 중복 "
+                 f"제거 {len(merged)}건으로 {len(lots)}곳을 실었다. 무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳·유료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '유료'])}곳이다. 좌표는 "
+                 f"10곳 전부 등록돼 있고 도로명주소는 4곳이 결측이다. "
+                 f"조례 대조 완료 — 「화순군 주차장 조례」 제3220호(시행 2025-12-22, "
+                 f"ordinSeq 2095555) 제10조·별표 1 원문 대조 완료(2026-11-20)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": HWASUN_ORD_TXT.name if HWASUN_ORD_TXT.exists() else None,
+            "sha256": sha256(HWASUN_ORD_TXT) if HWASUN_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2025-12-22",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"화순군이 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/hwasun-ordinance.txt, 별표 1 원문: "
+                    f"data/raw/hwasun-ordinance-b1.txt)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": HWASUN_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "화순군", "slug": "hwasun"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": HWASUN_PROVINCE,
+        "province_slug": HWASUN_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "hwasun_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -57532,7 +58138,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -57550,7 +58156,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -57603,7 +58209,7 @@ def main():
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
-             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "iksan": ["익산시"], "jeongeup": ["정읍시"], "namwon": ["남원시"], "gimje": ["김제시"], "wanju": ["완주군"], "jinan": ["진안군"], "muju": ["무주군"], "jangsu": ["장수군"], "imsil": ["임실군"], "sunchang": ["순창군"], "gochang": ["고창군"], "buan": ["부안군"], "mokpo": ["목포시"], "yeosu": ["여수시"], "suncheon": ["순천시"], "naju": ["나주시"], "gwangyang": ["광양시"], "muan": ["무안군"], "yeongam": ["영암군"], "haenam": ["해남군"], "goheung": ["고흥군"], "boseong": ["보성군"]}[args.city])
+             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "iksan": ["익산시"], "jeongeup": ["정읍시"], "namwon": ["남원시"], "gimje": ["김제시"], "wanju": ["완주군"], "jinan": ["진안군"], "muju": ["무주군"], "jangsu": ["장수군"], "imsil": ["임실군"], "sunchang": ["순창군"], "gochang": ["고창군"], "buan": ["부안군"], "mokpo": ["목포시"], "yeosu": ["여수시"], "suncheon": ["순천시"], "naju": ["나주시"], "gwangyang": ["광양시"], "muan": ["무안군"], "yeongam": ["영암군"], "haenam": ["해남군"], "goheung": ["고흥군"], "boseong": ["보성군"], "hwasun": ["화순군"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -57804,6 +58410,8 @@ def main():
         cities.append(build_goheung())
     if "보성군" in want:
         cities.append(build_boseong())
+    if "화순군" in want:
+        cities.append(build_hwasun())
 
     if args.city == "all":
         site = build_site_payload(cities)

@@ -747,6 +747,12 @@ MIX["goheung"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
 #   경기 광주 자료 혼입은 계속 잡는다).
 MIX["boseong"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
 
+# 화순군 — 나주와 같은 부류. 화순의 도 이름 ‘전남광주통합특별시’에 든 ‘광주’는
+#   화순 페이지에 정당하게 나오므로 금지 토큰에서 뺀다(‘광주시’는 그대로 둬
+#   경기 광주 자료 혼입은 계속 잡는다). 조례 별표 1 비고 5의
+#   ‘광주민주화운동부상자’ 표기도 화순 페이지에 정당하게 나온다.
+MIX["hwasun"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
+
 _ALL_ADDRS = sorted({(l.get("addr_jibun") or "") for l in LOTS}
                      | {(l.get("addr_road") or "") for l in LOTS}, key=len, reverse=True)
 _ALL_NAMES = [l["name"] for l in LOTS]
