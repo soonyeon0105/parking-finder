@@ -1,0 +1,9147 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 16:43",
+  "generated_at_iso": "2026-11-20T16:43:53+09:00",
+  "snapshot_at": "2026-11-20 16:43",
+  "region": {
+   "province": "전남광주통합특별시",
+   "city": "영광군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-04-17",
+    "rows_total": 18994,
+    "rows_city": 77,
+    "fetched_at": "2026-11-20 16:43 (KST)",
+    "note": "영광군으로 등록된 행 77행(전부 공영)을 읽어 중복 제거 0건으로 77곳을 실었다. 무료 75곳·유료 2곳이다. 좌표 결측 14곳 중 12곳을 지오코딩으로 보완했다. 조례 대조 완료 — 「영광군 주차장 설치 및 관리운영 조례」 제3116호(시행 2026-08-10, ordinSeq 2160207) 제3조·제4조·별표 1 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「영광군 주차장 설치 및 관리운영 조례」 제3116호(시행 2026-08-10, 일부개정)",
+    "org": "전남광주통합특별시 영광군청",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2160207",
+    "file": "yeonggwang-ordinance-b1.txt",
+    "sha256": "b8f40e721da25176cb4ca7f03dcdb7e42ebcf6e2c68c858014164388d65d822b",
+    "license": "자치법규(공개)",
+    "base_date": "2026-08-10",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 16:43 (KST)",
+    "note": "영광군이 설치·관리하는 공영주차장에 적용하는 조례다. 영광군 공영주차장 77곳(노외 66·노상 11, 총 7,822면) 중 무료 75곳이고 유료는 영광터미널 공용주차장(202면)과 우시장 주차광장(150면) 2곳이다. 「영광군 주차장 설치 및 관리운영 조례」 제3116호(시행 2026-08-10, ordinSeq 2160207) 제3조는 공영주차장 요금을 별표 1로 정한다 — 별표 1은 급지(1급지 영광읍 시내 상업지역·2급지 기타 이외의 지역)×차종(소형 2.5톤 이하·대형 2.5톤 초과) 요금표로, 최초 120분까지 무료, 120분 초과 시 30분당 1급지 소형·대형 500원, 2급지 소형 200원·대형 300원, 1일 주차권 1급지 5,000원·2급지 소형 2,000원·대형 3,000원, 월정기 주간·야간은 1급지 소형 35,000원·25,000원, 대형 50,000원·40,000원, 2급지 소형 20,000원·15,000원, 대형 35,000원·30,000원이다. 유료 2곳은 추가 단위·1일·월정기가 별표 1의 1급지 소형과 전부 일치하지만 등록 기본요금(120분 500원)이 별표 1의 '최초 120분까지 무료'와 충돌해 계산기는 조례 별표 1 구조(최초 120분 무료·초과 시 30분당 500원·1일 5,000원·월정기 주간 35,000원)로 적용한다(강진 아트홀 선례 — 구조가 상충하면 조례 우선). 감면은 조례 제4조를 따른다(긴급자동차·공용차량·모범납세자 면제, 국가유공자·장애인·경형자동차·환경친화적 자동차·5·18민주유공자·고엽제후유증환자 등·저공해자동차·전통시장 상인·병역명문가·임산부 50% 감면, 중복 시 감면율이 높은 하나만 적용). 등록 급지는 77곳 전부 '기타'라 별표 1의 급지와 직접 대응하지 않지만 유료 2곳은 영광읍 시내라 1급지로 판정했다. 좌표 결측 14곳 중 12곳을 지오코딩으로 보완했고 2곳은 정확히 일치하는 후보가 없어 비워 뒀다. 전화번호는 77곳 전부 공란이다. (조례 본문: data/raw/yeonggwang-ordinance.txt, 별표 1 원문: data/raw/yeonggwang-ordinance-b1.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "영광군",
+   "slug": "yeonggwang"
+  }
+ ],
+ "lots": [
+  {
+   "id": "jn-yeonggwang-001",
+   "mgmt_no": "341-2-000066",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대마산단 공유센터",
+   "gu": "영광군",
+   "dong": "대마면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 대마면 송죽리 1032-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 300,
+   "tel": "",
+   "lat": 35.2874128485,
+   "lng": 126.5765878934,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-002",
+   "mgmt_no": "341-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백수생활체육공원 주차장",
+   "gu": "영광군",
+   "dong": "백수읍",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "전라남도 영광군 백수읍 법백로 39",
+   "road": null,
+   "spaces": 145,
+   "tel": "",
+   "lat": 35.3369530756,
+   "lng": 126.4327032783,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-003",
+   "mgmt_no": "341-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백수해안도로 제1주차장",
+   "gu": "영광군",
+   "dong": "백수읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 백수읍 대신리 산234-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 70,
+   "tel": "",
+   "lat": 35.3636518669,
+   "lng": 126.395640505,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-004",
+   "mgmt_no": "341-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백수해안도로 제2주차장",
+   "gu": "영광군",
+   "dong": "백수읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 백수읍 대신리 산234-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "",
+   "lat": 35.3636518669,
+   "lng": 126.395640505,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-005",
+   "mgmt_no": "341-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백수해안도로 제3주차장",
+   "gu": "영광군",
+   "dong": "백수읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 백수읍 대신리 산234-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "",
+   "lat": 35.3636518669,
+   "lng": 126.395640505,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-006",
+   "mgmt_no": "341-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백수해안도로 제4주차장",
+   "gu": "영광군",
+   "dong": "백수읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 백수읍 대신리 산234-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 43,
+   "tel": "",
+   "lat": 35.3636518669,
+   "lng": 126.395640505,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-007",
+   "mgmt_no": "341-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백수해안도로 제5주차장",
+   "gu": "영광군",
+   "dong": "백수읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 백수읍 대신리 산234-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "",
+   "lat": 35.3636518669,
+   "lng": 126.395640505,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-008",
+   "mgmt_no": "341-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백수해안도로 제6주차장",
+   "gu": "영광군",
+   "dong": "백수읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 백수읍 대신리 산234-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "",
+   "lat": 35.3636518669,
+   "lng": 126.395640505,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-009",
+   "mgmt_no": "341-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백수해안도로 제7주차장",
+   "gu": "영광군",
+   "dong": "백수읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 백수읍 대신리 산234-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "",
+   "lat": 35.3636518669,
+   "lng": 126.395640505,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-010",
+   "mgmt_no": "341-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백수해안도로 제8주차장",
+   "gu": "영광군",
+   "dong": "백수읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 백수읍 대신리 산234-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 45,
+   "tel": "",
+   "lat": 35.3636518669,
+   "lng": 126.395640505,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-011",
+   "mgmt_no": "341-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백수해안도로 제9주차장",
+   "gu": "영광군",
+   "dong": "백수읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 백수읍 대신리 산234-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "",
+   "lat": 35.3636518669,
+   "lng": 126.395640505,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-012",
+   "mgmt_no": "341-2-000062",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "법성 5일시장 주차장",
+   "gu": "영광군",
+   "dong": "법성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 법성면 법성리 691",
+   "addr_road": "",
+   "road": null,
+   "spaces": 44,
+   "tel": "",
+   "lat": 35.3622595,
+   "lng": 126.4433795,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-013",
+   "mgmt_no": "341-2-000061",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "법성 뉴타운 공용주차장",
+   "gu": "영광군",
+   "dong": "법성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 법성면 법성리 1223-17",
+   "addr_road": "",
+   "road": null,
+   "spaces": 46,
+   "tel": "",
+   "lat": 35.3597276317,
+   "lng": 126.4449892945,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-014",
+   "mgmt_no": "341-2-000052",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "법성매립지 제1주차장",
+   "gu": "영광군",
+   "dong": "법성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 법성면 법성리 1224-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 51,
+   "tel": "",
+   "lat": 35.359836050942,
+   "lng": 126.44446685279,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번주소)·ArcGIS World Geocoding)"
+  },
+  {
+   "id": "jn-yeonggwang-015",
+   "mgmt_no": "341-2-000053",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "법성매립지 제2주차장",
+   "gu": "영광군",
+   "dong": "법성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 법성면 법성리 1210-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "",
+   "lat": 35.3609597304,
+   "lng": 126.4407077498,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-016",
+   "mgmt_no": "341-2-000054",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "법성매립지 제3주차장",
+   "gu": "영광군",
+   "dong": "법성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 법성면 법성리 1216-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "",
+   "lat": 35.3598310651,
+   "lng": 126.4415246638,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-017",
+   "mgmt_no": "341-2-000055",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "법성매립지 제4주차장",
+   "gu": "영광군",
+   "dong": "법성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 법성면 법성리 1216-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "",
+   "lat": 35.3598310651,
+   "lng": 126.4415246638,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-018",
+   "mgmt_no": "341-2-000056",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "법성매립지 제5주차장",
+   "gu": "영광군",
+   "dong": "법성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 법성면 법성리 1226-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "",
+   "lat": 35.3591881956,
+   "lng": 126.4440280729,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-019",
+   "mgmt_no": "341-2-000057",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "법성매립지 제6주차장",
+   "gu": "영광군",
+   "dong": "법성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 법성면 법성리 1217-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "",
+   "lat": 35.3593838542,
+   "lng": 126.441353648,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-020",
+   "mgmt_no": "341-2-000058",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "법성매립지 제7주차장",
+   "gu": "영광군",
+   "dong": "법성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 법성면 법성리 1210-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 42,
+   "tel": "",
+   "lat": 35.3598977636,
+   "lng": 126.4401259589,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-021",
+   "mgmt_no": "341-2-000059",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "법성매립지 제8주차장",
+   "gu": "영광군",
+   "dong": "법성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 법성면 법성리 1227-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "",
+   "lat": 35.3587408979,
+   "lng": 126.4438570903,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-022",
+   "mgmt_no": "341-2-000060",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "법성매립지 제9주차장",
+   "gu": "영광군",
+   "dong": "법성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 법성면 법성리 691",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "",
+   "lat": 35.3622595,
+   "lng": 126.4433795,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-023",
+   "mgmt_no": "341-2-000063",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "숲쟁이꽃동산 제1주차장",
+   "gu": "영광군",
+   "dong": "법성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 법성면진내리622-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 128,
+   "tel": "",
+   "lat": 35.3646583257,
+   "lng": 126.4375109327,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-024",
+   "mgmt_no": "341-2-000064",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "숲쟁이꽃동산 제2주차장",
+   "gu": "영광군",
+   "dong": "법성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 법성면진내리589-24",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "",
+   "lat": 35.3645913608,
+   "lng": 126.4363701847,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-025",
+   "mgmt_no": "341-2-000065",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "숲쟁이꽃동산 제3주차장",
+   "gu": "영광군",
+   "dong": "법성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 법성면진내리650-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 220,
+   "tel": "",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-026",
+   "mgmt_no": "341-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "강항선생 유적지",
+   "gu": "영광군",
+   "dong": "불갑면",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "전라남도 영광군 불갑면 강항로 101",
+   "road": null,
+   "spaces": 85,
+   "tel": "",
+   "lat": 35.21184822,
+   "lng": 126.5179097,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-027",
+   "mgmt_no": "341-2-000046",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "불갑관광단지 임시주차장",
+   "gu": "영광군",
+   "dong": "불갑면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 불갑면 모악리 408-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 250,
+   "tel": "",
+   "lat": 35.1996750767,
+   "lng": 126.5500476267,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-028",
+   "mgmt_no": "341-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "불갑관광단지 제1주차장",
+   "gu": "영광군",
+   "dong": "불갑면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 불갑면 모악리 408-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 75,
+   "tel": "",
+   "lat": 35.1996750767,
+   "lng": 126.5500476267,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-029",
+   "mgmt_no": "341-2-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "불갑관광단지 제2주차장",
+   "gu": "영광군",
+   "dong": "불갑면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 불갑면 모악리 408-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 176,
+   "tel": "",
+   "lat": 35.1996750767,
+   "lng": 126.5500476267,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-030",
+   "mgmt_no": "341-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "불갑관광단지 제3주차장",
+   "gu": "영광군",
+   "dong": "불갑면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 불갑면 모악리 408-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 160,
+   "tel": "",
+   "lat": 35.1996750767,
+   "lng": 126.5500476267,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-031",
+   "mgmt_no": "341-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "불갑저수지 테마공원주차장",
+   "gu": "영광군",
+   "dong": "불갑면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 불갑면 금계리627-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 430,
+   "tel": "",
+   "lat": 35.2165296371,
+   "lng": 126.5285047372,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-032",
+   "mgmt_no": "341-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수변공원 임시주차장",
+   "gu": "영광군",
+   "dong": "불갑면",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "전라남도 영광군 불갑면 방마로 161",
+   "road": null,
+   "spaces": 200,
+   "tel": "",
+   "lat": 35.221789154808,
+   "lng": 126.51521811649,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(도로명주소)·ArcGIS World Geocoding)"
+  },
+  {
+   "id": "jn-yeonggwang-033",
+   "mgmt_no": "341-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수변공원 제당주차장",
+   "gu": "영광군",
+   "dong": "불갑면",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "전라남도 영광군 불갑면 방마로 161",
+   "road": null,
+   "spaces": 8,
+   "tel": "",
+   "lat": 35.221789154808,
+   "lng": 126.51521811649,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(도로명주소)·ArcGIS World Geocoding)"
+  },
+  {
+   "id": "jn-yeonggwang-034",
+   "mgmt_no": "341-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수변공원 폭포주차장",
+   "gu": "영광군",
+   "dong": "불갑면",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "전라남도 영광군 불갑면 방마로 161",
+   "road": null,
+   "spaces": 54,
+   "tel": "",
+   "lat": 35.221789154808,
+   "lng": 126.51521811649,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(도로명주소)·ArcGIS World Geocoding)"
+  },
+  {
+   "id": "jn-yeonggwang-035",
+   "mgmt_no": "341-2-000050",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "설도 젓갈타운 공용주차장",
+   "gu": "영광군",
+   "dong": "염산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 염산면 봉남리 1220-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 209,
+   "tel": "",
+   "lat": 35.21146835,
+   "lng": 126.3735607,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-036",
+   "mgmt_no": "341-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "설도항 제1주차장",
+   "gu": "영광군",
+   "dong": "염산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 염산면 봉남리695-16",
+   "addr_road": "",
+   "road": null,
+   "spaces": 170,
+   "tel": "",
+   "lat": 35.2117632118,
+   "lng": 126.3756544761,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-037",
+   "mgmt_no": "341-2-000048",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "설도항 제2주차장",
+   "gu": "영광군",
+   "dong": "염산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 염산면 봉남리695-16",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "",
+   "lat": 35.2117632118,
+   "lng": 126.3756544761,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-038",
+   "mgmt_no": "341-2-000049",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "설도항 제3주차장",
+   "gu": "영광군",
+   "dong": "염산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 염산면 봉남리695-16",
+   "addr_road": "",
+   "road": null,
+   "spaces": 150,
+   "tel": "",
+   "lat": 35.2117632118,
+   "lng": 126.3756544761,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-039",
+   "mgmt_no": "341-2-000051",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "칠산타워 공용주차장",
+   "gu": "영광군",
+   "dong": "염산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 염산면 옥실리 1106-40",
+   "addr_road": "",
+   "road": null,
+   "spaces": 118,
+   "tel": "",
+   "lat": 35.16863371,
+   "lng": 126.3603067,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-040",
+   "mgmt_no": "341-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남천사거리 공용주차장",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "전라남도 영광군 영광읍 신남로 212",
+   "road": null,
+   "spaces": 23,
+   "tel": "",
+   "lat": 35.275778226134,
+   "lng": 126.50517303177,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(도로명주소)·ArcGIS World Geocoding)"
+  },
+  {
+   "id": "jn-yeonggwang-041",
+   "mgmt_no": "341-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대성아파트 앞 포켓주차장",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 영광읍 녹사리 139-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "",
+   "lat": 35.27014553,
+   "lng": 126.5033017492,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-042",
+   "mgmt_no": "341-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대신지구 제1주차장",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 영광읍 신하리 831-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 37,
+   "tel": "",
+   "lat": 35.274047234,
+   "lng": 126.5005892587,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-043",
+   "mgmt_no": "341-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대신지구 제2주차장",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 영광읍 단주리 629-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "",
+   "lat": 35.2760095273,
+   "lng": 126.499910642,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-044",
+   "mgmt_no": "341-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "만남의 광장 주차장",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 영광읍 백학리 359-14",
+   "addr_road": "",
+   "road": null,
+   "spaces": 95,
+   "tel": "",
+   "lat": 35.2781329549,
+   "lng": 126.5048640153,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-045",
+   "mgmt_no": "341-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "명가감자탕 옆 주차장",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 영광읍 남천리 310-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 43,
+   "tel": "",
+   "lat": 35.2768260354,
+   "lng": 126.5046189244,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-046",
+   "mgmt_no": "341-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "물무산행복숲주차장",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 영광읍 도동리 81-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 154,
+   "tel": "",
+   "lat": 35.2699441599,
+   "lng": 126.5164799001,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-047",
+   "mgmt_no": "341-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백학리 포켓주차장",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 영광읍 백학리 29-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "",
+   "lat": 35.2760268559,
+   "lng": 126.5106797291,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-048",
+   "mgmt_no": "341-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "스포티움 부설(양궁주차장)",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 영광읍 단주리672",
+   "addr_road": "",
+   "road": null,
+   "spaces": 33,
+   "tel": "",
+   "lat": 35.290299061,
+   "lng": 126.4968436774,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-049",
+   "mgmt_no": "341-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "스포티움 부설(제1주차장)",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 영광읍 단주리672",
+   "addr_road": "",
+   "road": null,
+   "spaces": 255,
+   "tel": "",
+   "lat": 35.290299061,
+   "lng": 126.4968436774,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-050",
+   "mgmt_no": "341-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "스포티움 부설(제2주차장)",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 영광읍 단주리672",
+   "addr_road": "",
+   "road": null,
+   "spaces": 675,
+   "tel": "",
+   "lat": 35.290299061,
+   "lng": 126.4968436774,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-051",
+   "mgmt_no": "341-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "스포티움 부설(제3주차장)",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 영광읍 단주리672",
+   "addr_road": "",
+   "road": null,
+   "spaces": 136,
+   "tel": "",
+   "lat": 35.290299061,
+   "lng": 126.4968436774,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-052",
+   "mgmt_no": "341-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "스포티움 부설(제4주차장)",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 영광읍 단주리672",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "",
+   "lat": 35.290299061,
+   "lng": 126.4968436774,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-053",
+   "mgmt_no": "341-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "스포티움 부설(제5주차장)",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 영광읍 단주리672",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "",
+   "lat": 35.290299061,
+   "lng": 126.4968436774,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-054",
+   "mgmt_no": "341-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "영광고추시장 부설주차장",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "전라남도 영광군 영광읍 신남로100-35",
+   "road": null,
+   "spaces": 258,
+   "tel": "",
+   "lat": 35.2747210338,
+   "lng": 126.4941124347,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-055",
+   "mgmt_no": "341-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "영광군청 부설주차장",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 영광읍 무령리 187",
+   "addr_road": "",
+   "road": null,
+   "spaces": 172,
+   "tel": "",
+   "lat": 35.277918024,
+   "lng": 126.5108747201,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-056",
+   "mgmt_no": "341-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "영광군청 제1주차장",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 영광읍 무령리 186",
+   "addr_road": "",
+   "road": null,
+   "spaces": 113,
+   "tel": "",
+   "lat": 35.2777345531,
+   "lng": 126.5111400478,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-057",
+   "mgmt_no": "341-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "영광매일시장제1주차장 (영광읍 도동리 196)",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 영광읍 도동리 196",
+   "addr_road": "",
+   "road": null,
+   "spaces": 53,
+   "tel": "",
+   "lat": 35.2742369842,
+   "lng": 126.5126804176,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-058",
+   "mgmt_no": "341-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "영광매일시장제1주차장 (영광읍 도동리 270)",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 영광읍 도동리 270",
+   "addr_road": "",
+   "road": null,
+   "spaces": 81,
+   "tel": "",
+   "lat": 35.2754281831,
+   "lng": 126.5133898088,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-059",
+   "mgmt_no": "341-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "영광초등학교 앞 포켓주차장",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 영광읍 무령리 289-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "",
+   "lat": 35.2786225291,
+   "lng": 126.5133140813,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-060",
+   "mgmt_no": "341-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "영광터미널 공용주차장",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "전라남도 영광군 영광읍 옥당로 170-12",
+   "road": null,
+   "spaces": 202,
+   "tel": "",
+   "lat": 35.2765754919,
+   "lng": 126.5020128751,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 35000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 120,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "카드+계좌",
+    "std": {
+     "base_min": 120,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 35000
+    },
+    "basis": "조례 별표 1의 1급지 소형 요금으로 계산한다 — 최초 120분까지 무료, 120분 초과 시 30분당 500원, 1일 5,000원, 월정기 주간 35,000원. 등록 기본요금(120분 500원)은 별표 1의 무료 구간과 충돌해 조례 구조를 따랐고, 추가 단위·1일·월정기 등록값은 별표 1과 일치한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-061",
+   "mgmt_no": "341-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "우시장 주차광장",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 영광읍 남천리 326",
+   "addr_road": "",
+   "road": null,
+   "spaces": 150,
+   "tel": "",
+   "lat": 35.27350362,
+   "lng": 126.5030529,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 120,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 35000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 120,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "카드+계좌",
+    "std": {
+     "base_min": 120,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 35000
+    },
+    "basis": "조례 별표 1의 1급지 소형 요금으로 계산한다 — 최초 120분까지 무료, 120분 초과 시 30분당 500원, 1일 5,000원, 월정기 주간 35,000원. 등록 기본요금(120분 500원)은 별표 1의 무료 구간과 충돌해 조례 구조를 따랐고, 추가 단위·1일·월정기 등록값은 별표 1과 일치한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-062",
+   "mgmt_no": "341-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청소년문화센터 주차장",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 영광읍 도동리 107-88",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "",
+   "lat": 35.2730406582,
+   "lng": 126.5124155394,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-063",
+   "mgmt_no": "341-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가마미해수욕장 공용주차장",
+   "gu": "영광군",
+   "dong": "홍농읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 홍농읍 계마리 798-3외 20필지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 700,
+   "tel": "",
+   "lat": 35.397227385732,
+   "lng": 126.410182270412,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번주소)·ArcGIS World Geocoding)"
+  },
+  {
+   "id": "jn-yeonggwang-064",
+   "mgmt_no": "341-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가마미해수욕장 입구 공용주차장",
+   "gu": "영광군",
+   "dong": "홍농읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전라남도 영광군 홍농읍 계마리 880-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "",
+   "lat": 35.3975054209,
+   "lng": 126.4074878365,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-065",
+   "mgmt_no": "341-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍농 상봉경로당 앞 주차장",
+   "gu": "영광군",
+   "dong": "홍농읍",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "전라남도 영광군 홍농읍 상하길 230",
+   "road": null,
+   "spaces": 10,
+   "tel": "",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-066",
+   "mgmt_no": "341-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "홍농복지회관 주차장",
+   "gu": "영광군",
+   "dong": "홍농읍",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "전라남도 영광군 홍농읍 동부로 13",
+   "road": null,
+   "spaces": 50,
+   "tel": "",
+   "lat": 35.3957020264,
+   "lng": 126.448298283,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-s001",
+   "mgmt_no": "341-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "백제불교도래지 갓길주차장",
+   "gu": "영광군",
+   "dong": "법성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 영광군 법성면 진내리 1005",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "",
+   "lat": 35.36038051,
+   "lng": 126.4331751,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-s002",
+   "mgmt_no": "341-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "법성공원～제일굴비",
+   "gu": "영광군",
+   "dong": "법성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 영광군 법성면 진내리 642~법성리 690-83",
+   "addr_road": "",
+   "road": null,
+   "spaces": 79,
+   "tel": "",
+   "lat": 35.363374764735,
+   "lng": 126.435419677959,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(구간 시작점 지번주소)·ArcGIS World Geocoding)"
+  },
+  {
+   "id": "jn-yeonggwang-s003",
+   "mgmt_no": "341-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "진내리 갓길주차장",
+   "gu": "영광군",
+   "dong": "법성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 영광군 법성면 진내리 1009~대덕리 558-47",
+   "addr_road": "",
+   "road": null,
+   "spaces": 250,
+   "tel": "",
+   "lat": 35.360398602374,
+   "lng": 126.433740531296,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(구간 시작점 지번주소)·ArcGIS World Geocoding)"
+  },
+  {
+   "id": "jn-yeonggwang-s004",
+   "mgmt_no": "341-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "불갑면사무소 갓길주차장",
+   "gu": "영광군",
+   "dong": "불갑면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 영광군 불갑면 안맹리 240-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "",
+   "lat": 35.209334076014,
+   "lng": 126.507046896269,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번주소)·ArcGIS World Geocoding)"
+  },
+  {
+   "id": "jn-yeonggwang-s005",
+   "mgmt_no": "341-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "단주로타리∼대신로타리",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "전라남도 영광군 영광읍 옥당로 180~옥당로 123",
+   "road": "옥당로",
+   "spaces": 21,
+   "tel": "",
+   "lat": 35.27798974201,
+   "lng": 126.500527787255,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(구간 시작점 도로명)·ArcGIS World Geocoding)"
+  },
+  {
+   "id": "jn-yeonggwang-s006",
+   "mgmt_no": "341-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "단주리 복개 주차장",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 영광군 영광읍 단주리 302",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "",
+   "lat": 35.284378801,
+   "lng": 126.5006239233,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-s007",
+   "mgmt_no": "341-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "만남의광장∼청우아파트",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "전라남도 영광군 영광읍 백학리 359-14~물무로 133",
+   "road": "359-14~물무로",
+   "spaces": 184,
+   "tel": "",
+   "lat": 35.278184621259,
+   "lng": 126.504869445462,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(구간 시작점 지번주소)·ArcGIS World Geocoding)"
+  },
+  {
+   "id": "jn-yeonggwang-s008",
+   "mgmt_no": "341-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "백옥온천 주차장",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "전라남도 영광군 영광읍 백산길 14",
+   "road": "백산길",
+   "spaces": 51,
+   "tel": "",
+   "lat": 35.27721892,
+   "lng": 126.5031894,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-s009",
+   "mgmt_no": "341-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "신남로 주차장",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "전라남도 영광군 영광읍 신남로 135~신남로 203",
+   "road": "신남로",
+   "spaces": 31,
+   "tel": "",
+   "lat": 35.275648760272,
+   "lng": 126.496951648266,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(구간 시작점 도로명)·ArcGIS World Geocoding)"
+  },
+  {
+   "id": "jn-yeonggwang-s010",
+   "mgmt_no": "341-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "영광경찰서 옆",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "",
+   "addr_road": "전라남도 영광군 영광읍 중앙로211",
+   "road": null,
+   "spaces": 18,
+   "tel": "",
+   "lat": 35.27815788,
+   "lng": 126.5124824,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  },
+  {
+   "id": "jn-yeonggwang-s011",
+   "mgmt_no": "341-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "해룡부동산 ~ 국수나무",
+   "gu": "영광군",
+   "dong": "영광읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전라남도 영광군 영광읍 백학리 383",
+   "addr_road": "",
+   "road": null,
+   "spaces": 4,
+   "tel": "",
+   "lat": 35.2764070475,
+   "lng": 126.5123211401,
+   "base_date": "2026-04-17",
+   "manager": "전라남도 영광군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 180,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조는 공영주차장 요금을 별표 1로 정하지만 이 곳은 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영광군",
+   "city_slug": "yeonggwang",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 16:43",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 77,
+  "원자료_영광군행수": 77,
+  "원자료_받은행수": 77,
+  "구별": {
+   "영광군": 66
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 66,
+  "노외_부설": {
+   "노외": 66
+  },
+  "노상_구간": 11,
+  "총_구획수": 7077,
+  "노상_구획수": 745,
+  "동별": {
+   "영광읍": 23,
+   "법성면": 14,
+   "백수읍": 10,
+   "불갑면": 9,
+   "염산면": 5,
+   "홍농읍": 4,
+   "대마면": 1
+  },
+  "동수": 7,
+  "동_미상": [],
+  "동_보정": [
+   "이름이 겹치는 주차장 영광매일시장제1주차장 — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다"
+  ],
+  "동_근거": {
+   "지번주소": 56,
+   "도로명주소": 10
+  },
+  "요금구분": {
+   "무료": 75,
+   "유료": 2
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 2,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 94건 있다 — 숲쟁이꽃동산 제2주차장·숲쟁이꽃동산 제1주차장(103m), 법성 5일시장 주차장·법성매립지 제9주차장(0m), 법성 뉴타운 공용주차장·법성매립지 제8주차장(150m), 법성 뉴타운 공용주차장·법성매립지 제5주차장(105m), 법성매립지 제8주차장·법성매립지 제5주차장(52m), 법성매립지 제7주차장·법성매립지 제6주차장(124m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 77행 전부 공영이라 77곳을 싣고 제외한 행은 없다(민영 0행). 데이터기준일자는 전부 2026-04-17이다. 관리기관은 77곳 전부 전라남도 영광군청이고 전화번호는 77곳 전부 공란이다",
+   "등록 급지는 77곳 전부 '기타'인데 조례 별표 1의 급지(1급지 영광읍 시내 상업지역·2급지 기타 이외의 지역)와 직접 대응하지 않는다 — 유료 2곳은 영광읍 시내라 1급지 소형으로 판정했고 무료 75곳은 급지가 요금에 영향을 주지 않는다",
+   "좌표 결측 14곳 중 12곳은 ArcGIS World Geocoding 반환 주소가 등록 주소와 번지까지 정확히 일치(score 100)해 오버레이(data/raw/좌표누락_지오코딩_20261118.json)로 채웠고, 숲쟁이꽃동산 제3주차장(법성면 진내리 650-4)과 홍농 상봉경로당 앞 주차장(홍농읍 상하길 230)은 정확히 일치하는 후보가 없어 비워 뒀다 — 군청 확인 과제다",
+   "숲쟁이꽃동산 제1·제2·제3주차장은 지번주소가 '법성면진내리 622-3'처럼 읍면과 리 사이에 공백이 없어 붙임 표기를 허용해 법성면으로 판정했다",
+   "묘량면·군서면·군남면·낙월면에는 등록된 공영주차장이 없다 — 군이 실제로 운영하는 무료 주차장이 더 있는지는 군청 확인 과제다",
+   "운영은 77곳 전부 평일+토요일+공휴일 08:00~20:00이고, 특기사항은 전부 공란, 부제시행구분은 전부 미시행, 장애인전용주차구역 보유여부는 Y 39곳·N 38곳이다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "영광터미널 공용주차장: 등록 요금(기본 120분 500원·추가 30분 500원·1일 5000원·월정기 35000원)은 추가 단위·1일·월정기가 조례 별표 1의 1급지 소형(120분 초과 시 30분당 500원·1일 5,000원·월정기 주간 35,000원)과 전부 일치하지만, 등록 기본요금 500원은 별표 1의 '최초 120분까지(1구획당) 무료'와 충돌한다 — 기본 구간의 구조가 조례와 상충해 계산기는 조례 별표 1 구조(최초 120분 무료·120분 초과 시 30분당 500원·1일 5,000원·월정기 주간 35,000원)로 적용한다(강진 아트홀 선례 — 구조가 상충하면 조례 우선). 별표 1 비고 4 나목(주차수요 등을 감안해 체중·체감방식을 적용할 수 있다)에 따른 별도 징수인지, 등록 기본요금을 실제로 받는지는 군청 확인 과제",
+   "우시장 주차광장: 등록 요금(기본 120분 500원·추가 30분 500원·1일 5000원·월정기 35000원)은 추가 단위·1일·월정기가 조례 별표 1의 1급지 소형(120분 초과 시 30분당 500원·1일 5,000원·월정기 주간 35,000원)과 전부 일치하지만, 등록 기본요금 500원은 별표 1의 '최초 120분까지(1구획당) 무료'와 충돌한다 — 기본 구간의 구조가 조례와 상충해 계산기는 조례 별표 1 구조(최초 120분 무료·120분 초과 시 30분당 500원·1일 5,000원·월정기 주간 35,000원)로 적용한다(강진 아트홀 선례 — 구조가 상충하면 조례 우선). 별표 1 비고 4 나목(주차수요 등을 감안해 체중·체감방식을 적용할 수 있다)에 따른 별도 징수인지, 등록 기본요금을 실제로 받는지는 군청 확인 과제"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [
+   "숲쟁이꽃동산 제3주차장",
+   "홍농 상봉경로당 앞 주차장"
+  ],
+  "도로명주소_없음": [
+   "대마산단 공유센터",
+   "백수해안도로 제1주차장",
+   "백수해안도로 제2주차장",
+   "백수해안도로 제3주차장",
+   "백수해안도로 제4주차장",
+   "백수해안도로 제5주차장",
+   "백수해안도로 제6주차장",
+   "백수해안도로 제7주차장",
+   "백수해안도로 제8주차장",
+   "백수해안도로 제9주차장",
+   "법성 5일시장 주차장",
+   "법성 뉴타운 공용주차장",
+   "법성매립지 제1주차장",
+   "법성매립지 제2주차장",
+   "법성매립지 제3주차장",
+   "법성매립지 제4주차장",
+   "법성매립지 제5주차장",
+   "법성매립지 제6주차장",
+   "법성매립지 제7주차장",
+   "법성매립지 제8주차장",
+   "법성매립지 제9주차장",
+   "숲쟁이꽃동산 제1주차장",
+   "숲쟁이꽃동산 제2주차장",
+   "숲쟁이꽃동산 제3주차장",
+   "불갑관광단지 임시주차장",
+   "불갑관광단지 제1주차장",
+   "불갑관광단지 제2주차장",
+   "불갑관광단지 제3주차장",
+   "불갑저수지 테마공원주차장",
+   "설도 젓갈타운 공용주차장",
+   "설도항 제1주차장",
+   "설도항 제2주차장",
+   "설도항 제3주차장",
+   "칠산타워 공용주차장",
+   "대성아파트 앞 포켓주차장",
+   "대신지구 제1주차장",
+   "대신지구 제2주차장",
+   "만남의 광장 주차장",
+   "명가감자탕 옆 주차장",
+   "물무산행복숲주차장",
+   "백학리 포켓주차장",
+   "스포티움 부설(양궁주차장)",
+   "스포티움 부설(제1주차장)",
+   "스포티움 부설(제2주차장)",
+   "스포티움 부설(제3주차장)",
+   "스포티움 부설(제4주차장)",
+   "스포티움 부설(제5주차장)",
+   "영광군청 부설주차장",
+   "영광군청 제1주차장",
+   "영광매일시장제1주차장 (영광읍 도동리 196)",
+   "영광매일시장제1주차장 (영광읍 도동리 270)",
+   "영광초등학교 앞 포켓주차장",
+   "우시장 주차광장",
+   "청소년문화센터 주차장",
+   "가마미해수욕장 공용주차장",
+   "가마미해수욕장 입구 공용주차장",
+   "백제불교도래지 갓길주차장",
+   "법성공원～제일굴비",
+   "진내리 갓길주차장",
+   "불갑면사무소 갓길주차장",
+   "단주리 복개 주차장",
+   "해룡부동산 ~ 국수나무"
+  ],
+  "감면_출처": "「영광군 주차장 설치 및 관리운영 조례」 제3116호 제4조 — 면제: ①「도로교통법」에 따른 긴급자동차 ②국가 또는 지방자치단체 소유의 자동차 중 공사 또는 업무수행 자동차 ③모범납세자로 표창을 받은 자로서 전남광주통합특별시장 또는 국세청장이 교부한 성실납세증 표지(스티커)를 부착한 차량(발행일로부터 1년). 50% 감면: ④국가유공자 또는 장애인 소유의 비상업용자동차 ⑤경형자동차 ⑥환경친화적 자동차 ⑦5·18민주유공자 소유의 비상업용자동차 ⑧고엽제후유증환자·고엽제후유의증환자·고엽제후유증 2세환자 소유의 비상업용자동차 ⑨저공해자동차 ⑩전통시장 상인 소유의 차량 ⑪병역명문가 예우대상자 및 예우대상자 가족 소유의 차량 ⑫임산부 소유의 차량. 둘 이상의 감면사유에 해당하면 그 중 감면율이 높은 어느 하나를 적용한다(제4조 본문). 본문 원문(data/raw/yeonggwang-ordinance.txt)·별표 1 원문(data/raw/yeonggwang-ordinance-b1.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 제3조·별표 1 — 공영주차장의 주차요금은 별표 1과 같이 한다. 별표 1은 급지×차종 요금표로 최초 120분까지 무료, 120분 초과 시 30분당 1급지 소형·대형 500원, 2급지 소형 200원·대형 300원, 1일 주차권 1급지 5,000원·2급지 소형 2,000원·대형 3,000원, 월정기 주간·야간 1급지 소형 35,000원·25,000원, 대형 50,000원·40,000원, 2급지 소형 20,000원·15,000원, 대형 35,000원·30,000원이다. 유료 2곳은 등록 기본요금이 별표 1의 무료 구간과 충돌해 조례 구조로 계산한다",
+  "급지_출처": "조례 별표 1 비고 3 — 급지는 지역별 주차장의 실태 및 주차난을 참작해 군수가 정하며 1급지는 영광읍 시내 상업지역, 2급지는 기타 이외의 지역이다. 표준데이터 등록 급지는 77곳 전부 '기타'라 별표의 급지와 직접 대응하지 않는다 — 유료 2곳은 둘 다 영광읍 시내(터미널·우시장)라 1급지 소형으로 판정했고, 무료 75곳은 요금을 받지 않아 급지가 요금에 영향을 주지 않는다",
+  "무료요일_출처": "무료 75곳은 요금 구분 '무료'라 요일별 무료 구분이 따로 없다. 유료 2곳도 조례에 요일별 무료 개방 규정이 없어 등록 운영요일(평일+토요일+공휴일 08:00~20:00) 그대로 운영한다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 영광군 등록 77행 전부 공영이라 77곳(노외 66·노상 11, 총 7,822면)을 싣고 제외한 행은 없다(민영 0행). 중복 제거 0건이다. 읍면별로는 영광읍 30곳·법성면 17곳·불갑면 10곳·백수읍 10곳·염산면 5곳·홍농읍 4곳·대마면 1곳이다(노외·노상 합산)",
+   "「영광군 주차장 설치 및 관리운영 조례」 제3116호(시행 2026-08-10, 공포 2026-08-10, 일부개정, ordinSeq 2160207) 본문 원문(data/raw/yeonggwang-ordinance.txt) 대조 완료(2026-11-20) — 제3116호의 개정 실내용은 전남광주통합특별시 명칭 변경 일괄개정과 제4조 표기 정비라 별표 1 요금은 바뀌지 않았다. 별도의 「영광군 청사 부설주차장 관리 조례」 제2818호(시행 2022-08-12, ordinSeq 1722627)가 있으나 등록된 군청 부설 2곳(영광군청 부설주차장 무령리 187·영광군청 제1주차장 무령리 186)이 모두 무료라 요금에 영향이 없다",
+   "별표 1은 HWP 원본(flSeq 168989585)을 data/raw/yeonggwang-ordinance-b1.hwp로 저장하고 본문 텍스트를 추출해 확정했다 — 급지(1급지 영광읍 시내 상업지역·2급지 기타 이외의 지역)×차종(소형 2.5톤 이하·대형 2.5톤 초과) 요금표다. 첨부파일 오등록이 아닌 근거는 셋이다 — ① 최신 공포본 제3116호의 개정이 명칭 변경 일괄개정이라 별표가 바뀔 수 없다 ② 본문 제13조제2항이 별표 1의 급지구분과 월정기주차권(주야간) 요금을 참조해 표 구조와 정합한다 ③ 등록 유료 2곳의 추가 단위요금·1일·월정기 금액이 별표 1급지 소형과 정확히 일치한다",
+   "유료 2곳(영광터미널 공용주차장·우시장 주차광장)은 등록 요금(기본 120분 500원·추가 30분 500원·1일 5,000원·월정기 35,000원)의 추가 단위·1일·월정기가 별표 1의 1급지 소형과 전부 일치하지만 등록 기본요금 500원이 별표 1의 '최초 120분까지 무료'와 충돌한다 — 기본 구간의 구조가 상충해 계산기는 조례 별표 1 구조(최초 120분 무료·초과 시 30분당 500원)로 적용했다(강진 아트홀 선례). 별표 1 비고 4 나목의 체중·체감방식 적용 여부와 등록 기본요금을 실제로 받는지는 군청 확인 과제다(급지_요금_차이에 기록)",
+   "등록 급지 대조 — 표준데이터 등록 급지는 77곳 전부 '기타'인데 조례 별표 1의 급지(1급지·2급지)와 직접 대응하지 않는다. 유료 2곳은 영광읍 시내 상업지역이라 1급지 소형으로 판정했고, 무료 75곳은 급지가 요금에 영향을 주지 않는다(급지_출처에 기록)",
+   "좌표는 63곳이 등록돼 있고 전부 영광군 범위(위도 35.1686~35.3975, 경도 126.3603~126.5766) 안이다. 결측 14곳 중 12곳은 ArcGIS World Geocoding 반환 주소가 등록 주소와 번지까지 정확히 일치(score 100)해 오버레이(data/raw/좌표누락_지오코딩_20261118.json)로 채웠다 — 노상 구간 5곳은 구간 시작점 주소로 대조했고, 불갑 수변공원 3곳(임시·폭포·제당)은 도로명주소 방마로 161이 같아 같은 좌표를 쓴다. 숲쟁이꽃동산 제3주차장(법성면 진내리 650-4)과 홍농 상봉경로당 앞 주차장(홍농읍 상하길 230)은 정확히 일치하는 후보가 없어(각각 동명이지 다른 리의 같은 번지 후보뿐·score 98.9) 비워 뒀다 — 군청 확인 과제다",
+   "같은 자리(동일 좌표)에 이름이 다른 등록이 겹친 그룹이 6건 있다 — 법성 5일시장 주차장·법성매립지 제9주차장(법성리 691), 법성매립지 제3·제4주차장(법성리 1216-5), 설도항 제1·제2·제3주차장(봉남리 695-16), 불갑관광단지 임시·제1·제2·제3주차장(모악리 408-2), 백수해안도로 제1~제9주차장(대신리 산234-11), 스포티움 부설 제1~제5·양궁주차장(단주리 672). 전부 이름·면수가 다른 별개 등록이라 합치지 않고 전부 실었다 — 실제로는 한 주차장의 구역별 분할 등록인지 군청 확인 과제다. 영광군청 부설주차장(무령리 187)과 영광군청 제1주차장(무령리 186)은 지번이 달라 인접한 별개 등록으로 본다",
+   "이름이 같은 등록이 1쌍 있다 — 영광매일시장제1주차장이 도동리 196(53면)과 도동리 270(81면)에 각각 등록돼 있다. 지번과 좌표가 서로 달라 중복으로 합치지 않고 둘 다 싣고 주소 끝부분으로 이름을 구분했다",
+   "묘량면·군서면·군남면·낙월면에는 등록된 공영주차장이 없다 — 군이 실제로 운영하는 무료 주차장이 더 있는지는 군청 확인 과제다",
+   "전화번호는 77곳 전부 공란이다 — 문의는 영광군청 건설교통과 061-350-5361(국가법령정보센터의 조례 담당 표기)로 안내한다. 관리기관은 77곳 전부 전라남도 영광군청이고 제공기관은 전남광주통합특별시 영광군이다. 운영은 77곳 전부 평일+토요일+공휴일 08:00~20:00이고 특기사항은 전부 공란, 부제시행구분은 전부 미시행, 장애인전용주차구역 보유여부는 Y 39곳·N 38곳이다"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 75,
+  "무료_구획수": 7470,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 77,
+  "데이터기준일": [
+   "2026-04-17"
+  ],
+  "관리기관": {
+   "전라남도 영광군청": 77
+  }
+ },
+ "fee_table": {
+  "style": "yeonggwang_grade",
+  "unit_min": 30,
+  "base_min": 120,
+  "applies": "조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「영광군 주차장 설치 및 관리운영 조례」 제3116호(시행 2026-08-10, 일부개정), ordinSeq 2160207. 본문 사본 data/raw/yeonggwang-ordinance.txt. 별표 1(공영주차장 주차요금표)은 HWP 원본을 data/raw/yeonggwang-ordinance-b1.hwp로 저장하고 본문 텍스트를 추출해 data/raw/yeonggwang-ordinance-b1.txt로 확인했다.",
+  "rows": [
+   {
+    "label": "1급지 소형",
+    "grade": "1",
+    "unit_label": "최초 120분까지 무료 · 120분 초과 시 30분당 500원 · 1일 5,000원 · 월정기 주간 35,000원·야간 25,000원",
+    "hour": 0,
+    "two_hour": 0,
+    "day": 5000,
+    "month": 35000,
+    "month_night": 25000,
+    "lots": 2
+   },
+   {
+    "label": "1급지 대형",
+    "grade": "1",
+    "unit_label": "최초 120분까지 무료 · 120분 초과 시 30분당 500원 · 1일 5,000원 · 월정기 주간 50,000원·야간 40,000원",
+    "hour": 0,
+    "two_hour": 0,
+    "day": 5000,
+    "month": 50000,
+    "month_night": 40000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 소형",
+    "grade": "2",
+    "unit_label": "최초 120분까지 무료 · 120분 초과 시 30분당 200원 · 1일 2,000원 · 월정기 주간 20,000원·야간 15,000원",
+    "hour": 0,
+    "two_hour": 0,
+    "day": 2000,
+    "month": 20000,
+    "month_night": 15000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 대형",
+    "grade": "2",
+    "unit_label": "최초 120분까지 무료 · 120분 초과 시 30분당 300원 · 1일 3,000원 · 월정기 주간 35,000원·야간 30,000원",
+    "hour": 0,
+    "two_hour": 0,
+    "day": 3000,
+    "month": 35000,
+    "month_night": 30000,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 2,
+   "street_paid": 0,
+   "free": 75,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "주간·야간 구분 (조례 별표 1 비고 2)",
+    "hours": "4월~10월 08:00~20:00, 11월~3월 09:00~19:30, 나머지는 야간",
+    "free": "월정기 주간·야간 요금을 가르는 기준이다 — 유료 2곳의 월정기 등록값 35,000원은 별표 1의 1급지 소형 주간 요금과 같다"
+   }
+  ],
+  "notes": "급지는 지역별 주차장의 실태 및 주차난을 참작해 군수가 정한다 — 1급지는 영광읍 시내 상업지역, 2급지는 기타 이외의 지역이다(비고 3). 차량 구분은 소형 2.5톤 이하(승용차 및 16인승 승합 포함), 대형 2.5톤 초과 차량이다(비고 4 가목). 주차요금은 별표의 금액을 기준으로 하되 군의 특성 및 차종에 따라 조정할 수 있고, 주차수요 등을 감안해 체중·체감방식을 적용할 수 있다(비고 4 나목). 일시적 목적으로 설치된 임시노외주차장의 주차요금은 심의위원회를 거쳐 군수가 따로 정할 수 있다(비고 4 다목). 주차장 이용의 활성화를 위해 필요하다고 판단하면 군수가 주차요금 징수시기를 유예할 수 있다(비고 5). 이 표는 「주차장법」 제7조제1항 및 제12조제1항에 따라 설치한 주차장에 적용한다(비고 1). 감면은 긴급자동차·국가 및 지방자치단체 공용차량·모범납세자 면제와 국가유공자·장애인·경형자동차·환경친화적 자동차·5·18민주유공자·고엽제후유증환자 등·저공해자동차·전통시장 상인·병역명문가·임산부 50% 감면이다(제4조). 표준데이터 등록 급지는 77곳 전부 '기타'라 별표 1의 급지와 직접 대응하지 않아 행 판정에 쓰지 않았고, 유료 2곳은 영광읍 시내라 1급지 소형으로 판정했다.",
+  "basis": "요금표는 「영광군 주차장 설치 및 관리운영 조례」 제3116호(시행 2026-08-10) 제3조·별표 1과 표준데이터(기준일 2026-04-17)를 대조해 실었다. 유료 2곳(영광터미널 공용주차장·우시장 주차광장)은 등록 기본요금(120분 500원)이 별표 1의 '최초 120분까지 무료'와 충돌해 조례 별표 1 구조로 계산하고 무료 75곳은 요금을 받지 않는다. (조례 본문: data/raw/yeonggwang-ordinance.txt, 별표 1 원문: data/raw/yeonggwang-ordinance-b1.txt)"
+ },
+ "slug": "yeonggwang",
+ "province": "전남광주통합특별시",
+ "province_slug": "jeonnam",
+ "dong_page_min_lots": 3,
+ "city": "영광군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제4조제1호 — 「도로교통법」에 따른 긴급자동차는 주차요금을 면제한다"
+  },
+  {
+   "label": "국가·지방자치단체 공용 차량 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제4조제2호 — 국가 또는 지방자치단체 소유의 자동차 중 공사 또는 업무수행 자동차는 주차요금을 면제한다"
+  },
+  {
+   "label": "모범납세자 면제 (발행일로부터 1년)",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제4조제3호 — 모범납세자로 표창을 받은 자로서 전남광주통합특별시장 또는 국세청장이 교부한 성실납세증 표지(스티커)를 부착한 차량에 대하여는 발행일로부터 1년간 주차요금을 면제한다"
+  },
+  {
+   "label": "국가유공자·장애인 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제4조제4호 — 「국가유공자 등 예우 및 지원에 관한 법률」에 따른 국가유공자 또는 「장애인복지법」에 따른 장애인 소유의 비상업용자동차에 대하여는 주차요금의 50%를 감면한다"
+  },
+  {
+   "label": "경형자동차 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제4조제5호 — 「자동차관리법 시행규칙」에 따른 경형자동차에 대하여는 주차요금의 50%를 감면한다"
+  },
+  {
+   "label": "환경친화적 자동차 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제4조제6호 — 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」에 따른 환경친화적 자동차에 대하여는 주차요금의 50%를 감면한다"
+  },
+  {
+   "label": "5·18민주유공자·고엽제후유증환자 등 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제4조제7·8호 — 「5·18민주유공자예우 및 단체설립에 관한 법률」에 따른 5·18민주유공자와 「고엽제후유의증 등 환자지원 및 단체설립에 관한 법률」에 따른 고엽제후유증환자·고엽제후유의증환자·고엽제후유증 2세환자 소유의 비상업용자동차에 대하여는 주차요금의 50%를 감면한다"
+  },
+  {
+   "label": "저공해자동차 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제4조제9호 — 「대기환경보전법」에 따른 저공해자동차에 대하여는 주차요금의 50%를 감면한다"
+  },
+  {
+   "label": "전통시장 상인 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제4조제10호 — 「전통시장 및 상점가 육성을 위한 특별법」에 따른 전통시장 상인 소유의 차량에 대하여는 주차요금의 50%를 감면한다"
+  },
+  {
+   "label": "병역명문가 예우대상자 및 가족 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제4조제11호 — 「영광군 병역명문가 예우 및 지원에 관한 조례」에 따른 예우대상자 및 예우대상자 가족 소유의 차량에 대하여는 주차요금의 50%를 감면한다"
+  },
+  {
+   "label": "임산부 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제4조제12호 — 「모자보건법」에 따른 임산부 소유의 차량에 대하여는 주차요금의 50%를 감면한다. 둘 이상의 감면사유에 해당하면 그 중 감면율이 높은 어느 하나를 적용한다(제4조 본문)"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
