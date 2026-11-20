@@ -42,6 +42,7 @@
 </div>
 <div class="note-box" style="margin-top:14px">
   <p><b>야간 무료 개방</b> 67곳 · <b>공휴일에만 무료</b> 722곳.
+  요금 구분이 ‘무료’인 곳은 4839곳 · 총 200,956면입니다(노상 구간 제외).
   주차장 카드의 ‘무료’ 표기와 무료 시간을 함께 보세요.</p>
   <p>노상(거리) 주차구간은 카드로 세지 않았습니다 — 무료로 쓸 수 있는 노상 구간 2831곳은 각 지역의
   <a href="../../parking/regions/">지역 페이지</a> 안 노상주차장 요금 페이지와 무료 개방 페이지 표에 있습니다.</p>
@@ -53,379 +54,418 @@
   <a href="#night">야간 67</a>
 </nav>
 <h2 id="all">지역별 무료 주차장</h2>
-<h3 class="prov">경기도</h3><div class="grid-2"><a class="link-card" href="../../parking/gyeonggi/suwon/">
+
+<div class="hero-search">
+  <label for="region-q">지역명으로 찾기</label>
+  <div class="hs-row">
+    <input type="search" id="region-q" placeholder="시·군·구 이름을 입력하세요" autocomplete="off">
+  </div>
+  <p class="ff-status" id="region-q-status" aria-live="polite"></p>
+</div>
+<script>
+(function () {
+  var input = document.getElementById('region-q');
+  if (!input) return;
+  var items = Array.prototype.slice.call(document.querySelectorAll('[data-name]'));
+  var groups = Array.prototype.slice.call(document.querySelectorAll('[data-group]'));
+  var status = document.getElementById('region-q-status');
+  function norm(s) { return (s || '').replace(/\s+/g, ''); }
+  function apply() {
+    var q = norm(input.value);
+    var shown = 0;
+    items.forEach(function (el) {
+      var hit = !q || norm(el.getAttribute('data-name')).indexOf(q) !== -1;
+      el.style.display = hit ? '' : 'none';
+      if (hit) shown += 1;
+    });
+    groups.forEach(function (g) {
+      var any = false;
+      Array.prototype.forEach.call(g.querySelectorAll('[data-name]'), function (el) {
+        if (el.style.display !== 'none') any = true;
+      });
+      g.style.display = any ? '' : 'none';
+    });
+    if (status) {
+      status.textContent = !q ? '' : (shown ? shown + '개 지역을 찾았습니다.' : '검색 결과가 없습니다. 지역명을 확인해 주세요.');
+    }
+  }
+  input.addEventListener('input', apply);
+})();
+</script>
+
+<section data-group><h3 class="prov">경기도 · <a href="../../parking/gyeonggi/free/">경기도 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="경기도 수원시" href="../../parking/gyeonggi/suwon/">
   <span class="t">수원시<span class="go">2곳 →</span></span>
-  <span class="d">무료 0 · 주말·공휴일 1 · 야간 1</span>
-</a><a class="link-card" href="../../parking/gyeonggi/yongin/free/">
+  <span class="d">무료 0곳 · 0면 · 주말·공휴일 1 · 야간 1</span>
+</a><a class="link-card" data-name="경기도 용인시" href="../../parking/gyeonggi/yongin/free/">
   <span class="t">용인시<span class="go">116곳 →</span></span>
-  <span class="d">무료 116 · 주말·공휴일 116 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/hwaseong/free/">
+  <span class="d">무료 116곳 · 6,354면 · 주말·공휴일 116 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 화성시" href="../../parking/gyeonggi/hwaseong/free/">
   <span class="t">화성시<span class="go">22곳 →</span></span>
-  <span class="d">무료 18 · 주말·공휴일 22 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/anyang/free/">
+  <span class="d">무료 18곳 · 1,187면 · 주말·공휴일 22 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 안양시" href="../../parking/gyeonggi/anyang/free/">
   <span class="t">안양시<span class="go">35곳 →</span></span>
-  <span class="d">무료 35 · 주말·공휴일 35 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/pyeongtaek/free/">
+  <span class="d">무료 35곳 · 1,088면 · 주말·공휴일 35 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 평택시" href="../../parking/gyeonggi/pyeongtaek/free/">
   <span class="t">평택시<span class="go">34곳 →</span></span>
-  <span class="d">무료 34 · 주말·공휴일 34 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/bucheon/free/">
+  <span class="d">무료 34곳 · 1,250면 · 주말·공휴일 34 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 부천시" href="../../parking/gyeonggi/bucheon/free/">
   <span class="t">부천시<span class="go">20곳 →</span></span>
-  <span class="d">무료 1 · 주말·공휴일 20 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/goyang/free/">
+  <span class="d">무료 1곳 · 25면 · 주말·공휴일 20 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 고양시" href="../../parking/gyeonggi/goyang/free/">
   <span class="t">고양시<span class="go">22곳 →</span></span>
-  <span class="d">무료 22 · 주말·공휴일 22 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/namyangju/free/">
+  <span class="d">무료 22곳 · 718면 · 주말·공휴일 22 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 남양주시" href="../../parking/gyeonggi/namyangju/free/">
   <span class="t">남양주시<span class="go">8곳 →</span></span>
-  <span class="d">무료 8 · 주말·공휴일 8 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/ansan/free/">
+  <span class="d">무료 8곳 · 395면 · 주말·공휴일 8 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 안산시" href="../../parking/gyeonggi/ansan/free/">
   <span class="t">안산시<span class="go">100곳 →</span></span>
-  <span class="d">무료 100 · 주말·공휴일 100 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/siheung/free/">
+  <span class="d">무료 100곳 · 4,530면 · 주말·공휴일 100 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 시흥시" href="../../parking/gyeonggi/siheung/free/">
   <span class="t">시흥시<span class="go">167곳 →</span></span>
-  <span class="d">무료 83 · 주말·공휴일 167 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/uijeongbu/free/">
+  <span class="d">무료 83곳 · 3,217면 · 주말·공휴일 167 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 의정부시" href="../../parking/gyeonggi/uijeongbu/free/">
   <span class="t">의정부시<span class="go">15곳 →</span></span>
-  <span class="d">무료 15 · 주말·공휴일 15 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/gimpo/free/">
+  <span class="d">무료 15곳 · 441면 · 주말·공휴일 15 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 김포시" href="../../parking/gyeonggi/gimpo/free/">
   <span class="t">김포시<span class="go">40곳 →</span></span>
-  <span class="d">무료 2 · 주말·공휴일 0 · 야간 38</span>
-</a><a class="link-card" href="../../parking/gyeonggi/paju/free/">
+  <span class="d">무료 2곳 · 152면 · 주말·공휴일 0 · 야간 38</span>
+</a><a class="link-card" data-name="경기도 파주시" href="../../parking/gyeonggi/paju/free/">
   <span class="t">파주시<span class="go">91곳 →</span></span>
-  <span class="d">무료 65 · 주말·공휴일 26 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/gwangju/free/">
+  <span class="d">무료 65곳 · 4,426면 · 주말·공휴일 26 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 광주시" href="../../parking/gyeonggi/gwangju/free/">
   <span class="t">광주시<span class="go">33곳 →</span></span>
-  <span class="d">무료 33 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/hanam/free/">
+  <span class="d">무료 33곳 · 1,317면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 하남시" href="../../parking/gyeonggi/hanam/free/">
   <span class="t">하남시<span class="go">5곳 →</span></span>
-  <span class="d">무료 5 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/gunpo/free/">
+  <span class="d">무료 5곳 · 161면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 군포시" href="../../parking/gyeonggi/gunpo/free/">
   <span class="t">군포시<span class="go">35곳 →</span></span>
-  <span class="d">무료 11 · 주말·공휴일 2 · 야간 24</span>
-</a><a class="link-card" href="../../parking/gyeonggi/gwangmyeong/">
+  <span class="d">무료 11곳 · 303면 · 주말·공휴일 2 · 야간 24</span>
+</a><a class="link-card" data-name="경기도 광명시" href="../../parking/gyeonggi/gwangmyeong/">
   <span class="t">광명시<span class="go">3곳 →</span></span>
-  <span class="d">무료 2 · 주말·공휴일 1 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/guri/">
+  <span class="d">무료 2곳 · 31면 · 주말·공휴일 1 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 구리시" href="../../parking/gyeonggi/guri/">
   <span class="t">구리시<span class="go">3곳 →</span></span>
-  <span class="d">무료 0 · 주말·공휴일 3 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/osan/free/">
+  <span class="d">무료 0곳 · 0면 · 주말·공휴일 3 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 오산시" href="../../parking/gyeonggi/osan/free/">
   <span class="t">오산시<span class="go">25곳 →</span></span>
-  <span class="d">무료 25 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/icheon/free/">
+  <span class="d">무료 25곳 · 1,148면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 이천시" href="../../parking/gyeonggi/icheon/free/">
   <span class="t">이천시<span class="go">17곳 →</span></span>
-  <span class="d">무료 17 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/anseong/free/">
+  <span class="d">무료 17곳 · 1,832면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 안성시" href="../../parking/gyeonggi/anseong/free/">
   <span class="t">안성시<span class="go">28곳 →</span></span>
-  <span class="d">무료 28 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/yangju/free/">
+  <span class="d">무료 28곳 · 1,271면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 양주시" href="../../parking/gyeonggi/yangju/free/">
   <span class="t">양주시<span class="go">28곳 →</span></span>
-  <span class="d">무료 20 · 주말·공휴일 8 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/pocheon/free/">
+  <span class="d">무료 20곳 · 1,095면 · 주말·공휴일 8 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 포천시" href="../../parking/gyeonggi/pocheon/free/">
   <span class="t">포천시<span class="go">58곳 →</span></span>
-  <span class="d">무료 55 · 주말·공휴일 3 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/uiwang/free/">
+  <span class="d">무료 55곳 · 2,740면 · 주말·공휴일 3 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 의왕시" href="../../parking/gyeonggi/uiwang/free/">
   <span class="t">의왕시<span class="go">10곳 →</span></span>
-  <span class="d">무료 5 · 주말·공휴일 5 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/yeoju/free/">
+  <span class="d">무료 5곳 · 132면 · 주말·공휴일 5 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 여주시" href="../../parking/gyeonggi/yeoju/free/">
   <span class="t">여주시<span class="go">23곳 →</span></span>
-  <span class="d">무료 14 · 주말·공휴일 9 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/dongducheon/free/">
+  <span class="d">무료 14곳 · 1,098면 · 주말·공휴일 9 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 동두천시" href="../../parking/gyeonggi/dongducheon/free/">
   <span class="t">동두천시<span class="go">39곳 →</span></span>
-  <span class="d">무료 26 · 주말·공휴일 13 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/gwacheon/free/">
+  <span class="d">무료 26곳 · 850면 · 주말·공휴일 13 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 과천시" href="../../parking/gyeonggi/gwacheon/free/">
   <span class="t">과천시<span class="go">80곳 →</span></span>
-  <span class="d">무료 55 · 주말·공휴일 25 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/gapyeong/free/">
+  <span class="d">무료 55곳 · 704면 · 주말·공휴일 25 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 가평군" href="../../parking/gyeonggi/gapyeong/free/">
   <span class="t">가평군<span class="go">25곳 →</span></span>
-  <span class="d">무료 25 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/yangpyeong/free/">
+  <span class="d">무료 25곳 · 743면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 양평군" href="../../parking/gyeonggi/yangpyeong/free/">
   <span class="t">양평군<span class="go">47곳 →</span></span>
-  <span class="d">무료 44 · 주말·공휴일 3 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gyeonggi/yeoncheon/free/">
+  <span class="d">무료 44곳 · 4,365면 · 주말·공휴일 3 · 야간 0</span>
+</a><a class="link-card" data-name="경기도 연천군" href="../../parking/gyeonggi/yeoncheon/free/">
   <span class="t">연천군<span class="go">6곳 →</span></span>
-  <span class="d">무료 6 · 주말·공휴일 0 · 야간 0</span>
-</a></div><h3 class="prov">서울특별시</h3><div class="grid-2"><a class="link-card" href="../../parking/seoul/jongno/">
+  <span class="d">무료 6곳 · 331면 · 주말·공휴일 0 · 야간 0</span>
+</a></div></section><section data-group><h3 class="prov">서울특별시 · <a href="../../parking/seoul/free/">서울특별시 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="서울특별시 종로구" href="../../parking/seoul/jongno/">
   <span class="t">종로구<span class="go">2곳 →</span></span>
-  <span class="d">무료 0 · 주말·공휴일 2 · 야간 0</span>
-</a><a class="link-card" href="../../parking/seoul/jung/">
+  <span class="d">무료 0곳 · 0면 · 주말·공휴일 2 · 야간 0</span>
+</a><a class="link-card" data-name="서울특별시 중구" href="../../parking/seoul/jung/">
   <span class="t">중구<span class="go">2곳 →</span></span>
-  <span class="d">무료 0 · 주말·공휴일 2 · 야간 0</span>
-</a><a class="link-card" href="../../parking/seoul/yongsan/">
+  <span class="d">무료 0곳 · 0면 · 주말·공휴일 2 · 야간 0</span>
+</a><a class="link-card" data-name="서울특별시 용산구" href="../../parking/seoul/yongsan/">
   <span class="t">용산구<span class="go">2곳 →</span></span>
-  <span class="d">무료 0 · 주말·공휴일 2 · 야간 0</span>
-</a><a class="link-card" href="../../parking/seoul/gangnam/">
+  <span class="d">무료 0곳 · 0면 · 주말·공휴일 2 · 야간 0</span>
+</a><a class="link-card" data-name="서울특별시 강남구" href="../../parking/seoul/gangnam/">
   <span class="t">강남구<span class="go">4곳 →</span></span>
-  <span class="d">무료 0 · 주말·공휴일 4 · 야간 0</span>
-</a><a class="link-card" href="../../parking/seoul/gangdong/">
+  <span class="d">무료 0곳 · 0면 · 주말·공휴일 4 · 야간 0</span>
+</a><a class="link-card" data-name="서울특별시 강동구" href="../../parking/seoul/gangdong/">
   <span class="t">강동구<span class="go">1곳 →</span></span>
-  <span class="d">무료 0 · 주말·공휴일 1 · 야간 0</span>
-</a><a class="link-card" href="../../parking/seoul/yangcheon/free/">
+  <span class="d">무료 0곳 · 0면 · 주말·공휴일 1 · 야간 0</span>
+</a><a class="link-card" data-name="서울특별시 양천구" href="../../parking/seoul/yangcheon/free/">
   <span class="t">양천구<span class="go">16곳 →</span></span>
-  <span class="d">무료 1 · 주말·공휴일 15 · 야간 0</span>
-</a><a class="link-card" href="../../parking/seoul/gangseo/free/">
+  <span class="d">무료 1곳 · 285면 · 주말·공휴일 15 · 야간 0</span>
+</a><a class="link-card" data-name="서울특별시 강서구" href="../../parking/seoul/gangseo/free/">
   <span class="t">강서구<span class="go">15곳 →</span></span>
-  <span class="d">무료 0 · 주말·공휴일 15 · 야간 0</span>
-</a><a class="link-card" href="../../parking/seoul/gwangjin/">
+  <span class="d">무료 0곳 · 0면 · 주말·공휴일 15 · 야간 0</span>
+</a><a class="link-card" data-name="서울특별시 광진구" href="../../parking/seoul/gwangjin/">
   <span class="t">광진구<span class="go">1곳 →</span></span>
-  <span class="d">무료 0 · 주말·공휴일 1 · 야간 0</span>
-</a><a class="link-card" href="../../parking/seoul/seongbuk/">
+  <span class="d">무료 0곳 · 0면 · 주말·공휴일 1 · 야간 0</span>
+</a><a class="link-card" data-name="서울특별시 성북구" href="../../parking/seoul/seongbuk/">
   <span class="t">성북구<span class="go">1곳 →</span></span>
-  <span class="d">무료 0 · 주말·공휴일 1 · 야간 0</span>
-</a><a class="link-card" href="../../parking/seoul/dobong/">
+  <span class="d">무료 0곳 · 0면 · 주말·공휴일 1 · 야간 0</span>
+</a><a class="link-card" data-name="서울특별시 도봉구" href="../../parking/seoul/dobong/">
   <span class="t">도봉구<span class="go">1곳 →</span></span>
-  <span class="d">무료 1 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/seoul/nowon/free/">
+  <span class="d">무료 1곳 · 190면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="서울특별시 노원구" href="../../parking/seoul/nowon/free/">
   <span class="t">노원구<span class="go">6곳 →</span></span>
-  <span class="d">무료 0 · 주말·공휴일 6 · 야간 0</span>
-</a><a class="link-card" href="../../parking/seoul/geumcheon/">
+  <span class="d">무료 0곳 · 0면 · 주말·공휴일 6 · 야간 0</span>
+</a><a class="link-card" data-name="서울특별시 금천구" href="../../parking/seoul/geumcheon/">
   <span class="t">금천구<span class="go">2곳 →</span></span>
-  <span class="d">무료 0 · 주말·공휴일 2 · 야간 0</span>
-</a><a class="link-card" href="../../parking/seoul/gwanak/">
+  <span class="d">무료 0곳 · 0면 · 주말·공휴일 2 · 야간 0</span>
+</a><a class="link-card" data-name="서울특별시 관악구" href="../../parking/seoul/gwanak/">
   <span class="t">관악구<span class="go">1곳 →</span></span>
-  <span class="d">무료 0 · 주말·공휴일 1 · 야간 0</span>
-</a></div><h3 class="prov">인천광역시</h3><div class="grid-2"><a class="link-card" href="../../parking/incheon/michuhol/free/">
+  <span class="d">무료 0곳 · 0면 · 주말·공휴일 1 · 야간 0</span>
+</a></div></section><section data-group><h3 class="prov">인천광역시 · <a href="../../parking/incheon/free/">인천광역시 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="인천광역시 미추홀구" href="../../parking/incheon/michuhol/free/">
   <span class="t">미추홀구<span class="go">21곳 →</span></span>
-  <span class="d">무료 21 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/incheon/yeonsu/free/">
+  <span class="d">무료 21곳 · 222면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="인천광역시 연수구" href="../../parking/incheon/yeonsu/free/">
   <span class="t">연수구<span class="go">26곳 →</span></span>
-  <span class="d">무료 26 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/incheon/namdong/free/">
+  <span class="d">무료 26곳 · 1,334면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="인천광역시 남동구" href="../../parking/incheon/namdong/free/">
   <span class="t">남동구<span class="go">29곳 →</span></span>
-  <span class="d">무료 29 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/incheon/jemulpo/free/">
+  <span class="d">무료 29곳 · 334면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="인천광역시 제물포구" href="../../parking/incheon/jemulpo/free/">
   <span class="t">제물포구<span class="go">69곳 →</span></span>
-  <span class="d">무료 66 · 주말·공휴일 3 · 야간 0</span>
-</a><a class="link-card" href="../../parking/incheon/yeongjong/">
+  <span class="d">무료 66곳 · 1,396면 · 주말·공휴일 3 · 야간 0</span>
+</a><a class="link-card" data-name="인천광역시 영종구" href="../../parking/incheon/yeongjong/">
   <span class="t">영종구<span class="go">4곳 →</span></span>
-  <span class="d">무료 4 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/incheon/bupyeong/free/">
+  <span class="d">무료 4곳 · 84면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="인천광역시 부평구" href="../../parking/incheon/bupyeong/free/">
   <span class="t">부평구<span class="go">29곳 →</span></span>
-  <span class="d">무료 29 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/incheon/gyeyang/free/">
+  <span class="d">무료 29곳 · 507면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="인천광역시 계양구" href="../../parking/incheon/gyeyang/free/">
   <span class="t">계양구<span class="go">15곳 →</span></span>
-  <span class="d">무료 15 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/incheon/geomdan/free/">
+  <span class="d">무료 15곳 · 245면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="인천광역시 검단구" href="../../parking/incheon/geomdan/free/">
   <span class="t">검단구<span class="go">7곳 →</span></span>
-  <span class="d">무료 7 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/incheon/ganghwa/free/">
+  <span class="d">무료 7곳 · 296면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="인천광역시 강화군" href="../../parking/incheon/ganghwa/free/">
   <span class="t">강화군<span class="go">42곳 →</span></span>
-  <span class="d">무료 42 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/incheon/ongjin/free/">
+  <span class="d">무료 42곳 · 4,665면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="인천광역시 옹진군" href="../../parking/incheon/ongjin/free/">
   <span class="t">옹진군<span class="go">41곳 →</span></span>
-  <span class="d">무료 41 · 주말·공휴일 0 · 야간 0</span>
-</a></div><h3 class="prov">부산광역시</h3><div class="grid-2"><a class="link-card" href="../../parking/busan/yeongdo-gu/">
+  <span class="d">무료 41곳 · 1,866면 · 주말·공휴일 0 · 야간 0</span>
+</a></div></section><section data-group><h3 class="prov">부산광역시 · <a href="../../parking/busan/free/">부산광역시 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="부산광역시 부산 영도구" href="../../parking/busan/yeongdo-gu/">
   <span class="t">부산 영도구<span class="go">1곳 →</span></span>
-  <span class="d">무료 1 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/busan/busanjin-gu/">
+  <span class="d">무료 1곳 · 61면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="부산광역시 부산 부산진구" href="../../parking/busan/busanjin-gu/">
   <span class="t">부산 부산진구<span class="go">1곳 →</span></span>
-  <span class="d">무료 0 · 주말·공휴일 1 · 야간 0</span>
-</a><a class="link-card" href="../../parking/busan/dongnae-gu/">
+  <span class="d">무료 0곳 · 0면 · 주말·공휴일 1 · 야간 0</span>
+</a><a class="link-card" data-name="부산광역시 부산 동래구" href="../../parking/busan/dongnae-gu/">
   <span class="t">부산 동래구<span class="go">3곳 →</span></span>
-  <span class="d">무료 3 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/busan/geumjeong-gu/">
+  <span class="d">무료 3곳 · 68면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="부산광역시 부산 금정구" href="../../parking/busan/geumjeong-gu/">
   <span class="t">부산 금정구<span class="go">4곳 →</span></span>
-  <span class="d">무료 4 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/busan/yeonje-gu/">
+  <span class="d">무료 4곳 · 251면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="부산광역시 부산 연제구" href="../../parking/busan/yeonje-gu/">
   <span class="t">부산 연제구<span class="go">1곳 →</span></span>
-  <span class="d">무료 1 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/busan/gangseo-gu/free/">
+  <span class="d">무료 1곳 · 28면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="부산광역시 부산 강서구" href="../../parking/busan/gangseo-gu/free/">
   <span class="t">부산 강서구<span class="go">7곳 →</span></span>
-  <span class="d">무료 7 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/busan/sasang-gu/">
+  <span class="d">무료 7곳 · 544면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="부산광역시 부산 사상구" href="../../parking/busan/sasang-gu/">
   <span class="t">부산 사상구<span class="go">1곳 →</span></span>
-  <span class="d">무료 1 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/busan/gijang-gun/free/">
+  <span class="d">무료 1곳 · 63면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="부산광역시 부산 기장군" href="../../parking/busan/gijang-gun/free/">
   <span class="t">부산 기장군<span class="go">18곳 →</span></span>
-  <span class="d">무료 18 · 주말·공휴일 0 · 야간 0</span>
-</a></div><h3 class="prov">대구광역시</h3><div class="grid-2"><a class="link-card" href="../../parking/daegu/dong-gu/free/">
+  <span class="d">무료 18곳 · 652면 · 주말·공휴일 0 · 야간 0</span>
+</a></div></section><section data-group><h3 class="prov">대구광역시 · <a href="../../parking/daegu/free/">대구광역시 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="대구광역시 대구 동구" href="../../parking/daegu/dong-gu/free/">
   <span class="t">대구 동구<span class="go">7곳 →</span></span>
-  <span class="d">무료 7 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/daegu/seo-gu/">
+  <span class="d">무료 7곳 · 277면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="대구광역시 대구 서구" href="../../parking/daegu/seo-gu/">
   <span class="t">대구 서구<span class="go">1곳 →</span></span>
-  <span class="d">무료 1 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/daegu/nam-gu/free/">
+  <span class="d">무료 1곳 · 47면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="대구광역시 대구 남구" href="../../parking/daegu/nam-gu/free/">
   <span class="t">대구 남구<span class="go">14곳 →</span></span>
-  <span class="d">무료 14 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/daegu/buk-gu/free/">
+  <span class="d">무료 14곳 · 203면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="대구광역시 대구 북구" href="../../parking/daegu/buk-gu/free/">
   <span class="t">대구 북구<span class="go">32곳 →</span></span>
-  <span class="d">무료 32 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/daegu/suseong-gu/free/">
+  <span class="d">무료 32곳 · 2,202면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="대구광역시 대구 수성구" href="../../parking/daegu/suseong-gu/free/">
   <span class="t">대구 수성구<span class="go">22곳 →</span></span>
-  <span class="d">무료 22 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/daegu/dalseo-gu/free/">
+  <span class="d">무료 22곳 · 1,254면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="대구광역시 대구 달서구" href="../../parking/daegu/dalseo-gu/free/">
   <span class="t">대구 달서구<span class="go">51곳 →</span></span>
-  <span class="d">무료 50 · 주말·공휴일 1 · 야간 0</span>
-</a><a class="link-card" href="../../parking/daegu/dalseong-gun/free/">
+  <span class="d">무료 50곳 · 1,814면 · 주말·공휴일 1 · 야간 0</span>
+</a><a class="link-card" data-name="대구광역시 대구 달성군" href="../../parking/daegu/dalseong-gun/free/">
   <span class="t">대구 달성군<span class="go">86곳 →</span></span>
-  <span class="d">무료 86 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/daegu/gunwi-gun/free/">
+  <span class="d">무료 86곳 · 4,148면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="대구광역시 대구 군위군" href="../../parking/daegu/gunwi-gun/free/">
   <span class="t">대구 군위군<span class="go">52곳 →</span></span>
-  <span class="d">무료 52 · 주말·공휴일 0 · 야간 0</span>
-</a></div><h3 class="prov">대전광역시</h3><div class="grid-2"><a class="link-card" href="../../parking/daejeon/dong-gu/free/">
+  <span class="d">무료 52곳 · 2,009면 · 주말·공휴일 0 · 야간 0</span>
+</a></div></section><section data-group><h3 class="prov">대전광역시 · <a href="../../parking/daejeon/free/">대전광역시 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="대전광역시 대전 동구" href="../../parking/daejeon/dong-gu/free/">
   <span class="t">대전 동구<span class="go">39곳 →</span></span>
-  <span class="d">무료 39 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/daejeon/jung-gu/free/">
+  <span class="d">무료 39곳 · 1,160면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="대전광역시 대전 중구" href="../../parking/daejeon/jung-gu/free/">
   <span class="t">대전 중구<span class="go">47곳 →</span></span>
-  <span class="d">무료 47 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/daejeon/seo-gu/free/">
+  <span class="d">무료 47곳 · 1,548면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="대전광역시 대전 서구" href="../../parking/daejeon/seo-gu/free/">
   <span class="t">대전 서구<span class="go">48곳 →</span></span>
-  <span class="d">무료 48 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/daejeon/yuseong-gu/free/">
+  <span class="d">무료 48곳 · 1,300면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="대전광역시 대전 유성구" href="../../parking/daejeon/yuseong-gu/free/">
   <span class="t">대전 유성구<span class="go">70곳 →</span></span>
-  <span class="d">무료 70 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/daejeon/daedeok-gu/free/">
+  <span class="d">무료 70곳 · 2,782면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="대전광역시 대전 대덕구" href="../../parking/daejeon/daedeok-gu/free/">
   <span class="t">대전 대덕구<span class="go">10곳 →</span></span>
-  <span class="d">무료 10 · 주말·공휴일 0 · 야간 0</span>
-</a></div><h3 class="prov">광주광역시</h3><div class="grid-2"><a class="link-card" href="../../parking/gwangju/dong-gu/free/">
+  <span class="d">무료 10곳 · 536면 · 주말·공휴일 0 · 야간 0</span>
+</a></div></section><section data-group><h3 class="prov">광주광역시 · <a href="../../parking/gwangju/free/">광주광역시 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="광주광역시 광주 동구" href="../../parking/gwangju/dong-gu/free/">
   <span class="t">광주 동구<span class="go">47곳 →</span></span>
-  <span class="d">무료 47 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gwangju/seo-gu/free/">
+  <span class="d">무료 47곳 · 770면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="광주광역시 광주 서구" href="../../parking/gwangju/seo-gu/free/">
   <span class="t">광주 서구<span class="go">58곳 →</span></span>
-  <span class="d">무료 58 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gwangju/nam-gu/free/">
+  <span class="d">무료 58곳 · 1,956면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="광주광역시 광주 남구" href="../../parking/gwangju/nam-gu/free/">
   <span class="t">광주 남구<span class="go">23곳 →</span></span>
-  <span class="d">무료 23 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gwangju/buk-gu/free/">
+  <span class="d">무료 23곳 · 641면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="광주광역시 광주 북구" href="../../parking/gwangju/buk-gu/free/">
   <span class="t">광주 북구<span class="go">64곳 →</span></span>
-  <span class="d">무료 64 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/gwangju/gwangsan-gu/free/">
+  <span class="d">무료 64곳 · 992면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="광주광역시 광주 광산구" href="../../parking/gwangju/gwangsan-gu/free/">
   <span class="t">광주 광산구<span class="go">36곳 →</span></span>
-  <span class="d">무료 36 · 주말·공휴일 0 · 야간 0</span>
-</a></div><h3 class="prov">울산광역시</h3><div class="grid-2"><a class="link-card" href="../../parking/ulsan/nam-gu/free/">
+  <span class="d">무료 36곳 · 753면 · 주말·공휴일 0 · 야간 0</span>
+</a></div></section><section data-group><h3 class="prov">울산광역시 · <a href="../../parking/ulsan/free/">울산광역시 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="울산광역시 울산 남구" href="../../parking/ulsan/nam-gu/free/">
   <span class="t">울산 남구<span class="go">11곳 →</span></span>
-  <span class="d">무료 11 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/ulsan/dong-gu/free/">
+  <span class="d">무료 11곳 · 865면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="울산광역시 울산 동구" href="../../parking/ulsan/dong-gu/free/">
   <span class="t">울산 동구<span class="go">75곳 →</span></span>
-  <span class="d">무료 62 · 주말·공휴일 13 · 야간 0</span>
-</a><a class="link-card" href="../../parking/ulsan/buk-gu/free/">
+  <span class="d">무료 62곳 · 2,135면 · 주말·공휴일 13 · 야간 0</span>
+</a><a class="link-card" data-name="울산광역시 울산 북구" href="../../parking/ulsan/buk-gu/free/">
   <span class="t">울산 북구<span class="go">87곳 →</span></span>
-  <span class="d">무료 87 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/ulsan/ulju-gun/free/">
+  <span class="d">무료 87곳 · 3,724면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="울산광역시 울산 울주군" href="../../parking/ulsan/ulju-gun/free/">
   <span class="t">울산 울주군<span class="go">39곳 →</span></span>
-  <span class="d">무료 39 · 주말·공휴일 0 · 야간 0</span>
-</a></div><h3 class="prov">세종특별자치시</h3><div class="grid-2"><a class="link-card" href="../../parking/sejong/sejong-si/free/">
+  <span class="d">무료 39곳 · 2,814면 · 주말·공휴일 0 · 야간 0</span>
+</a></div></section><section data-group><h3 class="prov">세종특별자치시 · <a href="../../parking/sejong/free/">세종특별자치시 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="세종특별자치시 세종특별자치시" href="../../parking/sejong/sejong-si/free/">
   <span class="t">세종특별자치시<span class="go">58곳 →</span></span>
-  <span class="d">무료 58 · 주말·공휴일 0 · 야간 0</span>
-</a></div><h3 class="prov">제주특별자치도</h3><div class="grid-2"><a class="link-card" href="../../parking/jeju/jeju-si/free/">
+  <span class="d">무료 58곳 · 2,469면 · 주말·공휴일 0 · 야간 0</span>
+</a></div></section><section data-group><h3 class="prov">제주특별자치도 · <a href="../../parking/jeju/free/">제주특별자치도 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="제주특별자치도 제주시" href="../../parking/jeju/jeju-si/free/">
   <span class="t">제주시<span class="go">785곳 →</span></span>
-  <span class="d">무료 785 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/jeju/seogwipo-si/free/">
+  <span class="d">무료 785곳 · 15,543면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="제주특별자치도 서귀포시" href="../../parking/jeju/seogwipo-si/free/">
   <span class="t">서귀포시<span class="go">83곳 →</span></span>
-  <span class="d">무료 83 · 주말·공휴일 0 · 야간 0</span>
-</a></div><h3 class="prov">충청북도</h3><div class="grid-2"><a class="link-card" href="../../parking/chungbuk/cheongju/free/">
+  <span class="d">무료 83곳 · 4,877면 · 주말·공휴일 0 · 야간 0</span>
+</a></div></section><section data-group><h3 class="prov">충청북도 · <a href="../../parking/chungbuk/free/">충청북도 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="충청북도 청주시" href="../../parking/chungbuk/cheongju/free/">
   <span class="t">청주시<span class="go">167곳 →</span></span>
-  <span class="d">무료 167 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/chungbuk/chungju/free/">
+  <span class="d">무료 167곳 · 6,732면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="충청북도 충주시" href="../../parking/chungbuk/chungju/free/">
   <span class="t">충주시<span class="go">5곳 →</span></span>
-  <span class="d">무료 0 · 주말·공휴일 5 · 야간 0</span>
-</a><a class="link-card" href="../../parking/chungbuk/jecheon/">
+  <span class="d">무료 0곳 · 0면 · 주말·공휴일 5 · 야간 0</span>
+</a><a class="link-card" data-name="충청북도 제천시" href="../../parking/chungbuk/jecheon/">
   <span class="t">제천시<span class="go">1곳 →</span></span>
-  <span class="d">무료 0 · 주말·공휴일 1 · 야간 0</span>
-</a><a class="link-card" href="../../parking/chungbuk/boeun/free/">
+  <span class="d">무료 0곳 · 0면 · 주말·공휴일 1 · 야간 0</span>
+</a><a class="link-card" data-name="충청북도 보은군" href="../../parking/chungbuk/boeun/free/">
   <span class="t">보은군<span class="go">16곳 →</span></span>
-  <span class="d">무료 16 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/chungbuk/okcheon/free/">
+  <span class="d">무료 16곳 · 948면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="충청북도 옥천군" href="../../parking/chungbuk/okcheon/free/">
   <span class="t">옥천군<span class="go">11곳 →</span></span>
-  <span class="d">무료 11 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/chungbuk/yeongdong/free/">
+  <span class="d">무료 11곳 · 603면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="충청북도 영동군" href="../../parking/chungbuk/yeongdong/free/">
   <span class="t">영동군<span class="go">72곳 →</span></span>
-  <span class="d">무료 72 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/chungbuk/jeungpyeong/free/">
+  <span class="d">무료 72곳 · 3,561면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="충청북도 증평군" href="../../parking/chungbuk/jeungpyeong/free/">
   <span class="t">증평군<span class="go">26곳 →</span></span>
-  <span class="d">무료 26 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/chungbuk/jincheon/free/">
+  <span class="d">무료 26곳 · 714면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="충청북도 진천군" href="../../parking/chungbuk/jincheon/free/">
   <span class="t">진천군<span class="go">10곳 →</span></span>
-  <span class="d">무료 10 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/chungbuk/goesan/free/">
+  <span class="d">무료 10곳 · 445면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="충청북도 괴산군" href="../../parking/chungbuk/goesan/free/">
   <span class="t">괴산군<span class="go">16곳 →</span></span>
-  <span class="d">무료 16 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/chungbuk/eumseong/free/">
+  <span class="d">무료 16곳 · 771면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="충청북도 음성군" href="../../parking/chungbuk/eumseong/free/">
   <span class="t">음성군<span class="go">24곳 →</span></span>
-  <span class="d">무료 24 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/chungbuk/danyang/free/">
+  <span class="d">무료 24곳 · 2,061면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="충청북도 단양군" href="../../parking/chungbuk/danyang/free/">
   <span class="t">단양군<span class="go">27곳 →</span></span>
-  <span class="d">무료 27 · 주말·공휴일 0 · 야간 0</span>
-</a></div><h3 class="prov">충청남도</h3><div class="grid-2"><a class="link-card" href="../../parking/chungnam/cheonan/free/">
+  <span class="d">무료 27곳 · 1,270면 · 주말·공휴일 0 · 야간 0</span>
+</a></div></section><section data-group><h3 class="prov">충청남도 · <a href="../../parking/chungnam/free/">충청남도 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="충청남도 천안시" href="../../parking/chungnam/cheonan/free/">
   <span class="t">천안시<span class="go">76곳 →</span></span>
-  <span class="d">무료 76 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/chungnam/asan/free/">
+  <span class="d">무료 76곳 · 4,135면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="충청남도 아산시" href="../../parking/chungnam/asan/free/">
   <span class="t">아산시<span class="go">46곳 →</span></span>
-  <span class="d">무료 46 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/chungnam/seosan/free/">
+  <span class="d">무료 46곳 · 2,784면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="충청남도 서산시" href="../../parking/chungnam/seosan/free/">
   <span class="t">서산시<span class="go">196곳 →</span></span>
-  <span class="d">무료 196 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/chungnam/dangjin/free/">
+  <span class="d">무료 196곳 · 5,898면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="충청남도 당진시" href="../../parking/chungnam/dangjin/free/">
   <span class="t">당진시<span class="go">9곳 →</span></span>
-  <span class="d">무료 3 · 주말·공휴일 6 · 야간 0</span>
-</a><a class="link-card" href="../../parking/chungnam/gongju/free/">
+  <span class="d">무료 3곳 · 358면 · 주말·공휴일 6 · 야간 0</span>
+</a><a class="link-card" data-name="충청남도 공주시" href="../../parking/chungnam/gongju/free/">
   <span class="t">공주시<span class="go">167곳 →</span></span>
-  <span class="d">무료 160 · 주말·공휴일 7 · 야간 0</span>
-</a><a class="link-card" href="../../parking/chungnam/nonsan/free/">
+  <span class="d">무료 160곳 · 4,313면 · 주말·공휴일 7 · 야간 0</span>
+</a><a class="link-card" data-name="충청남도 논산시" href="../../parking/chungnam/nonsan/free/">
   <span class="t">논산시<span class="go">95곳 →</span></span>
-  <span class="d">무료 95 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/chungnam/boryeong/free/">
+  <span class="d">무료 95곳 · 3,718면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="충청남도 보령시" href="../../parking/chungnam/boryeong/free/">
   <span class="t">보령시<span class="go">49곳 →</span></span>
-  <span class="d">무료 45 · 주말·공휴일 4 · 야간 4</span>
-</a><a class="link-card" href="../../parking/chungnam/gyeryong/free/">
+  <span class="d">무료 45곳 · 6,184면 · 주말·공휴일 4 · 야간 4</span>
+</a><a class="link-card" data-name="충청남도 계룡시" href="../../parking/chungnam/gyeryong/free/">
   <span class="t">계룡시<span class="go">17곳 →</span></span>
-  <span class="d">무료 16 · 주말·공휴일 1 · 야간 0</span>
-</a><a class="link-card" href="../../parking/chungnam/buyo/free/">
+  <span class="d">무료 16곳 · 900면 · 주말·공휴일 1 · 야간 0</span>
+</a><a class="link-card" data-name="충청남도 부여군" href="../../parking/chungnam/buyo/free/">
   <span class="t">부여군<span class="go">53곳 →</span></span>
-  <span class="d">무료 53 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/chungnam/seocheon/free/">
+  <span class="d">무료 53곳 · 2,138면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="충청남도 서천군" href="../../parking/chungnam/seocheon/free/">
   <span class="t">서천군<span class="go">25곳 →</span></span>
-  <span class="d">무료 25 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/chungnam/cheongyang/free/">
+  <span class="d">무료 25곳 · 645면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="충청남도 청양군" href="../../parking/chungnam/cheongyang/free/">
   <span class="t">청양군<span class="go">22곳 →</span></span>
-  <span class="d">무료 20 · 주말·공휴일 2 · 야간 0</span>
-</a><a class="link-card" href="../../parking/chungnam/hongseong/free/">
+  <span class="d">무료 20곳 · 1,097면 · 주말·공휴일 2 · 야간 0</span>
+</a><a class="link-card" data-name="충청남도 홍성군" href="../../parking/chungnam/hongseong/free/">
   <span class="t">홍성군<span class="go">59곳 →</span></span>
-  <span class="d">무료 59 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/chungnam/yesan/free/">
+  <span class="d">무료 59곳 · 3,501면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="충청남도 예산군" href="../../parking/chungnam/yesan/free/">
   <span class="t">예산군<span class="go">79곳 →</span></span>
-  <span class="d">무료 79 · 주말·공휴일 0 · 야간 0</span>
-</a></div><h3 class="prov">전북특별자치도</h3><div class="grid-2"><a class="link-card" href="../../parking/jeonbuk/jeonju/free/">
+  <span class="d">무료 79곳 · 2,463면 · 주말·공휴일 0 · 야간 0</span>
+</a></div></section><section data-group><h3 class="prov">전북특별자치도 · <a href="../../parking/jeonbuk/free/">전북특별자치도 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="전북특별자치도 전주시" href="../../parking/jeonbuk/jeonju/free/">
   <span class="t">전주시<span class="go">71곳 →</span></span>
-  <span class="d">무료 71 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/jeonbuk/gunsan/free/">
+  <span class="d">무료 71곳 · 3,235면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="전북특별자치도 군산시" href="../../parking/jeonbuk/gunsan/free/">
   <span class="t">군산시<span class="go">134곳 →</span></span>
-  <span class="d">무료 134 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/jeonbuk/iksan/free/">
+  <span class="d">무료 134곳 · 7,094면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="전북특별자치도 익산시" href="../../parking/jeonbuk/iksan/free/">
   <span class="t">익산시<span class="go">24곳 →</span></span>
-  <span class="d">무료 24 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/jeonbuk/jeongeup/free/">
+  <span class="d">무료 24곳 · 1,293면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="전북특별자치도 정읍시" href="../../parking/jeonbuk/jeongeup/free/">
   <span class="t">정읍시<span class="go">16곳 →</span></span>
-  <span class="d">무료 16 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/jeonbuk/namwon/free/">
+  <span class="d">무료 16곳 · 511면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="전북특별자치도 남원시" href="../../parking/jeonbuk/namwon/free/">
   <span class="t">남원시<span class="go">46곳 →</span></span>
-  <span class="d">무료 46 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/jeonbuk/gimje/free/">
+  <span class="d">무료 46곳 · 2,095면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="전북특별자치도 김제시" href="../../parking/jeonbuk/gimje/free/">
   <span class="t">김제시<span class="go">35곳 →</span></span>
-  <span class="d">무료 35 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/jeonbuk/wanju/free/">
+  <span class="d">무료 35곳 · 1,285면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="전북특별자치도 완주군" href="../../parking/jeonbuk/wanju/free/">
   <span class="t">완주군<span class="go">31곳 →</span></span>
-  <span class="d">무료 31 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/jeonbuk/jinan/free/">
+  <span class="d">무료 31곳 · 2,188면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="전북특별자치도 진안군" href="../../parking/jeonbuk/jinan/free/">
   <span class="t">진안군<span class="go">10곳 →</span></span>
-  <span class="d">무료 10 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/jeonbuk/muju/free/">
+  <span class="d">무료 10곳 · 511면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="전북특별자치도 무주군" href="../../parking/jeonbuk/muju/free/">
   <span class="t">무주군<span class="go">35곳 →</span></span>
-  <span class="d">무료 35 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/jeonbuk/jangsu/free/">
+  <span class="d">무료 35곳 · 1,660면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="전북특별자치도 장수군" href="../../parking/jeonbuk/jangsu/free/">
   <span class="t">장수군<span class="go">28곳 →</span></span>
-  <span class="d">무료 28 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/jeonbuk/imsil/free/">
+  <span class="d">무료 28곳 · 1,219면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="전북특별자치도 임실군" href="../../parking/jeonbuk/imsil/free/">
   <span class="t">임실군<span class="go">46곳 →</span></span>
-  <span class="d">무료 46 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/jeonbuk/sunchang/free/">
+  <span class="d">무료 46곳 · 3,135면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="전북특별자치도 순창군" href="../../parking/jeonbuk/sunchang/free/">
   <span class="t">순창군<span class="go">36곳 →</span></span>
-  <span class="d">무료 36 · 주말·공휴일 0 · 야간 0</span>
-</a><a class="link-card" href="../../parking/jeonbuk/gochang/free/">
+  <span class="d">무료 36곳 · 941면 · 주말·공휴일 0 · 야간 0</span>
+</a><a class="link-card" data-name="전북특별자치도 고창군" href="../../parking/jeonbuk/gochang/free/">
   <span class="t">고창군<span class="go">37곳 →</span></span>
-  <span class="d">무료 36 · 주말·공휴일 1 · 야간 0</span>
-</a><a class="link-card" href="../../parking/jeonbuk/buan/free/">
+  <span class="d">무료 36곳 · 3,006면 · 주말·공휴일 1 · 야간 0</span>
+</a><a class="link-card" data-name="전북특별자치도 부안군" href="../../parking/jeonbuk/buan/free/">
   <span class="t">부안군<span class="go">32곳 →</span></span>
-  <span class="d">무료 31 · 주말·공휴일 1 · 야간 0</span>
-</a></div>
+  <span class="d">무료 31곳 · 5,730면 · 주말·공휴일 1 · 야간 0</span>
+</a></div></section>
 <h2 id="weekend">주말·공휴일 무료 주차장 736곳</h2>
 <p class="lede">토요일·일요일·공휴일에 요금을 받지 않는 주차장입니다(구획이 많은 순 40곳). 지역별 전체 목록은 위 지역 카드에서 볼 수 있습니다.</p>
 <table class="data">
