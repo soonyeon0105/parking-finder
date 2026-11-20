@@ -1,0 +1,5493 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 10:43",
+  "generated_at_iso": "2026-11-20T10:43:14+09:00",
+  "snapshot_at": "2026-11-20 10:43",
+  "region": {
+   "province": "전북특별자치도",
+   "city": "임실군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-04-16",
+    "rows_total": 18994,
+    "rows_city": 47,
+    "fetched_at": "2026-11-20 10:43 (KST)",
+    "note": "임실군으로 등록된 행 47행(전부 공영·전부 노외)을 읽어 중복 제거 0건, 제외 1건으로 46곳을 실었다. 무료 46곳이다. 좌표는 전부 등록돼 있고 도로명주소는 2곳이 결측이다. 조례 대조 완료 — 「임실군 주차장 조례」 제2969호(시행 2026-11-19, ordinSeq 2188491) 제3조·별표 1 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「임실군 주차장 조례」 제2969호(시행 2026-11-19, 일부개정)",
+    "org": "전북특별자치도 임실군청",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2188491",
+    "file": "imsil-ordinance-b1.txt",
+    "sha256": "0a85b38e30e916fc42deadaaa096f79f5e09255c50079f9cb0906e39ada9c1d4",
+    "license": "자치법규(공개)",
+    "base_date": "2026-11-19",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 10:43 (KST)",
+    "note": "임실군이 설치·관리하는 공영주차장에 적용하는 조례다. 임실군 공영주차장은 표준데이터에 47곳이 등록돼 있고 전부 노외이며, 구획수가 0으로 등록된 신평보건지소 주차장 1곳을 빼고 46곳·총 3,135면을 실었다. 46곳 전부 요금을 받지 않는 무료 주차장이다. 「임실군 주차장 조례」 제2969호(시행 2026-11-19, ordinSeq 2188491) 제3조제1항은 군수가 설치하는 공영주차장 요금을 별표 1과 같이 정한다 — 별표 1은 급지 구분이 없는 단일 요금표로, 임실군 전역 1회 주차요금(구획당 30분마다) 200원, 월정기 주간 30,000원·야간 22,000원이고 1일 주차요금 칸은 없다. 별표 1 비고 1은 이 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고, 조례 본문에 상시 무료 운영의 근거 조항은 없어 등록된 곳들은 군이 무료로 운영하는 곳으로 보이며, 아래 요금표는 조례 기준 요금의 참고표다. 무료 운영의 근거(고시 등)는 임실군청 확인 과제다. 감면은 조례 제3조를 따른다(긴급자동차는 면제할 수 있고, 국가유공자 운전, 고엽제후유의증환자 운전, 장애인 운전 또는 동승, 경형자동차, 저공해 자동차, 전통시장 상인·고객, 환경친화적 자동차, 관광활성화 이용권·카드 소지자 운전 차량은 50퍼센트 이상 감면할 수 있다). 좌표는 47곳 전부 등록돼 있고, 도로명주소는 2곳이 등록돼 있지 않다. (조례 본문: data/raw/imsil-ordinance.txt, 별표 1 원문: data/raw/imsil-ordinance-b1.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "임실군",
+   "slug": "imsil"
+  }
+ ],
+ "lots": [
+  {
+   "id": "jb-imsil-001",
+   "mgmt_no": "316-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "관촌1구 공영주차장",
+   "gu": "임실군",
+   "dong": "관촌면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 관촌면 관촌리 299-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "063-640-2575",
+   "lat": 35.673349,
+   "lng": 127.268993,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-002",
+   "mgmt_no": "316-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "관촌면 체육문화센터 주차장",
+   "gu": "임실군",
+   "dong": "관촌면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 관촌면 관촌리 518-2",
+   "addr_road": "전북특별자치도 임실군 관촌면 사선1길 65",
+   "road": null,
+   "spaces": 17,
+   "tel": "063-640-4289",
+   "lat": 35.67724191,
+   "lng": 127.268648,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-003",
+   "mgmt_no": "316-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "관촌면사무소",
+   "gu": "임실군",
+   "dong": "관촌면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 관촌면 관촌리 346",
+   "addr_road": "전북특별자치도 임실군 관촌면 사선1길 13-1",
+   "road": null,
+   "spaces": 5,
+   "tel": "063-640-4284",
+   "lat": 35.67364019,
+   "lng": 127.2705351,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-004",
+   "mgmt_no": "316-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "관촌무료 공영주차장",
+   "gu": "임실군",
+   "dong": "관촌면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 관촌면 관촌리 586",
+   "addr_road": "전북특별자치도 임실군 관촌면 사선1길 70-3",
+   "road": null,
+   "spaces": 18,
+   "tel": "063-640-2575",
+   "lat": 35.67878053,
+   "lng": 127.2676801,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-005",
+   "mgmt_no": "316-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "관촌전통시장 주차장",
+   "gu": "임실군",
+   "dong": "관촌면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 관촌면 관촌리 586",
+   "addr_road": "전북특별자치도 임실군 관촌면 사선1길 70-3",
+   "road": null,
+   "spaces": 49,
+   "tel": "063-640-2403",
+   "lat": 35.67878053,
+   "lng": 127.2676801,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-006",
+   "mgmt_no": "316-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "북부권생활체육공원 주차장",
+   "gu": "임실군",
+   "dong": "관촌면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 관촌면 덕천리 457",
+   "addr_road": "전북특별자치도 임실군 관촌면 사선2길 122",
+   "road": null,
+   "spaces": 70,
+   "tel": "063-640-2922",
+   "lat": 35.6755032569,
+   "lng": 127.2779561661,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-007",
+   "mgmt_no": "316-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "사선대 대형주차장",
+   "gu": "임실군",
+   "dong": "관촌면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 관촌면 덕천리 481-5(대형주차장)",
+   "addr_road": "전북특별자치도 임실군 관촌면 사선2길 68-8",
+   "road": null,
+   "spaces": 154,
+   "tel": "063-640-2922",
+   "lat": 35.67405706,
+   "lng": 127.2752561,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-008",
+   "mgmt_no": "316-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "사선대 조각공원 주차장",
+   "gu": "임실군",
+   "dong": "관촌면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 관촌면 덕천리 481-9(조각공원)",
+   "addr_road": "전북특별자치도 임실군 관촌면 사선2길 68-8",
+   "road": null,
+   "spaces": 13,
+   "tel": "063-640-2922",
+   "lat": 35.67229882,
+   "lng": 127.2760680349,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-009",
+   "mgmt_no": "316-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "사선대관리사무소 주차장",
+   "gu": "임실군",
+   "dong": "관촌면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 관촌면 관촌리 222(관리사무소 앞)",
+   "addr_road": "전북특별자치도 임실군 관촌면 사선2길 68-7",
+   "road": null,
+   "spaces": 7,
+   "tel": "063-640-2922",
+   "lat": 35.6723753565,
+   "lng": 127.2746264925,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-010",
+   "mgmt_no": "316-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "사선대주차장",
+   "gu": "임실군",
+   "dong": "관촌면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 관촌면 관촌리 222(잔디광장 측면)",
+   "addr_road": "전북특별자치도 임실군 관촌면 사선2길 68-7",
+   "road": null,
+   "spaces": 74,
+   "tel": "063-640-2922",
+   "lat": 35.6723753565,
+   "lng": 127.2746264925,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-011",
+   "mgmt_no": "316-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "임실군북부권노인복지관",
+   "gu": "임실군",
+   "dong": "관촌면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 관촌면 관촌리 177-2",
+   "addr_road": "전북특별자치도 임실군 관촌면 사선1길 24",
+   "road": null,
+   "spaces": 4,
+   "tel": "063-640-2071",
+   "lat": 35.6745969858,
+   "lng": 127.2714578016,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-012",
+   "mgmt_no": "316-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "덕치면복지회관 주차장",
+   "gu": "임실군",
+   "dong": "덕치면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 덕치면 회문리 122-1",
+   "addr_road": "전북특별자치도 임실군 덕치면 인덕로 1398",
+   "road": null,
+   "spaces": 12,
+   "tel": "063-640-2403",
+   "lat": 35.50948355,
+   "lng": 127.1576504,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-013",
+   "mgmt_no": "316-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "덕치면사무소 주차장",
+   "gu": "임실군",
+   "dong": "덕치면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 덕치면 회문리 111",
+   "addr_road": "전북특별자치도 임실군 덕치면 인덕로 1401",
+   "road": null,
+   "spaces": 5,
+   "tel": "063-640-2575",
+   "lat": 35.51019207,
+   "lng": 127.1570941,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-014",
+   "mgmt_no": "316-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성수면사무소 주차장",
+   "gu": "임실군",
+   "dong": "성수면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 성수면 양지리 267-10",
+   "addr_road": "전북특별자치도 임실군 성수면 임진로 213",
+   "road": null,
+   "spaces": 37,
+   "tel": "063-640-4156",
+   "lat": 35.62991857,
+   "lng": 127.3331064,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-015",
+   "mgmt_no": "316-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성수면생활체육공원 주차장",
+   "gu": "임실군",
+   "dong": "성수면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 성수면 양지리 218",
+   "addr_road": "",
+   "road": null,
+   "spaces": 80,
+   "tel": "063-640-4156",
+   "lat": 35.62771068,
+   "lng": 127.3359785,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-016",
+   "mgmt_no": "316-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성수산왕의숲방문자센터주차장",
+   "gu": "임실군",
+   "dong": "성수면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 성수면 성수리 107,111",
+   "addr_road": "전북특별자치도 임실군 성수면 성수산길 371",
+   "road": null,
+   "spaces": 140,
+   "tel": "063-640-4683",
+   "lat": 35.6377184946,
+   "lng": 127.4078501651,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-017",
+   "mgmt_no": "316-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "임실치즈테마파크 주차장",
+   "gu": "임실군",
+   "dong": "성수면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 성수면 도인리 689",
+   "addr_road": "전북특별자치도 임실군 성수면 도인2길 50",
+   "road": null,
+   "spaces": 350,
+   "tel": "063-640-2523",
+   "lat": 35.63310203,
+   "lng": 127.3012578,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-018",
+   "mgmt_no": "316-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신덕면사무소 주차장",
+   "gu": "임실군",
+   "dong": "신덕면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 신덕면 수천리 501-3",
+   "addr_road": "전북특별자치도 임실군 신덕면 수지로 94",
+   "road": null,
+   "spaces": 15,
+   "tel": "063-640-4224",
+   "lat": 35.68384735,
+   "lng": 127.1781552,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-019",
+   "mgmt_no": "316-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신평면사무소 주차장",
+   "gu": "임실군",
+   "dong": "신평면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 신평면 원천리 212",
+   "addr_road": "전북특별자치도 임실군 신평면 석등슬치로 369",
+   "road": null,
+   "spaces": 26,
+   "tel": "063-640-4125",
+   "lat": 35.65706301,
+   "lng": 127.2236746,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-020",
+   "mgmt_no": "316-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신평문화회관 주차장",
+   "gu": "임실군",
+   "dong": "신평면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 신평면 원천리 423",
+   "addr_road": "전북특별자치도 임실군 신평면 석등슬치로 311",
+   "road": null,
+   "spaces": 30,
+   "tel": "063-640-4125",
+   "lat": 35.65351757,
+   "lng": 127.2204651,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-021",
+   "mgmt_no": "316-2-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "임실군농업기술센터",
+   "gu": "임실군",
+   "dong": "신평면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 신평면 대리 1243-1",
+   "addr_road": "전북특별자치도 임실군 신평면 대리로 154-5",
+   "road": null,
+   "spaces": 110,
+   "tel": "063-640-5011",
+   "lat": 35.65718388,
+   "lng": 127.2674691,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군농업기술센터",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-022",
+   "mgmt_no": "316-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오수면 공영주차장",
+   "gu": "임실군",
+   "dong": "오수면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 오수면 오수리 353-1",
+   "addr_road": "전북특별자치도 임실군 오수면 오수5길 6",
+   "road": null,
+   "spaces": 37,
+   "tel": "063-640-2575",
+   "lat": 35.53794865,
+   "lng": 127.3275087,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-023",
+   "mgmt_no": "316-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오수면행정복지센터주차장",
+   "gu": "임실군",
+   "dong": "오수면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 오수면 오수리 392-11",
+   "addr_road": "전북특별자치도 임실군 오수면 삼일로 27",
+   "road": null,
+   "spaces": 52,
+   "tel": "063-640-4411",
+   "lat": 35.54133754,
+   "lng": 127.3266755,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-024",
+   "mgmt_no": "316-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오수시장주차장",
+   "gu": "임실군",
+   "dong": "오수면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 오수면 오수리 348-32",
+   "addr_road": "전북특별자치도 임실군 오수면 오수로 156-2",
+   "road": null,
+   "spaces": 90,
+   "tel": "063-640-2403",
+   "lat": 35.53845595,
+   "lng": 127.3278555,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-025",
+   "mgmt_no": "316-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오수의견파크골프장",
+   "gu": "임실군",
+   "dong": "오수면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 오수면 오수리 680-29",
+   "addr_road": "전북특별자치도 임실군 오수면 충효로 2132",
+   "road": null,
+   "spaces": 77,
+   "tel": "063-640-2943",
+   "lat": 35.5489297454,
+   "lng": 127.3330332677,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-026",
+   "mgmt_no": "316-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "임실군 문화체육센터",
+   "gu": "임실군",
+   "dong": "오수면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 오수면 오수리 33",
+   "addr_road": "전북특별자치도 임실군 오수면 충효로 2096-16",
+   "road": null,
+   "spaces": 53,
+   "tel": "063-640-2943",
+   "lat": 35.545203375,
+   "lng": 127.3326779102,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-027",
+   "mgmt_no": "316-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "전북특별자치도 국제양궁장",
+   "gu": "임실군",
+   "dong": "오수면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 오수면 금암리 334",
+   "addr_road": "전북특별자치도 임실군 오수면 의견로 1",
+   "road": null,
+   "spaces": 201,
+   "tel": "063-640-3092",
+   "lat": 35.53841484,
+   "lng": 127.3373377,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-028",
+   "mgmt_no": "316-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "전북특별자치도 국제양궁장 전지훈련센터",
+   "gu": "임실군",
+   "dong": "오수면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 오수면 금암리 468-1",
+   "addr_road": "전북특별자치도 임실군 오수면 의견로 1-1",
+   "road": null,
+   "spaces": 20,
+   "tel": "063-640-3092",
+   "lat": 35.54031249,
+   "lng": 127.3380001,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-029",
+   "mgmt_no": "316-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "운암면복지센터",
+   "gu": "임실군",
+   "dong": "운암면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 운암면 쌍암리 830-5",
+   "addr_road": "전북특별자치도 임실군 운암면 임운로 1861",
+   "road": null,
+   "spaces": 38,
+   "tel": "063-640-4086",
+   "lat": 35.65898791,
+   "lng": 127.1614216,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-030",
+   "mgmt_no": "316-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "운암면사무소",
+   "gu": "임실군",
+   "dong": "운암면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 운암면 쌍암리 819",
+   "addr_road": "전북특별자치도 임실군 운암면 임운로 1884",
+   "road": null,
+   "spaces": 18,
+   "tel": "063-640-4086",
+   "lat": 35.660663,
+   "lng": 127.160419,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-031",
+   "mgmt_no": "316-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "국민체육센터",
+   "gu": "임실군",
+   "dong": "임실읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 임실읍 이도리 504",
+   "addr_road": "전북특별자치도 임실군 임실읍 호국로 1628",
+   "road": null,
+   "spaces": 28,
+   "tel": "063-640-4454",
+   "lat": 35.60814,
+   "lng": 127.2814,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-032",
+   "mgmt_no": "316-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보건의료원 장례식장",
+   "gu": "임실군",
+   "dong": "임실읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 임실읍 이도리 270-8",
+   "addr_road": "전북특별자치도 임실군 임실읍 호국로 1680",
+   "road": null,
+   "spaces": 48,
+   "tel": "063-640-3106",
+   "lat": 35.6124995,
+   "lng": 127.2869773,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-033",
+   "mgmt_no": "316-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보건의료원 청사",
+   "gu": "임실군",
+   "dong": "임실읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 임실읍 이도리 270-8",
+   "addr_road": "전북특별자치도 임실군 임실읍 호국로 1680",
+   "road": null,
+   "spaces": 37,
+   "tel": "063-640-3106",
+   "lat": 35.6124995,
+   "lng": 127.2869773,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-034",
+   "mgmt_no": "316-2-000046",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "임실군노인종합복지관",
+   "gu": "임실군",
+   "dong": "임실읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 임실읍 이도리 241",
+   "addr_road": "전북특별자치도 임실군 임실읍 운수로 33-46",
+   "road": null,
+   "spaces": 15,
+   "tel": "063-640-4681",
+   "lat": 35.61462837,
+   "lng": 127.2857153,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-035",
+   "mgmt_no": "316-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "임실군민회관",
+   "gu": "임실군",
+   "dong": "임실읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 임실읍 이도리 277",
+   "addr_road": "전북특별자치도 임실군 임실읍 호국로 1703",
+   "road": null,
+   "spaces": 40,
+   "tel": "063-640-2911",
+   "lat": 35.61501533,
+   "lng": 127.2871301,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-036",
+   "mgmt_no": "316-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "임실군청사 주차장",
+   "gu": "임실군",
+   "dong": "임실읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 임실읍 이도리 78",
+   "addr_road": "전북특별자치도 임실군 임실읍 수정로 30",
+   "road": null,
+   "spaces": 392,
+   "tel": "063-640-2214",
+   "lat": 35.61726375,
+   "lng": 127.2889986,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-037",
+   "mgmt_no": "316-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "임실무료공영주차장",
+   "gu": "임실군",
+   "dong": "임실읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 임실읍 이도리 651-1",
+   "addr_road": "전북특별자치도 임실군 임실읍 중동로 11",
+   "road": null,
+   "spaces": 64,
+   "tel": "063-640-2575",
+   "lat": 35.61268209,
+   "lng": 127.2795063,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-038",
+   "mgmt_no": "316-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "임실시장 다가능주차장",
+   "gu": "임실군",
+   "dong": "임실읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 임실읍 이도리 651-1",
+   "addr_road": "전북특별자치도 임실군 임실읍 중동로 11",
+   "road": null,
+   "spaces": 47,
+   "tel": "063-640-2575",
+   "lat": 35.61268209,
+   "lng": 127.2795063,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-039",
+   "mgmt_no": "316-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "임실시장 청년 맛잇길 음식 특화상가 공영주차장",
+   "gu": "임실군",
+   "dong": "임실읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 임실읍 이도리 651-1",
+   "addr_road": "전북특별자치도 임실군 임실읍 중동로 11",
+   "road": null,
+   "spaces": 15,
+   "tel": "063-640-2575",
+   "lat": 35.61268209,
+   "lng": 127.2795063,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-040",
+   "mgmt_no": "316-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "임실시장제1주차장",
+   "gu": "임실군",
+   "dong": "임실읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 임실읍 이도리 651-1",
+   "addr_road": "전북특별자치도 임실군 임실읍 중동로 11",
+   "road": null,
+   "spaces": 53,
+   "tel": "063-640-2403",
+   "lat": 35.61268128,
+   "lng": 127.2795069,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-041",
+   "mgmt_no": "316-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "임실시장제2주차장",
+   "gu": "임실군",
+   "dong": "임실읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 임실읍 이도리 651-1",
+   "addr_road": "전북특별자치도 임실군 임실읍 중동로 11",
+   "road": null,
+   "spaces": 67,
+   "tel": "063-640-2403",
+   "lat": 35.61268128,
+   "lng": 127.2795069,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-042",
+   "mgmt_no": "316-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "임실읍사무소",
+   "gu": "임실군",
+   "dong": "임실읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 임실읍 이도리 626",
+   "addr_road": "전북특별자치도 임실군 임실읍 봉황로 144",
+   "road": null,
+   "spaces": 55,
+   "tel": "063-640-4001",
+   "lat": 35.61350604,
+   "lng": 127.2792762,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-043",
+   "mgmt_no": "316-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "임실종합경기장",
+   "gu": "임실군",
+   "dong": "임실읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 임실읍 이도리 429-1",
+   "addr_road": "전북특별자치도 임실군 임실읍 호국로 1640",
+   "road": null,
+   "spaces": 362,
+   "tel": "063-640-2904",
+   "lat": 35.60982997,
+   "lng": 127.282671,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-044",
+   "mgmt_no": "316-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "지사면사무소 주차장",
+   "gu": "임실군",
+   "dong": "지사면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 지사면 방계리 556-1",
+   "addr_road": "전북특별자치도 임실군 지사면 충효로 2437",
+   "road": null,
+   "spaces": 23,
+   "tel": "063-640-4381",
+   "lat": 35.56379001,
+   "lng": 127.357456,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-045",
+   "mgmt_no": "316-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "지사면종합복지회관 주차장",
+   "gu": "임실군",
+   "dong": "지사면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 지사면 방계리 901-2",
+   "addr_road": "전북특별자치도 임실군 지사면 충효로 2451",
+   "road": null,
+   "spaces": 41,
+   "tel": "063-640-4381",
+   "lat": 35.5647114,
+   "lng": 127.3583343,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  },
+  {
+   "id": "jb-imsil-046",
+   "mgmt_no": "316-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청웅면사무소 주차장",
+   "gu": "임실군",
+   "dong": "청웅면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전북특별자치도 임실군 청웅면 구고리 219-7",
+   "addr_road": "전북특별자치도 임실군 청웅면 청웅로 153",
+   "road": null,
+   "spaces": 25,
+   "tel": "063-640-4055",
+   "lat": 35.56977389,
+   "lng": 127.2012925,
+   "base_date": "2026-04-16",
+   "manager": "전북특별자치도 임실군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "5",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 본문에 상시 무료 운영의 근거 조항이 따로 없고 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 공영주차장으로 본다(무료 운영의 근거 고시는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "임실군",
+   "city_slug": "imsil",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 10:43",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 47,
+  "원자료_임실군행수": 47,
+  "원자료_받은행수": 47,
+  "구별": {
+   "임실군": 46
+  },
+  "민영_제외": 0,
+  "제외_행수": 1,
+  "제외_행": [
+   {
+    "name": "신평보건지소 주차장",
+    "reason": "주차구획수 없음(0으로 등록)"
+   }
+  ],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 46,
+  "노외_부설": {
+   "노외": 46
+  },
+  "노상_구간": 0,
+  "총_구획수": 3135,
+  "노상_구획수": 0,
+  "동별": {
+   "임실읍": 13,
+   "관촌면": 11,
+   "오수면": 7,
+   "성수면": 4,
+   "신평면": 3,
+   "덕치면": 2,
+   "운암면": 2,
+   "지사면": 2,
+   "신덕면": 1,
+   "청웅면": 1
+  },
+  "동수": 10,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 46
+  },
+  "요금구분": {
+   "무료": 46
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 0,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 30건 있다 — 임실군북부권노인복지관·관촌면사무소(135m), 임실군노인종합복지관·임실군민회관(134m), 사선대 대형주차장·사선대관리사무소 주차장(195m), 사선대 대형주차장·사선대주차장(195m), 사선대 조각공원 주차장·사선대관리사무소 주차장(130m), 사선대 조각공원 주차장·사선대주차장(130m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 47행은 전부 공영이고 데이터기준일자는 전부 2026-04-16이다. 관리기관은 전북특별자치도 임실군청 46곳·임실군농업기술센터 1곳(임실군농업기술센터)이고 전화번호는 곳마다 다르게 등록돼 있다",
+   "도로명주소는 2곳이 등록돼 있지 않아 동(읍·면) 판정과 표기는 지번주소를 기준으로 했다",
+   "등록 급지는 47곳 전부 '5'인데 조례 별표 1에는 급지 구분 자체가 없어 요금표 행 판정에 쓰지 않았다",
+   "부제시행구분은 등록 47행 기준 10부제 1곳·5부제 14곳·미시행 32곳이다. 전부 무료라 요금에는 영향이 없다",
+   "운영요일은 전부 평일+토요일+공휴일이고 운영시간은 전부 00:00~23:59이다. 특기사항은 47곳 전부 공란이다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "관촌1구 공영주차장",
+   "성수면생활체육공원 주차장"
+  ],
+  "감면_출처": "「임실군 주차장 조례」 제2969호 제3조 — 제2항: 「도로교통법」 제2조제22호의 규정에 따른 긴급자동차에 대하여는 주차요금을 면제할 수 있다. 제4항: 군수는 공영주차장에 주차하는 자동차 중 다음 각 호의 어느 하나에 해당하는 경우 주차요금을 50퍼센트 이상 감면할 수 있다 — 국가유공자가 운전하는 차량(제1호), 고엽제후유의증환자가 운전하는 차량(제2호), 장애인이 운전 또는 동승한 차량(제3호), 배기량 1000CC미만의 경형자동차(제4호), 저공해 자동차 표지를 부착한 차량(제5호), 시장 상인 및 고객의 차량(제6호), 환경친화적 자동차(제7호), 관광활성화를 위한 이용권 또는 카드 등을 소지한 사람이 운전하는 차량(제8호). 본문 원문(data/raw/imsil-ordinance.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 제3조제1항·별표 1 — 군수가 설치하는 공영주차장 요금은 별표 1과 같다. 별표 1은 급지 구분이 없는 단일 요금표로 1회 주차요금(구획당 30분마다) 200원, 월정기 주간 30,000원·야간 22,000원이고 1일 주차요금 칸은 없다. 표준데이터 등록 47곳은 전부 무료라 실제로 징수되는 곳은 없어 요금표는 조례 기준 요금의 참고표다",
+  "급지_출처": "조례 별표 1 비고 3 — 급지구분은 주차장의 실태 및 주차수요를 참작하여 군수가 지정하되 군의 특성 및 주차장의 위치에 따라 세분할 수 있다. 다만 별표 1 자체는 급지 구분이 없는 단일 요금표다. 표준데이터 등록 급지는 47곳 전부 '5'로 조례 별표 1에 없는 값이라 요금표 행 판정에 쓰지 않았다",
+  "무료요일_출처": "조례 본문과 별표 1 어디에도 요일 무료 규정이 없어 free_days는 적용하지 않았다. 실은 곳 전부 요금구분 자체가 '무료'다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 임실군 등록 47행 전부 공영(전부 노외) — 민영 제외 0건. 구획수가 0으로 등록된 신평보건지소 주차장 1곳은 실을 수 없어 제외했다(제외_행에 기록 — 실제로 쓸 수 있는 구획이 있는지 군청 확인 과제)",
+   "「임실군 주차장 조례」 제2969호(시행 2026-11-19, 공포 2026-11-19, 일부개정, ordinSeq 2188491) 본문 원문(data/raw/imsil-ordinance.txt) 대조 완료(2026-11-20). 최신 시행본은 제2969호다 — 부칙 제1조가 공포한 날부터 시행한다고 정한다",
+   "별표 1은 HWP 원본(flSeq 171661925)을 data/raw/imsil-ordinance-b1.hwp로 저장하고 미리보기 텍스트를 추출해 확정했다(data/raw/imsil-ordinance-b1.txt) — 급지 구분이 없는 단일 요금표다. 직전 본문인 제2912호(시행 2026-01-02, ordinSeq 2105415)의 별표 1(flSeq 171661751)과 내용이 동일함을 교차 확인했다. 함께 검색된 「임실군 주차장 특별회계 설치 조례」는 요금 조례가 아니라 대조 대상에서 제외했다(제2945호로 2026-04-24 폐지 공포)",
+   "등록 47곳은 전부 요금 구분이 '무료'라 요금을 받는 곳이 없고, 조례 본문에 상시 무료 운영의 근거 조항이 없으며 별표 1 비고 1은 요금표가 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용된다고 정하고 있어 군이 무료로 운영하는 곳으로 보고 요금표는 조례 기준 요금의 참고표로 실었다(서천·예산·보은·영동·진천·군산·진안·장수 선례) — 무료 운영의 근거(고시 등)는 군청 확인 과제다",
+   "중복 판정은 전체 이름 기준 가드(옥천·영동 선례) — 이름+같은 자리+좌표 200m 이내 중복이 0건이라 합친 행이 없다. 이름이 다른 같은 자리 쌍은 전부 다른 등록이라 합치지 않고 전부 실었다: 임실시장제1주차장·임실시장제2주차장·임실무료공영주차장·임실시장 다가능주차장·임실시장 청년 맛잇길 음식 특화상가 공영주차장 5곳이 임실읍 이도리 651-1 한 자리(좌표까지 동일), 관촌전통시장 주차장·관촌무료 공영주차장이 관촌면 관촌리 586 한 자리, 사선대주차장·사선대관리사무소 주차장이 관촌면 관촌리 222 한 자리, 보건의료원 장례식장·보건의료원 청사가 임실읍 이도리 270-8 한 자리다 — 같은 자리의 복수 등록이 실제로 별개 구획인지는 군청 확인 과제다",
+   "좌표는 47곳 전부 등록돼 있어 지오코딩 보완이 필요 없었고, 임실군 범위 밖 좌표도 없었다",
+   "도로명주소는 2곳(관촌1구 공영주차장·성수면생활체육공원 주차장)이 등록돼 있지 않아 동(읍·면) 판정은 지번주소를 기준으로 했다. 전화번호는 곳마다 다르게 등록돼 있어 그대로 실었다",
+   "등록 급지는 47곳 전부 '5'인데 조례 별표 1에는 급지 구분 자체가 없어 요금표 행 판정에 쓰지 않았다(남원·김제 선례)",
+   "부제시행구분은 미시행 32곳·5부제 14곳·10부제 1곳으로 등록돼 있다(제외한 신평보건지소 주차장 포함 47행 기준). 전부 무료라 요금에는 영향이 없고 등록값 그대로 둔다",
+   "운영요일은 전부 평일+토요일+공휴일이고 운영시간은 전부 00:00~23:59다. 특기사항은 47곳 전부 공란이다"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 46,
+  "무료_구획수": 3135,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-16"
+  ],
+  "관리기관": {
+   "전북특별자치도 임실군청": 45,
+   "전북특별자치도 임실군농업기술센터": 1
+  }
+ },
+ "fee_table": {
+  "style": "imsil_grade",
+  "unit_min": 30,
+  "base_min": 30,
+  "applies": "조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「임실군 주차장 조례」 제2969호(시행 2026-11-19, 공포 2026-11-19, 일부개정), ordinSeq 2188491. 본문 사본 data/raw/imsil-ordinance.txt. 별표 1(공영주차장 주차요금표)은 HWP 원본을 data/raw/imsil-ordinance-b1.hwp로 저장하고 미리보기 텍스트를 추출해 data/raw/imsil-ordinance-b1.txt로 확인했다.",
+  "rows": [
+   {
+    "label": "임실군 전역 (단일 요금)",
+    "grade": "single",
+    "unit_label": "1회 주차요금 구획당 30분마다 200원 · 1일 주차요금 없음 · 월정기 주간 30,000원/야간 22,000원",
+    "hour": 400,
+    "two_hour": 800,
+    "day": null,
+    "month": 30000,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 0,
+   "street_paid": 0,
+   "free": 46,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "공통",
+    "hours": "주간 4~10월 08:00~20:00 · 11~3월 09:00~19:30 (나머지는 야간)",
+    "free": "조례 별표 1 비고 2의 주간·야간 시간 구분이다 — 월정기 주간·야간 요금을 가르는 기준이고, 등록 운영시간은 전 곳 00:00~23:59다"
+   }
+  ],
+  "notes": "급지구분은 주차장의 실태 및 주차수요를 참작하여 군수가 지정하되 군의 특성 및 주차장의 위치에 따라 세분할 수 있다(별표 1 비고 3). 이 요금표는 법 제7조제1항 및 법 제12조제1항의 규정에 의하여 설치한 주차장에 적용한다(비고 1). 주차요금은 군의 특성 및 차종에 따라 군수가 정하되, 당해 지역의 주차수요를 감안하여 주차시간에 따른 체증 또는 체감방식을 적용할 수 있고(비고 4), 군수는 필요한 경우 노상주차장과 노외주차장의 주차요금을 구분하여 정할 수 있다(비고 5). 별표 1에는 1일 주차요금 칸이 없어 장시간 주차요금은 30분 단위 누진으로만 계산된다. 등록 급지는 47곳 전부 '5'인데 조례 별표 1에는 급지 구분 자체가 없어 요금표 행 판정에 쓰지 않았다. 감면은 긴급자동차 면제(면제할 수 있다), 국가유공자 운전, 고엽제후유의증환자 운전, 장애인 운전 또는 동승, 경형·저공해·환경친화적 자동차, 전통시장 상인·고객, 관광활성화 이용권·카드 소지자 운전 차량 50퍼센트 이상 감면(감면할 수 있다)이다.",
+  "basis": "요금표는 「임실군 주차장 조례」 제2969호(시행 2026-11-19) 제3조·별표 1과 표준데이터(기준일 2026-04-16)를 대조해 실었다. 등록된 곳은 전부 무료라 요금을 받는 곳이 없어 조례 기준 요금의 참고표다. (조례 본문: data/raw/imsil-ordinance.txt, 별표 1 원문: data/raw/imsil-ordinance-b1.txt)"
+ },
+ "slug": "imsil",
+ "province": "전북특별자치도",
+ "province_slug": "jeonbuk",
+ "dong_page_min_lots": 3,
+ "city": "임실군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제3조제2항 — 「도로교통법」 제2조제22호의 규정에 따른 긴급자동차에 대하여는 주차요금을 면제할 수 있다"
+  },
+  {
+   "label": "국가유공자 운전 50% 이상 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제1호 — 「국가유공자 등 예우 및 지원에 관한 법률」 제4조에 따른 국가유공자가 운전하는 차량은 주차요금을 50퍼센트 이상 감면할 수 있다"
+  },
+  {
+   "label": "고엽제후유의증환자 운전 50% 이상 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제2호 — 「고엽제후유의증 등 환자지원 및 단체설립에 관한 법률」 제2조제3호에 따른 고엽제후유의증환자가 운전하는 차량은 주차요금을 50퍼센트 이상 감면할 수 있다"
+  },
+  {
+   "label": "장애인 운전 또는 동승 50% 이상 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제3호 — 「장애인복지법」 제2조에 따른 장애인이 운전 또는 동승한 차량은 주차요금을 50퍼센트 이상 감면할 수 있다"
+  },
+  {
+   "label": "경형자동차 50% 이상 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제4호 — 「자동차관리법 시행규칙」 제2조에 따른 배기량 1000CC미만의 경형자동차는 주차요금을 50퍼센트 이상 감면할 수 있다"
+  },
+  {
+   "label": "저공해 자동차 50% 이상 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제5호 — 「대기환경보전법」 제58조제11항에 따른 저공해 자동차 표지를 부착한 차량은 주차요금을 50퍼센트 이상 감면할 수 있다"
+  },
+  {
+   "label": "전통시장 상인·고객 50% 이상 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제6호 — 「전통시장 및 상점가 육성을 위한 특별법」 제19조에 따른 시장 상인 및 고객의 차량은 주차요금을 50퍼센트 이상 감면할 수 있다"
+  },
+  {
+   "label": "환경친화적 자동차 50% 이상 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제7호 — 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조제2호에 따른 환경친화적 자동차는 주차요금을 50퍼센트 이상 감면할 수 있다"
+  },
+  {
+   "label": "관광활성화 이용권·카드 소지자 운전 50% 이상 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제8호 — 관광활성화를 위한 이용권 또는 카드 등을 소지한 사람이 운전하는 차량은 주차요금을 50퍼센트 이상 감면할 수 있다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
