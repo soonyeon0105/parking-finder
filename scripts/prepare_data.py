@@ -313,8 +313,10 @@ def derive_free_fields(lot):
     # 공휴일은 특기사항·조례 어디에도 언급이 없어 공휴일 태그를 붙이지 않는다.
     # 제천시도 마찬가지다 — 별표 1 비고3의 무료개방은 일요일뿐이고 공휴일은 등록 운영시간이
     # 00:00~00:00(미운영)이라 공휴일 태그를 붙이지 않는다.
+    # 김해시도 마찬가지다 — 장유전통시장 1곳의 일요일 무료는 등록 특기사항 '일요일 무료'
+    # 근거뿐이고 공휴일은 특기사항·조례 어디에도 언급이 없어 공휴일 태그를 붙이지 않는다.
     # (다른 도시는 '주말 및 공휴일 무료' 특기사항 관행대로 sun=True면 공휴일도 무료로 본다.)
-    if lot["free_holiday"] or (fd["sun"] and lot.get("city") not in ("공주시", "보령시", "제천시")):
+    if lot["free_holiday"] or (fd["sun"] and lot.get("city") not in ("공주시", "보령시", "제천시", "김해시")):
         tags.append("공휴일")
     if overlaps_night(fw):
         tags.append("심야")
@@ -68339,6 +68341,716 @@ def build_sacheon():
     return payload
 
 
+
+GIMHAE_PROVINCE = "경상남도"
+GIMHAE_PROVINCE_SLUG = "gyeongnam"
+GIMHAE_ORD_URL = "https://www.law.go.kr/ordinInfoP.do?ordinSeq=1702561"
+GIMHAE_ORD_TXT = RAW / "gimhae-ordinance-b1.txt"
+GIMHAE_ORD_NOTE = ("조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — "
+                  "「김해시 주차장 설치 및 관리 조례」 제1839호(시행 2022-04-22, "
+                  "일부개정), ordinSeq 1702561. 본문 사본 "
+                  "data/raw/gimhae-ordinance.txt. 별표 1(공영주차장 "
+                  "주차요금표)은 HWP 원본을 data/raw/gimhae-ordinance-b1.hwp로 "
+                  "저장하고 PrvText 추출과 BodyText 전문 파싱을 교차 확인해 "
+                  "data/raw/gimhae-ordinance-b1.txt로 옮겼다. 본문 "
+                  "제5조제1항이 별표 1을 참조하고 첨부에도 별표 1이 들어 있어 "
+                  "첨부파일 오등록이 아니다. 부칙(조례 제1839호, 2022. 4. 22.)은 "
+                  "'공포한 날부터 시행'이라 표제 시행일과 같다. 함께 검색되는 "
+                  "「김해시 청사의 부설 주차장 관리 및 운영 조례」 제2127호"
+                  "(ordinSeq 1993949)는 청사 부설 전용 조례라 공영주차장 요금 "
+                  "조례가 아니고, 「김해시 화물자동차 운송사업자 차고지 설치면제에 "
+                  "관한 조례」 제1462호는 운송사업자의 차고지 설치면제에 관한 "
+                  "것이라 화물 공영차고지의 요금을 정하지 않는다. 별표 1 비고 9는 "
+                  "다른 조례에 주차요금 징수의 별도 규정이 있으면 이 요금표를 "
+                  "적용하지 않는다고 정한다.")
+
+GIMHAE_DISCOUNTS = [
+    {"label": "긴급자동차·공무용 자동차 등 면제(가능)", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제5조제2항 — 긴급자동차, 국가 또는 지방자치단체 소유의 공무용 자동차, 그 밖에 시장이 특별한 사유가 있다고 인정하는 자동차는 주차요금을 면제할 수 있다"},
+    {"label": "경형·장애인·국가유공자·다누리카드 등 50% 경감", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 1 비고 8 — 경형 승용자동차, 장애인등록증을 소지한 사람(본인 소유 비사업용 승용자동차를 직접 운전하거나 동승한 경우), 국가유공자·상이자, 경남i다누리카드 소지자, 장기기증 희망자·기증자·유족, 전통시장 이용 확인자(시장이 지정하는 공영주차장), 자원봉사증 소지자, 저공해 표지 부착 차량, 병역명문가 예우대상자, 독립유공자, 5·18민주유공자, 고엽제 대상자, 의로운 시민 위로금 대상자, 임산부(산모수첩 등 증명자료 제시)는 주차요금의 50%를 경감한다. 다만 10시간 이상 주차 시에는 1일 주차요금을 적용하고, 1일 주차요금과 월 정기주차요금은 이미 감면된 금액이라 50% 경감을 적용하지 않으며, 중복 감면은 되지 않는다"},
+    {"label": "환경친화적 자동차 50% 경감 (충전 시 최대 1시간 면제)", "rate": 0.5, "exempt_min": 60,
+     "note": "조례 별표 1 비고 8 아목 — 전기자동차, 태양광자동차, 하이브리드자동차, 수소전기자동차는 주차요금의 50%를 경감한다. 다만 전기자동차를 충전할 경우에는 대기시간 및 충전시간을 포함하여 최대 1시간까지 주차요금을 면제한다"},
+]
+
+GIMHAE_CONF = {
+    "city": "김해시",
+    "slug": "gimhae",
+    "manager": "경상남도 김해시",
+    "manager_inquiry": "김해시청 교통정책과(주차시설팀)(055-330-4918, 국가법령정보센터 표기)",
+    "ordinance": ("「김해시 주차장 설치 및 관리 조례」 제1839호(시행 2022-04-22, 일부개정)",
+                  GIMHAE_ORD_URL, GIMHAE_ORD_NOTE),
+    "notes": ("김해시 공영주차장 102곳(노외 87곳·노상 10구간·부설 5곳, 총 "
+              "6,641면)은 무료 69곳·유료 22곳·혼합 11곳으로 등록돼 있다. "
+              "「김해시 주차장 설치 및 관리 조례」 제1839호(시행 2022-04-22, "
+              "ordinSeq 1702561) 제5조제1항은 공영주차장의 주차요금을 별표 1과 "
+              "같이 한다고 정한다. 별표 1은 급지(1급지·2급지)×차종(소형·대형) "
+              "요금표로, 1급지 소형은 기본(30분) 500원·추가 10분당 200원·1일 "
+              "6,000원·월 정기주차요금 주간 50,000원·야간 40,000원·주야간 "
+              "70,000원이고, 1급지 대형은 1,000원·400원·12,000원·80,000원·"
+              "70,000원·100,000원, 2급지 소형은 300원·100원·3,000원·30,000원·"
+              "25,000원·40,000원, 2급지 대형은 500원·200원·6,000원·50,000원·"
+              "40,000원·70,000원이다. 별표 금액은 상한선이다(비고 1). 급지는 "
+              "1급지가 동지역·진영읍, 2급지가 면지역이다(비고 6). 등록 유료·"
+              "혼합 30곳의 기본·추가 요금(기본 30분 500원·추가 10분 200원)이 "
+              "전부 별표 1급지 소형 행과 같고, 월정기가 등록된 8곳의 70,000원은 "
+              "별표의 주야간 금액과 같아 등록값을 그대로 계산에 쓴다. 1일 "
+              "요금은 등록 칸이 전부 비어 있어, 특기사항에 '1일 최대' 상한이 "
+              "적힌 19곳만 그 금액을 일일 상한으로 적용한다. 공영주차장은 "
+              "5분 이내 주차·정차 시 요금이 면제된다(비고 3). 면제는 "
+              "제5조제2항(긴급자동차·공무용자동차·시장이 인정하는 자동차), "
+              "경감은 별표 1 비고 8이 정한다 — 경형·장애인·국가유공자·"
+              "경남i다누리카드·장기 기증·전통시장 이용·자원봉사·저공해·"
+              "병역명문가·독립유공자·5·18·고엽제·의로운 시민·임산부·"
+              "환경친화적 자동차 50%(전기차 충전 시 최대 1시간 면제). 좌표는 "
+              "102곳 전부 등록돼 있고 전부 김해시 범위 안이다. 김해시청역 "
+              "복합주차장(부설)은 등록 요금 구조가 별표와 달라 등록값을 그대로 "
+              "실었고, 화물자동차 공영차고지 2곳은 요금 금액이 전부 비어 있어 "
+              "요금 미상으로 표기했다 — 둘 다 시청 확인 과제다."),
+    "discounts": GIMHAE_DISCOUNTS,
+}
+
+GIMHAE_BBOX = (35.10, 35.45, 128.60, 129.05)
+
+GIMHAE_DONGS = {"진영읍", "주촌면", "진례면", "한림면", "생림면", "상동면",
+                "대동면", "내동", "외동", "삼계동", "구산동", "대성동", "동상동",
+                "부원동", "봉황동", "서상동", "어방동", "삼방동", "안동", "지내동",
+                "풍유동", "명법동", "이동", "화목동", "전하동", "강동", "흥동",
+                "삼정동", "불암동", "유하동", "내덕동", "부곡동", "율하동",
+                "삼문동", "관동동", "대청동", "응달동", "수가동", "무계동",
+                "신문동"}
+
+
+def gimhae_dong_of(addr):
+    """김해시 법정 동·읍·면 판정 — 지번주소의 김해시 다음
+    토큰이 동·읍·면이다. 상동면·대동면처럼 '동'으로 끝나는
+    면 이름은 뒤의 '면'까지 읽어야 하므로 사천과 같은
+    정규식(읍|면|동+lookahead)을 쓴다. 이름 기반 보정은
+    쓰지 않는다."""
+    if addr:
+        m = re.search(r"김해시\s*([가-힣0-9]+?(?:읍|면|동\d+가|동))(?=[\s0-9-]|$)", addr)
+        if m:
+            return m.group(1)
+    return None
+
+
+# 등록 요금 패턴 — (기본시간, 기본요금, 추가단위시간, 추가단위요금, 1일, 월정기)
+#   유료·혼합 30곳이 전부 기본 30분 500원·추가 10분 200원으로
+#   조례 별표 1의 1급지 소형 행과 같고, 월정기 칸만 있는
+#   곳(70,000원 = 별표 주야간 금액)과 없는 곳으로 갈린다.
+GIMHAE_P1 = (30, 500, 10, 200, None, 0)
+GIMHAE_P1M = (30, 500, 10, 200, None, 70000)
+
+
+def gimhae_fee(row, name, note_bits, fee_diff):
+    """김해시 공영주차장 한 곳의 요금 — 등록 유료·혼합
+    30곳의 기본·추가 요금이 조례 별표 1의 1급지 소형 행
+    (기본 30분 500원·추가 10분당 200원)과 정확히 같아
+    등록값을 그대로 계산에 쓴다(공주·청양·창원·진주·
+    통영 선례). 월정기 등록값 70,000원은 별표의 주야간
+    금액과 대응한다. 1일 요금은 등록 칸이 전부 비어
+    있어 특기사항의 '1일 최대' 표기가 있는 곳만 일일
+    상한(cap)으로 적용한다. 별표 비고 3의 5분 이내
+    면제는 유료·혼합 전 곳에 free_min 5로 반영한다.
+    김해시청역 복합주차장은 등록 구조(기본 60분
+    1,000원·추가 30분 500원·1일 5,000원)가 별표 행과
+    달라 등록값을 그대로 싣고 fee_diff에 남긴다.
+    화물자동차 공영차고지 2곳은 금액이 전부 비어 있어
+    요금 미상이다(군산·통영·사천 선례)."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    day_hours = to_int(row.get("1일주차권요금적용시간"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    note = (row.get("특기사항") or "")
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None, "monthly_night": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 시청 확인 필요"})
+        return fee
+    if not base_fee and not unit_fee and not day and not month:
+        fee_diff.append(f"{name}: '{raw_type}'로 등록돼 있으나 기본·추가·1일·월정기 금액이 전부 "
+                        "비어 있어 금액을 확정할 수 없다 — 화물자동차 전용 차고지라 조례 별표 1의 "
+                        "일반 요금(승용 기준 급지·차종표)을 그대로 대입하지 않고 요금 미상으로 "
+                        "표기한다(군산·통영·사천 선례, 시청 확인 필요)")
+        fee.update({"type": "미상",
+                    "basis": "요금 구분은 ‘유료’이나 요금 금액이 전부 비어 있음 — "
+                             "조례 별표 1 요금은 요금표에 있고, 금액은 김해시청 확인 필요"})
+        return fee
+    if name == "김해시청역 복합주차장":
+        fee_diff.append(f"{name}: 등록 요금(기본 60분 1,000원·추가 30분 500원·1일 5,000원)이 "
+                        "조례 별표 1의 어느 급지·차종 행과도 구조가 달라 등록값을 그대로 실었다. "
+                        "1일주차권요금적용시간은 300으로 등록돼 있는데 단위(분으로 보이나)가 "
+                        "확정되지 않아 싣지 않았다 — 시청 확인 과제")
+        fee.update({"type": "유료", "base_min": base_min, "base_fee": base_fee,
+                    "unit_min": unit_min, "unit_fee": unit_fee,
+                    "daily_fee": day if day else None, "daily_hours": None,
+                    "grade": int(grade) if grade.isdigit() else None,
+                    "grade_label": f"{grade}급지" if grade else None,
+                    "basis": ("표준데이터 등록값(기본 60분 1,000원·추가 30분 500원·1일 "
+                              "5,000원)을 그대로 적용했다 — 특기사항의 '1일 최대 "
+                              "5000원'과 등록 1일 요금이 같고, 유료 운영 시간 외에는 "
+                              "무료로 운영한다(등록 특기사항). 조례 별표 1의 행과 "
+                              "대응하지 않아 시청 확인 과제다")})
+        return fee
+    pat = (base_min, base_fee, unit_min, unit_fee, day, month or 0)
+    cap_m = re.search(r"1일 최대\s*([0-9,]+)원", note)
+    cap_note = int(cap_m.group(1).replace(",", "")) if cap_m else None
+    if pat in (GIMHAE_P1, GIMHAE_P1M):
+        basis = ("표준데이터 등록값이 조례 별표 1의 1급지 소형 요금(기본 30분 "
+                 "500원·추가 10분당 200원)과 정확히 같아 등록값을 그대로 적용했다")
+        if pat == GIMHAE_P1M:
+            basis += (" 월정기 등록값 70,000원은 별표 1급지 소형의 주야간 금액과 "
+                      "같다(주간 50,000원·야간 40,000원은 등록 칸이 없어 요금표에만 싣는다)")
+        fee.update({"type": "유료", "base_min": base_min, "base_fee": base_fee,
+                    "unit_min": unit_min, "unit_fee": unit_fee,
+                    "free_min": 5,
+                    "grade": int(grade) if grade.isdigit() else None,
+                    "grade_label": f"{grade}급지" if grade else None,
+                    "basis": basis})
+        if month:
+            fee.update({"monthly": month, "monthly_label": "주야간"})
+        if name == "진영 역사공원 공영주차장":
+            # 특기사항에 야간(20:00~08:00) 월정기권 40,000원이 따로 적혀
+            #   있다 — 별표 1급지 소형의 야간 금액과 같다.
+            fee["monthly_night"] = 40000
+            fee["basis"] += (" 특기사항에 야간(20:00~08:00) 월정기권 40,000원이 "
+                             "적혀 있어 함께 실었다 — 별표 1급지 소형의 야간 금액과 같다")
+        if cap_note:
+            fee.update({"cap_fee": cap_note, "cap_src": "표준데이터 특기사항"})
+            if cap_note != 6000:
+                fee_diff.append(f"{name}: 특기사항의 1일 최대 {cap_note}원이 조례 별표 1의 "
+                                "1급지 소형 1일 요금 6,000원보다 낮아 등록 특기사항의 "
+                                "상한을 적용했다 — 시청 확인 과제")
+        return fee
+    fee_diff.append(f"{name}: 등록 요금(기본 {base_min}분 {base_fee}원·추가 {unit_min}분 "
+                    f"{unit_fee}원·1일 {day}원·월정기 {month}원)이 조례 별표 1의 어느 "
+                    "급지·차종 행과도 맞지 않아 등록값을 그대로 실었다 — 시청 확인 과제")
+    fee.update({"type": "유료", "base_min": base_min, "base_fee": base_fee,
+                "unit_min": unit_min, "unit_fee": unit_fee,
+                "daily_fee": day if day else None,
+                "daily_hours": day_hours if day_hours else None,
+                "monthly": month if month else None,
+                "grade": int(grade) if grade.isdigit() else None,
+                "grade_label": f"{grade}급지" if grade else None,
+                "basis": "표준데이터 등록값을 그대로 적용했다 — 조례 별표 1의 행과 대응하지 않아 시청 확인 과제다"})
+    return fee
+
+
+def gimhae_fee_table(conf, lots):
+    """요금표 — 조례 별표 1(급지×차종)을 싣는다. 등록
+    유료·혼합 30곳이 전부 1급지 소형 행과 같고 나머지
+    행은 등록된 곳이 없어 조례 기준 행으로 함께 싣는다.
+    1시간·2시간 예상액은 별표 구조(기본 30분 + 10분
+    단위, 1일 상한)로 계산한 조례 기준액이다."""
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+
+    def _n(pat):
+        def _std_pat(l):
+            s = l["fee"]["std"] or {}
+            return (s.get("base_min"), s.get("base_fee"), s.get("unit_min"),
+                    s.get("unit_fee"), s.get("day"), s.get("monthly") or 0)
+        return len([l for l in lots if _std_pat(l) == pat])
+
+    def _row(label, grade, base_fee, unit_fee, day, month_day, month_night,
+             unit_label, n_lots=0):
+        f = {"base_min": 30, "base_fee": base_fee, "unit_min": 10,
+             "unit_fee": unit_fee, "daily_fee": day}
+        return {"label": label, "grade": grade, "unit_label": unit_label,
+                "hour": sj_charge(f, 60), "two_hour": sj_charge(f, 120),
+                "day": day, "month": month_day, "month_night": month_night, "lots": n_lots}
+
+    rows = [
+        _row("1급지 소형", "g1_small", 500, 200, 6000, 50000, 40000,
+             "기본 30분 500원 · 추가 10분당 200원 · 1일 6,000원 · 월정기 주간 50,000원·야간 40,000원·주야간 70,000원",
+             _n(GIMHAE_P1) + _n(GIMHAE_P1M)),
+        _row("1급지 대형", "g1_large", 1000, 400, 12000, 80000, 70000,
+             "기본 30분 1,000원 · 추가 10분당 400원 · 1일 12,000원 · 월정기 주간 80,000원·야간 70,000원·주야간 100,000원"),
+        _row("2급지 소형", "g2_small", 300, 100, 3000, 30000, 25000,
+             "기본 30분 300원 · 추가 10분당 100원 · 1일 3,000원 · 월정기 주간 30,000원·야간 25,000원·주야간 40,000원"),
+        _row("2급지 대형", "g2_large", 500, 200, 6000, 50000, 40000,
+             "기본 30분 500원 · 추가 10분당 200원 · 1일 6,000원 · 월정기 주간 50,000원·야간 40,000원·주야간 70,000원"),
+    ]
+    return {
+        "style": "gimhae_grade",
+        "unit_min": 10,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["list_mode"] == "card"]),
+                 "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [{"group": "주간·야간 구분 (조례 별표 1 비고 4)",
+                     "hours": "주간 08:00~20:00, 야간 20:00~다음 날 08:00",
+                     "free": "별표 1 월정기 주간·야간 금액의 구분 기준이다"}],
+        "notes": ("별표 1 금액은 상한선으로, 시장은 그 아래로 정할 수 있다"
+                  "(비고 1). 다만 노상주차장(주거지전용주차장 제외)은 상한선을 "
+                  "정하지 않으며 1일 주차요금과 월 정기주차요금을 받지 않는다"
+                  "(비고 1 단서). 최초 주차시간이 30분 미만이면 30분으로 하고 "
+                  "초과시간 10분 미만은 10분으로 한다(비고 2). 공영주차장은 "
+                  "5분 이내로 주차하거나 정차하면 요금을 면제한다(비고 3). "
+                  "소형은 승용자동차, 승차정원 15인승 이하 승합자동차 및 "
+                  "적재중량 1톤 이하의 화물자동차를 말하고 나머지는 대형으로 "
+                  "본다(비고 5). 급지는 1급지가 동지역·진영읍, 2급지가 "
+                  "면지역이다(비고 6). 1구획을 초과하는 자동차는 점용 구획수에 "
+                  "따라 징수한다(비고 7). 경감은 경형·장애인·국가유공자·"
+                  "경남i다누리카드·장기 기증·전통시장 이용·자원봉사·저공해·"
+                  "병역명문가·독립유공자·5·18·고엽제·의로운 시민·임산부·"
+                  "환경친화적 자동차 50%다(비고 8 — 10시간 이상 주차 시 1일 "
+                  "요금 적용, 1일·월정기 요금은 경감하지 않음, 중복 감면 "
+                  "불가). 김해시의 다른 조례에 주차요금 징수의 별도 규정이 "
+                  "있으면 이 요금표를 적용하지 않는다(비고 9). 등록 급지는 "
+                  "1급지 79곳·2급지 23곳으로, 면지역 23곳이 전부 2급지라 조례 "
+                  "기준과 어긋나는 곳이 없다. 2급지·대형 행에 해당하는 유료 "
+                  "등록은 없고, 화물자동차 공영차고지 2곳(1급지 1곳·2급지 "
+                  "1곳)은 금액이 비어 있어 요금 미상이다."),
+        "basis": ("요금표는 「김해시 주차장 설치 및 관리 조례」 제1839호(시행 2022-04-22) "
+                  "제5조·별표 1과 표준데이터(기준일 2026-04-22)를 대조해 실었다. "
+                  "등록된 유료·혼합 30곳의 요금이 전부 별표 1의 1급지 소형 행과 "
+                  "같아 등록값을 계산에 쓴다. (조례 본문: data/raw/gimhae-ordinance.txt, "
+                  "별표 원문: data/raw/gimhae-ordinance-b1.txt)"),
+    }
+
+
+def gimhae_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                   space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(lots)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동 미상" for l in lots).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in lots if l["dong"]}),
+        "동_미상": [l["name"] for l in lots if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in lots)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「김해시 주차장 설치 및 관리 조례」 제1839호 제5조제2항·별표 1 비고 8 — "
+                      "면제(할 수 있다, 제5조제2항): 긴급자동차, 국가 또는 지방자치단체 "
+                      "소유의 공무용자동차, 그 밖에 시장이 특별한 사유가 있다고 인정하는 "
+                      "자동차. 50% 경감(비고 8): 경형 승용자동차, 장애인(본인 소유 "
+                      "비사업용 승용자동차를 직접 운전하거나 동승한 경우), 국가유공자·"
+                      "상이자, 경남i다누리카드 소지자, 장기기증 희망자·기증자·유족, "
+                      "전통시장 이용 확인자(시장 지정 공영주차장), 자원봉사증 소지자, "
+                      "환경친화적 자동차(충전 시 최대 1시간 면제), 저공해 표지 부착 "
+                      "차량, 병역명문가 예우대상자, 독립유공자, 5·18민주유공자, 고엽제 "
+                      "대상자, 의로운 시민 위로금 대상자, 임산부(산모수첩 등 증명자료 "
+                      "제시). 다만 10시간 이상 주차 시 1일 주차요금을 적용하고 1일·"
+                      "월정기 요금은 경감하지 않으며 중복 감면은 되지 않는다. 본문 "
+                      "원문(data/raw/gimhae-ordinance.txt)·별표 원문"
+                      "(data/raw/gimhae-ordinance-b1.txt) 대조 완료(2026-11-20)"),
+        "요금_출처": ("조례 제5조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같다. 별표 1은 "
+                      "급지(1급지·2급지)×차종(소형·대형) 요금표로 1급지 소형은 기본(30분) "
+                      "500원·추가 10분당 200원·1일 6,000원·월 정기주차요금 주간 "
+                      "50,000원·야간 40,000원·주야간 70,000원이고, 1급지 대형은 "
+                      "1,000원·400원·12,000원·80,000원·70,000원·100,000원, 2급지 "
+                      "소형은 300원·100원·3,000원·30,000원·25,000원·40,000원, 2급지 "
+                      "대형은 500원·200원·6,000원·50,000원·40,000원·70,000원이다. "
+                      "표준데이터 등록 유료·혼합 30곳이 전부 1급지 소형 행(기본·추가)과 "
+                      "같아 등록값을 그대로 계산에 쓴다"),
+        "급지_출처": ("조례 별표 1 비고 6 — 1급지는 동지역·진영읍, 2급지는 면지역이다. "
+                      "표준데이터 등록 급지는 1급지 79곳·2급지 23곳이고 면지역 "
+                      "23곳(주촌면 4·진례면 6·한림면 5·생림면 5·상동면 2·대동면 1)이 "
+                      "전부 2급지로 등록돼 조례 기준과 어긋나는 곳이 없다"),
+        "무료요일_출처": ("조례에 주말·공휴일 상시 무료 규정이 없어 유료·혼합 곳의 "
+                          "free_days는 전부 False가 원칙이다. 예외는 장유전통시장 "
+                          "공영주차장 1곳으로, 등록 특기사항에 '일요일 무료'가 적혀 "
+                          "있어 일요일만 무료로 표기했다(당진·시흥 선례) — 공휴일 "
+                          "무료 표기는 특기사항·조례 어디에도 없어 붙이지 않았다. "
+                          "혼합 노상 8곳과 김해시청역 복합주차장의 '운영시간 외 "
+                          "무료운영'은 요일이 아니라 운영시간 기준이다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 김해시 등록 102행이 전부 공영(노외 87·노상 10·부설 5)이라 민영 제외 0건으로 102곳·6,641면을 실었다. 중복 제거 0건, 구획수 0 등록 0건, 주소 없음 0건이다. 동별로는 진영읍 13곳·봉황동 9곳·내동 7곳 등 32개 읍·면·동이다",
+            "「김해시 주차장 설치 및 관리 조례」 제1839호(표제 시행 2022-04-22, 공포 2022-04-22, 일부개정, ordinSeq 1702561) 본문 원문(data/raw/gimhae-ordinance.txt) 대조 완료(2026-11-20) — 부칙(조례 제1839호)은 '공포한 날부터 시행'이라 표제 시행일과 같다. 함께 검색되는 「김해시 청사의 부설 주차장 관리 및 운영 조례」 제2127호는 청사 부설 전용, 「김해시 화물자동차 운송사업자 차고지 설치면제에 관한 조례」 제1462호는 차고지 설치면제에 관한 것이라 요금 조례가 아니다",
+            "별표 1은 HWP 원본(flSeq 160413917)을 data/raw/gimhae-ordinance-b1.hwp로 저장하고 PrvText 추출과 BodyText 전문 파싱을 교차 확인해 확정했다 — 급지(1급지·2급지)×차종(소형·대형) 요금표로 1급지 소형은 기본(30분) 500원·추가 10분당 200원·1일 6,000원·월 주간 50,000원·야간 40,000원·주야간 70,000원이다. 본문 제5조제1항이 별표 1을 참조하고 첨부에도 별표 1이 들어 있어 첨부파일 오등록이 아니다",
+            "등록 유료 22곳·혼합 11곳 가운데 화물 차고지 2곳과 김해시청역 복합주차장을 뺀 30곳의 요금이 전부 기본 30분 500원·추가 10분 200원으로 별표 1급지 소형 행과 정확히 같다 — 월정기가 등록된 8곳의 70,000원은 별표의 주야간 금액과 대응한다(주간 50,000원·야간 40,000원은 등록 칸이 없어 요금표에만 싣는다). 등록값이 완전하고 별표와 대응하므로 계산기는 등록값을 그대로 쓴다(공주·청양·창원·진주·통영 선례)",
+            "1일 요금은 등록 칸이 102곳 전부 비어 있다. 특기사항에 '1일 최대 6,000원'이 적힌 17곳과 '1일 최대 5,000원'이 적힌 동상시장 공영주차장은 그 금액을 일일 상한(cap)으로 적용했고, 동상시장의 5,000원은 별표 1일 요금 6,000원보다 낮아 fee_diff에 남겼다. 상한 표기가 없는 유료 노외 3곳(서어지공원·내덕동·유하공원)은 상한 없이 등록 요금으로 계산한다 — 별표 1일 요금을 상한으로 적용하는지는 시청 확인 과제다. 노상 8곳은 별표 비고 1 단서상 1일 요금 자체가 없다",
+            "김해시청역 복합주차장(부설, 452면)은 등록 요금(기본 60분 1,000원·추가 30분 500원·1일 5,000원)이 별표 행과 구조가 달라 등록값을 그대로 실었다(fee_diff). 1일주차권요금적용시간 300은 단위가 확정되지 않아 싣지 않았다. 「김해시 청사의 부설 주차장 관리 및 운영 조례」는 청사 부설 전용이라 경전철 김해시청역의 복합주차장에 적용되는지는 시청 확인 과제다",
+            "화물자동차 공영차고지 2곳(생림화물자동차 공영차고지 2급지 80면·서김해화물자동차 주차장 1급지 64면)은 '유료'로 등록돼 있으나 금액이 전부 비어 있다. 화물 전용 차고지라 별표의 일반 요금을 대입하지 않고 요금 미상으로 표기했다(군산·통영·사천 선례) — 서김해는 특기사항에 '월 주차만 가능', 생림은 '일반차불가'로 적혀 있다. 실제 요금은 시청 확인 과제다",
+            "요금 구분 '혼합' 11곳 — 노상 8곳은 운영시간(전 요일 00:00~20:00) 외 무료운영이라 운영시간 안 유료로 계산했고, 노외 3곳(분성로·서상동·삼방동)은 24시간 운영에 1일 최대 6,000원이라 '혼합'의 세부 의미(감면 대상 혼합 등)는 시청 확인 과제다",
+            "별표 비고 3은 공영주차장의 5분 이내 주차·정차를 면제한다고 정해 유료·혼합 30곳의 계산에 free_min 5를 반영했다. 별표 비고 8의 50% 경감 목록은 등록 특기사항의 '50퍼센트 감면(경차+친환경차+저공해차+장애인+국가유공자+경남i다누리카드 소지자 등)' 표기와 정합한다",
+            "좌표는 102곳 전부 등록돼 있고 전부 김해시 범위 안이라 지오코딩 보완이 0건이다 — 오버레이(좌표누락_지오코딩_20261118.json)는 718행 그대로다",
+            "등록 급지는 1급지 79곳·2급지 23곳으로 면지역 23곳이 전부 2급지라 조례 급지 기준(비고 6)과 어긋나는 곳이 없다",
+            "김해가야테마파크(298면)와 김해가야테마파크(확장)(402면)은 같은 자리(어방동 986, 좌표 동일)에 이름만 다른 별개 등록이라 둘 다 실었다(관리번호 385-3-000001·385-3-000002). 김해중소기업 비즈니스센터(부설, 농소리 638-3, 264면)와 김해중소기업비즈니스센터(노외, 농소리 639-3, 179면)도 이름이 공백만 다르고 지번이 이어지는 이웃 등록이라 둘 다 실었다 — 같은 시설의 이중 등록인지는 시청 확인 과제다",
+            "부제시행구분은 미시행 99곳·5부제 3곳(김해시청역 복합주차장·관동동 공영주차장·내덕동 공영주차장)이고, 운영요일은 102곳 전부 평일+토요일+공휴일이다. 전화번호는 102곳 전부 등록돼 있지 않다(시청 확인 과제). 장애인전용주차구역 보유여부는 93곳 Y, 9곳 공란이다. 데이터기준일자는 102곳 전부 2026-04-22, 제공기관명은 전부 '경상남도 김해시'다",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] or 0 for l in paid) / len(paid)) if paid else 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_gimhae():
+    """김해시 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「김해시 주차장 설치 및
+    관리 조례」 제1839호(시행 2022-04-22,
+    ordinSeq 1702561) 제5조·별표 1 원문 대조
+    완료(2026-11-20). 표준데이터 등록 102행이
+    전부 공영(노외 87·노상 10·부설 5, 총
+    6,641면)이라 102곳을 싣고 제외는 0건이다.
+    좌표 결측은 0곳이다."""
+    conf = GIMHAE_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "김해시" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "김해시" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 김해시는
+    #   해당 중복이 0건이다(김해중소기업 비즈니스센터 쌍은 지번이 638-3과
+    #   639-3으로 달라 자리부터 다르고, 가야테마파크 쌍은 이름이 다르다).
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, dong_fixed, space_diff, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (GIMHAE_BBOX[0] < lat < GIMHAE_BBOX[1]
+                                                        and GIMHAE_BBOX[2] < lng < GIMHAE_BBOX[3]):
+            # 김해시 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 김해시 범위 밖 — "
+                               "좌표 없음으로 표기하고 지오코딩 보완 대상으로 넘김")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음(0으로 등록)"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = gimhae_dong_of(jibun)
+        if dong:
+            dong_src = "지번주소"
+        elif gimhae_dong_of(road):
+            dong = gimhae_dong_of(road)
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 동 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:읍|면|동))", std_name)
+        if _name_head and _name_head.group(1) in GIMHAE_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 동({_name_head.group(1)})과 지번주소 기준 "
+                              f"동({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = gimhae_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        if std_name == "장유전통시장 공영주차장" and fee["type"] == "유료":
+            # 등록 특기사항 '일요일 무료' 근거로 일요일만 무료로 둔다
+            #   (당진·시흥 선례). 공휴일 표기는 어디에도 없다.
+            free_days = {"sat": False, "sun": True}
+            note_bits.append("일요일은 무료입니다(등록 특기사항)")
+        if fee["type"] == "유료" and fee.get("mixed") and ptype == "노상":
+            note_bits.append("요금 구분이 '혼합'으로 등록돼 있습니다 — 운영시간"
+                             "(00:00~20:00) 외에는 무료로 운영합니다(등록 특기사항)")
+        elif fee["type"] == "유료" and fee.get("mixed"):
+            note_bits.append("요금 구분이 '혼합'으로 등록돼 있습니다 — 24시간 "
+                             "운영하며 1일 최대 6,000원입니다(등록 특기사항)")
+        if std_name == "김해시청역 복합주차장":
+            note_bits.append("유료 운영 시간 외에는 무료로 운영합니다(등록 특기사항)")
+        if fee["type"] == "무료":
+            note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "김해시", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다")
+
+    # 이름이 다른 주차장이 200m 안에 이웃한 쌍 — 전부 다른 등록이라 합치지
+    #   않고 전부 싣는다(옥천·영동 선례). 등록 좌표가 있는 곳끼리만 센다.
+    _pairs = []
+    _have = [l for l in lots if l["lat"] is not None and l["lng"] is not None]
+    for _a in range(len(_have)):
+        for _b in range(_a + 1, len(_have)):
+            _d = 111000 * math.sqrt((_have[_a]["lat"] - _have[_b]["lat"]) ** 2
+                                    + ((_have[_a]["lng"] - _have[_b]["lng"]) * 0.81) ** 2)
+            if _d < 200:
+                _pairs.append(f"{_have[_a]['name']}·{_have[_b]['name']}({round(_d)}m)")
+    if _pairs:
+        note_fixed.append("이름이 다른 주차장이 200m 안에 이웃한 쌍이 "
+                          f"{len(_pairs)}건 있다 — " + ", ".join(_pairs[:6])
+                          + " 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다")
+    note_fixed.append("표준데이터 등록 102행이 전부 공영이라 민영 제외 없이 102곳을 "
+                      "실었다. 데이터기준일자는 102행 전부 2026-04-22이고 "
+                      "제공기관명은 전부 '경상남도 김해시'다")
+    note_fixed.append("김해가야테마파크(어방동 986, 298면)와 김해가야테마파크(확장)"
+                      "(같은 자리, 402면)은 이름이 다른 별개 등록이라 둘 다 실었다. "
+                      "김해중소기업 비즈니스센터(부설, 주촌면 농소리 638-3, 264면)와 "
+                      "김해중소기업비즈니스센터(노외, 농소리 639-3, 179면)는 이름이 "
+                      "공백만 다르고 지번이 이어져 같은 시설의 이중 등록일 수 있어 "
+                      "시청 확인 과제다 — 둘 다 실었다")
+    note_fixed.append("화물자동차 공영차고지 2곳(생림화물자동차 공영차고지·"
+                      "서김해화물자동차 주차장)은 '유료'로 등록돼 있으나 요금 금액이 "
+                      "전부 비어 있어 요금 미상으로 표기했다 — 실제 요금은 시청 "
+                      "확인 과제다")
+    note_fixed.append("요금 구분 '혼합'인 노외 3곳(분성로·서상동·삼방동 공영주차장)의 "
+                      "'혼합' 세부 의미는 시청 확인 과제다 — 24시간 운영에 1일 최대 "
+                      "6,000원이라 운영시간 안 유료로 계산했다")
+    note_fixed.append("1일 요금은 등록 칸이 전부 비어 있어, 특기사항에 '1일 최대'가 "
+                      "적힌 19곳만 그 금액을 일일 상한으로 적용했다. 상한 표기가 "
+                      "없는 유료 노외 3곳(서어지공원·내덕동·유하공원)은 상한 없이 "
+                      "계산한다 — 별표 1일 요금(6,000원)을 상한으로 적용하는지는 "
+                      "시청 확인 과제다")
+    note_fixed.append("장유전통시장 공영주차장의 일요일 무료는 등록 특기사항 근거다 "
+                      "— 공휴일 무료 표기는 특기사항·조례 어디에도 없다")
+    note_fixed.append("전화번호는 102곳 전부 등록돼 있지 않다 — 문의는 김해시청 "
+                      "교통정책과(주차시설팀)(055-330-4918, 국가법령정보센터 표기)로 "
+                      "안내한다")
+    note_fixed.append("좌표는 102곳 전부 등록돼 있고 전부 김해시 범위 안이라 지오코딩 "
+                      "보완이 0건이다")
+    note_fixed.append("부제시행구분은 미시행 99곳·5부제 3곳(김해시청역 복합주차장·"
+                      "관동동 공영주차장·내덕동 공영주차장)이고, 운영요일은 102곳 "
+                      "전부 평일+토요일+공휴일이다. 장애인전용주차구역 보유여부는 "
+                      "93곳 Y, 9곳 공란이다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"gn-gimhae-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"gn-gimhae-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 김해시는 좌표 결측이 없어 오버레이로 채워지는 곳이 없다.
+    apply_coord_fix(lots)
+
+    fee_table = gimhae_fee_table(conf, lots)
+    quality = gimhae_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                             fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-04-22",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"김해시로 등록된 행 {len(rows_std)}행 중 공영 102행을 읽어 중복 "
+                 f"제거 {len(merged)}건, 제외 {len(excluded)}건으로 {len(lots)}곳을 실었다. "
+                 f"유료 {len([l for l in lots if l['fee']['type'] == '유료'])}곳·무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳·미상 "
+                 f"{len([l for l in lots if l['fee']['type'] == '미상'])}곳이다. "
+                 f"좌표 결측은 0곳이다. "
+                 f"조례 대조 완료 — 「김해시 주차장 설치 및 관리 조례」 제1839호(시행 "
+                 f"2022-04-22, ordinSeq 1702561) 제5조·별표 1 원문 대조 완료(2026-11-20)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": GIMHAE_ORD_TXT.name if GIMHAE_ORD_TXT.exists() else None,
+            "sha256": sha256(GIMHAE_ORD_TXT) if GIMHAE_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2022-04-22",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"김해시가 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/gimhae-ordinance.txt, 별표 원문: "
+                    f"data/raw/gimhae-ordinance-b1.txt)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": GIMHAE_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "김해시", "slug": "gimhae"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": GIMHAE_PROVINCE,
+        "province_slug": GIMHAE_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "gimhae_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -68351,7 +69063,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -68369,7 +69081,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -68425,7 +69137,8 @@ def main():
              "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "iksan": ["익산시"], "jeongeup": ["정읍시"], "namwon": ["남원시"], "gimje": ["김제시"], "wanju": ["완주군"], "jinan": ["진안군"], "muju": ["무주군"], "jangsu": ["장수군"], "imsil": ["임실군"], "sunchang": ["순창군"], "gochang": ["고창군"], "buan": ["부안군"], "mokpo": ["목포시"], "yeosu": ["여수시"], "suncheon": ["순천시"], "naju": ["나주시"], "gwangyang": ["광양시"], "muan": ["무안군"], "yeongam": ["영암군"], "haenam": ["해남군"], "goheung": ["고흥군"], "boseong": ["보성군"], "hwasun": ["화순군"], "jangheung": ["장흥군"], "gangjin": ["강진군"], "hampyeong": ["함평군"], "geumsan": ["금산군"], "yeonggwang": ["영광군"], "jangseong": ["장성군"], "wando": ["완도군"], "jindo": ["진도군"], "sinan": ["신안군"], "gurye": ["구례군"], "gokseong": ["곡성군"], "damyang": ["담양군"], "changwon": ["창원시"],
                                 "jinju": ["진주시"],
                                 "tongyeong": ["통영시"],
-                                "sacheon": ["사천시"]}[args.city])
+                                "sacheon": ["사천시"],
+                                "gimhae": ["김해시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -68659,6 +69372,8 @@ def main():
         cities.append(build_tongyeong())
     if "사천시" in want:
         cities.append(build_sacheon())
+    if "김해시" in want:
+        cities.append(build_gimhae())
 
     if args.city == "all":
         site = build_site_payload(cities)
