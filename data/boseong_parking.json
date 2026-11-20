@@ -1,0 +1,8604 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 14:51",
+  "generated_at_iso": "2026-11-20T14:51:38+09:00",
+  "snapshot_at": "2026-11-20 14:51",
+  "region": {
+   "province": "전남광주통합특별시",
+   "city": "보성군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-07-29",
+    "rows_total": 18994,
+    "rows_city": 73,
+    "fetched_at": "2026-11-20 14:51 (KST)",
+    "note": "보성군으로 등록된 행 73행(전부 공영)을 읽어 중복 제거 0건으로 73곳을 실었다. 무료 72곳·유료 1곳이다. 좌표는 1곳(보성군 복합커뮤니티센터)이 결측이고 도로명주소는 12곳이 결측이다. 조례 대조 완료 — 「보성군 주차장 조례」 제2962호(시행 2026-08-04, ordinSeq 2157749) 제3조·별표 1 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「보성군 주차장 조례」 제2962호(시행 2026-08-04, 일부개정)",
+    "org": "전남광주통합특별시 보성군청",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2157749",
+    "file": "boseong-ordinance-b1.txt",
+    "sha256": "555a7032f22bc5b18afa22a390155b84887ec6c1181045eaaade858d144e3dbc",
+    "license": "자치법규(공개)",
+    "base_date": "2026-08-04",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 14:51 (KST)",
+    "note": "보성군이 설치·관리하는 공영주차장에 적용하는 조례다. 보성군 공영주차장 73곳(부설 48·노외 17·노상 8, 총 5,429면)은 72곳이 요금 구분 '무료'(특기사항 '24시간 무료개방')로 등록돼 있고 제암산자연휴양림주차장 1곳만 유료다. 「보성군 주차장 조례」 제2962호(시행 2026-08-04, ordinSeq 2157749) 제3조제1항은 공영주차장 요금을 별표 1로 정한다 — 별표 1은 급지(1·2급지)×차종(소형·대형) 요금표로, 1회 주차권은 1구획당 30분마다 1급지 소형 250원·대형 300원, 2급지 소형·대형 200원이고, 1일 주차권은 1급지 소형 5,000원·대형 6,000원, 2급지 소형·대형 2,400원, 월정기는 주간 1급지 소형 50,000원·대형 65,000원, 2급지 소형·대형 30,000원, 야간 1급지 소형 40,000원·대형 52,000원, 2급지 소형 20,000원·대형 22,000원이다. 등록 72곳이 무료라 이 요금표는 조례 기준 요금의 참고표로만 싣는다. 제암산자연휴양림주차장의 등록 요금은 1일 정액 3,000원으로 별표 1의 2급지 1일 2,400원과 달라 등록값을 그대로 실었다(군청 확인 과제). 주간은 4~10월 09:00~20:00, 11~3월 09:00~19:00이고 나머지는 야간이다(별표 1 비고 2). 급지는 군수가 지정한다(비고 3). 감면은 조례 제3조를 따른다(긴급자동차 면제, 모범납세자 성실납세필증 차량 1년 면제, 부제운행 참여차량·경승용차·국가유공자 및 장애인 사용 자동차·저공해자동차 및 환경친화적 자동차 표지 부착 차량 50% 할인). 등록 급지는 73곳 전부 '2'이고, 좌표는 보성군 복합커뮤니티센터 1곳만 등록돼 있지 않다. (조례 본문: data/raw/boseong-ordinance.txt, 별표 1 원문: data/raw/boseong-ordinance-b1.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "보성군",
+   "slug": "boseong"
+  }
+ ],
+ "lots": [
+  {
+   "id": "jn-boseong-001",
+   "mgmt_no": "333-3-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "겸백면사무소주차장",
+   "gu": "보성군",
+   "dong": "겸백면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 겸백면 석호리 456-3",
+   "addr_road": "전남광주통합특별시 보성군 겸백면 충의로 2476",
+   "road": null,
+   "spaces": 10,
+   "tel": "061-850-5516",
+   "lat": 34.829430457,
+   "lng": 127.1518515468,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-002",
+   "mgmt_no": "333-3-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "노동면사무소주차장",
+   "gu": "보성군",
+   "dong": "노동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 노동면 광곡리 583-3",
+   "addr_road": "전남광주통합특별시 보성군 노동면 광곡길 28",
+   "road": null,
+   "spaces": 14,
+   "tel": "061-850-5516",
+   "lat": 34.79730102,
+   "lng": 127.0708373326,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-003",
+   "mgmt_no": "333-3-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "득량농협",
+   "gu": "보성군",
+   "dong": "득량면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 득량면 오봉리 909-1",
+   "addr_road": "전남광주통합특별시 보성군 득량면 역전길 28",
+   "road": null,
+   "spaces": 7,
+   "tel": "061-850-5516",
+   "lat": 34.7615223213,
+   "lng": 127.1702054424,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-004",
+   "mgmt_no": "333-3-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "득량면 국민체육센터",
+   "gu": "보성군",
+   "dong": "득량면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 득량면 오봉리 873-3",
+   "addr_road": "전남광주통합특별시 보성군 득량면 공룡로 1745",
+   "road": null,
+   "spaces": 28,
+   "tel": "061-850-5516",
+   "lat": 34.76251731,
+   "lng": 127.1698875,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-005",
+   "mgmt_no": "333-3-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "득량면사무소주차장",
+   "gu": "보성군",
+   "dong": "득량면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 득량면 오봉리 908",
+   "addr_road": "전남광주통합특별시 보성군 득량면 역전길 13",
+   "road": null,
+   "spaces": 22,
+   "tel": "061-850-5516",
+   "lat": 34.762133474,
+   "lng": 127.1687574,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-006",
+   "mgmt_no": "333-3-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "득량보건소",
+   "gu": "보성군",
+   "dong": "득량면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 득량면 오봉리 874-3",
+   "addr_road": "전남광주통합특별시 보성군 득량면 역전길 15-11",
+   "road": null,
+   "spaces": 5,
+   "tel": "061-850-5516",
+   "lat": 34.7628916327,
+   "lng": 127.1690282,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-007",
+   "mgmt_no": "333-3-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보성농어촌공공도서관주차장",
+   "gu": "보성군",
+   "dong": "득량면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 득량면 예당리 373",
+   "addr_road": "전남광주통합특별시 보성군 득량면 예당길 155-23",
+   "road": null,
+   "spaces": 13,
+   "tel": "061-850-5516",
+   "lat": 34.77972568,
+   "lng": 127.1968166691,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-008",
+   "mgmt_no": "333-3-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보성농어촌테마파크공원",
+   "gu": "보성군",
+   "dong": "득량면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 득량면 비봉리 514-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 122,
+   "tel": "061-850-5516",
+   "lat": 34.70951318,
+   "lng": 127.1968371,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-009",
+   "mgmt_no": "333-3-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보성비봉공룡공원",
+   "gu": "보성군",
+   "dong": "득량면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 득량면 비봉리 551-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "061-850-5516",
+   "lat": 34.70631725,
+   "lng": 127.1966232894,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-010",
+   "mgmt_no": "333-3-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보성예당습지생태공원",
+   "gu": "보성군",
+   "dong": "득량면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 득량면 예당리 3040-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 66,
+   "tel": "061-850-5516",
+   "lat": 34.7579023959,
+   "lng": 127.221325746,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-011",
+   "mgmt_no": "333-3-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보성위험기상집중관측센터",
+   "gu": "보성군",
+   "dong": "득량면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 득량면 예당리 3046-2",
+   "addr_road": "전남광주통합특별시 보성군 득량면 득량만길 379",
+   "road": null,
+   "spaces": 73,
+   "tel": "061-850-5516",
+   "lat": 34.7633630318,
+   "lng": 127.2128391029,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-012",
+   "mgmt_no": "333-3-000046",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "선소어촌체험장",
+   "gu": "보성군",
+   "dong": "득량면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 득량면 비봉리 549",
+   "addr_road": "전남광주통합특별시 보성군 득량면 공룡로 806-32",
+   "road": null,
+   "spaces": 40,
+   "tel": "061-850-5516",
+   "lat": 34.7045415974,
+   "lng": 127.1915498965,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-013",
+   "mgmt_no": "333-3-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "예당권역다목적복지센터",
+   "gu": "보성군",
+   "dong": "득량면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 득량면 예당리 458-34",
+   "addr_road": "전남광주통합특별시 보성군 득량면 예당길 161-2",
+   "road": null,
+   "spaces": 40,
+   "tel": "061-850-5516",
+   "lat": 34.7794877215,
+   "lng": 127.1990978159,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-014",
+   "mgmt_no": "333-3-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "예당농협",
+   "gu": "보성군",
+   "dong": "득량면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 득량면 예당리 451-2",
+   "addr_road": "전남광주통합특별시 보성군 득량면 예당길 151-1",
+   "road": null,
+   "spaces": 24,
+   "tel": "061-850-5516",
+   "lat": 34.7787899306,
+   "lng": 127.1980347124,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-015",
+   "mgmt_no": "333-3-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "예당역",
+   "gu": "보성군",
+   "dong": "득량면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 득량면 예당리 432",
+   "addr_road": "전남광주통합특별시 보성군 득량면 예당역전길 3-1",
+   "road": null,
+   "spaces": 9,
+   "tel": "061-850-5516",
+   "lat": 34.7800266446,
+   "lng": 127.201448,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-016",
+   "mgmt_no": "333-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오봉산주차장",
+   "gu": "보성군",
+   "dong": "득량면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 보성군 득량면 해평리 1097",
+   "addr_road": "",
+   "road": null,
+   "spaces": 110,
+   "tel": "061-850-5516",
+   "lat": 34.73753691,
+   "lng": 127.1881608,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-017",
+   "mgmt_no": "333-3-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문덕면사무소주차장",
+   "gu": "보성군",
+   "dong": "문덕면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 문덕면 운곡리 655-9",
+   "addr_road": "전남광주통합특별시 보성군 문덕면 장운길 40",
+   "road": null,
+   "spaces": 12,
+   "tel": "061-850-5516",
+   "lat": 34.9292402692,
+   "lng": 127.1725515361,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-018",
+   "mgmt_no": "333-3-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백민미술관주차장",
+   "gu": "보성군",
+   "dong": "문덕면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 문덕면 죽산리 465-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 96,
+   "tel": "061-850-5516",
+   "lat": 34.9666672711,
+   "lng": 127.1614975512,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-019",
+   "mgmt_no": "333-3-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "미력면사무소주차장",
+   "gu": "보성군",
+   "dong": "미력면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 미력면 도개리 667-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "061-850-5516",
+   "lat": 34.80136438,
+   "lng": 127.0884606,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-020",
+   "mgmt_no": "333-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "벌교대교옆노외주차장",
+   "gu": "보성군",
+   "dong": "벌교읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 보성군 벌교읍 회정리 721",
+   "addr_road": "전남광주통합특별시 보성군 벌교읍 신정길 4-89",
+   "road": null,
+   "spaces": 11,
+   "tel": "061-850-5516",
+   "lat": 34.84006858,
+   "lng": 127.3562109088,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-021",
+   "mgmt_no": "333-3-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "벌교보건지소주차장",
+   "gu": "보성군",
+   "dong": "벌교읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 벌교읍 회정리 609-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "061-850-5516",
+   "lat": 34.85095498,
+   "lng": 127.3454518,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-022",
+   "mgmt_no": "333-3-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "벌교생태공원주차장",
+   "gu": "보성군",
+   "dong": "벌교읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 벌교읍 장양리 1431-4",
+   "addr_road": "전남광주통합특별시 보성군 벌교읍 신정길 4-131",
+   "road": null,
+   "spaces": 234,
+   "tel": "061-850-5516",
+   "lat": 34.8385569044,
+   "lng": 127.3608851029,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-023",
+   "mgmt_no": "333-3-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "벌교스포츠센터주차장",
+   "gu": "보성군",
+   "dong": "벌교읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 벌교읍 장양리 1444-1",
+   "addr_road": "전남광주통합특별시 보성군 벌교읍 장호길 56-43",
+   "road": null,
+   "spaces": 105,
+   "tel": "061-850-5516",
+   "lat": 34.8415742084,
+   "lng": 127.3668078546,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-024",
+   "mgmt_no": "333-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "벌교역 노외공영주차장",
+   "gu": "보성군",
+   "dong": "벌교읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 보성군 벌교읍 벌교리 890-1",
+   "addr_road": "전남광주통합특별시 보성군 벌교읍 채동선로 228",
+   "road": null,
+   "spaces": 80,
+   "tel": "061-850-5516",
+   "lat": 34.8421884716,
+   "lng": 127.3453672409,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-025",
+   "mgmt_no": "333-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "벌교역광장주차장",
+   "gu": "보성군",
+   "dong": "벌교읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 보성군 벌교읍 벌교리 890-1",
+   "addr_road": "전남광주통합특별시 보성군 벌교읍 채동선로 228",
+   "road": null,
+   "spaces": 80,
+   "tel": "061-850-5516",
+   "lat": 34.8421884716,
+   "lng": 127.3453672409,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-026",
+   "mgmt_no": "333-3-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "벌교읍사무소주차장",
+   "gu": "보성군",
+   "dong": "벌교읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 벌교읍 벌교리 602-2",
+   "addr_road": "전남광주통합특별시 보성군 벌교읍 채동선로 293",
+   "road": null,
+   "spaces": 90,
+   "tel": "061-850-5516",
+   "lat": 34.8474110791,
+   "lng": 127.3415766453,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-027",
+   "mgmt_no": "333-3-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "벌교종합사회복지관주차장",
+   "gu": "보성군",
+   "dong": "벌교읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 벌교읍 벌교리 9",
+   "addr_road": "전남광주통합특별시 보성군 벌교읍 태백산맥길 83",
+   "road": null,
+   "spaces": 11,
+   "tel": "061-850-5516",
+   "lat": 34.8483471007,
+   "lng": 127.3395668,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-028",
+   "mgmt_no": "333-3-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보성군립노인전문병원주차장",
+   "gu": "보성군",
+   "dong": "벌교읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 벌교읍 장좌리 552",
+   "addr_road": "전남광주통합특별시 보성군 벌교읍 남하로 4-10",
+   "road": null,
+   "spaces": 24,
+   "tel": "061-850-5516",
+   "lat": 34.83359181,
+   "lng": 127.3448296051,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-029",
+   "mgmt_no": "333-3-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보성벌교농민상담소주차장",
+   "gu": "보성군",
+   "dong": "벌교읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 벌교읍 벌교리 512-16",
+   "addr_road": "전남광주통합특별시 보성군 벌교읍 태백산맥길 39-1",
+   "road": null,
+   "spaces": 5,
+   "tel": "061-850-5516",
+   "lat": 34.8456966469,
+   "lng": 127.3426702,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-030",
+   "mgmt_no": "333-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부용산오리길주차장",
+   "gu": "보성군",
+   "dong": "벌교읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 보성군 벌교읍 벌교리 604-8",
+   "addr_road": "전남광주통합특별시 보성군 벌교읍 태백산맥길 74",
+   "road": null,
+   "spaces": 13,
+   "tel": "061-850-5516",
+   "lat": 34.8480299881,
+   "lng": 127.3407159,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-031",
+   "mgmt_no": "333-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신현사거리주차장",
+   "gu": "보성군",
+   "dong": "벌교읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 보성군 벌교읍 벌교리 511-45",
+   "addr_road": "전남광주통합특별시 보성군 벌교읍 월곡길 16",
+   "road": null,
+   "spaces": 30,
+   "tel": "061-850-5516",
+   "lat": 34.8446866,
+   "lng": 127.3423729,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-032",
+   "mgmt_no": "333-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "태백산맥문학거리주차장",
+   "gu": "보성군",
+   "dong": "벌교읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 보성군 벌교읍 벌교리 630-1",
+   "addr_road": "전남광주통합특별시 보성군 벌교읍 태백산맥길 5",
+   "road": null,
+   "spaces": 20,
+   "tel": "061-850-5516",
+   "lat": 34.8428510138,
+   "lng": 127.3430006112,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-033",
+   "mgmt_no": "333-3-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "태백산맥문학관주차장",
+   "gu": "보성군",
+   "dong": "벌교읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 벌교읍 회정리 363",
+   "addr_road": "",
+   "road": null,
+   "spaces": 52,
+   "tel": "061-850-5516",
+   "lat": 34.84870505,
+   "lng": 127.3520322,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-034",
+   "mgmt_no": "333-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "녹차골보성향토시장주차장",
+   "gu": "보성군",
+   "dong": "보성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 보성군 보성읍 원봉리 2-1",
+   "addr_road": "전남광주통합특별시 보성군 보성읍 봉화로 53",
+   "road": null,
+   "spaces": 266,
+   "tel": "061-850-5516",
+   "lat": 34.7650737729,
+   "lng": 127.0774542,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-035",
+   "mgmt_no": "333-3-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문화예술회관 주차장",
+   "gu": "보성군",
+   "dong": "보성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 보성읍 보성리 350",
+   "addr_road": "전남광주통합특별시 보성군 보성읍 송재로 277-10",
+   "road": null,
+   "spaces": 125,
+   "tel": "061-850-5516",
+   "lat": 34.77759655,
+   "lng": 127.0890258,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-036",
+   "mgmt_no": "333-3-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보성 시외버스터미널 공영주차장",
+   "gu": "보성군",
+   "dong": "보성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 보성읍 원봉리 5-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "061-850-5516",
+   "lat": 34.7639241451,
+   "lng": 127.0755646611,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-037",
+   "mgmt_no": "333-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보성갯거리노외주차장",
+   "gu": "보성군",
+   "dong": "보성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 보성군 보성읍 보성리 31-1",
+   "addr_road": "전남광주통합특별시 보성군 보성읍 봉화로 183",
+   "road": null,
+   "spaces": 20,
+   "tel": "061-850-5516",
+   "lat": 34.7699935423,
+   "lng": 127.0902027854,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-038",
+   "mgmt_no": "333-3-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보성공설운동장다향체육관주차장",
+   "gu": "보성군",
+   "dong": "보성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 보성읍 보성리 338",
+   "addr_road": "전남광주통합특별시 보성군 보성읍 용문길 18",
+   "road": null,
+   "spaces": 390,
+   "tel": "061-850-5516",
+   "lat": 34.7728303603,
+   "lng": 127.0944285415,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-039",
+   "mgmt_no": "333-3-000048",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보성군 복합커뮤니티센터",
+   "gu": "보성군",
+   "dong": "보성읍",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "",
+   "addr_road": "전남광주통합특별시 보성군 보성읍 보성길 824-6",
+   "road": null,
+   "spaces": 218,
+   "tel": "061-850-5516",
+   "lat": null,
+   "lng": null,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-040",
+   "mgmt_no": "333-3-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보성군민체육센터",
+   "gu": "보성군",
+   "dong": "보성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 보성읍 용문리 174",
+   "addr_road": "전남광주통합특별시 보성군 보성읍 용문길 36-16",
+   "road": null,
+   "spaces": 130,
+   "tel": "061-850-5516",
+   "lat": 34.775085,
+   "lng": 127.0950283062,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-041",
+   "mgmt_no": "333-3-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보성군보건소주차장",
+   "gu": "보성군",
+   "dong": "보성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 보성읍 보성리 313-1",
+   "addr_road": "전남광주통합특별시 보성군 보성읍 송재로 153",
+   "road": null,
+   "spaces": 24,
+   "tel": "061-850-5516",
+   "lat": 34.77021742,
+   "lng": 127.0790364,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-042",
+   "mgmt_no": "333-3-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보성군장애인복지관주차장",
+   "gu": "보성군",
+   "dong": "보성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 보성읍 보성리 316-1",
+   "addr_road": "전남광주통합특별시 보성군 보성읍 현충로 186",
+   "road": null,
+   "spaces": 32,
+   "tel": "061-850-5516",
+   "lat": 34.774015607,
+   "lng": 127.0863671366,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-043",
+   "mgmt_no": "333-3-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보성군청지하주차장",
+   "gu": "보성군",
+   "dong": "보성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 보성읍 보성리 807-2",
+   "addr_road": "전남광주통합특별시 보성군 보성읍 송재로 165",
+   "road": null,
+   "spaces": 240,
+   "tel": "061-850-5516",
+   "lat": 34.7712110484,
+   "lng": 127.0798327831,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-044",
+   "mgmt_no": "333-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보성녹차밭주차장",
+   "gu": "보성군",
+   "dong": "보성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 보성군 보성읍 봉산리 1191-1",
+   "addr_road": "전남광주통합특별시 보성군 보성읍 녹차로 775",
+   "road": null,
+   "spaces": 171,
+   "tel": "061-850-5516",
+   "lat": 34.7197741512,
+   "lng": 127.0819011677,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-045",
+   "mgmt_no": "333-3-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보성문화원주차장",
+   "gu": "보성군",
+   "dong": "보성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 보성읍 보성리 352",
+   "addr_road": "전남광주통합특별시 보성군 보성읍 송재로 281-15",
+   "road": null,
+   "spaces": 54,
+   "tel": "061-850-5516",
+   "lat": 34.7782873754,
+   "lng": 127.0891915,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-046",
+   "mgmt_no": "333-3-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보성보훈회관주차장",
+   "gu": "보성군",
+   "dong": "보성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 보성읍 주봉리 393-13",
+   "addr_road": "전남광주통합특별시 보성군 보성읍 송재로 96",
+   "road": null,
+   "spaces": 12,
+   "tel": "061-850-5516",
+   "lat": 34.7656765441,
+   "lng": 127.0754844472,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-047",
+   "mgmt_no": "333-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보성역 노외공영주차장",
+   "gu": "보성군",
+   "dong": "보성읍",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "전남광주통합특별시 보성군 보성읍 현충로 92-28",
+   "road": null,
+   "spaces": 80,
+   "tel": "061-850-5516",
+   "lat": 34.76718547,
+   "lng": 127.0824005154,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-048",
+   "mgmt_no": "333-3-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보성읍사무소주차장",
+   "gu": "보성군",
+   "dong": "보성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 보성읍 보성리 902-4",
+   "addr_road": "전남광주통합특별시 보성군 보성읍 신흥길 17",
+   "road": null,
+   "spaces": 18,
+   "tel": "061-850-5516",
+   "lat": 34.7685332043,
+   "lng": 127.0800702,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-049",
+   "mgmt_no": "333-3-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보성종합사회복지관주차장",
+   "gu": "보성군",
+   "dong": "보성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 보성읍 보성리 229-1",
+   "addr_road": "전남광주통합특별시 보성군 보성읍 동인길 18-6",
+   "road": null,
+   "spaces": 68,
+   "tel": "061-850-5516",
+   "lat": 34.7704549765,
+   "lng": 127.0833582,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-050",
+   "mgmt_no": "333-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보성파머스마트앞 노외주차장",
+   "gu": "보성군",
+   "dong": "보성읍",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "전남광주통합특별시 보성군 보성읍 동산길 6",
+   "road": null,
+   "spaces": 58,
+   "tel": "061-850-5516",
+   "lat": 34.76945647,
+   "lng": 127.0801782,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-051",
+   "mgmt_no": "333-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보성하나로마트노외주차장",
+   "gu": "보성군",
+   "dong": "보성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 보성군 보성읍 보성리 86-1, 86-18",
+   "addr_road": "전남광주통합특별시 보성군 보성읍 현충로 92-28",
+   "road": null,
+   "spaces": 203,
+   "tel": "061-850-5516",
+   "lat": 34.767101,
+   "lng": 127.0824005154,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-052",
+   "mgmt_no": "333-3-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청소년수련원주차장",
+   "gu": "보성군",
+   "dong": "보성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 보성읍 봉산리 1277-4",
+   "addr_road": "전남광주통합특별시 보성군 보성읍 녹차로 771",
+   "road": null,
+   "spaces": 14,
+   "tel": "061-850-5516",
+   "lat": 34.718216,
+   "lng": 127.083358,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-053",
+   "mgmt_no": "333-3-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한국차소리문화공원주차장",
+   "gu": "보성군",
+   "dong": "보성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 보성읍 봉산리 1191-1",
+   "addr_road": "전남광주통합특별시 보성군 보성읍 녹차로 775",
+   "road": null,
+   "spaces": 6,
+   "tel": "061-850-5516",
+   "lat": 34.7197741512,
+   "lng": 127.0819011677,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-054",
+   "mgmt_no": "333-3-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "복내면사무소주차장",
+   "gu": "보성군",
+   "dong": "복내면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 복내면 복내리 435-30",
+   "addr_road": "전남광주통합특별시 보성군 복내면 개기로 1668",
+   "road": null,
+   "spaces": 26,
+   "tel": "061-850-5516",
+   "lat": 34.8931727432,
+   "lng": 127.1313015,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-055",
+   "mgmt_no": "333-3-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "웅치면사무소주차장",
+   "gu": "보성군",
+   "dong": "웅치면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 웅치면 중산리 57-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "061-850-5516",
+   "lat": 34.71611641,
+   "lng": 127.0204587,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-056",
+   "mgmt_no": "333-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "일림산용추폭포주차장",
+   "gu": "보성군",
+   "dong": "웅치면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 보성군 웅치면 용반리 639-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 252,
+   "tel": "061-850-5516",
+   "lat": 34.698588,
+   "lng": 127.0122256,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-057",
+   "mgmt_no": "333-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "일림산한치재주차장",
+   "gu": "보성군",
+   "dong": "웅치면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 보성군 웅치면 봉산리 산 219-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 79,
+   "tel": "061-850-5516",
+   "lat": 34.69887415,
+   "lng": 127.0636446,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-058",
+   "mgmt_no": "333-3-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제암산자연휴양림주차장",
+   "gu": "보성군",
+   "dong": "웅치면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 웅치면 대산리 산 113-1",
+   "addr_road": "전남광주통합특별시 보성군 웅치면 대산길 330",
+   "road": null,
+   "spaces": 163,
+   "tel": "061-850-5516",
+   "lat": 34.7075516505,
+   "lng": 126.9864591208,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "유료",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 1440,
+    "base_fee": 3000,
+    "unit_min": 1440,
+    "unit_fee": 3000,
+    "daily_fee": 3000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": true,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 1440,
+     "base_fee": 3000,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": 3000,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(1일 정액)을 그대로 적용했다 — 조례 별표 1의 2급지 1일 2,400원과 달라 군청 확인 과제다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 3000,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-059",
+   "mgmt_no": "333-3-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "율어면사무소주차장",
+   "gu": "보성군",
+   "dong": "율어면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 율어면 문양리 265-3",
+   "addr_road": "전남광주통합특별시 보성군 율어면 율어로 562",
+   "road": null,
+   "spaces": 15,
+   "tel": "061-850-5516",
+   "lat": 34.8707935868,
+   "lng": 127.1869503945,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-060",
+   "mgmt_no": "333-3-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "조성면사무소주차장",
+   "gu": "보성군",
+   "dong": "조성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 조성면 조성리 639",
+   "addr_road": "전남광주통합특별시 보성군 조성면 조성로 119",
+   "road": null,
+   "spaces": 30,
+   "tel": "061-850-5516",
+   "lat": 34.8084384655,
+   "lng": 127.2477107965,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-061",
+   "mgmt_no": "333-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "다비치콘도공영주차장",
+   "gu": "보성군",
+   "dong": "회천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 보성군 회천면 동율리 528-1",
+   "addr_road": "전남광주통합특별시 보성군 회천면 충의로 36",
+   "road": null,
+   "spaces": 212,
+   "tel": "061-850-5516",
+   "lat": 34.6712649653,
+   "lng": 127.0911882926,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-062",
+   "mgmt_no": "333-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "다향각인근노외주차장",
+   "gu": "보성군",
+   "dong": "회천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "전남광주통합특별시 보성군 회천면 영천리 1-56",
+   "addr_road": "전남광주통합특별시 보성군 회천면 녹차로 721",
+   "road": null,
+   "spaces": 11,
+   "tel": "061-850-5516",
+   "lat": 34.71117551,
+   "lng": 127.0877763449,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-063",
+   "mgmt_no": "333-3-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수협보성회천수산물위판장주차장",
+   "gu": "보성군",
+   "dong": "회천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 회천면 율포리 476-25",
+   "addr_road": "전남광주통합특별시 보성군 회천면 남부관광로 2268",
+   "road": null,
+   "spaces": 69,
+   "tel": "061-850-5516",
+   "lat": 34.6660307042,
+   "lng": 127.0856369583,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-064",
+   "mgmt_no": "333-3-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "율포해양복합센터",
+   "gu": "보성군",
+   "dong": "회천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 회천면 율포리 315-16",
+   "addr_road": "전남광주통합특별시 보성군 회천면 우암길 8",
+   "road": null,
+   "spaces": 44,
+   "tel": "061-850-5516",
+   "lat": 34.6701463175,
+   "lng": 127.0873772,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-065",
+   "mgmt_no": "333-3-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "회천면사무소주차장",
+   "gu": "보성군",
+   "dong": "회천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "전남광주통합특별시 보성군 회천면 율포리 400",
+   "addr_road": "전남광주통합특별시 보성군 회천면 남부관광로 2295",
+   "road": null,
+   "spaces": 13,
+   "tel": "061-850-5516",
+   "lat": 34.66876321,
+   "lng": 127.0853422,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-s001",
+   "mgmt_no": "333-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "벌교신협앞노상주차장",
+   "gu": "보성군",
+   "dong": "벌교읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 보성군 벌교읍 벌교리 623-7",
+   "addr_road": "전남광주통합특별시 보성군 벌교읍 월곡길 6",
+   "road": "월곡길",
+   "spaces": 10,
+   "tel": "061-850-5516",
+   "lat": 34.84483143,
+   "lng": 127.3433775648,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-s002",
+   "mgmt_no": "333-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "벌교천1길노상주차장",
+   "gu": "보성군",
+   "dong": "벌교읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 보성군 벌교읍 벌교리 898",
+   "addr_road": "전남광주통합특별시 보성군 벌교읍 벌교천1길 57",
+   "road": "벌교천1길",
+   "spaces": 38,
+   "tel": "061-850-5516",
+   "lat": 34.8476225277,
+   "lng": 127.3425758355,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-s003",
+   "mgmt_no": "333-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "다향체육관외곽노상주차장",
+   "gu": "보성군",
+   "dong": "보성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 보성군 보성읍 보성리 338",
+   "addr_road": "전남광주통합특별시 보성군 보성읍 용문길 18",
+   "road": "용문길",
+   "spaces": 56,
+   "tel": "061-850-5516",
+   "lat": 34.7728303603,
+   "lng": 127.0944285415,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-s004",
+   "mgmt_no": "333-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "보성군청-동윤삼거리노상주차장",
+   "gu": "보성군",
+   "dong": "보성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 보성군 보성읍 보성리 767-13",
+   "addr_road": "전남광주통합특별시 보성군 보성읍 중앙로 98-1",
+   "road": "중앙로",
+   "spaces": 93,
+   "tel": "061-850-5516",
+   "lat": 34.77025968,
+   "lng": 127.080600391,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-s005",
+   "mgmt_no": "333-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "신흥동산입구노상주차장",
+   "gu": "보성군",
+   "dong": "보성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 보성군 보성읍 보성리 897-3",
+   "addr_road": "전남광주통합특별시 보성군 보성읍 현충로 81",
+   "road": "현충로",
+   "spaces": 54,
+   "tel": "061-850-5516",
+   "lat": 34.76732457,
+   "lng": 127.0806920287,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-s006",
+   "mgmt_no": "333-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "일림산용추폭포노상주차장",
+   "gu": "보성군",
+   "dong": "웅치면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 보성군 웅치면 용반리 645-1",
+   "addr_road": "전남광주통합특별시 보성군 웅치면 용추덕림길 89-87",
+   "road": "용추덕림길",
+   "spaces": 132,
+   "tel": "061-850-5516",
+   "lat": 34.6939393462,
+   "lng": 127.0120663,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-s007",
+   "mgmt_no": "333-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "다향각인근노상주차장",
+   "gu": "보성군",
+   "dong": "회천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 보성군 회천면 영천리 11-6",
+   "addr_road": "전남광주통합특별시 보성군 회천면 녹차로 619",
+   "road": "녹차로",
+   "spaces": 20,
+   "tel": "061-850-5516",
+   "lat": 34.7073803396,
+   "lng": 127.0900211602,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  },
+  {
+   "id": "jn-boseong-s008",
+   "mgmt_no": "333-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "율포해변주차장(해수녹차센터)",
+   "gu": "보성군",
+   "dong": "회천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "전남광주통합특별시 보성군 회천면 율포리 400",
+   "addr_road": "전남광주통합특별시 보성군 회천면 남부관광로 2295",
+   "road": "남부관광로",
+   "spaces": 427,
+   "tel": "061-850-5516",
+   "lat": 34.66876321,
+   "lng": 127.0853422,
+   "base_date": "2026-07-29",
+   "manager": "전남광주통합특별시 보성군청",
+   "note": "24시간 무료개방",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 1440,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하지만 이 곳은 특기사항 '24시간 무료개방'으로 요금을 받지 않는 곳으로 등록돼 있어 군이 무료로 운영하는 공영주차장으로 본다(별표 1 비고 4는 요금을 군의 특성 및 차종에 따라 군수가 정할 수 있다고 하고 비고 5는 노상·노외·부설 요금을 구분하여 정할 수 있다고 정한다 — 전 구간 무료 운영의 개별 지정 여부는 군청 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "보성군",
+   "city_slug": "boseong",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 14:51",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 73,
+  "원자료_보성군행수": 73,
+  "원자료_받은행수": 73,
+  "구별": {
+   "보성군": 65
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 65,
+  "노외_부설": {
+   "부설": 48,
+   "노외": 17
+  },
+  "노상_구간": 8,
+  "총_구획수": 4599,
+  "노상_구획수": 830,
+  "동별": {
+   "보성읍": 20,
+   "득량면": 14,
+   "벌교읍": 14,
+   "회천면": 5,
+   "웅치면": 4,
+   "문덕면": 2,
+   "겸백면": 1,
+   "노동면": 1,
+   "미력면": 1,
+   "복내면": 1,
+   "율어면": 1,
+   "조성면": 1
+  },
+  "동수": 12,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 62,
+   "도로명주소": 3
+  },
+  "요금구분": {
+   "무료": 72,
+   "유료": 1
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 0,
+  "유료_부설": 1,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 34건 있다 — 예당농협·예당권역다목적복지센터(123m), 예당농협·보성농어촌공공도서관주차장(151m), 득량농협·득량보건소(185m), 득량농협·득량면 국민체육센터(114m), 득량농협·득량면사무소주차장(147m), 득량보건소·득량면 국민체육센터(88m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 73행은 전부 공영이고 데이터기준일자는 전부 2026-07-29이다. 관리기관은 73곳 전부 전남광주통합특별시 보성군청이고 전화번호는 73곳 전부 061-850-5516이다",
+   "벌교역광장주차장과 벌교역 노외공영주차장은 벌교리 890-1 같은 자리에 면수(80면)·좌표까지 같고 이름·관리번호만 다른 등록이다 — 같은 곳의 이중 등록으로 보이나 어느 등록이 현행인지 표준데이터로 판정할 수 없어 둘 다 싣고 군청 확인 과제로 남긴다",
+   "같은 자리(같은 필지·같은 좌표)에 다른 이름으로 등록된 쌍이 4건 더 있다 — 보성공설운동장다향체육관주차장·다향체육관외곽노상주차장(보성리 338), 보성역 노외공영주차장·보성하나로마트노외주차장(현충로 92-28), 한국차소리문화공원주차장·보성녹차밭주차장(봉산리 1191-1), 회천면사무소주차장·율포해변주차장(해수녹차센터)(율포리 400). 전부 합치지 않고 실었다",
+   "등록 급지는 73곳 전부 '2'인데 조례 별표 1 비고 3상 급지 지정은 군수가 하도록 돼 있고 별표 1에 급지별 지역 구분이 없어 대조할 수 없다 — 전부 '2'로만 표기한다",
+   "보성군 복합커뮤니티센터는 좌표와 지번주소가 모두 없고 도로명주소(보성읍 보성길 824-6)만 있다 — ArcGIS 지오코딩에서 번지까지 일치하는 score 100 후보가 없어 좌표를 비워 뒀다. 실제 위치는 군청 확인 과제다",
+   "도로명주소는 12곳이 등록돼 있지 않아 동 판정과 표기는 지번주소를 기준으로 했다",
+   "지번주소는 3곳(보성군 복합커뮤니티센터, 보성파머스마트앞 노외주차장, 보성역 노외공영주차장)이 등록돼 있지 않아 도로명주소로 판정·표기했다",
+   "운영시간은 73곳 전부 00:00~23:59이고 운영요일은 전부 평일+토요일+공휴일이다. 특기사항은 무료 72곳이 전부 '24시간 무료개방', 유료 1곳(제암산자연휴양림주차장)은 '유료'이고 결제방법은 현금이다. 부제시행구분은 전부 '미시행', 장애인전용주차구역 보유여부는 Y 52곳·N 17곳·공란 4곳이다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "제암산자연휴양림주차장: 등록 요금은 1일 정액 3000원(기본 1440분 3000원·1일주차권 3000원)인데 조례 별표 1의 2급지 1일 주차권은 소형·대형 모두 2,400원이고 1회 주차권도 30분마다 200원 단위라 등록 구조와 다르다 — 자연휴양림 시설 주차료의 별도 기준일 가능성이 있어 등록값을 그대로 싣고 실제 징수 기준은 군청 확인 과제로 남긴다"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [
+   "보성군 복합커뮤니티센터"
+  ],
+  "도로명주소_없음": [
+   "보성농어촌테마파크공원",
+   "보성비봉공룡공원",
+   "보성예당습지생태공원",
+   "오봉산주차장",
+   "백민미술관주차장",
+   "미력면사무소주차장",
+   "벌교보건지소주차장",
+   "태백산맥문학관주차장",
+   "보성 시외버스터미널 공영주차장",
+   "웅치면사무소주차장",
+   "일림산용추폭포주차장",
+   "일림산한치재주차장"
+  ],
+  "감면_출처": "「보성군 주차장 조례」 제2962호 제3조 — 면제(제2항·제5항): 「도로교통법」 제2조제22호에 따른 긴급자동차는 주차요금을 면제할 수 있고, 국세청 「모범납세자 관리 규정」과 「전남광주통합특별시 모범납세자 우대 및 지원 조례」에 따라 선정된 모범납세자 중 성실납세필증 표시 부착차량은 1년간 면제할 수 있다. 50% 할인(제3항): 자동차 부제운행 참여차량, 경승용차(조례 원문 표기), 국가유공자 및 장애인이 사용하는 자동차, 저공해자동차 및 환경친화적 자동차 표지 부착 차량은 '주차요금의 50퍼센트를 할인하여 부과한다'는 강행 표현이다. 본문 원문(data/raw/boseong-ordinance.txt)·별표 1 원문(data/raw/boseong-ordinance-b1.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 제3조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같이 한다. 별표 1은 급지(1·2급지)×차종(소형·대형) 요금표로 1회 주차권은 1구획당 30분마다 1급지 소형 250원·대형 300원, 2급지 소형·대형 200원, 1일 주차권은 1급지 소형 5,000원·대형 6,000원, 2급지 소형·대형 2,400원, 월정기는 주간 1급지 소형 50,000원·대형 65,000원, 2급지 소형·대형 30,000원, 야간 1급지 소형 40,000원·대형 52,000원, 2급지 소형 20,000원·대형 22,000원이다. 표준데이터 등록 73곳 중 72곳이 무료라 요금표는 참고표로만 싣고, 유료 1곳은 등록 요금을 그대로 싣는다",
+  "급지_출처": "조례 별표 1 비고 3 — 급지의 구분은 주차장의 실태 및 주차수요를 참작하여 군수가 지정하되 당해 군의 특성 및 주차장 위치에 따라 세분할 수 있다. 별표 1 자체에는 급지별 지역 구분이 없다. 표준데이터 등록 급지는 73곳 전부 '2'인데 대조할 조례 기준이 없어 행 판정에 쓰지 않았다. 조례 본문 제16조제2항은 비용납부자의 무상사용 기간을 별표 1의 급지 구분에 따라 월정기 주차권(주·야간)요금으로 나누어 산정한다고 정한다",
+  "무료요일_출처": "등록 72곳은 특기사항 '24시간 무료개방'으로 요일과 관계없이 무료다 — 조례 별표 1 비고 2의 주간·야간 구분(4~10월 09:00~20:00, 11~3월 09:00~19:00)은 월정기 주·야간 금액의 구분 기준이라 참고로만 실었다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 보성군 등록 73행 전부 공영(부설 48·노외 17·노상 8, 총 5,429면)을 싣고 민영 제외 0건·중복 제거 0건이다. 읍면별로는 보성읍 23곳·벌교읍 16곳·득량면 14곳·회천면 7곳·웅치면 5곳·문덕면 2곳·복내면·조성면·율어면·겸백면·미력면·노동면 각 1곳으로 보성군 2읍 10면 전부에 등록이 있다",
+   "「보성군 주차장 조례」 제2962호(표제 시행 2026-08-04, 공포 2026-08-04, 일부개정, ordinSeq 2157749) 본문 원문(data/raw/boseong-ordinance.txt) 대조 완료(2026-11-20) — 최신 개정(제2962호)은 전남광주통합특별시 출범에 따른 자치법규 일괄개정으로 제3조제5항(모범납세자 조례 명칭)·제7조제1항(전남광주통합특별시장)의 명칭 변경이 중심이고, 부칙은 '이 조례는 2026년 7월 1일부터 시행한다'고 정한다(표제 시행일 2026-08-04와 다름)",
+   "별표 1은 HWP 원본(flSeq 167842563)을 data/raw/boseong-ordinance-b1.hwp로 저장하고 PrvText를 추출해 확정했다 — 급지(1·2급지)×차종(소형·대형) 요금표로, 1회 주차권은 1구획당 30분마다 1급지 소형 250원·대형 300원, 2급지 소형·대형 200원, 1일 주차권은 1급지 소형 5,000원·대형 6,000원, 2급지 소형·대형 2,400원, 월정기는 주간 1급지 소형 50,000원·대형 65,000원, 2급지 소형·대형 30,000원, 야간 1급지 소형 40,000원·대형 52,000원, 2급지 소형 20,000원·대형 22,000원이다. 주간은 4~10월 09:00~20:00, 11~3월 09:00~19:00이고 나머지는 야간이다(비고 2)",
+   "등록 73곳 중 72곳이 '무료'(특기사항 '24시간 무료개방')라 조례 별표 1 요금표는 참고표로만 싣고 유료 계산은 하지 않는다(서천·순창·영암·해남·고흥 선례) — 등록 요금 금액 칸은 72곳 전부 공란이고 주차기본시간은 1440으로 적혀 있다",
+   "유료는 제암산자연휴양림주차장(웅치면, 부설, 163면) 1곳뿐이다 — 등록 요금은 1일 정액 3,000원(기본 1440분 3,000원·1일주차권 3,000원, 결제 현금)인데 조례 별표 1의 2급지 1일 주차권 2,400원·30분 200원 구조와 달라, 자연휴양림 시설 주차료의 별도 기준일 가능성이 있어 등록값을 그대로 싣고 군청 확인 과제로 남긴다(급지_요금_차이에 기록)",
+   "도명 변경(전라남도→전남광주통합특별시) 스냅숏 중복은 없다 — 주소 표기가 73행 전부 전남광주통합특별시 보성군이고 같은 이름+같은 자리의 재등록 쌍이 0건이다(광양 선례 대조)",
+   "같은 자리 다른 이름 쌍 5건은 전부 실었다 — 벌교역광장주차장(벌교리 890-1, 노외 80면)과 벌교역 노외공영주차장(벌교리 890-1, 노외 80면)은 이름·관리번호만 다르고 자리·면수·좌표가 전부 같아 같은 곳의 이중 등록으로 보이는데, 어느 등록이 현행인지 표준데이터로 판정할 수 없어 둘 다 싣고 군청 확인 과제로 남긴다. 보성공설운동장다향체육관주차장(보성리 338, 부설 390면)과 다향체육관외곽노상주차장(보성리 338, 노상 56면), 보성역 노외공영주차장(현충로 92-28, 노외 80면)과 보성하나로마트노외주차장(보성리 86-1·86-18, 현충로 92-28, 노외 203면), 한국차소리문화공원주차장(봉산리 1191-1, 부설 6면)과 보성녹차밭주차장(봉산리 1191-1, 노외 171면), 회천면사무소주차장(율포리 400, 부설 13면)과 율포해변주차장(해수녹차센터)(율포리 400, 노상 427면)도 같은 자리·같은 좌표의 다른 이름 등록이라 합치지 않았다(옥천·영동 선례)",
+   "이름이 비슷한 다른 자리 쌍도 합치지 않았다 — 다향각인근노외주차장(회천면 영천리 1-56, 11면)과 다향각인근노상주차장(영천리 11-6, 20면), 일림산용추폭포주차장(웅치면 용반리 639-7, 노외 252면)과 일림산용추폭포노상주차장(용반리 645-1, 노상 132면)은 필지가 다르다",
+   "좌표는 보성군 복합커뮤니티센터(보성읍, 부설, 218면) 1곳만 없다 — 이 곳은 지번주소도 없고 도로명주소(보성읍 보성길 824-6)만 있어 ArcGIS World Geocoding으로 도로명주소를 조회했으나 번지까지 일치하는 score 100(PointAddress) 후보가 없어(최고 86.59는 장소 후보, 주소 후보는 보성리 824-6으로 도로명과 다름) 추정 기입하지 않고 비워 뒀다. 나머지 72곳은 전부 등록돼 있고 전부 보성군 범위 안이라 비운 곳이 없다(오버레이 무변경)",
+   "지번주소가 없는 3곳(보성군 복합커뮤니티센터·보성파머스마트앞 노외주차장·보성역 노외공영주차장)은 도로명주소로 읍·면을 판정했고, 도로명주소가 없는 12곳은 지번주소로 표기했다",
+   "전화번호는 73행 전부 061-850-5516이고 관리기관은 전부 전남광주통합특별시 보성군청이다. 조례 담당 표기 전화(061-850-5510, 경제교통과)와는 다르다. 운영시간은 73곳 전부 00:00~23:59, 운영요일은 전부 평일+토요일+공휴일, 부제시행구분은 전부 미시행이다. 장애인전용주차구역 보유여부는 Y 52곳·N 17곳·공란 4곳이다"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 72,
+  "무료_구획수": 5266,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-07-29"
+  ],
+  "관리기관": {
+   "전남광주통합특별시 보성군청": 73
+  }
+ },
+ "fee_table": {
+  "style": "boseong_grade",
+  "unit_min": 30,
+  "base_min": 30,
+  "applies": "조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「보성군 주차장 조례」 제2962호(시행 2026-08-04, 일부개정), ordinSeq 2157749. 본문 사본 data/raw/boseong-ordinance.txt. 별표 1(공영주차장 주차요금표)은 HWP 원본을 data/raw/boseong-ordinance-b1.hwp로 저장하고 본문 텍스트를 추출해 data/raw/boseong-ordinance-b1.txt로 확인했다.",
+  "rows": [
+   {
+    "label": "1급지 소형",
+    "grade": "g1_small",
+    "unit_label": "30분마다 250원 · 1일 5,000원 · 월정기 주간 50,000원·야간 40,000원",
+    "hour": 500,
+    "two_hour": 1000,
+    "day": 5000,
+    "month": 50000,
+    "month_night": 40000,
+    "lots": 0
+   },
+   {
+    "label": "1급지 대형",
+    "grade": "g1_large",
+    "unit_label": "30분마다 300원 · 1일 6,000원 · 월정기 주간 65,000원·야간 52,000원",
+    "hour": 600,
+    "two_hour": 1200,
+    "day": 6000,
+    "month": 65000,
+    "month_night": 52000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 소형",
+    "grade": "g2_small",
+    "unit_label": "30분마다 200원 · 1일 2,400원 · 월정기 주간 30,000원·야간 20,000원",
+    "hour": 400,
+    "two_hour": 800,
+    "day": 2400,
+    "month": 30000,
+    "month_night": 20000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 대형",
+    "grade": "g2_large",
+    "unit_label": "30분마다 200원 · 1일 2,400원 · 월정기 주간 30,000원·야간 22,000원",
+    "hour": 400,
+    "two_hour": 800,
+    "day": 2400,
+    "month": 30000,
+    "month_night": 22000,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 1,
+   "street_paid": 0,
+   "free": 72,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "주간·야간 구분 (조례 별표 1 비고 2)",
+    "hours": "4월~10월 09:00~20:00, 11월~3월 09:00~19:00, 나머지는 야간",
+    "free": "월정기 주간·야간 금액의 구분 기준이다 — 등록 72곳은 무료이고 유료 1곳도 월정기가 없어 실제 요금에는 쓰이지 않는다"
+   }
+  ],
+  "notes": "급지의 구분은 주차장의 실태 및 주차수요를 참작하여 군수가 지정하되 군의 특성 및 주차장 위치에 따라 세분할 수 있다(비고 3). 표준데이터 등록 급지는 73곳 전부 '2'인데 별표 1에 급지별 지역 구분이 없어 대조할 수 없어 요금표 행 판정에는 쓰지 않았다. 주차요금은 군의 특성 및 차종에 따라 군수가 정하되 주차수요를 감안하여 주차시간에 따른 체증 또는 체감방식을 적용할 수 있고(비고 4), 군수는 필요한 경우 노상주차장과 노외주차장 및 부설주차장의 주차요금을 구분하여 정할 수 있다(비고 5). 감면은 긴급자동차 면제와 모범납세자 성실납세필증 차량 1년 면제(제3조제2항·제5항), 부제운행 참여차량·경승용차·국가유공자 및 장애인이 사용하는 자동차·저공해자동차 및 환경친화적 자동차 표지 부착 차량 50% 할인(제3조제3항)이다. 유료인 제암산자연휴양림주차장 1곳은 등록 요금이 1일 정액 3,000원으로 이 표의 2급지 1일 2,400원을 따르지 않는다.",
+  "basis": "요금표는 「보성군 주차장 조례」 제2962호(시행 2026-08-04) 제3조·별표 1과 표준데이터(기준일 2026-07-29)를 대조해 실었다. 등록된 73곳 중 72곳은 '무료'라 이 표는 조례 기준 요금의 참고표이고, 유료 1곳(제암산자연휴양림주차장)은 등록 요금 1일 3,000원을 그대로 실었다. (조례 본문: data/raw/boseong-ordinance.txt, 별표 1 원문: data/raw/boseong-ordinance-b1.txt)"
+ },
+ "slug": "boseong",
+ "province": "전남광주통합특별시",
+ "province_slug": "jeonnam",
+ "dong_page_min_lots": 3,
+ "city": "보성군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제3조제2항 — 「도로교통법」 제2조제22호에 따른 긴급자동차에 대해서는 주차요금을 면제할 수 있다"
+  },
+  {
+   "label": "모범납세자 성실납세필증 차량 면제 (1년)",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제3조제5항 — 국세청 「모범납세자 관리 규정」 제7조제2항 별표1의 제2호 및 「전남광주통합특별시 모범납세자 우대 및 지원 조례」 제4조에 따라 선정된 모범납세자 중 성실납세필증 표시 부착차량에 대해서는 공영주차장의 요금을 1년간 면제할 수 있다"
+  },
+  {
+   "label": "부제운행 참여차량 50% 할인",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제3항 — 자동차 부제운행 참여차량의 공영주차장 이용 시 주차요금의 50퍼센트를 할인하여 부과한다. 별표 1 비고 6에 따라 전국적으로 통일된 부제운행 스티커 부착 차량에 적용한다"
+  },
+  {
+   "label": "경승용차 50% 할인",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제3항 — 경승용차(조례 원문 표기)의 공영주차장 이용 시 주차요금의 50퍼센트를 할인하여 부과한다"
+  },
+  {
+   "label": "국가유공자·장애인 사용 자동차 50% 할인",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제3항 — 국가유공자 및 장애인이 사용하는 자동차의 공영주차장 이용 시 주차요금의 50퍼센트를 할인하여 부과한다"
+  },
+  {
+   "label": "저공해자동차·환경친화적 자동차 표지 부착 차량 50% 할인",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제3항 — 저공해자동차 및 환경친화적 자동차 표지 부착 차량의 공영주차장 이용 시 주차요금의 50퍼센트를 할인하여 부과한다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
