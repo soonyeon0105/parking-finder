@@ -763,6 +763,10 @@ MIX["jangheung"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
 #   경기 광주 자료 혼입은 계속 잡는다).
 MIX["gangjin"] = tuple(sorted(t for t in _all_mix_tokens if t != "광주"))
 
+# 금산군 — 충남 도시(부여·태안 등)는 MIX 항목이 없었으나 과제 지시로 추가한다.
+#   금산 페이지에 정당하게 나오는 다른 지역 이름은 없어 전 토큰을 그대로 쓴다.
+MIX["geumsan"] = tuple(sorted(_all_mix_tokens))
+
 _ALL_ADDRS = sorted({(l.get("addr_jibun") or "") for l in LOTS}
                      | {(l.get("addr_road") or "") for l in LOTS}, key=len, reverse=True)
 _ALL_NAMES = [l["name"] for l in LOTS]

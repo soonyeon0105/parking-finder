@@ -1,0 +1,4445 @@
+{
+ "meta": {
+  "generated_at": "2026-11-20 16:18",
+  "generated_at_iso": "2026-11-20T16:18:02+09:00",
+  "snapshot_at": "2026-11-20 16:18",
+  "region": {
+   "province": "충청남도",
+   "city": "금산군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-14",
+    "rows_total": 18994,
+    "rows_city": 36,
+    "fetched_at": "2026-11-20 16:18 (KST)",
+    "note": "금산군으로 등록된 행 36행(전부 공영)을 읽어 중복 제거 0건으로 36곳을 실었다. 무료 33곳·유료 3곳이다. 좌표는 36곳 전부 등록돼 있고 도로명주소는 11곳에 있다. 조례 대조 완료 — 「금산군 주차장 설치 및 사용료 징수 조례」 제2584호(시행 2025-06-30, ordinSeq 2047591) 제3조·별표 1과 「금산군 금산다락원 부설주차장 관리 및 운영 조례」 제2451호(시행 2023-06-30, ordinSeq 1827629) 별표 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "「금산군 주차장 설치 및 사용료 징수 조례」 제2584호(시행 2025-06-30, 일부개정)",
+    "org": "충청남도 금산군청",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=2047591",
+    "file": "geumsan-ordinance-b1.txt",
+    "sha256": "5e3e3c53c24f223ce0334a7e49ee9b59ca97fe5a341ec908f526f7bebdbfb044",
+    "license": "자치법규(공개)",
+    "base_date": "2025-06-30",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 16:18 (KST)",
+    "note": "금산군이 설치·관리하는 공영주차장에 적용하는 조례다. 금산군 공영주차장 36곳(노외 31·노상 3·부설 2, 총 2,738면)은 금산읍 33곳·추부면 3곳에 있고 무료 33곳·유료 3곳이다. 「금산군 주차장 설치 및 사용료 징수 조례」 제2584호(시행 2025-06-30, ordinSeq 2047591) 제3조제1항은 공영주차장 요금을 별표 1로 정한다 — 별표 1은 전 급지 공통 30분 이하 무료이고, 1급지·2급지는 추가 10분마다 200원·1일 5,000원·월정기 주간 50,000원·야간 30,000원으로 동일하며, 3급지는 추가 10분마다 100원·1일 4,000원·월정기 주간 30,000원·야간 20,000원이다. 비고 4의 급지는 1급지 금산터미널 앞 공영주차장, 2급지 구 법원 공영주차장·금산읍 도시지역 내, 3급지 그 밖의 지역이고, 주간은 4~10월 08:00~20:00, 11~3월 09:00~19:30이며 나머지는 야간이다(비고 2). 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정해 무료 33곳의 근거가 된다. 군청 유료 2곳(금산공영주차장 1급지·구법원주차장 2급지)은 등록값이 별표와 전 항목 일치해 등록값으로 계산한다. 금산다락원·청산회관주차장은 전용 조례 「금산군 금산다락원 부설주차장 관리 및 운영 조례」 제2451호(시행 2023-06-30)가 요금을 별표로 따로 정한다 — 2시간 이내 무료, 초과 최초 30분 이내 600원, 30분 초과 후 10분마다 200원, 1일 6,000원이고 유료운영시간은 평일 09:00~18:00, 토요일 및 공휴일은 무료운영일이다. 등록 구조(120분 무료 뒤 30분마다 600원)와 구간 안에서 달라 조례 구조로 계산했다. 감면은 본 조례 제3조제4항을 따른다(긴급자동차 전액, 국가유공 상이자·고엽제 후유의증환자·장애인·경형자동차·저공해자동차 표지·우수자원봉사자 50%, 승용차 2부제 50%·5부제 및 요일제 40%·10부제 20%, 전통시장 상인·고객 월정기 30%와 유료주차장 30분 추가요금 50%). 좌표는 36곳 전부 등록돼 있고 전부 군 범위 안이며, 도로명주소는 11곳에만 있다. (조례 본문: data/raw/geumsan-ordinance.txt, 별표 1 원문: data/raw/geumsan-ordinance-b1.txt)"
+   },
+   {
+    "id": "darakwon_ordinance",
+    "name": "「금산군 금산다락원 부설주차장 관리 및 운영 조례」 제2451호(시행 2023-06-30, 제정)",
+    "org": "충청남도 금산군 금산다락원",
+    "url": "https://www.law.go.kr/ordinInfoP.do?ordinSeq=1827629",
+    "file": "geumsan-darakwon-ordinance-b1.txt",
+    "sha256": null,
+    "license": "자치법규(공개)",
+    "base_date": "2023-06-30",
+    "rows_total": null,
+    "fetched_at": "2026-11-20 16:18 (KST)",
+    "note": "금산다락원·청산회관주차장 1곳에만 적용하는 전용 조례다. 제4조는 유료운영시간을 평일(월~금) 09:00~18:00으로, 무료운영일을 토요일 및 공휴일로 정하고, 제5조·별표는 2시간 이내 무료·초과 최초 30분 이내 600원·30분 초과 후 10분마다 200원·1일 6,000원으로 정한다. 제6조는 이용자 2시간(장애인 차량 4시간) 면제와 본 조례 제3조제4항 감면의 준용을 정한다. (조례 본문: data/raw/geumsan-darakwon-ordinance.txt, 별표 원문: data/raw/geumsan-darakwon-ordinance-b1.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "금산군",
+   "slug": "geumsan"
+  }
+ ],
+ "lots": [
+  {
+   "id": "ca-geumsan-001",
+   "mgmt_no": "292-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구법원주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 상리 91-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 60,
+   "tel": "041-750-2742",
+   "lat": 36.1038073,
+   "lng": 127.4904353,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "국가유공 상이자 및 장애인,고엽제후유증 환자, 5·18민주 유공상이자 50프로할인, 경차·저공해자동차50프로 할인, 승용차요일제 20프로할인",
+   "notice": "30분 이하는 무료이고, 등록 요금이 조례 별표 1과 일치합니다(월정기는 주간 기준)",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": "주간",
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "등록 요금이 조례 별표 1과 전 항목 일치해 그대로 계산한다 — 30분 이하 무료, 이후 10분마다 200원, 1일 5,000원, 월정기 50,000원(주간 기준, 야간 30,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-002",
+   "mgmt_no": "292-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구약초시장주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 중도리 553-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "041-750-2642",
+   "lat": 36.10073716,
+   "lng": 127.4940057,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-003",
+   "mgmt_no": "292-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금산공영주차장(을지병원, 터미널, 궁전장)",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 상리 79-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 142,
+   "tel": "041-750-2742",
+   "lat": 36.1054365,
+   "lng": 127.4901926,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "국가유공 상이자 및 장애인,고엽제후유증 환자, 5·18민주 유공상이자 50프로할인, 경차·저공해자동차50프로 할인, 승용차요일제 20프로할인",
+   "notice": "30분 이하는 무료이고, 등록 요금이 조례 별표 1과 일치합니다(월정기는 주간 기준)",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": "주간",
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "등록 요금이 조례 별표 1과 전 항목 일치해 그대로 계산한다 — 30분 이하 무료, 이후 10분마다 200원, 1일 5,000원, 월정기 50,000원(주간 기준, 야간 30,000원)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-004",
+   "mgmt_no": "292-3-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금산다락원·청산회관주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "충청남도 금산군 금산읍 중도리 204-8",
+   "addr_road": "충청남도 금산군 금산읍 금산로 1543",
+   "road": null,
+   "spaces": 177,
+   "tel": "041-750-3485",
+   "lat": 36.11155576,
+   "lng": 127.4913931,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군 금산다락원",
+   "note": "국가유공자 및 장애인, 고엽제후유증 환자, 경차·저공해자동차 50프로 할인",
+   "notice": "금산다락원 전용 조례에 따라 평일 09:00~18:00에만 요금을 받고 토요일·공휴일은 무료로 운영합니다 — 이용자는 2시간(장애인 차량 4시간)까지 요금이 면제됩니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 150,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": "금산다락원 부설 (전용 조례)",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": 120,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 600,
+     "day": 6000,
+     "monthly": null
+    },
+    "basis": "「금산군 금산다락원 부설주차장 관리 및 운영 조례」 제2451호 별표 — 2시간 이내 무료, 무료시간 초과 최초 30분 이내 600원, 30분 초과 후 10분마다 200원, 1일 6,000원. 등록 구조(120분 무료 뒤 30분마다 600원)와 구간 안에서 달라 조례 구조로 계산한다. 유료운영시간은 평일 09:00~18:00이고 토요일 및 공휴일은 무료운영일이다(제4조)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": "18:00~09:00",
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-005",
+   "mgmt_no": "292-3-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금산역사문화박물관주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "충청남도 금산군 금산읍 중도리 203-28",
+   "addr_road": "충청남도 금산군 금산읍 금산로 1575",
+   "road": null,
+   "spaces": 173,
+   "tel": "041-750-3485",
+   "lat": 36.11410383,
+   "lng": 127.4918531,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군 금산다락원",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-006",
+   "mgmt_no": "292-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금산읍 중도10리 공영주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 중도리 198-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "041-750-2742",
+   "lat": 36.10996068,
+   "lng": 127.4932675,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-007",
+   "mgmt_no": "292-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금산읍 하옥4리 공영주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 하옥리 508",
+   "addr_road": "",
+   "road": null,
+   "spaces": 31,
+   "tel": "041-750-2742",
+   "lat": 36.09995125,
+   "lng": 127.4928883,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-008",
+   "mgmt_no": "292-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상3리 공영주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 상리 196",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "041-750-2742",
+   "lat": 36.10649689,
+   "lng": 127.4866403,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-009",
+   "mgmt_no": "292-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상4리 공영주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 상리 40-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "041-750-2742",
+   "lat": 36.10780371,
+   "lng": 127.4912952,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-010",
+   "mgmt_no": "292-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상4리(읍사무소 뒤) 공영주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 상리 42-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "041-750-2742",
+   "lat": 36.1079332,
+   "lng": 127.4914958,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-011",
+   "mgmt_no": "292-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상7리 공영주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 상리 48-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "041-750-2742",
+   "lat": 36.10938421,
+   "lng": 127.4901821,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-012",
+   "mgmt_no": "292-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상옥2리 공영주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 상옥리 165-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 37,
+   "tel": "041-750-2742",
+   "lat": 36.10076097,
+   "lng": 127.4856122,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-013",
+   "mgmt_no": "292-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상옥리 공영주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 상옥리 67-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 51,
+   "tel": "041-750-2742",
+   "lat": 36.10044514,
+   "lng": 127.488745,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-014",
+   "mgmt_no": "292-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상옥리(큰다리 옆) 공영주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 상옥리 56-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "041-750-2742",
+   "lat": 36.10096508,
+   "lng": 127.4892683,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-015",
+   "mgmt_no": "292-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신대2리 공영주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 신대리 623-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 33,
+   "tel": "041-750-2742",
+   "lat": 36.10360256,
+   "lng": 127.5059123,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-016",
+   "mgmt_no": "292-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "아인1리 공영주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 아인리 53-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 33,
+   "tel": "041-750-2742",
+   "lat": 36.10289732,
+   "lng": 127.4844348,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-017",
+   "mgmt_no": "292-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "아인3리 공영주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 아인리 125",
+   "addr_road": "",
+   "road": null,
+   "spaces": 31,
+   "tel": "041-750-2742",
+   "lat": 36.105231,
+   "lng": 127.479476,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-018",
+   "mgmt_no": "292-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "아인리(금산여고 옆) 공영주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 아인리 12-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 41,
+   "tel": "041-750-2742",
+   "lat": 36.10563927,
+   "lng": 127.4846613,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-019",
+   "mgmt_no": "292-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "엑스포주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 신대리 355",
+   "addr_road": "충청남도 금산군 금산읍 무금로 2322",
+   "road": null,
+   "spaces": 714,
+   "tel": "041-750-2742",
+   "lat": 36.09791321,
+   "lng": 127.5039918,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-020",
+   "mgmt_no": "292-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "인삼·약초시장주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 중도리 22-31",
+   "addr_road": "",
+   "road": null,
+   "spaces": 198,
+   "tel": "041-750-3013",
+   "lat": 36.09906286,
+   "lng": 127.4965093,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-021",
+   "mgmt_no": "292-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "인삼광장주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 중도리 18-20",
+   "addr_road": "충청남도 금산군 금산읍 약초로 35",
+   "road": null,
+   "spaces": 127,
+   "tel": "041-750-2742",
+   "lat": 36.09919988,
+   "lng": 127.4978246,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-022",
+   "mgmt_no": "292-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "전통시장주차장(금산시장)",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 하옥리 334-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "041-750-3013",
+   "lat": 36.09921024,
+   "lng": 127.4916319,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-023",
+   "mgmt_no": "292-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중도6리 공영주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 중도리 229-6",
+   "addr_road": "충청남도 금산군 금산읍 향군길 44",
+   "road": null,
+   "spaces": 27,
+   "tel": "041-750-2742",
+   "lat": 36.10505207,
+   "lng": 127.4939662,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-024",
+   "mgmt_no": "292-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중도7리 공영주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 중도리 224-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "041-750-2742",
+   "lat": 36.10693187,
+   "lng": 127.4929448,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-025",
+   "mgmt_no": "292-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중도8리 공영주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 중도리 559-14",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "041-750-2742",
+   "lat": 36.0997194,
+   "lng": 127.494622,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-026",
+   "mgmt_no": "292-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중도9리 공영주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 중도리 129-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "041-750-2742",
+   "lat": 36.10605824,
+   "lng": 127.4959944,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-027",
+   "mgmt_no": "292-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중도9리(예원소르빌 뒤) 공영주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 중도리 233-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "041-750-2742",
+   "lat": 36.1062107,
+   "lng": 127.4966586,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-028",
+   "mgmt_no": "292-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하옥2리 공영주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 하옥리 287-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "041-750-2742",
+   "lat": 36.09645168,
+   "lng": 127.4904641,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-029",
+   "mgmt_no": "292-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하옥3리 공영주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 하옥리 391-2",
+   "addr_road": "충청남도 금산군 금산읍 방아동2길 11-1",
+   "road": null,
+   "spaces": 16,
+   "tel": "041-750-2742",
+   "lat": 36.09765829,
+   "lng": 127.4888673,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-030",
+   "mgmt_no": "292-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "휜털바위광장주차장",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 금산읍 중도리 92",
+   "addr_road": "충청남도 금산군 금산읍 인삼로 159",
+   "road": null,
+   "spaces": 126,
+   "tel": "041-750-2742",
+   "lat": 36.10341126,
+   "lng": 127.4987459,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-031",
+   "mgmt_no": "292-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "마전6리 공영주차장",
+   "gu": "금산군",
+   "dong": "추부면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 추부면 마전리 393",
+   "addr_road": "",
+   "road": null,
+   "spaces": 60,
+   "tel": "041-750-2742",
+   "lat": 36.19135009,
+   "lng": 127.471944,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-032",
+   "mgmt_no": "292-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "마전9리 공영주차장",
+   "gu": "금산군",
+   "dong": "추부면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 추부면 마전리 742-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "041-750-2742",
+   "lat": 36.19459045,
+   "lng": 127.4602613,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-033",
+   "mgmt_no": "292-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "마전시장 공영주차장",
+   "gu": "금산군",
+   "dong": "추부면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "충청남도 금산군 추부면 마전리 434-2",
+   "addr_road": "충청남도 금산군 추부면 마전로 29-2",
+   "road": null,
+   "spaces": 25,
+   "tel": "041-750-2742",
+   "lat": 36.18957618,
+   "lng": 127.4684572,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-s001",
+   "mgmt_no": "292-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "노상주차장(상하옥사거리 ~ 중앙슈퍼)",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 금산군 금산읍 상옥리 85-2",
+   "addr_road": "충청남도 금산군 금산읍 금산로 1413",
+   "road": "금산로",
+   "spaces": 9,
+   "tel": "041-750-2742",
+   "lat": 36.10006627,
+   "lng": 127.4874419,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-s002",
+   "mgmt_no": "292-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "노상주차장(소방서 ~ 낙원아파트)",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 금산군 금산읍 상옥리 366-1",
+   "addr_road": "충청남도 금산군 금산읍 비단로 9",
+   "road": "비단로",
+   "spaces": 260,
+   "tel": "041-750-2742",
+   "lat": 36.0998683,
+   "lng": 127.4821348,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  },
+  {
+   "id": "ca-geumsan-s003",
+   "mgmt_no": "292-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "노상주차장(소방서 ~ 상옥4리마을회관)",
+   "gu": "금산군",
+   "dong": "금산읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "충청남도 금산군 금산읍 상옥리 363-2",
+   "addr_road": "충청남도 금산군 금산읍 비단로 1",
+   "road": "비단로",
+   "spaces": 8,
+   "tel": "041-750-2742",
+   "lat": 36.1001586,
+   "lng": 127.4809854,
+   "base_date": "2026-10-14",
+   "manager": "충청남도 금산군청",
+   "note": "",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 「금산군 주차장 설치 및 사용료 징수 조례」 제3조제5항은 군수가 공영주차장 전부 또는 일부를 무료로 운영할 수 있다고 정한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "금산군",
+   "city_slug": "geumsan",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-20 16:18",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 36,
+  "원자료_금산군행수": 36,
+  "원자료_받은행수": 36,
+  "구별": {
+   "금산군": 33
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 33,
+  "노외_부설": {
+   "노외": 31,
+   "부설": 2
+  },
+  "노상_구간": 3,
+  "총_구획수": 2461,
+  "노상_구획수": 277,
+  "동별": {
+   "금산읍": 30,
+   "추부면": 3
+  },
+  "동수": 2,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 33
+  },
+  "요금구분": {
+   "유료": 3,
+   "무료": 33
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 2,
+  "유료_부설": 1,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 18건 있다 — 하옥3리 공영주차장·하옥2리 공영주차장(196m), 구약초시장주차장·금산읍 하옥4리 공영주차장(133m), 구약초시장주차장·중도8리 공영주차장(126m), 전통시장주차장(금산시장)·금산읍 하옥4리 공영주차장(140m), 인삼·약초시장주차장·인삼광장주차장(119m), 인삼·약초시장주차장·중도8리 공영주차장(185m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 36행은 전부 공영이고 데이터기준일자는 전부 2026-10-14이다. 관리기관 표기는 34곳이 '충청남도 금산군청', 금산다락원·청산회관주차장과 금산역사문화박물관주차장 2곳이 '충청남도 금산군 금산다락원'이고 전화번호는 041-750-2742가 31곳, 041-750-3013이 2곳, 041-750-3485가 2곳, 041-750-2642가 1곳이다",
+   "등록 36곳은 금산읍 33곳·추부면 3곳이다 — 금산군의 나머지 면(금성면·군북면·남일면·남이면·복수면·부리면·제원면·진산면)에는 표준데이터에 등록된 공영주차장이 없어, 실제로 운영 중인 무료 주차장이 있는지는 군청 확인 과제다",
+   "등록 급지는 금산공영주차장만 '1'이고 나머지 35곳은 '2'다 — 조례 별표 1 비고 4로는 금산공영(1급지)·구법원(2급지)이 등록과 일치하고, 추부면 3곳은 비고 4상 3급지라 등록 급지와 다르지만 3곳 전부 무료라 요금 계산에는 영향이 없다",
+   "운영은 36곳 전부 평일+토요일+공휴일이고 시간은 34곳이 00:00~23:59, 유료 군청 2곳(금산공영·구법원)이 전 요일 08:00~20:00이다. 결제방법은 금산공영·구법원이 '현금', 금산다락원이 '카드', 무료 33곳은 공란이다. 특기사항은 유료 3곳에만 있고, 부제시행구분은 36곳 전부 '미시행', 장애인전용주차구역 보유여부는 33곳 'Y'·3곳 'N'이다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "구법원주차장: 등록 요금(기본 30분 0원·추가 10분 200원·1일 5000원·월정기 50000원)이 조례 별표 1의 2급지 요금(30분 이하 무료·이후 10분마다 200원·1일 5,000원·월정기 주간 50,000원)과 전 항목 일치한다 — 별표 1은 1급지·2급지 요금이 동일하다. 월정기 50,000원은 별표의 주간 요금이고 야간은 30,000원이다",
+   "금산공영주차장(을지병원, 터미널, 궁전장): 등록 요금(기본 30분 0원·추가 10분 200원·1일 5000원·월정기 50000원)이 조례 별표 1의 1급지 요금(30분 이하 무료·이후 10분마다 200원·1일 5,000원·월정기 주간 50,000원)과 전 항목 일치한다 — 별표 1은 1급지·2급지 요금이 동일하다. 월정기 50,000원은 별표의 주간 요금이고 야간은 30,000원이다",
+   "금산다락원·청산회관주차장: 등록 요금(기본 120분 0원·추가 30분 600원·1일 6000원)은 전용 조례 별표(2시간 이내 무료·초과 최초 30분 이내 600원·30분 초과 후 10분마다 200원·1일 6,000원)와 30분 경계에서만 일치하고 구간 안에서는 다르다 — 예컨대 2시간 40분이면 등록 구조는 1,200원, 조례 구조는 800원이다. 조례 구조로 계산한다(여수·논산 선례 — 구조가 상충하면 조례 우선, 군청 확인 과제). 월정기는 등록·조례 모두 없다. 등록 운영시간(00:00~23:59)과 전용 조례의 유료운영시간(평일 09:00~18:00)도 달라, 개방은 24시간이고 과금만 평일 낮 시간인지 군청 확인 과제다"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "구법원주차장",
+   "구약초시장주차장",
+   "금산공영주차장(을지병원, 터미널, 궁전장)",
+   "금산읍 중도10리 공영주차장",
+   "금산읍 하옥4리 공영주차장",
+   "상3리 공영주차장",
+   "상4리 공영주차장",
+   "상4리(읍사무소 뒤) 공영주차장",
+   "상7리 공영주차장",
+   "상옥2리 공영주차장",
+   "상옥리 공영주차장",
+   "상옥리(큰다리 옆) 공영주차장",
+   "신대2리 공영주차장",
+   "아인1리 공영주차장",
+   "아인3리 공영주차장",
+   "아인리(금산여고 옆) 공영주차장",
+   "인삼·약초시장주차장",
+   "전통시장주차장(금산시장)",
+   "중도7리 공영주차장",
+   "중도8리 공영주차장",
+   "중도9리 공영주차장",
+   "중도9리(예원소르빌 뒤) 공영주차장",
+   "하옥2리 공영주차장",
+   "마전6리 공영주차장",
+   "마전9리 공영주차장"
+  ],
+  "감면_출처": "「금산군 주차장 설치 및 사용료 징수 조례」 제2584호 제3조제4항(주차요금의 감면) — 전액 감면: 긴급자동차(제1호). 50% 감면: 국가유공 상이자 차량표지 부착 차량(제2호), 고엽제 후유의증환자 차량표지 부착 차량(제3호), 장애인 차량표지 부착 차량(제4호), 경형자동차(제5호), 승용차 2부제 참여 차량(제6호), 저공해자동차 표지 부착 차량(제7호), 우수자원봉사자증 소지자가 운전하는 차량(제10호). 40% 감면: 승용차 5부제 및 요일제 참여 차량(제6호). 20% 감면: 승용차 10부제 참여 차량(제6호). 30% 감면: 전통시장 상인·고객의 월정기 주차요금(제8호). 50% 감면(부분): 전통시장 상인·고객의 유료주차장 30분 추가 요금(제9호). 금산다락원 부설주차장은 전용 조례 제6조제3항이 이 감면을 준용하고, 같은 조 제1항제1호가 이용자 2시간(장애인 차량 4시간) 면제를 따로 정한다. 본문 원문(data/raw/geumsan-ordinance.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 제3조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같다. 별표 1(개정 2017.5.30·2023.12.20·2025.5.9)은 전 급지 공통 30분 이하 무료이고, 1급지·2급지는 추가 10분마다 200원·1일 5,000원·월정기 주간 50,000원·야간 30,000원, 3급지는 추가 10분마다 100원·1일 4,000원·월정기 주간 30,000원·야간 20,000원이다. 금산다락원 부설주차장은 전용 조례 제2451호 제5조·별표가 2시간 이내 무료·초과 최초 30분 이내 600원·30분 초과 후 10분마다 200원·1일 6,000원으로 따로 정한다. 군청 유료 2곳은 등록값으로, 금산다락원은 전용 조례 구조로 계산하고 무료 33곳은 요금을 받지 않는다",
+  "급지_출처": "조례 별표 1 비고 4 — 1급지는 금산터미널 앞 공영주차장, 2급지는 구 법원 공영주차장과 금산읍 도시지역 내, 3급지는 1급지 및 2급지 이외의 지역이다. 등록 급지는 금산공영주차장 '1'·구법원주차장 '2'로 비고 4와 일치하고, 추부면 3곳은 등록이 '2'이나 비고 4로는 3급지다(전부 무료라 요금 영향 없음)",
+  "무료요일_출처": "무료 33곳은 조례 제3조제5항(군수는 공영주차장 전부 또는 일부를 무료로 운영할 수 있다)에 근거한 무료 운영으로 요일과 관계없이 무료다. 금산다락원·청산회관주차장은 전용 조례 제4조가 토요일 및 공휴일을 무료운영일로 정해 free_days는 토·일을 True로 뒀다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 금산군 등록 36행 전부 공영(노외 31·노상 3·부설 2, 총 2,738면)를 싣고 민영 제외 0건·중복 제거 0건·제외 0건이다. 금산읍 33곳·추부면 3곳이고, 금산군의 나머지 면(금성면·군북면·남일면·남이면·복수면·부리면·제원면·진산면)에는 등록된 공영주차장이 없어 실제 운영 중인 무료 주차장이 있는지는 군청 확인 과제다",
+   "「금산군 주차장 설치 및 사용료 징수 조례」 제2584호(표제 시행 2025-06-30, 공포 2025-06-30, 일부개정, ordinSeq 2047591) 본문 원문(data/raw/geumsan-ordinance.txt) 대조 완료(2026-11-20) — 부칙이 '이 조례는 공포한 날부터 시행한다'고 정해 표제 시행일과 같다. law.go.kr 검색에서 금산군 주차장 관련 자치법규는 이 조례 외에 주차장 특별회계 설치 조례(요금 무관), 금산다락원 부설주차장 전용 조례, 임산부 전용주차구역 조례·시행규칙(요금 무관)뿐이라 요금 조례의 최신 시행본은 제2584호가 맞다",
+   "별표 1은 HWP 원본(flSeq 153829007)을 data/raw/geumsan-ordinance-b1.hwp로 저장하고 PrvText 추출로 확정했다 — 전 급지 공통 30분 이하 무료 칸이 세로 병합돼 있고 2급지 행의 요금 칸이 1급지 행과 전부 병합(동일 요금)돼 있으며 2025.5.9 개정 표기가 있다. 별표 오등록이 아닌지는 비고 4에서 2급지로 명시된 구 법원 공영주차장의 등록값(기본 30분 0원·추가 10분 200원·1일 5,000원·월정기 50,000원)이 1급지 행과 전 항목 일치하는 것으로 교차 확인했다",
+   "군청 유료 2곳의 계산 기준(판단 지점) — 금산공영주차장(조례 1급지)과 구법원주차장(조례 2급지)은 등록값이 별표 1과 전 항목 일치해 등록값으로 계산한다(공주·청양 선례 — 등록값이 완전하고 조례와 일치하면 등록값). 월정기 50,000원은 별표의 주간 요금으로 표기하고 야간 30,000원은 요금표에 병기했다",
+   "금산다락원·청산회관주차장의 계산 기준(판단 지점) — 전용 조례 「금산군 금산다락원 부설주차장 관리 및 운영 조례」 제2451호(시행 2023-06-30, 제정, ordinSeq 1827629) 별표 구조(2시간 이내 무료·초과 최초 30분 이내 600원·30분 초과 후 10분마다 200원·1일 6,000원)로 계산한다. 등록 구조(기본 120분 0원·추가 30분 600원)는 30분 경계에서만 별표와 일치하고 구간 안에서는 달라 조례 구조를 따랐다(여수·논산 선례 — 구조가 상충하면 조례 우선). 유료운영시간(평일 09:00~18:00)과 무료운영일(토요일 및 공휴일)은 free_window·free_days로 반영했고, 등록 운영시간(24시간 개방)과의 관계는 군청 확인 과제다",
+   "유료 2곳의 등록 특기사항은 '승용차요일제 20프로할인'으로 적혀 있으나 조례 제3조제4항제6호는 5부제 및 요일제 40% 감면이라 서로 다르다 — 조례 값을 감면표에 싣고 차이는 군청 확인 과제로 남긴다. 등록 특기사항의 '5·18민주 유공상이자 50프로할인'은 조례 제3조제4항에 없는 항목이다",
+   "좌표는 36곳 전부 등록돼 있고 전부 금산군 범위 안(위도 36.0964~36.1946, 경도 127.4602~127.5059)이라 비우거나 채운 곳이 없다(오버레이 558행 무변경). 도로명주소는 11곳에만 등록돼 있다",
+   "추부면 3곳(마전시장·마전9리·마전6리 공영주차장)의 등록 급지는 '2'이나 조례 별표 1 비고 4로는 3급지(1·2급지 이외의 지역)다 — 3곳 전부 무료라 요금 계산에는 영향이 없고 급지 차이로만 기록한다",
+   "전화번호는 041-750-2742가 31곳, 041-750-3013이 2곳, 041-750-3485가 2곳, 041-750-2642가 1곳이다. 관리기관 표기는 34곳이 '충청남도 금산군청', 금산다락원·청산회관주차장과 금산역사문화박물관주차장 2곳이 '충청남도 금산군 금산다락원'이다. 운영은 36곳 전부 평일+토요일+공휴일이고, 시간은 34곳이 00:00~23:59, 유료 군청 2곳이 전 요일 08:00~20:00이다. 결제방법은 금산공영·구법원이 '현금', 금산다락원이 '카드', 무료 33곳은 공란이다. 장애인전용주차구역 보유여부는 33곳 'Y'·3곳 'N'이고 부제시행구분은 36곳 전부 '미시행'이다. 특기사항은 유료 3곳에만 있다"
+  ],
+  "무료개방_표기": [
+   "금산다락원·청산회관주차장"
+  ],
+  "거주자우선": [],
+  "무료_요금구분": 33,
+  "무료_구획수": 2359,
+  "평균_기본요금": 200,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-10-14"
+  ],
+  "관리기관": {
+   "충청남도 금산군청": 34,
+   "충청남도 금산군 금산다락원": 2
+  }
+ },
+ "fee_table": {
+  "style": "geumsan_grade",
+  "unit_min": 10,
+  "base_min": 30,
+  "applies": "조례 본문은 국가법령정보센터(law.go.kr)에서 직접 확인했다 — 「금산군 주차장 설치 및 사용료 징수 조례」 제2584호(시행 2025-06-30, 일부개정), ordinSeq 2047591. 본문 사본 data/raw/geumsan-ordinance.txt. 별표 1(공영주차장 주차요금표)은 HWP 원본을 data/raw/geumsan-ordinance-b1.hwp로 저장하고 PrvText 추출로 확정해 data/raw/geumsan-ordinance-b1.txt로 정리했다. 금산다락원 부설주차장은 전용 조례 「금산군 금산다락원 부설주차장 관리 및 운영 조례」 제2451호(시행 2023-06-30, 제정, ordinSeq 1827629)가 따로 있어 본문·별표를 data/raw/geumsan-darakwon-ordinance.txt·geumsan-darakwon-ordinance-b1.txt로 함께 저장했다.",
+  "rows": [
+   {
+    "label": "1급지 (금산터미널 앞)",
+    "grade": "g1",
+    "unit_label": "30분 이하 무료 · 이후 10분마다 200원 · 1일 5,000원 · 월정기 주간 50,000원·야간 30,000원",
+    "hour": 600,
+    "two_hour": 1800,
+    "day": 5000,
+    "month": 50000,
+    "month_night": 30000,
+    "lots": 1
+   },
+   {
+    "label": "2급지 (구 법원·금산읍 도시지역)",
+    "grade": "g2",
+    "unit_label": "30분 이하 무료 · 이후 10분마다 200원 · 1일 5,000원 · 월정기 주간 50,000원·야간 30,000원",
+    "hour": 600,
+    "two_hour": 1800,
+    "day": 5000,
+    "month": 50000,
+    "month_night": 30000,
+    "lots": 1
+   },
+   {
+    "label": "3급지 (그 밖의 지역)",
+    "grade": "g3",
+    "unit_label": "30분 이하 무료 · 이후 10분마다 100원 · 1일 4,000원 · 월정기 주간 30,000원·야간 20,000원",
+    "hour": 300,
+    "two_hour": 900,
+    "day": 4000,
+    "month": 30000,
+    "month_night": 20000,
+    "lots": 0
+   },
+   {
+    "label": "금산다락원 부설 (전용 조례)",
+    "grade": "darakwon",
+    "unit_label": "2시간 이내 무료 · 초과 최초 30분 600원 · 이후 10분마다 200원 · 1일 6,000원 · 월정기 없음",
+    "hour": 0,
+    "two_hour": 0,
+    "day": 6000,
+    "month": null,
+    "month_night": null,
+    "lots": 1
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 3,
+   "street_paid": 0,
+   "free": 33,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "주간·야간 구분 (조례 별표 1 비고 2)",
+    "hours": "4~10월 08:00~20:00, 11~3월 09:00~19:30, 나머지는 야간",
+    "free": "월정기 주간·야간 요금을 가르는 기준이다 — 월정기는 주간 1·2급지 50,000원·3급지 30,000원, 야간 1·2급지 30,000원·3급지 20,000원이다. 월 정기 주차면수는 전체 주차면수의 60퍼센트를 초과할 수 없고 무인관제시스템 주차장은 30퍼센트를 초과할 수 없다(비고 5)"
+   },
+   {
+    "group": "금산다락원 유료운영시간 (전용 조례 제4조)",
+    "hours": "평일(월~금) 09:00~18:00 · 토요일 및 공휴일은 무료운영일",
+    "free": "금산다락원·청산회관주차장 1곳에 적용한다 — free_window(18:00~09:00)와 free_days(토·일)로 반영했다. 등록 운영시간은 00:00~23:59로 개방은 24시간인데 과금 시간과 다른지는 군청 확인 과제다"
+   }
+  ],
+  "notes": "급지구분은 1급지를 금산터미널 앞 공영주차장, 2급지를 구 법원 공영주차장과 금산읍 도시지역 내, 3급지를 1급지 및 2급지 이외의 지역으로 정한다(별표 1 비고 4). 표준데이터 등록 급지는 금산공영주차장만 '1'이고 나머지 35곳은 '2'인데, 추부면 3곳(마전시장·마전9리·마전6리)은 비고 4로는 3급지라 등록 급지와 다르다 — 3곳 전부 무료라 요금 계산에는 영향이 없다. 금산다락원·청산회관주차장은 금산읍에 있어 비고 4로는 2급지이나 요금은 전용 조례 별표를 적용한다. 감면은 긴급자동차 전액 감면, 국가유공 상이자·고엽제 후유의증환자·장애인·경형자동차·저공해자동차 표지·우수자원봉사자 50퍼센트, 승용차 2부제 50퍼센트·5부제 및 요일제 40퍼센트·10부제 20퍼센트, 전통시장 상인·고객 월정기 30퍼센트와 유료주차장 30분 추가요금 50퍼센트이다(제3조제4항). 유료 2곳의 등록 특기사항은 승용차요일제 할인을 20프로로 적고 있어 조례의 40퍼센트와 달라 군청 확인 과제다.",
+  "basis": "요금표는 「금산군 주차장 설치 및 사용료 징수 조례」 제2584호(시행 2025-06-30) 제3조·별표 1과 「금산군 금산다락원 부설주차장 관리 및 운영 조례」 제2451호(시행 2023-06-30) 별표, 표준데이터(기준일 2026-10-14)를 대조해 실었다. 군청 유료 2곳은 등록값이 별표와 일치해 등록값으로, 금산다락원은 전용 조례 구조로 계산하고 무료 33곳은 요금을 받지 않는다. (조례 본문: data/raw/geumsan-ordinance.txt, 별표 1 원문: data/raw/geumsan-ordinance-b1.txt, 다락원 조례: data/raw/geumsan-darakwon-ordinance.txt·geumsan-darakwon-ordinance-b1.txt)"
+ },
+ "slug": "geumsan",
+ "province": "충청남도",
+ "province_slug": "chungnam",
+ "dong_page_min_lots": 3,
+ "city": "금산군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차 전액 감면",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제1호 — 「도로교통법」 제2조제21호에 따른 긴급자동차의 주차요금은 전액 감면한다"
+  },
+  {
+   "label": "국가유공자 상이자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제2호 — 「국가유공자 등 예우 및 지원에 관한 법률」에 따른 상이자 본인이 운전하거나 동승한 차량으로 국가유공 상이자 차량표지를 부착한 경우 주차요금의 50퍼센트를 감면한다"
+  },
+  {
+   "label": "고엽제 후유의증환자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제3호 — 「고엽제후유의증 등 환자지원 및 단체설립에 관한 법률」에 따른 고엽제 후유의증환자 본인이 운전하거나 동승한 차량으로 차량표지를 부착한 경우 주차요금의 50퍼센트를 감면한다"
+  },
+  {
+   "label": "장애인 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제4호 — 「장애인복지법」에 따른 장애인 본인이 운전하거나 동승한 차량으로 장애인 차량표지를 부착한 경우 주차요금의 50퍼센트를 감면한다"
+  },
+  {
+   "label": "경형자동차 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제5호 — 「자동차관리법」 제3조 및 같은 법 시행규칙 제2조에 따른 경형자동차는 주차요금의 50퍼센트를 감면한다"
+  },
+  {
+   "label": "승용차 2부제 참여 차량 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제6호 — 승용차 2부제에 참여하는 차량은 주차요금의 50퍼센트를 감면한다"
+  },
+  {
+   "label": "승용차 5부제·요일제 참여 차량 40% 감면",
+   "rate": 0.4,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제6호 — 승용차 5부제 및 요일제에 참여하는 차량은 주차요금의 40퍼센트를 감면한다. 유료 2곳의 등록 특기사항은 '승용차요일제 20프로할인'으로 적혀 있어 조례와 달라 군청 확인 과제다"
+  },
+  {
+   "label": "승용차 10부제 참여 차량 20% 감면",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제6호 — 승용차 10부제에 참여하는 차량은 주차요금의 20퍼센트를 감면한다"
+  },
+  {
+   "label": "저공해자동차 표지 부착 차량 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제7호 — 「대기환경보전법」 제58조제11항에 따라 발급된 저공해자동차 표지를 부착한 차량은 주차요금의 50퍼센트를 감면한다"
+  },
+  {
+   "label": "전통시장 상인·고객 월정기 30% 감면",
+   "rate": 0.3,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제8호 — 전통시장 상인과 고객이 월 정기주차를 하는 경우 월정기 주차요금의 30퍼센트를 감면한다(월정기 요금에만 적용)"
+  },
+  {
+   "label": "전통시장 상인·고객 (유료주차장 30분 추가요금 50% 감면)",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제9호 — 전통시장 상인과 고객이 유료주차장을 이용하는 경우 30분 추가 요금의 50퍼센트를 감면한다(30분 추가 요금 부분에만 적용되는 감면이라, 계산기의 전체 감면으로 고르면 실제보다 많이 깎일 수 있다)"
+  },
+  {
+   "label": "우수자원봉사자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제4항제10호 — 「금산군 자원봉사활동 지원 조례」에 따른 우수자원봉사자증을 소지한 자가 운전하는 차량은 주차요금의 50퍼센트를 감면한다"
+  },
+  {
+   "label": "금산다락원 이용 장애인 차량 4시간 면제",
+   "rate": 1.0,
+   "exempt_min": 240,
+   "note": "「금산군 금산다락원 부설주차장 관리 및 운영 조례」 제6조제1항제1호 — 금산다락원 부설주차장 이용자는 2시간까지, 장애인 차량은 4시간까지 주차요금을 면제한다(금산다락원·청산회관주차장 1곳에만 적용)"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}

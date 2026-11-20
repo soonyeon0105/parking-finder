@@ -11490,6 +11490,52 @@ def fee_table_block(city) -> str:
 {corp.get('street_paid', 0)}구간을 실었고, 요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳입니다. {street_tail}</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "geumsan_grade":
+        # 금산군 — 공영 36곳(노외 31·노상 3·부설 2, 총 2,738면)
+        #   중 무료 33곳·유료 3곳. 「금산군 주차장 설치 및 사용료
+        #   징수 조례」 제2584호(시행 2025-06-30) 제3조·별표 1은
+        #   전 급지 공통 30분 이하 무료이고, 1급지·2급지는 추가
+        #   10분마다 200원·1일 5,000원·월정기 주간 50,000원·야간
+        #   30,000원으로 동일하며, 3급지는 추가 10분마다 100원·
+        #   1일 4,000원·월정기 주간 30,000원·야간 20,000원이다.
+        #   급지는 비고 4가 1급지 금산터미널 앞, 2급지 구 법원·
+        #   금산읍 도시지역 내, 3급지 그 밖의 지역으로 정한다.
+        #   군청 유료 2곳(금산공영 1급지·구법원 2급지)은 등록값이
+        #   별표와 전 항목 일치해 등록값으로 계산한다. 금산다락원·
+        #   청산회관주차장은 전용 조례 「금산군 금산다락원 부설
+        #   주차장 관리 및 운영 조례」 제2451호 별표(2시간 이내
+        #   무료·초과 최초 30분 600원·이후 10분마다 200원·1일
+        #   6,000원)를 따로 행으로 싣고 그 구조로 계산한다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">금산군 공영주차장 <b>36곳 중 33곳은 무료</b>이고 유료는 3곳입니다.
+「금산군 주차장 설치 및 사용료 징수 조례」 제2584호 별표 1은 모든 급지에 <b>30분 이하
+무료</b>를 공통으로 정하고, <b>1급지·2급지</b>는 이후 10분마다 <b>200원</b>, 1일
+<b>5,000원</b>, 월정기 주간 50,000원·야간 30,000원으로 같으며, <b>3급지</b>는 10분마다
+<b>100원</b>, 1일 <b>4,000원</b>입니다. 급지는 1급지가 금산터미널 앞 공영주차장,
+2급지가 구 법원 공영주차장과 금산읍 도시지역 내, 3급지가 그 밖의 지역입니다(별표 1
+비고 4). 주간은 4~10월 08:00~20:00, 11~3월 09:00~19:30이며 나머지는
+야간입니다(비고 2). 금산다락원·청산회관주차장은 전용 조례가 따로 있어 마지막 행에
+실었습니다. 궁금한 점은 금산군청 건설교통과(041-750-2742)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일주차권</th><th class="num">월정기(주간)</th>
+  <th class="num">월정기(야간)</th><th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 {corp.get('free', 0)}곳은 요금 구분이
+‘무료’라 요일과 관계없이 무료이고, 유료 주차장은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
