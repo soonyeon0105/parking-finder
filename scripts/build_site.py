@@ -9501,6 +9501,22 @@ CITY_UI.update({
         "cheap_lede": ("삼척시 유료 노외 공영주차장 9곳은 2시간까지 30분마다 500원이라 "
                        "2시간은 2,000원입니다. 노상 3구간은 최초 10분이 무료입니다. "),
     },
+    # 홍천군 — 67곳 전부 홍천읍·북방면·남면, 유료 14곳 전부 홍천읍이라 1급지이다.
+    "홍천군": {
+        "manager": "강원특별자치도 홍천군청",
+        "manager_inquiry": "홍천군청 도시교통과(033-430-2940)",
+        "std_base_date": "2026-04-16",
+        "area_label": "군", "dong_unit_label": "읍·면",
+        "discount_note": ("홍천군 조례 제3조 기준입니다. 긴급자동차·공무수행 차량·국가유공자 등·장애인·"
+                          "의사상자·병역명문가·다자녀가정·전기차 충전은 2시간 이내 전액 면제, 시책 참여 차량은 "
+                          "20%, 경형자동차·환경친화적 자동차는 50%, 2시간 초과 후 국가유공자 등·모범납세자·"
+                          "저공해자동차는 50% 감면, 전통시장 방문 고객은 최초 30분 면제 가능합니다(현장 확인)."),
+        "calc_note": ("차량 감면은 <b>홍천군 조례 제3조</b> 기준입니다. 긴급자동차·공무수행 차량·국가유공자 등·"
+                     "장애인·의사상자·병역명문가·다자녀가정·전기차 충전 2시간 이내 전액 면제, 시책 참여 차량 20%, "
+                     "경형자동차·환경친화적 자동차 50%, 2시간 초과 후 국가유공자 등·모범납세자·저공해자동차 50% "
+                     "감면, 전통시장 방문 고객 최초 30분 면제 가능입니다(현장 확인)."),
+        "daily_example": "1일 주차권 6,000원(노외만)",
+    },
 })
 
 
@@ -14761,6 +14777,61 @@ B·C지구는 등록 급지구분이 1급지이나 등록 요금이 2급지와 �
 요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+
+    if ft.get("style") == "hongcheon_grade":
+        # 홍천군 — 공영 67곳(노외 17곳·노상 50구간,
+        #   총 2,448면)이 무료 53곳·유료 14곳으로
+        #   등록돼 있다. 「홍천군 주차장 설치 및 관리
+        #   조례」 제3107호(시행 2025-09-25) 제2조
+        #   ·별표 1은 1급지(홍천읍 진리·신장대리·
+        #   희망리·갈마곡리·연봉리) 노상 2시간까지
+        #   30분마다 500원·2시간 초과 10분마다 300원,
+        #   노외 1회 30분마다 500원·1일 6,000원·월정기
+        #   주간 50,000원·야간 37,000원, 2급지 노상
+        #   300원·200원, 노외 300원·1일 3,600원·월
+        #   주간 30,000원·야간 22,000원이고 최초 무료
+        #   구간은 없다. 유료 14곳은 요금 칸이 전부
+        #   비어 있어 조례 기준으로 계산했고, 전부
+        #   홍천읍이라 1급지이다.
+        def _hc_cell(v):
+            return f"{v}곳" if v is not None else "—"
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td>'
+            f'<td class="num">{_hc_cell(r["lots"])}</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">홍천군 공영주차장 <b>67곳</b>(노외 17곳·노상 50구간, 총 2,448면)은
+무료 <b>53곳</b>·유료 <b>14곳</b>으로 등록돼 있습니다. 「홍천군 주차장 설치 및 관리 조례」 제3107호
+별표 1은 1급지(홍천읍 진리·신장대리·희망리·갈마곡리·연봉리) 노상 2시간까지 30분마다 <b>500원</b>·2시간 초과
+10분마다 <b>300원</b>, 노외 1회 30분마다 <b>500원</b>·1일 <b>6,000원</b>·월정기 주간 <b>50,000원</b>·야간
+<b>37,000원</b>이고, 2급지는 노상 300원·200원, 노외 300원·1일 3,600원·월 주간 30,000원·야간 22,000원입니다.
+최초 무료 구간은 없습니다. 유료 14곳은 표준데이터에 요금 칸이 전부 비어 있어 조례 기준으로 계산했습니다.
+실제 요금은 현장 안내와 홍천군청 도시교통과(033-430-2940)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th>
+  <th class="num">월정기 (주간)</th><th class="num">월정기 (야간)</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금으로 계산하는 유료는 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+
 
     if ft.get("style") == "samcheok_flat":
         # 삼척시 — 공영 13곳(노외 9곳·노상 4구간,
