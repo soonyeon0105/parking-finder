@@ -1,0 +1,2741 @@
+{
+ "meta": {
+  "generated_at": "2026-11-21 16:32",
+  "generated_at_iso": "2026-11-21T16:32:31+09:00",
+  "snapshot_at": "2026-11-21 16:32",
+  "region": {
+   "province": "경상북도",
+   "city": "청송군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-04-17",
+    "rows_total": 18994,
+    "rows_city": 28,
+    "fetched_at": "2026-11-21 16:32 (KST)",
+    "note": "청송군으로 등록된 행 28행을 읽어 중복 제거 0건, 제외 7건으로 21곳을 실었다. 유료 1곳·무료 20곳·미상 0곳이다. 데이터기준일자는 2026-04-17이다. 좌표 결측은 0곳이다. 조례 대조 완료 — 「청송군 주차장 설치 및 관리 조례」 제2471호(시행 2026-10-30, ordinSeq 2181383) 제4조제1항·별표 1 원문 대조 완료(2026-11-21)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "청송군 주차장 설치 및 관리 조례",
+    "org": "경상북도 청송군청",
+    "url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2181383&gubun=ELIS",
+    "file": "cheongsong-ordinance-b1.txt",
+    "sha256": "2bec5520426a4084e7c0c6d16c9a2774fb2cafd9d9a4240b58ec24e67b681aae",
+    "license": "자치법규(공개)",
+    "base_date": "2026-10-30",
+    "rows_total": null,
+    "fetched_at": "2026-11-21 16:32 (KST)",
+    "note": "청송군이 설치·관리하는 공영주차장에 적용하는 조례다. 표준데이터에 등록된 청송군 공영주차장 21곳(노외 17곳·노상 4구간, 총 2,095면)입니다. 등록은 전부 공영이고 요금 구분은 무료 20곳·유료 1곳입니다. 「청송군 주차장 설치 및 관리 조례」 제2471호 별표 1은 1급지 최초 30분 400원·초과 10분마다 200원·1일 5,000원, 2급지 300원·100원·3,000원, 3급지 200원·100원·2,500원입니다. 유료 1곳(주왕산국립공원주차장)은 군 조례가 아니라 국립공원공단 정액제(소형 주중 4,000원·주말 및 집중수요기간 5,000원, 중·대형 6,000원·7,500원, 당일 1구역 기준)를 따릅니다. 주말·공휴일 전체 무료 규정은 조례에 없습니다. (조례 본문: data/raw/cheongsong-ordinance.txt, 별표 1 원문 HWP: data/raw/cheongsong-ordinance-b1.hwp)"
+   },
+   {
+    "id": "knps_juwangsan",
+    "name": "국립공원공단 주왕산 주차장 이용요금 안내",
+    "org": "국립공원공단",
+    "url": "https://www.knps.or.kr/front/portal/visit/visitCourseAmt.do?parkId=121000",
+    "file": null,
+    "sha256": null,
+    "license": "공공기관 공개자료",
+    "base_date": "2026-10-29",
+    "rows_total": null,
+    "fetched_at": "2026-11-21 16:32 (KST)",
+    "note": "주왕산국립공원주차장의 요금 체계 출처다. 정액제(당일 1구역 기준): 소형 주중 4,000원·주말 및 집중수요기간 5,000원, 중·대형(16인승 이상·1톤 초과) 6,000원·7,500원. 주말은 토·일 및 법정공휴일, 집중수요기간은 7월 1일~8월 31일·10월 1일~11월 15일, 그 외는 주중이다. 경형자동차·이륜차는 소형 요금의 50%를 적용한다."
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "청송군",
+   "slug": "cheongsong"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gb-cheongsong-001",
+   "mgmt_no": "363-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "칼낙동네 앞",
+   "gu": "청송군",
+   "dong": "안덕면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 청송군 안덕면 명당리 342-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "054-870-6144",
+   "lat": 36.28720108,
+   "lng": 128.955907,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 청송군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청송군",
+   "city_slug": "cheongsong",
+   "zone": null
+  },
+  {
+   "id": "gb-cheongsong-002",
+   "mgmt_no": "363-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "주왕산공영주차장",
+   "gu": "청송군",
+   "dong": "주왕산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 청송군 주왕산면 상의리 621-1",
+   "addr_road": "경상북도 청송군 주왕산면 양지마을길 19",
+   "road": null,
+   "spaces": 700,
+   "tel": "054-870-6144",
+   "lat": 36.38957702,
+   "lng": 129.1348857,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 청송군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청송군",
+   "city_slug": "cheongsong",
+   "zone": null
+  },
+  {
+   "id": "gb-cheongsong-003",
+   "mgmt_no": "363-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "주왕산국립공원주차장",
+   "gu": "청송군",
+   "dong": "주왕산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 청송군 주왕산면 상의리 299",
+   "addr_road": "",
+   "road": null,
+   "spaces": 454,
+   "tel": "054-870-5300",
+   "lat": 36.39053523,
+   "lng": 129.1413053146,
+   "base_date": "2026-04-17",
+   "manager": "주왕산국립공원",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 1440,
+    "base_fee": 4000,
+    "unit_min": 1440,
+    "unit_fee": 4000,
+    "daily_fee": 4000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": true,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 30,
+     "base_fee": 4000,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "국립공원공단 주왕산 주차장 이용요금 안내(knps.or.kr, parkId=121000) — 정액제(당일 1구역 기준): 소형 주중 4,000원·주말 및 집중수요기간 5,000원, 중·대형(16인승 이상·1톤 초과) 6,000원·7,500원. 주말은 토·일 및 법정공휴일, 집중수요기간은 7월 1일~8월 31일·10월 1일~11월 15일, 그 외는 주중이다. 경형자동차·이륜차는 소형 요금의 50%를 적용한다. 등록값 '기본 30분 4,000원'은 이 정액제 소형 주중 요금과 일치한다. 계산기는 당일 정액(소형 주중 4,000원)으로 계산하고, 주말·집중수요기간 요금(5,000원)과 중·대형 요금은 안내 문구에 싣는다. 감면은 국립공원공단 감면 안내(국가보훈 1~3급·심한 장애인 100%, 그 외 보훈·장애인 50%, 저공해 50%, 그린카드 10%)를 따른다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 4000,
+   "city": "청송군",
+   "city_slug": "cheongsong",
+   "zone": null
+  },
+  {
+   "id": "gb-cheongsong-004",
+   "mgmt_no": "363-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "멕시카나(구 화통치킨) 맞은편 주차장",
+   "gu": "청송군",
+   "dong": "진보면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 청송군 진보면 진안리 79-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "054-870-6144",
+   "lat": 36.52846601,
+   "lng": 129.048361,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 청송군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청송군",
+   "city_slug": "cheongsong",
+   "zone": null
+  },
+  {
+   "id": "gb-cheongsong-005",
+   "mgmt_no": "363-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼이횟집 옆",
+   "gu": "청송군",
+   "dong": "진보면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 청송군 진보면 진안리 48-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "054-870-6144",
+   "lat": 36.52914746,
+   "lng": 129.046539,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 청송군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청송군",
+   "city_slug": "cheongsong",
+   "zone": null
+  },
+  {
+   "id": "gb-cheongsong-006",
+   "mgmt_no": "363-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "진보농협 뒤 주차장",
+   "gu": "청송군",
+   "dong": "진보면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 청송군 진보면 진안리 127-5",
+   "addr_road": "경상북도 청송군 진보면 진안로 14",
+   "road": null,
+   "spaces": 106,
+   "tel": "054-870-6144",
+   "lat": 36.52749261,
+   "lng": 129.0452811043,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 청송군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청송군",
+   "city_slug": "cheongsong",
+   "zone": null
+  },
+  {
+   "id": "gb-cheongsong-007",
+   "mgmt_no": "363-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "진보시장주차장",
+   "gu": "청송군",
+   "dong": "진보면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 청송군 진보면 진안리 127-3",
+   "addr_road": "경상북도 청송군 진보면 진안남1길7-1",
+   "road": null,
+   "spaces": 56,
+   "tel": "054-870-6144",
+   "lat": 36.52760895,
+   "lng": 129.0457018,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 청송군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청송군",
+   "city_slug": "cheongsong",
+   "zone": null
+  },
+  {
+   "id": "gb-cheongsong-008",
+   "mgmt_no": "363-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "국골구거복개주차장",
+   "gu": "청송군",
+   "dong": "청송읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 청송군 청송읍 월막리 423-1",
+   "addr_road": "경상북도 청송군 청송읍 현충로 106",
+   "road": null,
+   "spaces": 47,
+   "tel": "054-870-6144",
+   "lat": 36.4351472326,
+   "lng": 129.0521198532,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 청송군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청송군",
+   "city_slug": "cheongsong",
+   "zone": null
+  },
+  {
+   "id": "gb-cheongsong-009",
+   "mgmt_no": "363-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "소헌공원주차장",
+   "gu": "청송군",
+   "dong": "청송읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 청송군 청송읍 월막리 391-3",
+   "addr_road": "경상북도 청송군 청송읍 월막8길 6",
+   "road": null,
+   "spaces": 21,
+   "tel": "054-870-6144",
+   "lat": 36.43343136,
+   "lng": 129.0550479,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 청송군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청송군",
+   "city_slug": "cheongsong",
+   "zone": null
+  },
+  {
+   "id": "gb-cheongsong-010",
+   "mgmt_no": "363-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청송강변주차장",
+   "gu": "청송군",
+   "dong": "청송읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 청송군 청송읍 월막리 362",
+   "addr_road": "",
+   "road": null,
+   "spaces": 147,
+   "tel": "054-870-6144",
+   "lat": 36.43241106,
+   "lng": 129.0557186,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 청송군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청송군",
+   "city_slug": "cheongsong",
+   "zone": null
+  },
+  {
+   "id": "gb-cheongsong-011",
+   "mgmt_no": "363-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청송시장주차장",
+   "gu": "청송군",
+   "dong": "청송읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 청송군 청송읍 월막리 423-1",
+   "addr_road": "경상북도 청송군 청송읍 현충로 106",
+   "road": null,
+   "spaces": 24,
+   "tel": "054-870-6144",
+   "lat": 36.4351163,
+   "lng": 129.052185,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 청송군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청송군",
+   "city_slug": "cheongsong",
+   "zone": null
+  },
+  {
+   "id": "gb-cheongsong-012",
+   "mgmt_no": "363-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청송향교주차장",
+   "gu": "청송군",
+   "dong": "청송읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 청송군 청송읍 월막리 250-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "054-870-6144",
+   "lat": 36.43442891,
+   "lng": 129.0575595,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 청송군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청송군",
+   "city_slug": "cheongsong",
+   "zone": null
+  },
+  {
+   "id": "gb-cheongsong-013",
+   "mgmt_no": "363-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송소고택 노외 주차장",
+   "gu": "청송군",
+   "dong": "파천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 청송군 파천면 덕천리 176",
+   "addr_road": "경상북도 청송군 파천면 송소고택길 15-2",
+   "road": null,
+   "spaces": 50,
+   "tel": "054-870-6144",
+   "lat": 36.43617486,
+   "lng": 129.026556,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 청송군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청송군",
+   "city_slug": "cheongsong",
+   "zone": null
+  },
+  {
+   "id": "gb-cheongsong-014",
+   "mgmt_no": "363-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "파천면덕천1리신축주차장",
+   "gu": "청송군",
+   "dong": "파천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 청송군 파천면 덕천리 36",
+   "addr_road": "",
+   "road": null,
+   "spaces": 44,
+   "tel": "054-870-6144",
+   "lat": 36.4356028412,
+   "lng": 129.0295664882,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 청송군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청송군",
+   "city_slug": "cheongsong",
+   "zone": null
+  },
+  {
+   "id": "gb-cheongsong-015",
+   "mgmt_no": "363-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "파천초등학교 입구 주차장",
+   "gu": "청송군",
+   "dong": "파천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 청송군 파천면 관리 764",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "054-870-6144",
+   "lat": 36.44421955,
+   "lng": 129.0318086,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 청송군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청송군",
+   "city_slug": "cheongsong",
+   "zone": null
+  },
+  {
+   "id": "gb-cheongsong-016",
+   "mgmt_no": "363-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도평초등학교 앞 주차장",
+   "gu": "청송군",
+   "dong": "현동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 청송군 현동면 도평리 734-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "054-870-6144",
+   "lat": 36.2897129797,
+   "lng": 129.019501325,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 청송군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청송군",
+   "city_slug": "cheongsong",
+   "zone": null
+  },
+  {
+   "id": "gb-cheongsong-017",
+   "mgmt_no": "363-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "현동시장주차장",
+   "gu": "청송군",
+   "dong": "현동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 청송군 현동면 도평리 839-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "054-870-6144",
+   "lat": 36.28978803,
+   "lng": 129.0160862,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 청송군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청송군",
+   "city_slug": "cheongsong",
+   "zone": null
+  },
+  {
+   "id": "gb-cheongsong-s001",
+   "mgmt_no": "363-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "진보주차장",
+   "gu": "청송군",
+   "dong": "진보면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 청송군 진보면 진안리 384-24",
+   "addr_road": "경상북도 청송군 진보면 진보로 118-3",
+   "road": "진보로",
+   "spaces": 95,
+   "tel": "054-870-6144",
+   "lat": 36.52832412,
+   "lng": 129.0449366,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 청송군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청송군",
+   "city_slug": "cheongsong",
+   "zone": null
+  },
+  {
+   "id": "gb-cheongsong-s002",
+   "mgmt_no": "363-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "청송주차장",
+   "gu": "청송군",
+   "dong": "청송읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 청송군 청송읍 월막리 426-5",
+   "addr_road": "경상북도 청송군 청송읍 중앙로 209",
+   "road": "중앙로",
+   "spaces": 104,
+   "tel": "054-870-6144",
+   "lat": 36.43574,
+   "lng": 129.0530156,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 청송군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청송군",
+   "city_slug": "cheongsong",
+   "zone": null
+  },
+  {
+   "id": "gb-cheongsong-s003",
+   "mgmt_no": "363-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "현동복지회관 앞",
+   "gu": "청송군",
+   "dong": "현동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 청송군 현동면 도평리 743-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "054-870-6144",
+   "lat": 36.28814077,
+   "lng": 129.0175028,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 청송군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청송군",
+   "city_slug": "cheongsong",
+   "zone": null
+  },
+  {
+   "id": "gb-cheongsong-s004",
+   "mgmt_no": "363-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "화목시장",
+   "gu": "청송군",
+   "dong": "현서면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 청송군 현서면 구산리 100-25",
+   "addr_road": "경상북도 청송군 현서면 구산2길9",
+   "road": null,
+   "spaces": 45,
+   "tel": "054-870-6144",
+   "lat": 36.27514916,
+   "lng": 128.8970675,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 청송군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "청송군",
+   "city_slug": "cheongsong",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-21 16:32",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 28,
+  "원자료_청송군행수": 28,
+  "원자료_받은행수": 28,
+  "구별": {
+   "청송군": 21
+  },
+  "민영_제외": 7,
+  "제외_행수": 7,
+  "제외_행": [
+   {
+    "name": "진보유료주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "청송국민노인요양원",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "주왕산 민영주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "주왕산면 상의리 민영주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "진안유료주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "방호정주차장",
+    "reason": "민영 주차장(공영 아님)"
+   },
+   {
+    "name": "민박촌노외주차장",
+    "reason": "민영 주차장(공영 아님)"
+   }
+  ],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 17,
+  "노외_부설": {
+   "노외": 17
+  },
+  "노상_구간": 4,
+  "총_구획수": 1813,
+  "노상_구획수": 282,
+  "동별": {
+   "청송읍": 6,
+   "진보면": 5,
+   "파천면": 3,
+   "현동면": 3,
+   "주왕산면": 2,
+   "안덕면": 1,
+   "현서면": 1
+  },
+  "동수": 7,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 21
+  },
+  "요금구분": {
+   "무료": 20,
+   "유료": 1
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 1,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "같은 자리·근접 좌표에 이름만 다른 등록: 국골구거복개주차장·청송시장주차장 — 청송읍 월막리 423-1에 같은 지번으로 등록돼 있고 좌표가 4m 이내(36.4351472326, 129.0521198532 / 36.4351163, 129.052185)이다. 이름이 다른 별개 등록이라 합치지 않고 전부 실었고, 같은 시설의 중복 등록인지는 청송군청 확인이 필요하다",
+   "인근 등록: 진보시장주차장(진보면 진안리 127-3, 56면)·진보농협 뒤 주차장(진보면 진안리 127-5, 106면) — 지번이 달라 별개 등록으로 보고 둘 다 실었다. 좌표가 약 40m 떨어져 있어 같은 시설인지는 청송군청 확인이 필요하다",
+   "표준데이터 등록 28행 중 민영 7행 제외, 공영 21행(노외 17·노상 4, 총 2,095면)을 읽었다. 데이터기준일자는 2026-04-17 28행, 제공기관명은 경상북도 청송군 28행, 관리기관명은 경상북도 청송군청 20곳·주왕산국립공원 1곳(공영 기준)이다",
+   "등록 급지구분은 21곳 전부 2급지이다. 조례 별표 1 급지 체계와는 별개라 요금 계산에는 쓰지 않았다",
+   "좌표는 21행 전부 등록돼 있다. 지오코딩 보완 대상이 없어 오버레이 추가도 0건이다",
+   "운영요일은 21곳 전부 평일+토요일+공휴일이고 운영시간은 21곳 전부 00:00~23:59이다. 부제시행구분은 미시행 21곳이다. 도로명주소는 21곳 중 11곳이 등록돼 있지 않다. 특기사항은 21행 전부 비어 있다. 결제방법은 공영 21곳 전부 공란이다",
+   "21곳 중 무료 20곳·유료 1곳이다. 유료 1곳(주왕산국립공원주차장)은 군 조례가 아니라 국립공원공단 정액제(소형 주중 4,000원·주말 및 집중수요기간 5,000원, 중·대형 6,000원·7,500원, 당일 1구역 기준)로 계산한다. 주말·공휴일 전체 무료 규정은 조례에 없어 표기하지 않았다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "주왕산국립공원주차장: 등록값 '기본 30분 4,000원'은 30분 요금이 아니라 국립공원공단 주왕산 정액제(당일 1구역 기준) 소형 주중 요금 4,000원이다 — 등록 단위 표기가 정액제를 시간제로 잘못 옮긴 것으로 보고, 국립공원공단 요금안내(knps.or.kr, parkId=121000) 원문으로 정액제 계산한다"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "칼낙동네 앞",
+   "주왕산국립공원주차장",
+   "멕시카나(구 화통치킨) 맞은편 주차장",
+   "삼이횟집 옆",
+   "청송강변주차장",
+   "청송향교주차장",
+   "파천면덕천1리신축주차장",
+   "파천초등학교 입구 주차장",
+   "도평초등학교 앞 주차장",
+   "현동시장주차장",
+   "현동복지회관 앞"
+  ],
+  "감면_출처": "「청송군 주차장 설치 및 관리 조례」 제2471호 제5조 — 긴급자동차·국가유공상이자(상이 1급 내지 6급)는 전액 면제, 장애인·경형자동차는 50% 경감, 국가 또는 지방자치단체 시책사업으로 군수가 인정하는 차량은 면제한다(관련 증명서 제시). 주왕산국립공원주차장의 감면은 국립공원공단 감면 안내를 따른다",
+  "요금_출처": "조례 제4조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같다. 별표 1은 1급지 최초 30분 400원·초과 10분마다 200원·1일 5,000원·월 주간 50,000원·야간 40,000원·주야간 60,000원, 2급지 300원·100원·3,000원·월 30,000원·25,000원·40,000원, 3급지 200원·100원·2,500원·월 25,000원·20,000원·30,000원이다. 별표 원본 HWP(flSeq 171037223)를 받아 추출해 대조했다. 주왕산국립공원주차장은 군 조례가 아니라 국립공원공단 정액제 (소형 주중 4,000원·주말 및 집중수요기간 5,000원, 중·대형 6,000원·7,500원, 당일 1구역 기준)로 계산한다 — 국립공원공단 주왕산 요금안내(knps.or.kr, parkId=121000) 원문 확인",
+  "급지_출처": "조례 별표 1 비고 5 — 1급지: 청송읍, 진보면 소재지 일원, 부곡1리 일원, 주왕산면 하의리 일원. 2급지: 면 소재지 일원. 3급지: 기타지역. 표준데이터 등록 급지구분은 21곳 전부 2급지이나 조례 급지 체계와는 별개라 요금 계산에는 쓰지 않았다",
+  "무료요일_출처": "조례 본문·별표 1 어디에도 군 전체 주말·공휴일 자동 무료 조항이 없다(인스팅트 앞단 패키지 확인, 2026-11-21 법제처 본문·별표 원문 재대조). 요금 구분이 '무료'인 곳은 요일과 관계없이 무료다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 청송군 등록 28행 중 민영 7행 제외, 공영 21행(노외 17·노상 4, 총 2,095면)으로 무료 20·유료 1, 기준일 2026-04-17이다. 중복 판정(전체 이름·지번·좌표 200m 가드)에 걸리는 쌍은 없고, 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다. 인스팅트 앞단 패키지(경북 12/22, 2026-11-20)의 집계(공영 21행·2,095면, 노외 17·노상 4, 무료 20·유료 1, 기준일 2026-04-17)와 표준데이터 원본 대조 결과가 일치한다. 다만 패키지가 연결한 별표 flSeq(171037221)는 별지 제1호서식(주차장 이용안내 표지판)이었고 실제 별표 1은 flSeq 171037223이다 — ordinInfoR 첨부 목록에서 파일명으로 대조해 정정했다",
+   "「청송군 주차장 설치 및 관리 조례」 제2471호(시행 2026-10-30, ordinSeq 2181383) 본문 원문(data/raw/cheongsong-ordinance.txt) 대조 완료(2026-11-21) — 본문 제4조제1항이 공영주차장 요금을 별표 1로 정한다. 별표 1은 ELIS 첨부 HWP 원본(flSeq 171037223)을 data/raw/cheongsong-ordinance-b1.hwp로 저장하고 추출해 확정했다 — 1급지 최초 30분 400원·초과 10분마다 200원·1일 5,000원·월 주간 50,000원·야간 40,000원·주야간 60,000원, 2급지 300원·100원·3,000원·월 30,000원·25,000원·40,000원, 3급지 200원·100원·2,500원·월 25,000원·20,000원·30,000원. 노상은 1일·월권 적용 안 함, 주간 4~10월 08~20시·11~3월 09~19시, 큰 차 1.5배/2배",
+   "주왕산국립공원주차장(454면)은 군 조례 별표 1이 아니라 국립공원공단 정액제를 따른다. 등록값 '기본 30분 4,000원'은 30분 요금이 아니라 당일 정액 주중 소형 요금이다 — 국립공원공단 주왕산 주차장 이용요금 안내(knps.or.kr, parkId=121000, 2026-10-29 확인) 원문: 정액제(당일 1구역 기준) 소형 주중 4,000원·주말 및 집중수요기간 5,000원, 중·대형(16인승 이상·1톤 초과) 6,000원·7,500원. 주말은 토·일 및 법정공휴일, 집중수요기간은 7월 1일~8월 31일·10월 1일~11월 15일, 그 외는 주중이다. 경형자동차·이륜차는 소형 요금의 50%를 적용한다. flat_day 정액제로 계산한다(파주 관광지 정액 선례). 계산기는 소형 주중 4,000원으로 계산하고 주말·집중수요 요금과 중·대형 요금은 안내 문구에 싣는다",
+   "좌표 결측은 0곳이다. 지오코딩 보완 대상이 없어 오버레이 추가도 0건이다",
+   "주말·공휴일 전체 무료는 조례 본문·별표 1 어디에도 없어 표기하지 않았다. 요금 구분이 '무료'인 곳은 요일과 관계없이 무료다",
+   "이름이 겹치는 등록은 없다. 같은 자리·같은 좌표에 이름만 다른 등록은 국골구거복개주차장·청송시장주차장 1쌍(청송읍 월막리 423-1, 좌표 4m 이내)이다 — 이름이 다른 별개 등록이라 합치지 않고 전부 실었고, 같은 시설의 중복 등록인지는 청송군청 확인이 필요하다. 진보시장주차장·진보농협 뒤 주차장(진보면 진안리 127-3·127-5, 좌표 약 40m)은 지번이 달라 별개 등록으로 보고 둘 다 실었다",
+   "동·읍·면 판정은 지번주소 기준이고 7개 읍·면(청송읍 6·진보면 5·파천면 3·현동면 3·주왕산면 2·안덕면 1·현서면 1) 전부 판정됐다. 도로명주소는 21곳 중 11곳이 등록돼 있지 않다(주왕산국립공원주차장 포함). 특기사항은 21행 전부 비어 있다. 결제방법은 공영 21곳 전부 공란이다",
+   "관리기관명은 경상북도 청송군청 20곳·주왕산국립공원 1곳이다. 전화번호는 054-870-6144가 20곳, 054-870-5300(주왕산국립공원)이 1곳 등록돼 있다. 등록 급지구분은 21곳 전부 2급지이다",
+   "확인 과제 — ① 주왕산국립공원주차장 정액제 주말·집중수요 적용일·경형 요금(소형 50%)·감면 적용을 현장·공단에 확인할 것 ② 국골구거복개주차장·청송시장주차장(월막리 423-1)이 같은 시설의 중복 등록인지 확인할 것 ③ 진보시장주차장·진보농협 뒤 주차장(진안리 127-3·127-5)이 별개 시설인지 확인할 것 ④ 무료 20곳 등록 최신성·향후 유료 공고가 있는지 확인할 것 ⑤ 등록 급지구분 21곳 전부 2급지인데 조례 급지(청송읍·진보면 소재지 등 1급지)와 어긋나는지, 실제 적용 급지를 확인할 것"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 20,
+  "무료_구획수": 1641,
+  "평균_기본요금": 4000,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-17"
+  ],
+  "관리기관": {
+   "경상북도 청송군청": 20,
+   "주왕산국립공원": 1
+  }
+ },
+ "fee_table": {
+  "style": "cheongsong_grade",
+  "unit_min": 10,
+  "base_min": 30,
+  "applies": "「청송군 주차장 설치 및 관리 조례」 제2471호(시행 2026-10-30) 제4조제1항·별표 1 — 국가법령정보센터 ordinSeq 2181383에서 확인",
+  "source_url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2181383&gubun=ELIS",
+  "grade_system": "조례 별표 1 급지 구분 — 1급지: 청송읍, 진보면 소재지 일원, 부곡1리 일원, 주왕산면 하의리 일원. 2급지: 면 소재지 일원. 3급지: 기타지역. 주간 시간은 4월~10월 08:00~20:00, 11월~3월 09:00~19:00이고 나머지는 야간이다. 승용차·15인승 이하 승합차·1.5톤 이하 화물자동차 기준이고, 16인승 이상 45인승 이하 승합차·1.5톤 초과 11톤 이하 화물자동차는 1.5배, 45인승 초과 또는 11톤 초과 화물자동차는 2배다. 노상주차장은 1일주차요금 및 월정기주차요금을 적용하지 않는다. 표준데이터 등록 급지구분은 21곳 전부 2급지이나 조례 급지 체계와는 별개라 요금 계산에는 쓰지 않았다",
+  "rows": [
+   {
+    "label": "1급지 (조례 별표 1)",
+    "grade": "grade1",
+    "unit_label": "최초 30분 400원 · 초과 10분마다 200원",
+    "hour": 1000,
+    "two_hour": 2200,
+    "day": 5000,
+    "month_all": null,
+    "month": 50000,
+    "month_night": 40000,
+    "lots": null
+   },
+   {
+    "label": "2급지 (조례 별표 1)",
+    "grade": "grade2",
+    "unit_label": "최초 30분 300원 · 초과 10분마다 100원",
+    "hour": 600,
+    "two_hour": 1200,
+    "day": 3000,
+    "month_all": null,
+    "month": 30000,
+    "month_night": 25000,
+    "lots": null
+   },
+   {
+    "label": "3급지 (조례 별표 1)",
+    "grade": "grade3",
+    "unit_label": "최초 30분 200원 · 초과 10분마다 100원",
+    "hour": 500,
+    "two_hour": 1100,
+    "day": 2500,
+    "month_all": null,
+    "month": 25000,
+    "month_night": 20000,
+    "lots": null
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 1,
+   "street_paid": 0,
+   "free": 20,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "주왕산국립공원주차장 — 국립공원공단 정액제 (당일 1구역 기준)",
+    "hours": "소형 주중 4,000원 · 주말 및 집중수요기간 5,000원 · 중·대형(16인승 이상·1톤 초과) 6,000원 · 7,500원",
+    "free": "주말은 토·일 및 법정공휴일, 집중수요기간은 7월 1일~8월 31일·10월 1일~11월 15일, 그 외는 주중이다. 경형자동차·이륜차는 소형 요금의 50%를 적용한다. 출처: 국립공원공단 주왕산 주차장 이용요금 안내(knps.or.kr, parkId=121000). 감면은 국가보훈 1~3급·심한 장애인 100%, 그 외 보훈·장애인 50%, 저공해 50%, 그린카드 10%이다. 이 사이트의 계산기는 소형 주중 4,000원으로 계산한다"
+   },
+   {
+    "group": "급지 구분 (조례 별표 1 비고 5)",
+    "hours": "1급지: 청송읍·진보면 소재지·부곡1리·주왕산면 하의리 / 2급지: 면 소재지 / 3급지: 기타지역",
+    "free": "표준데이터 등록 급지구분(21곳 전부 2급지)은 조례 급지와 별개라 요금 계산에 쓰지 않았다"
+   },
+   {
+    "group": "주간 시간 구분 (조례 별표 1 비고 3)",
+    "hours": "4월~10월 08:00~20:00 · 11월~3월 09:00~19:00, 나머지는 야간",
+    "free": "월정기주차요금은 주간·야간·주야간으로 나뉜다"
+   }
+  ],
+  "discounts": [
+   {
+    "label": "긴급자동차·국가유공상이자 전액 면제",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 제5조 — 「도로교통법」 제2조제22호에 따른 긴급자동차, 국가유공상이자(상이 1급 내지 6급)가 자동차를 직접 운전하거나 동반한 일반차량은 주차요금을 면제한다(증명서 제시)"
+   },
+   {
+    "label": "장애인·경형자동차 50% 경감",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제5조 — 「장애인복지법」에 의한 장애인이 자동차를 직접 운전하거나 동반한 일반차량, 자동차관리법에 의한 경형자동차는 50% 감면한다(스티커부착 또는 증명서 제시). 국가 또는 지방자치단체 시책사업으로 군수가 인정하는 차량은 면제한다(별지 제3호서식 증명서 제시)"
+   }
+  ],
+  "notes": "감면(조례 제5조)은 긴급자동차·국가유공상이자(상이 1급 내지 6급) 전액 면제, 장애인·경형자동차 50% 경감, 국가 또는 지방자치단체 시책사업으로 군수가 인정하는 차량 면제이다(관련 증명서 제시). 주왕산국립공원주차장의 감면은 국립공원공단 감면 안내를 따른다(국가보훈 1~3급·심한 장애인 100%, 그 외 보훈·장애인 50%, 저공해 50%, 그린카드 10%). 유료 1곳은 군 조례 별표 1이 아니라 국립공원공단 정액제로 계산한다.",
+  "basis": "요금표는 「청송군 주차장 설치 및 관리 조례」 제2471호(시행 2026-10-30) 제4조제1항·별표 1과 표준데이터(기준일 2026-04-17)를 대조해 실었다. 별표 1 원본 HWP는 flSeq 171037223이다(패키지가 연결한 flSeq 171037221은 별지 제1호서식이었다). 유료 1곳(주왕산국립공원주차장)은 군 조례가 아니라 국립공원공단 정액제(소형 주중 4,000원·주말 및 집중수요기간 5,000원, 중·대형 6,000원·7,500원, 당일 1구역 기준)로 계산한다. (조례 본문: data/raw/cheongsong-ordinance.txt, 별표 1 원문 HWP: data/raw/cheongsong-ordinance-b1.hwp)"
+ },
+ "slug": "cheongsong",
+ "province": "경상북도",
+ "province_slug": "gyeongbuk",
+ "dong_page_min_lots": 3,
+ "city": "청송군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·국가유공상이자 전액 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제5조 — 「도로교통법」 제2조제22호에 따른 긴급자동차, 국가유공상이자(상이 1급 내지 6급)가 자동차를 직접 운전하거나 동반한 일반차량은 주차요금을 면제한다(증명서 제시)"
+  },
+  {
+   "label": "장애인·경형자동차 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제5조 — 「장애인복지법」에 의한 장애인이 자동차를 직접 운전하거나 동반한 일반차량, 자동차관리법에 의한 경형자동차는 50% 감면한다(스티커부착 또는 증명서 제시). 국가 또는 지방자치단체 시책사업으로 군수가 인정하는 차량은 면제한다(별지 제3호서식 증명서 제시)"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}

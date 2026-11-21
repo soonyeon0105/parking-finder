@@ -85180,6 +85180,657 @@ def build_uisung():
     return payload
 
 
+# 청송군 — 표준데이터 28행 중 민영 7 제외, 공영 21행
+#   (노외 17·노상 4, 총 2,095면), 무료 20·유료 1, 기준일
+#   2026-04-17이다. 중복 판정(전체 이름·지번·좌표
+#   200m 가드)에 걸리는 쌍은 없다. 같은 지번에 이름만
+#   다른 등록이 1쌍 있다 — 국골구거복개주차장·청송시장
+#   주차장(청송읍 월막리 423-1, 좌표 4m 이내)은 둘 다
+#   싣고 확인 과제로 남긴다(산청 선례). 구획수 0 등록
+#   0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다.
+# 조례 대조 완료(2026-11-21): 「청송군 주차장 설치 및
+#   관리 조례」 제2471호(시행 2026-10-30, ordinSeq
+#   2181383) 제4조제1항이 공영주차장 요금을 별표 1로
+#   정한다. 본문 data/raw/cheongsong-ordinance.txt,
+#   별표 1은 ELIS 첨부 HWP 원본(flSeq 171037223,
+#   data/raw/cheongsong-ordinance-b1.hwp)을 받아 추출했다
+#   (cheongsong-ordinance-b1.txt). 별표 1: 1급지 최초
+#   30분 400원·초과 10분마다 200원·1일 5,000원·월
+#   주간 50,000원·야간 40,000원·주야간 60,000원,
+#   2급지 300원·100원·3,000원·30,000원·25,000원·
+#   40,000원, 3급지 200원·100원·2,500원·25,000원·
+#   20,000원·30,000원. 노상은 1일·월권 적용 안 함.
+#   주간 4~10월 08~20시·11~3월 09~19시, 나머지는
+#   야간. 큰 차 1.5배/2배. 1급지 = 청송읍·진보면
+#   소재지·부곡1리·주왕산면 하의리, 2급지 = 면 소재지,
+#   3급지 = 기타.
+# ⚠️ 패키지 flSeq 정정: 인스팅트 패키지(경북 12/22)가
+#   연결한 flSeq 171037221은 별표 1이 아니라 별지
+#   제1호서식(주차장 이용안내 표지판)이다. 실제 별표 1은
+#   flSeq 171037223([별표 1] 공영주차장 주차요금표) —
+#   ordinInfoR 첨부 목록에서 파일명으로 대조해 확정했다
+#   (증평·단양·상주 선례와 같은 오등록 유형).
+# 주왕산국립공원주차장(454면)은 군 조례 별표 1이 아니라
+#   국립공원공단 정액제를 따른다. 등록값 "기본 30분
+#   4,000원"은 30분 요금이 아니라 당일 정액 주중 소형
+#   요금이다. 국립공원공단 주왕산 요금안내(knps.or.kr,
+#   parkId=121000, 2026-10-29 확인) — 정액제(당일 1구역
+#   기준): 소형 주중 4,000원·주말 및 집중수요기간
+#   5,000원, 중·대형(16인승 이상·1톤 초과) 6,000원·
+#   7,500원. 주말 = 토·일 및 법정공휴일, 집중수요기간 =
+#   7/1~8/31·10/1~11/15, 그 외 주중. 경형·이륜차는
+#   소형 요금의 50%. flat_day 정액제로 계산한다
+#   (파주 관광지 정액 선례). 군 조례 별표 1 요금표는
+#   유료 1곳에 적용되지 않아 참고표로만 싣는다
+#   (청도·산청·서천 선례).
+# 주말·공휴일 전체 무료는 조례 본문·별표 1 어디에도
+#   없어 표기하지 않는다(패키지 ④ 확인).
+# 패키지 대조(인스팅트 앞단 패키지 경북 12/22,
+#   2026-11-20): 집계(공영 21행·2,095면, 노외 17·
+#   노상 4, 무료 20·유료 1, 기준일 2026-04-17, 좌표
+#   결측 0)와 조례·별표 수치는 전부 일치한다. 다만
+#   패키지의 별표 flSeq(171037221)가 별지 서식이었고,
+#   주왕산국립공원주차장의 "기본 30분 4,000원"은
+#   국립공원 정액제(당일 1구역 기준)라 30분 단위
+#   요금으로 읽으면 안 된다 — 두 건 모두 원문 대조로
+#   정정했다.
+CHEONGSONG_PROVINCE = "경상북도"
+CHEONGSONG_PROVINCE_SLUG = "gyeongbuk"
+CHEONGSONG_ORD_URL = ("https://www.law.go.kr/LSW/ordinInfoR.do?"
+                      "ordinSeq=2181383&gubun=ELIS")
+CHEONGSONG_ORD_TXT = RAW / "cheongsong-ordinance-b1.txt"
+CHEONGSONG_ORD_NOTE = ("「청송군 주차장 설치 및 관리 조례」 제2471호(시행 2026-10-30) "
+                       "제4조제1항·별표 1 — 국가법령정보센터 ordinSeq 2181383에서 확인")
+
+CHEONGSONG_DISCOUNTS = [
+    {"label": "긴급자동차·국가유공상이자 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제5조 — 「도로교통법」 제2조제22호에 따른 긴급자동차, 국가유공상이자(상이 1급 내지 6급)가 자동차를 직접 운전하거나 동반한 일반차량은 주차요금을 면제한다(증명서 제시)"},
+    {"label": "장애인·경형자동차 50% 경감", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제5조 — 「장애인복지법」에 의한 장애인이 자동차를 직접 운전하거나 동반한 일반차량, 자동차관리법에 의한 경형자동차는 50% 감면한다(스티커부착 또는 증명서 제시). 국가 또는 지방자치단체 시책사업으로 군수가 인정하는 차량은 면제한다(별지 제3호서식 증명서 제시)"},
+]
+
+CHEONGSONG_CONF = {
+    "city": "청송군",
+    "slug": "cheongsong",
+    "manager": "경상북도 청송군청",
+    "manager_inquiry": "청송군청(054-870-6144)",
+    "ordinance": ("청송군 주차장 설치 및 관리 조례", CHEONGSONG_ORD_URL, CHEONGSONG_ORD_NOTE),
+    "notes": (
+        "표준데이터에 등록된 청송군 공영주차장 21곳(노외 17곳·노상 4구간, 총 2,095면)입니다. "
+        "등록은 전부 공영이고 요금 구분은 무료 20곳·유료 1곳입니다. 「청송군 주차장 설치 및 관리 조례」 "
+        "제2471호 별표 1은 1급지 최초 30분 400원·초과 10분마다 200원·1일 5,000원, 2급지 300원·100원·"
+        "3,000원, 3급지 200원·100원·2,500원입니다. 유료 1곳(주왕산국립공원주차장)은 군 조례가 아니라 "
+        "국립공원공단 정액제(소형 주중 4,000원·주말 및 집중수요기간 5,000원, 중·대형 6,000원·7,500원, "
+        "당일 1구역 기준)를 따릅니다. 주말·공휴일 전체 무료 규정은 조례에 없습니다."),
+    "discounts": CHEONGSONG_DISCOUNTS,
+}
+
+CHEONGSONG_BBOX = (36.20, 36.60, 128.80, 129.20)
+CHEONGSONG_DONGS = {"청송읍", "주왕산면", "부남면", "현동면", "현서면",
+                    "안덕면", "파천면", "진보면"}
+
+
+def cheongsong_dong_of(addr):
+    """청송군 법정 읍·면 판정 — 지번주소의 청송군 다음 토큰이
+    읍·면이다. '현동면'처럼 이름 안에 '동'이 들어가는 면이
+    있어 (?:읍|면)으로 제한한다 — '동'까지 허용하면 '현동'으로
+    잘려 판정이 실패한다."""
+    if addr:
+        m = re.search(r"청송군\s*([가-힣0-9]+?(?:읍|면))", addr)
+        if m and m.group(1) in CHEONGSONG_DONGS:
+            return m.group(1)
+    return None
+
+
+def cheongsong_fee(row, name, note_bits, fee_diff):
+    """청송군 공영주차장 한 곳의 요금 — 무료 20곳은 무료 등록을
+    유지한다. 유료 1곳 주왕산국립공원주차장은 군 조례 별표 1이
+    아니라 국립공원공단 정액제(당일 1구역 기준)를 따른다.
+    등록값 기본 30분 4,000원은 30분 요금이 아니라 당일 정액
+    주중 소형 요금이다 — 국립공원공단 주왕산 요금안내
+    (knps.or.kr, parkId=121000)에서 확인했다. flat_day
+    정액제로 계산한다(파주 관광지 정액 선례)."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    day_hours = to_int(row.get("1일주차권요금적용시간"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None, "monthly_night": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None, "bands": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 군청 확인 필요"})
+        return fee
+    if name != "주왕산국립공원주차장":
+        fee_diff.append(f"{name}: 표준데이터에 유료로 등록돼 있으나, 청송군 유료 공영주차장은 "
+                        "주왕산국립공원주차장 1곳뿐이라 군 조례 별표 1과의 대조가 확정되지 않아 "
+                        "요금 미상으로 표기한다 — 실제 요금은 청송군청(054-870-6144) 확인이 필요하다")
+        fee.update({"type": "미상",
+                    "basis": ("표준데이터에는 유료로 등록돼 있으나, 청송군 유료 공영주차장은 "
+                              "주왕산국립공원주차장 1곳뿐이라 군 조례 별표 1과의 대조가 확정되지 않아 "
+                              "요금 미상으로 표기한다 — 실제 요금은 청송군청(054-870-6144) 확인이 필요하다")})
+        return fee
+    if (base_min, base_fee) != (30, 4000):
+        fee_diff.append(f"{name}: 등록 요금(기본 {base_min}분 {base_fee or 0:,}원)이 국립공원공단 "
+                        "주왕산 정액제(소형 주중 당일 4,000원)와 달라 요금 미상으로 표기한다")
+        fee.update({"type": "미상",
+                    "basis": ("표준데이터 등록 요금이 국립공원공단 주왕산 정액제(소형 주중 당일 "
+                              "4,000원)와 달라 요금 미상으로 표기한다 — 실제 요금은 "
+                              "주왕산국립공원(054-870-5300) 확인이 필요하다")})
+        return fee
+    fee_diff.append(f"{name}: 등록값 '기본 30분 4,000원'은 30분 요금이 아니라 국립공원공단 "
+                    "주왕산 정액제(당일 1구역 기준) 소형 주중 요금 4,000원이다 — 등록 단위 표기가 "
+                    "정액제를 시간제로 잘못 옮긴 것으로 보고, 국립공원공단 요금안내(knps.or.kr, "
+                    "parkId=121000) 원문으로 정액제 계산한다")
+    fee.update({"type": "유료", "base_min": 1440, "base_fee": 4000,
+                "unit_min": 1440, "unit_fee": 4000,
+                "daily_fee": 4000, "daily_hours": 24,
+                "flat_day": True,
+                "basis": ("국립공원공단 주왕산 주차장 이용요금 안내(knps.or.kr, parkId=121000) — "
+                          "정액제(당일 1구역 기준): 소형 주중 4,000원·주말 및 집중수요기간 5,000원, "
+                          "중·대형(16인승 이상·1톤 초과) 6,000원·7,500원. 주말은 토·일 및 법정공휴일, "
+                          "집중수요기간은 7월 1일~8월 31일·10월 1일~11월 15일, 그 외는 주중이다. "
+                          "경형자동차·이륜차는 소형 요금의 50%를 적용한다. 등록값 '기본 30분 4,000원'은 "
+                          "이 정액제 소형 주중 요금과 일치한다. 계산기는 당일 정액(소형 주중 4,000원)으로 "
+                          "계산하고, 주말·집중수요기간 요금(5,000원)과 중·대형 요금은 안내 문구에 싣는다. "
+                          "감면은 국립공원공단 감면 안내(국가보훈 1~3급·심한 장애인 100%, 그 외 보훈·장애인 "
+                          "50%, 저공해 50%, 그린카드 10%)를 따른다")})
+    return fee
+
+
+def cheongsong_fee_table(conf, lots):
+    """요금표 — 조례 별표 1(1·2·3급지)은 참고표로 싣는다.
+    유료 1곳(주왕산국립공원주차장)은 군 조례가 아니라
+    국립공원공단 정액제라 별표 1 급지 어디에도 속하지
+    않는다(청도·산청·서천 선례). 국립공원 정액제는
+    windows에 별도 행으로 싣는다."""
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+
+    def _row(key, label, unit_label, hour, two_hour, day, month, month_night, lots_n):
+        return {"label": label, "grade": key,
+                "unit_label": unit_label,
+                "hour": hour, "two_hour": two_hour, "day": day,
+                "month_all": None, "month": month, "month_night": month_night,
+                "lots": lots_n}
+    rows = [
+        _row("grade1", "1급지 (조례 별표 1)",
+             "최초 30분 400원 · 초과 10분마다 200원", 1000, 2200, 5000, 50000, 40000, None),
+        _row("grade2", "2급지 (조례 별표 1)",
+             "최초 30분 300원 · 초과 10분마다 100원", 600, 1200, 3000, 30000, 25000, None),
+        _row("grade3", "3급지 (조례 별표 1)",
+             "최초 30분 200원 · 초과 10분마다 100원", 500, 1100, 2500, 25000, 20000, None),
+    ]
+    return {
+        "style": "cheongsong_grade",
+        "unit_min": 10,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "source_url": conf["ordinance"][1],
+        "grade_system": ("조례 별표 1 급지 구분 — 1급지: 청송읍, 진보면 소재지 일원, 부곡1리 일원, "
+                         "주왕산면 하의리 일원. 2급지: 면 소재지 일원. 3급지: 기타지역. 주간 시간은 "
+                         "4월~10월 08:00~20:00, 11월~3월 09:00~19:00이고 나머지는 야간이다. "
+                         "승용차·15인승 이하 승합차·1.5톤 이하 화물자동차 기준이고, 16인승 이상 "
+                         "45인승 이하 승합차·1.5톤 초과 11톤 이하 화물자동차는 1.5배, 45인승 초과 "
+                         "또는 11톤 초과 화물자동차는 2배다. 노상주차장은 1일주차요금 및 월정기주차요금을 "
+                         "적용하지 않는다. 표준데이터 등록 급지구분은 21곳 전부 2급지이나 조례 급지 "
+                         "체계와는 별개라 요금 계산에는 쓰지 않았다"),
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["list_mode"] == "card"]),
+                 "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [
+            {"group": "주왕산국립공원주차장 — 국립공원공단 정액제 (당일 1구역 기준)",
+             "hours": "소형 주중 4,000원 · 주말 및 집중수요기간 5,000원 · 중·대형(16인승 이상·1톤 초과) 6,000원 · 7,500원",
+             "free": ("주말은 토·일 및 법정공휴일, 집중수요기간은 7월 1일~8월 31일·10월 1일~11월 15일, "
+                      "그 외는 주중이다. 경형자동차·이륜차는 소형 요금의 50%를 적용한다. "
+                      "출처: 국립공원공단 주왕산 주차장 이용요금 안내(knps.or.kr, parkId=121000). "
+                      "감면은 국가보훈 1~3급·심한 장애인 100%, 그 외 보훈·장애인 50%, 저공해 50%, "
+                      "그린카드 10%이다. 이 사이트의 계산기는 소형 주중 4,000원으로 계산한다")},
+            {"group": "급지 구분 (조례 별표 1 비고 5)",
+             "hours": "1급지: 청송읍·진보면 소재지·부곡1리·주왕산면 하의리 / 2급지: 면 소재지 / 3급지: 기타지역",
+             "free": "표준데이터 등록 급지구분(21곳 전부 2급지)은 조례 급지와 별개라 요금 계산에 쓰지 않았다"},
+            {"group": "주간 시간 구분 (조례 별표 1 비고 3)",
+             "hours": "4월~10월 08:00~20:00 · 11월~3월 09:00~19:00, 나머지는 야간",
+             "free": "월정기주차요금은 주간·야간·주야간으로 나뉜다"},
+        ],
+        "discounts": conf["discounts"],
+        "notes": ("감면(조례 제5조)은 긴급자동차·국가유공상이자(상이 1급 내지 6급) 전액 면제, "
+                  "장애인·경형자동차 50% 경감, 국가 또는 지방자치단체 시책사업으로 군수가 인정하는 "
+                  "차량 면제이다(관련 증명서 제시). 주왕산국립공원주차장의 감면은 국립공원공단 감면 "
+                  "안내를 따른다(국가보훈 1~3급·심한 장애인 100%, 그 외 보훈·장애인 50%, 저공해 50%, "
+                  "그린카드 10%). 유료 1곳은 군 조례 별표 1이 아니라 국립공원공단 정액제로 계산한다."),
+        "basis": ("요금표는 「청송군 주차장 설치 및 관리 조례」 제2471호(시행 2026-10-30) 제4조제1항·"
+                  "별표 1과 표준데이터(기준일 2026-04-17)를 대조해 실었다. 별표 1 원본 HWP는 "
+                  "flSeq 171037223이다(패키지가 연결한 flSeq 171037221은 별지 제1호서식이었다). "
+                  "유료 1곳(주왕산국립공원주차장)은 군 조례가 아니라 국립공원공단 정액제(소형 주중 "
+                  "4,000원·주말 및 집중수요기간 5,000원, 중·대형 6,000원·7,500원, 당일 1구역 기준)로 "
+                  "계산한다. (조례 본문: data/raw/cheongsong-ordinance.txt, "
+                  "별표 1 원문 HWP: data/raw/cheongsong-ordinance-b1.hwp)"),
+    }
+
+
+
+def cheongsong_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                       space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(lots)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동·읍·면 미상" for l in lots).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in lots if l["dong"]}),
+        "동_미상": [l["name"] for l in lots if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in lots)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「청송군 주차장 설치 및 관리 조례」 제2471호 제5조 — 긴급자동차·국가유공상이자"
+                      "(상이 1급 내지 6급)는 전액 면제, 장애인·경형자동차는 50% 경감, 국가 또는 "
+                      "지방자치단체 시책사업으로 군수가 인정하는 차량은 면제한다(관련 증명서 제시). "
+                      "주왕산국립공원주차장의 감면은 국립공원공단 감면 안내를 따른다"),
+        "요금_출처": ("조례 제4조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같다. "
+                      "별표 1은 1급지 최초 30분 400원·초과 10분마다 200원·1일 5,000원·월 주간 "
+                      "50,000원·야간 40,000원·주야간 60,000원, 2급지 300원·100원·3,000원·월 "
+                      "30,000원·25,000원·40,000원, 3급지 200원·100원·2,500원·월 25,000원·"
+                      "20,000원·30,000원이다. 별표 원본 HWP(flSeq 171037223)를 받아 추출해 "
+                      "대조했다. 주왕산국립공원주차장은 군 조례가 아니라 국립공원공단 정액제 "
+                      "(소형 주중 4,000원·주말 및 집중수요기간 5,000원, 중·대형 6,000원·7,500원, "
+                      "당일 1구역 기준)로 계산한다 — 국립공원공단 주왕산 요금안내(knps.or.kr, "
+                      "parkId=121000) 원문 확인"),
+        "급지_출처": ("조례 별표 1 비고 5 — 1급지: 청송읍, 진보면 소재지 일원, 부곡1리 일원, "
+                      "주왕산면 하의리 일원. 2급지: 면 소재지 일원. 3급지: 기타지역. 표준데이터 "
+                      "등록 급지구분은 21곳 전부 2급지이나 조례 급지 체계와는 별개라 요금 계산에는 "
+                      "쓰지 않았다"),
+        "무료요일_출처": ("조례 본문·별표 1 어디에도 군 전체 주말·공휴일 자동 무료 조항이 없다"
+                          "(인스팅트 앞단 패키지 확인, 2026-11-21 법제처 본문·별표 원문 재대조). "
+                          "요금 구분이 '무료'인 곳은 요일과 관계없이 무료다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 청송군 등록 28행 중 민영 7행 제외, 공영 21행(노외 17·노상 4, 총 2,095면)으로 무료 20·유료 1, 기준일 2026-04-17이다. 중복 판정(전체 이름·지번·좌표 200m 가드)에 걸리는 쌍은 없고, 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다. 인스팅트 앞단 패키지(경북 12/22, 2026-11-20)의 집계(공영 21행·2,095면, 노외 17·노상 4, 무료 20·유료 1, 기준일 2026-04-17)와 표준데이터 원본 대조 결과가 일치한다. 다만 패키지가 연결한 별표 flSeq(171037221)는 별지 제1호서식(주차장 이용안내 표지판)이었고 실제 별표 1은 flSeq 171037223이다 — ordinInfoR 첨부 목록에서 파일명으로 대조해 정정했다",
+            "「청송군 주차장 설치 및 관리 조례」 제2471호(시행 2026-10-30, ordinSeq 2181383) 본문 원문(data/raw/cheongsong-ordinance.txt) 대조 완료(2026-11-21) — 본문 제4조제1항이 공영주차장 요금을 별표 1로 정한다. 별표 1은 ELIS 첨부 HWP 원본(flSeq 171037223)을 data/raw/cheongsong-ordinance-b1.hwp로 저장하고 추출해 확정했다 — 1급지 최초 30분 400원·초과 10분마다 200원·1일 5,000원·월 주간 50,000원·야간 40,000원·주야간 60,000원, 2급지 300원·100원·3,000원·월 30,000원·25,000원·40,000원, 3급지 200원·100원·2,500원·월 25,000원·20,000원·30,000원. 노상은 1일·월권 적용 안 함, 주간 4~10월 08~20시·11~3월 09~19시, 큰 차 1.5배/2배",
+            "주왕산국립공원주차장(454면)은 군 조례 별표 1이 아니라 국립공원공단 정액제를 따른다. 등록값 '기본 30분 4,000원'은 30분 요금이 아니라 당일 정액 주중 소형 요금이다 — 국립공원공단 주왕산 주차장 이용요금 안내(knps.or.kr, parkId=121000, 2026-10-29 확인) 원문: 정액제(당일 1구역 기준) 소형 주중 4,000원·주말 및 집중수요기간 5,000원, 중·대형(16인승 이상·1톤 초과) 6,000원·7,500원. 주말은 토·일 및 법정공휴일, 집중수요기간은 7월 1일~8월 31일·10월 1일~11월 15일, 그 외는 주중이다. 경형자동차·이륜차는 소형 요금의 50%를 적용한다. flat_day 정액제로 계산한다(파주 관광지 정액 선례). 계산기는 소형 주중 4,000원으로 계산하고 주말·집중수요 요금과 중·대형 요금은 안내 문구에 싣는다",
+            "좌표 결측은 0곳이다. 지오코딩 보완 대상이 없어 오버레이 추가도 0건이다",
+            "주말·공휴일 전체 무료는 조례 본문·별표 1 어디에도 없어 표기하지 않았다. 요금 구분이 '무료'인 곳은 요일과 관계없이 무료다",
+            "이름이 겹치는 등록은 없다. 같은 자리·같은 좌표에 이름만 다른 등록은 국골구거복개주차장·청송시장주차장 1쌍(청송읍 월막리 423-1, 좌표 4m 이내)이다 — 이름이 다른 별개 등록이라 합치지 않고 전부 실었고, 같은 시설의 중복 등록인지는 청송군청 확인이 필요하다. 진보시장주차장·진보농협 뒤 주차장(진보면 진안리 127-3·127-5, 좌표 약 40m)은 지번이 달라 별개 등록으로 보고 둘 다 실었다",
+            "동·읍·면 판정은 지번주소 기준이고 7개 읍·면(청송읍 6·진보면 5·파천면 3·현동면 3·주왕산면 2·안덕면 1·현서면 1) 전부 판정됐다. 도로명주소는 21곳 중 11곳이 등록돼 있지 않다(주왕산국립공원주차장 포함). 특기사항은 21행 전부 비어 있다. 결제방법은 공영 21곳 전부 공란이다",
+            "관리기관명은 경상북도 청송군청 20곳·주왕산국립공원 1곳이다. 전화번호는 054-870-6144가 20곳, 054-870-5300(주왕산국립공원)이 1곳 등록돼 있다. 등록 급지구분은 21곳 전부 2급지이다",
+            "확인 과제 — ① 주왕산국립공원주차장 정액제 주말·집중수요 적용일·경형 요금(소형 50%)·감면 적용을 현장·공단에 확인할 것 ② 국골구거복개주차장·청송시장주차장(월막리 423-1)이 같은 시설의 중복 등록인지 확인할 것 ③ 진보시장주차장·진보농협 뒤 주차장(진안리 127-3·127-5)이 별개 시설인지 확인할 것 ④ 무료 20곳 등록 최신성·향후 유료 공고가 있는지 확인할 것 ⑤ 등록 급지구분 21곳 전부 2급지인데 조례 급지(청송읍·진보면 소재지 등 1급지)와 어긋나는지, 실제 적용 급지를 확인할 것",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] or 0 for l in paid) / len(paid)) if paid else 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_cheongsong():
+    """청송군 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「청송군 주차장 설치 및 관리 조례」
+    제2471호(시행 2026-10-30, ordinSeq 2181383)
+    제4조제1항·별표 1 원문 대조 완료(2026-11-21, 별표
+    ELIS 첨부 HWP 추출·본문 원문 기준 — 패키지 flSeq
+    171037221은 별지 서식이었고 실제 별표 1은
+    flSeq 171037223). 표준데이터 등록 28행 중 민영 7
+    제외, 공영 21행(노외 17·노상 4, 총 2,095면)을
+    읽어 무료 20·유료 1을 싣는다. 유료 1곳
+    (주왕산국립공원주차장)은 군 조례가 아니라 국립공원
+    공단 정액제(소형 주중 4,000원·주말 및 집중수요기간
+    5,000원, 중·대형 6,000원·7,500원, 당일 1구역 기준)
+    로 계산한다. 좌표 결측은 0곳이다."""
+    conf = CHEONGSONG_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "청송군" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "청송군" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 청송군은
+    #   해당 쌍이 없다.
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, space_diff, dong_fixed, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (CHEONGSONG_BBOX[0] < lat < CHEONGSONG_BBOX[1]
+                                                        and CHEONGSONG_BBOX[2] < lng < CHEONGSONG_BBOX[3]):
+            # 청송군 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 청송군 범위 밖 — "
+                               "좌표 없음으로 표기하고 지오코딩 보완 대상으로 넘김")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음(0으로 등록)"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = cheongsong_dong_of(jibun)
+        if dong:
+            dong_src = "지번주소"
+        elif cheongsong_dong_of(road):
+            dong = cheongsong_dong_of(road)
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 동·읍·면 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:동|읍|면))", std_name)
+        if _name_head and _name_head.group(1) in CHEONGSONG_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 동·읍·면({_name_head.group(1)})과 지번주소 기준 "
+                              f"동·읍·면({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = cheongsong_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        if (r.get("부제시행구분") or "").strip() == "5부제":
+            note_bits.append("승용차 5부제를 시행하는 구간입니다")
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "청송군", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _bunji = ""
+            for _tok in reversed(_parts):
+                if re.match(r"^\d+(?:-\d+)?$", _tok or ""):
+                    _bunji = _tok
+                    break
+            if not _bunji:
+                _bunji = _parts[3].split("(")[0] if len(_parts) > 3 else \
+                    (_parts[2] if len(_parts) > 2 else "")
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _bunji and not _same_place:
+                _suffix = f"({_bunji})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 지번 번지로 구분했다")
+
+    # 같은 지번·같은 좌표에 이름만 다르게 등록된 그룹 — 전부 다른 등록이라
+    #   합치지 않고 전부 싣는다(산청 선례). 청송군은 국골구거복개주차장·
+    #   청송시장주차장 1쌍(청송읍 월막리 423-1, 좌표 4m 이내)이 해당한다.
+    _place_groups = {}
+    for l in lots:
+        if l["lat"] is None or l["lng"] is None:
+            continue
+        _place_groups.setdefault(((l.get("addr_jibun") or l.get("addr_road")),
+                                  l["lat"], l["lng"]), []).append(l)
+    for (_addr, _la, _ln), _grp in sorted(_place_groups.items(),
+                                          key=lambda kv: kv[1][0]["name"]):
+        if len(_grp) > 1 and len({x["name"] for x in _grp}) > 1:
+            _names = "·".join(x["name"] for x in _grp)
+            note_fixed.append(f"같은 자리·같은 좌표에 이름만 다른 등록: {_names} — "
+                              f"{_addr}에 좌표({_la}, {_ln})가 같게 등록돼 있다. "
+                              "이름이 다른 별개 등록이라 합치지 않고 전부 실었고, "
+                              "같은 시설의 중복 등록인지는 청송군청 확인이 필요하다")
+    note_fixed.append("같은 자리·근접 좌표에 이름만 다른 등록: 국골구거복개주차장·청송시장주차장 — "
+                      "청송읍 월막리 423-1에 같은 지번으로 등록돼 있고 좌표가 4m 이내(36.4351472326, "
+                      "129.0521198532 / 36.4351163, 129.052185)이다. 이름이 다른 별개 등록이라 합치지 "
+                      "않고 전부 실었고, 같은 시설의 중복 등록인지는 청송군청 확인이 필요하다")
+    note_fixed.append("인근 등록: 진보시장주차장(진보면 진안리 127-3, 56면)·진보농협 뒤 주차장"
+                      "(진보면 진안리 127-5, 106면) — 지번이 달라 별개 등록으로 보고 둘 다 실었다. "
+                      "좌표가 약 40m 떨어져 있어 같은 시설인지는 청송군청 확인이 필요하다")
+    note_fixed.append("표준데이터 등록 28행 중 민영 7행 제외, 공영 21행(노외 17·노상 4, 총 2,095면)을 읽었다. "
+                      "데이터기준일자는 2026-04-17 28행, 제공기관명은 경상북도 청송군 28행, "
+                      "관리기관명은 경상북도 청송군청 20곳·주왕산국립공원 1곳(공영 기준)이다")
+    note_fixed.append("등록 급지구분은 21곳 전부 2급지이다. 조례 별표 1 급지 체계와는 별개라 "
+                      "요금 계산에는 쓰지 않았다")
+    note_fixed.append("좌표는 21행 전부 등록돼 있다. 지오코딩 보완 대상이 없어 오버레이 추가도 0건이다")
+    note_fixed.append("운영요일은 21곳 전부 평일+토요일+공휴일이고 운영시간은 21곳 전부 00:00~23:59이다. "
+                      "부제시행구분은 미시행 21곳이다. 도로명주소는 21곳 중 11곳이 등록돼 있지 않다. "
+                      "특기사항은 21행 전부 비어 있다. 결제방법은 공영 21곳 전부 공란이다")
+    note_fixed.append("21곳 중 무료 20곳·유료 1곳이다. 유료 1곳(주왕산국립공원주차장)은 군 조례가 아니라 "
+                      "국립공원공단 정액제(소형 주중 4,000원·주말 및 집중수요기간 5,000원, 중·대형 "
+                      "6,000원·7,500원, 당일 1구역 기준)로 계산한다. 주말·공휴일 전체 무료 규정은 "
+                      "조례에 없어 표기하지 않았다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"gb-cheongsong-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"gb-cheongsong-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 청송군은 좌표 결측 0곳의 오버레이 채택이 0건이라 적용 대상이 없다.
+    _cf = apply_coord_fix(lots)
+
+    fee_table = cheongsong_fee_table(conf, lots)
+    quality = cheongsong_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                                 fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-04-17",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"청송군으로 등록된 행 {len(rows_std)}행을 읽어 중복 "
+                 f"제거 {len(merged)}건, 제외 {len(excluded)}건으로 {len(lots)}곳을 실었다. "
+                 f"유료 {len([l for l in lots if l['fee']['type'] == '유료'])}곳·무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳·미상 "
+                 f"{len([l for l in lots if l['fee']['type'] == '미상'])}곳이다. "
+                 f"데이터기준일자는 2026-04-17이다. 좌표 결측은 0곳이다. "
+                 f"조례 대조 완료 — 「청송군 주차장 설치 및 관리 조례」 제2471호(시행 "
+                 f"2026-10-30, ordinSeq 2181383) 제4조제1항·별표 1 원문 대조 완료(2026-11-21)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": CHEONGSONG_ORD_TXT.name if CHEONGSONG_ORD_TXT.exists() else None,
+            "sha256": sha256(CHEONGSONG_ORD_TXT) if CHEONGSONG_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2026-10-30",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"청송군이 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/cheongsong-ordinance.txt, 별표 1 원문 HWP: "
+                    f"data/raw/cheongsong-ordinance-b1.hwp)",
+        },
+        {
+            "id": "knps_juwangsan", "name": "국립공원공단 주왕산 주차장 이용요금 안내",
+            "org": "국립공원공단", "url": "https://www.knps.or.kr/front/portal/visit/visitCourseAmt.do?parkId=121000",
+            "file": None, "sha256": None,
+            "license": "공공기관 공개자료", "base_date": "2026-10-29",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": ("주왕산국립공원주차장의 요금 체계 출처다. 정액제(당일 1구역 기준): 소형 주중 "
+                     "4,000원·주말 및 집중수요기간 5,000원, 중·대형(16인승 이상·1톤 초과) 6,000원·"
+                     "7,500원. 주말은 토·일 및 법정공휴일, 집중수요기간은 7월 1일~8월 31일·10월 1일~"
+                     "11월 15일, 그 외는 주중이다. 경형자동차·이륜차는 소형 요금의 50%를 적용한다."),
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": CHEONGSONG_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "청송군", "slug": "cheongsong"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": CHEONGSONG_PROVINCE,
+        "province_slug": CHEONGSONG_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "cheongsong_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -85192,7 +85843,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyeo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon", "uiryeong", "haman", "changnyeong", "pohang", "gyeongju", "gimcheon", "andong", "gumi", "yeongju", "yeongcheon", "sangju", "mungyeong", "gyeongsan", "cheongdo", "uisung",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyeo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon", "uiryeong", "haman", "changnyeong", "pohang", "gyeongju", "gimcheon", "andong", "gumi", "yeongju", "yeongcheon", "sangju", "mungyeong", "gyeongsan", "cheongdo", "uisung", "cheongsong",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -85210,7 +85861,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "포항시", "경주시", "김천시", "안동시", "구미시", "영주시", "영천시", "상주시", "문경시", "경산시", "청도군", "의성군"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "포항시", "경주시", "김천시", "안동시", "구미시", "영주시", "영천시", "상주시", "문경시", "경산시", "청도군", "의성군", "청송군"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -85268,7 +85919,7 @@ def main():
                                 "tongyeong": ["통영시"],
                                 "sacheon": ["사천시"],
                                 "gimhae": ["김해시"], "miryang": ["밀양시"],
-                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"], "hamyang": ["함양군"], "geochang": ["거창군"], "hapcheon": ["합천군"], "uiryeong": ["의령군"], "haman": ["함안군"], "changnyeong": ["창녕군"], "pohang": ["포항시"], "gyeongju": ["경주시"], "gimcheon": ["김천시"], "andong": ["안동시"], "gumi": ["구미시"], "yeongju": ["영주시"], "yeongcheon": ["영천시"], "sangju": ["상주시"], "mungyeong": ["문경시"], "gyeongsan": ["경산시"], "cheongdo": ["청도군"], "uisung": ["의성군"]}[args.city])
+                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"], "hamyang": ["함양군"], "geochang": ["거창군"], "hapcheon": ["합천군"], "uiryeong": ["의령군"], "haman": ["함안군"], "changnyeong": ["창녕군"], "pohang": ["포항시"], "gyeongju": ["경주시"], "gimcheon": ["김천시"], "andong": ["안동시"], "gumi": ["구미시"], "yeongju": ["영주시"], "yeongcheon": ["영천시"], "sangju": ["상주시"], "mungyeong": ["문경시"], "gyeongsan": ["경산시"], "cheongdo": ["청도군"], "uisung": ["의성군"], "cheongsong": ["청송군"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -85554,6 +86205,8 @@ def main():
         cities.append(build_cheongdo())
     if "의성군" in want:
         cities.append(build_uisung())
+    if "청송군" in want:
+        cities.append(build_cheongsong())
 
     if args.city == "all":
         site = build_site_payload(cities)
