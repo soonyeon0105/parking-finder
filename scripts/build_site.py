@@ -14456,6 +14456,62 @@ B·C지구는 등록 급지구분이 1급지이나 등록 요금이 2급지와 �
 <p class="updated">{esc(ft['basis'])}</p>
 """
 
+    if ft.get("style") == "wonju_grade":
+        # 원주시 — 공영 69곳(노외 62곳·노상 7구간,
+        #   총 4,749면)이 무료 56곳·유료 13곳으로
+        #   등록돼 있다. 「원주시 주차장 설치 및 관리
+        #   조례」 제2606호(시행 2026-02-13) 제5조
+        #   제1항·별표 1은 1급지(동 지역) 최초 10분
+        #   무료·10분 초과 30분까지 600원·30분 초과
+        #   10분마다 300원(노상 2시간 초과 400원)·1일
+        #   6,000원·월 주간 75,000원·야간 56,000원,
+        #   2급지(읍·면 지역) 300원·100원(노상 2시간
+        #   초과 200원)·1일 3,600원·월 주간 30,000원·
+        #   야간 22,000원이다. 유료 8곳은 등록값이
+        #   별표 1급지와 실질이 같아 조례 기준으로
+        #   계산했고, 공원 주차장 5곳은 등록값(30분
+        #   500원·1일 9,000원)이 별표와 달라 요금
+        #   미상으로 표기했다.
+        def _wj_cell(v):
+            return f"{v}곳" if v is not None else "—"
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td>'
+            f'<td class="num">{_wj_cell(r["lots"])}</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">원주시 공영주차장 <b>69곳</b>(노외 62곳·노상 7구간, 총 4,749면)은
+무료 <b>56곳</b>·유료 <b>13곳</b>으로 등록돼 있습니다. 「원주시 주차장 설치 및 관리 조례」 제2606호
+별표 1은 1급지(동 지역) 최초 10분 무료·10분 초과 30분까지 <b>600원</b>·30분 초과 시 10분마다 <b>300원</b>
+(노상 2시간 초과 시 10분마다 400원)·1일 <b>6,000원</b>·월정기 주간 <b>75,000원</b>·야간 <b>56,000원</b>이고,
+2급지(읍·면 지역)는 300원·100원·1일 3,600원·월 주간 30,000원·야간 22,000원입니다.
+유료 8곳의 등록 요금이 별표 1급지와 실질이 같아 조례 기준으로 계산했습니다.
+공원 주차장 5곳은 등록 요금(30분 500원·1일 9,000원)이 별표 어느 급지와도 달라 요금 미상으로
+표기했으니, 실제 요금은 현장 안내와 원주시청(033-737-3543)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th>
+  <th class="num">월정기 (주간)</th><th class="num">월정기 (야간)</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금으로 계산하는 유료는 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(

@@ -91246,6 +91246,685 @@ def build_chuncheon():
 
 
 
+# 원주시 — 표준데이터 원주 등록 118행 중 민영
+#   49행을 빼면 공영 69행(노외 62·노상 7, 총
+#   4,749면), 무료 56·유료 13, 기준일
+#   2026-04-16이다. 중복 판정(전체 이름·지번·
+#   좌표 200m 가드)에 걸리는 쌍은 없고, 관리번호
+#   중복도 없다. 구획수 0 등록 0건, 주소 없음
+#   0건, 이름 없음 0건, 좌표 결측 0건이다. 이름이
+#   겹치는 단계동 복개천 주차장 2건은 서로 다른
+#   자리(단계동 87-4·301면, 단계동 1075-3·197면)
+#   라 번지로 구분해 전부 싣는다.
+# 조례 대조 완료(2026-11-21): 「원주시 주차장
+#   설치 및 관리 조례」 제2606호(시행 2026-02-13,
+#   ordinSeq 2109995) 제5조제1항이 시장이 설치한
+#   노상·노외주차장의 요금을 별표 1로 정한다.
+#   본문 data/raw/wonju-ordinance.txt, 별표 1은
+#   ELIS 첨부 HWP 원본(flSeq 168520451,
+#   data/raw/wonju-ordinance-b1.hwp)을 받아
+#   PrvText와 BodyText 레코드 파싱을 교차 확인해
+#   추출했다(wonju-ordinance-b1.txt). 별표 1
+#   일반공영주차장: 1급지(동 지역) 최초 10분
+#   무료·10분 초과 30분까지 600원·30분 초과
+#   10분마다 300원(노상 2시간 초과 시 10분마다
+#   400원)·1일 6,000원·월정기 주간 75,000원·
+#   야간 56,000원, 2급지(읍·면 지역) 최초 10분
+#   무료·300원·100원(노상 2시간 초과 200원)·
+#   1일 3,600원·월 주간 30,000원·야간 22,000원.
+#   1일·월정기권은 노외주차장에 한한다(비고 8).
+#   주차시간이 30분 미만이면 30분으로 본다
+#   (비고 7). 주간은 4~10월 08:00~20:00,
+#   11~3월 09:00~19:30이다(비고 2).
+# 유료 13곳 중 8곳(백간지구·무삼공원·학성공영·
+#   원일로3차·무실동·학성동·단계택지·중앙로구간)
+#   은 등록값(기본 30분 600원·추가 10분 300원)이
+#   별표 1급지와 실질이 같아 조례 기준으로
+#   계산한다 — 등록 기본 30분 600원은 별표의
+#   '최초 10분 무료 + 10분 초과 30분까지 600원'을
+#   뭉뚱그린 값이라 최초 10분 무료를 free_min으로
+#   분리한다(남해·하동 선례). 노외 3곳은 1일
+#   6,000원·월 75,000원 등록도 별표와 일치한다.
+#   노상 5곳은 별표의 2시간 초과 요율(10분마다
+#   400원)을 steps로 반영한다.
+# 나머지 유료 5곳(중앙근린공원 3곳·미리내공원·
+#   기업도시 샘마루근린공원)은 공원 주차장으로
+#   등록값(기본 30분 500원·추가 30분 500원·1일
+#   9,000원)이 별표 1급지(1일 6,000원)·2급지
+#   (1일 3,600원) 어느 급지와도 일치하지 않아
+#   요금 미상으로 표기한다(김해·함안·상주·성주·
+#   울진·울릉 선례). 별표 1은 요금표에 참고표로
+#   함께 싣는다. 원주문화원 공식 안내(2026-09,
+#   2026-08-01 시행)에는 중앙근린공원1구역이
+#   운영시간 외 무료·별표 계열 요율로 안내돼
+#   있어 실제 요금은 확인 과제로 남긴다.
+# 등록 급지구분은 1급지 50·2급지 17·3급지 2곳
+#   인데 별표에 3급지는 없고, 요금 판정은 별표
+#   비고 3의 지역 구분(동 지역 1급지·읍·면 지역
+#   2급지)으로 한다. 유료 8곳의 계산 대상은
+#   전부 동 지역·등록 1급지로 일치한다.
+# 주말·공휴일 전체 무료는 조례 본문에 없다.
+#   유료 13곳은 운영요일이 '평일'뿐이라 토요일·
+#   공휴일은 운영하지 않는 것으로 표기한다.
+#   별표 비고 10(시장이 노외주차장을 최초 2시간
+#   까지 무료로 운영할 수 있다)·비고 12(원도심
+#   공영주차장 최초 20분 무료 가능, 고시 사항)는
+#   시장이 정할 수 있는 사항이라 개별 주차장의
+#   무료 구간으로 단정하지 않는다.
+WONJU_PROVINCE = "강원특별자치도"
+WONJU_PROVINCE_SLUG = "gangwon"
+WONJU_ORD_URL = ("https://www.law.go.kr/LSW/ordinInfoR.do?"
+                 "ordinSeq=2109995&gubun=ELIS")
+WONJU_ORD_TXT = RAW / "wonju-ordinance-b1.txt"
+WONJU_ORD_NOTE = ("「원주시 주차장 설치 및 관리 조례」 제2606호(시행 2026-02-13) "
+                  "제5조제1항·별표 1 — 국가법령정보센터 ordinSeq 2109995에서 확인")
+
+WONJU_DISCOUNTS = [
+    {"label": "긴급자동차·시장이 필요하다고 인정하는 차량, 모범납세자 성실납세증표지 부착 차량(지정일부터 1년) 전액 면제 가능", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제6조제1호 — 「도로교통법」 제2조제22호에 따른 긴급 자동차 및 그 밖에 시장이 필요하다고 인정하는 차량과, 모범납세자로 표창을 받은 자로서 국세청장이나 강원특별자치도지사 또는 시장이 발급한 성실납세증표지(스티커)를 부착한 차량(지정일로부터 1년)은 주차요금을 면제할 수 있다"},
+    {"label": "경형자동차 60% 감면", "rate": 0.6, "exempt_min": 0,
+     "note": "조례 제6조제2호 — 「자동차관리법 시행규칙」 제2조에 의한 경형자동차에 대하여는 주차요금의 60퍼센트를 감면할 수 있다"},
+    {"label": "장애인·국가유공자·고엽제후유의증환자·어르신·임산부 표지 차량·병역명문가·환경친화적 자동차·저공해자동차·다자녀 우대카드·장기등기증자·헌혈자 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제6조제3호 — 장애인 본인 탑승 차량(표지 부착), 국가유공자 본인 탑승 차량, 고엽제후유의증환자 본인 탑승 차량(표지 부착), 어르신·임산부 자동차표지 부착 차량(어르신·임산부 탑승), 병역명문가 구성원 탑승 차량, 환경친화적 자동차(표지 부착), 저공해자동차 표지 부착 차량, 다자녀 우대카드 소지자의 차량, 장기등기증자 표지 부착 차량, 헌혈자가 탑승한 차량(헌혈증 제시, 헌혈일로부터 1년)은 주차요금의 50퍼센트를 감면할 수 있다. 감면액의 100원 미만은 절사하고, 둘 이상의 감면 규정이 적용되면 감면율이 높은 것 하나만 적용한다"},
+    {"label": "전통시장 전용주차장 상인·고객 (증표 제출) 50% 감면·최초 1시간 면제 가능", "rate": 0.5, "exempt_min": 60,
+     "note": "조례 제6조제3호바목 — 전통시장의 상인 및 고객을 위한 전용주차장을 이용하고 전통시장 상점 이용증표를 제출하는 사람은 주차요금의 50퍼센트를 감면할 수 있고, 최초 1시간까지 주차요금을 면제할 수 있다"},
+]
+
+WONJU_CONF = {
+    "city": "원주시",
+    "slug": "wonju",
+    "manager": "강원특별자치도 원주시청",
+    "manager_inquiry": "원주시청(033-737-3543)",
+    "ordinance": ("원주시 주차장 설치 및 관리 조례", WONJU_ORD_URL, WONJU_ORD_NOTE),
+    "notes": (
+        "표준데이터에 등록된 원주시 공영주차장 69곳(노외 62곳·노상 7구간, 총 4,749면)입니다. "
+        "56곳은 무료로 등록돼 있고, 유료 8곳(백간지구·무삼공원·학성공영·원일로3차·무실동·"
+        "학성동·단계택지·중앙로구간)의 등록 요금(기본 30분 600원·추가 10분 300원)이 "
+        "「원주시 주차장 설치 및 관리 조례」 제2606호 별표 1의 1급지 요율과 실질이 같아 "
+        "조례 기준으로 계산했습니다. 공원 주차장 5곳(중앙근린공원 3곳·미리내공원·샘마루"
+        "근린공원)은 등록 요금(30분 500원·1일 9,000원)이 별표 어느 급지와도 일치하지 않아 "
+        "요금 미상으로 표기했습니다."),
+    "discounts": WONJU_DISCOUNTS,
+}
+
+WONJU_BBOX = (37.10, 37.48, 127.70, 128.15)
+WONJU_DONGS = {"중앙동", "평원동", "일산동", "학성동", "단계동", "원인동", "개운동",
+               "명륜동", "단구동", "우산동", "태장동", "봉산동", "행구동", "무실동",
+               "반곡동", "관설동",
+               "문막읍", "소초면", "호저면", "지정면", "부론면", "귀래면", "흥업면",
+               "판부면", "신림면"}
+WONJU_EUPMYEON = {"문막읍", "소초면", "호저면", "지정면", "부론면", "귀래면", "흥업면",
+                  "판부면", "신림면"}
+
+
+def wonju_dong_of(addr):
+    """원주시 법정동·읍·면 판정 — 지번주소의 원주시
+    다음 토큰이 동·읍·면이다."""
+    if addr:
+        m = re.search(r"원주시\s*([가-힣0-9]+?(?:동|읍|면))", addr)
+        if m and m.group(1) in WONJU_DONGS:
+            return m.group(1)
+    return None
+
+
+def wonju_fee(row, name, note_bits, fee_diff):
+    """원주시 공영주차장 한 곳의 요금 — 무료 56곳은
+    무료 등록이라 무료를 유지한다. 유료 8곳은 등록값
+    (기본 30분 600원·추가 10분 300원)이 조례 별표 1
+    1급지(최초 10분 무료·10분 초과 30분까지 600원·
+    30분 초과 10분마다 300원)와 실질이 같아 조례
+    기준으로 계산한다. 등록 기본 30분은 별표의 최초
+    10분 무료를 뭉뚱그린 값이라 free_min 10으로
+    분리하고 base_min은 30분으로 둔다(비고 7: 30분
+    미만은 30분으로 본다). 노외 3곳은 1일 6,000원·
+    월 75,000원 등록도 별표 1급지 노외와 일치한다.
+    노상 5곳은 1일·월정기권이 없고(비고 8: 노외
+    한정) 별표의 2시간 초과 요율(10분마다 400원)을
+    steps로 반영한다. 공원 주차장 5곳(기본 30분
+    500원·추가 30분 500원·1일 9,000원)은 별표 어느
+    급지와도 일치하지 않아 요금 미상으로 표기한다
+    (김해·함안·상주·성주·울진·울릉 선례). 급지는
+    별표 비고 3의 지역 구분(동 지역 1급지·읍·면
+    지역 2급지)으로 판정하고 등록 급지구분은
+    std_grade로만 남긴다."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    day_hours = to_int(row.get("1일주차권요금적용시간"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    ptype = (row.get("주차장유형") or "").strip()
+    jibun = (row.get("소재지지번주소") or "").strip()
+    dong = wonju_dong_of(jibun)
+    zone_grade = 2 if dong in WONJU_EUPMYEON else 1
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None, "monthly_night": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None, "bands": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 시청 확인 필요"})
+        return fee
+    _day_s = f"{day:,}원" if day else "공란"
+    _month_s = f"{month:,}원" if month else "공란"
+    _ord_s = ("1급지 최초 10분 무료·10분 초과 30분까지 600원·30분 초과 10분마다 300원·"
+              "1일 6,000원·월 주간 75,000원" if zone_grade == 1 else
+              "2급지 최초 10분 무료·10분 초과 30분까지 300원·30분 초과 10분마다 100원·"
+              "1일 3,600원·월 주간 30,000원")
+    if (base_min, base_fee, unit_min, unit_fee) != (30, 600, 10, 300) or zone_grade != 1 \
+            or (ptype != "노상" and ((day and day != 6000) or (month and month != 75000))) \
+            or (ptype == "노상" and (day or month)):
+        fee_diff.append(f"{name}: 등록 요금(기본 {base_min}분 {base_fee or 0:,}원·추가 "
+                        f"{unit_min}분 {unit_fee or 0:,}원·1일 {_day_s}·월 {_month_s})이 조례 별표 1의 "
+                        f"요금({_ord_s})과 일치하지 않아 요금 미상으로 표기한다")
+        fee.update({"type": "미상",
+                    "basis": (f"표준데이터의 등록 요금(기본 {base_min}분 {base_fee or 0:,}원·추가 "
+                              f"{unit_min}분 {unit_fee or 0:,}원·1일 {_day_s}·월 {_month_s})이 "
+                              "「원주시 주차장 설치 및 관리 조례」 별표 1의 요금과 일치하지 않아 "
+                              "요금 미상으로 표기한다 — 실제 요금은 원주시청(033-737-3543) 확인이 필요하다")})
+        return fee
+    if ptype == "노상":
+        fee.update({"type": "유료", "free_min": 10, "base_min": 30, "base_fee": 600,
+                    "unit_min": 10, "unit_fee": 300,
+                    "steps": [{"until": 120, "unit_min": 10, "unit_fee": 300},
+                              {"until": None, "unit_min": 10, "unit_fee": 400}],
+                    "steps_label": "노상 2시간 초과 시 10분마다 400원 (별표 1 비고 6)",
+                    "grade": 1, "grade_label": "1급지",
+                    "basis": ("등록 요금이 조례 별표 1의 1급지 요율(최초 10분 무료·10분 초과 "
+                              "30분까지 600원·30분 초과 10분마다 300원)과 실질이 같아 조례 "
+                              "기준으로 계산한다. 노상주차장은 2시간을 넘기면 10분마다 400원을 "
+                              "받는다(별표 1). 1일·월정기권은 노외주차장에만 있어 표기하지 "
+                              "않는다(비고 8)")})
+        return fee
+    fee.update({"type": "유료", "free_min": 10, "base_min": 30, "base_fee": 600,
+                "unit_min": 10, "unit_fee": 300,
+                "daily_fee": day if day == 6000 else None,
+                "monthly": month if month == 75000 else None,
+                "grade": 1, "grade_label": "1급지",
+                "basis": ("등록 요금이 조례 별표 1의 1급지 요율(최초 10분 무료·10분 초과 "
+                          "30분까지 600원·30분 초과 10분마다 300원·1일 6,000원·월정기 주간 "
+                          "75,000원)과 일치해 조례 기준으로 계산한다. 월정기 야간 56,000원은 "
+                          "등록에 없어 표기하지 않는다")})
+    return fee
+
+
+def wonju_fee_table(conf, lots):
+    """요금표 — 조례 별표 1 급지별 요금표. 유료로
+    계산하는 8곳은 전부 1급지(동 지역)이고 2급지
+    계산 대상은 없다. 공원 주차장 5곳은 등록값이
+    별표와 달라 요금 미상이라 별표는 참고표로 함께
+    싣는다. 1시간·2시간은 최초 10분 무료를 반영한
+    값이다(1급지 1시간 600+300×3=1,500원, 2시간
+    600+300×9=3,300원)."""
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    rows = [
+        {"label": "1급지 (동 지역)", "grade": 1,
+         "unit_label": "최초 10분 무료 · 10분 초과 30분까지 600원 · 30분 초과 10분마다 300원 (노상 2시간 초과 시 10분마다 400원)",
+         "hour": 1500, "two_hour": 3300, "day": 6000,
+         "month_all": None, "month": 75000, "month_night": 56000,
+         "lots": len(paid)},
+        {"label": "2급지 (읍·면 지역)", "grade": 2,
+         "unit_label": "최초 10분 무료 · 10분 초과 30분까지 300원 · 30분 초과 10분마다 100원 (노상 2시간 초과 시 10분마다 200원)",
+         "hour": 600, "two_hour": 1200, "day": 3600,
+         "month_all": None, "month": 30000, "month_night": 22000,
+         "lots": 0},
+    ]
+    return {
+        "style": "wonju_grade",
+        "unit_min": 10,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "source_url": conf["ordinance"][1],
+        "grade_system": ("조례 별표 1 비고 3은 1급지를 동 지역, 2급지를 읍·면 지역으로 정하되 "
+                         "주차장 실태와 수요를 참작해 시장이 지정하고 달리 정할 수 있다. "
+                         "1일 주차권과 월정기권은 노외주차장에 한한다(비고 8). 표준데이터 등록 "
+                         "급지구분은 1급지 50곳·2급지 17곳·3급지 2곳이나 별표에 3급지는 없어 "
+                         "요금 판정은 지역 구분으로 했다. 주차시간이 30분 미만이면 30분으로 "
+                         "본다(비고 7)"),
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["ptype"] != "노상"]),
+                 "street_paid": len([l for l in paid if l["ptype"] == "노상"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [
+            {"group": "주간 시간구분 (조례 별표 1 비고 2)",
+             "hours": "4월~10월 08:00~20:00, 11월~3월 09:00~19:30 (나머지 시간은 야간)",
+             "free": "주차장 위치와 주변 여건에 따라 탄력적으로 운영할 수 있다"},
+            {"group": "1일 주차권·월정기권 (조례 별표 1 비고 8)",
+             "hours": "노외주차장에 한해 실시",
+             "free": "지역과 주차수요를 감안해 시장이 시행 여부를 결정할 수 있다"},
+            {"group": "노외주차장 최초 2시간 무료 운영 (조례 별표 1 비고 10)",
+             "hours": "시장이 정하는 노외주차장",
+             "free": "시장이 최초 2시간까지 무료로 운영할 수 있고, 무료시간 이후에는 별표 1 요금표를 준용한다 — 개별 주차장의 적용 여부는 확인이 필요하다"},
+            {"group": "원도심 공영주차장 최초 20분 무료 (조례 별표 1 비고 12)",
+             "hours": "원도심 지역 내 공영주차장 중 시장이 고시로 정한 곳",
+             "free": "주차 개시 시점부터 20분까지 무료로 운영할 수 있다 — 대상 주차장은 고시로 정한다"},
+            {"group": "영업용 화물자동차 (조례 별표 1 비고 11)",
+             "hours": "일반공영주차장 주차구획 이용 시",
+             "free": "주차 개시 시점부터 최초 20분까지 주차요금을 면제한다"},
+        ],
+        "discounts": conf["discounts"],
+        "notes": ("감면(조례 제6조)은 긴급자동차·시장이 인정하는 차량과 모범납세자 표지 차량 "
+                  "면제, 경형자동차 60% 감면, 장애인·국가유공자·고엽제후유의증환자·어르신·"
+                  "임산부·병역명문가·환경친화적 자동차·저공해자동차·다자녀·장기등기증자·헌혈자 "
+                  "50% 감면, 전통시장 전용주차장 상인·고객 50% 감면(최초 1시간 면제 가능)이다. "
+                  "감면액의 100원 미만은 절사하고 중복 시 감면율이 높은 하나만 적용한다."),
+        "basis": ("요금표는 「원주시 주차장 설치 및 관리 조례」 제2606호(시행 2026-02-13) "
+                  "제5조제1항·별표 1과 표준데이터(기준일 2026-04-16)를 대조해 실었다. 별표 1 "
+                  "원본 HWP는 flSeq 168520451이다. 유료 8곳은 등록값이 별표 1급지와 실질이 "
+                  "같아 조례 기준으로 계산했고, 무료 56곳은 등록값을 유지했으며, 공원 주차장 "
+                  "5곳은 등록값이 별표와 달라 요금 미상으로 표기했다. (조례 본문: "
+                  "data/raw/wonju-ordinance.txt, 별표 1 원문 HWP: "
+                  "data/raw/wonju-ordinance-b1.hwp)"),
+    }
+
+
+def wonju_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                  space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(lots)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동·읍·면 미상" for l in lots).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in lots if l["dong"]}),
+        "동_미상": [l["name"] for l in lots if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in lots)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「원주시 주차장 설치 및 관리 조례」 제2606호 제6조 — 긴급자동차·시장이 "
+                      "인정하는 차량과 모범납세자 성실납세증표지 부착 차량(지정일부터 1년)은 "
+                      "면제할 수 있고(제1호), 경형자동차는 60퍼센트를 감면하며(제2호), 장애인·"
+                      "국가유공자·고엽제후유의증환자·어르신·임산부 표지 차량·병역명문가·전통시장 "
+                      "전용주차장 상인·고객(증표 제출, 최초 1시간 면제 가능)·환경친화적 자동차·"
+                      "저공해자동차·다자녀 우대카드·장기등기증자·헌혈자는 50퍼센트를 감면한다"
+                      "(제3호). 감면액의 100원 미만은 절사하고 중복 시 감면율이 높은 하나만 "
+                      "적용한다"),
+        "요금_출처": ("조례 제5조제1항·별표 1 — 시장이 설치한 노상·노외주차장의 주차요금은 별표 1과 "
+                      "같다. 별표 1 일반공영주차장은 1급지(동 지역) 최초 10분 무료·10분 초과 "
+                      "30분까지 600원·30분 초과 10분마다 300원(노상 2시간 초과 시 10분마다 "
+                      "400원)·1일 6,000원·월정기 주간 75,000원·야간 56,000원, 2급지(읍·면 지역) "
+                      "최초 10분 무료·300원·100원(노상 2시간 초과 200원)·1일 3,600원·월 주간 "
+                      "30,000원·야간 22,000원이다. 별표 원본 HWP(flSeq 168520451)를 받아 "
+                      "PrvText와 BodyText를 교차 확인해 대조했다"),
+        "급지_출처": ("조례 별표 1 비고 3은 1급지를 동 지역, 2급지를 읍·면 지역으로 정하되 시장이 "
+                      "달리 정할 수 있다. 표준데이터 등록 급지구분은 1급지 50곳·2급지 17곳·"
+                      "3급지 2곳이나 별표에 3급지는 없어 요금 판정은 지역 구분으로 했고, 등록 "
+                      "급지는 std_grade로만 남겼다"),
+        "무료요일_출처": ("조례 본문 어디에도 시 전체 주말·공휴일 자동 무료 조항은 없다. 무료 56곳의 "
+                          "표기는 표준데이터 등록값(요금정보 ‘무료’) 근거다. 유료 13곳은 등록 "
+                          "운영요일이 ‘평일’뿐이라 토요일·공휴일은 운영하지 않는 것으로 표기한다. "
+                          "별표 비고 10의 노외 최초 2시간 무료 운영과 비고 12의 원도심 최초 20분 "
+                          "무료는 시장이 정할 수 있는 사항이라 개별 주차장에 단정하지 않는다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 원주 등록 118행 중 민영 49행을 빼면 공영 69행(노외 62·노상 7, 총 4,749면)으로 무료 56·유료 13, 기준일 2026-04-16이다. 중복 판정(전체 이름·지번·좌표 200m 가드)에 걸리는 쌍은 없고 관리번호 중복도 없다. 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다",
+            "「원주시 주차장 설치 및 관리 조례」 제2606호(시행 2026-02-13, ordinSeq 2109995) 본문 원문(data/raw/wonju-ordinance.txt) 대조 완료(2026-11-21) — 본문 제5조제1항이 시장이 설치한 노상·노외주차장의 요금을 별표 1로 정한다. 별표 1은 ELIS 첨부 HWP 원본(flSeq 168520451)을 data/raw/wonju-ordinance-b1.hwp로 저장하고 PrvText와 BodyText 레코드 파싱을 교차 확인해 확정했다 — 1급지(동 지역) 최초 10분 무료·10분 초과 30분까지 600원·30분 초과 10분마다 300원(노상 2시간 초과 400원)·1일 6,000원·월 주간 75,000원·야간 56,000원, 2급지(읍·면 지역) 300원·100원(노상 2시간 초과 200원)·1일 3,600원·월 주간 30,000원·야간 22,000원이고, 1일·월정기권은 노외에 한한다(비고 8)",
+            "유료 8곳(백간지구 48면·무삼공원 62면·학성공영 115면·원일로3차 26면·무실동 165면·학성동 51면·단계택지 88면·중앙로구간 84면)의 등록값은 기본 30분 600원·추가 10분 300원으로 여덟 곳 모두 같고, 별표 1급지의 '최초 10분 무료 + 10분 초과 30분까지 600원 + 30분 초과 10분마다 300원'과 실질이 같아 조례 기준으로 계산했다. 등록 기본 30분은 최초 10분 무료를 뭉뚱그린 값이라 free_min 10으로 분리했다. 노외 3곳은 1일 6,000원·월 75,000원 등록도 별표와 일치한다. 노상 5곳은 별표의 2시간 초과 요율(10분마다 400원)을 steps로 반영했다. 여덟 곳 전부 동 지역이고 등록 급지도 '1'로 일치한다",
+            "공원 주차장 5곳(중앙근린공원(2구역) 지상 77면·잔디광장 지하 189면·중앙근린공원1구역 178면·미리내공원 89면·기업도시 샘마루근린공원 72면)의 등록값은 기본 30분 500원·추가 30분 500원·1일 9,000원으로 다섯 곳 모두 같으나 별표 1급지(1일 6,000원)·2급지(1일 3,600원) 어느 급지와도 일치하지 않아 요금 미상으로 표기했다. 다섯 곳 전부 평일 09:00~21:00 운영·5부제 시행으로 등록돼 있고, 원주문화원 공식 안내(2026-09-11 게시, 2026-08-01 시행)에는 중앙근린공원1구역 주차장이 운영시간 외 무료와 별표 계열 요율로 안내돼 있어 등록값과 현장 안내가 서로 다르다 — 실제 요금은 확인 과제로 남긴다",
+            "좌표 결측은 0곳이다. 지오코딩 보완 대상이 없어 오버레이 추가도 0건이다. 등록 좌표 69곳 전부가 원주 범위(위도 37.166~37.425, 경도 127.751~128.082) 안에 있다",
+            "주말·공휴일 전체 무료는 조례 본문 어디에도 없다. 무료 56곳의 표기는 표준데이터 등록값 근거다. 유료 13곳은 운영요일이 '평일'뿐이라 토요일·공휴일은 미운영으로 표기한다. 별표 비고 10(시장이 노외주차장을 최초 2시간까지 무료로 운영 가능)·비고 12(원도심 공영주차장 최초 20분 무료 가능)는 시장이 고시 등으로 정할 수 있는 사항이라 개별 주차장의 무료 구간으로 단정하지 않는다",
+            "동·읍·면 판정은 지번주소 기준이고 69곳 전부 판정됐다(단계동 7·무실동 7·태장동 7·학성동 5·지정면 4·문막읍 4·단구동 4 등 23개 동·읍·면). 도로명주소는 21곳만 등록돼 있다. 이름이 겹치는 단계동 복개천 주차장 2건(단계동 87-4·301면, 단계동 1075-3·197면)은 서로 다른 자리라 번지로 구분해 전부 실었다",
+            "관리기관명은 강원특별자치도 원주시청 69곳 전부이다. 전화번호는 033-737-3543이 50곳으로 가장 많고 033-737-3559(9곳)·033-737-3707(5곳)·033-737-2923(3곳)·033-737-5134(1곳)·033-737-2522(1곳)가 있다. 운영시간은 무료 56곳 전부 전 요일 00:00~23:59이고, 유료 8곳은 평일 08:00~20:00(특기사항에 별표 비고 2의 계절별 주간 시간 '4월~10월 08:00~20:00, 11월~3월 09:00~19:30'이 적혀 있다), 공원 주차장 5곳은 평일 09:00~21:00이다. 부제시행구분은 공원 주차장 5곳만 5부제이다. 결제방법은 유료 13곳 현금/카드, 무료 56곳 공란이다. 장애인전용주차구역 보유여부는 69곳 전부 공란이다",
+            "확인 과제 — ① 공원 주차장 5곳의 실제 요금(등록 30분 500원·1일 9,000원과 원주문화원 안내의 별표 계열 요율이 서로 다르고, 별표 비고 10의 최초 2시간 무료 운영 적용 여부 포함)을 확인할 것 ② 유료 8곳의 계절별 운영시간(11~3월 09:00~19:30)이 현장에 적용되는지 확인할 것 ③ 유료 13곳의 토요일·공휴일 미운영 시 무료 개방 여부를 확인할 것 ④ 별표 비고 12의 원도심 최초 20분 무료 고시 대상 주차장을 확인할 것 ⑤ 등록 급지 '3'인 2곳(무료)이 무엇을 뜻하는지 확인할 것 ⑥ 공원 주차장 5곳의 5부제 시행이 실제로 운영되는지 확인할 것 ⑦ 행구동 공영주차장(행구동 산 180-4)의 특기사항 '신규'가 등록 최신성을 뜻하는지 확인할 것",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] or 0 for l in paid) / len(paid)) if paid else 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l["name"] for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_wonju():
+    """원주시 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「원주시 주차장 설치 및 관리
+    조례」 제2606호(시행 2026-02-13, ordinSeq
+    2109995) 제5조제1항·별표 1 원문 대조 완료
+    (2026-11-21, 별표 ELIS 첨부 HWP PrvText·
+    BodyText 교차 확인). 표준데이터 원주 등록
+    118행 중 민영 49행을 빼면 공영 69행(노외 62·
+    노상 7, 총 4,749면)을 읽어 무료 56곳은 등록값
+    대로, 유료 8곳은 등록값이 별표 1급지와 실질이
+    같아 조례 기준으로 계산하고, 공원 주차장 5곳은
+    등록값이 별표와 달라 요금 미상으로 싣는다.
+    좌표 결측은 0곳이다."""
+    conf = WONJU_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "원주시" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "원주시" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 원주시는
+    #   해당 쌍이 없다.
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, space_diff, dong_fixed, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (WONJU_BBOX[0] < lat < WONJU_BBOX[1]
+                                                        and WONJU_BBOX[2] < lng < WONJU_BBOX[3]):
+            # 원주시 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 원주시 범위 밖 — "
+                               "좌표 없음으로 표기하고 지오코딩 보완 대상으로 넘김")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음(0으로 등록)"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = wonju_dong_of(jibun)
+        if dong:
+            dong_src = "지번주소"
+        elif wonju_dong_of(road):
+            dong = wonju_dong_of(road)
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 동·읍·면 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:동|읍|면))", std_name)
+        if _name_head and _name_head.group(1) in WONJU_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 동·읍·면({_name_head.group(1)})과 지번주소 기준 "
+                              f"동·읍·면({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = wonju_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        _buje = (r.get("부제시행구분") or "").strip()
+        if _buje and _buje != "미시행":
+            note_bits.append(f"승용차 {_buje}를 시행하는 곳입니다")
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "원주시", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _bunji = ""
+            for _tok in reversed(_parts):
+                if re.match(r"^\d+(?:-\d+)?$", _tok or ""):
+                    _bunji = _tok
+                    break
+            if not _bunji:
+                _bunji = _parts[3].split("(")[0] if len(_parts) > 3 else \
+                    (_parts[2] if len(_parts) > 2 else "")
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _bunji and not _same_place:
+                _suffix = f"({_bunji})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 지번 번지로 구분했다")
+
+    # 같은 지번·같은 좌표에 이름만 다르게 등록된 그룹 — 전부 다른 등록이라
+    #   합치지 않고 전부 싣는다(산청 선례).
+    _place_groups = {}
+    for l in lots:
+        if l["lat"] is None or l["lng"] is None:
+            continue
+        _place_groups.setdefault(((l.get("addr_jibun") or l.get("addr_road")),
+                                  l["lat"], l["lng"]), []).append(l)
+    for (_addr, _la, _ln), _grp in sorted(_place_groups.items(),
+                                          key=lambda kv: kv[1][0]["name"]):
+        if len(_grp) > 1 and len({x["name"] for x in _grp}) > 1:
+            _names = "·".join(x["name"] for x in _grp)
+            note_fixed.append(f"같은 자리·같은 좌표에 이름만 다른 등록: {_names} — "
+                              f"{_addr}에 좌표({_la}, {_ln})가 같게 등록돼 있다. "
+                              "이름이 다른 별개 등록이라 합치지 않고 전부 실었고, "
+                              "같은 시설의 중복 등록인지는 원주시청 확인이 필요하다")
+    note_fixed.append("표준데이터 원주 등록 118행 중 공영 69행을 읽었다(민영 49행 제외). "
+                      "데이터기준일자는 2026-04-16 118행, 제공기관명은 강원특별자치도 원주시 "
+                      "118행, 관리기관명은 강원특별자치도 원주시청 69행이다")
+    note_fixed.append("등록 급지구분은 공영 69곳 중 1급지 50곳·2급지 17곳·3급지 2곳이나, 조례 "
+                      "별표 1은 동 지역 1급지·읍·면 지역 2급지의 구분만 있어 요금 판정은 지역 "
+                      "구분으로 했고 등록 급지는 std_grade로만 남겼다")
+    note_fixed.append("좌표는 공영 69행 전부 등록돼 있고 전부 원주시 범위 안에 있다. 지오코딩 "
+                      "보완 대상이 없어 오버레이 추가도 0건이다")
+    note_fixed.append("운영요일은 무료 56곳 전부 평일+토요일+공휴일이고, 유료 13곳은 전부 "
+                      "평일뿐이다. 운영시간은 무료 56곳 전부 00:00~23:59이고, 유료 8곳은 평일 "
+                      "08:00~20:00(특기사항에 계절별 주간 시간이 적혀 있다), 공원 주차장 5곳은 "
+                      "평일 09:00~21:00이다. 부제시행구분은 공원 주차장 5곳만 5부제이다. "
+                      "도로명주소는 21곳만 등록돼 있다. 결제방법은 유료 13곳 현금/카드·무료 "
+                      "56곳 공란이고, 장애인전용주차구역 보유여부는 69곳 전부 공란이다")
+    note_fixed.append("무료 56곳은 무료 등록이라 등록값을 유지했고, 유료 8곳은 등록값이 조례 "
+                      "별표 1급지와 실질이 같아 조례 기준으로 계산했으며, 공원 주차장 5곳은 "
+                      "등록값이 별표 어느 급지와도 달라 요금 미상으로 표기했다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"gw-wonju-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"gw-wonju-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 원주시는 좌표 결측 0곳이라 적용 대상이 없다.
+    _cf = apply_coord_fix(lots)
+
+    fee_table = wonju_fee_table(conf, lots)
+    quality = wonju_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                            fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-04-16",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"원주시로 등록된 행 {len(rows_std)}행을 읽어 중복 "
+                 f"제거 {len(merged)}건, 제외 {len(excluded)}건으로 {len(lots)}곳을 실었다. "
+                 f"유료 {len([l for l in lots if l['fee']['type'] == '유료'])}곳·무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳·미상 "
+                 f"{len([l for l in lots if l['fee']['type'] == '미상'])}곳이다. "
+                 f"데이터기준일자는 2026-04-16이다. 좌표 결측은 0곳이다. "
+                 f"조례 대조 완료 — 「원주시 주차장 설치 및 관리 조례」 제2606호(시행 "
+                 f"2026-02-13, ordinSeq 2109995) 제5조제1항·별표 1 원문 대조 완료(2026-11-21)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": WONJU_ORD_TXT.name if WONJU_ORD_TXT.exists() else None,
+            "sha256": sha256(WONJU_ORD_TXT) if WONJU_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2026-02-13",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"원주시가 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/wonju-ordinance.txt, 별표 1 원문 HWP: "
+                    f"data/raw/wonju-ordinance-b1.hwp)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": WONJU_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "원주시", "slug": "wonju"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": WONJU_PROVINCE,
+        "province_slug": WONJU_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "wonju_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+
 # 울진군 — 표준데이터 울진 등록 62행 중 민영 4행을
 #   빼면 공영 58행(노외 47·노상 10·부설 1, 총
 #   4,546면), 무료 57·혼합 1, 기준일 2026-04-20이다.
@@ -91885,7 +92564,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyeo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon", "uiryeong", "haman", "changnyeong", "pohang", "gyeongju", "gimcheon", "andong", "gumi", "yeongju", "yeongcheon", "sangju", "mungyeong", "gyeongsan", "cheongdo", "uisung", "cheongsong", "yeongyang", "yeongdeok", "goryeong", "seongju", "chilgok", "yecheon", "bonghwa", "uljin", "ulleung", "chuncheon",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyeo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon", "uiryeong", "haman", "changnyeong", "pohang", "gyeongju", "gimcheon", "andong", "gumi", "yeongju", "yeongcheon", "sangju", "mungyeong", "gyeongsan", "cheongdo", "uisung", "cheongsong", "yeongyang", "yeongdeok", "goryeong", "seongju", "chilgok", "yecheon", "bonghwa", "uljin", "ulleung", "chuncheon", "wonju",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -91903,7 +92582,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "포항시", "경주시", "김천시", "안동시", "구미시", "영주시", "영천시", "상주시", "문경시", "경산시", "청도군", "의성군", "청송군", "영양군", "영덕군", "고령군", "성주군", "칠곡군", "예천군", "봉화군", "울진군", "울릉군", "춘천시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "포항시", "경주시", "김천시", "안동시", "구미시", "영주시", "영천시", "상주시", "문경시", "경산시", "청도군", "의성군", "청송군", "영양군", "영덕군", "고령군", "성주군", "칠곡군", "예천군", "봉화군", "울진군", "울릉군", "춘천시", "원주시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -91961,7 +92640,7 @@ def main():
                                 "tongyeong": ["통영시"],
                                 "sacheon": ["사천시"],
                                 "gimhae": ["김해시"], "miryang": ["밀양시"],
-                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"], "hamyang": ["함양군"], "geochang": ["거창군"], "hapcheon": ["합천군"], "uiryeong": ["의령군"], "haman": ["함안군"], "changnyeong": ["창녕군"], "pohang": ["포항시"], "gyeongju": ["경주시"], "gimcheon": ["김천시"], "andong": ["안동시"], "gumi": ["구미시"], "yeongju": ["영주시"], "yeongcheon": ["영천시"], "sangju": ["상주시"], "mungyeong": ["문경시"], "gyeongsan": ["경산시"], "cheongdo": ["청도군"], "uisung": ["의성군"], "cheongsong": ["청송군"], "yeongyang": ["영양군"], "yeongdeok": ["영덕군"], "goryeong": ["고령군"], "seongju": ["성주군"], "chilgok": ["칠곡군"], "yecheon": ["예천군"], "bonghwa": ["봉화군"], "uljin": ["울진군"], "ulleung": ["울릉군"], "chuncheon": ["춘천시"]}[args.city])
+                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"], "hamyang": ["함양군"], "geochang": ["거창군"], "hapcheon": ["합천군"], "uiryeong": ["의령군"], "haman": ["함안군"], "changnyeong": ["창녕군"], "pohang": ["포항시"], "gyeongju": ["경주시"], "gimcheon": ["김천시"], "andong": ["안동시"], "gumi": ["구미시"], "yeongju": ["영주시"], "yeongcheon": ["영천시"], "sangju": ["상주시"], "mungyeong": ["문경시"], "gyeongsan": ["경산시"], "cheongdo": ["청도군"], "uisung": ["의성군"], "cheongsong": ["청송군"], "yeongyang": ["영양군"], "yeongdeok": ["영덕군"], "goryeong": ["고령군"], "seongju": ["성주군"], "chilgok": ["칠곡군"], "yecheon": ["예천군"], "bonghwa": ["봉화군"], "uljin": ["울진군"], "ulleung": ["울릉군"], "chuncheon": ["춘천시"], "wonju": ["원주시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -92269,6 +92948,8 @@ def main():
         cities.append(build_ulleung())
     if "춘천시" in want:
         cities.append(build_chuncheon())
+    if "원주시" in want:
+        cities.append(build_wonju())
 
     if args.city == "all":
         site = build_site_payload(cities)
