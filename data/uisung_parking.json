@@ -1,0 +1,7508 @@
+{
+ "meta": {
+  "generated_at": "2026-11-21 15:52",
+  "generated_at_iso": "2026-11-21T15:52:16+09:00",
+  "snapshot_at": "2026-11-21 15:52",
+  "region": {
+   "province": "경상북도",
+   "city": "의성군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-06",
+    "rows_total": 18994,
+    "rows_city": 62,
+    "fetched_at": "2026-11-21 15:52 (KST)",
+    "note": "의성군으로 등록된 행 62행을 읽어 중복 제거 0건, 제외 0건으로 62곳을 실었다. 유료 5곳·무료 57곳·미상 0곳이다. 데이터기준일자는 2026-10-06이다. 좌표 결측은 0곳이다. 조례 대조 완료 — 「의성군 주차장 조례」 제3012호(시행 2026-04-17, ordinSeq 2124115) 제3조제1항·별표 1·2 원문 대조 완료(2026-11-21)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "의성군 주차장 조례",
+    "org": "경상북도 의성군청",
+    "url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2124115&gubun=ELIS",
+    "file": "uisung-ordinance-b1.txt",
+    "sha256": "463832f1ec3a2555bc8faf53a2749e7a57fbdd51ac7c8a5a6a7486cf6f3c0c48",
+    "license": "자치법규(공개)",
+    "base_date": "2026-04-17",
+    "rows_total": null,
+    "fetched_at": "2026-11-21 15:52 (KST)",
+    "note": "의성군이 설치·관리하는 공영주차장에 적용하는 조례다. 표준데이터에 등록된 의성군 공영주차장 62곳(노외 57곳·노상 5구간, 총 2,114면)입니다. 등록은 전부 공영이고 요금 구분은 무료 57곳·유료 5곳입니다. 「의성군 주차장 조례」 제3012호 별표 1은 일반 차량 최초 2시간 무료·이후 매 1시간 1,000원·1일 최대 5,000원·월정기권 30,000원, 감면 50% 대상은 500원·2,500원·15,000원, 긴급자동차·공무수행 차량·성실납세자 차량은 무료입니다. 유료 5곳(염매시장 1·2공영주차장, 동서2길 1·2주차장, 온누리터 주거지주차장)은 등록 시간요금이 별표 1과 일치해 조례 기준으로 계산합니다. 주말·공휴일 전체 무료 규정은 조례에 없습니다. (조례 본문: data/raw/uisung-ordinance.txt, 별표 1·2 원문 HWP: data/raw/uisung-ordinance-b1.hwp·uisung-ordinance-b2.hwp)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "의성군",
+   "slug": "uisung"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gb-uisung-001",
+   "mgmt_no": "362-2-000048",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가음면가산공영주차장",
+   "gu": "의성군",
+   "dong": "가음면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 가음면 가산리 875-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "054-830-6254",
+   "lat": 36.23258499,
+   "lng": 128.7267849,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-002",
+   "mgmt_no": "362-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금성 공영주차장",
+   "gu": "의성군",
+   "dong": "금성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 금성면 대리리 30-20",
+   "addr_road": "",
+   "road": null,
+   "spaces": 65,
+   "tel": "054-830-6254",
+   "lat": 36.2533708,
+   "lng": 128.6827075,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-003",
+   "mgmt_no": "362-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금성시장 주차장",
+   "gu": "의성군",
+   "dong": "금성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 금성면산운리 643-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "054-830-6254",
+   "lat": 36.2519028,
+   "lng": 128.6857967,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-004",
+   "mgmt_no": "362-2-000053",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금성온누리터공영주차장",
+   "gu": "의성군",
+   "dong": "금성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 금성면 대리리 135-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 45,
+   "tel": "054-830-6254",
+   "lat": 36.2598002,
+   "lng": 128.6795498,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-005",
+   "mgmt_no": "362-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금성탑리공영주차장 (1324-1)",
+   "gu": "의성군",
+   "dong": "금성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 금성면 탑리리 1324-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "054-830-6254",
+   "lat": 36.2613309,
+   "lng": 128.6816703,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-006",
+   "mgmt_no": "362-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금성탑리공영주차장 (652-1)",
+   "gu": "의성군",
+   "dong": "금성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 금성면 탑리리 652-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 51,
+   "tel": "054-830-6254",
+   "lat": 36.2542076,
+   "lng": 128.684051,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-007",
+   "mgmt_no": "362-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금성탑리길 공영주차장",
+   "gu": "의성군",
+   "dong": "금성면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 금성면 대리리 73-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "054-830-6254",
+   "lat": 36.2567992,
+   "lng": 128.6807753,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-008",
+   "mgmt_no": "362-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "다인서릉리공영주차장",
+   "gu": "의성군",
+   "dong": "다인면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 다인면 서릉리 171-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 38,
+   "tel": "054-830-6254",
+   "lat": 36.45142149,
+   "lng": 128.353917,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-009",
+   "mgmt_no": "362-2-000046",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "다인서릉리공영주차장2",
+   "gu": "의성군",
+   "dong": "다인면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 다인면 서릉리 149-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "054-830-6254",
+   "lat": 36.4494689,
+   "lng": 128.3549187,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-010",
+   "mgmt_no": "362-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "다인서릉삼거리공영주차장",
+   "gu": "의성군",
+   "dong": "다인면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 다인면 서릉리 198-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "054-830-6254",
+   "lat": 36.4507909,
+   "lng": 128.3522703,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-011",
+   "mgmt_no": "362-2-000056",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "다인용곡1리공영주차장",
+   "gu": "의성군",
+   "dong": "다인면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 다인면 용곡리 479-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 46,
+   "tel": "054-830-6254",
+   "lat": 36.519222,
+   "lng": 128.358511,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-012",
+   "mgmt_no": "362-2-000054",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "단밀속암리공영주차장",
+   "gu": "의성군",
+   "dong": "단밀면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 단밀면 속암리 162-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "054-830-6254",
+   "lat": 36.376152,
+   "lng": 128.3828093,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-013",
+   "mgmt_no": "362-2-000049",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "단밀주선리공영주차장",
+   "gu": "의성군",
+   "dong": "단밀면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 단밀면 주선리 443",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "054-830-6254",
+   "lat": 36.37361789,
+   "lng": 128.3818607,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-014",
+   "mgmt_no": "362-2-000055",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "단북이연1리공영주차장",
+   "gu": "의성군",
+   "dong": "단북면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 단북면 이연리 710",
+   "addr_road": "",
+   "road": null,
+   "spaces": 7,
+   "tel": "054-830-6254",
+   "lat": 36.388084,
+   "lng": 128.4053617,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-015",
+   "mgmt_no": "362-2-000050",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "봉양 공영주차장",
+   "gu": "의성군",
+   "dong": "봉양면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 봉양면 화전리 136-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "054-830-6254",
+   "lat": 36.2995241,
+   "lng": 128.5785714,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-016",
+   "mgmt_no": "362-2-000060",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "봉양도리원터미널공영주차장",
+   "gu": "의성군",
+   "dong": "봉양면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 봉양면 화전리 86",
+   "addr_road": "",
+   "road": null,
+   "spaces": 7,
+   "tel": "054-830-6254",
+   "lat": 36.2997588277,
+   "lng": 128.5830814179,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-017",
+   "mgmt_no": "362-2-000057",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신평청운2리공영주차장",
+   "gu": "의성군",
+   "dong": "신평면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 신평면 청운리 755",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "054-830-6254",
+   "lat": 36.49422652,
+   "lng": 128.4680187,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-018",
+   "mgmt_no": "362-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "안계 공영주차장",
+   "gu": "의성군",
+   "dong": "안계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 안계면 용기리 466-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 92,
+   "tel": "054-830-6254",
+   "lat": 36.38504469,
+   "lng": 128.4390073,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-019",
+   "mgmt_no": "362-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "안계시장 주차장",
+   "gu": "의성군",
+   "dong": "안계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 안계면 용기리 477",
+   "addr_road": "",
+   "road": null,
+   "spaces": 95,
+   "tel": "054-830-6254",
+   "lat": 36.3846239,
+   "lng": 128.4394245,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-020",
+   "mgmt_no": "362-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "안계시장길 공영주차장",
+   "gu": "의성군",
+   "dong": "안계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 안계면 용기리 850-76",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "054-830-6254",
+   "lat": 36.38628492,
+   "lng": 128.4357201,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-021",
+   "mgmt_no": "362-2-000061",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "안계용기5리공영주차장",
+   "gu": "의성군",
+   "dong": "안계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 안계면 용기리 888-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "054-830-6254",
+   "lat": 36.3867503701,
+   "lng": 128.4366173998,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-022",
+   "mgmt_no": "362-2-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "안계용기6길 공영주차장",
+   "gu": "의성군",
+   "dong": "안계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 안계면 용기리 858-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "054-830-6254",
+   "lat": 36.3860099,
+   "lng": 128.4336707,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-023",
+   "mgmt_no": "362-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "안계토매리 공영주차장",
+   "gu": "의성군",
+   "dong": "안계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 안계면 토매리 200-21",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "054-830-6254",
+   "lat": 36.3783268,
+   "lng": 128.4439081,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-024",
+   "mgmt_no": "362-2-000059",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오거리 마을주차장",
+   "gu": "의성군",
+   "dong": "안계면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 안계면 용기리 850-40",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "054-830-6254",
+   "lat": 36.38661107,
+   "lng": 128.4350349,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-025",
+   "mgmt_no": "362-2-000058",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "안평기도2리공영주차장",
+   "gu": "의성군",
+   "dong": "안평면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 안평면 기도리 117",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "054-830-6254",
+   "lat": 36.38141446,
+   "lng": 128.5754588,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-026",
+   "mgmt_no": "362-2-000051",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "옥산입암리공영주차장",
+   "gu": "의성군",
+   "dong": "옥산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 옥산면 입암리 1105-42",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "054-830-6254",
+   "lat": 36.40068209,
+   "lng": 128.8032646,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-027",
+   "mgmt_no": "362-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구봉길 공영주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 도서리 124-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 45,
+   "tel": "054-830-6254",
+   "lat": 36.3449019,
+   "lng": 128.6975337,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-028",
+   "mgmt_no": "362-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대동길공영주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 상리리 695-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "054-830-6254",
+   "lat": 36.3507847,
+   "lng": 128.703578,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-029",
+   "mgmt_no": "362-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도동도서길 공영주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 도동리 946-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "054-830-6254",
+   "lat": 36.34645709,
+   "lng": 128.6982711,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-030",
+   "mgmt_no": "362-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동련사앞 공영주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 도동리 806-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "054-830-6254",
+   "lat": 36.34993228,
+   "lng": 128.7047743,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-031",
+   "mgmt_no": "362-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동산2길 공영주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 도동리 780-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 5,
+   "tel": "054-830-6254",
+   "lat": 36.34689196,
+   "lng": 128.7035088,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-032",
+   "mgmt_no": "362-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동서1길 주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 상리리 711",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "054-830-6254",
+   "lat": 36.34981262,
+   "lng": 128.7015499,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-033",
+   "mgmt_no": "362-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동서2길 1주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 후죽리 720",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "054-830-6254",
+   "lat": 36.3508883,
+   "lng": 128.6960697,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": "승용차 5부제를 시행하는 구간입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 180,
+    "base_fee": 1000,
+    "unit_min": 60,
+    "unit_fee": 1000,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": 5000,
+    "cap_src": "별표 1 — 1일 최대 주차요금",
+    "monthly": 30000,
+    "monthly_all": null,
+    "monthly_label": "월정기권",
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 120,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 2,
+     "base_fee": 0,
+     "unit_min": 1,
+     "unit_fee": 1000,
+     "day": null,
+     "monthly": 30000
+    },
+    "basis": "등록 시간요금(기본 2시간 0원·추가 1시간 1,000원·월 30,000원)이 조례 별표 1의 일반 차량 요금(최초 2시간 무료·매 1시간 1,000원·1일 최대 5,000원·월 30,000원)과 일치해 조례 기준으로 계산한다. 계산기는 최초 120분 무료, 이후 60분마다 1,000원, 1일 최대 5,000원, 월정기권 30,000원을 쓴다. 1일권은 등록이 공란이라 별표 1일 최대 5,000원을 상한으로 적용한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-034",
+   "mgmt_no": "362-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동서2길 2주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 후죽리 602-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 43,
+   "tel": "054-830-6254",
+   "lat": 36.3508439,
+   "lng": 128.6979087,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": "승용차 5부제를 시행하는 구간입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 180,
+    "base_fee": 1000,
+    "unit_min": 60,
+    "unit_fee": 1000,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": 5000,
+    "cap_src": "별표 1 — 1일 최대 주차요금",
+    "monthly": 30000,
+    "monthly_all": null,
+    "monthly_label": "월정기권",
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 120,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 2,
+     "base_fee": 0,
+     "unit_min": 1,
+     "unit_fee": 1000,
+     "day": null,
+     "monthly": 30000
+    },
+    "basis": "등록 시간요금(기본 2시간 0원·추가 1시간 1,000원·월 30,000원)이 조례 별표 1의 일반 차량 요금(최초 2시간 무료·매 1시간 1,000원·1일 최대 5,000원·월 30,000원)과 일치해 조례 기준으로 계산한다. 계산기는 최초 120분 무료, 이후 60분마다 1,000원, 1일 최대 5,000원, 월정기권 30,000원을 쓴다. 1일권은 등록이 공란이라 별표 1일 최대 5,000원을 상한으로 적용한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-035",
+   "mgmt_no": "362-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "마늘직거래장터주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 도서리 124-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 98,
+   "tel": "054-830-6254",
+   "lat": 36.344631,
+   "lng": 128.6973985,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-036",
+   "mgmt_no": "362-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문소1길 주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 중리리 825-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "054-830-6254",
+   "lat": 36.3512034,
+   "lng": 128.6992469,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-037",
+   "mgmt_no": "362-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문소2길 주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 도동리 951",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "054-830-6254",
+   "lat": 36.34783126,
+   "lng": 128.6987737,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-038",
+   "mgmt_no": "362-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "북원4길 공영주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 후죽리 858-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "054-830-6254",
+   "lat": 36.3565812,
+   "lng": 128.6926215,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-039",
+   "mgmt_no": "362-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상리공영주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 상리리 742-29",
+   "addr_road": "",
+   "road": null,
+   "spaces": 52,
+   "tel": "054-830-6254",
+   "lat": 36.3503516,
+   "lng": 128.7043372,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-040",
+   "mgmt_no": "362-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상리길 1공영주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 상리리 682-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 31,
+   "tel": "054-830-6254",
+   "lat": 36.3509563,
+   "lng": 128.7023755,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-041",
+   "mgmt_no": "362-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상리길 2공영주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 상리리 676",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "054-830-6254",
+   "lat": 36.3511714,
+   "lng": 128.702892,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-042",
+   "mgmt_no": "362-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "아사천공영주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 후죽리 624-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 129,
+   "tel": "054-830-6254",
+   "lat": 36.34949426,
+   "lng": 128.697223,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-043",
+   "mgmt_no": "362-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "염매시장 1공영주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 후죽리690-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "054-830-6254",
+   "lat": 36.350359,
+   "lng": 128.6954187,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": "승용차 5부제를 시행하는 구간입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 180,
+    "base_fee": 1000,
+    "unit_min": 60,
+    "unit_fee": 1000,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": 5000,
+    "cap_src": "별표 1 — 1일 최대 주차요금",
+    "monthly": 30000,
+    "monthly_all": null,
+    "monthly_label": "월정기권",
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 120,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 2,
+     "base_fee": 0,
+     "unit_min": 1,
+     "unit_fee": 1000,
+     "day": null,
+     "monthly": 30000
+    },
+    "basis": "등록 시간요금(기본 2시간 0원·추가 1시간 1,000원·월 30,000원)이 조례 별표 1의 일반 차량 요금(최초 2시간 무료·매 1시간 1,000원·1일 최대 5,000원·월 30,000원)과 일치해 조례 기준으로 계산한다. 계산기는 최초 120분 무료, 이후 60분마다 1,000원, 1일 최대 5,000원, 월정기권 30,000원을 쓴다. 1일권은 등록이 공란이라 별표 1일 최대 5,000원을 상한으로 적용한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-044",
+   "mgmt_no": "362-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "염매시장 2공영주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 후죽리670-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "054-830-6254",
+   "lat": 36.35013854,
+   "lng": 128.6948478,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": "승용차 5부제를 시행하는 구간입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 180,
+    "base_fee": 1000,
+    "unit_min": 60,
+    "unit_fee": 1000,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": 5000,
+    "cap_src": "별표 1 — 1일 최대 주차요금",
+    "monthly": 30000,
+    "monthly_all": null,
+    "monthly_label": "월정기권",
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 120,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 2,
+     "base_fee": 0,
+     "unit_min": 1,
+     "unit_fee": 1000,
+     "day": null,
+     "monthly": 30000
+    },
+    "basis": "등록 시간요금(기본 2시간 0원·추가 1시간 1,000원·월 30,000원)이 조례 별표 1의 일반 차량 요금(최초 2시간 무료·매 1시간 1,000원·1일 최대 5,000원·월 30,000원)과 일치해 조례 기준으로 계산한다. 계산기는 최초 120분 무료, 이후 60분마다 1,000원, 1일 최대 5,000원, 월정기권 30,000원을 쓴다. 1일권은 등록이 공란이라 별표 1일 최대 5,000원을 상한으로 적용한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-045",
+   "mgmt_no": "362-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "온누리터 주거지주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 후죽리 461-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 187,
+   "tel": "054-830-6254",
+   "lat": 36.355509,
+   "lng": 128.6954609,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": "승용차 5부제를 시행하는 구간입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 180,
+    "base_fee": 1000,
+    "unit_min": 60,
+    "unit_fee": 1000,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": 5000,
+    "cap_src": "별표 1 — 1일 최대 주차요금",
+    "monthly": 30000,
+    "monthly_all": null,
+    "monthly_label": "월정기권",
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 120,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 2,
+     "base_fee": 0,
+     "unit_min": 1,
+     "unit_fee": 1000,
+     "day": null,
+     "monthly": 30000
+    },
+    "basis": "등록 시간요금(기본 2시간 0원·추가 1시간 1,000원·월 30,000원)이 조례 별표 1의 일반 차량 요금(최초 2시간 무료·매 1시간 1,000원·1일 최대 5,000원·월 30,000원)과 일치해 조례 기준으로 계산한다. 계산기는 최초 120분 무료, 이후 60분마다 1,000원, 1일 최대 5,000원, 월정기권 30,000원을 쓴다. 1일권은 등록이 공란이라 별표 1일 최대 5,000원을 상한으로 적용한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-046",
+   "mgmt_no": "362-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "의성북부길 공영주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 후죽리 372-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 49,
+   "tel": "054-830-6254",
+   "lat": 36.36001151,
+   "lng": 128.6926656,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-047",
+   "mgmt_no": "362-2-000062",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "의성상리1리공영주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 상리리 552-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "054-830-6254",
+   "lat": 36.3507062695,
+   "lng": 128.7097958674,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-048",
+   "mgmt_no": "362-2-000052",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "의성상리리공영주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 상리리 704-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "054-830-6254",
+   "lat": 36.35132207,
+   "lng": 128.705118,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-049",
+   "mgmt_no": "362-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "의성중리리키움센터공영주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 중리리 777",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "054-830-6254",
+   "lat": 36.35046504,
+   "lng": 128.7016585,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-050",
+   "mgmt_no": "362-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "의성후죽1길 공영주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 후죽리 484-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "054-830-6254",
+   "lat": 36.3541317,
+   "lng": 128.6953924,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-051",
+   "mgmt_no": "362-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "의성후죽3리 공영주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 후죽리 457-39",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "054-830-6254",
+   "lat": 36.3569557,
+   "lng": 128.6960046,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-052",
+   "mgmt_no": "362-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "전통시장 공영주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 도동리 665-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 53,
+   "tel": "054-830-6254",
+   "lat": 36.3447327,
+   "lng": 128.7001952,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-053",
+   "mgmt_no": "362-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙길주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 도동리 918-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "054-830-6254",
+   "lat": 36.3476659,
+   "lng": 128.6976453,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-054",
+   "mgmt_no": "362-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "향굣길 주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 도서리 178-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "054-830-6254",
+   "lat": 36.3479325,
+   "lng": 128.6971395,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-055",
+   "mgmt_no": "362-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "후죽2길 2공영주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 후죽리 499-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "054-830-6254",
+   "lat": 36.3548873,
+   "lng": 128.6971824,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-056",
+   "mgmt_no": "362-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "후죽2길 주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 의성읍 후죽리 500-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "054-830-6254",
+   "lat": 36.3546623,
+   "lng": 128.6977213,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-057",
+   "mgmt_no": "362-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "점곡서변공영주차장",
+   "gu": "의성군",
+   "dong": "점곡면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 의성군 점곡면 서변리 119",
+   "addr_road": "",
+   "road": null,
+   "spaces": 109,
+   "tel": "054-830-6254",
+   "lat": 36.42471544,
+   "lng": 128.7684003,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-s001",
+   "mgmt_no": "362-1-000014",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "군청후문 노상주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 의성군 의성읍 후죽리 509-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "054-830-6254",
+   "lat": 36.35296608,
+   "lng": 128.6975002,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-s002",
+   "mgmt_no": "362-1-000027",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "문소1길 노상주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 의성군 의성읍 중리리708-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 51,
+   "tel": "054-830-6254",
+   "lat": 36.35285646,
+   "lng": 128.6991944,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-s003",
+   "mgmt_no": "362-1-000024",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙길 노상주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 의성군 의성읍 도동리 921-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 43,
+   "tel": "054-830-6254",
+   "lat": 36.347408,
+   "lng": 128.6975847,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-s004",
+   "mgmt_no": "362-1-000028",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "청구2단지 노상주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 의성군 의성읍 중리리 937",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "054-830-6254",
+   "lat": 36.35307486,
+   "lng": 128.7023539,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  },
+  {
+   "id": "gb-uisung-s005",
+   "mgmt_no": "362-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "후죽4길 노상주차장",
+   "gu": "의성군",
+   "dong": "의성읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 의성군 의성읍 후죽리 490-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "054-830-6254",
+   "lat": 36.3543995,
+   "lng": 128.696195,
+   "base_date": "2026-10-06",
+   "manager": "경상북도 의성군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "의성군",
+   "city_slug": "uisung",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-21 15:52",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 62,
+  "원자료_의성군행수": 62,
+  "원자료_받은행수": 62,
+  "구별": {
+   "의성군": 62
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 57,
+  "노외_부설": {
+   "노외": 57
+  },
+  "노상_구간": 5,
+  "총_구획수": 1966,
+  "노상_구획수": 148,
+  "동별": {
+   "의성읍": 35,
+   "안계면": 7,
+   "금성면": 6,
+   "다인면": 4,
+   "단밀면": 2,
+   "봉양면": 2,
+   "가음면": 1,
+   "단북면": 1,
+   "신평면": 1,
+   "안평면": 1,
+   "옥산면": 1,
+   "점곡면": 1
+  },
+  "동수": 12,
+  "동_미상": [],
+  "동_보정": [
+   "이름이 겹치는 주차장 금성탑리공영주차장 — 전부 다른 자리라 지번 번지로 구분했다"
+  ],
+  "동_근거": {
+   "지번주소": 62
+  },
+  "요금구분": {
+   "무료": 57,
+   "유료": 5
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 5,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "표준데이터 등록 62행 전부 공영(노외 57·노상 5, 총 2,114면)을 읽었다. 데이터기준일자는 2026-10-06 62행, 제공기관명은 경상북도 의성군 62행, 관리기관명은 경상북도 의성군청 62곳이다",
+   "등록 급지구분은 62곳 전부 1급지이다. 조례 별표 1에는 급지 구분이 없어 요금 계산에는 쓰지 않았다",
+   "좌표는 62행 전부 등록돼 있다. 지오코딩 보완 대상이 없어 오버레이 추가도 0건이다",
+   "운영요일은 62곳 전부 평일+토요일+공휴일이고 운영시간은 62곳 전부 00:00~23:59이다. 부제시행구분은 미시행 57곳·5부제 5곳(유료 5곳)이다. 도로명주소는 62곳 전부 등록돼 있지 않다. 특기사항은 62행 전부 비어 있다",
+   "62곳 중 무료 57곳·유료 5곳이다. 유료 5곳은 등록 시간요금이 조례 별표 1 일반 차량 요금과 일치해 조례 기준으로 계산한다. 주말·공휴일 전체 무료 규정은 조례에 없어 표기하지 않았다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "가음면가산공영주차장",
+   "금성 공영주차장",
+   "금성시장 주차장",
+   "금성온누리터공영주차장",
+   "금성탑리공영주차장 (1324-1)",
+   "금성탑리공영주차장 (652-1)",
+   "금성탑리길 공영주차장",
+   "다인서릉리공영주차장",
+   "다인서릉리공영주차장2",
+   "다인서릉삼거리공영주차장",
+   "다인용곡1리공영주차장",
+   "단밀속암리공영주차장",
+   "단밀주선리공영주차장",
+   "단북이연1리공영주차장",
+   "봉양 공영주차장",
+   "봉양도리원터미널공영주차장",
+   "신평청운2리공영주차장",
+   "안계 공영주차장",
+   "안계시장 주차장",
+   "안계시장길 공영주차장",
+   "안계용기5리공영주차장",
+   "안계용기6길 공영주차장",
+   "안계토매리 공영주차장",
+   "오거리 마을주차장",
+   "안평기도2리공영주차장",
+   "옥산입암리공영주차장",
+   "구봉길 공영주차장",
+   "대동길공영주차장",
+   "도동도서길 공영주차장",
+   "동련사앞 공영주차장",
+   "동산2길 공영주차장",
+   "동서1길 주차장",
+   "동서2길 1주차장",
+   "동서2길 2주차장",
+   "마늘직거래장터주차장",
+   "문소1길 주차장",
+   "문소2길 주차장",
+   "북원4길 공영주차장",
+   "상리공영주차장",
+   "상리길 1공영주차장",
+   "상리길 2공영주차장",
+   "아사천공영주차장",
+   "염매시장 1공영주차장",
+   "염매시장 2공영주차장",
+   "온누리터 주거지주차장",
+   "의성북부길 공영주차장",
+   "의성상리1리공영주차장",
+   "의성상리리공영주차장",
+   "의성중리리키움센터공영주차장",
+   "의성후죽1길 공영주차장",
+   "의성후죽3리 공영주차장",
+   "전통시장 공영주차장",
+   "중앙길주차장",
+   "향굣길 주차장",
+   "후죽2길 2공영주차장",
+   "후죽2길 주차장",
+   "점곡서변공영주차장",
+   "군청후문 노상주차장",
+   "문소1길 노상주차장",
+   "중앙길 노상주차장",
+   "청구2단지 노상주차장",
+   "후죽4길 노상주차장"
+  ],
+  "감면_출처": "「의성군 주차장 조례」 제3012호 제3조제3항·별표 2 — 긴급자동차·공무수행 차량·성실납세자 차량은 전액 면제, 경형자동차·환경친화적 자동차·등록장애인·국가유공상이자·참전유공자·5·18민주유공자·보훈보상대상자·독립유공자 및 유족·특수임무유공자 및 유족·의사상자·등록포로·저공해 자동차·투표확인증 제시자·고엽제후유증환자·관내 2자녀 이상 다자녀가정 부모·군수 인정 차량은 50% 경감한다(관련 증명서 제시)",
+  "요금_출처": "조례 제3조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같다. 별표 1은 일반 차량 최초 2시간 무료·이후 매 1시간 1,000원·1일 최대 5,000원·월정기권 30,000원, 감면 50% 대상은 500원·2,500원·15,000원, 긴급자동차·공무수행 차량·성실납세자 차량은 무료다. 별표 원본 HWP(flSeq 163568613)를 받아 추출해 대조했다",
+  "급지_출처": "조례 별표 1에는 급지 구분이 없다. 표준데이터 등록 급지구분은 62곳 전부 1급지이나 조례에 급지가 없어 요금 계산에는 쓰지 않았다",
+  "무료요일_출처": "조례 본문·별표 1 어디에도 군 전체 주말·공휴일 자동 무료 조항이 없다(인스팅트 앞단 패키지 확인, 2026-11-21 법제처 본문·별표 원문 재대조). 요금 구분이 '무료'인 곳은 요일과 관계없이 무료다. 제23조의 운영시간 외 무료 개방은 공공기관 부설주차장에만 적용되고 표준 62행에 부설이 없어 이 사이트에는 적용되지 않는다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 의성군 등록 62행 전부 공영(노외 57·노상 5, 총 2,114면)으로 무료 57·유료 5, 민영 0, 기준일 2026-10-06이다. 중복 판정(전체 이름·지번·좌표 200m 가드)에 걸리는 쌍은 없고, 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다. 인스팅트 앞단 패키지(경북 11/22, 2026-11-20)의 집계(공영 62행·2,114면, 노외 57·노상 5, 무료 57·유료 5, 기준일 2026-10-06)와 표준데이터 원본 대조 결과가 일치한다. 다만 패키지의 유료 5곳 이름 중 2건은 표준데이터 원본과 달라 정정했다 — '옥매시장'은 '염매시장', '온누리터미널주차지'는 '온누리터 주거지주차장'이 등록명이다",
+   "「의성군 주차장 조례」 제3012호(시행 2026-04-17, ordinSeq 2124115) 본문 원문(data/raw/uisung-ordinance.txt) 대조 완료(2026-11-21) — 본문 제3조제1항이 공영주차장 요금을 별표 1과 같다고 정하고, 제3조제2항은 군수가 유료 운영 공영주차장 요금을 무료로 하거나 별표 1 기준 이하로 정할 수 있다고 정한다. 별표 1은 ELIS 첨부 HWP 원본(flSeq 163568613)을 data/raw/uisung-ordinance-b1.hwp로 저장하고 추출해 확정했다 — 일반 차량 최초 2시간 무료·이후 매 1시간 1,000원·1일 최대 5,000원·월정기권 30,000원, 감면 50% 대상 500원·2,500원·15,000원, 긴급자동차·공무수행 차량·성실납세자 차량 무료, 공공기관 부설주차장 한정 민원인 차량 행이 들어 있다. 별표 2(flSeq 163568615, uisung-ordinance-b2.hwp)는 면제·50% 경감 기준이다",
+   "유료 5곳(염매시장 1·2공영주차장, 동서2길 1·2주차장, 온누리터 주거지주차장)은 등록 시간요금(기본 2·추가 1·월 30,000원)이 별표 1 일반 차량 요금과 일치한다. 기본·추가 필드의 2·1은 시간 단위(2시간·1시간)라 2분·1분으로 읽으면 안 된다 — 조례 기준으로 최초 120분 무료(free_min) + 60분마다 1,000원(base_min 180분) · 1일 최대 5,000원(cap_fee) · 월 30,000원으로 계산한다(안동·남해 free_min 선례). 1일권은 등록이 공란이라 별표 1일 최대 5,000원을 상한으로 적용한다",
+   "좌표 결측은 0곳이다. 지오코딩 보완 대상이 없어 오버레이 추가도 0건이다",
+   "주말·공휴일 전체 무료는 조례 본문·별표 1 어디에도 없어 표기하지 않았다. 제23조(공공기관 부설주차장 운영시간)의 운영시간 외 무료 개방은 부설주차장에만 적용되고 표준 62행에 부설이 없어 이 사이트에는 적용되지 않는다",
+   "이름이 겹치는 등록은 금성탑리공영주차장 2건(금성면 탑리리 652-1 51면·1324-1 40면)이다. 지번이 달라 별개 등록이라 둘 다 싣고 번지(652-1·1324-1)로 구분 표기했다. 같은 자리·같은 좌표에 이름만 다른 등록은 없다",
+   "동·읍·면 판정은 지번주소 기준이고 12개 읍·면(의성읍 35·안계면 7·금성면 6·다인면 4·봉양면 2·단밀면 2·안평면 1·신평면 1·단북면 1·옥산면 1·가음면 1·점곡면 1) 전부 판정됐다. 금성시장 주차장은 지번주소가 '금성면산운리 643-15'로 면·리 사이 공백이 없어 동 판정 정규식을 읍·면 목록 대조 방식으로 바꿔 금성면으로 판정했다. 도로명주소는 62곳 전부 등록돼 있지 않다. 특기사항은 62행 전부 비어 있다",
+   "관리기관명은 경상북도 의성군청 62곳이다. 전화번호는 054-830-6254가 62곳 전부 등록돼 있다",
+   "확인 과제 — ① 유료 5곳 시간 단위 정정·개별 운영 공고·시간 미만 단수 처리(올림 여부)를 의성군청에 확인할 것 ② 5부제 요일·끝번호 규칙을 확인할 것 ③ 부설 별도 원장 누락 여부(표준 62행에 부설 0곳)를 확인할 것 ④ 금성탑리공영주차장 2건이 별개 시설인지 확인할 것 ⑤ 무료 57곳 등록 최신성·향후 유료 공고가 있는지 확인할 것"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 57,
+  "무료_구획수": 1814,
+  "평균_기본요금": 1000,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-10-06"
+  ],
+  "관리기관": {
+   "경상북도 의성군청": 62
+  }
+ },
+ "fee_table": {
+  "style": "uisung_grade",
+  "unit_min": 60,
+  "base_min": 180,
+  "applies": "「의성군 주차장 조례」 제3012호(시행 2026-04-17) 제3조제1항·별표 1 — 국가법령정보센터 ordinSeq 2124115에서 확인",
+  "source_url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2124115&gubun=ELIS",
+  "grade_system": "조례 별표 1에는 급지 구분이 없다 — 공영주차장 및 공공기관 부설주차장에 같은 요금표를 적용한다. 표준데이터 등록 급지구분은 62곳 전부 1급지이나 조례에 급지가 없어 요금 계산에는 쓰지 않았다. 감면 50% 대상은 별표 2 제2호(경형·환경친화·장애인·국가유공자 등)이고, 무료 대상은 별표 2 제1호(긴급자동차·공무수행 차량·성실납세자 차량)이다",
+  "rows": [
+   {
+    "label": "일반 차량 (조례 별표 1)",
+    "grade": "general",
+    "unit_label": "최초 2시간 무료 · 이후 매 1시간마다 1,000원",
+    "hour": 0,
+    "two_hour": 0,
+    "day": 5000,
+    "month_all": null,
+    "month": 30000,
+    "month_night": null,
+    "lots": 5
+   },
+   {
+    "label": "감면 50% 대상 차량 (조례 별표 1·2)",
+    "grade": "discount",
+    "unit_label": "최초 2시간 무료 · 이후 매 1시간마다 500원",
+    "hour": 0,
+    "two_hour": 0,
+    "day": 2500,
+    "month_all": null,
+    "month": 15000,
+    "month_night": null,
+    "lots": null
+   },
+   {
+    "label": "긴급자동차·공무수행 차량·성실납세자 차량 (조례 별표 1·2)",
+    "grade": "free",
+    "unit_label": "무료",
+    "hour": 0,
+    "two_hour": 0,
+    "day": null,
+    "month_all": null,
+    "month": null,
+    "month_night": null,
+    "lots": null
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 5,
+   "street_paid": 0,
+   "free": 57,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "공공기관 부설주차장에 한정 — 민원인 차량 (별표 1)",
+    "hours": "최초 2시간 무료 · 이후 매 1시간마다 1,000원 · 1일 최대 5,000원",
+    "free": "표준데이터 62행에 부설주차장이 없어 이 사이트의 공영주차장에는 적용되지 않는다. 월정기권은 별표 1 민원인 행에 없다"
+   },
+   {
+    "group": "공공기관 부설주차장 운영시간·무료 개방 (조례 제23조)",
+    "hours": "휴무일 제외 평일 09:00~18:00 운영 · 운영시간 외 무료 개방",
+    "free": "부설주차장에만 적용되고 노외·노상 공영주차장에는 적용되지 않는다. 청사 보안상 문제 등으로 개방할 수 없을 때는 예외다"
+   },
+   {
+    "group": "부설주차장 한정 면제 (별표 2 제3호)",
+    "hours": "공공기관 고유 이용목적 방문자(민원인·프로그램 참가자 등)가 민원처리 지연 등으로 최초 무료시간을 초과한 경우 담당자 확인 시 면제",
+    "free": "부설주차장에만 적용된다"
+   }
+  ],
+  "discounts": [
+   {
+    "label": "긴급자동차·공무수행 차량·성실납세자 차량 전액 면제",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 별표 2 제1호 — 「도로교통법」 제2조제22호에 따른 긴급자동차, 국가 또는 지방자치단체 소속의 공무수행 차량, 국세·지방세 성실납세자(스티커 부착, 1년간 면제)는 주차요금을 면제한다(관련 증명서 제시)"
+   },
+   {
+    "label": "경형·환경친화·장애인·국가유공자 등 50% 경감",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 별표 2 제2호 — 경형자동차·환경친화적 자동차·등록장애인·국가유공상이자·참전유공자·5·18민주유공자·보훈보상대상자·독립유공자 및 유족·특수임무유공자 및 유족·의사상자·등록포로·저공해 자동차·투표확인증 제시자·고엽제후유증환자·관내 2자녀 이상 다자녀가정 부모·군수 인정 차량은 50% 경감한다(관련 증명서 제시). 별표 1 감면 행은 매 1시간 500원·1일 최대 2,500원·월정기권 15,000원이다"
+   }
+  ],
+  "notes": "감면(조례 제3조제3항·별표 2)은 긴급자동차·공무수행 차량·성실납세자 차량 전액 면제, 경형자동차·환경친화적 자동차·등록장애인·국가유공상이자·참전유공자·5·18민주유공자·보훈보상대상자·독립유공자 및 유족·특수임무유공자 및 유족·의사상자·등록포로·저공해 자동차·투표확인증 제시자·고엽제후유증환자·관내 2자녀 이상 다자녀가정 부모·군수 인정 차량 50% 경감이다(관련 증명서 제시). 유료 5곳은 부제시행구분이 '5부제'로 등록돼 있어 승용차 5부제를 시행하는 구간이라는 안내를 각 카드에 달았다 — 5부제 요일·끝번호 규칙은 표준데이터에 없어 군청 확인이 필요하다.",
+  "basis": "요금표는 「의성군 주차장 조례」 제3012호(시행 2026-04-17) 제3조제1항·별표 1과 표준데이터(기준일 2026-10-06)를 대조해 실었다. 유료 5곳은 등록 시간요금(기본 2시간 0원·추가 1시간 1,000원·월 30,000원)이 별표 1 일반 차량 요금과 일치해 조례 기준으로 계산한다. (조례 본문: data/raw/uisung-ordinance.txt, 별표 1·2 원문 HWP: data/raw/uisung-ordinance-b1.hwp·uisung-ordinance-b2.hwp)"
+ },
+ "slug": "uisung",
+ "province": "경상북도",
+ "province_slug": "gyeongbuk",
+ "dong_page_min_lots": 3,
+ "city": "의성군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·공무수행 차량·성실납세자 차량 전액 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 별표 2 제1호 — 「도로교통법」 제2조제22호에 따른 긴급자동차, 국가 또는 지방자치단체 소속의 공무수행 차량, 국세·지방세 성실납세자(스티커 부착, 1년간 면제)는 주차요금을 면제한다(관련 증명서 제시)"
+  },
+  {
+   "label": "경형·환경친화·장애인·국가유공자 등 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 2 제2호 — 경형자동차·환경친화적 자동차·등록장애인·국가유공상이자·참전유공자·5·18민주유공자·보훈보상대상자·독립유공자 및 유족·특수임무유공자 및 유족·의사상자·등록포로·저공해 자동차·투표확인증 제시자·고엽제후유증환자·관내 2자녀 이상 다자녀가정 부모·군수 인정 차량은 50% 경감한다(관련 증명서 제시). 별표 1 감면 행은 매 1시간 500원·1일 최대 2,500원·월정기권 15,000원이다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
