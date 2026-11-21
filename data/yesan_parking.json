@@ -1,8 +1,8 @@
 {
  "meta": {
-  "generated_at": "2026-11-21 09:01",
-  "generated_at_iso": "2026-11-21T09:01:22+09:00",
-  "snapshot_at": "2026-11-21 09:01",
+  "generated_at": "2026-11-21 11:40",
+  "generated_at_iso": "2026-11-21T11:40:21+09:00",
+  "snapshot_at": "2026-11-21 11:40",
   "region": {
    "province": "충청남도",
    "city": "예산군"
@@ -19,7 +19,7 @@
     "base_date": "2026-10-12",
     "rows_total": 18994,
     "rows_city": 89,
-    "fetched_at": "2026-11-21 09:01 (KST)",
+    "fetched_at": "2026-11-21 11:40 (KST)",
     "note": "예산군으로 등록된 행 89행(노외·부설 79·노상 10)을 읽어 노외·부설 79곳과 노상 10구간을 실었다. 예산군 등록 행은 전부 공영·무료라 민영 제외와 요금 충돌이 없다. 좌표는 전량 결측이라 없음으로 실었다. 조례 대조 완료 — 「예산군 주차장 설치 조례」 제3054호(시행 2025-04-30, ordinSeq 2032883) 제7조·제9조·제10조·별표5·별표6 원문 대조 완료(2026-11-20)."
    },
    {
@@ -32,7 +32,7 @@
     "license": "자치법규(공개)",
     "base_date": "2025-04-30",
     "rows_total": null,
-    "fetched_at": "2026-11-21 09:01 (KST)",
+    "fetched_at": "2026-11-21 11:40 (KST)",
     "note": "예산군이 설치·관리하는 공영주차장에 적용하는 조례다. 예산군 공영주차장 89곳(노외 79·노상 10, 총 3,375면)은 표준데이터에 전부 무료로 등록돼 있다. 「예산군 주차장 설치 조례」 제3054호(시행 2025-04-30, ordinSeq 2032883) 제10조는 공영주차장을 유료 또는 무료로 운영할 수 있게 하므로 전량 무료 등록과 모순되지 않는다. 다만 조례 제7조·별표5에는 급지·차종별 요금표(1급지 소형 30분 500원·초과 10분당 200원·1일 6,000원·월정기 주간 75,000원/야간 54,000원 등)가 있어 요금표 페이지에 참고로 적었다 — 유료 시설이 실제로 없는지는 군청 확인이 필요하고, 확인 전에는 어느 곳도 유료로 바꾸지 않는다. 등록 급지 표기('1' 40곳·'기타' 49곳)는 별표5의 급지(군수가 따로 지정) 근거가 아니다. 좌표는 89곳 전부, 도로명주소는 85행이 비어 있어 지도는 주소·이름 검색으로 연결한다(좌표 지오코딩 보완은 별도 과제). 감면은 조례 제9조·별표6을 따른다(긴급자동차·공무수행 전액, 경형·국가유공자·장애인·환경친화적·저공해·성실납세자는 1일 최초 2시간 전액 + 초과분 50%). 별표5 비고3-나는 노상주차장 공휴일 무료를 정하나 전량 무료 등록이라 별도로 적용할 곳이 없다. 전 행에 부제시행구분 '5부제'가 등록돼 있으나 조례에 요일제 감면 규정은 없어 값만 기록으로 남겼다. (조례 본문: data/raw/yesan-ordinance.txt, 별표5 원문 HWP: data/raw/yesan-ordinance-b5.hwp, 별표6 원문 HWP: data/raw/yesan-ordinance-b6.hwp)"
    }
   ]
@@ -60,12 +60,12 @@
    "road": null,
    "spaces": 67,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.745267,
+   "lng": 126.704771,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -156,7 +156,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-002",
@@ -174,12 +175,12 @@
    "road": null,
    "spaces": 9,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.74481,
+   "lng": 126.703604,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -270,7 +271,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-003",
@@ -288,12 +290,12 @@
    "road": null,
    "spaces": 35,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.745045,
+   "lng": 126.703143,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -384,7 +386,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-004",
@@ -402,12 +405,12 @@
    "road": null,
    "spaces": 55,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.548874,
+   "lng": 126.776226,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -498,7 +501,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-005",
@@ -516,12 +520,12 @@
    "road": null,
    "spaces": 95,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.550041,
+   "lng": 126.774123,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -612,7 +616,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-006",
@@ -630,12 +635,12 @@
    "road": null,
    "spaces": 15,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.637497,
+   "lng": 126.612399,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -726,7 +731,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-007",
@@ -744,12 +750,12 @@
    "road": null,
    "spaces": 26,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.706201,
+   "lng": 126.649141,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -840,7 +846,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-008",
@@ -858,12 +865,12 @@
    "road": null,
    "spaces": 32,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.705912,
+   "lng": 126.668276,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -954,7 +961,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-009",
@@ -972,12 +980,12 @@
    "road": null,
    "spaces": 46,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.703639,
+   "lng": 126.66763,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -1068,7 +1076,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-010",
@@ -1086,12 +1095,12 @@
    "road": null,
    "spaces": 4,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.7056,
+   "lng": 126.671521,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -1182,7 +1191,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-011",
@@ -1200,12 +1210,12 @@
    "road": null,
    "spaces": 33,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.706369,
+   "lng": 126.671374,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -1296,7 +1306,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-012",
@@ -1314,12 +1325,12 @@
    "road": null,
    "spaces": 20,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.660948,
+   "lng": 126.684203,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -1410,7 +1421,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-013",
@@ -1428,12 +1440,12 @@
    "road": null,
    "spaces": 12,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.660441,
+   "lng": 126.684133,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -1524,7 +1536,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-014",
@@ -1542,12 +1555,12 @@
    "road": null,
    "spaces": 10,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.663261,
+   "lng": 126.681343,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -1638,7 +1651,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-015",
@@ -1656,12 +1670,12 @@
    "road": null,
    "spaces": 12,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.6635,
+   "lng": 126.682676,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -1752,7 +1766,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-016",
@@ -1770,12 +1785,12 @@
    "road": null,
    "spaces": 32,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.670513,
+   "lng": 126.686286,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -1866,7 +1881,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-017",
@@ -1884,12 +1900,12 @@
    "road": null,
    "spaces": 24,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.671426,
+   "lng": 126.674335,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -1980,7 +1996,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-018",
@@ -1998,12 +2015,12 @@
    "road": null,
    "spaces": 43,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.663316,
+   "lng": 126.683304,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -2094,7 +2111,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-019",
@@ -2112,12 +2130,12 @@
    "road": null,
    "spaces": 12,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.660704,
+   "lng": 126.685444,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(목리 1232)로 구분했습니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(목리 1232)로 구분했습니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -2208,7 +2226,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-020",
@@ -2226,12 +2245,12 @@
    "road": null,
    "spaces": 46,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.6692,
+   "lng": 126.687772,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(목리 1809)로 구분했습니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(목리 1809)로 구분했습니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -2322,7 +2341,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-021",
@@ -2340,12 +2360,12 @@
    "road": null,
    "spaces": 54,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.66842,
+   "lng": 126.688876,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -2436,7 +2456,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-022",
@@ -2454,12 +2475,12 @@
    "road": null,
    "spaces": 18,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.66395,
+   "lng": 126.682747,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -2550,7 +2571,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-023",
@@ -2568,12 +2590,12 @@
    "road": null,
    "spaces": 12,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.663577,
+   "lng": 126.684243,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -2664,7 +2686,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-024",
@@ -2682,12 +2705,12 @@
    "road": null,
    "spaces": 11,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.663262,
+   "lng": 126.684578,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -2778,7 +2801,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-025",
@@ -2796,12 +2820,12 @@
    "road": null,
    "spaces": 23,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.682974,
+   "lng": 126.742086,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -2892,7 +2916,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-026",
@@ -2910,12 +2935,12 @@
    "road": null,
    "spaces": 45,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.688155,
+   "lng": 126.73868,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -3006,7 +3031,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-027",
@@ -3024,12 +3050,12 @@
    "road": null,
    "spaces": 35,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.680263,
+   "lng": 126.849955,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -3120,7 +3146,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-028",
@@ -3138,12 +3165,12 @@
    "road": null,
    "spaces": 10,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.735111,
+   "lng": 126.858788,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -3234,7 +3261,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(도로명)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-029",
@@ -3252,12 +3280,12 @@
    "road": null,
    "spaces": 40,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.681815,
+   "lng": 126.848033,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -3348,7 +3376,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-030",
@@ -3366,12 +3395,12 @@
    "road": null,
    "spaces": 50,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.679274,
+   "lng": 126.844411,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -3462,7 +3491,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-031",
@@ -3480,12 +3510,12 @@
    "road": null,
    "spaces": 36,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.687175,
+   "lng": 126.842281,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -3576,7 +3606,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(도로명)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-032",
@@ -3594,12 +3625,12 @@
    "road": null,
    "spaces": 9,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.673824,
+   "lng": 126.855407,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -3690,7 +3721,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-033",
@@ -3708,12 +3740,12 @@
    "road": null,
    "spaces": 81,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.681032,
+   "lng": 126.832295,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -3804,7 +3836,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-034",
@@ -3822,12 +3855,12 @@
    "road": null,
    "spaces": 21,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.691733,
+   "lng": 126.834378,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -3918,7 +3951,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-035",
@@ -3936,12 +3970,12 @@
    "road": null,
    "spaces": 27,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.69442,
+   "lng": 126.831759,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -4032,7 +4066,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-036",
@@ -4164,12 +4199,12 @@
    "road": null,
    "spaces": 63,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.709134,
+   "lng": 126.874055,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -4260,7 +4295,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-038",
@@ -4278,12 +4314,12 @@
    "road": null,
    "spaces": 7,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.713869,
+   "lng": 126.86864,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -4374,7 +4410,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-039",
@@ -4392,12 +4429,12 @@
    "road": null,
    "spaces": 8,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.727299,
+   "lng": 126.848797,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(신례원리 231-43번지 일원)로 구분했습니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(신례원리 231-43번지 일원)로 구분했습니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -4488,7 +4525,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-040",
@@ -4506,12 +4544,12 @@
    "road": null,
    "spaces": 7,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.726356,
+   "lng": 126.846939,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(신례원리 246-6)로 구분했습니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 같은 이름의 주차장·구간이 여럿 등록되어 있어 이름 뒤(신례원리 246-6)로 구분했습니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -4602,7 +4640,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-041",
@@ -4620,12 +4659,12 @@
    "road": null,
    "spaces": 55,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.727531,
+   "lng": 126.846331,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -4716,7 +4755,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-042",
@@ -4734,12 +4774,12 @@
    "road": null,
    "spaces": 29,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.726658,
+   "lng": 126.845191,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -4830,7 +4870,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-043",
@@ -4848,12 +4889,12 @@
    "road": null,
    "spaces": 97,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.723612,
+   "lng": 126.838996,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -4944,7 +4985,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-044",
@@ -4962,12 +5004,12 @@
    "road": null,
    "spaces": 46,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.726578,
+   "lng": 126.844144,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -5058,7 +5100,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(도로명)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-045",
@@ -5076,12 +5119,12 @@
    "road": null,
    "spaces": 7,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.730229,
+   "lng": 126.839801,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -5172,7 +5215,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-046",
@@ -5190,12 +5234,12 @@
    "road": null,
    "spaces": 63,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.686891,
+   "lng": 126.853159,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -5286,7 +5330,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-047",
@@ -5304,12 +5349,12 @@
    "road": null,
    "spaces": 43,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.678097,
+   "lng": 126.8491,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -5400,7 +5445,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-048",
@@ -5418,12 +5464,12 @@
    "road": null,
    "spaces": 16,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.677594,
+   "lng": 126.850661,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -5514,7 +5560,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-049",
@@ -5532,12 +5579,12 @@
    "road": null,
    "spaces": 4,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.677339,
+   "lng": 126.847272,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -5628,7 +5675,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-050",
@@ -5760,12 +5808,12 @@
    "road": null,
    "spaces": 14,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.685846,
+   "lng": 126.835805,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -5856,7 +5904,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-052",
@@ -5988,12 +6037,12 @@
    "road": null,
    "spaces": 15,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.678903,
+   "lng": 126.835327,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -6084,7 +6133,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-054",
@@ -6102,12 +6152,12 @@
    "road": null,
    "spaces": 18,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.681134,
+   "lng": 126.847064,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -6198,7 +6248,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-055",
@@ -6216,12 +6267,12 @@
    "road": null,
    "spaces": 13,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.677543,
+   "lng": 126.8416,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -6312,7 +6363,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-056",
@@ -6330,12 +6382,12 @@
    "road": null,
    "spaces": 25,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.678186,
+   "lng": 126.845879,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -6426,7 +6478,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-057",
@@ -6558,12 +6611,12 @@
    "road": null,
    "spaces": 25,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.672059,
+   "lng": 126.847295,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -6654,7 +6707,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-059",
@@ -6672,12 +6726,12 @@
    "road": null,
    "spaces": 10,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.681971,
+   "lng": 126.849645,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -6768,7 +6822,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-060",
@@ -6786,12 +6841,12 @@
    "road": null,
    "spaces": 15,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.680519,
+   "lng": 126.850493,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -6882,7 +6937,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-061",
@@ -6900,12 +6956,12 @@
    "road": null,
    "spaces": 120,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.685012,
+   "lng": 126.847977,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -6996,7 +7052,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(도로명)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-062",
@@ -7014,12 +7071,12 @@
    "road": null,
    "spaces": 45,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.681032,
+   "lng": 126.832295,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -7110,7 +7167,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-063",
@@ -7128,12 +7186,12 @@
    "road": null,
    "spaces": 54,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.676152,
+   "lng": 126.845006,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -7224,7 +7282,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-064",
@@ -7242,12 +7301,12 @@
    "road": null,
    "spaces": 11,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.673836,
+   "lng": 126.833523,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -7338,7 +7397,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-065",
@@ -7356,12 +7416,12 @@
    "road": null,
    "spaces": 4,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.68003,
+   "lng": 126.831694,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -7452,7 +7512,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-066",
@@ -7470,12 +7531,12 @@
    "road": null,
    "spaces": 12,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.679511,
+   "lng": 126.830545,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -7566,7 +7627,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-067",
@@ -7584,12 +7646,12 @@
    "road": null,
    "spaces": 31,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.683681,
+   "lng": 126.829674,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -7680,7 +7742,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-068",
@@ -7698,12 +7761,12 @@
    "road": null,
    "spaces": 18,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.682898,
+   "lng": 126.828307,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -7794,7 +7857,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-069",
@@ -7812,12 +7876,12 @@
    "road": null,
    "spaces": 58,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.681032,
+   "lng": 126.832295,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -7908,7 +7972,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-070",
@@ -7926,12 +7991,12 @@
    "road": null,
    "spaces": 15,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.679148,
+   "lng": 126.851352,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -8022,7 +8087,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-071",
@@ -8040,12 +8106,12 @@
    "road": null,
    "spaces": 45,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.703406,
+   "lng": 126.84394,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -8136,7 +8202,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-072",
@@ -8154,12 +8221,12 @@
    "road": null,
    "spaces": 20,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.681831,
+   "lng": 126.850285,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -8250,7 +8317,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-073",
@@ -8268,12 +8336,12 @@
    "road": null,
    "spaces": 31,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.67726,
+   "lng": 126.840398,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -8364,7 +8432,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-074",
@@ -8382,12 +8451,12 @@
    "road": null,
    "spaces": 26,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.687478,
+   "lng": 126.831834,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -8478,7 +8547,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-075",
@@ -8496,12 +8566,12 @@
    "road": null,
    "spaces": 48,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.688715,
+   "lng": 126.861078,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -8592,7 +8662,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-076",
@@ -8610,12 +8681,12 @@
    "road": null,
    "spaces": 5,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.682744,
+   "lng": 126.851987,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -8706,7 +8777,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-077",
@@ -8724,12 +8796,12 @@
    "road": null,
    "spaces": 23,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.668998,
+   "lng": 126.797448,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -8820,7 +8892,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-078",
@@ -8838,12 +8911,12 @@
    "road": null,
    "spaces": 60,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.68633,
+   "lng": 126.796384,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -8934,7 +9007,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-079",
@@ -8952,12 +9026,12 @@
    "road": null,
    "spaces": 26,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.685126,
+   "lng": 126.807282,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -9048,7 +9122,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-s001",
@@ -9294,12 +9369,12 @@
    "road": null,
    "spaces": 53,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.678938,
+   "lng": 126.85054,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -9390,7 +9465,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-s004",
@@ -9408,12 +9484,12 @@
    "road": null,
    "spaces": 120,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.690092,
+   "lng": 126.832647,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -9504,7 +9580,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-s005",
@@ -9636,12 +9713,12 @@
    "road": null,
    "spaces": 120,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.727647,
+   "lng": 126.844595,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -9732,7 +9809,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-s007",
@@ -9750,12 +9828,12 @@
    "road": null,
    "spaces": 229,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.67678,
+   "lng": 126.841575,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -9846,7 +9924,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-s008",
@@ -9864,12 +9943,12 @@
    "road": null,
    "spaces": 78,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.6856,
+   "lng": 126.829414,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -9960,7 +10039,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-s009",
@@ -9978,12 +10058,12 @@
    "road": null,
    "spaces": 89,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.686799,
+   "lng": 126.831778,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -10074,7 +10154,8 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   },
   {
    "id": "ca-yesan-s010",
@@ -10092,12 +10173,12 @@
    "road": null,
    "spaces": 120,
    "tel": "041-339-7699",
-   "lat": null,
-   "lng": null,
+   "lat": 36.676975,
+   "lng": 126.841602,
    "base_date": "2026-04-16",
    "manager": "충청남도 예산군청",
    "note": "",
-   "notice": "요금을 받지 않는 무료 공영주차장입니다 · 좌표가 등록되어 있지 않아 지도는 주소·이름 검색으로 연결합니다",
+   "notice": "요금을 받지 않는 무료 공영주차장입니다",
    "fee": {
     "type": "무료",
     "base_min": null,
@@ -10188,11 +10269,12 @@
    "price_key": null,
    "city": "예산군",
    "city_slug": "yesan",
-   "zone": null
+   "zone": null,
+   "coord_src": "지오코딩(지오코딩(지번)·ArcGIS World Geocoding)"
   }
  ],
  "quality": {
-  "generated_at": "2026-11-21 09:01",
+  "generated_at": "2026-11-21 11:40",
   "원자료_전국행수": 18994,
   "원자료_행수": 89,
   "원자료_예산군행수": 89,
@@ -10252,95 +10334,13 @@
   ],
   "좌표_보정": [],
   "좌표_없음": [
-   "고덕면 대천1리 1지구 공영주차장",
-   "고덕면 대천1리 2지구 공영주차장",
-   "고덕면 대천리 공영주차장",
-   "광시면 광시길 공영주차장",
-   "광시면공영주차장",
-   "덕산면 대동리 다솔마을주차장",
-   "덕산면 옥계리마을회관 임시 주차장",
-   "덕산면 읍내리 덕산시장 공영주차장",
-   "덕산면공영주차장",
-   "덕산면읍내2리 주차장",
-   "덕산제일감리교회",
-   "내포신도시 주차장(1공구)-1",
-   "내포신도시 주차장(1공구)-2",
-   "내포신도시 주차장(2공구)-1",
-   "내포신도시 주차장(2공구)-2",
-   "내포신도시 주차장(2공구)-3",
-   "삽교읍 공영주차장(목리 1364)",
-   "삽교읍 두레리 임시주차장",
-   "삽교읍 목리 내포 이주자택지 공영주차장(3공구)-1(목리 1232)",
-   "삽교읍 목리 내포 이주자택지 공영주차장(3공구)-1(목리 1809)",
-   "삽교읍 목리 내포 이주자택지 공영주차장(3공구)-3",
-   "삽교읍 목리 이주자택지 공영주차장(목리 1042)",
-   "삽교읍 목리 이주자택지 공영주차장(목리 1136)",
-   "삽교읍 목리 이주자택지 공영주차장(목리 1146)",
-   "삽교읍 신가리 삽교교회 입구 공영주차장",
-   "삽교읍공영주차장",
-   "(구)중앙극장 공영주차장",
-   "간평교회 개방주차장",
-   "구. 군청사앞 충남왕족발 뒤 주차장",
-   "군청신청사앞주차장",
-   "금오감리교회 개방주차장",
-   "대회리주차장",
-   "딴산입구복개지",
-   "산성리 일미곱창 옆 공영주차장",
-   "산성리 터미널 공영주차장",
    "산성리성당뒤 주차장",
-   "수철리 공영주차장(탈해사입구)",
-   "수철리 쌈지주차장(민속촌가든 인근)",
-   "신례원3리공영주차장(신례원리 231-43번지 일원)",
-   "신례원3리공영주차장(신례원리 246-6)",
-   "신례원공영주차장",
-   "신례원리 공영주차장(신례원 농협 앞)",
-   "신례원리 공영주차장(현대아파트 뒤)",
-   "신례원성결교회 개방주차장",
-   "신례원창소리주차장",
-   "쌍송복개지",
-   "예산1리공영주차장",
-   "예산4리주차장",
-   "예산5리 공영주차장",
    "예산고 앞 주차장",
-   "예산군 주교리 공영주차장",
    "예산리 공영주차장(황금부동산 자리)",
-   "예산리 소형주차장",
-   "예산리 쌈지주차장(예산유치원)",
-   "예산리 우리오피스텔 앞 공영주차장",
-   "예산리쌈지주차장",
    "예산시장 활성화 공영주차장",
-   "예산읍 대회리 쌈지주차장",
-   "예산읍 예산공판장 옆 공영주차장",
-   "예산읍 예산리 공영주차장(구 중앙극장 뒤)",
-   "예산제일감리교회",
-   "예중입구 복개지",
-   "자금성앞 복개지(옛날돈까스 앞 등)",
-   "주교3리 마상골 공영주차장",
-   "주교7리 쌈지주차장",
-   "주교7리(주용연립 앞) 쌈지주차장",
-   "주교리 공영주차장(목석진)",
-   "주교지하도(우측)옆 공영주차장",
-   "지돈가 앞 복개지",
-   "천변로주차장",
-   "치유의 숲 주차장",
-   "태성빌딩 뒤 공영주차장",
-   "한일연립앞 복개지",
-   "해봄센터 인근 공영주차장",
-   "향천리 공영주차장",
-   "향천리쌈지주차장",
-   "오가면 신장리 마을주차장 조성사업",
-   "오가면 역탑리 공영주차장",
-   "오가오거리 공영주차장(윤봉길 나라사랑공원앞)",
    "신가리 노상주차장",
    "대회리 삼정연립 뒤 노상주차장",
-   "삼선당약국~시장입구",
-   "서오아파트∼교육청 입구",
-   "신례원리 노상주차장",
-   "신례원신협 앞 노상주차장",
-   "쌍송정류소∼상설시장",
-   "주교4거리∼예산역~연주용역앞",
-   "주교5거리∼주교4거리",
-   "천변로(예산시네마~예산중입구)"
+   "신례원리 노상주차장"
   ],
   "도로명주소_없음": [
    "고덕면 대천1리 1지구 공영주차장",

@@ -1,7 +1,7 @@
 {
  "meta": {
-  "generated_at": "2026-11-21 09:01",
-  "generated_at_iso": "2026-11-21T09:01:22+09:00",
+  "generated_at": "2026-11-21 11:40",
+  "generated_at_iso": "2026-11-21T11:40:21+09:00",
   "snapshot_at": null,
   "region": {
    "province": "경기도",
@@ -9308,8 +9308,8 @@
    "road": null,
    "spaces": 130,
    "tel": "031-338-6581",
-   "lat": null,
-   "lng": null,
+   "lat": 37.2744218,
+   "lng": 127.1177894,
    "base_date": "2026-04-24",
    "manager": "경기도 용인시 용인도시공사(위탁)",
    "note": "",
@@ -9378,7 +9378,8 @@
    "udc_id": null,
    "price_key": 500,
    "city": "용인시",
-   "city_slug": "yongin"
+   "city_slug": "yongin",
+   "coord_src": "지오코딩(지오코딩(지번)·Google Maps)"
   },
   {
    "id": "yn-067",
@@ -18020,8 +18021,8 @@
    "road": null,
    "spaces": 50,
    "tel": "031-338-6581",
-   "lat": null,
-   "lng": null,
+   "lat": 37.3238294,
+   "lng": 127.0922237,
    "base_date": "2026-04-24",
    "manager": "경기도 용인시 용인도시공사(위탁)",
    "note": "",
@@ -18090,7 +18091,8 @@
    "udc_id": null,
    "price_key": 400,
    "city": "용인시",
-   "city_slug": "yongin"
+   "city_slug": "yongin",
+   "coord_src": "지오코딩(지오코딩(지번)·Google Maps)"
   },
   {
    "id": "yn-020",
@@ -18798,7 +18800,7 @@
   }
  ],
  "quality": {
-  "generated_at": "2026-11-21 09:01",
+  "generated_at": "2026-11-21 11:40",
   "원자료_전국행수": 18994,
   "원자료_행수": 214,
   "원자료_용인시행수": 214,
@@ -18909,10 +18911,7 @@
   "무료개방_표기": [],
   "토요일_미운영": 0,
   "일공휴일_미운영": 0,
-  "좌표_없음": [
-   "기흥역환승",
-   "풍덕천2공영"
-  ],
+  "좌표_없음": [],
   "주소_없음": [],
   "이름중복": [
    "김량장동 임시공영"
