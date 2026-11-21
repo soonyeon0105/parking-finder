@@ -1,0 +1,916 @@
+{
+ "meta": {
+  "generated_at": "2026-11-21 17:42",
+  "generated_at_iso": "2026-11-21T17:42:46+09:00",
+  "snapshot_at": "2026-11-21 17:42",
+  "region": {
+   "province": "경상북도",
+   "city": "영덕군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-04-16",
+    "rows_total": 18994,
+    "rows_city": 6,
+    "fetched_at": "2026-11-21 17:42 (KST)",
+    "note": "영덕군으로 등록된 행 6행을 읽어 중복 제거 0건, 제외 0건으로 6곳을 실었다. 유료 0곳·무료 6곳·미상 0곳이다. 데이터기준일자는 2026-04-16이다. 좌표 결측은 0곳이다. 조례 대조 완료 — 「영덕군 주차장 설치 및 관리 조례」 제2470호(시행 2026-11-09, ordinSeq 2183449) 제3조제1항·별표 1 원문 대조 완료(2026-11-21)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "영덕군 주차장 설치 및 관리 조례",
+    "org": "경상북도 영덕군청",
+    "url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2183449&gubun=ELIS",
+    "file": "yeongdeok-ordinance-b1.txt",
+    "sha256": "670aca2fe64ca712d826b13c5047f9236579a040606028d3895946bfeb3fb741",
+    "license": "자치법규(공개)",
+    "base_date": "2026-11-09",
+    "rows_total": null,
+    "fetched_at": "2026-11-21 17:42 (KST)",
+    "note": "영덕군이 설치·관리하는 공영주차장에 적용하는 조례다. 표준데이터에 등록된 영덕군 공영주차장 6곳(노외 4곳·노상 1구간·부설 1곳, 총 704면)입니다. 등록은 전부 공영이고 요금 구분은 무료 6곳입니다. 「영덕군 주차장 설치 및 관리 조례」 제2470호 별표 1은 1급지 1회 30분마다 500원·월 주간 75,000원·야간 56,000원, 2급지 200원·월 30,000원·22,000원이고 1일 상한은 없습니다. 급지구분은 군수가 지정합니다. 주말·공휴일 전체 무료 규정은 조례에 없습니다. (조례 본문: data/raw/yeongdeok-ordinance.txt, 별표 1 원문 HWP: data/raw/yeongdeok-ordinance-b1.hwp)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "영덕군",
+   "slug": "yeongdeok"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gb-yeongdeok-001",
+   "mgmt_no": "365-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "(구)영덕버스터미널 공영주차장",
+   "gu": "영덕군",
+   "dong": "영덕읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 영덕군 영덕읍 남석리 1-3",
+   "addr_road": "경상북도 영덕군 영덕읍 덕곡길 99",
+   "road": null,
+   "spaces": 26,
+   "tel": "",
+   "lat": 36.41184556,
+   "lng": 129.368800236,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 영덕군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영덕군",
+   "city_slug": "yeongdeok",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongdeok-002",
+   "mgmt_no": "365-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남석리 1-6 공영주차장",
+   "gu": "영덕군",
+   "dong": "영덕읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 영덕군 영덕읍 덕곡리 161-10",
+   "addr_road": "경상북도 영덕군 영덕읍 중앙길 102-11",
+   "road": null,
+   "spaces": 20,
+   "tel": "",
+   "lat": 36.41169995,
+   "lng": 129.3691131188,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 영덕군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영덕군",
+   "city_slug": "yeongdeok",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongdeok-003",
+   "mgmt_no": "365-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "산림조합 옆 공영주차장",
+   "gu": "영덕군",
+   "dong": "영덕읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 영덕군 영덕읍 남석리 8-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "",
+   "lat": 36.41122193,
+   "lng": 129.3691111,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 영덕군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영덕군",
+   "city_slug": "yeongdeok",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongdeok-004",
+   "mgmt_no": "365-3-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "영덕군청주차장",
+   "gu": "영덕군",
+   "dong": "영덕읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 영덕군 영덕읍 남석리 310-3",
+   "addr_road": "경상북도 영덕군 영덕읍 군청길 116",
+   "road": null,
+   "spaces": 257,
+   "tel": "054-730-6252",
+   "lat": 36.41503388,
+   "lng": 129.3654012,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 영덕군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영덕군",
+   "city_slug": "yeongdeok",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongdeok-005",
+   "mgmt_no": "365-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오십천둔치주차장",
+   "gu": "영덕군",
+   "dong": "영덕읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 영덕군 영덕읍 화개리 251",
+   "addr_road": "경상북도 영덕군 영덕읍 경동로 8338",
+   "road": null,
+   "spaces": 200,
+   "tel": "054-730-6252",
+   "lat": 36.4184647162,
+   "lng": 129.3641712132,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 영덕군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영덕군",
+   "city_slug": "yeongdeok",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongdeok-s001",
+   "mgmt_no": "365-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "강구공영주차장",
+   "gu": "영덕군",
+   "dong": "강구면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 영덕군 강구면 강구리 363-3",
+   "addr_road": "경상북도 영덕군 강구면 강영로 33",
+   "road": "강영로",
+   "spaces": 189,
+   "tel": "054-730-6252",
+   "lat": 36.3634935,
+   "lng": 129.3831895,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 영덕군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영덕군",
+   "city_slug": "yeongdeok",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-21 17:42",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 6,
+  "원자료_영덕군행수": 6,
+  "원자료_받은행수": 6,
+  "구별": {
+   "영덕군": 6
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 5,
+  "노외_부설": {
+   "노외": 4,
+   "부설": 1
+  },
+  "노상_구간": 1,
+  "총_구획수": 515,
+  "노상_구획수": 189,
+  "동별": {
+   "영덕읍": 5,
+   "강구면": 1
+  },
+  "동수": 2,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 6
+  },
+  "요금구분": {
+   "무료": 6
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 0,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "인근 등록: 산림조합 옆 공영주차장(영덕읍 남석리 8-7, 12면)·남석리 1-6 공영주차장(영덕읍 덕곡리 161-10, 20면) — 좌표가 53m 이내로 가깝지만 지번이 달라 별개 등록으로 보고 둘 다 실었다. 이름(남석리 1-6)과 지번주소(덕곡리 161-10)가 어긋나 영덕군청 확인이 필요하다",
+   "표준데이터 등록 6행 전부 공영(노외 4·노상 1·부설 1, 총 704면)을 읽었다. 데이터기준일자는 2026-04-16 6행, 제공기관명은 경상북도 영덕군 6행, 관리기관명은 경상북도 영덕군청 6곳이다",
+   "등록 급지구분은 1급지 6곳이다. 조례 별표 1 급지 체계와는 별개라 요금 계산에는 쓰지 않았다",
+   "좌표는 6행 전부 등록돼 있다. 지오코딩 보완 대상이 없어 오버레이 추가도 0건이다",
+   "운영요일은 6곳 전부 평일+토요일+공휴일이고 운영시간은 6곳 전부 00:00~23:59이다. 부제시행구분은 미시행 6곳이다. 도로명주소는 6곳 중 1곳(산림조합 옆 공영주차장)이 등록돼 있지 않다. 특기사항은 6행 전부 비어 있다. 결제방법은 공영 6곳 전부 공란이다",
+   "6곳 전부 무료이다. 조례 별표 1은 참고표로만 싣고 요금 계산은 하지 않았다. 주말·공휴일 전체 무료 규정은 조례에 없어 표기하지 않았다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "산림조합 옆 공영주차장"
+  ],
+  "감면_출처": "「영덕군 주차장 설치 및 관리 조례」 제2470호 제3조제3항 — 장애인·국가유공자(상이등급 1급부터 7급까지)·독립유공자·참전유공자·고엽제 후유증 환자·5·18민주화운동부상자·의상자·의사자 유족·경형 승용자동차·하이브리드자동차·전기자동차는 50% 감면한다(감면대상 증명 필요)",
+  "요금_출처": "조례 제3조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같다. 별표 1은 1급지 1회 30분마다 500원·월 주간 75,000원·야간 56,000원, 2급지 200원·월 30,000원·22,000원이고 1일 상한은 없다. 별표 원본 HWP(flSeq 171307509)를 받아 추출해 대조했다. 전 6곳이 무료로 등록돼 있어 요금 계산은 하지 않고 별표 1은 참고표로만 실었다",
+  "급지_출처": "조례 별표 1 비고 3 — 급지구분은 주차장의 실태 및 주차수요를 참작하여 군수가 지정하되 당해 군의 특성 및 주차장의 위치에 따라 세분할 수 있다. 표준데이터 등록 급지구분은 6곳 전부 1급지이나 조례 급지 체계와는 별개라 요금 계산에는 쓰지 않았다",
+  "무료요일_출처": "조례 본문·별표 1 어디에도 군 전체 주말·공휴일 자동 무료 조항이 없다(인스팅트 앞단 패키지 확인, 2026-11-21 법제처 본문·별표 원문 재대조). 요금 구분이 '무료'인 곳은 요일과 관계없이 무료다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 영덕군 등록 6행 전부 공영(노외 4·노상 1·부설 1, 총 704면)으로 무료 6, 기준일 2026-04-16이다. 중복 판정(전체 이름·지번·좌표 200m 가드)에 걸리는 쌍은 없고, 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다. 인스팅트 앞단 패키지(경북 14/22, 2026-11-20)의 집계(공영 6행·704면, 노외 4·노상 1·부설 1, 무료 6, 기준일 2026-04-16)와 표준데이터 원본 대조 결과가 일치한다",
+   "「영덕군 주차장 설치 및 관리 조례」 제2470호(시행 2026-11-09, ordinSeq 2183449) 본문 원문(data/raw/yeongdeok-ordinance.txt) 대조 완료(2026-11-21) — 본문 제3조제1항이 공영주차장 요금을 별표 1로 정한다. 별표 1은 ELIS 첨부 HWP 원본(flSeq 171307509)을 data/raw/yeongdeok-ordinance-b1.hwp로 저장하고 추출해 확정했다 — 1급지 1회 30분마다 500원·월 주간 75,000원·야간 56,000원, 2급지 200원·월 30,000원·22,000원, 1일 상한 없음. 주간 4~10월 08~20시·11~3월 09~19:30, 나머지는 야간. 급지구분은 군수가 지정하고, 군수는 특성·차종에 따라 요금을 정하거나 노상·노외 요금을 구분할 수 있다",
+   "전 6행 무료 등록이라 요금 계산은 하지 않고 조례 별표 1은 참고표로만 실었다(청도·산청·서천 선례). 부설 1행은 공영 노상·노외 일반표의 자동 적용 대상으로 두지 않았다",
+   "좌표 결측은 0곳이다. 지오코딩 보완 대상이 없어 오버레이 추가도 0건이다",
+   "주말·공휴일 전체 무료는 조례 본문·별표 1 어디에도 없어 표기하지 않았다. 요금 구분이 '무료'인 곳은 요일과 관계없이 무료다",
+   "이름이 겹치는 등록은 없다. 같은 자리·같은 좌표에 이름만 다른 등록은 없다. 산림조합 옆 공영주차장(영덕읍 남석리 8-7, 12면)과 남석리 1-6 공영주차장(영덕읍 덕곡리 161-10, 20면)은 좌표가 53m 이내로 가깝지만 지번이 달라 별개 등록으로 보고 둘 다 실었다 — 이름(남석리 1-6)과 지번주소(덕곡리 161-10)가 어긋나 영덕군청 확인이 필요하다",
+   "동·읍·면 판정은 지번주소 기준이고 2개 읍·면(영덕읍 5·강구면 1) 전부 판정됐다. 도로명주소는 6곳 중 1곳(산림조합 옆 공영주차장)이 등록돼 있지 않다. 특기사항은 6행 전부 비어 있다. 결제방법은 공영 6곳 전부 공란이다",
+   "관리기관명은 경상북도 영덕군청 6곳이다. 전화번호는 054-730-6252가 3곳(오십천둔치주차장·강구공영주차장·영덕군청주차장), 나머지 3곳은 공란이다. 등록 급지구분은 1급지 6곳이다",
+   "확인 과제 — ① 표준데이터 등록 6곳만으로 군 전체 주차장을 다룬 것인지 최신 원장 대조가 필요하다(패키지 ⑤) ② 남석리 1-6 공영주차장의 이름(남석리 1-6)과 지번주소(덕곡리 161-10) 어긋남을 확인할 것 ③ 산림조합 옆 공영주차장과 남석리 1-6 공영주차장(좌표 53m 이내)이 별개 시설인지 확인할 것 ④ 무료 6곳 등록 최신성·향후 유료 공고·2026-11-09 개정 후 공고가 있는지 확인할 것 ⑤ 등록 급지구분(1급지 6곳)과 조례 급지(군수 지정)가 어긋나는지, 실제 적용 급지를 확인할 것 ⑥ 부설 1곳(영덕군청주차장)의 개방 시간·이용 조건을 확인할 것"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 6,
+  "무료_구획수": 704,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 3,
+  "데이터기준일": [
+   "2026-04-16"
+  ],
+  "관리기관": {
+   "경상북도 영덕군청": 6
+  }
+ },
+ "fee_table": {
+  "style": "yeongdeok_grade",
+  "unit_min": 30,
+  "base_min": 30,
+  "applies": "「영덕군 주차장 설치 및 관리 조례」 제2470호(시행 2026-11-09) 제3조제1항·별표 1 — 국가법령정보센터 ordinSeq 2183449에서 확인",
+  "source_url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2183449&gubun=ELIS",
+  "grade_system": "조례 별표 1 급지 구분 — 급지는 주차장의 실태 및 주차수요를 참작하여 군수가 지정하되 당해 군의 특성 및 주차장의 위치에 따라 세분할 수 있다(별표 1 비고 3). 주간 시간은 4월~10월 08:00~20:00, 11월~3월 09:00~19:30이고 나머지는 야간이다(별표 1 비고 2). 주차장요금은 당해 군의 특성 및 차종에 따라 군수가 정하되 주차수요를 감안하여 체증 또는 체감방식을 적용할 수 있다(별표 1 비고 4). 군수는 노상주차장과 노외주차장의 주차요금을 구분하여 정할 수 있다(별표 1 비고 5). 1일 상한은 별표 1에 없다. 표준데이터 등록 급지구분은 6곳 전부 1급지이나 조례 급지 체계와는 별개라 요금 계산에는 쓰지 않았다",
+  "rows": [
+   {
+    "label": "1급지 (조례 별표 1)",
+    "grade": "grade1",
+    "unit_label": "1회 30분마다 500원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": null,
+    "month_all": null,
+    "month": 75000,
+    "month_night": 56000,
+    "lots": null
+   },
+   {
+    "label": "2급지 (조례 별표 1)",
+    "grade": "grade2",
+    "unit_label": "1회 30분마다 200원",
+    "hour": 400,
+    "two_hour": 800,
+    "day": null,
+    "month_all": null,
+    "month": 30000,
+    "month_night": 22000,
+    "lots": null
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 0,
+   "street_paid": 0,
+   "free": 6,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "급지 구분 (조례 별표 1 비고 3)",
+    "hours": "주차장의 실태 및 주차수요를 참작하여 군수가 지정, 세분 가능",
+    "free": "표준데이터 등록 급지구분(6곳 전부 1급지)은 조례 급지와 별개라 요금 계산에 쓰지 않았다"
+   },
+   {
+    "group": "주간 시간 구분 (조례 별표 1 비고 2)",
+    "hours": "4월~10월 08:00~20:00 · 11월~3월 09:00~19:30, 나머지는 야간",
+    "free": "월정기주차요금은 주간·야간으로 나뉜다"
+   },
+   {
+    "group": "군수 별도 요금 설정 (조례 별표 1 비고 4·5)",
+    "hours": "군수는 당해 군의 특성 및 차종에 따라 요금을 정할 수 있고, 노상·노외 요금을 구분하여 정할 수 있다",
+    "free": "이 사이트는 표준데이터 등록값(무료)을 유지하고 별표 1은 참고로만 실었다"
+   }
+  ],
+  "discounts": [
+   {
+    "label": "장애인·국가유공자·참전유공자·고엽제·5·18부상자·의상자·경형·하이브리드·전기차 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제3조제3항 — 「장애인복지법」에 따른 장애인 또는 「국가유공자 등 예우 및 지원에 관한 법률 시행령」 제14조에 따른 상이등급 1급부터 7급까지의 국가유공자, 「독립유공자예우에 관한 법률」 제4조에 따른 독립유공자가 본인소유의 비사업용차량을 직접 운전하거나 승차하여 타인으로 하여금 대리 운전하게 하는 경우, 「참전유공자예우 및 단체설립에 관한 법률」 제2조제2호에 따른 참전유공자, 「고엽제후유의증 등 환자지원 및 단체설립에 관한 법률」 제3조에 따라 등록한 고엽제 후유증 환자, 「5·18민주유공자예우에관한법률」 제4조제2호에 따른 5·18민주화운동부상자, 「의사상자 등 예우 및 지원에 관한 법률」 제2조제3호 및 제5호에 따른 의상자와 의사자 유족, 「자동차관리법 시행규칙」 별표 1에 따른 경형 승용자동차, 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조에 따른 하이브리드자동차·전기자동차는 50% 감면한다(감면대상 증명 필요)"
+   }
+  ],
+  "notes": "감면(조례 제3조제3항)은 장애인·국가유공자(상이 1~7급)·독립유공자·참전유공자·고엽제 후유증 환자·5·18민주화운동부상자·의상자·의사자 유족·경형 승용자동차·하이브리드·전기자동차 50% 감면이다(감면대상 증명 필요). 전 6곳이 무료로 등록돼 있어 요금 계산은 하지 않고 조례 별표 1은 참고표로만 싣는다.",
+  "basis": "요금표는 「영덕군 주차장 설치 및 관리 조례」 제2470호(시행 2026-11-09) 제3조제1항·별표 1과 표준데이터(기준일 2026-04-16)를 대조해 실었다. 별표 1 원본 HWP는 flSeq 171307509이다. 전 6곳이 무료로 등록돼 있어 요금 계산은 하지 않는다. (조례 본문: data/raw/yeongdeok-ordinance.txt, 별표 1 원문 HWP: data/raw/yeongdeok-ordinance-b1.hwp)"
+ },
+ "slug": "yeongdeok",
+ "province": "경상북도",
+ "province_slug": "gyeongbuk",
+ "dong_page_min_lots": 3,
+ "city": "영덕군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "장애인·국가유공자·참전유공자·고엽제·5·18부상자·의상자·경형·하이브리드·전기차 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조제3항 — 「장애인복지법」에 따른 장애인 또는 「국가유공자 등 예우 및 지원에 관한 법률 시행령」 제14조에 따른 상이등급 1급부터 7급까지의 국가유공자, 「독립유공자예우에 관한 법률」 제4조에 따른 독립유공자가 본인소유의 비사업용차량을 직접 운전하거나 승차하여 타인으로 하여금 대리 운전하게 하는 경우, 「참전유공자예우 및 단체설립에 관한 법률」 제2조제2호에 따른 참전유공자, 「고엽제후유의증 등 환자지원 및 단체설립에 관한 법률」 제3조에 따라 등록한 고엽제 후유증 환자, 「5·18민주유공자예우에관한법률」 제4조제2호에 따른 5·18민주화운동부상자, 「의사상자 등 예우 및 지원에 관한 법률」 제2조제3호 및 제5호에 따른 의상자와 의사자 유족, 「자동차관리법 시행규칙」 별표 1에 따른 경형 승용자동차, 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조에 따른 하이브리드자동차·전기자동차는 50% 감면한다(감면대상 증명 필요)"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
