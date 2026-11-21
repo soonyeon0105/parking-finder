@@ -9479,7 +9479,7 @@ CITY_UI.update({
 })
 
 
-def fee_table_block(city) -> str:
+def _fee_table_block_raw(city) -> str:
     """도시별 급지 요금표(데이터에 fee_table 이 있을 때만).
 
     네 가지 모양을 그린다.
@@ -14186,6 +14186,58 @@ B·C지구는 등록 급지구분이 1급지이나 등록 요금이 2급지와 �
 """
 
 
+    if ft.get("style") == "yecheon_grade":
+        # 예천군 — 공영 20곳(노외 15곳·노상 5구간, 총
+        #   1,667면)이 무료 13곳·유료 7곳으로 등록돼
+        #   있다. 「예천군 주차장 조례」 제2617호(시행
+        #   2024-05-09) 제3조제1항·별표 1은 최초 1시간
+        #   이내 무료, 1시간 초과 시 30분 단위 500원,
+        #   월정기 70,000원(노외 한정)이고 1일 요금은
+        #   없다. 유료 7곳(노외 6·노상 1)은 등록 요금이
+        #   별표와 일치해 조례 기준으로 계산한다.
+        #   노상 1곳은 월권 공란이라 싣지 않는다.
+        #   토요일·공휴일 무료와 야간 무료는 조례가
+        #   아니라 유료 7곳 특기사항의 명시를 근거로
+        #   표기한다.
+        def _yc_cell(v):
+            return f"{v}곳" if v is not None else "—"
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"]) if r["day"] is not None else "상한 없음"}</td>'
+            f'<td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{_yc_cell(r["lots"])}</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">예천군 공영주차장 <b>20곳</b>(노외 15곳·노상 5구간, 총 1,667면)은
+무료 <b>13곳</b>·유료 <b>7곳</b>으로 등록돼 있습니다. 「예천군 주차장 조례」 제2617호
+별표 1은 <b>최초 1시간 이내 무료</b>, 1시간 초과 시 <b>30분 단위 500원</b>,
+월정기권 <b>70,000원</b>(노외주차장에 한함)이고 1일 요금 상한은 없습니다.
+유료 7곳은 등록 요금이 별표와 일치해 조례 기준으로 계산했습니다. 유료 7곳은
+특기사항에 <b>토요일·공휴일 무료</b>와 야간 무료(노외 19:00~09:00, 노상 18:00~09:00)가
+명시돼 있습니다. 궁금한 점은 예천군청(054-650-6253)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 최대</th>
+  <th class="num">월정기권</th><th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금으로 계산하는 유료는 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+
+
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
@@ -15918,6 +15970,30 @@ B·C지구는 등록 급지구분이 1급지이나 등록 요금이 2급지와 �
 <p class="updated">{esc(ft['basis'])}. 카드의 예상요금은 이 표로 계산하며, 주차장별 일일 최대요금·선불 일일주차 요금은
 안양도시공사 통합주차포털 값을 썼습니다.</p>
 """
+
+
+
+def _wrap_first_fee_table(html: str) -> str:
+    """요금표(첫 번째 <table class="data">)를 가로 스크롤 래퍼로 감싼다.
+
+    8~9열 요금표가 390px 모바일에서 페이지를 가로로 밀던 문제(성주 허브
+    504px 넘침 — 2026-11-21 부이 판정·Muse 실측) 수정. 테이블은 내용
+    너비(최소 100%)를 유지하고 래퍼 안에서만 가로 스크롤한다. 두 번째
+    표(안내 표)는 문단이 줄바꿈돼 들어가 래퍼를 씌우지 않는다.
+    """
+    start = html.find('<table class="data">')
+    if start < 0:
+        return html
+    end = html.find('</table>', start)
+    if end < 0:
+        return html
+    end += len('</table>')
+    return html[:start] + '<div class="table-scroll">' + html[start:end] + '</div>' + html[end:]
+
+
+def fee_table_block(city) -> str:
+    """요금표 블록 — 원본 렌더링에 모바일 가로 스크롤 래퍼를 씌운다."""
+    return _wrap_first_fee_table(_fee_table_block_raw(city))
 
 
 def build_city(city, lots, site):
