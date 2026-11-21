@@ -1,0 +1,7170 @@
+{
+ "meta": {
+  "generated_at": "2026-11-21 12:55",
+  "generated_at_iso": "2026-11-21T12:55:52+09:00",
+  "snapshot_at": "2026-11-21 12:55",
+  "region": {
+   "province": "경상북도",
+   "city": "문경시"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-04-17",
+    "rows_total": 18994,
+    "rows_city": 59,
+    "fetched_at": "2026-11-21 12:55 (KST)",
+    "note": "문경시로 등록된 행 59행(전부 공영)을 읽어 중복 제거 0건, 제외 0건으로 59곳을 실었다. 유료 0곳·무료 34곳·미상 25곳이다. 데이터기준일자는 59행 전부 2026-04-17이다. 좌표 결측은 0곳이다. 조례 대조 완료 — 「문경시 주차장 조례」 제1460호(시행 2021-12-22, ordinSeq 1652921) 제3조제1항·별표 1 원문 대조 완료(2026-11-21)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "문경시 주차장 조례",
+    "org": "경상북도 문경시청",
+    "url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=1652921",
+    "file": "mungyeong-ordinance-b1.txt",
+    "sha256": "6ee542183b53b9e3d6a4fb5db8f09f6b95163da94838d6229dfb60e79900366e",
+    "license": "자치법규(공개)",
+    "base_date": "2021-12-22",
+    "rows_total": null,
+    "fetched_at": "2026-11-21 12:55 (KST)",
+    "note": "문경시가 설치·관리하는 공영주차장에 적용하는 조례다. 표준데이터에 등록된 문경시 공영주차장 59곳(노상 27구간·노외 24곳·부설 8곳, 총 4,884면)입니다. 등록은 전부 공영이고 요금 구분은 무료 34곳·유료 25곳입니다. 「문경시 주차장 조례」 제1460호 별표 1은 1급지(점촌1·2·3·5동 지역 중 시장이 지정 고시한 주차장) 최초 60분 1,000원·초과 30분마다 500원·1일 8,000원·월 주간 75,000원·야간 56,000원, 2급지(그 밖의 주차장) 500원·300원·4,700원·월 30,000원·22,000원으로 정합니다. 유료 25곳은 등록 요금이 별표 어느 급지와도 일치하지 않아 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기했습니다. 유료 25곳 중 24곳은 평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있습니다. (조례 본문: data/raw/mungyeong-ordinance.txt, 별표 원문 HWP: data/raw/mungyeong-ordinance-b1.hwp)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "문경시",
+   "slug": "mungyeong"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gb-mungyeong-001",
+   "mgmt_no": "359-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가은성당 앞 공영주차장",
+   "gu": "문경시",
+   "dong": "가은읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 가은읍 왕능리 284-5",
+   "addr_road": "경상북도 문경시 가은읍 대야로 2491",
+   "road": null,
+   "spaces": 10,
+   "tel": "054-550-6902",
+   "lat": 36.6453768536,
+   "lng": 128.062416,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-002",
+   "mgmt_no": "359-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "아자개장터 공영주차장",
+   "gu": "문경시",
+   "dong": "가은읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 가은읍 왕능리 275-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "054-550-6902",
+   "lat": 36.6469822064,
+   "lng": 128.0606802769,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-003",
+   "mgmt_no": "359-3-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "모전도서관",
+   "gu": "문경시",
+   "dong": "모전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 문경시 모전동 220-1",
+   "addr_road": "경상북도 문경시 시청2길 45",
+   "road": null,
+   "spaces": 24,
+   "tel": "054-550-8393",
+   "lat": 36.586674,
+   "lng": 128.1860632,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-004",
+   "mgmt_no": "359-3-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문경시의회",
+   "gu": "문경시",
+   "dong": "모전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 문경시 모전동 59-2",
+   "addr_road": "경상북도 문경시 중앙로 50",
+   "road": null,
+   "spaces": 88,
+   "tel": "054-550-6252",
+   "lat": 36.58992828,
+   "lng": 128.1967625,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 56000
+    },
+    "basis": "표준데이터에는 기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(500원·300원·4,700원·월 30,000원·22,000원)와도 일치하지 않는다. 별표 비고 6~8의 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-005",
+   "mgmt_no": "359-3-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문경시청",
+   "gu": "문경시",
+   "dong": "모전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 문경시 모전동 220",
+   "addr_road": "경상북도 문경시 당교로 225",
+   "road": null,
+   "spaces": 210,
+   "tel": "054-550-6252",
+   "lat": 36.5869234,
+   "lng": 128.187405,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 7300,
+     "monthly": 68000
+    },
+    "basis": "표준데이터에는 기본 60분 500원·추가 30분마다 500원·1일 7,300원·월 68,000원로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(500원·300원·4,700원·월 30,000원·22,000원)와도 일치하지 않는다. 별표 비고 6~8의 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-006",
+   "mgmt_no": "359-3-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문경시청 부설 주차타워",
+   "gu": "문경시",
+   "dong": "모전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 문경시 모전동 214-7",
+   "addr_road": "경상북도 문경시 시청2길 40",
+   "road": null,
+   "spaces": 191,
+   "tel": "054-550-6252",
+   "lat": 36.5872484592,
+   "lng": 128.1862286192,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 7300,
+     "monthly": 68000
+    },
+    "basis": "표준데이터에는 기본 60분 500원·추가 30분마다 500원·1일 7,300원·월 68,000원로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(500원·300원·4,700원·월 30,000원·22,000원)와도 일치하지 않는다. 별표 비고 6~8의 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-007",
+   "mgmt_no": "359-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제1공영주차장",
+   "gu": "문경시",
+   "dong": "모전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 모전동 115-2",
+   "addr_road": "경상북도 문경시 모전로 54",
+   "road": null,
+   "spaces": 42,
+   "tel": "054-550-6252",
+   "lat": 36.58610576,
+   "lng": 128.192314,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 56000
+    },
+    "basis": "표준데이터에는 기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(500원·300원·4,700원·월 30,000원·22,000원)와도 일치하지 않는다. 별표 비고 6~8의 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-008",
+   "mgmt_no": "359-3-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "평생학습관",
+   "gu": "문경시",
+   "dong": "모전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 문경시 모전동 257",
+   "addr_road": "경상북도 문경시 시청2길 30",
+   "road": null,
+   "spaces": 63,
+   "tel": "054-550-6252",
+   "lat": 36.58789046,
+   "lng": 128.1878109,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 7300,
+     "monthly": 68000
+    },
+    "basis": "표준데이터에는 기본 60분 500원·추가 30분마다 500원·1일 7,300원·월 68,000원로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(500원·300원·4,700원·월 30,000원·22,000원)와도 일치하지 않는다. 별표 비고 6~8의 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-009",
+   "mgmt_no": "359-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문경전통시장공영주차장",
+   "gu": "문경시",
+   "dong": "문경읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 문경읍 하리 93",
+   "addr_road": "경상북도 문경시 문경읍 문희로 17-9",
+   "road": null,
+   "spaces": 80,
+   "tel": "054-550-6235",
+   "lat": 36.73458691,
+   "lng": 128.1076219,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-010",
+   "mgmt_no": "359-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제1주차장",
+   "gu": "문경시",
+   "dong": "문경읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 문경읍 상초리 352-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 324,
+   "tel": "054-572-1150",
+   "lat": 36.76067578,
+   "lng": 128.0761432,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경관광진흥공단",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터에는 ‘유료’로 등록돼 있으나 등록 금액이 공란이라 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-011",
+   "mgmt_no": "359-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제2주차장",
+   "gu": "문경시",
+   "dong": "문경읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 문경읍 상초리 517-2",
+   "addr_road": "경상북도 문경시 문경읍 새재로 913",
+   "road": null,
+   "spaces": 327,
+   "tel": "054-572-1150",
+   "lat": 36.75998459,
+   "lng": 128.0769258,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경관광진흥공단",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-012",
+   "mgmt_no": "359-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제3주차장",
+   "gu": "문경시",
+   "dong": "문경읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 문경읍 하초리 265-2",
+   "addr_road": "경상북도 문경시 문경읍 새재로 845",
+   "road": null,
+   "spaces": 438,
+   "tel": "054-572-1150",
+   "lat": 36.7542947,
+   "lng": 128.0791903,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경관광진흥공단",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-013",
+   "mgmt_no": "359-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제4주차장",
+   "gu": "문경시",
+   "dong": "문경읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 문경읍 하초리 235",
+   "addr_road": "",
+   "road": null,
+   "spaces": 915,
+   "tel": "054-572-1150",
+   "lat": 36.75250327,
+   "lng": 128.0802131,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경관광진흥공단",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-014",
+   "mgmt_no": "359-3-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문경시보건소",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 문경시 점촌동 232",
+   "addr_road": "경상북도 문경시 점촌1길 9",
+   "road": null,
+   "spaces": 69,
+   "tel": "054-550-8057",
+   "lat": 36.59602344,
+   "lng": 128.1978627,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시 보건소",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 56000
+    },
+    "basis": "표준데이터에는 기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(500원·300원·4,700원·월 30,000원·22,000원)와도 일치하지 않는다. 별표 비고 6~8의 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-015",
+   "mgmt_no": "359-3-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문화예술회관",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 문경시 점촌동 118",
+   "addr_road": "경상북도 문경시 신흥로 101",
+   "road": null,
+   "spaces": 195,
+   "tel": "054-550-8393",
+   "lat": 36.5907201,
+   "lng": 128.1981767,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-016",
+   "mgmt_no": "359-3-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "시니어문화센터",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 문경시 점촌동 224",
+   "addr_road": "경상북도 문경시 점촌5길 20",
+   "road": null,
+   "spaces": 106,
+   "tel": "054-550-6252",
+   "lat": 36.59748581,
+   "lng": 128.1984902,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 56000
+    },
+    "basis": "표준데이터에는 기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(500원·300원·4,700원·월 30,000원·22,000원)와도 일치하지 않는다. 별표 비고 6~8의 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-017",
+   "mgmt_no": "359-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제10공영주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 점촌동 49-2",
+   "addr_road": "경상북도 문경시 신흥로 170",
+   "road": null,
+   "spaces": 47,
+   "tel": "054-550-6903",
+   "lat": 36.59673209,
+   "lng": 128.204198,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-018",
+   "mgmt_no": "359-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제13공영주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 점촌동 173-2",
+   "addr_road": "경상북도 문경시 남산로 14",
+   "road": null,
+   "spaces": 21,
+   "tel": "054-550-6252",
+   "lat": 36.592371,
+   "lng": 128.1987921,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 56000
+    },
+    "basis": "표준데이터에는 기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(500원·300원·4,700원·월 30,000원·22,000원)와도 일치하지 않는다. 별표 비고 6~8의 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-019",
+   "mgmt_no": "359-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제14공영주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 점촌동 280-4",
+   "addr_road": "경상북도 문경시 중앙2길 21",
+   "road": null,
+   "spaces": 37,
+   "tel": "054-550-6252",
+   "lat": 36.59300142,
+   "lng": 128.1987278,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 56000
+    },
+    "basis": "표준데이터에는 기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(500원·300원·4,700원·월 30,000원·22,000원)와도 일치하지 않는다. 별표 비고 6~8의 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-020",
+   "mgmt_no": "359-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제15공영주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 점촌동 163-2",
+   "addr_road": "경상북도 문경시 점촌역길 3",
+   "road": null,
+   "spaces": 60,
+   "tel": "054-550-6252",
+   "lat": 36.59548934,
+   "lng": 128.2028036,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 56000
+    },
+    "basis": "표준데이터에는 기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(500원·300원·4,700원·월 30,000원·22,000원)와도 일치하지 않는다. 별표 비고 6~8의 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-021",
+   "mgmt_no": "359-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제16공영주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 점촌동 174-7",
+   "addr_road": "경상북도 문경시 중앙로 134",
+   "road": null,
+   "spaces": 39,
+   "tel": "054-550-6252",
+   "lat": 36.5963460202,
+   "lng": 128.200532291,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 56000
+    },
+    "basis": "표준데이터에는 기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(500원·300원·4,700원·월 30,000원·22,000원)와도 일치하지 않는다. 별표 비고 6~8의 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-022",
+   "mgmt_no": "359-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제2공영주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 점촌동 269-1",
+   "addr_road": "경상북도 문경시 중앙4길 28-1",
+   "road": null,
+   "spaces": 170,
+   "tel": "054-550-6903",
+   "lat": 36.59407391,
+   "lng": 128.2018037,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-023",
+   "mgmt_no": "359-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제3공영주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 점촌동 245-45",
+   "addr_road": "경상북도 문경시 중앙6길 10",
+   "road": null,
+   "spaces": 74,
+   "tel": "054-550-6252",
+   "lat": 36.59535921,
+   "lng": 128.2006786,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 56000
+    },
+    "basis": "표준데이터에는 기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(500원·300원·4,700원·월 30,000원·22,000원)와도 일치하지 않는다. 별표 비고 6~8의 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-024",
+   "mgmt_no": "359-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제4공영주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 점촌동 163-2",
+   "addr_road": "경상북도 문경시 점촌역길 3",
+   "road": null,
+   "spaces": 47,
+   "tel": "054-550-6252",
+   "lat": 36.59548934,
+   "lng": 128.2028036,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 56000
+    },
+    "basis": "표준데이터에는 기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(500원·300원·4,700원·월 30,000원·22,000원)와도 일치하지 않는다. 별표 비고 6~8의 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-025",
+   "mgmt_no": "359-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제7공영주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 점촌동 53-3",
+   "addr_road": "경상북도 문경시 중앙로 152-1",
+   "road": null,
+   "spaces": 39,
+   "tel": "054-550-6252",
+   "lat": 36.59817914,
+   "lng": 128.2017177,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 56000
+    },
+    "basis": "표준데이터에는 기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(500원·300원·4,700원·월 30,000원·22,000원)와도 일치하지 않는다. 별표 비고 6~8의 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-026",
+   "mgmt_no": "359-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제8공영주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 점촌동 242-27",
+   "addr_road": "경상북도 문경시 중앙로 113-1",
+   "road": null,
+   "spaces": 35,
+   "tel": "054-550-6252",
+   "lat": 36.59545005,
+   "lng": 128.198914,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 56000
+    },
+    "basis": "표준데이터에는 기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(500원·300원·4,700원·월 30,000원·22,000원)와도 일치하지 않는다. 별표 비고 6~8의 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-027",
+   "mgmt_no": "359-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제9공영주차장(중앙시장 주차타워)",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 점촌동 195-10",
+   "addr_road": "경상북도 문경시 중앙시장1길 12(점촌동)",
+   "road": null,
+   "spaces": 130,
+   "tel": "054-550-6235",
+   "lat": 36.5942054,
+   "lng": 128.1969132,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 300,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터에는 기본 60분 무료·추가 30분마다 300원·1일 4,000원·월 40,000원으로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지·2급지와 일치하지 않고 최초 60분 무료는 별표 비고 6의 '최초 30분 범위' 무료를 넘어선다. 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-028",
+   "mgmt_no": "359-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙시장 공영주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 점촌동 196-14",
+   "addr_road": "경상북도 문경시 중앙시장길 31(점촌동)",
+   "road": null,
+   "spaces": 28,
+   "tel": "054-550-6235",
+   "lat": 36.59476772,
+   "lng": 128.1975463,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 300,
+     "day": 4000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터에는 기본 60분 무료·추가 30분마다 300원·1일 4,000원·월 40,000원으로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지·2급지와 일치하지 않고 최초 60분 무료는 별표 비고 6의 '최초 30분 범위' 무료를 넘어선다. 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-029",
+   "mgmt_no": "359-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙시장앞공영주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 점촌동 277-1",
+   "addr_road": "경상북도 문경시 중앙로 98",
+   "road": null,
+   "spaces": 44,
+   "tel": "054-550-6252",
+   "lat": 36.59378659,
+   "lng": 128.1986693,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 56000
+    },
+    "basis": "표준데이터에는 기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(500원·300원·4,700원·월 30,000원·22,000원)와도 일치하지 않는다. 별표 비고 6~8의 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-030",
+   "mgmt_no": "359-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제12공영주차장",
+   "gu": "문경시",
+   "dong": "흥덕동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 흥덕동 794-7",
+   "addr_road": "경상북도 문경시 신흥시장길 23-7",
+   "road": null,
+   "spaces": 35,
+   "tel": "054-550-6903",
+   "lat": 36.60104936,
+   "lng": 128.2044137,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-031",
+   "mgmt_no": "359-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제5공영주차장",
+   "gu": "문경시",
+   "dong": "흥덕동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 흥덕동 789-9",
+   "addr_road": "경상북도 문경시 신흥로 234",
+   "road": null,
+   "spaces": 39,
+   "tel": "054-550-6903",
+   "lat": 36.60099065,
+   "lng": 128.2063689,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-032",
+   "mgmt_no": "359-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제6공영주차장",
+   "gu": "문경시",
+   "dong": "흥덕동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 문경시 흥덕동 249-10",
+   "addr_road": "경상북도 문경시 호서로 82",
+   "road": null,
+   "spaces": 47,
+   "tel": "054-550-6903",
+   "lat": 36.60153397,
+   "lng": 128.202173,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s001",
+   "mgmt_no": "359-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제1노상주차장",
+   "gu": "문경시",
+   "dong": "모전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 모전동 76-4",
+   "addr_road": "경상북도 문경시 신흥로 15",
+   "road": "신흥로",
+   "spaces": 13,
+   "tel": "054-550-6903",
+   "lat": 36.58597907,
+   "lng": 128.1938801,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s002",
+   "mgmt_no": "359-1-000020",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제20노상주차장",
+   "gu": "문경시",
+   "dong": "모전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 모전동 37-1",
+   "addr_road": "경상북도 문경시 여고길 39-1",
+   "road": "여고길",
+   "spaces": 14,
+   "tel": "054-550-6903",
+   "lat": 36.59331466,
+   "lng": 128.1931943,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s003",
+   "mgmt_no": "359-1-000021",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제21노상주차장",
+   "gu": "문경시",
+   "dong": "모전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 모전동 908",
+   "addr_road": "경상북도 문경시 매봉1길 35",
+   "road": "매봉1길",
+   "spaces": 74,
+   "tel": "054-550-6903",
+   "lat": 36.58860227,
+   "lng": 128.1829687,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s004",
+   "mgmt_no": "359-1-000023",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제23노상주차장",
+   "gu": "문경시",
+   "dong": "모전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 모전동 860-8",
+   "addr_road": "경상북도 문경시 당교로 253",
+   "road": "당교로",
+   "spaces": 80,
+   "tel": "054-550-6903",
+   "lat": 36.58696327,
+   "lng": 128.1906517,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": null
+    },
+    "basis": "표준데이터에는 기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 공란로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(500원·300원·4,700원·월 30,000원·22,000원)와도 일치하지 않는다. 별표 비고 6~8의 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s005",
+   "mgmt_no": "359-1-000024",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제24노상주차장",
+   "gu": "문경시",
+   "dong": "모전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 모전동 864",
+   "addr_road": "경상북도 문경시 시청1길 31-1",
+   "road": "시청1길",
+   "spaces": 8,
+   "tel": "054-550-6903",
+   "lat": 36.58626465,
+   "lng": 128.1880251,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": null
+    },
+    "basis": "표준데이터에는 기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 공란로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(500원·300원·4,700원·월 30,000원·22,000원)와도 일치하지 않는다. 별표 비고 6~8의 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s006",
+   "mgmt_no": "359-1-000025",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제25노상주차장",
+   "gu": "문경시",
+   "dong": "모전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 모전동 81-18",
+   "addr_road": "경상북도 문경시 중앙로 21",
+   "road": "중앙로",
+   "spaces": 57,
+   "tel": "054-550-6903",
+   "lat": 36.58859055,
+   "lng": 128.1931748,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s007",
+   "mgmt_no": "359-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제5노상주차장",
+   "gu": "문경시",
+   "dong": "모전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 모전동 27-30",
+   "addr_road": "경상북도 문경시 돈달로 27",
+   "road": "돈달로",
+   "spaces": 33,
+   "tel": "054-550-6903",
+   "lat": 36.59511248,
+   "lng": 128.1916842,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s008",
+   "mgmt_no": "359-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제7노상주차장",
+   "gu": "문경시",
+   "dong": "모전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 모전동 73-38",
+   "addr_road": "경상북도 문경시 운동장로 80",
+   "road": "운동장로",
+   "spaces": 49,
+   "tel": "054-550-6903",
+   "lat": 36.58784344,
+   "lng": 128.1963856,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s009",
+   "mgmt_no": "359-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제8노상주차장",
+   "gu": "문경시",
+   "dong": "모전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 모전동 81-13",
+   "addr_road": "경상북도 문경시 운동장로 38",
+   "road": "운동장로",
+   "spaces": 17,
+   "tel": "054-550-6903",
+   "lat": 36.58985275,
+   "lng": 128.19263,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s010",
+   "mgmt_no": "359-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제9노상주차장",
+   "gu": "문경시",
+   "dong": "모전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 모전동 117-14",
+   "addr_road": "경상북도 문경시 운동장로 4",
+   "road": "운동장로",
+   "spaces": 23,
+   "tel": "054-550-6903",
+   "lat": 36.59159294,
+   "lng": 128.1893282,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s011",
+   "mgmt_no": "359-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제2노상주차장",
+   "gu": "문경시",
+   "dong": "윤직동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 윤직동 568-1",
+   "addr_road": "경상북도 문경시 윤직동3길 2",
+   "road": "윤직동3길",
+   "spaces": 34,
+   "tel": "054-550-6903",
+   "lat": 36.5860042,
+   "lng": 128.1960741,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s012",
+   "mgmt_no": "359-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제10노상주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 점촌동 131-21",
+   "addr_road": "경상북도 문경시 남산로 24",
+   "road": "남산로",
+   "spaces": 13,
+   "tel": "054-550-6903",
+   "lat": 36.59190836,
+   "lng": 128.1995831,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": null
+    },
+    "basis": "표준데이터에는 기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 공란로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(500원·300원·4,700원·월 30,000원·22,000원)와도 일치하지 않는다. 별표 비고 6~8의 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s013",
+   "mgmt_no": "359-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제11노상주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 점촌동 181-39",
+   "addr_road": "경상북도 문경시 중앙공원길 12",
+   "road": "중앙공원길",
+   "spaces": 39,
+   "tel": "054-550-6903",
+   "lat": 36.59091567,
+   "lng": 128.196837,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s014",
+   "mgmt_no": "359-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제13노상주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 점촌동 393-1",
+   "addr_road": "경상북도 문경시 점촌2길 55",
+   "road": "점촌2길",
+   "spaces": 11,
+   "tel": "054-550-6903",
+   "lat": 36.59989661,
+   "lng": 128.198971,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s015",
+   "mgmt_no": "359-1-000014",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제14노상주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 점촌동 392-4",
+   "addr_road": "경상북도 문경시 점촌7길 30",
+   "road": "점촌7길",
+   "spaces": 17,
+   "tel": "054-550-6903",
+   "lat": 36.6004715,
+   "lng": 128.1991057,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s016",
+   "mgmt_no": "359-1-000017",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제17노상주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 점촌동 256-5",
+   "addr_road": "경상북도 문경시 점촌로 42",
+   "road": "점촌로",
+   "spaces": 16,
+   "tel": "054-550-6903",
+   "lat": 36.5980137,
+   "lng": 128.1987198,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": null
+    },
+    "basis": "표준데이터에는 기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 공란로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(500원·300원·4,700원·월 30,000원·22,000원)와도 일치하지 않는다. 별표 비고 6~8의 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s017",
+   "mgmt_no": "359-1-000018",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제18노상주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 점촌동 166-2",
+   "addr_road": "경상북도 문경시 점촌로 1",
+   "road": "점촌로",
+   "spaces": 6,
+   "tel": "054-550-6903",
+   "lat": 36.59593193,
+   "lng": 128.2023601,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": null
+    },
+    "basis": "표준데이터에는 기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 공란로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(500원·300원·4,700원·월 30,000원·22,000원)와도 일치하지 않는다. 별표 비고 6~8의 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s018",
+   "mgmt_no": "359-1-000019",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제19노상주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 점촌동 251-11",
+   "addr_road": "경상북도 문경시 점촌1길 24",
+   "road": "점촌1길",
+   "spaces": 11,
+   "tel": "054-550-6903",
+   "lat": 36.5969549,
+   "lng": 128.1988298,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s019",
+   "mgmt_no": "359-1-000022",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제22노상주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 점촌동 176-6",
+   "addr_road": "경상북도 문경시 중앙8길 1",
+   "road": "중앙8길",
+   "spaces": 6,
+   "tel": "054-550-6903",
+   "lat": 36.5961698,
+   "lng": 128.200341,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s020",
+   "mgmt_no": "359-1-000026",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제26노상주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 점촌동 278-1",
+   "addr_road": "경상북도 문경시 중앙로 88",
+   "road": "중앙로",
+   "spaces": 35,
+   "tel": "054-550-6903",
+   "lat": 36.59322307,
+   "lng": 128.1978602,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "무료개방(평일 야간+토·일·공휴일)+주차요금(경차+장애인+독립유공자등 감면)",
+   "notice": "평일 야간·토요일·일요일·공휴일 무료 개방으로 등록돼 있다(표준데이터 특기사항)",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": null
+    },
+    "basis": "표준데이터에는 기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 공란로 등록돼 있으나, 「문경시 주차장 조례」 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(500원·300원·4,700원·월 30,000원·22,000원)와도 일치하지 않는다. 별표 비고 6~8의 시설별 조정이 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 문경시청(054-550-6903) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s021",
+   "mgmt_no": "359-1-000027",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제27노상주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 점촌동 142-1",
+   "addr_road": "경상북도 문경시 중앙로 148",
+   "road": "중앙로",
+   "spaces": 44,
+   "tel": "054-550-6903",
+   "lat": 36.59773666,
+   "lng": 128.2014004,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s022",
+   "mgmt_no": "359-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제3노상주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 점촌동 121-23",
+   "addr_road": "경상북도 문경시 신흥로 74",
+   "road": "신흥로",
+   "spaces": 44,
+   "tel": "054-550-6903",
+   "lat": 36.5882568,
+   "lng": 128.197468,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s023",
+   "mgmt_no": "359-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제4노상주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 점촌동 288-1",
+   "addr_road": "경상북도 문경시 신흥로 121",
+   "road": "신흥로",
+   "spaces": 128,
+   "tel": "054-550-6903",
+   "lat": 36.59231206,
+   "lng": 128.2000109,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s024",
+   "mgmt_no": "359-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제6노상주차장",
+   "gu": "문경시",
+   "dong": "점촌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 점촌동 402-5",
+   "addr_road": "경상북도 문경시 돈달로 97",
+   "road": "돈달로",
+   "spaces": 58,
+   "tel": "054-550-6903",
+   "lat": 36.59951295,
+   "lng": 128.1969253,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s025",
+   "mgmt_no": "359-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제12노상주차장",
+   "gu": "문경시",
+   "dong": "흥덕동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 흥덕동 224-8",
+   "addr_road": "경상북도 문경시 중앙로 160-1",
+   "road": "중앙로",
+   "spaces": 18,
+   "tel": "054-550-6903",
+   "lat": 36.59881651,
+   "lng": 128.2021165,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s026",
+   "mgmt_no": "359-1-000015",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제15노상주차장",
+   "gu": "문경시",
+   "dong": "흥덕동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 흥덕동 794-3",
+   "addr_road": "경상북도 문경시 흥덕로 16",
+   "road": "흥덕로",
+   "spaces": 15,
+   "tel": "054-550-6903",
+   "lat": 36.6009156,
+   "lng": 128.2045069,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  },
+  {
+   "id": "gb-mungyeong-s027",
+   "mgmt_no": "359-1-000016",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "제16노상주차장",
+   "gu": "문경시",
+   "dong": "흥덕동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 문경시 흥덕동 793-2",
+   "addr_road": "경상북도 문경시 중앙로 188",
+   "road": "중앙로",
+   "spaces": 18,
+   "tel": "054-550-6903",
+   "lat": 36.60108203,
+   "lng": 128.2031329,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 문경시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1과 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "문경시",
+   "city_slug": "mungyeong",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-21 12:55",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 59,
+  "원자료_문경시행수": 59,
+  "원자료_받은행수": 59,
+  "구별": {
+   "문경시": 59
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 32,
+  "노외_부설": {
+   "노외": 24,
+   "부설": 8
+  },
+  "노상_구간": 27,
+  "총_구획수": 4003,
+  "노상_구획수": 881,
+  "동별": {
+   "점촌동": 29,
+   "모전동": 16,
+   "흥덕동": 6,
+   "문경읍": 5,
+   "가은읍": 2,
+   "윤직동": 1
+  },
+  "동수": 6,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 59
+  },
+  "요금구분": {
+   "무료": 34,
+   "미상": 25
+  },
+  "요금_미상": [
+   "문경시의회",
+   "문경시청",
+   "문경시청 부설 주차타워",
+   "제1공영주차장",
+   "평생학습관",
+   "제1주차장",
+   "문경시보건소",
+   "시니어문화센터",
+   "제13공영주차장",
+   "제14공영주차장",
+   "제15공영주차장",
+   "제16공영주차장",
+   "제3공영주차장",
+   "제4공영주차장",
+   "제7공영주차장",
+   "제8공영주차장",
+   "제9공영주차장(중앙시장 주차타워)",
+   "중앙시장 공영주차장",
+   "중앙시장앞공영주차장",
+   "제23노상주차장",
+   "제24노상주차장",
+   "제10노상주차장",
+   "제17노상주차장",
+   "제18노상주차장",
+   "제26노상주차장"
+  ],
+  "유료_노상": 0,
+  "유료_노외": 0,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "같은 자리·같은 좌표에 이름만 다른 등록: 제15공영주차장·제4공영주차장 — 경상북도 문경시 점촌동 163-2에 좌표(36.59548934, 128.2028036)가 같게 등록돼 있다. 이름이 다른 별개 등록이라 합치지 않고 전부 실었고, 같은 시설의 중복 등록인지는 문경시청 확인이 필요하다",
+   "표준데이터 등록 59행이 전부 공영이라 민영 제외는 0건이다. 데이터기준일자는 59행 전부 2026-04-17, 제공기관명은 전부 경상북도 문경시, 관리기관명은 문경시청 54곳·문경관광진흥공단 4곳·문경시 보건소 1곳이다",
+   "관리번호 359-3-000002가 문경시청(모전동 220, 210면)과 문경시청 부설 주차타워(모전동 214-7, 191면) 2행에 중복되나 이름·지번·면수가 달라 같은 자리 다른 이름 등록으로 보고 2행 모두 실었다",
+   "등록 급지구분은 1급지 52곳·2급지 7곳이다. 1급지 52곳은 점촌동·모전동·흥덕동·윤직동에, 2급지 7곳은 가은읍·문경읍에 있다",
+   "좌표는 59곳 전부 등록돼 있고 전부 문경시 범위 안이라 지오코딩 보완이 0건이다",
+   "운영요일은 59곳 전부 평일+토요일+공휴일이고 평일 운영시간은 09:00~18:00이 53곳·08:00~19:00이 6곳, 토요일·공휴일 운영시간은 전부 00:00~23:59, 부제시행구분은 전부 미시행이다. 도로명주소는 56곳만 등록돼 있다",
+   "유료 25곳 중 24곳의 특기사항에 '무료개방(평일 야간+토·일·공휴일)'이 적혀 있어 그 24곳에 한해 평일 야간·토·일·공휴일 무료 일정을 표기했다. 제1주차장은 요금 칸이 공란이라 요금 미상이다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "문경시보건소: 등록 요금(기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원)이 조례 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(최초 60분 500원·초과 30분 300원·1일 4,700원·월 주간 30,000원·야간 22,000원)와도 일치하지 않아, 별표 비고 6~8의 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안·상주 중앙시장주차타워 선례). 등록 월 56,000원이 1급지 야간 월(56,000원)과 같아도 1일 요금이 달라 급지를 확정할 수 없다",
+   "시니어문화센터: 등록 요금(기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원)이 조례 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(최초 60분 500원·초과 30분 300원·1일 4,700원·월 주간 30,000원·야간 22,000원)와도 일치하지 않아, 별표 비고 6~8의 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안·상주 중앙시장주차타워 선례). 등록 월 56,000원이 1급지 야간 월(56,000원)과 같아도 1일 요금이 달라 급지를 확정할 수 없다",
+   "평생학습관: 등록 요금(기본 60분 500원·추가 30분마다 500원·1일 7,300원·월 68,000원)이 조례 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(최초 60분 500원·초과 30분 300원·1일 4,700원·월 주간 30,000원·야간 22,000원)와도 일치하지 않아, 별표 비고 6~8의 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안·상주 중앙시장주차타워 선례). 등록 월도 별표 월 정기요금과 일치하지 않는다",
+   "문경시의회: 등록 요금(기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원)이 조례 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(최초 60분 500원·초과 30분 300원·1일 4,700원·월 주간 30,000원·야간 22,000원)와도 일치하지 않아, 별표 비고 6~8의 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안·상주 중앙시장주차타워 선례). 등록 월 56,000원이 1급지 야간 월(56,000원)과 같아도 1일 요금이 달라 급지를 확정할 수 없다",
+   "문경시청 부설 주차타워: 등록 요금(기본 60분 500원·추가 30분마다 500원·1일 7,300원·월 68,000원)이 조례 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(최초 60분 500원·초과 30분 300원·1일 4,700원·월 주간 30,000원·야간 22,000원)와도 일치하지 않아, 별표 비고 6~8의 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안·상주 중앙시장주차타워 선례). 등록 월도 별표 월 정기요금과 일치하지 않는다",
+   "문경시청: 등록 요금(기본 60분 500원·추가 30분마다 500원·1일 7,300원·월 68,000원)이 조례 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(최초 60분 500원·초과 30분 300원·1일 4,700원·월 주간 30,000원·야간 22,000원)와도 일치하지 않아, 별표 비고 6~8의 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안·상주 중앙시장주차타워 선례). 등록 월도 별표 월 정기요금과 일치하지 않는다",
+   "중앙시장 공영주차장: 등록 요금(기본 60분 무료·추가 30분마다 300원·1일 4,000원·월 40,000원)이 조례 별표 1의 어느 급지와도 일치하지 않고, 최초 60분 무료는 별표 비고 6의 '최초 30분 범위' 무료를 넘어서 비고 6만으로 설명되지 않아, 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안 선례)",
+   "제1주차장: 유료로 등록돼 있으나 등록 금액이 기본 60분에 나머지 금액이 공란이라 조례 별표 금액을 대입하지 않고 요금 미상으로 표기한다(김해 선례)",
+   "중앙시장앞공영주차장: 등록 요금(기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원)이 조례 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(최초 60분 500원·초과 30분 300원·1일 4,700원·월 주간 30,000원·야간 22,000원)와도 일치하지 않아, 별표 비고 6~8의 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안·상주 중앙시장주차타워 선례). 등록 월 56,000원이 1급지 야간 월(56,000원)과 같아도 1일 요금이 달라 급지를 확정할 수 없다",
+   "제16공영주차장: 등록 요금(기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원)이 조례 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(최초 60분 500원·초과 30분 300원·1일 4,700원·월 주간 30,000원·야간 22,000원)와도 일치하지 않아, 별표 비고 6~8의 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안·상주 중앙시장주차타워 선례). 등록 월 56,000원이 1급지 야간 월(56,000원)과 같아도 1일 요금이 달라 급지를 확정할 수 없다",
+   "제15공영주차장: 등록 요금(기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원)이 조례 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(최초 60분 500원·초과 30분 300원·1일 4,700원·월 주간 30,000원·야간 22,000원)와도 일치하지 않아, 별표 비고 6~8의 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안·상주 중앙시장주차타워 선례). 등록 월 56,000원이 1급지 야간 월(56,000원)과 같아도 1일 요금이 달라 급지를 확정할 수 없다",
+   "제14공영주차장: 등록 요금(기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원)이 조례 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(최초 60분 500원·초과 30분 300원·1일 4,700원·월 주간 30,000원·야간 22,000원)와도 일치하지 않아, 별표 비고 6~8의 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안·상주 중앙시장주차타워 선례). 등록 월 56,000원이 1급지 야간 월(56,000원)과 같아도 1일 요금이 달라 급지를 확정할 수 없다",
+   "제13공영주차장: 등록 요금(기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원)이 조례 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(최초 60분 500원·초과 30분 300원·1일 4,700원·월 주간 30,000원·야간 22,000원)와도 일치하지 않아, 별표 비고 6~8의 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안·상주 중앙시장주차타워 선례). 등록 월 56,000원이 1급지 야간 월(56,000원)과 같아도 1일 요금이 달라 급지를 확정할 수 없다",
+   "제9공영주차장(중앙시장 주차타워): 등록 요금(기본 60분 무료·추가 30분마다 300원·1일 4,000원·월 40,000원)이 조례 별표 1의 어느 급지와도 일치하지 않고, 최초 60분 무료는 별표 비고 6의 '최초 30분 범위' 무료를 넘어서 비고 6만으로 설명되지 않아, 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안 선례)",
+   "제8공영주차장: 등록 요금(기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원)이 조례 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(최초 60분 500원·초과 30분 300원·1일 4,700원·월 주간 30,000원·야간 22,000원)와도 일치하지 않아, 별표 비고 6~8의 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안·상주 중앙시장주차타워 선례). 등록 월 56,000원이 1급지 야간 월(56,000원)과 같아도 1일 요금이 달라 급지를 확정할 수 없다",
+   "제7공영주차장: 등록 요금(기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원)이 조례 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(최초 60분 500원·초과 30분 300원·1일 4,700원·월 주간 30,000원·야간 22,000원)와도 일치하지 않아, 별표 비고 6~8의 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안·상주 중앙시장주차타워 선례). 등록 월 56,000원이 1급지 야간 월(56,000원)과 같아도 1일 요금이 달라 급지를 확정할 수 없다",
+   "제4공영주차장: 등록 요금(기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원)이 조례 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(최초 60분 500원·초과 30분 300원·1일 4,700원·월 주간 30,000원·야간 22,000원)와도 일치하지 않아, 별표 비고 6~8의 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안·상주 중앙시장주차타워 선례). 등록 월 56,000원이 1급지 야간 월(56,000원)과 같아도 1일 요금이 달라 급지를 확정할 수 없다",
+   "제3공영주차장: 등록 요금(기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원)이 조례 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(최초 60분 500원·초과 30분 300원·1일 4,700원·월 주간 30,000원·야간 22,000원)와도 일치하지 않아, 별표 비고 6~8의 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안·상주 중앙시장주차타워 선례). 등록 월 56,000원이 1급지 야간 월(56,000원)과 같아도 1일 요금이 달라 급지를 확정할 수 없다",
+   "제1공영주차장: 등록 요금(기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 56,000원)이 조례 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(최초 60분 500원·초과 30분 300원·1일 4,700원·월 주간 30,000원·야간 22,000원)와도 일치하지 않아, 별표 비고 6~8의 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안·상주 중앙시장주차타워 선례). 등록 월 56,000원이 1급지 야간 월(56,000원)과 같아도 1일 요금이 달라 급지를 확정할 수 없다",
+   "제26노상주차장: 등록 요금(기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 공란)이 조례 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(최초 60분 500원·초과 30분 300원·1일 4,700원·월 주간 30,000원·야간 22,000원)와도 일치하지 않아, 별표 비고 6~8의 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안·상주 중앙시장주차타워 선례). 등록 월도 별표 월 정기요금과 일치하지 않는다",
+   "제24노상주차장: 등록 요금(기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 공란)이 조례 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(최초 60분 500원·초과 30분 300원·1일 4,700원·월 주간 30,000원·야간 22,000원)와도 일치하지 않아, 별표 비고 6~8의 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안·상주 중앙시장주차타워 선례). 등록 월도 별표 월 정기요금과 일치하지 않는다",
+   "제23노상주차장: 등록 요금(기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 공란)이 조례 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(최초 60분 500원·초과 30분 300원·1일 4,700원·월 주간 30,000원·야간 22,000원)와도 일치하지 않아, 별표 비고 6~8의 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안·상주 중앙시장주차타워 선례). 등록 월도 별표 월 정기요금과 일치하지 않는다",
+   "제18노상주차장: 등록 요금(기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 공란)이 조례 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(최초 60분 500원·초과 30분 300원·1일 4,700원·월 주간 30,000원·야간 22,000원)와도 일치하지 않아, 별표 비고 6~8의 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안·상주 중앙시장주차타워 선례). 등록 월도 별표 월 정기요금과 일치하지 않는다",
+   "제17노상주차장: 등록 요금(기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 공란)이 조례 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(최초 60분 500원·초과 30분 300원·1일 4,700원·월 주간 30,000원·야간 22,000원)와도 일치하지 않아, 별표 비고 6~8의 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안·상주 중앙시장주차타워 선례). 등록 월도 별표 월 정기요금과 일치하지 않는다",
+   "제10노상주차장: 등록 요금(기본 60분 500원·추가 30분마다 500원·1일 6,000원·월 공란)이 조례 별표 1의 1급지(최초 60분 1,000원·초과 30분 500원·1일 8,000원·월 주간 75,000원·야간 56,000원)와도 2급지(최초 60분 500원·초과 30분 300원·1일 4,700원·월 주간 30,000원·야간 22,000원)와도 일치하지 않아, 별표 비고 6~8의 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안·상주 중앙시장주차타워 선례). 등록 월도 별표 월 정기요금과 일치하지 않는다"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "아자개장터 공영주차장",
+   "제1주차장",
+   "제4주차장"
+  ],
+  "감면_출처": "「문경시 주차장 조례」 제1460호 제3조제5항 — 장애인·국가유공자 등, 1000 CC 미만의 경승용차, 대중교통 이용 2시간 이상, 고엽제후유의증 환자, 5. 18 민주화운동 부상자, 저공해자동차는 주차요금의 100분의 60을 감면한다. 제3조제6항 — 긴급자동차, 성실납세스티커 부착 자동차(교부일로부터 1년 이내), 임산부 운전차량은 주차요금을 면제할 수 있다. 국가법령정보센터 본문 원문(ordinSeq 1652921)으로 확인했다",
+  "요금_출처": "조례 제3조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같다. 별표 1(시간제)은 1급지 최초 60분 1,000원·초과 30분마다 500원·1일 8,000원·월 주간 75,000원·야간 56,000원, 2급지 500원·300원·4,700원·월 30,000원·22,000원이다. 별표 1(1일1회)은 관광지·유원지 부설주차장에 버스 25인승 이상 4,000원·미만 3,000원, 승용 2,000원, 화물 4톤 이상 4,000원·미만 3,000원을 정한다. 별표 원본 HWP(flSeq 111893665)를 받아 추출해 대조했다",
+  "급지_출처": "조례 별표 1 비고 3 — 1급지는 점촌1·2·3·5동 지역 중 시장이 지정 고시한 주차장, 2급지는 1급지를 제외한 주차장이다. 표준데이터 등록 급지구분은 1급지 52곳·2급지 7곳이고, 등록 1급지 52곳은 점촌동·모전동·흥덕동·윤직동에, 2급지 7곳은 가은읍·문경읍에 있어 조례 급지 구분과 방향이 같다. 등록 급지는 요금 계산에 쓰지 않았다",
+  "무료요일_출처": "조례 제3조제1항 단서는 필요한 경우 주차요금을 무료로 하거나 별표 1 요금을 할인하여 운영할 수 있다고만 정하고 주말 자동 면제 조항은 없다(인스팅트 앞단 패키지 확인). 유료 25곳 중 24곳은 표준데이터 특기사항에 '무료개방(평일 야간+토·일·공휴일)'이 적혀 있어 그 24곳에 한해 등록 근거로 평일 야간·토·일·공휴일 무료 일정을 표기했다. 조례만으로 시 전체에 확대하지 않았다. 요금 구분이 '무료'인 곳은 요일과 관계없이 무료다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 문경시 등록 59행이 전부 공영(노상 27·노외 24·부설 8, 총 4,884면)이라 민영 제외 0건으로 59곳을 전부 실었다. 중복 제거 0건, 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다. 인스팅트 앞단 패키지(경북 9/22, 2026-11-20)의 집계(공영 59곳·4,884면, 노상 27·노외 24·부설 8, 무료 34·유료 25, 민영 제외 0, 기준일 2026-04-17)와 표준데이터 원본 대조 결과가 일치한다. 패키지 ⑥의 '57행 로드 후확인'은 관리번호 중복 2행을 보존하고 나머지 57행을 로드 후 확인한다는 뜻으로 읽어 제외 없이 59곳을 전부 실었다",
+   "관리번호 359-3-000002가 문경시청(모전동 220, 210면)과 문경시청 부설 주차타워(모전동 214-7, 191면) 2행에 중복되나 이름·지번·면수가 달라 같은 자리 다른 이름 등록으로 보고 2행 모두 실었다(패키지 판단안, mgmt_no는 join key가 아니다). 이름+지번 중복은 0건이다. 제4공영주차장과 제15공영주차장은 같은 지번(점촌동 163-2)·같은 좌표에 이름만 다르게 등록돼 있어 합치지 않고 전부 실었다(산청 선례) — 같은 시설의 중복 등록인지는 문경시청 확인 과제다",
+   "「문경시 주차장 조례」 제1460호(시행 2021-12-22, 일부개정, ordinSeq 1652921) 본문 원문(data/raw/mungyeong-ordinance.txt) 대조 완료(2026-11-21) — 국가법령정보센터 연혁에서 제1460호(공포 2021-12-22, 불합리한 자치법규 일괄정비 48개 조례 일부개정)가 최신 공포본임을 확인했고, 본문 제3조제1항이 공영주차장 요금을 별표 1과 같다고 정하고 제3조제1항 단서는 필요한 경우 무료·할인 운영을 허용하나 주말 자동 면제 조항은 없음을 확인했다. 감면은 제3조제5항(60% 감면)·제3조제6항(면제 가능) 본문 원문으로 확인했다",
+   "별표 1은 ELIS 첨부 HWP 원본(flSeq 111893665)을 data/raw/mungyeong-ordinance-b1.hwp로 저장하고 추출해 확정했다 — 시간제 1급지 최초 60분 1,000원·초과 30분마다 500원·1일 8,000원·월 주간 75,000원·야간 56,000원, 2급지 500원·300원·4,700원·월 30,000원·22,000원, 1일1회(관광지·유원지 부설) 버스 25인승 이상 4,000원·미만 3,000원·승용 2,000원·화물 4톤 이상 4,000원·미만 3,000원, 1급지 정의(점촌1·2·3·5동 중 지정 고시), 주간 시간구분(4~10월 08:00~20:00·11~3월 09:00~19:30), 1회·1일 주차 당일 24:00 기준, 비고 6~8(최초 30분 범위 무료·시간별 요금·주차장별 유료 운영시간 별도 지정)이 들어 있다",
+   "유료 25곳의 판단은 패키지 판단안을 따랐다 — 등록 요금이 별표 1의 어느 급지와도 전부 일치하지 않아 시간요금을 확정하지 않고 요금 미상으로 표기했다(김해·함안·상주 중앙시장주차타워 선례, 패키지 판단안). 등록 패턴은 19행이 기본 60분 500원·추가 30분마다 500원·1일 6,000원(월 56,000원 13행·월 공란 6행), 3행이 같은 시간요금·1일 7,300원·월 68,000원, 2행이 기본 60분 무료·추가 30분마다 300원·1일 4,000원·월 40,000원, 1행이 요금 공란(제1주차장)이다. 19행의 월 56,000원은 1급지 야간 월과 같으나 1일 요금이 달라 급지를 확정할 수 없고, 2행의 최초 60분 무료는 비고 6의 '최초 30분 범위'를 넘어 비고 6만으로 설명되지 않는다. 등록값은 std에 그대로 남겼고 요금표는 조례 별표 참고표로 실었다",
+   "무료 개방 24곳은 유료 25곳 중 특기사항에 '무료개방(평일 야간+토·일·공휴일)'이 적힌 곳으로, 그 24곳에 한해 표준데이터 등록 근거로 평일 야간·토요일·일요일·공휴일 무료 일정을 표기했다(패키지 ③). 조례만으로 시 전체에 확대하지 않았다. derive_free_fields의 무료 개방 파서는 '개방' 앞 24자에서 요일을 읽는데 이 특기사항은 요일이 '개방' 뒤 괄호 안에 있어 파서가 잡지 못하므로, 빌더에서 특기사항을 직접 읽어 free_days(토·일)를 정했다. 공휴일 태그는 특기사항이 공휴일을 직접 밝히고 있어 sun=True를 따라 붙는다(문경시는 공휴일 태그 예외 목록에 넣지 않았다 — 포항 선례)",
+   "좌표는 59곳 전부 등록돼 있고 전부 문경시 범위(위도 36.5860~36.7607, 경도 128.0607~128.2064) 안이라 지오코딩 보완이 0건이다 — 오버레이(좌표누락_지오코딩_20261118.json)는 기존 739행 그대로 유지된다(인스팅트 패키지 ⑦과 같은 결론)",
+   "운영요일은 59곳 전부 평일+토요일+공휴일이고 평일 운영시간은 09:00~18:00이 53곳·08:00~19:00이 6곳, 토요일·공휴일 운영시간은 전부 00:00~23:59다. 부제시행구분은 전부 미시행, 데이터기준일자는 전부 2026-04-17이다. 도로명주소는 56곳만 등록돼 있다(아자개장터 공영주차장·제4주차장·제1주차장 3곳 누락). 관리기관은 문경시청 54곳·문경관광진흥공단 4곳·문경시 보건소 1곳, 전화번호는 054-550-6903이 32곳으로 최다라 문의 전화로 썼다",
+   "확인 과제 — ① 시설별 요금 조정·부설 감정: 유료 25곳의 등록 요금이 별표와 다른 근거(별표 비고 6~8의 시설별 조정·문경시 고시/공고 여부)를 문경시청에 확인할 것 ② 관광지 유료 1행 공란: 제1주차장(문경읍 상초리 352-8, 관광진흥공단)의 실제 요금(별표 1 제2항 1일1회 요금 적용 여부)을 확인할 것 ③ 24행 무료 시간 경계: 특기사항 '평일 야간'의 시작 시각이 등록에 없어 평일 야간 무료의 정확한 시간대를 확인할 것 ④ 같은 자리 중복 의심: 제4·제15공영주차장(점촌동 163-2, 같은 좌표)이 같은 시설의 중복 등록인지 확인할 것 ⑤ 관리번호 중복: 359-3-000002(문경시청·문경시청 부설 주차타워)가 같은 관리번호를 쓰는 이유를 확인할 것 ⑥ 시행 이후 개별 공고: 2021-12-22 시행 이후 주차장별 요금·운영 변경 공고가 있는지 검증할 것"
+  ],
+  "무료개방_표기": [
+   "문경시의회",
+   "문경시청",
+   "문경시청 부설 주차타워",
+   "제1공영주차장",
+   "평생학습관",
+   "문경시보건소",
+   "시니어문화센터",
+   "제13공영주차장",
+   "제14공영주차장",
+   "제15공영주차장",
+   "제16공영주차장",
+   "제3공영주차장",
+   "제4공영주차장",
+   "제7공영주차장",
+   "제8공영주차장",
+   "제9공영주차장(중앙시장 주차타워)",
+   "중앙시장 공영주차장",
+   "중앙시장앞공영주차장",
+   "제23노상주차장",
+   "제24노상주차장",
+   "제10노상주차장",
+   "제17노상주차장",
+   "제18노상주차장",
+   "제26노상주차장"
+  ],
+  "거주자우선": [],
+  "무료_요금구분": 34,
+  "무료_구획수": 3079,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [
+   "359-3-000002"
+  ],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-17"
+  ],
+  "관리기관": {
+   "경상북도 문경시청": 54,
+   "경상북도 문경관광진흥공단": 4,
+   "경상북도 문경시 보건소": 1
+  }
+ },
+ "fee_table": {
+  "style": "mungyeong_grade",
+  "unit_min": 30,
+  "base_min": 60,
+  "applies": "「문경시 주차장 조례」 제1460호(시행 2021-12-22) 제3조제1항·별표 1 — 국가법령정보센터 ordinSeq 1652921에서 확인",
+  "source_url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=1652921",
+  "grade_system": "1급지는 점촌1·2·3·5동 지역 중 시장이 지정 고시한 주차장, 2급지는 1급지를 제외한 주차장이다(별표 1 비고 3). 표준데이터 등록 급지구분은 1급지 52곳·2급지 7곳이고, 등록 1급지 52곳은 점촌동·모전동·흥덕동·윤직동에, 2급지 7곳은 가은읍·문경읍에 있다. 등록 급지는 표준데이터 값 그대로이며 요금 계산에는 쓰지 않았다",
+  "rows": [
+   {
+    "label": "1급지 (조례 별표 1)",
+    "grade": "1",
+    "unit_label": "최초 60분 1,000원 · 초과 30분마다 500원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": 8000,
+    "month_all": null,
+    "month": 75000,
+    "month_night": 56000,
+    "lots": 52
+   },
+   {
+    "label": "2급지 (조례 별표 1)",
+    "grade": "2",
+    "unit_label": "최초 60분 500원 · 초과 30분마다 300원",
+    "hour": 500,
+    "two_hour": 1100,
+    "day": 4700,
+    "month_all": null,
+    "month": 30000,
+    "month_night": 22000,
+    "lots": 7
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 0,
+   "street_paid": 0,
+   "free": 34,
+   "unknown": 25
+  },
+  "windows": [
+   {
+    "group": "주간·야간 시간구분 (별표 1 비고 2)",
+    "hours": "4~10월 주간 08:00~20:00 · 11~3월 주간 09:00~19:00 · 나머지는 야간",
+    "free": "월정기 요금은 주간·야간으로 나뉜다(1급지 75,000원·56,000원, 2급지 30,000원·22,000원)"
+   },
+   {
+    "group": "1회·1일 주차 시간 기준 (별표 1 비고 5)",
+    "hours": "주차당일 24:00까지 · 1일 주차요금은 8시간 이상 주차할 때 적용",
+    "free": "1시간 금액은 최초 60분 요금과 같고, 2시간 금액은 최초 60분에 초과 30분 2회분을 더한 것이다"
+   },
+   {
+    "group": "관광지·유원지 부설주차장 1일1회 요금 (별표 1 제2항)",
+    "hours": "버스 25인승 이상 4,000원·25인승 미만 3,000원 · 승용 2,000원 · 화물 4톤 이상 4,000원·4톤 미만 3,000원(1회 주차)",
+    "free": "문경읍 상초리·하초리의 관광진흥공단 등록 4곳(제1~제4주차장)이 여기에 해당할 수 있으나, 제1주차장은 등록 요금이 공란이라 요금 미상으로 표기했다 — 실제 요금은 문경시청 확인이 필요하다"
+   },
+   {
+    "group": "시설별 조정 (별표 1 비고 6~8)",
+    "hours": "최초 30분 범위 무료 시간·시간별 요금·주차장별 유료 운영시간을 따로 정할 수 있다",
+    "free": "유료 25곳의 등록 요금이 별표 어느 급지와도 일치하지 않아, 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기했다"
+   }
+  ],
+  "discounts": [
+   {
+    "label": "장애인·국가유공자 등 60% 감면",
+    "rate": 0.6,
+    "exempt_min": 0,
+    "note": "조례 제3조제5항 — 「장애인복지법」에 따른 장애인 또는 「국가유공자 등 예우 및 지원에 관한 법률 시행령」 제14조에 따른 상이등급 1급부터 7급의 장애인 등록증을 소지한 사람과 「독립유공자 예우에 관한 법률」 제4조에 따른 독립유공자가 본인 소유의 비사업용 차량을 직접 운전하거나 승차하여 타인으로 하여금 대리 운전하게 하는 경우, 1000 CC 미만의 경승용차, 대중교통(철도, 시외버스)을 이용하기 위하여 2시간 이상 공영주차장에 주차를 한 자동차로서 대중교통을 이용한 증명서(승차권 영수증 등)를 제출한 자동차, 「고엽제 후유의증 등 환자지원 및 단체설립에 관한 법률」 제4조에 따라 등록한 고엽제후유증 환자, 「5. 18 민주유공자 예우에 관한 법률」 시행령 제4조에 따른 5. 18 민주화운동 부상자, 「대기환경보전법」 제58조제12항에 따른 저공해자동차 표지를 부착한 차량은 주차요금의 100분의 60을 감면한다"
+   },
+   {
+    "label": "긴급자동차·성실납세자·임산부 면제 가능",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 제3조제6항 — 「도로교통법」 제2조제22호에 따른 긴급 자동차, 시장 표창, 경상북도지사표창을 받은 지방세 성실납세자와 장관표창이상 정부포상을 받은 국세 성실납세자로서 교부일로부터 1년 이내의 성실납세스티커를 부착한 자동차, 「문경시 임산부 전용주차구역 설치 및 운영에 관한 조례」 제2조제3호에 따른 임산부 운전차량은 주차요금을 면제할 수 있다"
+   }
+  ],
+  "notes": "유료 25곳 중 24곳은 표준데이터 특기사항에 '무료개방(평일 야간+토·일·공휴일)'이 적혀 있어 평일 야간·토요일·일요일·공휴일 무료 개방으로 표기했다. 제1주차장(문경읍 상초리 352-8)은 유료로 등록돼 있으나 요금 칸이 공란이라 요금 미상이다. 1급지·2급지 표의 1시간·2시간 금액은 최초 60분 요금에 초과 30분 단가를 더한 것으로, 실제 부과액이 아니라 조례 별표 금액을 풀어쓴 것이다.",
+  "basis": "요금표는 「문경시 주차장 조례」 제1460호(시행 2021-12-22) 제3조제1항·별표 1과 표준데이터(기준일 2026-04-17)를 대조해 실었다. 등록 요금이 별표와 일치하는 유료 곳이 없어 계산하는 유료 곳은 없고, 유료 25곳은 전부 요금 미상으로 표기했다. (조례 본문: data/raw/mungyeong-ordinance.txt, 별표 원문 HWP: data/raw/mungyeong-ordinance-b1.hwp)"
+ },
+ "slug": "mungyeong",
+ "province": "경상북도",
+ "province_slug": "gyeongbuk",
+ "dong_page_min_lots": 3,
+ "city": "문경시",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "장애인·국가유공자 등 60% 감면",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "조례 제3조제5항 — 「장애인복지법」에 따른 장애인 또는 「국가유공자 등 예우 및 지원에 관한 법률 시행령」 제14조에 따른 상이등급 1급부터 7급의 장애인 등록증을 소지한 사람과 「독립유공자 예우에 관한 법률」 제4조에 따른 독립유공자가 본인 소유의 비사업용 차량을 직접 운전하거나 승차하여 타인으로 하여금 대리 운전하게 하는 경우, 1000 CC 미만의 경승용차, 대중교통(철도, 시외버스)을 이용하기 위하여 2시간 이상 공영주차장에 주차를 한 자동차로서 대중교통을 이용한 증명서(승차권 영수증 등)를 제출한 자동차, 「고엽제 후유의증 등 환자지원 및 단체설립에 관한 법률」 제4조에 따라 등록한 고엽제후유증 환자, 「5. 18 민주유공자 예우에 관한 법률」 시행령 제4조에 따른 5. 18 민주화운동 부상자, 「대기환경보전법」 제58조제12항에 따른 저공해자동차 표지를 부착한 차량은 주차요금의 100분의 60을 감면한다"
+  },
+  {
+   "label": "긴급자동차·성실납세자·임산부 면제 가능",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제3조제6항 — 「도로교통법」 제2조제22호에 따른 긴급 자동차, 시장 표창, 경상북도지사표창을 받은 지방세 성실납세자와 장관표창이상 정부포상을 받은 국세 성실납세자로서 교부일로부터 1년 이내의 성실납세스티커를 부착한 자동차, 「문경시 임산부 전용주차구역 설치 및 운영에 관한 조례」 제2조제3호에 따른 임산부 운전차량은 주차요금을 면제할 수 있다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
