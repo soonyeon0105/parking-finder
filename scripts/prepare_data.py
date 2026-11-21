@@ -89376,6 +89376,622 @@ def build_yecheon():
     return payload
 
 
+
+# 봉화군 — 표준데이터 52행 전부 공영, 민영 0, 전부
+#   무료(노외 36·노상 16, 총 2,150면), 기준일
+#   2026-10-15이다. 중복 판정(전체 이름·지번·좌표
+#   200m 가드)에 걸리는 쌍은 없고, 관리번호 중복도
+#   없다. 구획수 0 등록 0건, 주소 없음 0건, 이름
+#   없음 0건, 좌표 결측 0건이다.
+# 조례 대조 완료(2026-11-21): 「봉화군 주차장 조례」
+#   제3573호(시행 2026-02-23, ordinSeq 2113331)
+#   제4조제1항이 공영주차장 요금을 별표 1로 정한다.
+#   본문 data/raw/bonghwa-ordinance.txt, 별표 1은
+#   ELIS 첨부 HWP 원본(flSeq 171662171,
+#   data/raw/bonghwa-ordinance-b1.hwp)을 받아 추출했다
+#   (bonghwa-ordinance-b1.txt). 별표 1: 1급지 1회
+#   30분 단위 500원·1일 6,000원·월정기 주간
+#   70,000원·야간 50,000원, 2급지 300원·4,000원·
+#   40,000원·30,000원. 주간은 4~10월 08:00~20:00,
+#   11~3월 09:00~19:00이고 나머지는 야간이다. 급지는
+#   군수가 지정하되 읍·면소재지와 관광유원지 등
+#   주차수요가 많은 지역이 1급지, 기타 지역이
+#   2급지다(별표 1 비고 3). 군수는 지역 특성·차종에
+#   따라 체증·체감방식을 적용할 수 있고 노상·노외
+#   요금을 구분해 정할 수 있다(비고 4·5).
+# 패키지 정정 1건: 인스팅트 앞단 패키지(경북 20/22,
+#   2026-11-20)는 별표 1 다운로드 내용이 일반공업
+#   지역 건축물 표로 돌아와 금액 미확정이라고 했으나,
+#   패키지가 적은 오류 링크는 gubun이 빈
+#   flDownload 주소였다. gubun=ELIS로 flSeq
+#   171662171을 다시 받아 HWP 본문을 추출하면 실제
+#   별표 1([별표1] 공영주차장 주차요금표(제4조제1항
+#   관련))이 확인된다 — 1차 출처 직접 대조로 확정
+#   했다. 다음 첨부 flSeq 171662173은 별표 2(부설
+#   주차장 설치기준)라 첨부 순서도 맞는다.
+# 전 52행이 무료로 등록돼 있고 요금 필드도 전부
+#   0이다. 조례에 유료 요금표가 있어도 전량 무료
+#   등록이면 등록값을 유지하고 조례 요금표는
+#   참고표로만 싣는다(서천·예산·보은·영동·진천·
+#   군산·정읍·남원·김제·완주·진안·장수·임실·순창·
+#   영암·해남·고흥·보성·화순·장흥·장성·완도·신안·
+#   곡성·담양·산청·의령·청도·영양·영덕·고령 선례).
+#   요금 계산 대상은 0곳이다.
+# 주말·공휴일 전체 무료는 조례에 없다. 2026-02-23
+#   신설된 제5조제2항은 전통시장 주변 주차장을 임시
+#   개방 기간·전통시장 장날 및 명절 연휴 기간·군
+#   행사 또는 축제 기간·그 밖에 군수가 필요하다고
+#   인정하는 경우에 무료로 개방할 수 있다는 임의
+#   규정이라, 대상·기간이 정해지지 않아 무료 개방
+#   표기로는 싣지 않고 확인 과제로 남긴다(패키지 ③
+#   과 같은 판단). 52곳 전부 무료 등록이라 실제
+#   이용 요금에는 영향이 없다.
+# 패키지 대조(인스팅트 앞단 패키지 경북 20/22,
+#   2026-11-20): 집계(공영 52행·2,150면, 노외 36·
+#   노상 16, 전부 무료, 민영 0, 기준일 2026-10-15,
+#   좌표 결측 0)와 조례 번호·시행일은 전부 일치
+#   한다. 별표 1 금액만 위 정정으로 확정했다.
+BONGHWA_PROVINCE = "경상북도"
+BONGHWA_PROVINCE_SLUG = "gyeongbuk"
+BONGHWA_ORD_URL = ("https://www.law.go.kr/LSW/ordinInfoR.do?"
+                   "ordinSeq=2113331&gubun=ELIS")
+BONGHWA_ORD_TXT = RAW / "bonghwa-ordinance-b1.txt"
+BONGHWA_ORD_NOTE = ("「봉화군 주차장 조례」 제3573호(시행 2026-02-23) "
+                    "제4조제1항·별표 1 — 국가법령정보센터 ordinSeq 2113331에서 확인")
+
+BONGHWA_DISCOUNTS = [
+    {"label": "긴급자동차·국가 또는 군의 공용차량·군수가 인정하는 차량 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제5조제1항 — 「도로교통법」 제2조제22호에 따른 긴급자동차, 국가 또는 군의 공용차량 및 그 밖에 군수가 공익목적 등 특별한 사유가 있다고 인정하는 차량은 주차요금의 전액을 면제할 수 있다"},
+    {"label": "장애인·노인·임산부 등·국가유공자·고엽제 환자·5·18 유공자·참전유공자·특수임무유공자·경형승용자동차·저공해자동차·병역명문가 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제5조제3항 — 「장애인ㆍ노인ㆍ임산부등의편의증진보장에관한법률」에 따른 장애인ㆍ노인ㆍ임산부 등, 국가유공자, 고엽제후유의증환자, 5ㆍ18민주유공자, 참전유공자, 특수임무유공자, 「자동차관리법 시행규칙」 제2조 별표 1에 따른 경형승용자동차, 저공해자동차 표지를 부착한 자동차, 「봉화군 병역명문가 예우 및 지원에 관한 조례」에 따른 예우대상자 및 가족은 주차요금의 100분의 50을 감면한다"},
+    {"label": "자동차부제 자율 참여 차량(스티커 부착) 20% 감면", "rate": 0.8, "exempt_min": 0,
+     "note": "조례 제5조제4항 — 자동차부제 운행에 자율적으로 참여하는 차량(스티커 부착)은 100분의 20을 감면한다. 둘 이상의 감면사유에 해당하면 감면율이 높은 하나만 적용한다(제5조제5항)"},
+]
+
+BONGHWA_CONF = {
+    "city": "봉화군",
+    "slug": "bonghwa",
+    "manager": "경상북도 봉화군청",
+    "manager_inquiry": "봉화군청(054-679-6293)",
+    "ordinance": ("봉화군 주차장 조례", BONGHWA_ORD_URL, BONGHWA_ORD_NOTE),
+    "notes": (
+        "표준데이터에 등록된 봉화군 공영주차장 52곳(노외 36곳·노상 16구간, 총 2,150면)입니다. "
+        "등록은 전부 공영이고 52곳 전부 무료로 등록돼 있습니다. 「봉화군 주차장 조례」 "
+        "제3573호 별표 1은 1급지 1회 30분 단위 500원·1일 6,000원·월정기 주간 70,000원·"
+        "야간 50,000원, 2급지 300원·4,000원·40,000원·30,000원입니다. 이 사이트는 등록값"
+        "(무료 52곳)을 유지하고 조례 요금표는 참고로만 실었습니다."),
+    "discounts": BONGHWA_DISCOUNTS,
+}
+
+BONGHWA_BBOX = (36.70, 37.10, 128.60, 129.15)
+BONGHWA_DONGS = {"봉화읍", "물야면", "봉성면", "법전면", "춘양면", "소천면",
+                 "석포면", "재산면", "명호면", "상운면"}
+
+# 별표 1 급지별 요금: 급지 -> (30분 요율, 1일 요금, 월정기 주간, 월정기 야간)
+BONGHWA_GRADES = {"1": (500, 6000, 70000, 50000), "2": (300, 4000, 40000, 30000)}
+
+
+def bonghwa_dong_of(addr):
+    """봉화군 법정 읍·면 판정 — 지번주소의 봉화군 다음 토큰이
+    읍·면이다."""
+    if addr:
+        m = re.search(r"봉화군\s*([가-힣0-9]+?(?:읍|면))", addr)
+        if m and m.group(1) in BONGHWA_DONGS:
+            return m.group(1)
+    return None
+
+
+def bonghwa_fee(row, name, note_bits, fee_diff):
+    """봉화군 공영주차장 한 곳의 요금 — 52곳 전부 무료
+    등록이라 무료를 유지한다. 조례 별표 1에 유료
+    요금표가 있어도 전량 무료 등록이면 요금 계산 없이
+    조례 요금표는 참고표로만 싣는다(영양·영덕·청도
+    선례). 등록이 유료·혼합으로 바뀌어 있으면 급지별
+    별표 값(30분 단위 요율·1일 요금·월정기 주간/야간)
+    과 대조해 일치할 때만 계산하고, 일치하지 않으면
+    요금 미상으로 표기한다(김해·함안 선례)."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    day_hours = to_int(row.get("1일주차권요금적용시간"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None, "monthly_night": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None, "bands": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 군청 확인 필요"})
+        return fee
+    exp = BONGHWA_GRADES.get(grade)
+    if exp is None:
+        fee_diff.append(f"{name}: 등록 급지구분({grade or '공란'})이 조례 별표 1의 급지(1급지·2급지)와 "
+                        "대조되지 않아 요금 미상으로 표기한다")
+        fee.update({"type": "미상",
+                    "basis": "등록 급지구분이 조례 별표 1의 급지와 대조되지 않아 요금 미상으로 표기한다 — 실제 요금은 봉화군청(054-679-6293) 확인이 필요하다"})
+        return fee
+    rate, day_fee, mon_day, mon_night = exp
+    _month_ok = (not month) or month in (mon_day, mon_night)
+    if (base_min, base_fee, unit_min, unit_fee) != (30, rate, 30, rate) or day != day_fee or not _month_ok:
+        _day_s = f"{day:,}원" if day else "공란"
+        _month_s = f"{month:,}원" if month else "공란"
+        fee_diff.append(f"{name}: 등록 요금(기본 {base_min}분 {base_fee or 0:,}원·추가 "
+                        f"{unit_min}분 {unit_fee or 0:,}원·1일 {_day_s}·월 {_month_s})이 조례 별표 1의 "
+                        f"{grade}급지 요금(30분 단위 {rate:,}원·1일 {day_fee:,}원·월정기 주간 "
+                        f"{mon_day:,}원·야간 {mon_night:,}원)과 일치하지 않아, 시설별 조정이 "
+                        "확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(김해·함안 선례)")
+        fee.update({"type": "미상",
+                    "basis": (f"표준데이터에는 기본 {base_min}분 {base_fee or 0:,}원·추가 "
+                              f"{unit_min}분 {unit_fee or 0:,}원·1일 {_day_s}·월 {_month_s}로 등록돼 있으나, "
+                              "「봉화군 주차장 조례」 별표 1의 요금과 일치하지 않아 "
+                              "요금 미상으로 표기한다 — 실제 요금은 봉화군청(054-679-6293) 확인이 필요하다")})
+        return fee
+    fee.update({"type": "유료", "base_min": 30, "base_fee": rate,
+                "unit_min": 30, "unit_fee": rate,
+                "daily_fee": day_fee, "grade": grade, "grade_label": f"{grade}급지",
+                "monthly": month if month in (mon_day, mon_night) else None,
+                "basis": (f"등록 요금이 조례 별표 1의 {grade}급지 요금(30분 단위 {rate:,}원·1일 "
+                          f"{day_fee:,}원)과 일치해 조례 기준으로 계산한다")})
+    return fee
+
+
+def bonghwa_fee_table(conf, lots):
+    """요금표 — 조례 별표 1 급지 요금. 52곳 전부 무료
+    등록이라 요금 계산은 하지 않고 참고표로만 싣는다
+    (영양·영덕 선례). 이 사이트 주차장 수는 표준데이터
+    등록 급지구분 기준이다(1급지 2곳·2급지 50곳)."""
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    g1 = len([l for l in lots if l["fee"]["std_grade"] == "1"])
+    g2 = len([l for l in lots if l["fee"]["std_grade"] == "2"])
+    rows = [
+        {"label": "1급지 (조례 별표 1)", "grade": "1",
+         "unit_label": "1회 30분 단위 500원",
+         "hour": 1000, "two_hour": 2000, "day": 6000,
+         "month_all": None, "month": 70000, "month_night": 50000,
+         "lots": g1},
+        {"label": "2급지 (조례 별표 1)", "grade": "2",
+         "unit_label": "1회 30분 단위 300원",
+         "hour": 600, "two_hour": 1200, "day": 4000,
+         "month_all": None, "month": 40000, "month_night": 30000,
+         "lots": g2},
+    ]
+    return {
+        "style": "bonghwa_grade",
+        "unit_min": 30,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "source_url": conf["ordinance"][1],
+        "grade_system": ("조례 별표 1의 급지는 주차장의 실태 및 주차수요를 참작하여 군수가 "
+                         "지정하되 읍·면소재지와 관광유원지 등 주차수요가 많은 지역을 1급지로 "
+                         "하고 기타 지역은 2급지로 한다(별표 1 비고 3). 주간 시간은 4~10월 "
+                         "08:00~20:00, 11~3월 09:00~19:00이고 나머지 시간은 야간이다"
+                         "(비고 2). 군수는 해당 지역의 특성 및 차종에 따라 별도 요금을 정하되 "
+                         "주차시간에 따른 체증 또는 체감방식을 적용할 수 있고(비고 4), 노상"
+                         "주차장과 노외주차장의 주차요금을 구분하여 정할 수 있다(비고 5). "
+                         "표준데이터 등록 급지구분은 1급지 2곳(내성공영주차장·신시장 "
+                         "공영주차장)·2급지 50곳이나 52곳 전부 무료 등록이라 요금 계산에는 "
+                         "쓰지 않았다"),
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": 0, "street_paid": 0,
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [
+            {"group": "주간·야간 시간 구분 (조례 별표 1 비고 2)",
+             "hours": "4~10월 주간 08:00~20:00 · 11~3월 주간 09:00~19:00, 나머지 시간은 야간",
+             "free": "월정기주차요금의 주간·야간 구분에만 쓰인다. 52곳 전부 무료 등록이라 실제 요금에는 쓰이지 않는다"},
+            {"group": "전통시장 주변 무료 개방 (조례 제5조제2항, 2026-02-23 신설)",
+             "hours": "임시 개방 기간 · 전통시장 장날 및 명절 연휴 기간 · 군 행사 또는 축제 기간 · 군수가 필요하다고 인정하는 경우",
+             "free": "전통시장 주변에 설치한 주차장에 한해 무료로 개방할 수 있다는 임의 규정이다. 대상 주차장과 기간이 공고로 정해지는 것이라 이 사이트의 무료 표기 근거로는 쓰지 않았다"},
+        ],
+        "discounts": conf["discounts"],
+        "notes": ("감면(조례 제5조)은 긴급자동차·국가 또는 군의 공용차량·군수가 인정하는 "
+                  "차량 전액 면제, 장애인·노인·임산부 등·국가유공자·고엽제후유의증환자·"
+                  "5·18민주유공자·참전유공자·특수임무유공자·경형승용자동차·저공해자동차·"
+                  "병역명문가 예우대상자 및 가족 50% 감면, 자동차부제 자율 참여 차량"
+                  "(스티커 부착) 20% 감면이다. 둘 이상 해당하면 감면율이 높은 하나만 "
+                  "적용한다."),
+        "basis": ("요금표는 「봉화군 주차장 조례」 제3573호(시행 2026-02-23) 제4조제1항·"
+                  "별표 1과 표준데이터(기준일 2026-10-15)를 대조해 실었다. 별표 1 원본 "
+                  "HWP는 flSeq 171662171이다. 52곳 전부 무료로 등록돼 있어 등록값을 "
+                  "유지하고 조례 요금표는 참고로만 실었다. (조례 본문: "
+                  "data/raw/bonghwa-ordinance.txt, 별표 1 원문 HWP: "
+                  "data/raw/bonghwa-ordinance-b1.hwp)"),
+    }
+
+
+def bonghwa_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                    space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(lots)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동·읍·면 미상" for l in lots).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in lots if l["dong"]}),
+        "동_미상": [l["name"] for l in lots if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in lots)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「봉화군 주차장 조례」 제3573호 제5조 — 긴급자동차·국가 또는 군의 "
+                      "공용차량·군수가 공익목적 등 특별한 사유가 있다고 인정하는 차량은 전액 "
+                      "면제, 장애인·노인·임산부 등·국가유공자·고엽제후유의증환자·5·18민주"
+                      "유공자·참전유공자·특수임무유공자·경형승용자동차·저공해자동차 표지 "
+                      "부착 자동차·병역명문가 예우대상자 및 가족은 50% 감면, 자동차부제 자율 "
+                      "참여 차량(스티커 부착)은 20% 감면이다. 둘 이상 해당하면 높은 하나만 "
+                      "적용한다"),
+        "요금_출처": ("조례 제4조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같다. "
+                      "별표 1은 1급지 1회 30분 단위 500원·1일 6,000원·월정기 주간 70,000원·"
+                      "야간 50,000원, 2급지 300원·4,000원·40,000원·30,000원이다. 별표 원본 "
+                      "HWP(flSeq 171662171)를 받아 추출해 대조했다"),
+        "급지_출처": ("조례 별표 1 비고 3 — 급지는 군수가 지정하되 읍·면소재지와 관광유원지 등 "
+                      "주차수요가 많은 지역이 1급지, 기타 지역이 2급지다. 표준데이터 등록 "
+                      "급지구분은 1급지 2곳·2급지 50곳이다"),
+        "무료요일_출처": ("조례 본문·별표 1 어디에도 군 전체 주말·공휴일 자동 무료 조항은 없다. "
+                          "제5조제2항(2026-02-23 신설)은 전통시장 주변 주차장을 임시 개방 "
+                          "기간·장날 및 명절 연휴·군 행사/축제 기간·군수 인정 기간에 무료로 "
+                          "개방할 수 있다는 임의 규정이라 무료 표기 근거로 쓰지 않았다. "
+                          "52곳 전부의 무료 표기는 표준데이터 등록값(요금정보 ‘무료’) 근거다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 봉화군 등록 52행 전부 공영(민영 0행), 노외 36·노상 16, 총 2,150면으로 전부 무료, 기준일 2026-10-15이다. 중복 판정(전체 이름·지번·좌표 200m 가드)에 걸리는 쌍은 없고 관리번호 중복도 없다. 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다. 인스팅트 앞단 패키지(경북 20/22, 2026-11-20)의 집계(공영 52행·2,150면, 노외 36·노상 16, 전부 무료, 기준일 2026-10-15)와 표준데이터 원본 대조 결과가 일치한다",
+            "「봉화군 주차장 조례」 제3573호(시행 2026-02-23, ordinSeq 2113331) 본문 원문(data/raw/bonghwa-ordinance.txt) 대조 완료(2026-11-21) — 본문 제4조제1항이 공영주차장 요금을 별표 1로 정한다. 별표 1은 ELIS 첨부 HWP 원본(flSeq 171662171)을 data/raw/bonghwa-ordinance-b1.hwp로 저장하고 추출해 확정했다 — 1급지 1회 30분 단위 500원·1일 6,000원·월정기 주간 70,000원·야간 50,000원, 2급지 300원·4,000원·40,000원·30,000원. 패키지는 별표 1 첨부 내용이 잘못 연결됐다고 했으나, 패키지의 오류 링크는 gubun이 빈 주소였고 gubun=ELIS로 다시 받은 파일이 실제 별표 1([별표1] 공영주차장 주차요금표(제4조제1항 관련))임을 본문 추출로 확인했다 — 패키지 정정 1건. 다음 첨부(flSeq 171662173)가 별표 2(부설주차장 설치기준)인 것도 확인했다",
+            "52곳 전부 표준데이터에 무료로 등록돼 있고 요금 필드(기본·추가·1일·월정기)도 전부 0이다. 조례에 유료 요금표가 있어도 전량 무료 등록이면 등록값을 유지하고 조례 요금표는 참고표로만 싣는 선례(영양·영덕·청도 등)에 따라 요금 계산 대상은 0곳이다",
+            "좌표 결측은 0곳이다. 지오코딩 보완 대상이 없어 오버레이 추가도 0건이다. 등록 좌표 52곳 전부가 봉화군 범위(위도 36.787~37.046, 경도 128.726~129.065) 안에 있다",
+            "주말·공휴일 전체 무료는 조례 어디에도 없다. 2026-02-23 신설된 제5조제2항의 전통시장 주변 무료 개방은 대상·기간이 공고로 정해지는 임의 규정이라 표기 근거로 쓰지 않았다. 52곳의 무료 표기는 전부 표준데이터 등록값 근거다",
+            "동·읍·면 판정은 지번주소 기준이고 10개 읍·면(봉화읍 27·명호면 7·춘양면 4·소천면 3·석포면 3·재산면 3·봉성면 2·상운면 1·법전면 1·물야면 1) 전부 판정됐다. 도로명주소는 40곳만 등록돼 있고 12곳은 없다. 특기사항은 52곳 전부 공란이다",
+            "관리기관명은 경상북도 봉화군청 52곳 전부이고 전화번호는 054-679-6293으로 전부 같다. 운영요일은 52곳 전부 평일+토요일+공휴일, 운영시간은 전부 00:00~23:59, 부제시행구분은 전부 미시행이다. 등록 급지구분은 1급지 2곳(내성공영주차장 60면·신시장 공영주차장 113면)·2급지 50곳이다",
+            "확인 과제 — ① 별표 1 첨부 연결 불일치는 gubun=ELIS 재수령으로 해소했으나, 법제처 첨부(gubun이 빈 링크)의 잘못된 파일 연결이 남아 있으면 군·법제처 정정이 필요한지 확인할 것 ② 전통시장 주변 주차장의 무료 개방 실행 공고(대상 주차장·기간)가 있는지 확인할 것 ③ 무료 시설의 개방 시간(등록은 전부 00:00~23:59)이 실제와 같은지 확인할 것 ④ 무료 52곳 등록 최신성·향후 유료 공고가 있는지 확인할 것 ⑤ 도로명주소 미등록 12곳의 도로명주소·건물번호를 확인할 것",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] or 0 for l in paid) / len(paid)) if paid else 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_bonghwa():
+    """봉화군 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「봉화군 주차장 조례」 제3573호
+    (시행 2026-02-23, ordinSeq 2113331) 제4조제1항·
+    별표 1 원문 대조 완료(2026-11-21, 별표 ELIS 첨부
+    HWP 추출·본문 원문 기준 — 패키지가 금액 미확정
+    이라 한 별표 1을 gubun=ELIS 재수령으로 확정,
+    정정 1건). 표준데이터 등록 52행 전부 공영(노외
+    36·노상 16, 총 2,150면)을 읽어 전부 무료로
+    싣는다. 조례 요금표는 참고표로만 싣는다. 좌표
+    결측은 0곳이다."""
+    conf = BONGHWA_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "봉화군" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "봉화군" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 봉화군은
+    #   해당 쌍이 없다.
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, space_diff, dong_fixed, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (BONGHWA_BBOX[0] < lat < BONGHWA_BBOX[1]
+                                                        and BONGHWA_BBOX[2] < lng < BONGHWA_BBOX[3]):
+            # 봉화군 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 봉화군 범위 밖 — "
+                               "좌표 없음으로 표기하고 지오코딩 보완 대상으로 넘김")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음(0으로 등록)"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = bonghwa_dong_of(jibun)
+        if dong:
+            dong_src = "지번주소"
+        elif bonghwa_dong_of(road):
+            dong = bonghwa_dong_of(road)
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 동·읍·면 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:동|읍|면))", std_name)
+        if _name_head and _name_head.group(1) in BONGHWA_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 동·읍·면({_name_head.group(1)})과 지번주소 기준 "
+                              f"동·읍·면({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = bonghwa_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        if (r.get("부제시행구분") or "").strip() == "5부제":
+            note_bits.append("승용차 5부제를 시행하는 구간입니다")
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "봉화군", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _bunji = ""
+            for _tok in reversed(_parts):
+                if re.match(r"^\d+(?:-\d+)?$", _tok or ""):
+                    _bunji = _tok
+                    break
+            if not _bunji:
+                _bunji = _parts[3].split("(")[0] if len(_parts) > 3 else \
+                    (_parts[2] if len(_parts) > 2 else "")
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _bunji and not _same_place:
+                _suffix = f"({_bunji})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 지번 번지로 구분했다")
+
+    # 같은 지번·같은 좌표에 이름만 다르게 등록된 그룹 — 전부 다른 등록이라
+    #   합치지 않고 전부 싣는다(산청 선례). 봉화군은 해당 쌍이 없다.
+    _place_groups = {}
+    for l in lots:
+        if l["lat"] is None or l["lng"] is None:
+            continue
+        _place_groups.setdefault(((l.get("addr_jibun") or l.get("addr_road")),
+                                  l["lat"], l["lng"]), []).append(l)
+    for (_addr, _la, _ln), _grp in sorted(_place_groups.items(),
+                                          key=lambda kv: kv[1][0]["name"]):
+        if len(_grp) > 1 and len({x["name"] for x in _grp}) > 1:
+            _names = "·".join(x["name"] for x in _grp)
+            note_fixed.append(f"같은 자리·같은 좌표에 이름만 다른 등록: {_names} — "
+                              f"{_addr}에 좌표({_la}, {_ln})가 같게 등록돼 있다. "
+                              "이름이 다른 별개 등록이라 합치지 않고 전부 실었고, "
+                              "같은 시설의 중복 등록인지는 봉화군청 확인이 필요하다")
+    note_fixed.append("표준데이터 등록 52행 전부 공영(민영 0행)을 읽었다. 데이터기준일자는 "
+                      "2026-10-15 52행, 제공기관명은 경상북도 봉화군 52행, 관리기관명은 "
+                      "경상북도 봉화군청 52곳이다")
+    note_fixed.append("등록 급지구분은 1급지 2곳(내성공영주차장·신시장 공영주차장)·2급지 "
+                      "50곳이다. 52곳 전부 무료 등록이라 급지는 요금 계산에 쓰지 않고 "
+                      "조례 요금표 참고표의 자리 수로만 썼다")
+    note_fixed.append("좌표는 52행 전부 등록돼 있고 전부 봉화군 범위 안에 있다. 지오코딩 "
+                      "보완 대상이 없어 오버레이 추가도 0건이다")
+    note_fixed.append("운영요일은 52곳 전부 평일+토요일+공휴일이고 운영시간은 52곳 전부 "
+                      "00:00~23:59이다. 부제시행구분은 52곳 전부 미시행이다. 도로명주소는 "
+                      "40곳만 등록돼 있고 12곳은 없다. 특기사항은 52곳 전부 공란이고 "
+                      "결제방법도 전부 공란이다")
+    note_fixed.append("52곳 전부 무료로 등록돼 있다. 조례 별표 1에 유료 요금표가 있으나 "
+                      "전량 무료 등록이라 등록값을 유지하고 조례 요금표는 참고표로만 실었다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"gb-bonghwa-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"gb-bonghwa-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 봉화군은 좌표 결측 0곳이라 적용 대상이 없다.
+    _cf = apply_coord_fix(lots)
+
+    fee_table = bonghwa_fee_table(conf, lots)
+    quality = bonghwa_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                              fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-10-15",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"봉화군으로 등록된 행 {len(rows_std)}행을 읽어 중복 "
+                 f"제거 {len(merged)}건, 제외 {len(excluded)}건으로 {len(lots)}곳을 실었다. "
+                 f"유료 {len([l for l in lots if l['fee']['type'] == '유료'])}곳·무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳·미상 "
+                 f"{len([l for l in lots if l['fee']['type'] == '미상'])}곳이다. "
+                 f"데이터기준일자는 2026-10-15이다. 좌표 결측은 0곳이다. "
+                 f"조례 대조 완료 — 「봉화군 주차장 조례」 제3573호(시행 "
+                 f"2026-02-23, ordinSeq 2113331) 제4조제1항·별표 1 원문 대조 완료(2026-11-21)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": BONGHWA_ORD_TXT.name if BONGHWA_ORD_TXT.exists() else None,
+            "sha256": sha256(BONGHWA_ORD_TXT) if BONGHWA_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2026-02-23",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"봉화군이 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/bonghwa-ordinance.txt, 별표 1 원문 HWP: "
+                    f"data/raw/bonghwa-ordinance-b1.hwp)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": BONGHWA_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "봉화군", "slug": "bonghwa"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": BONGHWA_PROVINCE,
+        "province_slug": BONGHWA_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "bonghwa_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -89388,7 +90004,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyeo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon", "uiryeong", "haman", "changnyeong", "pohang", "gyeongju", "gimcheon", "andong", "gumi", "yeongju", "yeongcheon", "sangju", "mungyeong", "gyeongsan", "cheongdo", "uisung", "cheongsong", "yeongyang", "yeongdeok", "goryeong", "seongju", "chilgok", "yecheon",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyeo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon", "uiryeong", "haman", "changnyeong", "pohang", "gyeongju", "gimcheon", "andong", "gumi", "yeongju", "yeongcheon", "sangju", "mungyeong", "gyeongsan", "cheongdo", "uisung", "cheongsong", "yeongyang", "yeongdeok", "goryeong", "seongju", "chilgok", "yecheon", "bonghwa",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -89406,7 +90022,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "포항시", "경주시", "김천시", "안동시", "구미시", "영주시", "영천시", "상주시", "문경시", "경산시", "청도군", "의성군", "청송군", "영양군", "영덕군", "고령군", "성주군", "칠곡군", "예천군"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "포항시", "경주시", "김천시", "안동시", "구미시", "영주시", "영천시", "상주시", "문경시", "경산시", "청도군", "의성군", "청송군", "영양군", "영덕군", "고령군", "성주군", "칠곡군", "예천군", "봉화군"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -89464,7 +90080,7 @@ def main():
                                 "tongyeong": ["통영시"],
                                 "sacheon": ["사천시"],
                                 "gimhae": ["김해시"], "miryang": ["밀양시"],
-                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"], "hamyang": ["함양군"], "geochang": ["거창군"], "hapcheon": ["합천군"], "uiryeong": ["의령군"], "haman": ["함안군"], "changnyeong": ["창녕군"], "pohang": ["포항시"], "gyeongju": ["경주시"], "gimcheon": ["김천시"], "andong": ["안동시"], "gumi": ["구미시"], "yeongju": ["영주시"], "yeongcheon": ["영천시"], "sangju": ["상주시"], "mungyeong": ["문경시"], "gyeongsan": ["경산시"], "cheongdo": ["청도군"], "uisung": ["의성군"], "cheongsong": ["청송군"], "yeongyang": ["영양군"], "yeongdeok": ["영덕군"], "goryeong": ["고령군"], "seongju": ["성주군"], "chilgok": ["칠곡군"], "yecheon": ["예천군"]}[args.city])
+                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"], "hamyang": ["함양군"], "geochang": ["거창군"], "hapcheon": ["합천군"], "uiryeong": ["의령군"], "haman": ["함안군"], "changnyeong": ["창녕군"], "pohang": ["포항시"], "gyeongju": ["경주시"], "gimcheon": ["김천시"], "andong": ["안동시"], "gumi": ["구미시"], "yeongju": ["영주시"], "yeongcheon": ["영천시"], "sangju": ["상주시"], "mungyeong": ["문경시"], "gyeongsan": ["경산시"], "cheongdo": ["청도군"], "uisung": ["의성군"], "cheongsong": ["청송군"], "yeongyang": ["영양군"], "yeongdeok": ["영덕군"], "goryeong": ["고령군"], "seongju": ["성주군"], "chilgok": ["칠곡군"], "yecheon": ["예천군"], "bonghwa": ["봉화군"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -89764,6 +90380,8 @@ def main():
         cities.append(build_chilgok())
     if "예천군" in want:
         cities.append(build_yecheon())
+    if "봉화군" in want:
+        cities.append(build_bonghwa())
 
     if args.city == "all":
         site = build_site_payload(cities)
