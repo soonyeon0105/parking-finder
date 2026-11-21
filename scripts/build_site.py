@@ -14344,6 +14344,65 @@ B·C지구는 등록 급지구분이 1급지이나 등록 요금이 2급지와 �
 요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "ulleung_grade":
+        # 울릉군 — 공영 4곳(전부 노외, 총 296면)이
+        #   무료 1곳·요금 미상 3곳으로 등록돼 있다.
+        #   「울릉군 주차장 조례」 제2246호(시행
+        #   2026-04-20) 제3조제1항·별표 1은 1급지
+        #   30분 500원·초과 10분마다 300원·1일
+        #   7,000원·월 주간 50,000원·야간 40,000원·
+        #   주야간 60,000원, 2급지 400원·200원·
+        #   6,000원·월 40,000원·30,000원·50,000원
+        #   이다. 1급지는 울릉읍, 2급지는 서면·북면
+        #   이고, 전일·월정기권은 노외에만 있다.
+        #   유료 3곳(저동·도동·울릉군공영주차장)은
+        #   등록값(기본 30분 300원·추가 10분 100원·
+        #   1일 3,000원 또는 5,000원)이 별표와 시간·
+        #   1일 값이 일치하지 않아 요금 미상으로
+        #   표기했다(울진 선례). 조례 요금표는
+        #   참고표로만 싣는다. 등록 급지구분은
+        #   1급지 3곳·2급지 1곳이나 저동공영주차장의
+        #   등록 급지가 조례 급지 구분(울릉읍=1급지)
+        #   과 어긋나 자리 수는 세지 않는다.
+        def _ul_cell(v):
+            return f"{v}곳" if v is not None else "—"
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td>'
+            f'<td class="num">{_ul_cell(r["lots"])}</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">울릉군 공영주차장 <b>4곳</b>(전부 노외, 총 296면)은
+무료 <b>1곳</b>·요금 미상 <b>3곳</b>으로 등록돼 있습니다. 「울릉군 주차장 조례」 제2246호
+별표 1은 <b>1급지</b> 30분 <b>500원</b>·초과 10분마다 <b>300원</b>·1일 <b>7,000원</b>·월 주간 <b>50,000원</b>,
+<b>2급지</b> <b>400원·200원·6,000원·40,000원</b>입니다. 1급지는 울릉읍, 2급지는 서면·북면이고,
+전일·월정기권은 노외주차장에만 있습니다.
+요금 미상 3곳은 등록 요금이 별표와 달라 확정하지 않았습니다.
+이 사이트는 등록값을 유지하고 조례 요금표는 참고로만 실었습니다.
+궁금한 점은 울릉군청(054-790-6252)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th>
+  <th class="num">월정기(주간)</th><th class="num">월정기(야간)</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금으로 계산하는 유료는 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
 
 
     if ft.get("style") == "daejeon_grade":
