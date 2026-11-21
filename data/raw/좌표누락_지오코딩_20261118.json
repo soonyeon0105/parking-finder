@@ -47613,6 +47613,51 @@
    "gu": "곡성군",
    "id": "jn-gokseong-026",
    "name": "곡성역 주차장"
+  },
+  {
+   "id": "gb-gumi-170",
+   "city": "구미시",
+   "gu": "구미시",
+   "dong": "원평동",
+   "name": "금오천 3주차장",
+   "addr_jibun": "경상북도 구미시 원평동 964-604",
+   "addr_road": "경상북도 구미시 금오산로 53-9",
+   "chosen": {
+    "kind": "geocode",
+    "how": "지오코딩(지번주소)",
+    "query": "구미시 원평동 964-604",
+    "lat": 36.125714683964,
+    "lng": 128.33721181766,
+    "addr": "경상북도 구미시 원평동 964-604",
+    "source": "ArcGIS World Geocoding",
+    "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=%EA%B5%AC%EB%AF%B8%EC%8B%9C+%EC%9B%90%ED%8F%89%EB%8F%99+964-604&outFields=%2A&maxLocations=5&langCode=ko",
+    "score": 100,
+    "sig_ok": true,
+    "bbox_ok": true,
+    "wide_ok": true,
+    "addr_match": true,
+    "confidence": "high",
+    "agree": [],
+    "checked_at": "2026-11-21 (KST)",
+    "note": "Esri ArcGIS World Geocoding — 표준데이터 등록 위도(26.128492)가 구미시 범위 밖이라 등록 오류로 비운 뒤, 이 주차장 자신의 등록 지번주소(원평동 964-604)로 지오코딩했다. 반환 주소가 등록 지번주소와 번지까지 일치(score 100·PointAddress)하고 구미시 범위 안에 있어 채택했다. 같은 지번을 쓰는 다른 금오천 주차장(1·2주차장, 시청 1·2·3공영)은 각자 등록 좌표가 따로 있어 그 좌표를 가져다 쓰지 않았고, 이 점은 이 주차장의 등록 지번주소에 대한 지오코딩 결과다."
+   },
+   "candidates": [
+    {
+     "kind": "geocode",
+     "how": "지오코딩(지번주소)",
+     "query": "구미시 원평동 964-604",
+     "lat": 36.125714683964,
+     "lng": 128.33721181766,
+     "addr": "경상북도 구미시 원평동 964-604",
+     "source": "ArcGIS World Geocoding",
+     "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=%EA%B5%AC%EB%AF%B8%EC%8B%9C+%EC%9B%90%ED%8F%89%EB%8F%99+964-604&outFields=%2A&maxLocations=5&langCode=ko",
+     "score": 100,
+     "sig_ok": true,
+     "bbox_ok": true,
+     "wide_ok": true,
+     "addr_match": true
+    }
+   ]
   }
  ],
  "city_signatures": {
