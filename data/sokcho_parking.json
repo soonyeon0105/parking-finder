@@ -1,0 +1,3113 @@
+{
+ "meta": {
+  "generated_at": "2026-11-22 04:46",
+  "generated_at_iso": "2026-11-22T04:46:01+09:00",
+  "snapshot_at": "2026-11-22 04:46",
+  "region": {
+   "province": "강원특별자치도",
+   "city": "속초시"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-06-30",
+    "rows_total": 18994,
+    "rows_city": 24,
+    "fetched_at": "2026-11-22 04:46 (KST)",
+    "note": "속초시로 등록된 행 24행을 읽어 중복 제거 0건, 제외 0건으로 24곳을 실었다. 유료 2곳·무료 22곳·미상 0곳이다. 데이터기준일자는 2026-06-30이다. 좌표 결측은 0곳이다. 조례 대조 완료 — 「속초시 주차장 설치 및 관리 조례」 제3223호(시행 2025-12-19, ordinSeq 2094535) 제2조제1항·별표 1 원문 대조 완료(2026-11-22)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "속초시 주차장 설치 및 관리 조례",
+    "org": "강원특별자치도 속초시청",
+    "url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2094535&gubun=ELIS",
+    "file": "sokcho-ordinance.txt",
+    "sha256": "ba59843519ea6d8adb3ee4e9f8a7869399fed438351c69bbc94400ceffa6a86f",
+    "license": "자치법규(공개)",
+    "base_date": "2025-12-19",
+    "rows_total": null,
+    "fetched_at": "2026-11-22 04:46 (KST)",
+    "note": "속초시가 설치·관리하는 공영주차장에 적용하는 조례다. 표준데이터에 등록된 속초시 공영주차장 24곳(노외 14곳·노상 10구간, 총 3,857면)입니다. 22곳은 무료로 등록돼 있고, 유료 2곳(로데오 제1·제2공영주차장)은 요금 칸이 전부 비어 있어 「속초시 주차장 설치 및 관리 조례」 제3223호 별표 1(최초 20분 무료·이후 최초 10분 600원·10분마다 300원·1일 10,000원·월정기 주간 70,000원·야간 50,000원·주야 120,000원)으로 계산했습니다. 속초해수욕장 공영주차장은 별표 1에 비수기·성수기 요금이 따로 있으나 표준데이터 속초 등록 24곳 중에는 없어 참고표로만 싣습니다. 설악산 B1·B2·C1·C2 4곳은 국립공원 주차장이라 조례 제2조제1항 단서로 별표 1이 적용되지 않아 무료 등록값을 유지합니다. (조례 본문: data/raw/sokcho-ordinance.txt, 별표 1 원문 HWP: data/raw/sokcho-ordinance-b1.hwp, 별표 1의2 원문 HWP: data/raw/sokcho-ordinance-b1-2.hwp)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "속초시",
+   "slug": "sokcho"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gw-sokcho-001",
+   "mgmt_no": "255-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "엑스포 제4공영주차장",
+   "gu": "속초시",
+   "dong": "교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 속초시 교동 1020-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 257,
+   "tel": "033-639-1575",
+   "lat": 38.1973475094,
+   "lng": 128.5818681,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제2조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  },
+  {
+   "id": "gw-sokcho-002",
+   "mgmt_no": "255-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동명항 공영주차장",
+   "gu": "속초시",
+   "dong": "동명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 속초시 동명동 1-242",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "033-639-1575",
+   "lat": 38.212012811,
+   "lng": 128.5999886,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제2조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  },
+  {
+   "id": "gw-sokcho-003",
+   "mgmt_no": "255-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "영금정 공영주차장",
+   "gu": "속초시",
+   "dong": "동명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 속초시 동명동 1-115",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "033-639-1575",
+   "lat": 38.21286949,
+   "lng": 128.6004389087,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제2조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  },
+  {
+   "id": "gw-sokcho-004",
+   "mgmt_no": "255-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "설악산 B1 노외주차장",
+   "gu": "속초시",
+   "dong": "설악동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 속초시 설악동 3-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 265,
+   "tel": "033-639-1575",
+   "lat": 38.1681428496,
+   "lng": 128.5188254171,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 국립공원(설악산국립공원) 주차장이라 조례 제2조제1항 단서로 별표 1이 적용되지 않아 표준데이터에 ‘무료’로 등록된 값을 그대로 표기한다. 실제 현장 요금은 속초시청(033-639-1574) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  },
+  {
+   "id": "gw-sokcho-005",
+   "mgmt_no": "255-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "설악산 B2 노외주차장",
+   "gu": "속초시",
+   "dong": "설악동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 속초시 설악동 2-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 271,
+   "tel": "033-639-1575",
+   "lat": 38.16884021,
+   "lng": 128.5213158182,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 국립공원(설악산국립공원) 주차장이라 조례 제2조제1항 단서로 별표 1이 적용되지 않아 표준데이터에 ‘무료’로 등록된 값을 그대로 표기한다. 실제 현장 요금은 속초시청(033-639-1574) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  },
+  {
+   "id": "gw-sokcho-006",
+   "mgmt_no": "255-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "설악산 C1 노외주차장",
+   "gu": "속초시",
+   "dong": "설악동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 속초시 설악동 302-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 866,
+   "tel": "033-639-1575",
+   "lat": 38.1665172216,
+   "lng": 128.5319418,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 국립공원(설악산국립공원) 주차장이라 조례 제2조제1항 단서로 별표 1이 적용되지 않아 표준데이터에 ‘무료’로 등록된 값을 그대로 표기한다. 실제 현장 요금은 속초시청(033-639-1574) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  },
+  {
+   "id": "gw-sokcho-007",
+   "mgmt_no": "255-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "설악산 C2 노외주차장",
+   "gu": "속초시",
+   "dong": "설악동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 속초시 설악동 324-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 427,
+   "tel": "033-639-1575",
+   "lat": 38.1670364584,
+   "lng": 128.5343998475,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 국립공원(설악산국립공원) 주차장이라 조례 제2조제1항 단서로 별표 1이 적용되지 않아 표준데이터에 ‘무료’로 등록된 값을 그대로 표기한다. 실제 현장 요금은 속초시청(033-639-1574) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  },
+  {
+   "id": "gw-sokcho-008",
+   "mgmt_no": "255-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "영랑동 공영주차장",
+   "gu": "속초시",
+   "dong": "영랑동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 속초시 영랑동 184-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 220,
+   "tel": "033-639-1575",
+   "lat": 38.21458473,
+   "lng": 128.5911015969,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제2조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  },
+  {
+   "id": "gw-sokcho-009",
+   "mgmt_no": "255-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "엑스포 제1공영주차장",
+   "gu": "속초시",
+   "dong": "조양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 속초시 조양동 1556-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 178,
+   "tel": "033-639-1575",
+   "lat": 38.1914124375,
+   "lng": 128.5913605,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제2조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  },
+  {
+   "id": "gw-sokcho-010",
+   "mgmt_no": "255-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "엑스포 제2,3공영주차장",
+   "gu": "속초시",
+   "dong": "조양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 속초시 조양동 1544-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 250,
+   "tel": "033-639-1575",
+   "lat": 38.19139973,
+   "lng": 128.5857867278,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제2조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  },
+  {
+   "id": "gw-sokcho-011",
+   "mgmt_no": "255-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "로데오 제1공영주차장",
+   "gu": "속초시",
+   "dong": "청학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 속초시 청학동 482-258",
+   "addr_road": "",
+   "road": null,
+   "spaces": 148,
+   "tel": "033-639-1575",
+   "lat": 38.2002903501,
+   "lng": 128.5847599,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 120000,
+    "monthly_label": null,
+    "monthly_night": 50000,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 20,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터에 요금 구분만 ‘유료’로 등록돼 있고 요금 칸이 전부 비어 있어 「속초시 주차장 설치 및 관리 조례」 별표 1의 일반 요율(최초 20분 무료·이후 최초 10분 600원·이후 매10분당 300원·1일 10,000원·월정기 주간 70,000원·야간 50,000원·주야 120,000원)로 계산한다. 1일권 적용시간은 별표에 별도 규정이 없어 적용시간으로 쓰지 않는다. 전통시장·상점가 공영주차장이라 별표 1의2 제3호로 30% 감면(월정기권 50%)이 적용될 수 있다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  },
+  {
+   "id": "gw-sokcho-012",
+   "mgmt_no": "255-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "로데오 제2공영주차장",
+   "gu": "속초시",
+   "dong": "청학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 속초시 청학동 482-48",
+   "addr_road": "",
+   "road": null,
+   "spaces": 187,
+   "tel": "033-639-1575",
+   "lat": 38.2008067841,
+   "lng": 128.587458732,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": 120000,
+    "monthly_label": null,
+    "monthly_night": 50000,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 20,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터에 요금 구분만 ‘유료’로 등록돼 있고 요금 칸이 전부 비어 있어 「속초시 주차장 설치 및 관리 조례」 별표 1의 일반 요율(최초 20분 무료·이후 최초 10분 600원·이후 매10분당 300원·1일 10,000원·월정기 주간 70,000원·야간 50,000원·주야 120,000원)로 계산한다. 1일권 적용시간은 별표에 별도 규정이 없어 적용시간으로 쓰지 않는다. 전통시장·상점가 공영주차장이라 별표 1의2 제3호로 30% 감면(월정기권 50%)이 적용될 수 있다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  },
+  {
+   "id": "gw-sokcho-013",
+   "mgmt_no": "255-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청학동 제1지구 노외주차장",
+   "gu": "속초시",
+   "dong": "청학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 속초시 청학동 486",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "033-639-1575",
+   "lat": 38.2023674432,
+   "lng": 128.5841724656,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제2조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  },
+  {
+   "id": "gw-sokcho-014",
+   "mgmt_no": "255-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청학동 제2지구 노외주차장",
+   "gu": "속초시",
+   "dong": "청학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 속초시 청학동 486-183",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "033-639-1575",
+   "lat": 38.2032378,
+   "lng": 128.5854381452,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제2조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  },
+  {
+   "id": "gw-sokcho-s001",
+   "mgmt_no": "255-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "교동가로 노상주차장",
+   "gu": "속초시",
+   "dong": "교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 속초시 교동 780-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 65,
+   "tel": "033-639-1575",
+   "lat": 38.20392449,
+   "lng": 128.5796248668,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제2조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  },
+  {
+   "id": "gw-sokcho-s002",
+   "mgmt_no": "255-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "먹거리촌(청대로) 노상주차장",
+   "gu": "속초시",
+   "dong": "교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 속초시 교동 990",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "033-639-1575",
+   "lat": 38.1957860019,
+   "lng": 128.5726482917,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제2조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  },
+  {
+   "id": "gw-sokcho-s003",
+   "mgmt_no": "255-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "삼환가로 노상주차장",
+   "gu": "속초시",
+   "dong": "교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 속초시 교동 804-106",
+   "addr_road": "",
+   "road": null,
+   "spaces": 71,
+   "tel": "033-639-1575",
+   "lat": 38.1992010872,
+   "lng": 128.5716529288,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제2조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  },
+  {
+   "id": "gw-sokcho-s004",
+   "mgmt_no": "255-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "설악산입구 노상주차장",
+   "gu": "속초시",
+   "dong": "대포동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 속초시 대포동 839-26",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "033-639-1575",
+   "lat": 38.1637876028,
+   "lng": 128.6078309356,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제2조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  },
+  {
+   "id": "gw-sokcho-s005",
+   "mgmt_no": "255-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동명동 노상주차장",
+   "gu": "속초시",
+   "dong": "동명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 속초시 동명동 398-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 44,
+   "tel": "033-639-1575",
+   "lat": 38.20955445,
+   "lng": 128.5930197847,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제2조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  },
+  {
+   "id": "gw-sokcho-s006",
+   "mgmt_no": "255-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "법대로 노상주차장",
+   "gu": "속초시",
+   "dong": "동명동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 속초시 동명동 299-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 92,
+   "tel": "033-639-1575",
+   "lat": 38.21289964,
+   "lng": 128.5928921006,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제2조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  },
+  {
+   "id": "gw-sokcho-s007",
+   "mgmt_no": "255-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "영랑호수공원(속초의료원) 노상주차장",
+   "gu": "속초시",
+   "dong": "영랑동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 속초시 영랑동 163-72",
+   "addr_road": "",
+   "road": null,
+   "spaces": 45,
+   "tel": "033-639-1575",
+   "lat": 38.218164205,
+   "lng": 128.5903512,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제2조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  },
+  {
+   "id": "gw-sokcho-s008",
+   "mgmt_no": "255-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "장사항해안길 노상주차장",
+   "gu": "속초시",
+   "dong": "장사동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 속초시 장사동 548-14",
+   "addr_road": "",
+   "road": null,
+   "spaces": 160,
+   "tel": "033-639-1575",
+   "lat": 38.221614039,
+   "lng": 128.5904074833,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제2조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  },
+  {
+   "id": "gw-sokcho-s009",
+   "mgmt_no": "255-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "수복로 노상주차장",
+   "gu": "속초시",
+   "dong": "청학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 속초시 청학동 483-97",
+   "addr_road": "",
+   "road": null,
+   "spaces": 135,
+   "tel": "033-639-1575",
+   "lat": 38.2022795005,
+   "lng": 128.5857171334,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제2조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  },
+  {
+   "id": "gw-sokcho-s010",
+   "mgmt_no": "255-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "청학가로 노상주차장",
+   "gu": "속초시",
+   "dong": "청학동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 속초시 청학동 488-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "033-639-1575",
+   "lat": 38.2049619355,
+   "lng": 128.5838829392,
+   "base_date": "2026-06-30",
+   "manager": "강원특별자치도 속초시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제2조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "속초시",
+   "city_slug": "sokcho",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-22 04:46",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 24,
+  "원자료_속초시행수": 24,
+  "원자료_받은행수": 24,
+  "구별": {
+   "속초시": 24
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 14,
+  "노외_부설": {
+   "노외": 14
+  },
+  "노상_구간": 10,
+  "총_구획수": 3170,
+  "노상_구획수": 687,
+  "동별": {
+   "청학동": 6,
+   "교동": 4,
+   "동명동": 4,
+   "설악동": 4,
+   "영랑동": 2,
+   "조양동": 2,
+   "대포동": 1,
+   "장사동": 1
+  },
+  "동수": 8,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 24
+  },
+  "요금구분": {
+   "무료": 22,
+   "유료": 2
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 2,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "표준데이터 속초 등록 24행 전부 공영이라 민영 제외는 0건이다. 데이터기준일자는 2026-06-30 24행, 제공기관명은 강원특별자치도 속초시 24행이다",
+   "등록 급지구분은 24곳 전부 ‘기타’이다. 조례 별표 1에 급지 구분이 없어 급지를 쓰지 않고 std_grade로만 남겼다",
+   "좌표 결측은 0곳이다. 등록 좌표 24곳 전부가 속초 범위 안에 있다",
+   "운영요일은 24곳 전부 평일+토요일+공휴일이라 공휴일도 운영이다. 운영시간은 24곳 전부 00:00~23:59이다. 도로명주소는 24곳 전부 공란이고, 전화번호는 24곳 전부 있으며, 결제방법·특기사항은 24곳 전부 공란이며, 장애인전용주차구역 보유여부는 전부 공란이고 부제시행구분은 미시행 24곳이다",
+   "무료 22곳은 무료 등록이라 등록값을 유지했고, 유료 2곳(로데오 제1·제2)은 요금 칸이 전부 비어 있어 조례 기준으로 계산했다. 1일권 적용시간은 별표에 별도 규정이 없어 적용시간으로 쓰지 않았다. 노상 유료는 0곳이다. 요금 미상은 0곳이다. 설악산 B1·B2·C1·C2 4곳은 국립공원 주차장이라 별표 1 적용 제외로 무료 등록값을 유지했다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "엑스포 제4공영주차장",
+   "동명항 공영주차장",
+   "영금정 공영주차장",
+   "설악산 B1 노외주차장",
+   "설악산 B2 노외주차장",
+   "설악산 C1 노외주차장",
+   "설악산 C2 노외주차장",
+   "영랑동 공영주차장",
+   "엑스포 제1공영주차장",
+   "엑스포 제2,3공영주차장",
+   "로데오 제1공영주차장",
+   "로데오 제2공영주차장",
+   "청학동 제1지구 노외주차장",
+   "청학동 제2지구 노외주차장",
+   "교동가로 노상주차장",
+   "먹거리촌(청대로) 노상주차장",
+   "삼환가로 노상주차장",
+   "설악산입구 노상주차장",
+   "동명동 노상주차장",
+   "법대로 노상주차장",
+   "영랑호수공원(속초의료원) 노상주차장",
+   "장사항해안길 노상주차장",
+   "수복로 노상주차장",
+   "청학가로 노상주차장"
+  ],
+  "감면_출처": "「속초시 주차장 설치 및 관리 조례」 제3223호 제3조·별표 1의2 — 긴급자동차·성실납세자·공무수행 승인 차량은 전액 면제할 수 있고, 장애인·국가유공자·독립유공자·참전유공자·고엽제·5·18·의사상자·병역명문가·시책 참여·자원봉사마일리지·6세 미만 영유아·임산부·다자녀가정·장기·인체조직기증자·착한임대인은 50퍼센트를 감면할 수 있으며, 전통시장·상점가 공영주차장은 30퍼센트(월정기권 50퍼센트), 경형·저공해·환경친화적 자동차는 50퍼센트(월정기권 60퍼센트, 전기차 충전 시 2시간 면제)를 감면할 수 있다. 중복 감면 사유가 있으면 감면율이 높은 하나만 적용한다",
+  "요금_출처": "조례 제2조제1항·별표 1 — 시장이 설치하는 노상·노외주차장의 주차요금은 별표 1과 같다(국립공원·관광진흥법 주차장 제외). 별표 1은 일반 요금표(최초 20분 무료·이후 최초 10분 600원·이후 매10분당 300원·1일 10,000원·월정기 주간 70,000원·야간 50,000원·주야 120,000원)와 속초해수욕장 요금표(비수기 2시간 이내 1,000원·2~4시간 2,000원·이후 매2시간당 2,000원·1일 8,000원, 성수기 2시간 이내 2,000원·이후 매2시간당 2,000원·1일 10,000원)로 나뉜다. 별표 원본 HWP(flSeq 159369325)를 받아 PrvText와 BodyText 두 경로로 교차 확인해 대조했다",
+  "급지_출처": "조례 별표 1에 급지 구분이 없다. 표준데이터 등록 급지구분은 24곳 전부 ‘기타’라 급지를 쓰지 않고 std_grade로만 남겼다",
+  "무료요일_출처": "조례 본문 어디에도 시 전체 주말·공휴일 자동 무료 조항은 없다. 무료 22곳의 표기는 표준데이터 등록값(요금정보 ‘무료’) 근거다. 24곳 전부 운영요일이 ‘평일+토요일+공휴일’이라 공휴일도 운영으로 표기한다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 속초 등록 24행 전부 공영(노외 14·노상 10, 총 3,857면)으로 무료 22·유료 2, 기준일 2026-06-30, 제공기관명은 강원특별자치도 속초시 전부이다. 중복 판정(전체 이름·지번·좌표 200m 가드)에 걸리는 쌍은 없어 24곳·3,857면을 그대로 실었다. 관리번호 중복은 없다. 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다",
+   "「속초시 주차장 설치 및 관리 조례」 제3223호(시행 2025-12-19, ordinSeq 2094535·ordinId 2082793) 본문 원문(data/raw/sokcho-ordinance.txt) 대조 완료(2026-11-22) — 본문 제2조제1항이 시장이 설치하는 노상·노외주차장의 요금을 별표 1로 정한다(국립공원·관광진흥법 주차장 제외 단서). 별표 1은 ELIS 첨부 HWP 원본(flSeq 159369325)을 data/raw/sokcho-ordinance-b1.hwp로 저장하고 PrvText와 BodyText(raw deflate) 두 경로로 교차 확인해 확정했다 — 일반 요금표는 최초 20분 무료·이후 최초 10분 600원·이후 매10분당 300원·1일 10,000원·월정기 주간 70,000원·야간 50,000원·주야 120,000원이고, 속초해수욕장 요금표는 비수기 2시간 이내 1,000원·2~4시간 2,000원·이후 매2시간당 2,000원·1일 8,000원, 성수기(7.1~8.31) 2시간 이내 2,000원·이후 매2시간당 2,000원·1일 10,000원이다. 비고 2는 대형버스·화물차 전용 구획 3배 징수, 비고 3은 주간 4~10월 08:00~20:00·11~3월 09:00~19:00, 비고 5는 할인 시 100원 미만 단수 절사이다. 별표 1의2(flSeq 159369327)는 감면기준이다",
+   "유료 2곳(로데오 제1·제2)은 요금 구분만 ‘유료’이고 요금 칸이 전부 비어 있어 등록 부가정보가 불완전하면 조례 기준으로 계산하는 선례(강릉)에 따라 별표 1 일반 요율로 계산했다. 최초 20분은 무료로 보고 free_min 20으로 분리하고 base_min은 30분으로 두었다. 1시간은 600+300×3=1,500원, 2시간은 600+300×9=3,300원이다. 1일권 적용시간은 별표에 별도 규정이 없어 적용시간으로 쓰지 않는다. 노상 유료는 0곳이라 월정기권 노상 등록 불가(별표 1) 문제는 없다. 등록 급지구분은 24곳 전부 ‘기타’이나 별표에 급지가 없어 쓰지 않았다",
+   "좌표 결측은 0곳이다. 등록 좌표 24곳 전부가 속초 범위(위도 38.164~38.222, 경도 128.519~128.608) 안에 있다. 지오코딩 보완은 없었다",
+   "주말·공휴일 전체 무료는 조례 본문 어디에도 없다. 무료 22곳의 표기는 표준데이터 등록값 근거다. 24곳 전부 운영요일이 ‘평일+토요일+공휴일’이라 공휴일도 운영으로 표기한다. 속초해수욕장 요금표는 성수기(7.1~8.31)와 비수기로 나뉜다",
+   "동·읍·면 판정은 지번주소 기준이고 24곳 전부 판정됐다(청학동 6·교동 4·동명동 4·설악동 4·영랑동 2·조양동 2·장사동 1·대포동 1). 도로명주소는 24곳 전부 공란이다. 같은 지번·같은 좌표에 이름만 다른 등록은 없다 — 청학동 486 일대(청학동 제1지구 486·제2지구 486-183·로데오 제1 482-258·로데오 제2 482-48)는 번지와 좌표가 달라 별개 자리로 실었다",
+   "관리기관명은 강원특별자치도 속초시청 24곳 전부이다. 전화번호는 24곳 전부 등록돼 있고(033-639-1575), 결제방법·특기사항은 24곳 전부 공란이며, 장애인전용주차구역 보유여부는 전부 공란이고 부제시행구분은 미시행 24곳이다. 운영시간은 24곳 전부 00:00~23:59이다",
+   "확인 과제 — ① 로데오 제1·제2의 실제 요금 — 등록 요금 칸이 비어 있어 조례 별표 1로 계산했으나 현장 요금을 속초시청에 확인할 것 ② 속초해수욕장 공영주차장이 표준데이터에 없어 별표 1 해수욕장 요금표의 적용 대상이 없다 — 해수욕장 주차장의 운영 주체(시설관리공단 여부)와 표준데이터 누락 여부를 확인할 것 ③ 설악산 B1·B2·C1·C2 4곳의 실제 유료 여부 — 국립공원 주차장으로 별표 1 적용 제외이나 현장에서 유료로 운영하는지 확인할 것 ④ 조례 시행일 2025.12.19와 실제 적용 개시일 2026.1.19의 차이 — 아시아경제 보도(2025.12.28)는 2026년 1월 19일부터 조정 적용이라고 하나 조례 부칙은 공포한 날부터 시행이라 적용 시점을 확인할 것 ⑤ 무료 22곳의 실제 무료 개방 여부와 운영시간(등록 00:00~23:59)을 확인할 것 ⑥ 월정기권(주간 70,000원·야간 50,000원·주야 120,000원)의 실제 시행 여부와 전통시장 감면 30% 적용 여부를 확인할 것 ⑦ 청학동 486 일대 4곳(청학동 제1·제2지구·로데오 제1·제2)이 별개 자리인지 현장에서 확인할 것"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 22,
+  "무료_구획수": 3522,
+  "평균_기본요금": 600,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-06-30"
+  ],
+  "관리기관": {
+   "강원특별자치도 속초시청": 24
+  }
+ },
+ "fee_table": {
+  "style": "sokcho_flat",
+  "unit_min": 10,
+  "base_min": 30,
+  "applies": "「속초시 주차장 설치 및 관리 조례」 제3223호(시행 2025-12-19) 제2조제1항·별표 1 — 국가법령정보센터 ordinSeq 2094535에서 확인",
+  "source_url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2094535&gubun=ELIS",
+  "grade_system": "조례 별표 1은 급지 구분이 없는 단일 요금표이다. 표준데이터 등록 급지구분은 24곳 전부 ‘기타’이다. 속초해수욕장 공영주차장 요금은 비수기·성수기로 따로 정해져 있다",
+  "rows": [
+   {
+    "label": "공영주차장 요금 (조례 별표 1)",
+    "grade": null,
+    "unit_label": "최초 20분 무료 · 이후 최초 10분 600원 · 이후 매10분당 300원",
+    "hour": 1500,
+    "two_hour": 3300,
+    "day": 10000,
+    "month_all": 120000,
+    "month": 70000,
+    "month_night": 50000,
+    "lots": 2
+   },
+   {
+    "label": "속초해수욕장 공영주차장 — 비수기 (조례 별표 1, 참고표)",
+    "grade": null,
+    "unit_label": "2시간 이내 1,000원 · 2~4시간 2,000원 · 이후 매2시간당 2,000원",
+    "hour": 1000,
+    "two_hour": 1000,
+    "day": 8000,
+    "month_all": null,
+    "month": null,
+    "month_night": null,
+    "lots": null
+   },
+   {
+    "label": "속초해수욕장 공영주차장 — 성수기 7.1~8.31 (조례 별표 1, 참고표)",
+    "grade": null,
+    "unit_label": "2시간 이내 2,000원 · 이후 매2시간당 2,000원",
+    "hour": 2000,
+    "two_hour": 2000,
+    "day": 10000,
+    "month_all": null,
+    "month": null,
+    "month_night": null,
+    "lots": null
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 2,
+   "street_paid": 0,
+   "free": 22,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "주간 시간구분 (조례 별표 1 비고 3)",
+    "hours": "4월~10월 08:00~20:00, 11월~3월 09:00~19:00 (나머지 시간은 야간)",
+    "free": "전통시장·상점가 공영주차장은 운영시간을 탄력적으로 조정할 수 있다"
+   },
+   {
+    "group": "대형버스·화물차 전용 구획 (조례 별표 1 비고 2)",
+    "hours": "대형버스 및 화물차를 위해 별도 설치한 주차구획",
+    "free": "본 요금의 3배를 징수할 수 있으며 주차 시 주차구획을 점유한 수만큼 배로 징수할 수 있다"
+   },
+   {
+    "group": "100원 미만 단수 절사 (조례 별표 1 비고 5)",
+    "hours": "주차요금의 할인에 따라 100원 미만의 단수가 발생한 경우",
+    "free": "그 단수는 계산하지 않는다"
+   },
+   {
+    "group": "국립공원·관광진흥법 주차장 (조례 제2조제1항 단서)",
+    "hours": "「자연공원법」에서 지정한 국립공원과 「관광진흥법」규정에 의한 주차장",
+    "free": "별표 1이 적용되지 않는다 — 설악산 B1·B2·C1·C2 4곳이 해당한다"
+   },
+   {
+    "group": "월정기권 노상 등록 불가 (조례 별표 1)",
+    "hours": "노상주차장",
+    "free": "월정기권 등록이 불가하다"
+   }
+  ],
+  "discounts": [
+   {
+    "label": "긴급자동차·성실납세자·공무수행 승인 차량 전액 면제",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 제3조·별표 1의2 제1호 — 도로교통법에 따른 긴급자동차로서 해당 업무를 수행하는 자동차, 강원특별자치도 성실납세자 등 선정 및 지원에 관한 조례 및 속초시 성실납세자 등 지원에 관한 조례 제5조에 따라 도지사 또는 시장이 교부한 유공납세자 인증서 또는 국세청장이 교부한 납세유공자 증명을 휴대한 차량(교부일로부터 1년간 면제), 공무수행 등 주차장 관리 부서에 사전에 서면으로 신청하여 승인된 차량은 주차요금을 전액 면제할 수 있다"
+   },
+   {
+    "label": "장애인·국가유공자·독립유공자·참전유공자·고엽제·5·18·의사상자·병역명문가·시책 참여·자원봉사마일리지·6세 미만 영유아·임산부·다자녀가정·장기·인체조직기증자·착한임대인 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제3조·별표 1의2 제2호 — 장애인복지법에 따라 등록된 장애인의 소유차량으로 등록인이 탑승한 자동차, 국가유공자 등 예우 및 지원에 관한 법률 제4조에 따른 국가유공자 또는 국가유공자 유족 본인이 탑승한 자동차, 독립유공자·참전유공자·고엽제후유의증·5·18민주유공자·의사상자 적용 대상자 본인이 탑승한 자동차, 속초시 병역명문가 예우에 관한 조례에 따른 예우대상자 본인이 탑승한 자동차, 시장이 추진하는 시책(지역경제 활성화 또는 승용차 부제 운행 등)에 참여하는 자동차, 자원봉사마일리지증을 소지한 사람이 탑승한 자동차, 6세 미만의 영유아 또는 임산부가 탑승한 자동차, 강원도 출산·양육 지원 조례에 따른 다자녀가정 중 속초시에 주소를 두고 거주하는 본인이 탑승한 자동차, 속초시 관내에 주민등록 되어 있는 장기 등 및 인체조직기증자, 속초시 착한임대인 지원 및 육성 조례에 따라 지정된 착한임대인은 주차요금의 50퍼센트를 감면할 수 있다"
+   },
+   {
+    "label": "전통시장·상점가 공영주차장 30% 감면 (월정기권 50%)",
+    "rate": 0.3,
+    "exempt_min": 0,
+    "note": "조례 제3조·별표 1의2 제3호 — 전통시장 및 상점가 육성을 위한 특별법 제19조에 따라 전통시장과 상점가에 설치된 공영주차장을 이용하는 자동차는 30퍼센트를 감면한다. 다만 월정기권 등록차량은 50퍼센트를 감면한다"
+   },
+   {
+    "label": "경형자동차·저공해차량·환경친화적 자동차 50% 감면 (월정기권 60%, 전기차 충전 시 2시간 면제)",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제3조·별표 1의2 제4호 — 경형자동차, 저공해차량 및 환경친화적 자동차에 대해서는 50퍼센트를 감면한다. 다만 월정기권 등록차량은 60퍼센트를 감면하며, 전기자동차가 전기차충전시설을 사용하여 충전하는 경우 2시간의 범위에서 주차요금을 면제한다. 둘 이상의 주차요금 감면사유에 해당할 경우에는 그 중 감면율이 높은 하나만 적용된다"
+   }
+  ],
+  "notes": "감면(조례 제3조·별표 1의2)은 긴급자동차·성실납세자·공무수행 승인 차량 전액 면제, 장애인·국가유공자·독립유공자·참전유공자·고엽제·5·18·의사상자·병역명문가·시책 참여·자원봉사마일리지·6세 미만 영유아·임산부·다자녀가정·장기·인체조직기증자·착한임대인 50% 감면, 전통시장·상점가 공영주차장 30% 감면(월정기권 50%), 경형·저공해·환경친화적 자동차 50% 감면(월정기권 60%, 전기차 충전 시 2시간 면제)이다. 중복 감면 사유가 있으면 감면율이 높은 하나만 적용한다.",
+  "basis": "요금표는 「속초시 주차장 설치 및 관리 조례」 제3223호(시행 2025-12-19) 제2조제1항·별표 1과 표준데이터(기준일 2026-06-30)를 대조해 실었다. 별표 1 원본 HWP는 flSeq 159369325이다. 유료 2곳(로데오 제1·제2)은 요금 칸이 전부 비어 있어 조례 기준으로 계산했고, 무료 22곳은 등록값을 유지했다. 속초해수욕장 요금표는 표준데이터 속초 등록 24곳 중 적용 대상이 없어 참고표로만 싣는다. (조례 본문: data/raw/sokcho-ordinance.txt, 별표 1 원문 HWP: data/raw/sokcho-ordinance-b1.hwp, 별표 1의2 원문 HWP: data/raw/sokcho-ordinance-b1-2.hwp)"
+ },
+ "slug": "sokcho",
+ "province": "강원특별자치도",
+ "province_slug": "gangwon",
+ "dong_page_min_lots": 3,
+ "city": "속초시",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·성실납세자·공무수행 승인 차량 전액 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제3조·별표 1의2 제1호 — 도로교통법에 따른 긴급자동차로서 해당 업무를 수행하는 자동차, 강원특별자치도 성실납세자 등 선정 및 지원에 관한 조례 및 속초시 성실납세자 등 지원에 관한 조례 제5조에 따라 도지사 또는 시장이 교부한 유공납세자 인증서 또는 국세청장이 교부한 납세유공자 증명을 휴대한 차량(교부일로부터 1년간 면제), 공무수행 등 주차장 관리 부서에 사전에 서면으로 신청하여 승인된 차량은 주차요금을 전액 면제할 수 있다"
+  },
+  {
+   "label": "장애인·국가유공자·독립유공자·참전유공자·고엽제·5·18·의사상자·병역명문가·시책 참여·자원봉사마일리지·6세 미만 영유아·임산부·다자녀가정·장기·인체조직기증자·착한임대인 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조·별표 1의2 제2호 — 장애인복지법에 따라 등록된 장애인의 소유차량으로 등록인이 탑승한 자동차, 국가유공자 등 예우 및 지원에 관한 법률 제4조에 따른 국가유공자 또는 국가유공자 유족 본인이 탑승한 자동차, 독립유공자·참전유공자·고엽제후유의증·5·18민주유공자·의사상자 적용 대상자 본인이 탑승한 자동차, 속초시 병역명문가 예우에 관한 조례에 따른 예우대상자 본인이 탑승한 자동차, 시장이 추진하는 시책(지역경제 활성화 또는 승용차 부제 운행 등)에 참여하는 자동차, 자원봉사마일리지증을 소지한 사람이 탑승한 자동차, 6세 미만의 영유아 또는 임산부가 탑승한 자동차, 강원도 출산·양육 지원 조례에 따른 다자녀가정 중 속초시에 주소를 두고 거주하는 본인이 탑승한 자동차, 속초시 관내에 주민등록 되어 있는 장기 등 및 인체조직기증자, 속초시 착한임대인 지원 및 육성 조례에 따라 지정된 착한임대인은 주차요금의 50퍼센트를 감면할 수 있다"
+  },
+  {
+   "label": "전통시장·상점가 공영주차장 30% 감면 (월정기권 50%)",
+   "rate": 0.3,
+   "exempt_min": 0,
+   "note": "조례 제3조·별표 1의2 제3호 — 전통시장 및 상점가 육성을 위한 특별법 제19조에 따라 전통시장과 상점가에 설치된 공영주차장을 이용하는 자동차는 30퍼센트를 감면한다. 다만 월정기권 등록차량은 50퍼센트를 감면한다"
+  },
+  {
+   "label": "경형자동차·저공해차량·환경친화적 자동차 50% 감면 (월정기권 60%, 전기차 충전 시 2시간 면제)",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조·별표 1의2 제4호 — 경형자동차, 저공해차량 및 환경친화적 자동차에 대해서는 50퍼센트를 감면한다. 다만 월정기권 등록차량은 60퍼센트를 감면하며, 전기자동차가 전기차충전시설을 사용하여 충전하는 경우 2시간의 범위에서 주차요금을 면제한다. 둘 이상의 주차요금 감면사유에 해당할 경우에는 그 중 감면율이 높은 하나만 적용된다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
