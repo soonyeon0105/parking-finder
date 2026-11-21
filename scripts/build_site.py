@@ -8308,7 +8308,11 @@ def hub_meta(city, gu, n):
              f"{_fee_row_phrase(rows[0], full=False)} | {SITE_NAME}")
     fee_part = ", ".join(phrases)
     corp = ft.get("corp") or {}
-    if corp.get("paid") == 0 and corp.get("free") and not corp.get("unknown"):
+    # corp는 노외 카드 기준이라 유료가 노상에만 있는 도시(횡성군)는 paid==0으로 보인다.
+    # 노상 유료 구간이 있으면 '모두 무료' 분기를 타지 않는다.
+    _street_paid_n = len([l for l in city.get("_street_lots", [])
+                          if (l.get("fee") or {}).get("type") == "유료"])
+    if corp.get("paid") == 0 and corp.get("free") and not corp.get("unknown") and not _street_paid_n:
         # 유료 주차장이 한 곳도 없는 지역 — 조례 요금표는 참고표로만 싣는다.
         description = (f"{gu} 공영주차장 {n}곳은 모두 무료로 등록돼 있습니다. 조례 요금표"
                        f"({fee_part})와 운영시간·구획수를 공공데이터로 정리했습니다.")
@@ -8723,12 +8727,21 @@ def build_district(city, d, lots, site, path=None, hub=False):
 """)
 
     # 2시간 요금 FAQ 답 — 유료 곳이 하나도 없으면 '모두 무료'와 '요금 미상'을 나눠 적는다(문경시).
-    if not _paid_gu and _unknown_gu:
+    # 유료가 노상에만 있는 도시(횡성군)는 카드 유료가 0곳이라 prices가 비어 이 폴백이 쓰인다.
+    _street_paid = [l for l in street if l["fee"]["type"] == "유료"]
+    if not _paid_gu and not _street_paid and _unknown_gu:
         _two_h_answer = (f"이 지역 공영주차장 {s['n']}곳 가운데 요금 구분이 ‘무료’인 {free_in_gu}곳은 2시간 주차요금도 0원이고, "
                          f"요금 미상인 {_unknown_gu}곳은 시간요금을 확정할 수 없어 계산에서 제외했습니다. "
                          f"조례 별표1의 요금 상한은 위 ‘{gu} 주차요금표’에 적었습니다.")
-    elif not _paid_gu:
+    elif not _paid_gu and not _street_paid:
         _two_h_answer = (f"이 지역 공영주차장 {s['n']}곳이 모두 <b>무료</b>로 등록되어 있어 2시간 주차요금도 0원입니다. "
+                         f"조례 별표1의 요금 상한은 위 ‘{gu} 주차요금표’에 적었습니다.")
+    elif _street_paid and not _paid_gu:
+        _two_h_prices = two_h_price(_street_paid, "weekday")
+        _two_h_txt = (won(_two_h_prices[0]) if len(set(_two_h_prices)) == 1
+                      else f"{won(min(_two_h_prices))}~{won(max(_two_h_prices))}")
+        _two_h_answer = (f"이 지역 공영주차장 {s['n'] + len(street)}곳 가운데 요금 구분이 ‘무료’인 {free_all_gu}곳은 "
+                         f"2시간 주차요금도 0원이고, 노상 유료 구간 {len(_street_paid)}곳은 2시간 {_two_h_txt}입니다. "
                          f"조례 별표1의 요금 상한은 위 ‘{gu} 주차요금표’에 적었습니다.")
     else:
         _two_h_answer = "요금 정보가 있는 주차장이 없어 계산할 수 없습니다."
