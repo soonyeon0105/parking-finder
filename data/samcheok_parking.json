@@ -1,0 +1,1907 @@
+{
+ "meta": {
+  "generated_at": "2026-11-22 05:39",
+  "generated_at_iso": "2026-11-22T05:39:10+09:00",
+  "snapshot_at": "2026-11-22 05:39",
+  "region": {
+   "province": "강원특별자치도",
+   "city": "삼척시"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-20",
+    "rows_total": 18994,
+    "rows_city": 13,
+    "fetched_at": "2026-11-22 05:39 (KST)",
+    "note": "삼척시로 등록된 행 13행을 읽어 중복 제거 0건, 제외 0건으로 13곳을 실었다. 유료 12곳·무료 1곳·미상 0곳이다. 데이터기준일자는 2026-10-20이다. 좌표 결측은 0곳이다. 조례 대조 완료 — 「삼척시 주차장 설치 및 관리 조례」 제1780호(시행 2026-03-27, ordinSeq 2117179) 제3조제1항·별표 1 원문 대조 완료(2026-11-22)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "삼척시 주차장 설치 및 관리 조례",
+    "org": "강원특별자치도 삼척시청",
+    "url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2117179&gubun=ELIS",
+    "file": "samcheok-ordinance.txt",
+    "sha256": "06d9293e007fd54996e9dc162e3344fef894d2a7fea29990d798c4f73905830f",
+    "license": "자치법규(공개)",
+    "base_date": "2026-03-27",
+    "rows_total": null,
+    "fetched_at": "2026-11-22 05:39 (KST)",
+    "note": "삼척시가 설치·관리하는 공영주차장에 적용하는 조례다. 표준데이터에 등록된 삼척시 공영주차장 13곳(노외 9곳·노상 4구간, 총 1,036면)입니다. 무료 1곳(중앙로 주차장)은 등록값을 유지했고, 유료 12곳은 등록 요금이 별표 1과 2시간까지 일치하나 2시간 초과 구간(30분마다 1,000원)을 표준데이터 형식으로 표현할 수 없어 「삼척시 주차장 설치 및 관리 조례」 제1780호 별표 1(2시간까지 30분마다 500원·2시간 초과 30분마다 1,000원·1일 6,000원·월정기 주간 50,000원·야간 무료)로 계산했습니다. 노상 3구간은 최초 10분이 무료입니다(별표 1 비고 2). (조례 본문: data/raw/samcheok-ordinance.txt, 별표 1 원문 HWP: data/raw/samcheok-ordinance-b1.hwp)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "삼척시",
+   "slug": "samcheok"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gw-samcheok-001",
+   "mgmt_no": "256-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "평생학습관 주차타워",
+   "gu": "삼척시",
+   "dong": "교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 삼척시 교동 736",
+   "addr_road": "강원특별자치도 삼척시 청석로3길 16-41",
+   "road": null,
+   "spaces": 164,
+   "tel": "033-570-3935",
+   "lat": 37.44912555,
+   "lng": 129.1780308,
+   "base_date": "2026-10-20",
+   "manager": "강원특별자치도 삼척시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 1000
+     }
+    ],
+    "steps_label": "2시간까지 30분마다 500원, 2시간 초과 30분마다 1,000원",
+    "bands": null,
+    "category": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 50000
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(2시간까지 30분마다 500원·2시간 초과 30분마다 1,000원·1일 6,000원·월정기 주간 50,000원·야간 무료)과 2시간까지 일치하나, 2시간 초과 구간은 표준데이터 형식으로 표현할 수 없어 조례 기준으로 계산한다. 1시간은 1,000원, 2시간은 2,000원이다. 1일권 적용시간 등록 4h는 별표에 근거가 없어 적용시간으로 쓰지 않는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "삼척시",
+   "city_slug": "samcheok",
+   "zone": null
+  },
+  {
+   "id": "gw-samcheok-002",
+   "mgmt_no": "256-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가고파앞(진주로) 주차장",
+   "gu": "삼척시",
+   "dong": "남양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 삼척시 남양동 32-10",
+   "addr_road": "강원특별자치도 삼척시 진주로 44",
+   "road": null,
+   "spaces": 40,
+   "tel": "033-570-3935",
+   "lat": 37.44452908,
+   "lng": 129.1642971,
+   "base_date": "2026-10-20",
+   "manager": "강원특별자치도 삼척시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 1000
+     }
+    ],
+    "steps_label": "2시간까지 30분마다 500원, 2시간 초과 30분마다 1,000원",
+    "bands": null,
+    "category": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 50000
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(2시간까지 30분마다 500원·2시간 초과 30분마다 1,000원·1일 6,000원·월정기 주간 50,000원·야간 무료)과 2시간까지 일치하나, 2시간 초과 구간은 표준데이터 형식으로 표현할 수 없어 조례 기준으로 계산한다. 1시간은 1,000원, 2시간은 2,000원이다. 1일권 적용시간 등록 4h는 별표에 근거가 없어 적용시간으로 쓰지 않는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "삼척시",
+   "city_slug": "samcheok",
+   "zone": null
+  },
+  {
+   "id": "gw-samcheok-003",
+   "mgmt_no": "256-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼척고등학교 주차장 (24-5)",
+   "gu": "삼척시",
+   "dong": "남양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 삼척시 남양동 24-5",
+   "addr_road": "강원특별자치도 삼척시 사대안길 9",
+   "road": null,
+   "spaces": 23,
+   "tel": "033-570-3935",
+   "lat": 37.44439243,
+   "lng": 129.1652648,
+   "base_date": "2026-10-20",
+   "manager": "강원특별자치도 삼척시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 1000
+     }
+    ],
+    "steps_label": "2시간까지 30분마다 500원, 2시간 초과 30분마다 1,000원",
+    "bands": null,
+    "category": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 50000
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(2시간까지 30분마다 500원·2시간 초과 30분마다 1,000원·1일 6,000원·월정기 주간 50,000원·야간 무료)과 2시간까지 일치하나, 2시간 초과 구간은 표준데이터 형식으로 표현할 수 없어 조례 기준으로 계산한다. 1시간은 1,000원, 2시간은 2,000원이다. 1일권 적용시간 등록 4h는 별표에 근거가 없어 적용시간으로 쓰지 않는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "삼척시",
+   "city_slug": "samcheok",
+   "zone": null
+  },
+  {
+   "id": "gw-samcheok-004",
+   "mgmt_no": "256-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "새마을떡집 주차장",
+   "gu": "삼척시",
+   "dong": "남양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 삼척시 남양동 55-75",
+   "addr_road": "강원특별자치도 삼척시 중앙시장 1길 6",
+   "road": null,
+   "spaces": 27,
+   "tel": "033-570-3935",
+   "lat": 37.44132393,
+   "lng": 129.1661615,
+   "base_date": "2026-10-20",
+   "manager": "강원특별자치도 삼척시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 1000
+     }
+    ],
+    "steps_label": "2시간까지 30분마다 500원, 2시간 초과 30분마다 1,000원",
+    "bands": null,
+    "category": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 50000
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(2시간까지 30분마다 500원·2시간 초과 30분마다 1,000원·1일 6,000원·월정기 주간 50,000원·야간 무료)과 2시간까지 일치하나, 2시간 초과 구간은 표준데이터 형식으로 표현할 수 없어 조례 기준으로 계산한다. 1시간은 1,000원, 2시간은 2,000원이다. 1일권 적용시간 등록 4h는 별표에 근거가 없어 적용시간으로 쓰지 않는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "삼척시",
+   "city_slug": "samcheok",
+   "zone": null
+  },
+  {
+   "id": "gw-samcheok-005",
+   "mgmt_no": "256-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙시장 제2주차장",
+   "gu": "삼척시",
+   "dong": "남양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 삼척시 남양동 39-25",
+   "addr_road": "",
+   "road": null,
+   "spaces": 46,
+   "tel": "033-570-3935",
+   "lat": 37.44061549,
+   "lng": 129.1656082,
+   "base_date": "2026-10-20",
+   "manager": "강원특별자치도 삼척시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 1000
+     }
+    ],
+    "steps_label": "2시간까지 30분마다 500원, 2시간 초과 30분마다 1,000원",
+    "bands": null,
+    "category": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 50000
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(2시간까지 30분마다 500원·2시간 초과 30분마다 1,000원·1일 6,000원·월정기 주간 50,000원·야간 무료)과 2시간까지 일치하나, 2시간 초과 구간은 표준데이터 형식으로 표현할 수 없어 조례 기준으로 계산한다. 1시간은 1,000원, 2시간은 2,000원이다. 1일권 적용시간 등록 4h는 별표에 근거가 없어 적용시간으로 쓰지 않는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "삼척시",
+   "city_slug": "samcheok",
+   "zone": null
+  },
+  {
+   "id": "gw-samcheok-006",
+   "mgmt_no": "256-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙시장 주차타워",
+   "gu": "삼척시",
+   "dong": "남양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 삼척시 남양동 34-13",
+   "addr_road": "강원특별자치도 삼척시 중앙시장길 71-18",
+   "road": null,
+   "spaces": 297,
+   "tel": "033-570-3935",
+   "lat": 37.44307615,
+   "lng": 129.1653217,
+   "base_date": "2026-10-20",
+   "manager": "강원특별자치도 삼척시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 1000
+     }
+    ],
+    "steps_label": "2시간까지 30분마다 500원, 2시간 초과 30분마다 1,000원",
+    "bands": null,
+    "category": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 50000
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(2시간까지 30분마다 500원·2시간 초과 30분마다 1,000원·1일 6,000원·월정기 주간 50,000원·야간 무료)과 2시간까지 일치하나, 2시간 초과 구간은 표준데이터 형식으로 표현할 수 없어 조례 기준으로 계산한다. 1시간은 1,000원, 2시간은 2,000원이다. 1일권 적용시간 등록 4h는 별표에 근거가 없어 적용시간으로 쓰지 않는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "삼척시",
+   "city_slug": "samcheok",
+   "zone": null
+  },
+  {
+   "id": "gw-samcheok-007",
+   "mgmt_no": "256-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대학로 주차타워",
+   "gu": "삼척시",
+   "dong": "당저동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 삼척시 당저동 150-1",
+   "addr_road": "강원특별자치도 삼척시 성당길 91",
+   "road": null,
+   "spaces": 95,
+   "tel": "033-570-3935",
+   "lat": 37.44502167,
+   "lng": 129.1625655,
+   "base_date": "2026-10-20",
+   "manager": "강원특별자치도 삼척시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 1000
+     }
+    ],
+    "steps_label": "2시간까지 30분마다 500원, 2시간 초과 30분마다 1,000원",
+    "bands": null,
+    "category": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 50000
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(2시간까지 30분마다 500원·2시간 초과 30분마다 1,000원·1일 6,000원·월정기 주간 50,000원·야간 무료)과 2시간까지 일치하나, 2시간 초과 구간은 표준데이터 형식으로 표현할 수 없어 조례 기준으로 계산한다. 1시간은 1,000원, 2시간은 2,000원이다. 1일권 적용시간 등록 4h는 별표에 근거가 없어 적용시간으로 쓰지 않는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "삼척시",
+   "city_slug": "samcheok",
+   "zone": null
+  },
+  {
+   "id": "gw-samcheok-008",
+   "mgmt_no": "256-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대학로 지하 주차장",
+   "gu": "삼척시",
+   "dong": "당저동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 삼척시 당저동 145-3",
+   "addr_road": "강원특별자치도 삼척시 대학로 31",
+   "road": null,
+   "spaces": 49,
+   "tel": "033-570-3935",
+   "lat": 37.44388787,
+   "lng": 129.1629087,
+   "base_date": "2026-10-20",
+   "manager": "강원특별자치도 삼척시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 1000
+     }
+    ],
+    "steps_label": "2시간까지 30분마다 500원, 2시간 초과 30분마다 1,000원",
+    "bands": null,
+    "category": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 50000
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(2시간까지 30분마다 500원·2시간 초과 30분마다 1,000원·1일 6,000원·월정기 주간 50,000원·야간 무료)과 2시간까지 일치하나, 2시간 초과 구간은 표준데이터 형식으로 표현할 수 없어 조례 기준으로 계산한다. 1시간은 1,000원, 2시간은 2,000원이다. 1일권 적용시간 등록 4h는 별표에 근거가 없어 적용시간으로 쓰지 않는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "삼척시",
+   "city_slug": "samcheok",
+   "zone": null
+  },
+  {
+   "id": "gw-samcheok-009",
+   "mgmt_no": "256-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성내지구 제2주차장",
+   "gu": "삼척시",
+   "dong": "읍중동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 삼척시 읍중동 5-13",
+   "addr_road": "강원특별자치도 삼척시 대학로 11",
+   "road": null,
+   "spaces": 79,
+   "tel": "033-570-3935",
+   "lat": 37.44204661,
+   "lng": 129.1632991,
+   "base_date": "2026-10-20",
+   "manager": "강원특별자치도 삼척시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 50000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 1000
+     }
+    ],
+    "steps_label": "2시간까지 30분마다 500원, 2시간 초과 30분마다 1,000원",
+    "bands": null,
+    "category": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 50000
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(2시간까지 30분마다 500원·2시간 초과 30분마다 1,000원·1일 6,000원·월정기 주간 50,000원·야간 무료)과 2시간까지 일치하나, 2시간 초과 구간은 표준데이터 형식으로 표현할 수 없어 조례 기준으로 계산한다. 1시간은 1,000원, 2시간은 2,000원이다. 1일권 적용시간 등록 4h는 별표에 근거가 없어 적용시간으로 쓰지 않는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "삼척시",
+   "city_slug": "samcheok",
+   "zone": null
+  },
+  {
+   "id": "gw-samcheok-s001",
+   "mgmt_no": "256-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "삼척고등학교 주차장 (노상 12면)",
+   "gu": "삼척시",
+   "dong": "남양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 삼척시 남양동 23-11",
+   "addr_road": "강원특별자치도 삼척시 사대안길 16",
+   "road": "사대안길",
+   "spaces": 12,
+   "tel": "033-570-3935",
+   "lat": 37.44474053,
+   "lng": 129.1657358,
+   "base_date": "2026-10-20",
+   "manager": "강원특별자치도 삼척시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 10,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 1000
+     }
+    ],
+    "steps_label": "2시간까지 30분마다 500원, 2시간 초과 30분마다 1,000원",
+    "bands": null,
+    "category": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 0
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(2시간까지 30분마다 500원·2시간 초과 30분마다 1,000원·1일 6,000원)과 2시간까지 일치하나, 2시간 초과 구간은 표준데이터 형식으로 표현할 수 없어 조례 기준으로 계산한다. 노상은 최초 10분이 무료이다(별표 1 비고 2). 1시간은 1,000원, 2시간은 2,000원이다. 1일권 적용시간 등록 4h는 별표에 근거가 없어 적용시간으로 쓰지 않는다. 월정기권은 노외주차장에만 있어 표기하지 않는다(별표 1)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "삼척시",
+   "city_slug": "samcheok",
+   "zone": null
+  },
+  {
+   "id": "gw-samcheok-s002",
+   "mgmt_no": "256-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙로 주차장",
+   "gu": "삼척시",
+   "dong": "남양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 삼척시 남양동 331-1",
+   "addr_road": "강원특별자치도 삼척시 중앙로 226",
+   "road": "중앙로",
+   "spaces": 64,
+   "tel": "033-570-3935",
+   "lat": 37.44326452,
+   "lng": 129.168215,
+   "base_date": "2026-10-20",
+   "manager": "강원특별자치도 삼척시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "삼척시",
+   "city_slug": "samcheok",
+   "zone": null
+  },
+  {
+   "id": "gw-samcheok-s003",
+   "mgmt_no": "256-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "척주로 주차장",
+   "gu": "삼척시",
+   "dong": "남양동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 삼척시 남양동 33-8",
+   "addr_road": "강원특별자치도 삼척시 척주로 6",
+   "road": "척주로",
+   "spaces": 80,
+   "tel": "033-570-3935",
+   "lat": 37.44373146,
+   "lng": 129.1645633,
+   "base_date": "2026-10-20",
+   "manager": "강원특별자치도 삼척시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 10,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 1000
+     }
+    ],
+    "steps_label": "2시간까지 30분마다 500원, 2시간 초과 30분마다 1,000원",
+    "bands": null,
+    "category": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 0
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(2시간까지 30분마다 500원·2시간 초과 30분마다 1,000원·1일 6,000원)과 2시간까지 일치하나, 2시간 초과 구간은 표준데이터 형식으로 표현할 수 없어 조례 기준으로 계산한다. 노상은 최초 10분이 무료이다(별표 1 비고 2). 1시간은 1,000원, 2시간은 2,000원이다. 1일권 적용시간 등록 4h는 별표에 근거가 없어 적용시간으로 쓰지 않는다. 월정기권은 노외주차장에만 있어 표기하지 않는다(별표 1)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "삼척시",
+   "city_slug": "samcheok",
+   "zone": null
+  },
+  {
+   "id": "gw-samcheok-s004",
+   "mgmt_no": "256-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "진주로/오십천로 주차장",
+   "gu": "삼척시",
+   "dong": "당저동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 삼척시 당저동 62-6",
+   "addr_road": "강원특별자치도 삼척시 진주로 50-1",
+   "road": "진주로",
+   "spaces": 60,
+   "tel": "033-570-3935",
+   "lat": 37.44526071,
+   "lng": 129.1640922,
+   "base_date": "2026-10-20",
+   "manager": "강원특별자치도 삼척시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 10,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": 120,
+      "unit_min": 30,
+      "unit_fee": 500
+     },
+     {
+      "until": null,
+      "unit_min": 30,
+      "unit_fee": 1000
+     }
+    ],
+    "steps_label": "2시간까지 30분마다 500원, 2시간 초과 30분마다 1,000원",
+    "bands": null,
+    "category": null,
+    "pay": "현금+신용카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 0
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(2시간까지 30분마다 500원·2시간 초과 30분마다 1,000원·1일 6,000원)과 2시간까지 일치하나, 2시간 초과 구간은 표준데이터 형식으로 표현할 수 없어 조례 기준으로 계산한다. 노상은 최초 10분이 무료이다(별표 1 비고 2). 1시간은 1,000원, 2시간은 2,000원이다. 1일권 적용시간 등록 4h는 별표에 근거가 없어 적용시간으로 쓰지 않는다. 월정기권은 노외주차장에만 있어 표기하지 않는다(별표 1)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": false,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "삼척시",
+   "city_slug": "samcheok",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-22 05:39",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 13,
+  "원자료_삼척시행수": 13,
+  "원자료_받은행수": 13,
+  "구별": {
+   "삼척시": 13
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 9,
+  "노외_부설": {
+   "노외": 9
+  },
+  "노상_구간": 4,
+  "총_구획수": 820,
+  "노상_구획수": 216,
+  "동별": {
+   "남양동": 8,
+   "당저동": 3,
+   "교동": 1,
+   "읍중동": 1
+  },
+  "동수": 4,
+  "동_미상": [],
+  "동_보정": [
+   "이름이 겹치는 주차장 삼척고등학교 주차장 — 전부 다른 자리라 지번 번지로 구분했다"
+  ],
+  "동_근거": {
+   "지번주소": 13
+  },
+  "요금구분": {
+   "유료": 12,
+   "무료": 1
+  },
+  "요금_미상": [],
+  "유료_노상": 3,
+  "유료_노외": 9,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "표준데이터 삼척 등록 13행 전부 공영이라 민영 제외는 0건이다. 데이터기준일자는 2026-10-20 13행, 제공기관명은 강원특별자치도 삼척시 13행이다",
+   "등록 급지구분은 13곳 전부 ‘1’이다. 조례 별표 1에 급지 구분이 없어 급지를 쓰지 않고 std_grade로만 남겼다",
+   "좌표 결측은 0곳이다. 등록 좌표 13곳 전부가 삼척 범위 안에 있다",
+   "운영요일은 13곳 전부 평일(09:00~18:00)뿐이라 토요일·공휴일은 미운영이다. 조례 별표 1 비고 7은 공휴일·대체공휴일 무료를 정하나 등록 운영요일을 그대로 두었다(제천 선례). 도로명주소는 1곳 공란이고(중앙시장 제2주차장), 전화번호는 13곳 전부 있으며, 결제방법은 현금+신용카드 12곳·공란 1곳(무료), 특기사항은 13곳 전부 공란이며, 장애인전용주차구역 보유여부는 Y 9·N 4이고 부제시행구분은 미시행 13곳이다",
+   "무료 1곳(중앙로 주차장)은 무료 등록이라 등록값을 유지했고, 유료 12곳은 등록 요금이 별표와 2시간까지 일치하나 2시간 초과 구간을 표현할 수 없어 조례 기준으로 계산했다. 노상 3구간은 최초 10분이 무료이다(별표 1 비고 2). 1일권 적용시간 등록 4h는 별표에 근거가 없어 적용시간으로 쓰지 않았다. 요금 미상은 0곳이다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "중앙시장 제2주차장"
+  ],
+  "감면_출처": "「삼척시 주차장 설치 및 관리 조례」 제1780호 제3조제2항·제4조제1항 — 긴급자동차·공무수행 차량·국가유공자 등·장애인·모범(성실)납세자·삼척시 통·이장 재직자·임산부·장기기증자·전기자동차 충전 등은 주차요금을 전액 면제할 수 있고(제3~11호는 2시간 이내), 시책 참여 차량은 20퍼센트, 경형자동차·병역명문가·저공해자동차·다자녀 가구는 50퍼센트를 감면할 수 있다. 노상주차장 관리자는 법 제8조의2제1항에 해당하는 경우 별표 1 요금의 4배의 가산금을 받을 수 있다",
+  "요금_출처": "조례 제3조제1항·별표 1 — 시장이 설치하는 노상·노외주차장의 주차요금은 별표 1과 같다. 별표 1은 1회 주차권 2시간까지 30분마다 500원·2시간 초과 30분마다 1,000원·1일주차권 6,000원·월정기주차권 주간 50,000원·야간 무료이다. 별표 원본 HWP(flSeq 162898173)를 받아 PrvText와 BodyText 두 경로로 교차 확인해 대조했다",
+  "급지_출처": "조례 별표 1에 급지 구분이 없다. 표준데이터 등록 급지구분은 13곳 전부 ‘1’이라 급지를 쓰지 않고 std_grade로만 남겼다",
+  "무료요일_출처": "조례 별표 1 비고 7은 공휴일·대체공휴일 요금 무료를 정하나, 표준데이터 등록 운영요일이 13곳 전부 ‘평일’뿐이라 공휴일은 미운영으로 표기한다(제천 선례 — 등록된 운영요일을 그대로 둔다). 무료 1곳(중앙로 주차장)의 표기는 표준데이터 등록값(요금정보 ‘무료’) 근거다. 13곳 전부 평일 09:00~18:00 운영이다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 삼척 등록 13행 전부 공영(노외 9·노상 4, 총 1,036면)으로 무료 1·유료 12, 기준일 2026-10-20, 제공기관명은 강원특별자치도 삼척시 전부이다. 중복 판정(전체 이름·지번·좌표 200m 가드)에 걸리는 쌍은 없어 13곳·1,036면을 그대로 실었다. 관리번호 중복은 없다. 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다",
+   "「삼척시 주차장 설치 및 관리 조례」 제1780호(시행 2026-03-27, ordinSeq 2117179·ordinId 2071107) 본문 원문(data/raw/samcheok-ordinance.txt) 대조 완료(2026-11-22) — 본문 제3조제1항이 시장이 설치하는 노상·노외주차장의 요금을 별표 1로 정한다. 별표 1은 ELIS 첨부 HWP 원본(flSeq 162898173)을 data/raw/samcheok-ordinance-b1.hwp로 저장하고 PrvText와 BodyText(raw deflate) 두 경로로 교차 확인해 확정했다 — 1회 주차권 2시간까지 30분마다 500원·2시간 초과 30분마다 1,000원·1일주차권 6,000원·월정기주차권 주간 50,000원·야간 무료이다. 비고 2는 노상 최초 10분 무료, 비고 3은 주차타워 면제시간(단독 30분·부속 8시간 범위, 재량), 비고 4는 주간 09:00~18:00·야간 무료, 비고 5는 1구획 초과 점용구획수 징수·대형버스·화물차 전용 구획 3배, 비고 6은 전통시장 위탁 노외주차장 30분까지 면제 가능, 비고 7은 공휴일·대체공휴일 무료이다. 월정기권은 노외 한정, 구획의 80% 이내이다",
+   "유료 12곳은 등록값이 전부 동일(기본 30분 500원·추가 30분 500원·1일 6,000원·월정기 50,000원, 노외만)으로 별표 1과 2시간까지 일치하나, 2시간 초과 구간(30분마다 1,000원)은 표준데이터 형식으로 표현할 수 없어 등록 부가정보가 불완전하면 조례 기준으로 계산하는 선례(강릉)에 따라 별표 1 steps로 계산했다. 1시간은 1,000원, 2시간은 2,000원이다. 노상 3구간은 별표 1 비고 2로 최초 10분을 free_min으로 분리했다. 노외 주차타워 면제시간(비고 3)은 재량이라 고정 free_min을 두지 않았다. 1일권 적용시간 등록 4h는 별표에 근거가 없어 적용시간으로 쓰지 않는다(태백 선례). 등록 급지구분은 13곳 전부 ‘1’이나 별표에 급지가 없어 쓰지 않았다",
+   "좌표 결측은 0곳이다. 등록 좌표 13곳 전부가 삼척 범위(위도 37.4406~37.4491, 경도 129.1626~129.1780) 안에 있다. 지오코딩 보완은 없었다",
+   "공휴일 무료는 조례 별표 1 비고 7에 명시돼 있으나, 등록 운영요일이 13곳 전부 ‘평일’뿐이라 토요일·공휴일은 미운영으로 표기한다(제천 선례 — 등록된 운영요일을 그대로 둔다). 주간 09:00~18:00은 등록과 별표 비고 4가 일치한다. 무료 1곳(중앙로 주차장)의 표기는 표준데이터 등록값 근거다",
+   "동·읍·면 판정은 지번주소 기준이고 13곳 전부 판정됐다(남양동 8·당저동 3·교동 1·읍중동 1). 도로명주소는 1곳 공란이다(중앙시장 제2주차장). 이름이 겹치는 삼척고등학교 주차장 2건은 노외(남양동 24-5, 23면)와 노상(남양동 23-11, 12면)으로 지번·좌표가 다른 별개 자리라 둘 다 유지하고 번지로 구분해 표기했다",
+   "관리기관명은 강원특별자치도 삼척시청 13곳 전부이다. 전화번호는 13곳 전부 등록돼 있고(033-570-3935), 결제방법은 현금+신용카드 12곳·공란 1곳(무료), 특기사항은 13곳 전부 공란이며, 장애인전용주차구역 보유여부는 Y 9·N 4이고 부제시행구분은 미시행 13곳이다. 운영시간은 13곳 전부 평일 09:00~18:00이다",
+   "확인 과제 — ① 노외 주차타워 3곳(평생학습관·대학로·중앙시장 주차타워)의 면제시간 실제 적용 여부 — 별표 1 비고 3은 재량이라 고정 free_min을 두지 않았다 ② 공휴일 실제 운영·무료 여부 — 조례 비고 7은 공휴일·대체공휴일 무료이나 등록 운영요일은 ‘평일’뿐이라 미운영으로 표기했다 ③ 유료 12곳의 2시간 초과 요금 실제 적용 여부 — 등록 추가단위요금 500원/30분과 별표 1,000원/30분이 갈려 조례 기준으로 계산했다 ④ 1일권 적용시간 등록 4h의 별표 근거 없음 — 실제 1일권 적용시간을 확인할 것 ⑤ 전통시장 위탁 노외주차장(중앙시장 주차타워·중앙시장 제2주차장)의 30분 면제(비고 6) 실제 적용 여부 ⑥ 월정기권(주간 50,000원·야간 무료) 실제 시행 여부와 구획 80% 이내 제한 적용 여부 ⑦ 삼척고등학교 주차장 2건(노외 남양동 24-5·노상 남양동 23-11)이 별개 자리인지 현장에서 확인할 것 ⑧ 중앙로 주차장(무료 1곳)의 실제 무료 개방 여부와 운영시간(등록 평일 09:00~18:00)을 확인할 것"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 1,
+  "무료_구획수": 64,
+  "평균_기본요금": 500,
+  "토요일_미운영": 13,
+  "일공휴일_미운영": 13,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-10-20"
+  ],
+  "관리기관": {
+   "강원특별자치도 삼척시청": 13
+  }
+ },
+ "fee_table": {
+  "style": "samcheok_flat",
+  "unit_min": 30,
+  "base_min": 30,
+  "applies": "「삼척시 주차장 설치 및 관리 조례」 제1780호(시행 2026-03-27) 제3조제1항·별표 1 — 국가법령정보센터 ordinSeq 2117179에서 확인",
+  "source_url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2117179&gubun=ELIS",
+  "grade_system": "조례 별표 1은 급지 구분이 없는 단일 요금표이다. 표준데이터 등록 급지구분은 13곳 전부 ‘1’이다",
+  "rows": [
+   {
+    "label": "공영주차장 요금 (조례 별표 1)",
+    "grade": null,
+    "unit_label": "2시간까지 30분마다 500원 · 2시간 초과 30분마다 1,000원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": 6000,
+    "month_all": null,
+    "month": 50000,
+    "month_night": 0,
+    "lots": 12
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 9,
+   "street_paid": 3,
+   "free": 1,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "노상 최초 10분 무료 (조례 별표 1 비고 2)",
+    "hours": "노상주차장 — 최초 주차한 시간부터 10분까지",
+    "free": "10분까지 무료이며 이후는 주차요금표와 같다"
+   },
+   {
+    "group": "주차타워 면제시간 (조례 별표 1 비고 3)",
+    "hours": "노외주차장 중 주차타워 — 단독시설 30분·부속시설 8시간 범위",
+    "free": "주변 교통 여건·이용 현황을 고려해 그 범위에서 면제시간을 정할 수 있다(재량). 부속시설은 기관·시설의 이용자에 한한다 — 고정 면제시간으로 표기하지 않았다"
+   },
+   {
+    "group": "주간·야간 시간구분 (조례 별표 1 비고 4)",
+    "hours": "주간 09:00~18:00 (그 밖은 야간)",
+    "free": "야간 주차요금은 무료이다. 다만 시장은 인정하는 범위에서 탄력적으로 운영할 수 있다"
+   },
+   {
+    "group": "1구획 초과·대형버스·화물차 전용 구획 (조례 별표 1 비고 5)",
+    "hours": "1구획을 초과하는 자동차 · 대형버스 및 화물차를 위해 별도 설치한 주차구획",
+    "free": "1구획을 초과하는 자동차는 그 점용구획의 수에 따라 징수한다. 대형버스·화물차 전용 구획은 본 요금의 3배를 징수할 수 있다"
+   },
+   {
+    "group": "전통시장 위탁 노외주차장 (조례 별표 1 비고 6)",
+    "hours": "전통시장 상인회·시장 관리자·대규모 점포개설자 등에게 위탁 관리되는 노외주차장",
+    "free": "전통시장 활성화를 위해 1구획당 30분까지 주차요금을 면제할 수 있다"
+   },
+   {
+    "group": "공휴일·대체공휴일 무료 (조례 별표 1 비고 7)",
+    "hours": "「관공서의 공휴일에 관한 규정」에 따른 공휴일 및 대체공휴일",
+    "free": "주차요금을 무료로 한다. 단, 표준데이터 등록 운영요일은 13곳 전부 ‘평일’뿐이라 공휴일은 미운영으로 표기한다 — 실제 운영 여부는 현장 확인이 필요하다"
+   },
+   {
+    "group": "월정기권 노외 한정 (조례 별표 1)",
+    "hours": "월정기주차권 발행",
+    "free": "노외주차장에 한하여 적용하고, 주차수요를 감안해 해당 주차장별 주차구획의 80퍼센트 이내로 한다. 주간 50,000원·야간 무료"
+   }
+  ],
+  "discounts": [
+   {
+    "label": "긴급자동차·공무수행 차량·국가유공자·장애인·임산부 등 전액 면제 (제3~11호는 2시간 이내)",
+    "rate": 1.0,
+    "exempt_min": 120,
+    "note": "조례 제3조제2항 — 1. 도로교통법에 따른 긴급자동차 2. 국가 또는 지방자치단체 소속의 공무수행 차량(관용차량으로 한정) 3. 애국지사 4. 국가유공자 등 5. 장애인 6. 모범(성실)납세자 7. 삼척시 통·이장에 재직 중인 자 8. 임산부 9. 장기기증자 및 장기기증희망자 10. 전기자동차 충전 11. 그 밖에 관련 법률에 따라 시장이 필요하다고 인정하는 차량. 제3호부터 제11호까지에 해당하는 경우 면제 시간은 2시간 이내로 한다(제1·2호는 시간 제한 없음)"
+   },
+   {
+    "label": "시책 참여 차량 20% 감면",
+    "rate": 0.2,
+    "exempt_min": 0,
+    "note": "조례 제4조제1항제1호 — 시책 참여 차량(5부제 등)으로 시책참여 증명서를 부착한 차량(10인승 이하 비영업용 차량)은 100분의 20을 감면할 수 있다"
+   },
+   {
+    "label": "경형자동차·병역명문가·저공해자동차·다자녀 가구 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제4조제1항제2~5호 — 자동차관리법 시행규칙 제2조에 따른 경형자동차, 삼척시에서 지정한 병역명문가 증명서를 소지한 차량, 대기환경보전법 제58조제12항에 따라 저공해자동차 표지를 부착한 차량, 다자녀 가구(2자녀 이상 가구) 구성원으로 다자녀 우대카드(강원아이키움카드 등)·주민등록등본·가족관계증명서 등을 소지한 차량은 100분의 50을 감면할 수 있다. 단, 제3조제2항에 따른 면제차량은 제외한다"
+   }
+  ],
+  "notes": "감면(조례 제3조제2항·제4조제1항)은 긴급자동차·공무수행 차량·국가유공자 등·장애인·모범(성실)납세자·삼척시 통·이장 재직자·임산부·장기기증자·전기자동차 충전 등 전액 면제(제3~11호는 2시간 이내), 시책 참여 차량 20% 감면, 경형자동차·병역명문가·저공해자동차·다자녀 가구 50% 감면이다. 노상주차장 관리자는 법 제8조의2제1항에 해당하는 경우 별표 1 요금의 4배의 가산금을 받을 수 있다(제4조제2항).",
+  "basis": "요금표는 「삼척시 주차장 설치 및 관리 조례」 제1780호(시행 2026-03-27) 제3조제1항·별표 1과 표준데이터(기준일 2026-10-20)를 대조해 실었다. 별표 1 원본 HWP는 flSeq 162898173이다. 유료 12곳은 등록 요금이 별표와 2시간까지 일치하나 2시간 초과 구간은 표준데이터 형식으로 표현할 수 없어 조례 기준으로 계산했고, 무료 1곳은 등록값을 유지했다. 노상 3구간은 최초 10분이 무료이다(비고 2). (조례 본문: data/raw/samcheok-ordinance.txt, 별표 1 원문 HWP: data/raw/samcheok-ordinance-b1.hwp)"
+ },
+ "slug": "samcheok",
+ "province": "강원특별자치도",
+ "province_slug": "gangwon",
+ "dong_page_min_lots": 3,
+ "city": "삼척시",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·공무수행 차량·국가유공자·장애인·임산부 등 전액 면제 (제3~11호는 2시간 이내)",
+   "rate": 1.0,
+   "exempt_min": 120,
+   "note": "조례 제3조제2항 — 1. 도로교통법에 따른 긴급자동차 2. 국가 또는 지방자치단체 소속의 공무수행 차량(관용차량으로 한정) 3. 애국지사 4. 국가유공자 등 5. 장애인 6. 모범(성실)납세자 7. 삼척시 통·이장에 재직 중인 자 8. 임산부 9. 장기기증자 및 장기기증희망자 10. 전기자동차 충전 11. 그 밖에 관련 법률에 따라 시장이 필요하다고 인정하는 차량. 제3호부터 제11호까지에 해당하는 경우 면제 시간은 2시간 이내로 한다(제1·2호는 시간 제한 없음)"
+  },
+  {
+   "label": "시책 참여 차량 20% 감면",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "조례 제4조제1항제1호 — 시책 참여 차량(5부제 등)으로 시책참여 증명서를 부착한 차량(10인승 이하 비영업용 차량)은 100분의 20을 감면할 수 있다"
+  },
+  {
+   "label": "경형자동차·병역명문가·저공해자동차·다자녀 가구 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제4조제1항제2~5호 — 자동차관리법 시행규칙 제2조에 따른 경형자동차, 삼척시에서 지정한 병역명문가 증명서를 소지한 차량, 대기환경보전법 제58조제12항에 따라 저공해자동차 표지를 부착한 차량, 다자녀 가구(2자녀 이상 가구) 구성원으로 다자녀 우대카드(강원아이키움카드 등)·주민등록등본·가족관계증명서 등을 소지한 차량은 100분의 50을 감면할 수 있다. 단, 제3조제2항에 따른 면제차량은 제외한다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
