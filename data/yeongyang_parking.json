@@ -1,0 +1,3138 @@
+{
+ "meta": {
+  "generated_at": "2026-11-21 17:08",
+  "generated_at_iso": "2026-11-21T17:08:20+09:00",
+  "snapshot_at": "2026-11-21 17:08",
+  "region": {
+   "province": "경상북도",
+   "city": "영양군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-04-17",
+    "rows_total": 18994,
+    "rows_city": 25,
+    "fetched_at": "2026-11-21 17:08 (KST)",
+    "note": "영양군으로 등록된 행 25행을 읽어 중복 제거 0건, 제외 0건으로 25곳을 실었다. 유료 0곳·무료 25곳·미상 0곳이다. 데이터기준일자는 2026-04-17이다. 좌표 결측은 0곳이다. 조례 대조 완료 — 「영양군 주차장 조례」 제2500호(시행 2026-03-27, ordinSeq 2117271) 제4조제1항·별표 1 원문 대조 완료(2026-11-21)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "영양군 주차장 조례",
+    "org": "경상북도 영양군청",
+    "url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2117271&gubun=ELIS",
+    "file": "yeongyang-ordinance-b1.txt",
+    "sha256": "59401106e7bd9704a63e9a85b50b02e7986e55cb96baeb7d75c4e4b358ff9977",
+    "license": "자치법규(공개)",
+    "base_date": "2026-03-27",
+    "rows_total": null,
+    "fetched_at": "2026-11-21 17:08 (KST)",
+    "note": "영양군이 설치·관리하는 공영주차장에 적용하는 조례다. 표준데이터에 등록된 영양군 공영주차장 25곳(노외 4곳·부설 21곳, 총 1,155면)입니다. 등록은 전부 공영이고 요금 구분은 무료 25곳입니다. 「영양군 주차장 조례」 제2500호 별표 1은 1급지 기본 30분 500원·초과 30분마다 500원·1일 5,000원, 2급지 200원·200원·2,000원입니다. 1급지는 도시계획구역 안, 2급지는 도시계획구역 밖입니다. 주말·공휴일 전체 무료 규정은 조례에 없습니다. (조례 본문: data/raw/yeongyang-ordinance.txt, 별표 1 원문 HWP: data/raw/yeongyang-ordinance-b1.hwp)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "영양군",
+   "slug": "yeongyang"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gb-yeongyang-001",
+   "mgmt_no": "364-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "두들마을 주차장",
+   "gu": "영양군",
+   "dong": "석보면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 영양군 석보면 원리리 331-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "054-680-6442",
+   "lat": 36.55923178,
+   "lng": 129.1269268,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-002",
+   "mgmt_no": "364-3-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "석보행정복지센터",
+   "gu": "영양군",
+   "dong": "석보면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 영양군 석보면 원리리 292",
+   "addr_road": "경상북도 영양군 석보면 원리3길 19",
+   "road": null,
+   "spaces": 22,
+   "tel": "054-680-5913",
+   "lat": 36.55793456,
+   "lng": 129.1242948,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": "표준데이터에 부제시행구분 '2부제'로 등록되어 있습니다 — 번호 끝자리에 따른 이용 제한이 있을 수 있으니 방문 전 영양군청(054-680-6740)에 확인하세요",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-003",
+   "mgmt_no": "364-3-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수비행정복지센터",
+   "gu": "영양군",
+   "dong": "수비면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 영양군 수비면 발리리 503-1",
+   "addr_road": "경상북도 영양군 수비면 한티로 503",
+   "road": null,
+   "spaces": 18,
+   "tel": "054-680-5811",
+   "lat": 36.765217,
+   "lng": 129.202568,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": "표준데이터에 부제시행구분 '2부제'로 등록되어 있습니다 — 번호 끝자리에 따른 이용 제한이 있을 수 있으니 방문 전 영양군청(054-680-6740)에 확인하세요",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-004",
+   "mgmt_no": "364-3-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "영양반딧불이 생태공원",
+   "gu": "영양군",
+   "dong": "수비면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 영양군 수비면 수하리 255-1",
+   "addr_road": "경상북도 영양군 수비면 반딧불이로 129",
+   "road": null,
+   "spaces": 52,
+   "tel": "054-680-5334",
+   "lat": 36.830693,
+   "lng": 129.270169,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": "표준데이터에 부제시행구분 '2부제'로 등록되어 있습니다 — 번호 끝자리에 따른 이용 제한이 있을 수 있으니 방문 전 영양군청(054-680-6740)에 확인하세요",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-005",
+   "mgmt_no": "364-3-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청소년수련원",
+   "gu": "영양군",
+   "dong": "수비면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 영양군 수비면 수하리 240",
+   "addr_road": "경상북도 영양군 수비면 반딧불이로 227",
+   "road": null,
+   "spaces": 48,
+   "tel": "054-680-5324",
+   "lat": 36.838397,
+   "lng": 129.269422,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-006",
+   "mgmt_no": "364-3-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "농업기술센터",
+   "gu": "영양군",
+   "dong": "영양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 영양군 영양읍 대천리 568",
+   "addr_road": "경상북도 영양군 영양읍 영양창수로 339",
+   "road": null,
+   "spaces": 125,
+   "tel": "054-680-5212",
+   "lat": 36.655339,
+   "lng": 129.147918,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": "표준데이터에 부제시행구분 '2부제'로 등록되어 있습니다 — 번호 끝자리에 따른 이용 제한이 있을 수 있으니 방문 전 영양군청(054-680-6740)에 확인하세요",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 540,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-007",
+   "mgmt_no": "364-3-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "보건소",
+   "gu": "영양군",
+   "dong": "영양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 영양군 영양읍 동부리 164-1",
+   "addr_road": "경상북도 영양군 영양읍 동서대로 82",
+   "road": null,
+   "spaces": 30,
+   "tel": "054-680-5112",
+   "lat": 36.66194441,
+   "lng": 129.118027,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": "표준데이터에 부제시행구분 '2부제'로 등록되어 있습니다 — 번호 끝자리에 따른 이용 제한이 있을 수 있으니 방문 전 영양군청(054-680-6740)에 확인하세요",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-008",
+   "mgmt_no": "364-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "영양군 공영주차장",
+   "gu": "영양군",
+   "dong": "영양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 영양군 영양읍 서부리 381",
+   "addr_road": "경상북도 영양군 영양읍 군청길 25",
+   "road": null,
+   "spaces": 131,
+   "tel": "054-680-6741",
+   "lat": 36.66632258,
+   "lng": 129.1105844,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": "승용차 5부제를 시행하는 구간입니다",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-009",
+   "mgmt_no": "364-3-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "영양군민체육센터",
+   "gu": "영양군",
+   "dong": "영양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 영양군 영양읍 서부리 135",
+   "addr_road": "경상북도 영양군 영양읍 군민회관길 70",
+   "road": null,
+   "spaces": 79,
+   "tel": "054-680-6453",
+   "lat": 36.658942,
+   "lng": 129.116877,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-010",
+   "mgmt_no": "364-3-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "영양군민회관",
+   "gu": "영양군",
+   "dong": "영양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 영양군 영양읍 서부리 141-1",
+   "addr_road": "경상북도 영양군 영양읍 군민회관길 46",
+   "road": null,
+   "spaces": 85,
+   "tel": "054-680-6453",
+   "lat": 36.65978281,
+   "lng": 129.1170133,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-011",
+   "mgmt_no": "364-3-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "영양군청 주차장",
+   "gu": "영양군",
+   "dong": "영양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 영양군 영양읍 서부리 379-1",
+   "addr_road": "경상북도 영양군 영양읍 군청길 37",
+   "road": null,
+   "spaces": 146,
+   "tel": "054-680-6222",
+   "lat": 36.66735774,
+   "lng": 129.1126844,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": "표준데이터에 부제시행구분 '2부제'로 등록되어 있습니다 — 번호 끝자리에 따른 이용 제한이 있을 수 있으니 방문 전 영양군청(054-680-6740)에 확인하세요",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-012",
+   "mgmt_no": "364-3-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "영양문화원",
+   "gu": "영양군",
+   "dong": "영양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 영양군 영양읍 서부리 2-15",
+   "addr_road": "경상북도 영양군 영양읍 군민회관길 7",
+   "road": null,
+   "spaces": 24,
+   "tel": "054-680-6462",
+   "lat": 36.663469,
+   "lng": 129.117524,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-013",
+   "mgmt_no": "364-3-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "영양행정복지센터",
+   "gu": "영양군",
+   "dong": "영양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 영양군 영양읍 동부리 550-10",
+   "addr_road": "경상북도 영양군 영양읍 군청길 53",
+   "road": null,
+   "spaces": 40,
+   "tel": "054-680-5411",
+   "lat": 36.66716018,
+   "lng": 129.1141042,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": "표준데이터에 부제시행구분 '2부제'로 등록되어 있습니다 — 번호 끝자리에 따른 이용 제한이 있을 수 있으니 방문 전 영양군청(054-680-6740)에 확인하세요",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-014",
+   "mgmt_no": "364-3-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "전통시장 주차장",
+   "gu": "영양군",
+   "dong": "영양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 영양군 영양읍 서부리 288-3",
+   "addr_road": "경상북도 영양군 영양읍 시장 6길 1-6",
+   "road": null,
+   "spaces": 10,
+   "tel": "054-680-6323",
+   "lat": 36.66423521,
+   "lng": 129.1165135,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-015",
+   "mgmt_no": "364-3-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "일월행정복지센터",
+   "gu": "영양군",
+   "dong": "일월면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 영양군 일월면 도계리 653-2",
+   "addr_road": "경상북도 영양군 일월면 영양로 2419",
+   "road": null,
+   "spaces": 20,
+   "tel": "054-680-5714",
+   "lat": 36.702374,
+   "lng": 129.128765,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": "표준데이터에 부제시행구분 '2부제'로 등록되어 있습니다 — 번호 끝자리에 따른 이용 제한이 있을 수 있으니 방문 전 영양군청(054-680-6740)에 확인하세요",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-016",
+   "mgmt_no": "364-3-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "조지훈문학관",
+   "gu": "영양군",
+   "dong": "일월면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 영양군 일월면 주곡리 222",
+   "addr_road": "경상북도 영양군 일월면 주실길 55",
+   "road": null,
+   "spaces": 10,
+   "tel": "054-680-6431",
+   "lat": 36.718679,
+   "lng": 129.102553,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-017",
+   "mgmt_no": "364-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "주실마을주차장",
+   "gu": "영양군",
+   "dong": "일월면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 영양군 일월면 주곡리 549-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 68,
+   "tel": "054-680-6431",
+   "lat": 36.7191563,
+   "lng": 129.0967466,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-018",
+   "mgmt_no": "364-3-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "산촌생활박물관 주차장",
+   "gu": "영양군",
+   "dong": "입암면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 영양군 입암면 연당리 20",
+   "addr_road": "경상북도 영양군 입암면 영양로 963",
+   "road": null,
+   "spaces": 45,
+   "tel": "054-680-5361",
+   "lat": 36.615803,
+   "lng": 129.084696,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-019",
+   "mgmt_no": "364-3-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "선바위관광지",
+   "gu": "영양군",
+   "dong": "입암면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 영양군 입암면 신구리 95",
+   "addr_road": "경상북도 영양군 입암면 영양로 883-16",
+   "road": null,
+   "spaces": 57,
+   "tel": "054-680-5372",
+   "lat": 36.608537,
+   "lng": 129.082023,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-020",
+   "mgmt_no": "364-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "연당서석지 주차장",
+   "gu": "영양군",
+   "dong": "입암면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 영양군 입암면 연당리 394-2",
+   "addr_road": "경상북도 영양군 입암면 서석지1길 10",
+   "road": null,
+   "spaces": 23,
+   "tel": "054-680-6421",
+   "lat": 36.61195684,
+   "lng": 129.0696114,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-021",
+   "mgmt_no": "364-3-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "입암면복지회관",
+   "gu": "영양군",
+   "dong": "입암면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 영양군 입암면 신구리 480-3",
+   "addr_road": "경상북도 영양군 입암면 조기리길 18",
+   "road": null,
+   "spaces": 11,
+   "tel": "054-680-5512",
+   "lat": 36.594105,
+   "lng": 129.090393,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-022",
+   "mgmt_no": "364-3-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "입암면복지회관건너편",
+   "gu": "영양군",
+   "dong": "입암면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 영양군 입암면 신구리 480-3",
+   "addr_road": "경상북도 영양군 입암면 조기리길 18",
+   "road": null,
+   "spaces": 26,
+   "tel": "054-680-5512",
+   "lat": 36.59418413,
+   "lng": 129.0903656,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-023",
+   "mgmt_no": "364-3-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "입암행정복지센터",
+   "gu": "영양군",
+   "dong": "입암면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 영양군 입암면 신구리 481-1",
+   "addr_road": "경상북도 영양군 입암면 조기리길 10",
+   "road": null,
+   "spaces": 30,
+   "tel": "054-680-5512",
+   "lat": 36.59305783,
+   "lng": 129.090267,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": "표준데이터에 부제시행구분 '2부제'로 등록되어 있습니다 — 번호 끝자리에 따른 이용 제한이 있을 수 있으니 방문 전 영양군청(054-680-6740)에 확인하세요",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-024",
+   "mgmt_no": "364-3-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청기면복지회관주차장",
+   "gu": "영양군",
+   "dong": "청기면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 영양군 청기면 청기리 758-3",
+   "addr_road": "경상북도 영양군 청기면 청기로 1139",
+   "road": null,
+   "spaces": 15,
+   "tel": "054-680-5613",
+   "lat": 36.660875,
+   "lng": 129.063304,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 360,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 360,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 360,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  },
+  {
+   "id": "gb-yeongyang-025",
+   "mgmt_no": "364-3-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "청기면사무소주차장",
+   "gu": "영양군",
+   "dong": "청기면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 영양군 청기면 청기리 791-1",
+   "addr_road": "경상북도 영양군 청기면 청기1길 9-6",
+   "road": null,
+   "spaces": 17,
+   "tel": "054-680-5613",
+   "lat": 36.661414,
+   "lng": 129.062462,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 영양군청",
+   "note": "",
+   "notice": "표준데이터에 부제시행구분 '2부제'로 등록되어 있습니다 — 번호 끝자리에 따른 이용 제한이 있을 수 있으니 방문 전 영양군청(054-680-6740)에 확인하세요",
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 360,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 360,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 360,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "06:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "영양군",
+   "city_slug": "yeongyang",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-21 17:08",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 25,
+  "원자료_영양군행수": 25,
+  "원자료_받은행수": 25,
+  "구별": {
+   "영양군": 25
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 25,
+  "노외_부설": {
+   "노외": 4,
+   "부설": 21
+  },
+  "노상_구간": 0,
+  "총_구획수": 1155,
+  "노상_구획수": 0,
+  "동별": {
+   "영양읍": 9,
+   "입암면": 6,
+   "수비면": 3,
+   "일월면": 3,
+   "석보면": 2,
+   "청기면": 2
+  },
+  "동수": 6,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 25
+  },
+  "요금구분": {
+   "무료": 25
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 0,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "같은 자리·근접 좌표에 이름만 다른 등록: 입암면복지회관건너편·입암면복지회관 — 입암면 신구리 480-3에 같은 지번으로 등록돼 있고 좌표가 9m 이내(36.59418413, 129.0903656 / 36.594105, 129.090393)이다. 이름이 다른 별개 등록이라 합치지 않고 전부 실었고, 같은 시설의 중복 등록인지는 영양군청 확인이 필요하다",
+   "인근 등록: 청기면복지회관주차장(청기면 청기리 758-3, 15면)·청기면사무소주차장(청기면 청기리 791-1, 17면) — 지번이 달라 별개 등록으로 보고 둘 다 실었다. 좌표가 96m 떨어져 있어 같은 시설인지는 영양군청 확인이 필요하다",
+   "표준데이터 등록 25행 전부 공영(노외 4·부설 21, 총 1,155면)을 읽었다. 데이터기준일자는 2026-04-17 25행, 제공기관명은 경상북도 영양군 25행, 관리기관명은 경상북도 영양군청 25곳이다",
+   "등록 급지구분은 1급지 16곳·2급지 9곳이다. 조례 별표 1 급지 체계와는 별개라 요금 계산에는 쓰지 않았다",
+   "좌표는 25행 전부 등록돼 있다. 지오코딩 보완 대상이 없어 오버레이 추가도 0건이다",
+   "운영요일은 25곳 전부 평일+토요일+공휴일이고 운영시간은 21곳이 00:00~23:59, 2곳이 06:00~23:59, 1곳이 09:00~23:59, 1곳이 00:01~23:59이다. 부제시행구분은 미시행 14곳·2부제 10곳·5부제 1곳이다. 도로명주소는 25곳 중 2곳이 등록돼 있지 않다. 특기사항은 25행 전부 비어 있다. 결제방법은 공영 25곳 전부 공란이다",
+   "25곳 전부 무료이다. 조례 별표 1은 참고표로만 싣고 요금 계산은 하지 않았다. 주말·공휴일 전체 무료 규정은 조례에 없어 표기하지 않았다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "두들마을 주차장",
+   "주실마을주차장"
+  ],
+  "감면_출처": "「영양군 주차장 조례」 제2500호 제4조제2항·제3항 — 긴급자동차·군수가 특별한 사유가 있다고 인정하는 경우는 전액 면제, 경형자동차·장애인·국가유공자·고엽제후유의증 환자·5·18민주화운동 부상자는 50% 감면한다(감면대상 증명 필요)",
+  "요금_출처": "조례 제4조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같다. 별표 1은 1급지 기본 30분 500원·초과 30분마다 500원·1일 5,000원·월 주간 30,000원·야간 20,000원, 2급지 200원·200원·2,000원·월 20,000원·15,000원이다. 별표 원본 HWP(flSeq 162898999)를 받아 추출해 대조했다. 전 25곳이 무료로 등록돼 있어 요금 계산은 하지 않고 별표 1은 참고표로만 실었다",
+  "급지_출처": "조례 별표 1 비고 5 — 1급지: 도시계획구역 안 지역. 2급지: 도시계획구역 밖 지역. 표준데이터 등록 급지구분은 25곳 중 1급지 16곳·2급지 9곳이나 조례 급지 체계와는 별개라 요금 계산에는 쓰지 않았다",
+  "무료요일_출처": "조례 본문·별표 1 어디에도 군 전체 주말·공휴일 자동 무료 조항이 없다(인스팅트 앞단 패키지 확인, 2026-11-21 법제처 본문·별표 원문 재대조). 요금 구분이 '무료'인 곳은 요일과 관계없이 무료다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 영양군 등록 25행 전부 공영(노외 4·부설 21, 총 1,155면)으로 무료 25, 기준일 2026-04-17이다. 중복 판정(전체 이름·지번·좌표 200m 가드)에 걸리는 쌍은 없고, 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다. 인스팅트 앞단 패키지(경북 13/22, 2026-11-20)의 집계(공영 25행·1,155면, 노외 4·부설 21, 무료 25, 기준일 2026-04-17)와 표준데이터 원본 대조 결과가 일치한다. '만수네영양탕↔청솔아파트'(관리번호 257-1-000032, 노상 45면) 행은 이름에 '영양'이 들어가지만 지번주소가 비어 있고 좌표(37.68, 127.87)가 영양군 밖이라 영양군 등록이 아니어서 제외했다",
+   "「영양군 주차장 조례」 제2500호(시행 2026-03-27, ordinSeq 2117271) 본문 원문(data/raw/yeongyang-ordinance.txt) 대조 완료(2026-11-21) — 본문 제4조제1항이 공영주차장 요금을 별표 1로 정한다. 별표 1은 ELIS 첨부 HWP 원본(flSeq 162898999)을 data/raw/yeongyang-ordinance-b1.hwp로 저장하고 추출해 확정했다 — 1급지 기본 30분 500원·초과 30분마다 500원·1일 5,000원·월 주간 30,000원·야간 20,000원, 2급지 200원·200원·2,000원·월 20,000원·15,000원. 1급지 = 도시계획구역 안, 2급지 = 도시계획구역 밖. 주간 4~10월 08~20시·11~3월 09~19:30, 나머지는 야간. 군수는 기준요금을 상한으로 별도 요금을 정할 수 있다",
+   "전 25행 무료 등록이라 요금 계산은 하지 않고 조례 별표 1은 참고표로만 실었다(청도·산청·서천 선례). 부설 21행은 공영 노상·노외 일반표의 자동 적용 대상으로 두지 않았다",
+   "좌표 결측은 0곳이다. 지오코딩 보완 대상이 없어 오버레이 추가도 0건이다",
+   "주말·공휴일 전체 무료는 조례 본문·별표 1 어디에도 없어 표기하지 않았다. 요금 구분이 '무료'인 곳은 요일과 관계없이 무료다",
+   "이름이 겹치는 등록은 없다. 같은 자리·같은 좌표에 이름만 다른 등록은 입암면복지회관건너편·입암면복지회관 1쌍(입암면 신구리 480-3, 좌표 9m 이내)이다 — 이름이 다른 별개 등록이라 합치지 않고 전부 실었고, 같은 시설의 중복 등록인지는 영양군청 확인이 필요하다. 청기면복지회관주차장·청기면사무소주차장(청기면 청기리 758-3·791-1, 좌표 96m)은 지번이 달라 별개 등록으로 보고 둘 다 실었다",
+   "동·읍·면 판정은 지번주소 기준이고 6개 읍·면(영양읍 9·입암면 6·수비면 3·일월면 3·석보면 2·청기면 2) 전부 판정됐다. 도로명주소는 25곳 중 2곳(두들마을 주차장·주실마을주차장)이 등록돼 있지 않다. 특기사항은 25행 전부 비어 있다. 결제방법은 공영 25곳 전부 공란이다",
+   "관리기관명은 경상북도 영양군청 25곳이다. 전화번호는 054-680-5512가 3곳 등 20개 번호가 등록돼 있다. 등록 급지구분은 1급지 16곳·2급지 9곳이다",
+   "확인 과제 — ① 입암면복지회관건너편·입암면복지회관(신구리 480-3)이 같은 시설의 중복 등록인지 확인할 것 ② 청기면복지회관주차장·청기면사무소주차장(청기리 758-3·791-1)이 별개 시설인지 확인할 것 ③ 무료 25곳 등록 최신성·향후 유료 공고가 있는지 확인할 것 ④ 등록 급지구분(1급지 16곳·2급지 9곳)과 조례 급지(도시계획구역 안·밖)가 어긋나는지, 실제 적용 급지를 확인할 것 ⑤ 부설 21곳의 개방 시간·이용 조건을 확인할 것"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 25,
+  "무료_구획수": 1155,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-17"
+  ],
+  "관리기관": {
+   "경상북도 영양군청": 25
+  }
+ },
+ "fee_table": {
+  "style": "yeongyang_grade",
+  "unit_min": 30,
+  "base_min": 30,
+  "applies": "「영양군 주차장 조례」 제2500호(시행 2026-03-27) 제4조제1항·별표 1 — 국가법령정보센터 ordinSeq 2117271에서 확인",
+  "source_url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2117271&gubun=ELIS",
+  "grade_system": "조례 별표 1 급지 구분 — 1급지: 도시계획구역 안 지역. 2급지: 도시계획구역 밖 지역. 주간 시간은 4월~10월 08:00~20:00, 11월~3월 09:00~19:30이고 나머지는 야간이다. 군수는 기준요금을 상한으로 주차요금을 따로 정할 수 있다(별표 1 비고 2). 표준데이터 등록 급지구분은 25곳 중 1급지 16곳·2급지 9곳이나 조례 급지 체계와는 별개라 요금 계산에는 쓰지 않았다",
+  "rows": [
+   {
+    "label": "1급지 (조례 별표 1)",
+    "grade": "grade1",
+    "unit_label": "기본 30분 500원 · 초과 30분마다 500원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": 5000,
+    "month_all": null,
+    "month": 30000,
+    "month_night": 20000,
+    "lots": null
+   },
+   {
+    "label": "2급지 (조례 별표 1)",
+    "grade": "grade2",
+    "unit_label": "기본 30분 200원 · 초과 30분마다 200원",
+    "hour": 400,
+    "two_hour": 800,
+    "day": 2000,
+    "month_all": null,
+    "month": 20000,
+    "month_night": 15000,
+    "lots": null
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 0,
+   "street_paid": 0,
+   "free": 25,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "급지 구분 (조례 별표 1 비고 5)",
+    "hours": "1급지: 도시계획구역 안 / 2급지: 도시계획구역 밖",
+    "free": "표준데이터 등록 급지구분(1급지 16곳·2급지 9곳)은 조례 급지와 별개라 요금 계산에 쓰지 않았다"
+   },
+   {
+    "group": "주간 시간 구분 (조례 별표 1 비고 4)",
+    "hours": "4월~10월 08:00~20:00 · 11월~3월 09:00~19:30, 나머지는 야간",
+    "free": "월정기주차요금은 주간·야간으로 나뉜다"
+   },
+   {
+    "group": "군수 별도 요금 설정 (조례 별표 1 비고 2)",
+    "hours": "군수는 기준요금을 상한으로 주차요금을 따로 정할 수 있다",
+    "free": "이 사이트는 표준데이터 등록값(무료)을 유지하고 별표 1은 참고로만 실었다"
+   }
+  ],
+  "discounts": [
+   {
+    "label": "긴급자동차·군수 인정 차량 전액 면제",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 제4조제2항 — 「도로교통법」 제2조제22호에 따른 긴급자동차, 그 밖에 군수가 특별한 사유가 있다고 인정하는 경우 주차요금을 면제한다"
+   },
+   {
+    "label": "경형·장애인·국가유공자·고엽제·5·18부상자 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제4조제3항 — 「자동차관리법 시행규칙」 제2조에 따른 경형자동차, 「장애인복지법」 제30조에 따른 장애인이 본인 소유의 비사업용 차량을 직접 운전하거나 장애 정도가 심하여 타인에게 대리운전하게 하는 경우, 「국가유공자 등 예우 및 지원에 관한 법률」 제4조에 따른 국가유공자(같은 조건), 고엽제후유의증 환자, 「5·18민주유공자예우 및 단체설립에 관한 법률」 제4조제2호에 따른 5·18민주화운동 부상자(같은 조건)는 50% 감면한다(감면대상 증명 필요)"
+   }
+  ],
+  "notes": "감면(조례 제4조)은 긴급자동차·군수가 특별한 사유가 있다고 인정하는 경우 전액 면제, 경형자동차·장애인·국가유공자·고엽제후유의증 환자·5·18민주화운동 부상자 50% 감면이다(감면대상 증명 필요). 전 25곳이 무료로 등록돼 있어 요금 계산은 하지 않고 조례 별표 1은 참고표로만 싣는다.",
+  "basis": "요금표는 「영양군 주차장 조례」 제2500호(시행 2026-03-27) 제4조제1항·별표 1과 표준데이터(기준일 2026-04-17)를 대조해 실었다. 별표 1 원본 HWP는 flSeq 162898999이다. 전 25곳이 무료로 등록돼 있어 요금 계산은 하지 않는다. (조례 본문: data/raw/yeongyang-ordinance.txt, 별표 1 원문 HWP: data/raw/yeongyang-ordinance-b1.hwp)"
+ },
+ "slug": "yeongyang",
+ "province": "경상북도",
+ "province_slug": "gyeongbuk",
+ "dong_page_min_lots": 3,
+ "city": "영양군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·군수 인정 차량 전액 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제4조제2항 — 「도로교통법」 제2조제22호에 따른 긴급자동차, 그 밖에 군수가 특별한 사유가 있다고 인정하는 경우 주차요금을 면제한다"
+  },
+  {
+   "label": "경형·장애인·국가유공자·고엽제·5·18부상자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제4조제3항 — 「자동차관리법 시행규칙」 제2조에 따른 경형자동차, 「장애인복지법」 제30조에 따른 장애인이 본인 소유의 비사업용 차량을 직접 운전하거나 장애 정도가 심하여 타인에게 대리운전하게 하는 경우, 「국가유공자 등 예우 및 지원에 관한 법률」 제4조에 따른 국가유공자(같은 조건), 고엽제후유의증 환자, 「5·18민주유공자예우 및 단체설립에 관한 법률」 제4조제2호에 따른 5·18민주화운동 부상자(같은 조건)는 50% 감면한다(감면대상 증명 필요)"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
