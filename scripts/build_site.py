@@ -9476,6 +9476,13 @@ CITY_UI.update({
         "price_basis": ("「사천시 주차장 조례」 제7조제1항·별표 1(소형 기준) · 표준데이터 등록요금 대조"
                         " — 등록값이 별표 소형 행과 일치"),
     },
+    # 속초시 — cheap_lede 자동 생성 로직은 기본요금을 빠뜨려 2시간 요금을 틀리게 내고
+    #   (20분 무료·10분 600원·매10분 300원이면 2시간은 600+300×9=3,300원인데 자동 생성은
+    #   3,000원을 낸다) "1급지" 표현도 쓴다(속초 별표 1에 급지 없음). 오버라이드로 바로잡는다.
+    "속초시": {
+        "cheap_lede": ("속초시 유료 노외 공영주차장 2곳(로데오 제1·제2)은 <b>최초 20분이 무료</b>라 "
+                       "20분까지는 0원, 2시간은 3,300원입니다. "),
+    },
 })
 
 
@@ -14665,6 +14672,65 @@ B·C지구는 등록 급지구분이 1급지이나 등록 요금이 2급지와 �
   <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
   <th class="num">2시간</th><th class="num">1일 주차권</th>
   <th class="num">월정기</th><th class="num">월정기 (야간)</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금으로 계산하는 유료는 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+
+    if ft.get("style") == "sokcho_flat":
+        # 속초시 — 공영 24곳(노외 14곳·노상 10구간,
+        #   총 3,857면)이 무료 22곳·유료 2곳으로
+        #   등록돼 있다. 「속초시 주차장 설치 및 관리
+        #   조례」 제3223호(시행 2025-12-19) 제2조
+        #   제1항·별표 1은 급지 구분 없는 단일 요금표로
+        #   일반 요금표는 최초 20분 무료·이후 최초 10분
+        #   600원·이후 매10분당 300원·1일 10,000원·
+        #   월정기 주간 70,000원·야간 50,000원·주야
+        #   120,000원이고, 속초해수욕장 요금표는 비수기
+        #   2시간 이내 1,000원·2~4시간 2,000원·이후
+        #   매2시간당 2,000원·1일 8,000원, 성수기
+        #   (7.1~8.31) 2시간 이내 2,000원·이후 매2시간당
+        #   2,000원·1일 10,000원이다. 유료 2곳(로데오
+        #   제1·제2)은 요금 칸이 전부 비어 있어 조례
+        #   기준으로 계산했다. 해수욕장 요금표의 적용
+        #   대상은 표준데이터 속초 등록 24곳 중에 없어
+        #   참고표로만 싣는다. 설악산 B1·B2·C1·C2 4곳은
+        #   국립공원 주차장이라 별표 1 적용 제외이다.
+        def _sc_cell(v):
+            return f"{v}곳" if v is not None else "—"
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td>'
+            f'<td class="num">{_sc_cell(r["lots"])}</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">속초시 공영주차장 <b>24곳</b>(노외 14곳·노상 10구간, 총 3,857면)은
+무료 <b>22곳</b>·유료 <b>2곳</b>으로 등록돼 있습니다. 「속초시 주차장 설치 및 관리 조례」 제3223호
+별표 1은 급지 구분이 없는 단일 요금표로 최초 20분 <b>무료</b>·이후 최초 10분 <b>600원</b>·이후 매10분마다 <b>300원</b>·
+1일 <b>10,000원</b>·월정기 주간 <b>70,000원</b>·야간 <b>50,000원</b>·주야 <b>120,000원</b>입니다. 속초해수욕장
+공영주차장은 비수기 2시간 이내 <b>1,000원</b>·2~4시간 2,000원·이후 매2시간당 2,000원·1일 8,000원, 성수기(7.1~8.31)
+2시간 이내 <b>2,000원</b>·이후 매2시간당 2,000원·1일 10,000원입니다. 유료 2곳(로데오 제1·제2)의 요금 칸이 전부 비어 있어
+조례 기준으로 계산했습니다. 해수욕장 요금표는 표준데이터 속초 등록 24곳 중 적용 대상이 없어 참고표로만 싣습니다.
+설악산 B1·B2·C1·C2 4곳은 국립공원 주차장이라 별표 1이 적용되지 않습니다. 실제 요금은 현장 안내와 속초시청 교통과(033-639-1574)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th>
+  <th class="num">월정기 (주간)</th><th class="num">월정기 (야간)</th>
   <th class="num">이 사이트 주차장</th></tr></thead>
   <tbody>{rows_html}</tbody>
 </table>
