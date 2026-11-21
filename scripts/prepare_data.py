@@ -343,10 +343,7 @@ def derive_free_fields(lot):
     # 무료 27곳은 특기사항 '무료(일요일)' 근거뿐이라 sun=True만으로 공휴일 태그를
     # 붙이지 않는다. 공휴일 무료는 특기사항에 직접 적힌 2곳뿐인데 free_days에
     # 공휴일 전용 칸이 없어 그 2곳은 특기 원문으로만 표기한다.
-    # 영주시도 마찬가지다 — 조례 본문·별표 1 어디에도 시 전체 일괄 주말·공휴일
-    # 무료 근거가 없고, 하망동 3공영 주차장의 특기사항 '공휴일+야간무료'는 운영요일
-    # 등록(평일+토요일)과 어긋나 그 행도 공휴일 태그를 붙이지 않는다.
-    if lot["free_holiday"] or (fd["sun"] and lot.get("city") not in ("공주시", "보령시", "제천시", "김해시", "거제시", "양산시", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "경주시", "김천시", "안동시", "영주시")):
+    if lot["free_holiday"] or (fd["sun"] and lot.get("city") not in ("공주시", "보령시", "제천시", "김해시", "거제시", "양산시", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "경주시", "김천시", "안동시", "구미시")):
         tags.append("공휴일")
     if overlaps_night(fw):
         tags.append("심야")
@@ -79830,6 +79827,703 @@ def build_andong():
     })
     (DATA / "andong_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
     return payload
+# ─────────────────────────────────────────────────────────────────────────
+# 구미시 (경상북도) — 「구미시 주차장 설치 및 관리 조례」 제2143호
+#   (시행 2026-10-28), ordinSeq 2180327. law.go.kr 원문 직접
+#   확인(2026-11-21): 본문 data/raw/gumi-ordinance.txt,
+#   별표 1 HWP data/raw/gumi-ordinance-b1.hwp (추출문
+#   gumi-ordinance-b1.txt), 별표 2 HWPX
+#   data/raw/gumi-ordinance-b2.hwpx (추출문
+#   gumi-ordinance-b2.txt).
+# 제4조제1항이 공영주차장 요금을 별표 1로 정하고, 감면은
+#   제4조의2·별표 2, 무료개방은 제4조의3이다. 별표 1은
+#   승용·15인승 이하 승합·1.5톤 이하 화물 기준의 급지표다 —
+#   1급지 최초 30분 400원·10분마다 200원·1일 5,000원·월
+#   주간 50,000/야간 40,000/주야간 60,000원, 2급지
+#   300/100원·1일 3,000원·월 30,000/25,000/40,000원,
+#   3급지 200/100원·1일 2,500원·월 25,000/20,000/30,000원,
+#   거주자우선주차 월 25,000/20,000/30,000원. 주간은
+#   08:00~20:00, 야간은 19:00~08:00이고(비고 2), 기준보다
+#   큰 차는 1.5배(16~45인승 승합·1.5톤 초과 11톤 이하
+#   화물)와 2배(45인승 초과·11톤 초과 화물)를 적용한다
+#   (비고 3). 급지 구분(비고 4)은 1급지가 송정동·원평동·
+#   지산동·도량동·선주원남동·형곡1·2동·신평1·2동·비산동·
+#   공단동·광평동·인동동·임오동·진미동·양포동·상모사곡동,
+#   2급지가 선산읍·고아읍·산동읍, 3급지가 그 밖의 지역이다.
+# 감면(별표 2)은 전액 감면(긴급자동차·관용차·국가유공자·
+#   보훈보상대상자·의사상자·특수임무유공자·5·18민주유공자·
+#   고엽제 환자, 성실납세자 1년, 기업 예우대상·숙련기술자
+#   무상사용증 3년, 다자녀가정 부모, 전입자 1년 최초 1회,
+#   장학재단 고액기탁자 1년), 50% 감면(임산부·경형·환경
+#   친화적(전기차 충전 주차는 최초 1시간 감면)·저공해 표지·
+#   우수 자원봉사자·병역명문가·착한임대인), 장애인 1회
+#   2시간 무료 후 50% 감면, 전통시장·골목형상점가 이용객·
+#   상인 1회 1시간 무료(시장이 지정·고시하는 인근 공영
+#   주차장에 한함)이다.
+# 제4조의3제2항은 법정공휴일·근로자의 날의 무료 개방을
+#   '할 수 있다'고 정한 임의 조항이라 상시 자동 무료가
+#   아니므로 공휴일 무료로 표기하지 않는다.
+# 표준데이터 구미시 등록 245행은 전부 공영(노외 176·부설
+#   58·노상 11, 총 21,754면)이고 제공기관은 경상북도
+#   구미시 213행(기준일 2026-04-16)과 구미도시공사 32행
+#   (2026-04-17)으로 나뉜다 — 인스팅트 앞단 패키지(경북
+#   5/22, 2026-11-20) 집계와 일치한다. 같은 이름·같은
+#   지번·좌표 200m 이내의 재등록 4그룹(각산 공영주차장·
+#   구평동 공영주차장·구미역 후면광장 지하주차장·문화
+#   예술회관 주차장)만 중복으로 제거하고 유지본은 전부
+#   구미도시공사 행(최신·완전)으로 해 241곳·21,177면을
+#   싣는다. 관리번호가 겹치는 36그룹 73행은 전부 서로
+#   다른 주차장의 번호 충돌이라 관리번호로 합치지 않는다.
+# 유료 53곳은 표준 패턴 43곳(1급지 39·2급지 4 — 등록
+#   요금이 별표 1 단가와 일치해 등록값 계산)과 금오산
+#   정액 10곳(1회 정액, flat_day)이다. 월 40,000원 등록은
+#   별표 1의 야간 월정기요금과 같은 값이나 적용 시간대가
+#   확정되지 않아 등록값 그대로 싣고, 월 10,000원(문화
+#   예술회관·시청 계열 3곳)은 별표에 없는 금액이라 등록값
+#   유지 + 차이로 기록한다. 좌표 오타 1건(금오천 3주차장
+#   위도 26.128492)은 범위 밖이라 비웠다.
+GUMI_PROVINCE = "경상북도"
+GUMI_PROVINCE_SLUG = "gyeongbuk"
+GUMI_ORD_URL = ("https://www.law.go.kr/LSW/ordinInfoR.do?"
+                "ordinSeq=2180327")
+GUMI_ORD_TXT = RAW / "gumi-ordinance-b1.txt"
+GUMI_ORD_NOTE = ("「구미시 주차장 설치 및 관리 조례」 제2143호(시행 2026-10-28) "
+                 "제4조제1항·별표 1 — 국가법령정보센터 ordinSeq 2180327에서 확인")
+
+GUMI_DISCOUNTS = [
+    {"label": "긴급자동차·관용차·국가유공자 등 전액 감면", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 별표 2(제4조의2 관련) — 「도로교통법」 제2조제22호에 따른 긴급자동차, 국가 또는 지방자치단체에서 운행하는 관용차, 국가유공자·보훈보상대상자·의사상자·특수임무유공자·5·18민주유공자·고엽제후유(의)증 환자의 유족 또는 가족이 직접 운전하거나 동승한 차량은 주차요금 전액을 감면한다(관련 증명서 제시)"},
+    {"label": "성실납세자·다자녀·전입자 등 전액 감면", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 별표 2 — 국세·지방세 성실납세자로 포상을 받은 자의 차량(성실납세자증 스티커 부착, 1년간), 관내에 주민등록을 둔 다자녀가정의 부모가 직접 운전하는 자동차, 1년 이상 다른 시·군에 주민등록을 두고 구미시로 전입하는 자가 운전하는 자동차(1년간, 최초 1회), 구미시 장학재단 고액기탁자(개인) 차량(무상사용증 제시, 1년간)은 전액 감면한다. 기업 예우대상 및 근로자 차량·숙련기술자 예우대상자 차량은 무상사용증 제시 시 발급일로부터 3년간 전액 감면한다"},
+    {"label": "임산부·경형·환경친화적·저공해 등 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 별표 2 — 관내에 주민등록을 둔 임산부가 직접 운전하거나 동승한 자동차(증명자료 제시), 경형자동차, 환경친화적 자동차(다만 전기자동차가 충전을 위하여 주차하는 경우에는 최초 1시간 감면), 저공해자동차 표지를 부착한 자동차, 구미시 우수 자원봉사자 카드 소지자가 직접 운전하는 경우, 병역명문가 예우대상자가 운전하는 자동차, 착한임대인이 운전하는 자동차는 주차요금의 100분의 50을 감면한다(관련 증명서 제시)"},
+    {"label": "장애인 1회 2시간 무료 후 50% 감면", "rate": 0.5, "exempt_min": 120,
+     "note": "조례 별표 2 — 「장애인복지법」에 따른 장애인이 직접 운전하거나 동승한 자동차는 1회 2시간까지 주차요금을 면제하고, 2시간을 초과하면 주차요금의 100분의 50을 감면한다(관련 증명서 제시)"},
+    {"label": "전통시장·골목형상점가 이용객·상인 1회 1시간 무료", "rate": 0.0, "exempt_min": 60,
+     "note": "조례 별표 2 — 「전통시장 및 상점가 육성을 위한 특별법」 제19조에 따른 전통시장 및 골목형상점가 이용객 및 상인은 1회 1시간까지 주차요금을 면제한다. 다만 시장이 별도로 지정·고시하는 인근 공영주차장에 한한다"},
+]
+
+GUMI_CONF = {
+    "city": "구미시",
+    "slug": "gumi",
+    "manager": "경상북도 구미시청",
+    "manager_inquiry": "구미도시공사 주차시설팀(054-480-2030, 표준데이터 등록 전화번호)",
+    "ordinance": ("구미시 주차장 설치 및 관리 조례", GUMI_ORD_URL, GUMI_ORD_NOTE),
+    "notes": (
+        "표준데이터에 등록된 구미시 공영주차장 241곳(노외 173곳·부설 57곳·노상 11구간, 총 21,177면)입니다. "
+        "등록은 전부 공영이고 요금 구분은 무료 188곳·유료 53곳입니다. 유료 53곳 중 43곳은 등록 요금이 "
+        "「구미시 주차장 설치 및 관리 조례」 제2143호 별표 1의 급지 단가와 일치해 등록값으로 계산하고, "
+        "금오산 정액 10곳은 1회 정액 요금으로 표기합니다. 제공기관은 구미시청(213행)과 구미도시공사(32행)이고, "
+        "같은 주차장의 재등록 4건은 구미도시공사 등록을 남겼습니다."),
+    "discounts": GUMI_DISCOUNTS,
+}
+
+GUMI_BBOX = (36.00, 36.36, 128.15, 128.52)
+GUMI_DONGS = {"선산읍", "고아읍", "산동읍", "무을면", "옥성면", "도개면",
+              "해평면", "장천면",
+              "송정동", "원평동", "지산동", "도량동", "선기동", "원호동",
+              "남통동", "신평동", "비산동", "공단동", "광평동", "사곡동",
+              "상모동", "임은동", "인의동", "황상동", "구평동", "진평동",
+              "임수동", "양호동", "구포동", "금전동", "오태동", "옥계동",
+              "거의동", "봉곡동", "형곡동"}
+
+# 별표 1 급지별 단가 — (최초 30분, 10분마다, 1일, 월 주간, 월 야간,
+#   월 주야간). 승용·15인승 이하 승합·1.5톤 이하 화물 기준이고
+#   기준보다 큰 차는 1.5배·2배다(비고 3).
+GUMI_GRADES = {
+    "1": (400, 200, 5000, 50000, 40000, 60000),
+    "2": (300, 100, 3000, 30000, 25000, 40000),
+    "3": (200, 100, 2500, 25000, 20000, 30000),
+}
+
+
+def gumi_dong_of(addr):
+    """구미시 법정 동·읍·면 판정 — 지번주소의 구미시 다음 토큰이
+    동·읍·면이다. 거제·고성·하동과 같은 정규식을 쓴다."""
+    if addr:
+        m = re.search(r"구미시\s*([가-힣0-9]+?(?:동|읍|면))(?=[\s0-9-]|$)", addr)
+        if m:
+            return m.group(1)
+    return None
+
+
+def gumi_fee(row, name, note_bits, fee_diff):
+    """구미시 공영주차장 한 곳의 요금 — 무료 188곳은 무료로
+    싣는다. 유료 53곳은 표준 패턴 43곳(1급지 39·2급지 4)과
+    금오산 정액 10곳이다. 표준 패턴은 등록 요금(기본 30분·
+    추가 10분·1일)이 조례 별표 1의 등록 급지 단가와 정확히
+    일치해 등록값으로 계산한다(인스팅트 패키지 판정 명세).
+    월정기 등록값은 별표와 대조해 처리한다 — 주야간 월권과
+    일치하면 그 값으로 싣고, 월 40,000원(1급지 29곳)은 별표
+    1의 야간 월정기요금과 같은 값이나 적용 시간대가 확정
+    되지 않아 등록값 그대로 싣고 basis에 그 취지를 적는다.
+    월 10,000원(문화예술회관·시청 계열 3곳)은 별표 1에 없는
+    금액이라 등록값을 유지하고 차이로 기록한다. 구미시청
+    주차장 1곳은 1일주차권요금이 비어 있어 별표 금액을
+    대입하지 않고 등록된 시간 요금만으로 계산한다. 금오산
+    정액 10곳은 추가 단위 없이 1회 정액(승용 1,500원,
+    시청 등록 대주차장만 2,000원)이라 flat_day로 싣는다 —
+    특기사항의 차종별 정액(경차 500원·화물 2,000원·버스
+    4,000원)은 note에 그대로 남는다. 등록값은 std에 그대로
+    남긴다."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    day_hours = to_int(row.get("1일주차권요금적용시간"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None, "monthly_night": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None, "bands": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 시청 확인 필요"})
+        return fee
+    # 금오산 정액 — 추가 단위 없이 기본요금과 1일 요금이 같은 1회 정액이다.
+    if base_fee and day and base_fee == day and not unit_fee:
+        if base_fee != 1500:
+            fee_diff.append(f"{name}: 1회 정액이 {base_fee:,}원으로 등록돼 있는데 같은 자리의 "
+                            "구미도시공사 등록(금오산대주차장)은 승용 1,500원이라 금액이 "
+                            "충돌한다 — 등록값을 그대로 싣고 시청·공사 확인 과제로 남긴다")
+        fee.update({"type": "유료", "base_min": base_min if base_min else None,
+                    "base_fee": base_fee, "unit_min": None, "unit_fee": None,
+                    "daily_fee": day, "daily_hours": day_hours if day_hours else None,
+                    "flat_day": True,
+                    "basis": (f"1회 정액 {base_fee:,}원(종일)으로 등록돼 있어 정액으로 표기한다. "
+                              "특기사항의 차종별 정액은 경차 500원·화물 2,000원·버스 4,000원이고, "
+                              "이 표기는 승용 기준이다. 금오산 도립공원 주차장으로, 조례 별표 1의 "
+                              "급지 시간요금과 다른 정액 구조다")})
+        return fee
+    g = GUMI_GRADES.get(grade)
+    if g and (base_min, base_fee, unit_min, unit_fee) == (30, g[0], 10, g[1]) and day in (g[2], None):
+        monthly = None
+        month_note = ""
+        if month and month == g[5]:
+            monthly = month
+            month_note = "월정기 등록값은 별표 1의 주야간 월정기요금과 일치한다. "
+        elif month and grade == "1" and month == 40000:
+            monthly = month
+            month_note = ("월정기 등록값 40,000원은 별표 1의 1급지 야간 월정기요금과 같은 "
+                          "값이나 적용 시간대가 확정되지 않아 등록값 그대로 실었다. ")
+        elif month and month == 10000:
+            monthly = month
+            fee_diff.append(f"{name}: 월정기 등록값 10,000원이 조례 별표 1의 급지별 월정기"
+                            "요금(주간·야간·주야간)에 없는 금액이다 — 등록값이 완전해 "
+                            "등록값으로 싣고 근거는 시청 확인 과제로 남긴다")
+            month_note = "월정기 등록값 10,000원은 별표 1에 없는 금액이라 등록값 그대로 실었다. "
+        if day is None:
+            fee_diff.append(f"{name}: 1일주차권요금이 비어 있어 조례 별표 1의 1일 요금을 "
+                            "대입하지 않고 등록된 시간 요금만으로 계산한다 — 같은 시설의 "
+                            "구미도시공사 등록(시청주차장)에는 1일 5,000원이 있다")
+        fee.update({"type": "유료", "base_min": base_min, "base_fee": base_fee,
+                    "unit_min": unit_min, "unit_fee": unit_fee,
+                    "daily_fee": day if day else None,
+                    "daily_hours": day_hours if day_hours else None,
+                    "monthly": monthly,
+                    "basis": (f"등록 요금(기본 30분 {base_fee:,}원·추가 10분마다 {unit_fee:,}원"
+                              + (f"·1일 {day:,}원" if day else "")
+                              + f")이 조례 별표 1의 {grade}급지 단가와 일치해 등록값으로 "
+                              "계산한다. " + month_note
+                              + "기준보다 큰 차(16인승 이상 승합·1.5톤 초과 화물)는 별표 1 "
+                              "비고 3에 따라 1.5배 또는 2배다")})
+        return fee
+    if base_min and base_fee and unit_min and unit_fee:
+        fee_diff.append(f"{name}: 등록 요금(기본 {base_min}분 {base_fee:,}원·추가 {unit_min}분 "
+                        f"{unit_fee:,}원·1일 {day:,}원·월 {month:,}원)이 조례 별표 1의 "
+                        f"등록 급지({grade}급지) 단가와 달라, 등록값이 완전해 등록값으로 "
+                        "계산하되 차이는 시청 확인 과제로 남긴다")
+        fee.update({"type": "유료", "base_min": base_min, "base_fee": base_fee,
+                    "unit_min": unit_min, "unit_fee": unit_fee,
+                    "daily_fee": day if day else None,
+                    "daily_hours": day_hours if day_hours else None,
+                    "monthly": month if month else None,
+                    "basis": "표준데이터 등록값으로 계산한다. 조례 별표 1의 등록 급지 단가와 달라 시청 확인이 필요하다"})
+        return fee
+    fee_diff.append(f"{name}: 유료로 등록돼 있으나 등록 금액이 불완전해 조례 별표 금액을 "
+                    "대입하지 않고 요금 미상으로 표기한다(김해 선례)")
+    fee.update({"type": "미상",
+                "basis": ("표준데이터에는 ‘유료’로 등록돼 있으나 등록 금액이 불완전해 "
+                          "요금 미상으로 표기한다 — 실제 요금은 구미시청 확인이 필요하다")})
+    return fee
+
+
+def gumi_fee_table(conf, lots):
+    """요금표 — 조례 별표 1을 싣는다. 유료 53곳 중 표준
+    패턴 43곳이 등록 급지 단가와 일치해 계산에 쓰는 표다.
+    1시간 금액은 최초 30분에 10분 단위 3회를 더한 값,
+    2시간 금액은 9회를 더한 값이다. 월 정기요금은 주간
+    (08:00~20:00)·야간(19:00~08:00)·주야간으로 나뉜다
+    (비고 2). 금오산 정액 10곳과 거주자우선주차 요금은
+    급지표와 구조가 달라 표에 넣지 않고 비고로 적는다."""
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+
+    def _row(key, label):
+        g = GUMI_GRADES[key]
+        return {"label": label, "grade": key,
+                "unit_label": (f"최초 30분 {g[0]:,}원 · 10분마다 {g[1]:,}원 · "
+                               f"1일 {g[2]:,}원"),
+                "hour": g[0] + g[1] * 3, "two_hour": g[0] + g[1] * 9, "day": g[2],
+                "month_all": g[5], "month": g[3], "month_night": g[4],
+                "lots": len([l for l in lots if l["fee"]["std_grade"] == key])}
+
+    rows = [
+        _row("1", "1급지 승용·소형 (조례 별표 1)"),
+        _row("2", "2급지 승용·소형 (조례 별표 1)"),
+        _row("3", "3급지 승용·소형 (조례 별표 1)"),
+    ]
+    return {
+        "style": "gumi_grade",
+        "unit_min": 10,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "source_url": conf["ordinance"][1],
+        "grade_system": ("1급지는 송정동·원평동·지산동·도량동·선주원남동·형곡1·2동·신평1·2동·비산동·"
+                         "공단동·광평동·인동동·임오동·진미동·양포동·상모사곡동, 2급지는 선산읍·고아읍·"
+                         "산동읍, 3급지는 그 밖의 지역이다(별표 1 비고 4). 표준데이터 등록 급지는 "
+                         "게재 기준 1급지 181곳·2급지 49곳·3급지 11곳이고, 등록 급지와 주소 기준 "
+                         "급지가 다를 수 있는 곳은 등록값을 그대로 썼다"),
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["list_mode"] == "card"]),
+                 "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [
+            {"group": "주간·야간 시간구분 (별표 1 비고 2)",
+             "hours": "주간 08:00~20:00 · 야간 19:00~08:00",
+             "free": ("월 정기주차요금은 주간·야간·주야간으로 나뉜다(1급지 주간 50,000원·"
+                      "야간 40,000원·주야간 60,000원). 다만 주차장별 운영시간에 맞게 "
+                      "별도로 정할 수 있고 정기권 요금은 이용시간에 비례해 조정할 수 있다")},
+        ],
+        "discounts": conf["discounts"],
+        "notes": ("유료 53곳 중 43곳은 등록 요금이 별표 1의 등록 급지 단가와 일치합니다. "
+                  "월정기 40,000원 등록(1급지 29곳)은 별표 1의 야간 월정기요금과 같은 값이나 "
+                  "적용 시간대가 확정되지 않아 등록값 그대로 실었고, 월정기 10,000원 등록"
+                  "(문화예술회관·시청 계열 3곳)은 별표 1에 없는 금액이라 등록값을 유지했습니다. "
+                  "금오산 공영주차장 10곳은 급지 시간요금이 아닌 1회 정액(승용 1,500원, 시청 "
+                  "등록 대주차장 2,000원 — 특기사항에 경차 500원·화물 2,000원·버스 4,000원)이라 "
+                  "이 표에 넣지 않았습니다. 거주자우선주차 월정기요금은 별표 1에 주간 25,000원·"
+                  "야간 20,000원·주야간 30,000원으로 따로 정해져 있습니다. 기준보다 큰 차는 "
+                  "별표 1 비고 3에 따라 1.5배(16~45인승 승합·1.5톤 초과 11톤 이하 화물) 또는 "
+                  "2배(45인승 초과·11톤 초과 화물)입니다."),
+        "basis": ("요금표는 「구미시 주차장 설치 및 관리 조례」 제2143호(시행 2026-10-28) "
+                  "제4조제1항·별표 1과 표준데이터(기준일 2026-04-16·2026-04-17)를 대조해 실었다. "
+                  "유료 43곳의 등록 요금이 별표 1의 등록 급지 단가와 일치해 등록값으로 계산한다. "
+                  "(조례 본문: data/raw/gumi-ordinance.txt, 별표 1 원문 HWP: "
+                  "data/raw/gumi-ordinance-b1.hwp, 별표 2 원문 HWPX: "
+                  "data/raw/gumi-ordinance-b2.hwpx)"),
+    }
+
+
+def gumi_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                 space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(lots)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동·읍·면 미상" for l in lots).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in lots if l["dong"]}),
+        "동_미상": [l["name"] for l in lots if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in lots)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「구미시 주차장 설치 및 관리 조례」 제2143호 제4조의2·별표 2 — 전액 감면: "
+                      "긴급자동차, 관용차, 국가유공자·보훈보상대상자·의사상자·특수임무유공자·"
+                      "5·18민주유공자·고엽제후유(의)증 환자의 유족 또는 가족이 직접 운전하거나 "
+                      "동승한 차량, 성실납세자(1년간), 기업 예우대상·숙련기술자(무상사용증, "
+                      "3년간), 다자녀가정 부모, 전입자(1년간·최초 1회), 장학재단 고액기탁자"
+                      "(1년간). 50% 감면: 임산부, 경형자동차, 환경친화적 자동차(전기차 충전 "
+                      "주차는 최초 1시간 감면), 저공해 표지 자동차, 우수 자원봉사자, 병역명문가, "
+                      "착한임대인. 장애인: 1회 2시간 무료 후 50% 감면. 전통시장·골목형상점가 "
+                      "이용객·상인: 1회 1시간 무료(시장이 지정·고시하는 인근 공영주차장에 한함). "
+                      "국가법령정보센터 본문·별표 2 원문(ordinSeq 2180327)으로 확인했다"),
+        "요금_출처": ("조례 제4조제1항·별표 1 — 공영주차장 주차요금은 별표 1과 같다(시장이 조정할 "
+                      "수 있다). 별표 1은 승용·15인승 이하 승합·1.5톤 이하 화물 기준 급지표로, "
+                      "1급지 최초 30분 400원·10분마다 200원·1일 5,000원·월 주간 50,000원/야간 "
+                      "40,000원/주야간 60,000원, 2급지 300/100원·1일 3,000원·월 "
+                      "30,000/25,000/40,000원, 3급지 200/100원·1일 2,500원·월 "
+                      "25,000/20,000/30,000원, 거주자우선주차 월 25,000/20,000/30,000원이다. "
+                      "유료 43곳의 등록 요금이 별표 1의 등록 급지 단가와 정확히 일치해 등록값을 "
+                      "썼고, 금오산 10곳은 1회 정액 등록이라 정액으로 썼다. 별표 1 HWP 원본과 "
+                      "별표 2 HWPX 원본을 받아 추출해 대조했다"),
+        "급지_출처": ("조례 별표 1 비고 4 — 1급지는 송정동·원평동·지산동·도량동·선주원남동·형곡1·2동·"
+                      "신평1·2동·비산동·공단동·광평동·인동동·임오동·진미동·양포동·상모사곡동, "
+                      "2급지는 선산읍·고아읍·산동읍, 3급지는 그 밖의 지역이다. 표준데이터 등록 "
+                      "급지는 게재 기준 1급지 181곳·2급지 49곳·3급지 11곳이고 유료 표준 패턴 "
+                      "43곳은 전부 등록 급지 단가와 일치한다. 등록 급지와 비고 4의 주소 기준 "
+                      "급지가 다를 수 있는 곳은 등록값을 그대로 썼다"),
+        "무료요일_출처": ("조례 제4조의3제2항은 법정공휴일·근로자의 날에 공영주차장을 무료로 개방할 "
+                          "수 있다고 정한 임의 조항이라 상시 자동 무료가 아니므로, 주말·공휴일 "
+                          "무료로 표기하지 않았다(인스팅트 앞단 패키지 확인). 요금 구분이 "
+                          "'무료'인 곳은 요일과 관계없이 무료다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 구미시 등록 245행이 전부 공영(노외 176·부설 58·노상 11, 총 21,754면)이라 민영 제외 0건이고, 중복 제거 4건으로 241곳·21,177면을 실었다. 제공기관은 경상북도 구미시 213행(데이터기준일자 2026-04-16)과 구미도시공사 32행(2026-04-17)이다. 인스팅트 앞단 패키지(경북 5/22, 2026-11-20)의 집계(공영 245곳·21,754면, 무료 188·유료 53(정액 10 포함), 민영 0, 구획수 0 없음, 좌표 누락 0)와 표준데이터 원본 대조 결과가 일치한다",
+            "「구미시 주차장 설치 및 관리 조례」 제2143호(시행 2026-10-28, ordinSeq 2180327) 본문 원문(data/raw/gumi-ordinance.txt) 대조 완료(2026-11-21) — 본문 제4조제1항이 공영주차장 요금을 별표 1로 정하고, 감면은 제4조의2·별표 2, 무료개방은 제4조의3으로 확인했다",
+            "별표 1은 HWP 원본을 data/raw/gumi-ordinance-b1.hwp로, 별표 2는 HWPX 원본을 data/raw/gumi-ordinance-b2.hwpx로 저장하고 추출해 확정했다 — 급지별 단가(요금_출처 참조), 주간 08:00~20:00·야간 19:00~08:00(비고 2), 기준보다 큰 차 1.5배·2배(비고 3), 급지 구분(비고 4), 감면 대상(별표 2)이 들어 있다",
+            "유료 53곳의 판정: 표준 패턴 43곳(1급지 39·2급지 4)은 등록 요금(기본 30분·추가 10분·1일)이 별표 1의 등록 급지 단가와 정확히 일치해 등록값으로 계산했다. 금오산 정액 10곳(구미도시공사 5·구미시 5, 1:1 대응)은 추가 단위 없이 1회 정액이라 flat_day로 실었다 — 승용 1,500원이 9곳, 시청 등록 대주차장 대응 행만 2,000원으로 충돌해 등록값 그대로 싣고 확인 과제로 남겼다. 특기사항의 차종별 정액(경차 500원·화물 2,000원·버스 4,000원)은 각 곳의 비고에 그대로 남는다",
+            "월정기 등록값 처리: 월 40,000원(1급지 29곳)은 별표 1의 야간 월정기요금과 같은 값이나 적용 시간대가 확정되지 않아 등록값 그대로 싣고 각 곳의 basis에 명시했다. 월 10,000원(문화예술회관·시청주차장·구미시청 주차장 3곳)은 별표 1에 없는 금액이라 등록값을 유지하고 급지_요금_차이에 기록했다. 구미시청 주차장은 1일주차권요금이 비어 있어 별표 금액을 대입하지 않고 등록된 시간 요금만으로 계산했다",
+            "중복 판정: 주차장관리번호가 겹치는 36그룹 73행은 전부 서로 다른 주차장의 번호 충돌이라 관리번호로 합치지 않았다. 전체 이름(공백만 제거)이 같고 지번(끝의 '번지' 표기 제거)이 같고 좌표가 200m 이내인 4그룹(각산 공영주차장 24면·구평동 공영주차장 173면·구미역 후면광장 지하주차장 260면·문화예술회관 주차장 120면)만 재등록으로 보고 제거했으며, 유지본은 전부 구미도시공사 행(기준일 최신·요금 완전)이다. 산동우항공원 공영주차장 쌍은 지번이 같으나 좌표가 약 8.4km 떨어져 있어(시청 행 좌표가 문화예술회관 주차장과 같은 값으로 등록됨) 재등록으로 보지 않고 둘 다 실었다 — 면수도 공사 233면·시청 223면으로 달라 시청 확인 과제다",
+            "이름만 다른 같은 자리 등록은 합치지 않고 전부 실었다 — 사곡역 후문 쌍, 금오산 5쌍, 금오천 구미도시공사 1·2·3주차장 ↔ 구미시 (1·2·3공영주차장), 광평천 구미도시공사 1~6주차장 ↔ 구미시 (1~6공영주차장)(시청 행 좌표는 6곳 전부 같은 값으로 등록됨), 시청주차장 ↔ 구미시청 주차장, 보조경기장 지하주차장 ↔ 시민운동장, 선산읍행정복지센터 ↔ 시민행복주차장(선산읍행정복지센터인근), 단계천 공영주차장(153면·유료) ↔ 단계천주차장(459면·무료 — 지번·좌표가 같으나 면수와 요금이 충돌한다). 같은 시설의 중복 등록인지는 구미시청 확인이 필요하다",
+            "공휴일 표기: 조례 제4조의3제2항의 법정공휴일·근로자의 날 무료 개방은 '할 수 있다'는 임의 조항이라 상시 자동 무료로 보지 않았다. derive_free_fields의 공휴일 태그 예외에 구미시를 공주·보령·제천·김해·거제·양산·남해·하동·산청·함양·거창·합천·의령·함안·창녕·경주·김천과 함께 뒀다",
+            "좌표: 금오천 3주차장(구미도시공사)의 위도가 26.128492로 등록돼 있어 구미시 범위 밖이라 좌표를 비우고 주소로만 표기했다 — 같은 지번(원평동 964-604)의 다른 금오천 주차장 좌표와 혼동하지 않기 위해 임의로 채우지 않았고, 지오코딩 보완은 별도 확인 과제로 남긴다. 나머지 240곳의 좌표는 전부 구미시 범위 안이다. 오버레이(좌표누락_지오코딩_20261118.json)는 기존 행 그대로 유지된다",
+            "부설 58곳 중 유료는 문화예술회관·시청 계열뿐이고(중복 제거 후 3곳), 노상 11구간은 전부 무료다. 부설주차장에 별도 요금 규정이 있는지는 시청 확인 과제다. 운영요일은 게재 기준 평일+토요일+공휴일 206곳·평일만 35곳이고, 도로명주소는 등록 245행 중 100곳만 등록돼 있다",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] or 0 for l in paid) / len(paid)) if paid else 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_gumi():
+    """구미시 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「구미시 주차장 설치 및
+    관리 조례」 제2143호(시행 2026-10-28,
+    ordinSeq 2180327) 제4조제1항·별표 1, 감면
+    제4조의2·별표 2 원문 대조 완료(2026-11-21,
+    별표 1 HWP·별표 2 HWPX 추출·본문 원문
+    기준). 표준데이터 등록 245행이 전부 공영
+    (노외 176·부설 58·노상 11, 총 21,754면)
+    이고 요금 구분은 무료 188곳·유료 53곳이며,
+    재등록 4건을 제거해 241곳을 싣는다. 좌표
+    오타 1곳(금오천 3주차장)은 좌표를 비웠다."""
+    conf = GUMI_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all
+                if (r.get("제공기관명") or "").strip() in ("경상북도 구미시", "구미도시공사")]
+
+    def _plot(r):
+        p = re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                   or (r.get("소재지도로명주소") or "").strip())
+        # 시청 행은 지번 끝에 '번지'를 붙여 적는 경우가 있어(각산·구평동)
+        #   자리 비교에서는 끝의 '번지' 표기를 떼고 비교한다.
+        return re.sub(r"번지$", "", p)
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("제공기관명") or "").strip() == "구미도시공사" else 0,
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다(구미시는
+    #   관리번호가 겹치는 36그룹 73행이 전부 서로 다른 주차장의 번호 충돌이다).
+    #   구미시 해당 중복은 4그룹이고 유지본은 전부 구미도시공사 행이다.
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 구미도시공사 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, space_diff, dong_fixed, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (GUMI_BBOX[0] < lat < GUMI_BBOX[1]
+                                                        and GUMI_BBOX[2] < lng < GUMI_BBOX[3]):
+            # 구미시 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 구미시 범위 밖 — "
+                               "좌표 없음으로 표기하고 지오코딩 보완 대상으로 넘김")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음(0으로 등록)"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = gumi_dong_of(jibun)
+        if dong:
+            dong_src = "지번주소"
+        elif gumi_dong_of(road):
+            dong = gumi_dong_of(road)
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 동·읍·면 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:동|읍|면))", std_name)
+        if _name_head and _name_head.group(1) in GUMI_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 동·읍·면({_name_head.group(1)})과 지번주소 기준 "
+                              f"동·읍·면({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = gumi_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "구미시", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _tail = " ".join(_parts[2:]) if len(_parts) > 2 else ""
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _tail and not _same_place:
+                _suffix = f"({_tail})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다")
+
+    # 같은 지번·같은 좌표에 이름만 다르게 등록된 그룹 — 전부 다른 등록이라
+    #   합치지 않고 전부 싣는다(산청 선례).
+    _place_groups = {}
+    for l in lots:
+        if l["lat"] is None or l["lng"] is None:
+            continue
+        _place_groups.setdefault(((l.get("addr_jibun") or l.get("addr_road")),
+                                  l["lat"], l["lng"]), []).append(l)
+    for (_addr, _la, _ln), _grp in sorted(_place_groups.items(),
+                                          key=lambda kv: kv[1][0]["name"]):
+        if len(_grp) > 1 and len({x["name"] for x in _grp}) > 1:
+            _names = "·".join(x["name"] for x in _grp)
+            note_fixed.append(f"같은 자리·같은 좌표에 이름만 다른 등록: {_names} — "
+                              f"{_addr}에 좌표({_la}, {_ln})가 같게 등록돼 있다. "
+                              "이름이 다른 별개 등록이라 합치지 않고 전부 실었고, "
+                              "같은 시설의 중복 등록인지는 구미시청 확인이 필요하다")
+    note_fixed.append("표준데이터 등록 245행이 전부 공영이라 민영 제외는 0건이다. "
+                      "제공기관은 경상북도 구미시 213행(데이터기준일자 2026-04-16)과 "
+                      "구미도시공사 32행(2026-04-17)이고, 관리기관명은 경상북도 구미시청 "
+                      "213곳·구미도시공사 주차시설팀 32곳이다")
+    note_fixed.append("주차장관리번호가 겹치는 36그룹 73행은 전부 서로 다른 주차장의 번호 "
+                      "충돌이라 관리번호로 합치지 않고 전부 실었다. 전화번호는 구미도시공사 "
+                      "등록 32곳에만 054-480-2030이 있다")
+    note_fixed.append("등록 급지구분은 게재 기준 1급지 181곳·2급지 49곳·3급지 11곳이다. "
+                      "요금 구분은 무료 188곳·유료 53곳이고 노상 11구간은 전부 무료다")
+    note_fixed.append("산동우항공원 공영주차장은 같은 이름·같은 지번으로 두 번 등록돼 있으나 "
+                      "좌표가 약 8.4km 떨어져 있고 면수도 233면(구미도시공사)·223면(구미시)으로 "
+                      "달라 둘 다 실었다. 구미시 행의 좌표는 문화예술회관 주차장과 같은 값으로 "
+                      "등록돼 있어 시청 확인이 필요하다")
+    note_fixed.append("금오천 3주차장(구미도시공사)은 위도가 26.128492로 등록돼 있어 구미시 "
+                      "범위 밖이라 좌표를 비웠다. 같은 지번(원평동 964-604)의 다른 금오천 "
+                      "주차장 좌표와 혼동하지 않기 위해 임의로 채우지 않았다")
+    note_fixed.append("운영요일은 게재 기준 평일+토요일+공휴일 206곳·평일만 35곳이고 "
+                      "도로명주소는 등록 245행 중 100곳만 등록돼 있다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"gb-gumi-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"gb-gumi-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 구미시는 좌표 결측이 금오천 3주차장 1곳이고 오버레이에
+    #   구미시 행이 없어 적용 대상이 없다.
+    _cf = apply_coord_fix(lots)
+
+    fee_table = gumi_fee_table(conf, lots)
+    quality = gumi_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                           fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-04-17",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"구미시로 등록된 행 {len(rows_std)}행(전부 공영, 제공기관 경상북도 구미시 "
+                 f"213행·구미도시공사 32행)을 읽어 중복 제거 {len(merged)}건, 제외 "
+                 f"{len(excluded)}건으로 {len(lots)}곳을 실었다. "
+                 f"유료 {len([l for l in lots if l['fee']['type'] == '유료'])}곳·무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳·미상 "
+                 f"{len([l for l in lots if l['fee']['type'] == '미상'])}곳이다. "
+                 f"데이터기준일자는 구미시 2026-04-16·구미도시공사 2026-04-17이다. "
+                 f"좌표 오타 1곳(금오천 3주차장)은 좌표를 비웠다. "
+                 f"조례 대조 완료 — 「구미시 주차장 설치 및 관리 조례」 제2143호(시행 "
+                 f"2026-10-28, ordinSeq 2180327) 제4조제1항·별표 1, 감면 제4조의2·별표 2 "
+                 f"원문 대조 완료(2026-11-21)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": GUMI_ORD_TXT.name if GUMI_ORD_TXT.exists() else None,
+            "sha256": sha256(GUMI_ORD_TXT) if GUMI_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2026-10-28",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"구미시가 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/gumi-ordinance.txt, 별표 1 원문 HWP: "
+                    f"data/raw/gumi-ordinance-b1.hwp, 별표 2 원문 HWPX: "
+                    f"data/raw/gumi-ordinance-b2.hwpx)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": GUMI_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "구미시", "slug": "gumi"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": GUMI_PROVINCE,
+        "province_slug": GUMI_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "gumi_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
 
 
 
@@ -80526,7 +81220,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon", "uiryeong", "haman", "changnyeong", "pohang", "gyeongju", "gimcheon", "andong", "yeongju",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon", "uiryeong", "haman", "changnyeong", "pohang", "gyeongju", "gimcheon", "andong", "gumi",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -80544,7 +81238,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "포항시", "경주시", "김천시", "안동시", "영주시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "포항시", "경주시", "김천시", "안동시", "구미시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -80602,7 +81296,7 @@ def main():
                                 "tongyeong": ["통영시"],
                                 "sacheon": ["사천시"],
                                 "gimhae": ["김해시"], "miryang": ["밀양시"],
-                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"], "hamyang": ["함양군"], "geochang": ["거창군"], "hapcheon": ["합천군"], "uiryeong": ["의령군"], "haman": ["함안군"], "changnyeong": ["창녕군"], "pohang": ["포항시"], "gyeongju": ["경주시"], "gimcheon": ["김천시"], "andong": ["안동시"], "yeongju": ["영주시"]}[args.city])
+                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"], "hamyang": ["함양군"], "geochang": ["거창군"], "hapcheon": ["합천군"], "uiryeong": ["의령군"], "haman": ["함안군"], "changnyeong": ["창녕군"], "pohang": ["포항시"], "gyeongju": ["경주시"], "gimcheon": ["김천시"], "andong": ["안동시"], "gumi": ["구미시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -80872,8 +81566,8 @@ def main():
         cities.append(build_gimcheon())
     if "안동시" in want:
         cities.append(build_andong())
-    if "영주시" in want:
-        cities.append(build_yeongju())
+    if "구미시" in want:
+        cities.append(build_gumi())
 
     if args.city == "all":
         site = build_site_payload(cities)
