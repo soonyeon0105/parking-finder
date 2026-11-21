@@ -90628,6 +90628,624 @@ def build_ulleung():
 
 
 
+# 춘천시 — 표준데이터 춘천 등록 89행 전부 공영
+#   (노외 63·노상 26, 총 4,769면), 무료 80·혼합
+#   8·유료 1, 기준일 2026-04-14이다. 중복 판정
+#   (전체 이름·지번·좌표 200m 가드)에 걸리는 쌍은
+#   없고, 관리번호 중복도 없다. 구획수 0 등록
+#   0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측
+#   0건이다. 같은 지번·좌표에 이름만 다른 등록이
+#   3그룹(퇴계근린공원1·2, 느치골제1·2·3(소양강
+#   댐), 시청후문·춘천시청) 있어 전부 싣는다.
+# 조례 대조 완료(2026-11-21): 「춘천시 주차장
+#   설치 및 관리 조례」 제2051호(시행 2026-04-23,
+#   ordinSeq 2125495) 제2조제1항이 시장이 설치한
+#   노상·노외주차장의 요금을 별표 1로 정한다.
+#   다만 자연공원법 지정 공원과 관광진흥법 국민
+#   관광지 주차장은 별표 1 대상에서 제외한다.
+#   본문 data/raw/chuncheon-ordinance.txt, 별표
+#   1은 ELIS 첨부 HWP 원본(flSeq 171660843,
+#   data/raw/chuncheon-ordinance-b1.hwp)을 받아
+#   PrvText와 BodyText 레코드 파싱을 교차 확인해
+#   추출했다(chuncheon-ordinance-b1.txt). 별표
+#   1은 단일 요금표다: 최초 30분까지 600원·30분
+#   초과 시 매 10분마다 300원·월정기권 75,000원.
+#   1일 주차권 칸은 표에 없고, 급지 구분도 없다.
+#   비고는 1구획 초과 시 구획수대로 징수, 월정기
+#   권 발행 한도(노외 50%·노상 30%)다.
+# 비무료 9곳(스카이워크·낙원노외·석사근린공원·
+#   은하수거리·제일중앙·동부시장·춘천시청·풍물
+#   시장·춘천시청 별관)의 등록값은 아홉 곳 모두
+#   기본 30분 600원·추가 10분 300원·월 75,000
+#   원으로 별표 1과 전부 일치한다. 1일 요금은
+#   아홉 곳 모두 0(공란)이라 별표에 없는 1일
+#   요금을 만들지 않는다. 요금 구분이 '혼합'인
+#   8곳도 금액이 별표와 일치해 유료로 계산하되,
+#   혼합의 무료 구간은 등록 운영시간(평일 08:00
+#   ~20:00, 춘천시청만 전 요일 07:00~22:00)으로
+#   만 확인될 뿐이라 요일 무료로 단정하지 않는
+#   다. 등록 급지구분은 89곳 전부 '3'이나 별표
+#   1에 급지 구분이 없어 요금 판정에 쓰지 않는
+#   다.
+# 주말·공휴일 전체 무료는 조례 본문 어디에도
+#   없다(패키지 ③와 같은 확인). 무료 80곳의
+#   표기는 표준데이터 등록값 근거다. 제3조제5항
+#   의 전통시장 상인·고객 최초 2시간 면제는 지정
+#   공영주차장·증표 제출이 조건이라 일반 표기로
+#   확대하지 않는다(패키지 ③의 확대 금지 확인과
+#   같다).
+# 패키지 대조(인스팅트 앞단 패키지 강원 1/18,
+#   2026-11-20): 집계(공영 89행·4,769면, 노외
+#   63·노상 26, 무료 80·혼합 8·유료 1, 기준일
+#   2026-04-14, 좌표 결측 0)와 조례 번호·시행
+#   일·별표 금액 전부 일치한다. 정정 없음.
+CHUNCHEON_PROVINCE = "강원특별자치도"
+CHUNCHEON_PROVINCE_SLUG = "gangwon"
+CHUNCHEON_ORD_URL = ("https://www.law.go.kr/LSW/ordinInfoR.do?"
+                     "ordinSeq=2125495&gubun=ELIS")
+CHUNCHEON_ORD_TXT = RAW / "chuncheon-ordinance-b1.txt"
+CHUNCHEON_ORD_NOTE = ("「춘천시 주차장 설치 및 관리 조례」 제2051호(시행 2026-04-23) "
+                      "제2조제1항·별표 1 — 국가법령정보센터 ordinSeq 2125495에서 확인")
+
+CHUNCHEON_DISCOUNTS = [
+    {"label": "긴급자동차(해당 업무 수행)·시장이 필요하다고 인정하는 자동차 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제3조제1항 — 「도로교통법」 제2조제22호에 따른 긴급자동차로서 해당 업무를 수행하는 자동차와 그 밖에 시장이 필요하다고 인정하는 자동차는 주차요금을 면제한다"},
+    {"label": "국가유공자·장애인·고엽제후유의증환자·저공해자동차·임산부·다태아·다자녀 가정·의사상자·헌혈자·병역명문가·장기등·인체조직 기증자·고향사랑 기부자·기부자 1시간 면제·1시간 초과 50% 범위 경감", "rate": 0.5, "exempt_min": 60,
+     "note": "조례 제3조제3항 — 국가 또는 지방자치단체가 발급하는 표지 부착 및 증명서를 제시하는 경우 최초 1시간의 주차요금을 면제하며 1시간 초과 시 50퍼센트 범위에서 경감할 수 있다. 대상은 국가유공자 본인 탑승 차량, 장애인 본인 탑승 차량, 고엽제후유의증 등 환자 본인 탑승 차량, 저공해자동차 표지 부착 차량, 임산부 본인 탑승 차량(모자보건수첩 또는 임산부차량증), 반비다복카드 소지자 탑승 차량, 의사자 유족·의상자 및 그 가족 탑승 차량, 관내 혈액원에서 헌혈한 본인 탑승 차량, 병역명문가증 소지 본인 탑승 차량, 장기등·인체조직 기증자, 고향사랑 기부증서 소지 본인 탑승 차량, 기부증서 소지 본인 탑승 차량이다"},
+    {"label": "경형자동차 60% 경감", "rate": 0.6, "exempt_min": 0,
+     "note": "조례 제3조제4항 — 시장은 「자동차관리법」 제3조 및 같은 법 시행규칙 제2조에 따른 경형자동차에 대하여 주차요금의 60퍼센트를 경감할 수 있다"},
+    {"label": "전통시장·상점가 상인 및 고객 (지정 공영주차장 한정, 증표 제출) 최초 2시간 면제 가능·50% 범위 경감", "rate": 0.5, "exempt_min": 120,
+     "note": "조례 제3조제5항 — 전통시장·상점가·골목형상점가 또는 상권활성화구역의 상인 및 고객이 「춘천시 전통시장 및 상점가 육성을 위한 조례」 제5조에 따른 주차장과 시장이 시장 활성화를 위하여 인정한 공영주차장을 이용하고 증표를 제출하는 경우 50퍼센트 범위에서 경감할 수 있으며 최초 2시간까지는 주차료를 면제할 수 있다"},
+    {"label": "자가용 10부제 운행 등 참여 자동차 20% 범위 경감", "rate": 0.2, "exempt_min": 0,
+     "note": "조례 제3조제2항 — 자가용 10부제 운행 등에 참여하는 자동차에 대하여는 주차요금을 20퍼센트 범위에서 경감할 수 있다. 경감대상은 국가 또는 지방자치단체가 발급하는 특수표지를 부착하여야 한다"},
+]
+
+CHUNCHEON_CONF = {
+    "city": "춘천시",
+    "slug": "chuncheon",
+    "manager": "강원특별자치도 춘천시청",
+    "manager_inquiry": "춘천시청(033-250-3316)",
+    "ordinance": ("춘천시 주차장 설치 및 관리 조례", CHUNCHEON_ORD_URL, CHUNCHEON_ORD_NOTE),
+    "notes": (
+        "표준데이터에 등록된 춘천시 공영주차장 89곳(노외 63곳·노상 26구간, 총 4,769면)입니다. "
+        "80곳은 무료로 등록돼 있고, 비무료 9곳(스카이워크·낙원노외·석사근린공원·은하수거리·"
+        "제일중앙·동부시장·춘천시청·풍물시장·춘천시청 별관)의 등록 요금(기본 30분 600원·추가 "
+        "10분 300원·월 75,000원)이 「춘천시 주차장 설치 및 관리 조례」 제2051호 별표 1과 "
+        "일치해 조례 기준으로 계산했습니다. 별표 1은 급지 구분이 없는 단일 요금표이고 1일 "
+        "주차권은 표에 없습니다."),
+    "discounts": CHUNCHEON_DISCOUNTS,
+}
+
+CHUNCHEON_BBOX = (37.70, 38.02, 127.55, 127.90)
+CHUNCHEON_DONGS = {"퇴계동", "후평동", "석사동", "효자동", "근화동", "요선동", "삼천동",
+                   "교동", "옥천동", "온의동", "운교동", "낙원동", "죽림동", "소양동",
+                   "약사동", "조양동", "운교동", "소양로1가", "소양로2가", "소양로3가",
+                   "중앙로1가", "중앙로2가", "중앙로3가",
+                   "신북읍", "동내면", "북산면", "남산면", "동산면", "신동면", "동면",
+                   "서면", "사북면", "남면"}
+
+
+def chuncheon_dong_of(addr):
+    """춘천시 법정동·읍·면 판정 — 지번주소의 춘천시
+    다음 토큰이 동·읍·면이다. 소양로·중앙로의
+    법정동(1가·2가·3가)도 포함한다. '강촌리'처럼
+    리 단위만 적힌 등록은 읍·면을 단정하지 않고
+    None으로 둔다."""
+    if addr:
+        m = re.search(r"춘천시\s*([가-힣0-9]+?(?:동|읍|면|로[0-9]가))", addr)
+        if m and m.group(1) in CHUNCHEON_DONGS:
+            return m.group(1)
+    return None
+
+
+def chuncheon_fee(row, name, note_bits, fee_diff):
+    """춘천시 공영주차장 한 곳의 요금 — 무료 80곳은
+    무료 등록이라 무료를 유지한다. 비무료 9곳은
+    등록값(기본 30분 600원·추가 10분 300원·월
+    75,000원)이 조례 별표 1의 단일 요금표와 전부
+    일치해 조례 기준으로 계산한다. 요금 구분이
+    '혼합'인 8곳도 금액이 일치하면 유료로 계산하되
+    혼합 표기는 남기고, 혼합의 무료 구간은 등록
+    운영시간으로만 확인될 뿐이라 요일 무료로
+    단정하지 않는다. 1일 요금은 아홉 곳 모두
+    0(공란)이고 별표 1에도 1일 주차권이 없어
+    1일 요금을 만들지 않는다. 등록 급지구분('3')은
+    별표 1에 급지 구분이 없어 판정에 쓰지 않는다.
+    등록이 별표와 다르게 바뀌어 있으면 별표 값과
+    대조해 일치할 때만 계산하고, 일치하지 않으면
+    요금 미상으로 표기한다(김해·함안·성주·울진
+    선례)."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    day_hours = to_int(row.get("1일주차권요금적용시간"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    ptype = (row.get("주차장유형") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None, "monthly_night": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None, "bands": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 제2조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 시청 확인 필요"})
+        return fee
+    _day_s = f"{day:,}원" if day else "공란"
+    _month_s = f"{month:,}원" if month else "공란"
+    if (base_min, base_fee, unit_min, unit_fee) != (30, 600, 10, 300) \
+            or (month and month != 75000) or day:
+        fee_diff.append(f"{name}: 등록 요금(기본 {base_min}분 {base_fee or 0:,}원·추가 "
+                        f"{unit_min}분 {unit_fee or 0:,}원·1일 {_day_s}·월 {_month_s})이 조례 별표 1의 "
+                        f"요금(최초 30분 600원·초과 10분마다 300원·월 75,000원, 1일 주차권 없음)과 "
+                        "일치하지 않아 요금 미상으로 표기한다")
+        fee.update({"type": "미상",
+                    "basis": (f"표준데이터의 등록 요금(기본 {base_min}분 {base_fee or 0:,}원·추가 "
+                              f"{unit_min}분 {unit_fee or 0:,}원·1일 {_day_s}·월 {_month_s})이 "
+                              "「춘천시 주차장 설치 및 관리 조례」 별표 1의 요금과 일치하지 않아 "
+                              "요금 미상으로 표기한다 — 실제 요금은 춘천시청(033-250-3316) 확인이 필요하다")})
+        return fee
+    _mix_note = (" 요금 구분은 ‘혼합’으로 등록돼 있으나 금액이 별표 1과 일치해 유료로 계산하고, "
+                 "무료 구간은 등록 운영시간으로만 확인될 뿐이라 단정하지 않는다." if raw_type == "혼합" else "")
+    fee.update({"type": "유료", "base_min": 30, "base_fee": 600,
+                "unit_min": 10, "unit_fee": 300,
+                "monthly": month if month == 75000 else None,
+                "basis": ("등록 요금이 조례 별표 1의 요금(최초 30분까지 600원·30분 초과 시 "
+                          "10분마다 300원·월정기 75,000원)과 일치해 조례 기준으로 계산한다. "
+                          "별표 1에는 1일 주차권이 없어 1일 요금은 표기하지 않는다." + _mix_note)})
+    return fee
+
+
+def chuncheon_fee_table(conf, lots):
+    """요금표 — 조례 별표 1 단일 요금표. 비무료
+    9곳의 등록값이 별표와 일치해 계산하는 요금표로
+    싣는다. 1시간 1,500원(600+300×3), 2시간
+    3,300원(600+300×9)이고 1일 주차권은 표에
+    없다."""
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    rows = [
+        {"label": "공영주차장 (조례 별표 1)", "grade": None,
+         "unit_label": "최초 30분까지 600원 · 30분 초과 10분마다 300원",
+         "hour": 1500, "two_hour": 3300, "day": None,
+         "month_all": None, "month": 75000, "month_night": None,
+         "lots": len(paid)},
+    ]
+    return {
+        "style": "chuncheon_grade",
+        "unit_min": 10,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "source_url": conf["ordinance"][1],
+        "grade_system": ("조례 별표 1은 급지 구분이 없는 단일 요금표다. 표준데이터 등록 급지구분은 "
+                         "89곳 전부 ‘3’이나 별표 1에 대응하는 급지가 없어 요금 판정에는 쓰지 "
+                         "않았다. 1구획을 초과해 주차하는 자동차는 점용 구획수에 따라 징수한다"
+                         "(별표 1 비고 1)"),
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["ptype"] != "노상"]),
+                 "street_paid": len([l for l in paid if l["ptype"] == "노상"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [
+            {"group": "별표 1 적용 제외 (조례 제2조제1항 단서)",
+             "hours": "자연공원법 지정 국·도·군립공원과 관광진흥법에 따른 국민관광지 주차장",
+             "free": "이 곳들은 별표 1 요금표의 적용 대상이 아니다"},
+            {"group": "월정기권 발행 한도 (조례 별표 1 비고 3)",
+             "hours": "노외주차장 50퍼센트, 노상주차장 30퍼센트",
+             "free": "주차장 규모와 주차수요를 감안해 위 비율을 초과해 발행할 수 없다"},
+            {"group": "전통시장 상인·고객 (조례 제3조제5항)",
+             "hours": "지정 공영주차장 이용 + 증표 제출 시",
+             "free": "최초 2시간까지 면제할 수 있고 50퍼센트 범위에서 경감할 수 있다"},
+        ],
+        "discounts": conf["discounts"],
+        "notes": ("감면(조례 제3조)은 긴급자동차·시장이 인정하는 자동차 전액 면제, 국가유공자·"
+                  "장애인·고엽제후유의증환자·저공해자동차·임산부·다자녀 가정 등 1시간 면제"
+                  "(초과 시 50% 범위 경감), 경형자동차 60% 경감, 전통시장 상인·고객 최초 2시간 "
+                  "면제 가능, 자가용 10부제 참여 자동차 20% 범위 경감이다."),
+        "basis": ("요금표는 「춘천시 주차장 설치 및 관리 조례」 제2051호(시행 2026-04-23) "
+                  "제2조제1항·별표 1과 표준데이터(기준일 2026-04-14)를 대조해 실었다. 별표 1 "
+                  "원본 HWP는 flSeq 171660843이다. 비무료 9곳은 등록값이 별표 1과 일치해 "
+                  "조례 기준으로 계산했고, 무료 80곳은 등록값을 유지했다. (조례 본문: "
+                  "data/raw/chuncheon-ordinance.txt, 별표 1 원문 HWP: "
+                  "data/raw/chuncheon-ordinance-b1.hwp)"),
+    }
+
+
+def chuncheon_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                      space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(lots)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동·읍·면 미상" for l in lots).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in lots if l["dong"]}),
+        "동_미상": [l["name"] for l in lots if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in lots)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「춘천시 주차장 설치 및 관리 조례」 제2051호 제3조 — 긴급자동차(해당 업무 "
+                      "수행)와 시장이 인정하는 자동차는 면제하고(제1항), 국가유공자·장애인·"
+                      "고엽제후유의증환자·저공해자동차·임산부·다태아·다자녀 가정·의사상자·헌혈자·"
+                      "병역명문가·장기등·인체조직 기증자·고향사랑 기부자·기부자는 최초 1시간 "
+                      "면제·1시간 초과 시 50퍼센트 범위에서 경감하며(제3항), 경형자동차는 60퍼센트를 "
+                      "경감하고(제4항), 전통시장 상인·고객은 지정 공영주차장에서 증표 제출 시 최초 "
+                      "2시간 면제 가능·50퍼센트 범위 경감하며(제5항), 자가용 10부제 참여 자동차는 "
+                      "20퍼센트 범위에서 경감한다(제2항)"),
+        "요금_출처": ("조례 제2조제1항·별표 1 — 시장이 설치한 노상·노외주차장의 주차요금은 별표 1과 "
+                      "같다. 별표 1은 최초 30분까지 600원·30분 초과 시 매 10분마다 300원·월정기권 "
+                      "75,000원의 단일 요금표이고 1일 주차권은 없다. 별표 원본 HWP(flSeq "
+                      "171660843)를 받아 PrvText와 BodyText를 교차 확인해 대조했다"),
+        "급지_출처": ("조례 별표 1에는 급지 구분이 없다. 표준데이터 등록 급지구분은 89곳 전부 ‘3’이나 "
+                      "별표 1에 대응하는 급지가 없어 요금 판정에는 쓰지 않았다"),
+        "무료요일_출처": ("조례 본문 어디에도 시 전체 주말·공휴일 자동 무료 조항은 없다. 무료 80곳의 "
+                          "표기는 표준데이터 등록값(요금정보 ‘무료’) 근거다. 제3조제5항의 전통시장 "
+                          "최초 2시간 면제는 지정 공영주차장과 증표 제출이 조건이라 일반 차량의 "
+                          "2시간 무료로 확대하지 않는다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 춘천시 등록 89행 전부 공영, 노외 63·노상 26, 총 4,769면으로 무료 80·혼합 8·유료 1, 기준일 2026-04-14이다. 중복 판정(전체 이름·지번·좌표 200m 가드)에 걸리는 쌍은 없고 관리번호 중복도 없다. 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다. 인스팅트 앞단 패키지(강원 1/18, 2026-11-20)의 집계와 표준데이터 원본 대조 결과가 일치한다",
+            "「춘천시 주차장 설치 및 관리 조례」 제2051호(시행 2026-04-23, ordinSeq 2125495) 본문 원문(data/raw/chuncheon-ordinance.txt) 대조 완료(2026-11-21) — 본문 제2조제1항이 시장이 설치한 노상·노외주차장의 요금을 별표 1로 정하고, 자연공원법 지정 공원과 관광진흥법 국민관광지 주차장은 제외한다. 별표 1은 ELIS 첨부 HWP 원본(flSeq 171660843)을 data/raw/chuncheon-ordinance-b1.hwp로 저장하고 PrvText와 BodyText(Section0) 레코드 파싱을 교차 확인해 확정했다 — 최초 30분까지 600원·30분 초과 시 매 10분마다 300원·월정기권 75,000원의 단일 요금표이고 1일 주차권 칸은 없으며 급지 구분도 없다. 패키지 수치와 전부 일치, 정정 없음",
+            "비무료 9곳(스카이워크 112면·낙원노외 30면·석사근린공원 78면·은하수거리 105면·제일중앙 122면·동부시장 60면·춘천시청 492면·풍물시장 232면·춘천시청 별관 185면)의 등록값은 아홉 곳 모두 기본 30분 600원·추가 10분 300원·월 75,000원이고 1일 요금은 전부 0(공란)이라 별표 1과 전부 일치한다. 아홉 곳 모두 조례 기준으로 계산했다. 요금 구분이 '혼합'인 8곳은 평일 운영시간이 08:00~20:00(춘천시청만 전 요일 07:00~22:00)으로 짧은데, 혼합의 무료 구간이 운영시간 외인지는 등록만으로 확정할 수 없어 요일·시간 무료로 단정하지 않고 계산기만 확정했다. 등록 급지구분은 89곳 전부 '3'이나 별표 1에 급지가 없어 판정에 쓰지 않았다",
+            "좌표 결측은 0곳이다. 지오코딩 보완 대상이 없어 오버레이 추가도 0건이다. 등록 좌표 89곳 전부가 춘천 범위(위도 37.766~37.952, 경도 127.627~127.815) 안에 있다",
+            "주말·공휴일 전체 무료는 조례 본문 어디에도 없다. 무료 80곳의 표기는 표준데이터 등록값 근거다. 제3조제5항의 전통시장 상인·고객 최초 2시간 면제는 지정 공영주차장·증표 제출이 조건인 개별 감면이라 일반 표기로 확대하지 않는다",
+            "동·읍·면 판정은 지번주소 기준이고 88곳이 판정됐다(퇴계동 11·후평동 10·석사동 9·효자동 9·근화동 9 등, 소양로1가~3가·중앙로1가~3가의 법정동 포함). 강촌노외 1곳은 등록 지번주소가 '춘천시 강촌리 243'으로 읍·면 표기가 없어 동·읍·면을 단정하지 않았다. 도로명주소는 61곳이 등록돼 있지 않다. 같은 지번·좌표에 이름만 다른 등록 3그룹(퇴계근린공원1·2, 느치골제1·2·3(소양강댐), 시청후문·춘천시청)은 이름이 다른 별개 등록이라 합치지 않고 전부 실었다",
+            "관리기관명은 강원특별자치도 춘천시청 89곳 전부이고 전화번호는 033-250-3316으로 전부 같다. 운영요일은 89곳 전부 평일+토요일+공휴일이다. 운영시간은 무료 80곳 전부 00:00~23:59, 비무료 9곳 중 춘천시청은 전 요일 07:00~22:00이고 나머지 8곳은 평일 08:00~20:00·토요일·공휴일 00:00~23:59이다. 부제시행구분은 춘천시청·춘천시청 별관만 2부제이고 나머지는 미시행이다. 특기사항은 비무료 9곳만 할인 대상 나열이 있고 무료 80곳은 공란이다. 결제방법은 비무료 9곳 현금+신용카드, 무료 80곳 공란이다. 장애인전용주차구역 보유는 34곳이 Y다",
+            "확인 과제 — ① 요금 구분 '혼합' 8곳의 실제 징수 요일·시간대(운영시간 외 무료 개방 여부)를 확인할 것 ② 느치골제1·2·3(소양강댐) 주차장이 조례 제2조제1항 단서의 국민관광지 주차장에 해당하는지 확인할 것(전부 무료 등록이라 표기는 무료 유지) ③ 퇴계근린공원1·2가 같은 지번(퇴계동 877)·같은 좌표·같은 면수(55면)로 등록된 경위를 확인할 것 ④ 강촌노외의 읍·면 표기(남산면 강촌리)를 확인할 것 ⑤ 등록 급지구분 '3'이 무엇을 뜻하는지 확인할 것 ⑥ 2026-04-23 개정으로 신설된 감면(고향사랑 기부증서·기부증서 소지자)이 현장에 반영됐는지 확인할 것 ⑦ 무료 80곳 등록 최신성·향후 유료 공고가 있는지 확인할 것",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] or 0 for l in paid) / len(paid)) if paid else 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_chuncheon():
+    """춘천시 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「춘천시 주차장 설치 및 관리
+    조례」 제2051호(시행 2026-04-23, ordinSeq
+    2125495) 제2조제1항·별표 1 원문 대조 완료
+    (2026-11-21, 별표 ELIS 첨부 HWP PrvText·
+    BodyText 교차 확인 — 패키지 수치와 전부 일치).
+    표준데이터 춘천 등록 89행 전부 공영(노외 63·
+    노상 26, 총 4,769면)을 읽어 무료 80곳은
+    등록값대로, 비무료 9곳은 등록값이 별표 1과
+    일치해 조례 기준으로 계산해 싣는다. 좌표
+    결측은 0곳이다."""
+    conf = CHUNCHEON_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "춘천시" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "춘천시" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 춘천시는
+    #   해당 쌍이 없다.
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, space_diff, dong_fixed, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (CHUNCHEON_BBOX[0] < lat < CHUNCHEON_BBOX[1]
+                                                        and CHUNCHEON_BBOX[2] < lng < CHUNCHEON_BBOX[3]):
+            # 춘천시 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 춘천시 범위 밖 — "
+                               "좌표 없음으로 표기하고 지오코딩 보완 대상으로 넘김")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음(0으로 등록)"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = chuncheon_dong_of(jibun)
+        if dong:
+            dong_src = "지번주소"
+        elif chuncheon_dong_of(road):
+            dong = chuncheon_dong_of(road)
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 동·읍·면 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:동|읍|면))", std_name)
+        if _name_head and _name_head.group(1) in CHUNCHEON_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 동·읍·면({_name_head.group(1)})과 지번주소 기준 "
+                              f"동·읍·면({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = chuncheon_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        _buje = (r.get("부제시행구분") or "").strip()
+        if _buje and _buje != "미시행":
+            note_bits.append(f"승용차 {_buje}를 시행하는 곳입니다")
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "춘천시", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _bunji = ""
+            for _tok in reversed(_parts):
+                if re.match(r"^\d+(?:-\d+)?$", _tok or ""):
+                    _bunji = _tok
+                    break
+            if not _bunji:
+                _bunji = _parts[3].split("(")[0] if len(_parts) > 3 else \
+                    (_parts[2] if len(_parts) > 2 else "")
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _bunji and not _same_place:
+                _suffix = f"({_bunji})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 지번 번지로 구분했다")
+
+    # 같은 지번·같은 좌표에 이름만 다르게 등록된 그룹 — 전부 다른 등록이라
+    #   합치지 않고 전부 싣는다(산청 선례). 춘천시는 3그룹이 있다.
+    _place_groups = {}
+    for l in lots:
+        if l["lat"] is None or l["lng"] is None:
+            continue
+        _place_groups.setdefault(((l.get("addr_jibun") or l.get("addr_road")),
+                                  l["lat"], l["lng"]), []).append(l)
+    for (_addr, _la, _ln), _grp in sorted(_place_groups.items(),
+                                          key=lambda kv: kv[1][0]["name"]):
+        if len(_grp) > 1 and len({x["name"] for x in _grp}) > 1:
+            _names = "·".join(x["name"] for x in _grp)
+            note_fixed.append(f"같은 자리·같은 좌표에 이름만 다른 등록: {_names} — "
+                              f"{_addr}에 좌표({_la}, {_ln})가 같게 등록돼 있다. "
+                              "이름이 다른 별개 등록이라 합치지 않고 전부 실었고, "
+                              "같은 시설의 중복 등록인지는 춘천시청 확인이 필요하다")
+    note_fixed.append("표준데이터 춘천 등록 89행 전부 공영이라 89행을 읽었다. "
+                      "데이터기준일자는 2026-04-14 89행, 제공기관명은 강원특별자치도 춘천시 "
+                      "89행, 관리기관명은 강원특별자치도 춘천시청 89행이다")
+    note_fixed.append("등록 급지구분은 89곳 전부 '3'이나, 조례 별표 1은 급지 구분이 없는 단일 "
+                      "요금표라 요금 계산에도 조례 요금표의 자리 수에도 쓰지 않았다")
+    note_fixed.append("좌표는 89행 전부 등록돼 있고 전부 춘천시 범위 안에 있다. 지오코딩 "
+                      "보완 대상이 없어 오버레이 추가도 0건이다")
+    note_fixed.append("운영요일은 89곳 전부 평일+토요일+공휴일이다. 운영시간은 무료 80곳 전부 "
+                      "00:00~23:59이고, 비무료 9곳 중 춘천시청은 전 요일 07:00~22:00, 나머지 "
+                      "8곳은 평일 08:00~20:00·토요일·공휴일 00:00~23:59이다. 부제시행구분은 "
+                      "춘천시청·춘천시청 별관만 2부제이다. 도로명주소는 61곳이 등록돼 있지 "
+                      "않다. 특기사항은 비무료 9곳만 할인 대상 나열이 있고, 결제방법은 비무료 "
+                      "9곳 현금+신용카드·무료 80곳 공란이다")
+    note_fixed.append("무료 80곳은 무료 등록이라 등록값을 유지했고, 비무료 9곳은 등록값이 조례 "
+                      "별표 1과 일치해 조례 기준으로 계산했다. 요금 구분이 '혼합'인 8곳도 "
+                      "금액이 일치해 유료로 계산하되 무료 구간은 단정하지 않았다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"gw-chuncheon-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"gw-chuncheon-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 춘천시는 좌표 결측 0곳이라 적용 대상이 없다.
+    _cf = apply_coord_fix(lots)
+
+    fee_table = chuncheon_fee_table(conf, lots)
+    quality = chuncheon_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                                fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-04-14",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"춘천시로 등록된 행 {len(rows_std)}행을 읽어 중복 "
+                 f"제거 {len(merged)}건, 제외 {len(excluded)}건으로 {len(lots)}곳을 실었다. "
+                 f"유료 {len([l for l in lots if l['fee']['type'] == '유료'])}곳·무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳·미상 "
+                 f"{len([l for l in lots if l['fee']['type'] == '미상'])}곳이다. "
+                 f"데이터기준일자는 2026-04-14이다. 좌표 결측은 0곳이다. "
+                 f"조례 대조 완료 — 「춘천시 주차장 설치 및 관리 조례」 제2051호(시행 "
+                 f"2026-04-23, ordinSeq 2125495) 제2조제1항·별표 1 원문 대조 완료(2026-11-21)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": CHUNCHEON_ORD_TXT.name if CHUNCHEON_ORD_TXT.exists() else None,
+            "sha256": sha256(CHUNCHEON_ORD_TXT) if CHUNCHEON_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2026-04-23",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"춘천시가 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/chuncheon-ordinance.txt, 별표 1 원문 HWP: "
+                    f"data/raw/chuncheon-ordinance-b1.hwp)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": CHUNCHEON_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "춘천시", "slug": "chuncheon"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": CHUNCHEON_PROVINCE,
+        "province_slug": CHUNCHEON_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "chuncheon_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+
 # 울진군 — 표준데이터 울진 등록 62행 중 민영 4행을
 #   빼면 공영 58행(노외 47·노상 10·부설 1, 총
 #   4,546면), 무료 57·혼합 1, 기준일 2026-04-20이다.
@@ -91267,7 +91885,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyeo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon", "uiryeong", "haman", "changnyeong", "pohang", "gyeongju", "gimcheon", "andong", "gumi", "yeongju", "yeongcheon", "sangju", "mungyeong", "gyeongsan", "cheongdo", "uisung", "cheongsong", "yeongyang", "yeongdeok", "goryeong", "seongju", "chilgok", "yecheon", "bonghwa", "uljin", "ulleung",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyeo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon", "uiryeong", "haman", "changnyeong", "pohang", "gyeongju", "gimcheon", "andong", "gumi", "yeongju", "yeongcheon", "sangju", "mungyeong", "gyeongsan", "cheongdo", "uisung", "cheongsong", "yeongyang", "yeongdeok", "goryeong", "seongju", "chilgok", "yecheon", "bonghwa", "uljin", "ulleung", "chuncheon",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -91285,7 +91903,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "포항시", "경주시", "김천시", "안동시", "구미시", "영주시", "영천시", "상주시", "문경시", "경산시", "청도군", "의성군", "청송군", "영양군", "영덕군", "고령군", "성주군", "칠곡군", "예천군", "봉화군", "울진군", "울릉군"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "포항시", "경주시", "김천시", "안동시", "구미시", "영주시", "영천시", "상주시", "문경시", "경산시", "청도군", "의성군", "청송군", "영양군", "영덕군", "고령군", "성주군", "칠곡군", "예천군", "봉화군", "울진군", "울릉군", "춘천시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -91343,7 +91961,7 @@ def main():
                                 "tongyeong": ["통영시"],
                                 "sacheon": ["사천시"],
                                 "gimhae": ["김해시"], "miryang": ["밀양시"],
-                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"], "hamyang": ["함양군"], "geochang": ["거창군"], "hapcheon": ["합천군"], "uiryeong": ["의령군"], "haman": ["함안군"], "changnyeong": ["창녕군"], "pohang": ["포항시"], "gyeongju": ["경주시"], "gimcheon": ["김천시"], "andong": ["안동시"], "gumi": ["구미시"], "yeongju": ["영주시"], "yeongcheon": ["영천시"], "sangju": ["상주시"], "mungyeong": ["문경시"], "gyeongsan": ["경산시"], "cheongdo": ["청도군"], "uisung": ["의성군"], "cheongsong": ["청송군"], "yeongyang": ["영양군"], "yeongdeok": ["영덕군"], "goryeong": ["고령군"], "seongju": ["성주군"], "chilgok": ["칠곡군"], "yecheon": ["예천군"], "bonghwa": ["봉화군"], "uljin": ["울진군"], "ulleung": ["울릉군"]}[args.city])
+                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"], "hamyang": ["함양군"], "geochang": ["거창군"], "hapcheon": ["합천군"], "uiryeong": ["의령군"], "haman": ["함안군"], "changnyeong": ["창녕군"], "pohang": ["포항시"], "gyeongju": ["경주시"], "gimcheon": ["김천시"], "andong": ["안동시"], "gumi": ["구미시"], "yeongju": ["영주시"], "yeongcheon": ["영천시"], "sangju": ["상주시"], "mungyeong": ["문경시"], "gyeongsan": ["경산시"], "cheongdo": ["청도군"], "uisung": ["의성군"], "cheongsong": ["청송군"], "yeongyang": ["영양군"], "yeongdeok": ["영덕군"], "goryeong": ["고령군"], "seongju": ["성주군"], "chilgok": ["칠곡군"], "yecheon": ["예천군"], "bonghwa": ["봉화군"], "uljin": ["울진군"], "ulleung": ["울릉군"], "chuncheon": ["춘천시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -91649,6 +92267,8 @@ def main():
         cities.append(build_uljin())
     if "울릉군" in want:
         cities.append(build_ulleung())
+    if "춘천시" in want:
+        cities.append(build_chuncheon())
 
     if args.city == "all":
         site = build_site_payload(cities)
