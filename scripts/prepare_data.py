@@ -1696,6 +1696,9 @@ def build_yongin():
     order = {g: i for i, (g, _) in enumerate(YONGIN_DISTRICTS)}
     lots.sort(key=lambda l: (order[l["gu"]], l["list_mode"] != "card", l["name"]))
 
+    # 사후 감사 2·3배치: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다.
+    _cf = apply_coord_fix(lots)
     quality = check_quality_yongin(rows_all, rows, lots, excluded)
     payload = {
         "meta": {
@@ -10107,6 +10110,9 @@ def build_gwangmyeong():
     for i, l in enumerate(lots, 1):
         l["id"] = f"gmy-{i:03d}" if l["list_mode"] == "card" else f"gmy-s{i:03d}"
 
+    # 사후 감사 2·3배치: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다.
+    _cf = apply_coord_fix(lots)
     quality = check_quality_gwangmyeong(rows_all, rows_city, lots, excluded, merged, hour_fixed,
                                         space_diff, note_fixed, ticket_diff, corp_missing,
                                         city_only)
@@ -11898,6 +11904,9 @@ def build_icheon():
     for i, l in enumerate(lots, 1):
         l["id"] = f"ich-{i:03d}" if l["list_mode"] == "card" else f"ich-s{i:03d}"
 
+    # 사후 감사 2·3배치: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다.
+    _cf = apply_coord_fix(lots)
     quality = check_quality_icheon(rows_all, rows_city, lots, excluded, merged, hour_fixed,
                                    space_diff, note_fixed, ticket_diff)
     payload = {
@@ -12489,6 +12498,9 @@ def build_anseong():
     for i, l in enumerate(lots, 1):
         l["id"] = f"aseo-{i:03d}" if l["list_mode"] == "card" else f"aseo-s{i:03d}"
 
+    # 사후 감사 2·3배치: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다.
+    _cf = apply_coord_fix(lots)
     quality = check_quality_anseong(rows_all, rows_city, lots, excluded, merged, hour_fixed,
                                     space_diff, note_fixed, reclassified)
     payload = {
@@ -33412,7 +33424,7 @@ BUYO_DISCOUNTS = [
 
 BUYO_CONF = {
     "city": "부여군",
-    "slug": "buyo",
+    "slug": "buyeo",
     "manager": "충청남도 부여군 경제교통과",
     "manager_inquiry": "부여군청(041-830-2284)",
     "ordinance": ("「부여군 주차장 조례」 제3147호(시행 2026-08-25, 일부개정)",
@@ -33427,14 +33439,14 @@ BUYO_CONF = {
 }
 
 
-def buyo_dong_of(addr, name=None):
+def buyeo_dong_of(addr, name=None):
     if not addr:
         return None
     m = re.search(r"부여군\s*([가-힣]{1,6}(?:읍|면))", addr)
     return m.group(1) if m else None
 
 
-def buyo_fee(row, name, note_bits, fee_diff):
+def buyeo_fee(row, name, note_bits, fee_diff):
     """부여군 공영주차장 한 곳의 요금 — 67곳은 무료, 부여읍 5곳만 유료다.
     유료 5곳은 등록값이 모두 같고(기본 40분 500원·추가 10분당 300원·1일권
     7,000원·월정기 50,000원 — 사비로유료주차장만 월정기 없음), 「부여군 주차장
@@ -33487,11 +33499,11 @@ def buyo_fee(row, name, note_bits, fee_diff):
     return fee
 
 
-def _buyo_tier_of(lot):
+def _buyeo_tier_of(lot):
     return "paid_base"
 
 
-def buyo_fee_table(conf, lots):
+def buyeo_fee_table(conf, lots):
     paid = [l for l in lots if l["fee"]["type"] in ("유료", "혼합")]
     free = [l for l in lots if l["fee"]["type"] == "무료"]
     street_paid = [l for l in paid if l["list_mode"] == "street"]
@@ -33504,7 +33516,7 @@ def buyo_fee_table(conf, lots):
              "hour": sj_charge(g, 60), "two_hour": sj_charge(g, 120),
              "day": 7000, "month": 50000, "lots": len(paid)}]
     return {
-        "style": "buyo_grade",
+        "style": "buyeo_grade",
         "rows": rows,
         "windows": [{"group": "공통", "hours": "08:00~19:00",
                      "free": "유료 5곳의 등록 운영시간이다(조례에 징수시간 규정은 없다)"}],
@@ -33523,7 +33535,7 @@ def buyo_fee_table(conf, lots):
     }
 
 
-def buyo_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+def buyeo_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
                  space_diff, dong_fixed, coord_fixed):
     card = [l for l in lots if l["list_mode"] == "card"]
     street = [l for l in lots if l["list_mode"] == "street"]
@@ -33589,7 +33601,7 @@ def buyo_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fe
     }
 
 
-def build_buyo():
+def build_buyeo():
     """부여군 하나를 표준데이터로 추출한다 (build_gyeryong 의 부여군 변형). 조례
     대조 완료 — 「부여군 주차장 조례」 제3147호(시행 2026-08-25, ordinSeq
     2165227) 별표·제4조의2 원문 대조 완료(2026-11-20). 72행 전부 공영이라
@@ -33686,10 +33698,10 @@ def build_buyo():
         if reason:
             excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
             continue
-        dong = buyo_dong_of(jibun, std_name) or buyo_dong_of(road, std_name)
-        if buyo_dong_of(jibun, None):
+        dong = buyeo_dong_of(jibun, std_name) or buyeo_dong_of(road, std_name)
+        if buyeo_dong_of(jibun, None):
             dong_src = "지번주소"
-        elif buyo_dong_of(road, None):
+        elif buyeo_dong_of(road, None):
             dong_src = "도로명주소"
         elif dong:
             dong_src = "이름"
@@ -33699,7 +33711,7 @@ def build_buyo():
         win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
         note = r.get("특기사항") or ""
         note_bits, free_days = [], {"sat": False, "sun": False}
-        fee = buyo_fee(r, std_name, note_bits, fee_diff)
+        fee = buyeo_fee(r, std_name, note_bits, fee_diff)
         if fee["type"] == "무료":
             note_bits.append("요금을 받지 않는 무료 공영주차장입니다")
         if lat is None or lng is None:
@@ -33814,13 +33826,16 @@ def build_buyo():
     for l in lots:
         if l["list_mode"] == "card":
             n_card += 1
-            l["id"] = f"ca-buyo-{n_card:03d}"
+            l["id"] = f"ca-buyeo-{n_card:03d}"
         else:
             n_street += 1
-            l["id"] = f"ca-buyo-s{n_street:03d}"
+            l["id"] = f"ca-buyeo-s{n_street:03d}"
 
-    fee_table = buyo_fee_table(conf, lots)
-    quality = buyo_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+    # 사후 감사 2·3배치: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다.
+    _cf = apply_coord_fix(lots)
+    fee_table = buyeo_fee_table(conf, lots)
+    quality = buyeo_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
                            fee_diff, space_diff, dong_fixed, coord_fixed)
     city_fee_src = {
         "id": "std", "name": "전국주차장정보표준데이터",
@@ -33862,7 +33877,7 @@ def build_buyo():
             "region": {"province": BUYO_PROVINCE, "city": conf["city"]},
             "sources": sources,
         },
-        "districts": [{"name": "부여군", "slug": "buyo"}],
+        "districts": [{"name": "부여군", "slug": "buyeo"}],
         "lots": lots,
         "quality": quality,
         "fee_table": fee_table,
@@ -33876,7 +33891,7 @@ def build_buyo():
         "city_discounts": [],
         "realtime": False,
     })
-    (DATA / "buyo_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    (DATA / "buyeo_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
     return payload
 
 
@@ -34118,7 +34133,7 @@ def seocheon_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed
 
 
 def build_seocheon():
-    """서천군 하나를 표준데이터로 추출한다 (build_buyo 의 서천군 변형). 조례
+    """서천군 하나를 표준데이터로 추출한다 (build_buyeo 의 서천군 변형). 조례
     대조 완료 — 「서천군 주차장 조례」 제2907호(시행 2023-12-20, ordinSeq
     1884647) 별표1·제4조·제5조 원문 대조 완료(2026-11-20). 28행 전부
     공영·노외·무료라 민영 제외는 없고, 같은 자리의 재등록 3쌍을 합쳐 25곳을
@@ -34382,6 +34397,9 @@ def build_seocheon():
             n_street += 1
             l["id"] = f"ca-seocheon-s{n_street:03d}"
 
+    # 사후 감사 2·3배치: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다.
+    _cf = apply_coord_fix(lots)
     fee_table = seocheon_fee_table(conf, lots)
     quality = seocheon_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
                                fee_diff, space_diff, dong_fixed, coord_fixed)
@@ -34690,7 +34708,7 @@ def cheongyang_quality(conf, std_all, rows_std, lots, excluded, merged, note_fix
 
 
 def build_cheongyang():
-    """청양군 하나를 표준데이터로 추출한다 (build_buyo 의 청양군 변형). 조례
+    """청양군 하나를 표준데이터로 추출한다 (build_buyeo 의 청양군 변형). 조례
     대조 완료 — 「청양군 주차장 설치 조례」 제2932호(시행 2025-12-15, ordinSeq
     2092155) 별표1·제4조 원문 대조 완료(2026-11-20). 25행 전부 공영이라
     민영 제외는 없고, 유료 2곳은 등록 무료 시간(120분)이 조례(60분)와 달라
@@ -34917,6 +34935,9 @@ def build_cheongyang():
             n_street += 1
             l["id"] = f"ca-cheongyang-s{n_street:03d}"
 
+    # 사후 감사 2·3배치: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다.
+    _cf = apply_coord_fix(lots)
     fee_table = cheongyang_fee_table(conf, lots)
     quality = cheongyang_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
                                  fee_diff, space_diff, dong_fixed, coord_fixed)
@@ -35487,6 +35508,9 @@ def build_hongseong():
             n_street += 1
             l["id"] = f"ca-hongseong-s{n_street:03d}"
 
+    # 사후 감사 2·3배치: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다.
+    _cf = apply_coord_fix(lots)
     fee_table = hongseong_fee_table(conf, lots)
     quality = hongseong_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
                                  fee_diff, space_diff, dong_fixed, coord_fixed)
@@ -36005,6 +36029,9 @@ def build_yesan():
             n_street += 1
             l["id"] = f"ca-yesan-s{n_street:03d}"
 
+    # 사후 감사 2·3배치: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다.
+    _cf = apply_coord_fix(lots)
     fee_table = yesan_fee_table(conf, lots)
     quality = yesan_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
                             fee_diff, space_diff, dong_fixed, coord_fixed)
@@ -37147,6 +37174,9 @@ def build_chungju():
             n_street += 1
             l["id"] = f"cj-chungju-s{n_street:03d}"
 
+    # 사후 감사 2·3배치: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다.
+    _cf = apply_coord_fix(lots)
     fee_table = chungju_fee_table(conf, lots)
     quality = chungju_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
                               fee_diff, space_diff, dong_fixed, coord_fixed)
@@ -78230,6 +78260,9 @@ def gyeongju_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed
         "급지_요금_차이": fee_diff,
         "좌표_보정": coord_fixed,
         "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "확인_과제": ["신경주역 클러스터(건천읍 화천리 1354-1·같은 좌표 3건: KTX신경주역공영주차장·"
+                     "경주역공영주차장·신경주역 공영주차장) — 유료·무료 이중 등록 여부 및 실제 운영 요금 "
+                     "미확인, 경주시·경주시시설관리공단 확인 필요 (사후 감사 2배치)"],
         "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
         "감면_출처": ("「경주시 주차장 조례」 제1954호 제3조 — 면제(제2항): 긴급자동차, "
                       "성실납세증 표지 부착 차량(교부일부터 1년), 국가·지방자치단체 소유 "
@@ -78519,6 +78552,15 @@ def build_gyeongju():
         else:
             n_street += 1
             l["id"] = f"gb-gyeongju-s{n_street:03d}"
+
+    # 사후 감사 2배치: 신경주역 클러스터 — 같은 지번(건천읍 화천리 1354-1)·좌표에
+    #   3건이 함께 등록돼 있어 이중 등록 여부가 미확인 (유료 2곳·무료 1곳, 요금 충돌).
+    #   상세 페이지에 '미확인' 표기를 달고, 경주시·공단 확인은 운영자 몫의 확인 과제로 남긴다.
+    for l in lots:
+        if l.get("id") in ("gb-gyeongju-012", "gb-gyeongju-029", "gb-gyeongju-031"):
+            l["notice"] = ("같은 지번(건천읍 화천리 1354-1)·좌표에 3건이 함께 등록돼 있어 이중 등록 "
+                           "여부가 미확인 상태입니다(유료 2곳·무료 1곳, 요금 충돌) — 경주시·경주시시설관리공단 "
+                           "확인이 필요합니다.")
 
     # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
     #   적용한다. 경주시는 보완된 좌표가 없어 적용 대상이 없다.
@@ -81903,7 +81945,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon", "uiryeong", "haman", "changnyeong", "pohang", "gyeongju", "gimcheon", "andong", "gumi", "yeongju", "yeongcheon",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyeo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon", "uiryeong", "haman", "changnyeong", "pohang", "gyeongju", "gimcheon", "andong", "gumi", "yeongju", "yeongcheon",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -81974,7 +82016,7 @@ def main():
              "ulsanulju": ["울산 울주군"],
              "sejongsi": ["세종특별자치시"], "jejusi": ["제주시"],
              "seogwiposi": ["서귀포시"], "cheongju": ["청주시"],
-             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "iksan": ["익산시"], "jeongeup": ["정읍시"], "namwon": ["남원시"], "gimje": ["김제시"], "wanju": ["완주군"], "jinan": ["진안군"], "muju": ["무주군"], "jangsu": ["장수군"], "imsil": ["임실군"], "sunchang": ["순창군"], "gochang": ["고창군"], "buan": ["부안군"], "mokpo": ["목포시"], "yeosu": ["여수시"], "suncheon": ["순천시"], "naju": ["나주시"], "gwangyang": ["광양시"], "muan": ["무안군"], "yeongam": ["영암군"], "haenam": ["해남군"], "goheung": ["고흥군"], "boseong": ["보성군"], "hwasun": ["화순군"], "jangheung": ["장흥군"], "gangjin": ["강진군"], "hampyeong": ["함평군"], "geumsan": ["금산군"], "yeonggwang": ["영광군"], "jangseong": ["장성군"], "wando": ["완도군"], "jindo": ["진도군"], "sinan": ["신안군"], "gurye": ["구례군"], "gokseong": ["곡성군"], "damyang": ["담양군"], "changwon": ["창원시"],
+             "cheonan": ["천안시"], "asan": ["아산시"], "seosan": ["서산시"], "dangjin": ["당진시"], "gongju": ["공주시"], "nonsan": ["논산시"], "boryeong": ["보령시"], "gyeryong": ["계룡시"], "buyeo": ["부여군"], "seocheon": ["서천군"], "cheongyang": ["청양군"], "hongseong": ["홍성군"], "yesan": ["예산군"], "taean": ["태안군"], "chungju": ["충주시"], "jecheon": ["제천시"], "boeun": ["보은군"], "okcheon": ["옥천군"], "yeongdong": ["영동군"], "jeungpyeong": ["증평군"], "jincheon": ["진천군"], "goesan": ["괴산군"], "eumseong": ["음성군"], "danyang": ["단양군"], "jeonju": ["전주시"], "gunsan": ["군산시"], "iksan": ["익산시"], "jeongeup": ["정읍시"], "namwon": ["남원시"], "gimje": ["김제시"], "wanju": ["완주군"], "jinan": ["진안군"], "muju": ["무주군"], "jangsu": ["장수군"], "imsil": ["임실군"], "sunchang": ["순창군"], "gochang": ["고창군"], "buan": ["부안군"], "mokpo": ["목포시"], "yeosu": ["여수시"], "suncheon": ["순천시"], "naju": ["나주시"], "gwangyang": ["광양시"], "muan": ["무안군"], "yeongam": ["영암군"], "haenam": ["해남군"], "goheung": ["고흥군"], "boseong": ["보성군"], "hwasun": ["화순군"], "jangheung": ["장흥군"], "gangjin": ["강진군"], "hampyeong": ["함평군"], "geumsan": ["금산군"], "yeonggwang": ["영광군"], "jangseong": ["장성군"], "wando": ["완도군"], "jindo": ["진도군"], "sinan": ["신안군"], "gurye": ["구례군"], "gokseong": ["곡성군"], "damyang": ["담양군"], "changwon": ["창원시"],
                                 "jinju": ["진주시"],
                                 "tongyeong": ["통영시"],
                                 "sacheon": ["사천시"],
@@ -82101,7 +82143,7 @@ def main():
     if "계룡시" in want:
         cities.append(build_gyeryong())
     if "부여군" in want:
-        cities.append(build_buyo())
+        cities.append(build_buyeo())
     if "서천군" in want:
         cities.append(build_seocheon())
     if "청양군" in want:

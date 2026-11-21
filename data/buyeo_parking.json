@@ -1,8 +1,8 @@
 {
  "meta": {
-  "generated_at": "2026-11-21 09:55",
-  "generated_at_iso": "2026-11-21T09:55:33+09:00",
-  "snapshot_at": "2026-11-21 09:55",
+  "generated_at": "2026-11-21 11:10",
+  "generated_at_iso": "2026-11-21T11:10:51+09:00",
+  "snapshot_at": "2026-11-21 11:10",
   "region": {
    "province": "충청남도",
    "city": "부여군"
@@ -19,7 +19,7 @@
     "base_date": "2026-10-12",
     "rows_total": 18994,
     "rows_city": 72,
-    "fetched_at": "2026-11-21 09:55 (KST)",
+    "fetched_at": "2026-11-21 11:10 (KST)",
     "note": "부여군으로 등록된 행 72행(노외·부설 57·노상 15)을 읽어 노외·부설 57곳과 노상 15구간을 실었다. 부여군 등록 행은 전부 공영이라 민영 제외는 없다. 요금·운영시간·면수는 등록값을 그대로 썼고, 유료 5곳의 요금 구조는 조례 별표 기준으로 적용했다. 조례 대조 완료 — 「부여군 주차장 조례」 제3147호(시행 2026-08-25, ordinSeq 2165227) 별표·제4조의2 원문 대조 완료(2026-11-20)."
    },
    {
@@ -32,7 +32,7 @@
     "license": "자치법규(공개)",
     "base_date": "2026-08-25",
     "rows_total": null,
-    "fetched_at": "2026-11-21 09:55 (KST)",
+    "fetched_at": "2026-11-21 11:10 (KST)",
     "note": "부여군이 설치·관리하는 공영주차장에 적용하는 조례다. 부여군 공영주차장은 조례 별표가 급지 구분 없이 단일 요율이다: 최초 40분 무료, 40분 초과 1시간 이내 500원, 1시간 초과 시 10분마다 300원, 1일 7,000원(초과 불가 상한), 월정기 50,000원(지정 구간만). 유료는 부여읍 5곳뿐이고 나머지 67곳은 무료로 등록돼 있다(조례 제4조제3항의 무료 운영). 승용차 요일제 감면(10부제 20%·5부제 40%·2부제 50%)은 조례 제4조의2제2항에 있어 안내문에만 적는다. (조례 본문: data/raw/buyeo-ordinance.txt, 별표 원문 HWPX: data/raw/buyeo-ordinance-b1.hwp)"
    }
   ]
@@ -40,12 +40,12 @@
  "districts": [
   {
    "name": "부여군",
-   "slug": "buyo"
+   "slug": "buyeo"
   }
  ],
  "lots": [
   {
-   "id": "ca-buyo-001",
+   "id": "ca-buyeo-001",
    "mgmt_no": "294-2-000045",
    "src": "표준데이터",
    "list_mode": "card",
@@ -155,11 +155,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-002",
+   "id": "ca-buyeo-002",
    "mgmt_no": "294-2-000044",
    "src": "표준데이터",
    "list_mode": "card",
@@ -269,11 +269,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-003",
+   "id": "ca-buyeo-003",
    "mgmt_no": "294-2-000047",
    "src": "표준데이터",
    "list_mode": "card",
@@ -383,11 +383,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-004",
+   "id": "ca-buyeo-004",
    "mgmt_no": "294-2-000046",
    "src": "표준데이터",
    "list_mode": "card",
@@ -497,11 +497,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-005",
+   "id": "ca-buyeo-005",
    "mgmt_no": "294-2-000024",
    "src": "표준데이터",
    "list_mode": "card",
@@ -611,11 +611,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-006",
+   "id": "ca-buyeo-006",
    "mgmt_no": "294-2-000025",
    "src": "표준데이터",
    "list_mode": "card",
@@ -725,11 +725,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-007",
+   "id": "ca-buyeo-007",
    "mgmt_no": "294-2-000026",
    "src": "표준데이터",
    "list_mode": "card",
@@ -839,11 +839,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-008",
+   "id": "ca-buyeo-008",
    "mgmt_no": "294-2-000041",
    "src": "표준데이터",
    "list_mode": "card",
@@ -953,11 +953,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-009",
+   "id": "ca-buyeo-009",
    "mgmt_no": "294-2-000032",
    "src": "표준데이터",
    "list_mode": "card",
@@ -1067,11 +1067,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-010",
+   "id": "ca-buyeo-010",
    "mgmt_no": "294-2-000039",
    "src": "표준데이터",
    "list_mode": "card",
@@ -1181,11 +1181,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-011",
+   "id": "ca-buyeo-011",
    "mgmt_no": "294-2-000040",
    "src": "표준데이터",
    "list_mode": "card",
@@ -1295,11 +1295,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-012",
+   "id": "ca-buyeo-012",
    "mgmt_no": "294-2-000038",
    "src": "표준데이터",
    "list_mode": "card",
@@ -1409,11 +1409,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-013",
+   "id": "ca-buyeo-013",
    "mgmt_no": "294-2-000011",
    "src": "표준데이터",
    "list_mode": "card",
@@ -1523,11 +1523,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-014",
+   "id": "ca-buyeo-014",
    "mgmt_no": "294-2-000012",
    "src": "표준데이터",
    "list_mode": "card",
@@ -1637,11 +1637,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-015",
+   "id": "ca-buyeo-015",
    "mgmt_no": "294-2-000013",
    "src": "표준데이터",
    "list_mode": "card",
@@ -1751,11 +1751,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-016",
+   "id": "ca-buyeo-016",
    "mgmt_no": "294-2-000005",
    "src": "표준데이터",
    "list_mode": "card",
@@ -1876,11 +1876,11 @@
    "udc_id": null,
    "price_key": 0,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-017",
+   "id": "ca-buyeo-017",
    "mgmt_no": "294-2-000006",
    "src": "표준데이터",
    "list_mode": "card",
@@ -1990,11 +1990,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-018",
+   "id": "ca-buyeo-018",
    "mgmt_no": "294-2-000014",
    "src": "표준데이터",
    "list_mode": "card",
@@ -2104,11 +2104,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-019",
+   "id": "ca-buyeo-019",
    "mgmt_no": "294-2-000015",
    "src": "표준데이터",
    "list_mode": "card",
@@ -2218,11 +2218,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-020",
+   "id": "ca-buyeo-020",
    "mgmt_no": "294-2-000042",
    "src": "표준데이터",
    "list_mode": "card",
@@ -2332,11 +2332,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-021",
+   "id": "ca-buyeo-021",
    "mgmt_no": "294-2-000016",
    "src": "표준데이터",
    "list_mode": "card",
@@ -2446,11 +2446,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-022",
+   "id": "ca-buyeo-022",
    "mgmt_no": "294-2-000018",
    "src": "표준데이터",
    "list_mode": "card",
@@ -2560,11 +2560,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-023",
+   "id": "ca-buyeo-023",
    "mgmt_no": "294-2-000019",
    "src": "표준데이터",
    "list_mode": "card",
@@ -2674,11 +2674,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-024",
+   "id": "ca-buyeo-024",
    "mgmt_no": "294-2-000017",
    "src": "표준데이터",
    "list_mode": "card",
@@ -2788,11 +2788,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-025",
+   "id": "ca-buyeo-025",
    "mgmt_no": "294-2-000020",
    "src": "표준데이터",
    "list_mode": "card",
@@ -2902,11 +2902,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-026",
+   "id": "ca-buyeo-026",
    "mgmt_no": "294-2-000021",
    "src": "표준데이터",
    "list_mode": "card",
@@ -3016,11 +3016,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-027",
+   "id": "ca-buyeo-027",
    "mgmt_no": "294-2-000022",
    "src": "표준데이터",
    "list_mode": "card",
@@ -3130,11 +3130,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-028",
+   "id": "ca-buyeo-028",
    "mgmt_no": "294-2-000010",
    "src": "표준데이터",
    "list_mode": "card",
@@ -3244,11 +3244,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-029",
+   "id": "ca-buyeo-029",
    "mgmt_no": "294-2-000001",
    "src": "표준데이터",
    "list_mode": "card",
@@ -3369,11 +3369,11 @@
    "udc_id": null,
    "price_key": 0,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-030",
+   "id": "ca-buyeo-030",
    "mgmt_no": "294-2-000008",
    "src": "표준데이터",
    "list_mode": "card",
@@ -3483,11 +3483,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-031",
+   "id": "ca-buyeo-031",
    "mgmt_no": "294-2-000003",
    "src": "표준데이터",
    "list_mode": "card",
@@ -3608,11 +3608,11 @@
    "udc_id": null,
    "price_key": 0,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-032",
+   "id": "ca-buyeo-032",
    "mgmt_no": "294-2-000007",
    "src": "표준데이터",
    "list_mode": "card",
@@ -3733,11 +3733,11 @@
    "udc_id": null,
    "price_key": 0,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-033",
+   "id": "ca-buyeo-033",
    "mgmt_no": "294-2-000004",
    "src": "표준데이터",
    "list_mode": "card",
@@ -3847,11 +3847,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-034",
+   "id": "ca-buyeo-034",
    "mgmt_no": "294-2-000034",
    "src": "표준데이터",
    "list_mode": "card",
@@ -3961,11 +3961,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-035",
+   "id": "ca-buyeo-035",
    "mgmt_no": "294-2-000035",
    "src": "표준데이터",
    "list_mode": "card",
@@ -4075,11 +4075,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-036",
+   "id": "ca-buyeo-036",
    "mgmt_no": "294-2-000036",
    "src": "표준데이터",
    "list_mode": "card",
@@ -4189,11 +4189,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-037",
+   "id": "ca-buyeo-037",
    "mgmt_no": "294-2-000037",
    "src": "표준데이터",
    "list_mode": "card",
@@ -4303,11 +4303,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-038",
+   "id": "ca-buyeo-038",
    "mgmt_no": "294-2-000031",
    "src": "표준데이터",
    "list_mode": "card",
@@ -4417,11 +4417,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-039",
+   "id": "ca-buyeo-039",
    "mgmt_no": "294-2-000023",
    "src": "표준데이터",
    "list_mode": "card",
@@ -4531,11 +4531,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-040",
+   "id": "ca-buyeo-040",
    "mgmt_no": "294-2-000009",
    "src": "표준데이터",
    "list_mode": "card",
@@ -4645,11 +4645,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-041",
+   "id": "ca-buyeo-041",
    "mgmt_no": "294-2-000033",
    "src": "표준데이터",
    "list_mode": "card",
@@ -4759,11 +4759,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-042",
+   "id": "ca-buyeo-042",
    "mgmt_no": "294-2-000048",
    "src": "표준데이터",
    "list_mode": "card",
@@ -4873,11 +4873,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-043",
+   "id": "ca-buyeo-043",
    "mgmt_no": "294-2-000030",
    "src": "표준데이터",
    "list_mode": "card",
@@ -4987,11 +4987,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-044",
+   "id": "ca-buyeo-044",
    "mgmt_no": "294-2-000049",
    "src": "표준데이터",
    "list_mode": "card",
@@ -5101,11 +5101,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-045",
+   "id": "ca-buyeo-045",
    "mgmt_no": "294-2-000043",
    "src": "표준데이터",
    "list_mode": "card",
@@ -5215,11 +5215,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-046",
+   "id": "ca-buyeo-046",
    "mgmt_no": "294-2-000050",
    "src": "표준데이터",
    "list_mode": "card",
@@ -5329,11 +5329,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-047",
+   "id": "ca-buyeo-047",
    "mgmt_no": "294-2-000002",
    "src": "표준데이터",
    "list_mode": "card",
@@ -5443,11 +5443,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-048",
+   "id": "ca-buyeo-048",
    "mgmt_no": "294-2-000027",
    "src": "표준데이터",
    "list_mode": "card",
@@ -5557,11 +5557,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-049",
+   "id": "ca-buyeo-049",
    "mgmt_no": "294-2-000051",
    "src": "표준데이터",
    "list_mode": "card",
@@ -5671,11 +5671,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-050",
+   "id": "ca-buyeo-050",
    "mgmt_no": "294-2-000054",
    "src": "표준데이터",
    "list_mode": "card",
@@ -5785,11 +5785,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-051",
+   "id": "ca-buyeo-051",
    "mgmt_no": "294-2-000052",
    "src": "표준데이터",
    "list_mode": "card",
@@ -5899,11 +5899,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-052",
+   "id": "ca-buyeo-052",
    "mgmt_no": "294-2-000053",
    "src": "표준데이터",
    "list_mode": "card",
@@ -6013,11 +6013,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-053",
+   "id": "ca-buyeo-053",
    "mgmt_no": "294-2-000055",
    "src": "표준데이터",
    "list_mode": "card",
@@ -6127,11 +6127,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-054",
+   "id": "ca-buyeo-054",
    "mgmt_no": "294-2-000056",
    "src": "표준데이터",
    "list_mode": "card",
@@ -6241,11 +6241,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-055",
+   "id": "ca-buyeo-055",
    "mgmt_no": "294-2-000029",
    "src": "표준데이터",
    "list_mode": "card",
@@ -6355,11 +6355,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-056",
+   "id": "ca-buyeo-056",
    "mgmt_no": "294-2-000057",
    "src": "표준데이터",
    "list_mode": "card",
@@ -6469,11 +6469,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-057",
+   "id": "ca-buyeo-057",
    "mgmt_no": "294-2-000028",
    "src": "표준데이터",
    "list_mode": "card",
@@ -6583,11 +6583,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-s001",
+   "id": "ca-buyeo-s001",
    "mgmt_no": "294-1-000007",
    "src": "표준데이터",
    "list_mode": "street",
@@ -6697,11 +6697,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-s002",
+   "id": "ca-buyeo-s002",
    "mgmt_no": "294-1-000015",
    "src": "표준데이터",
    "list_mode": "street",
@@ -6811,11 +6811,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-s003",
+   "id": "ca-buyeo-s003",
    "mgmt_no": "294-1-000004",
    "src": "표준데이터",
    "list_mode": "street",
@@ -6925,11 +6925,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-s004",
+   "id": "ca-buyeo-s004",
    "mgmt_no": "294-1-000008",
    "src": "표준데이터",
    "list_mode": "street",
@@ -7039,11 +7039,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-s005",
+   "id": "ca-buyeo-s005",
    "mgmt_no": "294-1-000012",
    "src": "표준데이터",
    "list_mode": "street",
@@ -7153,11 +7153,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-s006",
+   "id": "ca-buyeo-s006",
    "mgmt_no": "294-1-000014",
    "src": "표준데이터",
    "list_mode": "street",
@@ -7267,11 +7267,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-s007",
+   "id": "ca-buyeo-s007",
    "mgmt_no": "294-1-000010",
    "src": "표준데이터",
    "list_mode": "street",
@@ -7381,11 +7381,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-s008",
+   "id": "ca-buyeo-s008",
    "mgmt_no": "294-1-000011",
    "src": "표준데이터",
    "list_mode": "street",
@@ -7495,11 +7495,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-s009",
+   "id": "ca-buyeo-s009",
    "mgmt_no": "294-1-000013",
    "src": "표준데이터",
    "list_mode": "street",
@@ -7609,11 +7609,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-s010",
+   "id": "ca-buyeo-s010",
    "mgmt_no": "294-1-000001",
    "src": "표준데이터",
    "list_mode": "street",
@@ -7734,11 +7734,11 @@
    "udc_id": null,
    "price_key": 0,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-s011",
+   "id": "ca-buyeo-s011",
    "mgmt_no": "294-1-000002",
    "src": "표준데이터",
    "list_mode": "street",
@@ -7848,11 +7848,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-s012",
+   "id": "ca-buyeo-s012",
    "mgmt_no": "294-1-000003",
    "src": "표준데이터",
    "list_mode": "street",
@@ -7962,11 +7962,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-s013",
+   "id": "ca-buyeo-s013",
    "mgmt_no": "294-1-000009",
    "src": "표준데이터",
    "list_mode": "street",
@@ -8076,11 +8076,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-s014",
+   "id": "ca-buyeo-s014",
    "mgmt_no": "294-1-000005",
    "src": "표준데이터",
    "list_mode": "street",
@@ -8190,11 +8190,11 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   },
   {
-   "id": "ca-buyo-s015",
+   "id": "ca-buyeo-s015",
    "mgmt_no": "294-1-000006",
    "src": "표준데이터",
    "list_mode": "street",
@@ -8304,12 +8304,12 @@
    "udc_id": null,
    "price_key": null,
    "city": "부여군",
-   "city_slug": "buyo",
+   "city_slug": "buyeo",
    "zone": null
   }
  ],
  "quality": {
-  "generated_at": "2026-11-21 09:55",
+  "generated_at": "2026-11-21 11:10",
   "원자료_전국행수": 18994,
   "원자료_행수": 72,
   "원자료_부여군행수": 72,
@@ -8403,7 +8403,7 @@
   }
  },
  "fee_table": {
-  "style": "buyo_grade",
+  "style": "buyeo_grade",
   "rows": [
    {
     "label": "전 지역 (급지 구분 없음)",
@@ -8431,7 +8431,7 @@
   "notes": "승용차 요일제 감면(조례 제4조의2제2항: 10부제 20%·5부제 40%·2부제 50%)은 계산기 버튼에 넣지 않고 이 안내로만 알립니다. 사비로유료주차장(노상)은 월정기가 등록돼 있지 않습니다(조례 별표 비고3: 월정기는 지정 구간만 인정). 같은 자리(부여읍 구아리 66-7)에 무료인 성왕로터리노상주차장과 유료인 사비로유료주차장이 함께 등록돼 있어, 어느 구간이 유료인지는 군청 확인이 필요합니다.",
   "basis": "요금은 「부여군 주차장 조례」 제3147호(2026-08-25 시행) 별표(공영주차장 주차요금표)와 표준데이터(부여군청, 기준일 2026-04-24)를 대조해 적용했다. (조례 본문: data/raw/buyeo-ordinance.txt, 별표 원문 HWPX: data/raw/buyeo-ordinance-b1.hwp)"
  },
- "slug": "buyo",
+ "slug": "buyeo",
  "province": "충청남도",
  "province_slug": "chungnam",
  "dong_page_min_lots": 3,
