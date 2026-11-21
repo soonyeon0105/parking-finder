@@ -9493,6 +9493,14 @@ CITY_UI.update({
         "cheap_lede": ("속초시 유료 노외 공영주차장 2곳(로데오 제1·제2)은 <b>최초 20분이 무료</b>라 "
                        "20분까지는 0원, 2시간은 3,300원입니다. "),
     },
+    # 삼척시 — cheap_lede 자동 생성 로직은 기본요금을 빠뜨려 2시간 요금을 틀리게 내고
+    #   (노상 3곳의 free_min 10·단위요금 500원으로 5,500원을 내는데 실제 2시간은 2,000원)
+    #   "노외 1급지" 표현도 쓴다(삼척 별표 1에 급지 없고, free_min이 있는 곳은 노상이다).
+    #   오버라이드로 바로잡는다.
+    "삼척시": {
+        "cheap_lede": ("삼척시 유료 노외 공영주차장 9곳은 2시간까지 30분마다 500원이라 "
+                       "2시간은 2,000원입니다. 노상 3구간은 최초 10분이 무료입니다. "),
+    },
 })
 
 
@@ -14737,6 +14745,64 @@ B·C지구는 등록 급지구분이 1급지이나 등록 요금이 2급지와 �
 2시간 이내 <b>2,000원</b>·이후 매2시간당 2,000원·1일 10,000원입니다. 유료 2곳(로데오 제1·제2)의 요금 칸이 전부 비어 있어
 조례 기준으로 계산했습니다. 해수욕장 요금표는 표준데이터 속초 등록 24곳 중 적용 대상이 없어 참고표로만 싣습니다.
 설악산 B1·B2·C1·C2 4곳은 국립공원 주차장이라 별표 1이 적용되지 않습니다. 실제 요금은 현장 안내와 속초시청 교통과(033-639-1574)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th>
+  <th class="num">월정기 (주간)</th><th class="num">월정기 (야간)</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금으로 계산하는 유료는 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+
+    if ft.get("style") == "samcheok_flat":
+        # 삼척시 — 공영 13곳(노외 9곳·노상 4구간,
+        #   총 1,036면)이 무료 1곳·유료 12곳으로
+        #   등록돼 있다. 「삼척시 주차장 설치 및 관리
+        #   조례」 제1780호(시행 2026-03-27) 제3조
+        #   제1항·별표 1은 급지 구분 없는 단일 요금표로
+        #   2시간까지 30분마다 500원·2시간 초과
+        #   30분마다 1,000원·1일 6,000원·월정기 주간
+        #   50,000원·야간 무료이다. 노상 3구간은 최초
+        #   10분이 무료이다(비고 2). 유료 12곳은 등록
+        #   요금이 별표와 2시간까지 일치하나 2시간 초과
+        #   구간을 표현할 수 없어 조례 기준으로 계산했다.
+        #   주차타워 면제시간(비고 3)은 재량이라 고정
+        #   free_min을 두지 않았다. 공휴일 무료(비고 7)
+        #   는 조례에 있으나 등록 운영요일이 '평일'뿐이라
+        #   공휴일은 미운영으로 표기한다(제천 선례).
+        def _sm_cell(v):
+            return f"{v}곳" if v is not None else "—"
+        def _sm_night(v):
+            return "무료" if v == 0 else (won(v) if v is not None else "—")
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{_sm_night(r["month_night"])}</td>'
+            f'<td class="num">{_sm_cell(r["lots"])}</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">삼척시 공영주차장 <b>13곳</b>(노외 9곳·노상 4구간, 총 1,036면)은
+무료 <b>1곳</b>·유료 <b>12곳</b>으로 등록돼 있습니다. 「삼척시 주차장 설치 및 관리 조례」 제1780호
+별표 1은 급지 구분이 없는 단일 요금표로 2시간까지 30분마다 <b>500원</b>·2시간 초과 30분마다 <b>1,000원</b>·
+1일 <b>6,000원</b>·월정기 주간 <b>50,000원</b>·야간 <b>무료</b>입니다. 노상 3구간은 최초 10분이 무료이고,
+1시간은 1,000원·2시간은 2,000원입니다. 유료 12곳의 등록 요금이 별표와 2시간까지 일치하나 2시간 초과
+구간을 표준데이터 형식으로 표현할 수 없어 조례 기준으로 계산했습니다. 주차타워 면제시간은 조례상 재량이라
+고정 면제시간으로 표기하지 않았습니다. 공휴일·대체공휴일은 조례상 무료이나 등록 운영요일이 '평일'뿐이라
+공휴일은 미운영으로 표기합니다. 실제 요금은 현장 안내와 삼척시청 교통과(033-570-3935)에 확인하세요.</p>
 <table class="data">
   <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
   <th class="num">2시간</th><th class="num">1일 주차권</th>
