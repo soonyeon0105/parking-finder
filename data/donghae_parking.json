@@ -1,0 +1,3077 @@
+{
+ "meta": {
+  "generated_at": "2026-11-22 02:37",
+  "generated_at_iso": "2026-11-22T02:37:30+09:00",
+  "snapshot_at": "2026-11-22 02:37",
+  "region": {
+   "province": "강원특별자치도",
+   "city": "동해시"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-12",
+    "rows_total": 18994,
+    "rows_city": 24,
+    "fetched_at": "2026-11-22 02:37 (KST)",
+    "note": "동해시로 등록된 행 24행을 읽어 중복 제거 0건, 제외 0건으로 24곳을 실었다. 유료 23곳·무료 1곳·미상 0곳이다. 데이터기준일자는 2026-10-12이다. 좌표 결측은 0곳이다. 조례 대조 완료 — 「동해시 주차장 설치 및 관리 조례」 제2471호(시행 2025-09-19, ordinSeq 2068013) 제5조제1항·별표 1 원문 대조 완료(2026-11-22)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "동해시 주차장 설치 및 관리 조례",
+    "org": "강원특별자치도 동해시청",
+    "url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2068013&gubun=ELIS",
+    "file": "donghae-ordinance-b1.txt",
+    "sha256": "fe85cdcecb4b7c3b5326377a12b73eb92eacea9a47050b7743c051eae4a36c74",
+    "license": "자치법규(공개)",
+    "base_date": "2025-09-19",
+    "rows_total": null,
+    "fetched_at": "2026-11-22 02:37 (KST)",
+    "note": "동해시가 설치·관리하는 공영주차장에 적용하는 조례다. 표준데이터에 등록된 동해시 공영주차장 24곳(노외 6곳·노상 18구간, 총 1,573면)입니다. 1곳은 무료로 등록돼 있고, 유료 22곳·혼합 1곳 중 19곳(노상 18구간·공영터미널)은 등록 요금이 「동해시 주차장 설치 및 관리 조례」 제2471호 별표 1(기본 30분 600원·30분 초과 10분마다 300원·1일 8,000원·월정기 주간 70,000원)과 정확히 일치해 조례 기준으로 계산했습니다. 무릉계곡 제1·제2·제3주차장과 천곡동굴주차장은 관광지 시설 주차요금이라 별표 1이 적용되지 않아(제5조제1항 단서) 등록값을 유지하고 시설 안내(무릉계곡 소형 2,000원·대형 5,000원, 천곡동굴 소형 1,000원·대형 2,000원)를 함께 싣습니다. (조례 본문: data/raw/donghae-ordinance.txt, 별표 1 원문 HWP: data/raw/donghae-ordinance-b1.hwp)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "동해시",
+   "slug": "donghae"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gw-donghae-001",
+   "mgmt_no": "253-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "무릉계곡 제1주차장",
+   "gu": "동해시",
+   "dong": "삼화동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 동해시 삼화동 858-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 235,
+   "tel": "033-539-3700",
+   "lat": 37.4636506,
+   "lng": 129.0228679,
+   "base_date": "2026-10-12",
+   "manager": "강원특별자치도 동해시시설관리공단",
+   "note": "경차+다자녀+친환경 차량 등 시민 반값할인/ 유공+장애 차량무료",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 1440,
+    "base_fee": 2000,
+    "unit_min": 1440,
+    "unit_fee": 2000,
+    "daily_fee": 2000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": true,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": "tourist",
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 480,
+     "base_fee": 2000,
+     "unit_min": 0,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "관광지 시설 주차요금이라 조례 제5조제1항 단서로 별표 1이 적용되지 않는다. 무릉계곡 시설 안내 기준 소형 2,000원·대형 5,000원(1회 기준)이며 등록값(기본 480분 2,000원)은 소형과 일치한다. 특기사항에도 시민 반값할인과 유공·장애 차량 무료가 적혀 있다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 2000,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  },
+  {
+   "id": "gw-donghae-002",
+   "mgmt_no": "253-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "무릉계곡 제2주차장",
+   "gu": "동해시",
+   "dong": "삼화동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 동해시 삼화동 859",
+   "addr_road": "강원특별자치도 동해시 삼화로 538",
+   "road": null,
+   "spaces": 242,
+   "tel": "033-539-3700",
+   "lat": 37.46349413,
+   "lng": 129.0193939,
+   "base_date": "2026-10-12",
+   "manager": "강원특별자치도 동해시시설관리공단",
+   "note": "경차+다자녀+친환경 차량 등 시민 반값할인/ 유공+장애 차량무료",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 1440,
+    "base_fee": 2000,
+    "unit_min": 1440,
+    "unit_fee": 2000,
+    "daily_fee": 2000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": true,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": "tourist",
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 480,
+     "base_fee": 2000,
+     "unit_min": 0,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "관광지 시설 주차요금이라 조례 제5조제1항 단서로 별표 1이 적용되지 않는다. 무릉계곡 시설 안내 기준 소형 2,000원·대형 5,000원(1회 기준)이며 등록값(기본 480분 2,000원)은 소형과 일치한다. 특기사항에도 시민 반값할인과 유공·장애 차량 무료가 적혀 있다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 2000,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  },
+  {
+   "id": "gw-donghae-003",
+   "mgmt_no": "253-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "무릉계곡 제3주차장",
+   "gu": "동해시",
+   "dong": "삼화동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 동해시 삼화동 859",
+   "addr_road": "강원특별자치도 동해시 삼화로 538",
+   "road": null,
+   "spaces": 150,
+   "tel": "033-539-3700",
+   "lat": 37.46349413,
+   "lng": 129.0193939,
+   "base_date": "2026-10-12",
+   "manager": "강원특별자치도 동해시시설관리공단",
+   "note": "경차+다자녀+친환경 차량 등 시민 반값할인/ 유공+장애 차량무료",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 1440,
+    "base_fee": 2000,
+    "unit_min": 1440,
+    "unit_fee": 2000,
+    "daily_fee": 2000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": true,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": "tourist",
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 480,
+     "base_fee": 2000,
+     "unit_min": 0,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "관광지 시설 주차요금이라 조례 제5조제1항 단서로 별표 1이 적용되지 않는다. 무릉계곡 시설 안내 기준 소형 2,000원·대형 5,000원(1회 기준)이며 등록값(기본 480분 2,000원)은 소형과 일치한다. 특기사항에도 시민 반값할인과 유공·장애 차량 무료가 적혀 있다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 2000,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  },
+  {
+   "id": "gw-donghae-004",
+   "mgmt_no": "253-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "근로자종합복지회관",
+   "gu": "동해시",
+   "dong": "천곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 동해시 천곡동1005-12",
+   "addr_road": "강원특별자치도 동해시 동굴로 2",
+   "road": null,
+   "spaces": 100,
+   "tel": "033-539-3722",
+   "lat": 37.51495486,
+   "lng": 129.1050133,
+   "base_date": "2026-10-12",
+   "manager": "강원특별자치도 동해시시설관리공단",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  },
+  {
+   "id": "gw-donghae-005",
+   "mgmt_no": "253-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "천곡동굴주차장",
+   "gu": "동해시",
+   "dong": "천곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 동해시 천곡동 1003",
+   "addr_road": "강원특별자치도 동해시 동굴로 50",
+   "road": null,
+   "spaces": 83,
+   "tel": "033-539-3630",
+   "lat": 37.51751839,
+   "lng": 129.1104767,
+   "base_date": "2026-10-12",
+   "manager": "강원특별자치도 동해시시설관리공단",
+   "note": "유공+장애 차량무료+소형 50프로할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 1440,
+    "base_fee": 2000,
+    "unit_min": 1440,
+    "unit_fee": 2000,
+    "daily_fee": 2000,
+    "daily_hours": 24,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": true,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": "tourist",
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 480,
+     "base_fee": 2000,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "관광지 시설 주차요금이라 조례 제5조제1항 단서로 별표 1이 적용되지 않는다. 천곡동굴 시설 안내 기준 소형 1,000원·대형 2,000원(1회 기준)이며 등록값(기본 480분 2,000원)은 대형과 일치한다. 특기사항의 소형 50% 할인을 적용하면 소형 1,000원이 돼 시설 안내와 일치한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1080,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "18:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 2000,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  },
+  {
+   "id": "gw-donghae-006",
+   "mgmt_no": "253-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "공영터미널",
+   "gu": "동해시",
+   "dong": "평릉동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 동해시 평릉동 166-4",
+   "addr_road": "강원특별자치도 동해시 동해대로 5443",
+   "road": null,
+   "spaces": 226,
+   "tel": "033-539-3820",
+   "lat": 37.5276909,
+   "lng": 129.1040551,
+   "base_date": "2026-10-12",
+   "manager": "강원특별자치도 동해시시설관리공단",
+   "note": "무인정산시스템(경차+유공+장애인+다자녀 차량 등 터미널 이용객 반값할인 목적외(가산금 5배))",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": 8,
+    "cap_fee": 8000,
+    "cap_src": "조례 별표 1 비고 6 (일일 시간제 주차요금은 1일 주차권 요금의 한도를 초과하여 징수할 수 없다)",
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값(기본 30분 600원·10분마다 300원·1일 8,000원·월정기 70,000원)이 「동해시 주차장 설치 및 관리 조례」 별표 1과 정확히 일치해 조례 기준으로 계산한다. 1일 시간제 요금은 1일권 한도(8,000원)를 넘지 않는다(비고 6). 월정기 야간은 무료이다. · 동해시종합버스터미널 주차장이라 별표 비고 2 단서의 징수 시간 09:00~18:00이 적용된다."
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1140,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  },
+  {
+   "id": "gw-donghae-s001",
+   "mgmt_no": "253-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "국민은행",
+   "gu": "동해시",
+   "dong": "천곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 동해시 천곡동 1090-19",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "033-532-5113",
+   "lat": 37.52045612,
+   "lng": 129.1150723,
+   "base_date": "2026-10-12",
+   "manager": "한국자유총연맹 동해시지부",
+   "note": "유공자+장애인+다자녀(3자녀이상)차량 면제(단, 2시간 경과시 반값할인) /경차+친환경+다자녀(2자녀이상) 차량 반값할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": 8,
+    "cap_fee": 8000,
+    "cap_src": "조례 별표 1 비고 6 (일일 시간제 주차요금은 1일 주차권 요금의 한도를 초과하여 징수할 수 없다)",
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값(기본 30분 600원·10분마다 300원·1일 8,000원·월정기 70,000원)이 「동해시 주차장 설치 및 관리 조례」 별표 1과 정확히 일치해 조례 기준으로 계산한다. 1일 시간제 요금은 1일권 한도(8,000원)를 넘지 않는다(비고 6). 월정기 야간은 무료이다. 노상주차장은 주간에만 징수한다(비고 2). 주간은 3~10월 09:00~18:00, 11~2월 09:00~17:00이다."
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  },
+  {
+   "id": "gw-donghae-s002",
+   "mgmt_no": "253-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "금강",
+   "gu": "동해시",
+   "dong": "천곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 동해시 천곡동 1090-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "033-532-5113",
+   "lat": 37.52519692,
+   "lng": 129.1072916,
+   "base_date": "2026-10-12",
+   "manager": "한국자유총연맹 동해시지부",
+   "note": "유공자+장애인+다자녀(3자녀이상)차량 면제(단, 2시간 경과시 반값할인) /경차+친환경+다자녀(2자녀이상) 차량 반값할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": 8,
+    "cap_fee": 8000,
+    "cap_src": "조례 별표 1 비고 6 (일일 시간제 주차요금은 1일 주차권 요금의 한도를 초과하여 징수할 수 없다)",
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값(기본 30분 600원·10분마다 300원·1일 8,000원·월정기 70,000원)이 「동해시 주차장 설치 및 관리 조례」 별표 1과 정확히 일치해 조례 기준으로 계산한다. 1일 시간제 요금은 1일권 한도(8,000원)를 넘지 않는다(비고 6). 월정기 야간은 무료이다. 노상주차장은 주간에만 징수한다(비고 2). 주간은 3~10월 09:00~18:00, 11~2월 09:00~17:00이다."
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  },
+  {
+   "id": "gw-donghae-s003",
+   "mgmt_no": "253-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "기업은행",
+   "gu": "동해시",
+   "dong": "천곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 동해시 천곡동 1070",
+   "addr_road": "강원특별자치도 동해시 중앙로 233",
+   "road": "중앙로",
+   "spaces": 10,
+   "tel": "033-532-5113",
+   "lat": 37.52156221,
+   "lng": 129.1140348,
+   "base_date": "2026-10-12",
+   "manager": "한국자유총연맹 동해시지부",
+   "note": "유공자+장애인+다자녀(3자녀이상)차량 면제(단, 2시간 경과시 반값할인) /경차+친환경+다자녀(2자녀이상) 차량 반값할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": 8,
+    "cap_fee": 8000,
+    "cap_src": "조례 별표 1 비고 6 (일일 시간제 주차요금은 1일 주차권 요금의 한도를 초과하여 징수할 수 없다)",
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값(기본 30분 600원·10분마다 300원·1일 8,000원·월정기 70,000원)이 「동해시 주차장 설치 및 관리 조례」 별표 1과 정확히 일치해 조례 기준으로 계산한다. 1일 시간제 요금은 1일권 한도(8,000원)를 넘지 않는다(비고 6). 월정기 야간은 무료이다. 노상주차장은 주간에만 징수한다(비고 2). 주간은 3~10월 09:00~18:00, 11~2월 09:00~17:00이다."
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  },
+  {
+   "id": "gw-donghae-s004",
+   "mgmt_no": "253-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "대학로약국",
+   "gu": "동해시",
+   "dong": "천곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 동해시 천곡동 1091",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "033-532-5113",
+   "lat": 37.52110221,
+   "lng": 129.1120001,
+   "base_date": "2026-10-12",
+   "manager": "한국자유총연맹 동해시지부",
+   "note": "유공자+장애인+다자녀(3자녀이상)차량 면제(단, 2시간 경과시 반값할인) /경차+친환경+다자녀(2자녀이상) 차량 반값할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": 8,
+    "cap_fee": 8000,
+    "cap_src": "조례 별표 1 비고 6 (일일 시간제 주차요금은 1일 주차권 요금의 한도를 초과하여 징수할 수 없다)",
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값(기본 30분 600원·10분마다 300원·1일 8,000원·월정기 70,000원)이 「동해시 주차장 설치 및 관리 조례」 별표 1과 정확히 일치해 조례 기준으로 계산한다. 1일 시간제 요금은 1일권 한도(8,000원)를 넘지 않는다(비고 6). 월정기 야간은 무료이다. 노상주차장은 주간에만 징수한다(비고 2). 주간은 3~10월 09:00~18:00, 11~2월 09:00~17:00이다."
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  },
+  {
+   "id": "gw-donghae-s005",
+   "mgmt_no": "253-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "문화공연장",
+   "gu": "동해시",
+   "dong": "천곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 동해시 천곡동 1091",
+   "addr_road": "",
+   "road": null,
+   "spaces": 65,
+   "tel": "033-532-5113",
+   "lat": 37.52117168,
+   "lng": 129.1120728,
+   "base_date": "2026-10-12",
+   "manager": "한국자유총연맹 동해시지부",
+   "note": "유공자+장애인+다자녀(3자녀이상)차량 면제(단, 2시간 경과시 반값할인) /경차+친환경+다자녀(2자녀이상) 차량 반값할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": 8,
+    "cap_fee": 8000,
+    "cap_src": "조례 별표 1 비고 6 (일일 시간제 주차요금은 1일 주차권 요금의 한도를 초과하여 징수할 수 없다)",
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값(기본 30분 600원·10분마다 300원·1일 8,000원·월정기 70,000원)이 「동해시 주차장 설치 및 관리 조례」 별표 1과 정확히 일치해 조례 기준으로 계산한다. 1일 시간제 요금은 1일권 한도(8,000원)를 넘지 않는다(비고 6). 월정기 야간은 무료이다. 노상주차장은 주간에만 징수한다(비고 2). 주간은 3~10월 09:00~18:00, 11~2월 09:00~17:00이다."
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  },
+  {
+   "id": "gw-donghae-s006",
+   "mgmt_no": "253-1-000015",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "뱅뱅",
+   "gu": "동해시",
+   "dong": "천곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 동해시 천곡동 850",
+   "addr_road": "강원특별자치도 동해시 중앙로 248",
+   "road": "중앙로",
+   "spaces": 33,
+   "tel": "033-532-5113",
+   "lat": 37.52279509,
+   "lng": 129.1145338,
+   "base_date": "2026-10-12",
+   "manager": "한국자유총연맹 동해시지부",
+   "note": "유공자+장애인+다자녀(3자녀이상)차량 면제(단, 2시간 경과시 반값할인) /경차+친환경+다자녀(2자녀이상) 차량 반값할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": 8,
+    "cap_fee": 8000,
+    "cap_src": "조례 별표 1 비고 6 (일일 시간제 주차요금은 1일 주차권 요금의 한도를 초과하여 징수할 수 없다)",
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값(기본 30분 600원·10분마다 300원·1일 8,000원·월정기 70,000원)이 「동해시 주차장 설치 및 관리 조례」 별표 1과 정확히 일치해 조례 기준으로 계산한다. 1일 시간제 요금은 1일권 한도(8,000원)를 넘지 않는다(비고 6). 월정기 야간은 무료이다. 노상주차장은 주간에만 징수한다(비고 2). 주간은 3~10월 09:00~18:00, 11~2월 09:00~17:00이다."
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  },
+  {
+   "id": "gw-donghae-s007",
+   "mgmt_no": "253-1-000018",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "보건소",
+   "gu": "동해시",
+   "dong": "천곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 동해시 천곡동 1095",
+   "addr_road": "",
+   "road": null,
+   "spaces": 44,
+   "tel": "033-532-5113",
+   "lat": 37.52209465,
+   "lng": 129.1175966,
+   "base_date": "2026-10-12",
+   "manager": "한국자유총연맹 동해시지부",
+   "note": "유공자+장애인+다자녀(3자녀이상)차량 면제(단, 2시간 경과시 반값할인) /경차+친환경+다자녀(2자녀이상) 차량 반값할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": 8,
+    "cap_fee": 8000,
+    "cap_src": "조례 별표 1 비고 6 (일일 시간제 주차요금은 1일 주차권 요금의 한도를 초과하여 징수할 수 없다)",
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값(기본 30분 600원·10분마다 300원·1일 8,000원·월정기 70,000원)이 「동해시 주차장 설치 및 관리 조례」 별표 1과 정확히 일치해 조례 기준으로 계산한다. 1일 시간제 요금은 1일권 한도(8,000원)를 넘지 않는다(비고 6). 월정기 야간은 무료이다. 노상주차장은 주간에만 징수한다(비고 2). 주간은 3~10월 09:00~18:00, 11~2월 09:00~17:00이다."
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  },
+  {
+   "id": "gw-donghae-s008",
+   "mgmt_no": "253-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "센트로빌1",
+   "gu": "동해시",
+   "dong": "천곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 동해시 천곡동 1091",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "033-532-5113",
+   "lat": 37.52110221,
+   "lng": 129.1120001,
+   "base_date": "2026-10-12",
+   "manager": "한국자유총연맹 동해시지부",
+   "note": "유공자+장애인+다자녀(3자녀이상)차량 면제(단, 2시간 경과시 반값할인) /경차+친환경+다자녀(2자녀이상) 차량 반값할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": 8,
+    "cap_fee": 8000,
+    "cap_src": "조례 별표 1 비고 6 (일일 시간제 주차요금은 1일 주차권 요금의 한도를 초과하여 징수할 수 없다)",
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값(기본 30분 600원·10분마다 300원·1일 8,000원·월정기 70,000원)이 「동해시 주차장 설치 및 관리 조례」 별표 1과 정확히 일치해 조례 기준으로 계산한다. 1일 시간제 요금은 1일권 한도(8,000원)를 넘지 않는다(비고 6). 월정기 야간은 무료이다. 노상주차장은 주간에만 징수한다(비고 2). 주간은 3~10월 09:00~18:00, 11~2월 09:00~17:00이다."
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  },
+  {
+   "id": "gw-donghae-s009",
+   "mgmt_no": "253-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "센트로빌2",
+   "gu": "동해시",
+   "dong": "천곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 동해시 천곡동 1091",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "033-532-5113",
+   "lat": 37.52110221,
+   "lng": 129.1120001,
+   "base_date": "2026-10-12",
+   "manager": "한국자유총연맹 동해시지부",
+   "note": "유공자+장애인+다자녀(3자녀이상)차량 면제(단, 2시간 경과시 반값할인) /경차+친환경+다자녀(2자녀이상) 차량 반값할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": 8,
+    "cap_fee": 8000,
+    "cap_src": "조례 별표 1 비고 6 (일일 시간제 주차요금은 1일 주차권 요금의 한도를 초과하여 징수할 수 없다)",
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값(기본 30분 600원·10분마다 300원·1일 8,000원·월정기 70,000원)이 「동해시 주차장 설치 및 관리 조례」 별표 1과 정확히 일치해 조례 기준으로 계산한다. 1일 시간제 요금은 1일권 한도(8,000원)를 넘지 않는다(비고 6). 월정기 야간은 무료이다. 노상주차장은 주간에만 징수한다(비고 2). 주간은 3~10월 09:00~18:00, 11~2월 09:00~17:00이다."
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  },
+  {
+   "id": "gw-donghae-s010",
+   "mgmt_no": "253-1-000020",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "스타벅스",
+   "gu": "동해시",
+   "dong": "천곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 동해시 천곡동 1090-19",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "033-532-5113",
+   "lat": 37.52045612,
+   "lng": 129.1150723,
+   "base_date": "2026-10-12",
+   "manager": "한국자유총연맹 동해시지부",
+   "note": "유공자+장애인+다자녀(3자녀이상)차량 면제(단, 2시간 경과시 반값할인) /경차+친환경+다자녀(2자녀이상) 차량 반값할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": 8,
+    "cap_fee": 8000,
+    "cap_src": "조례 별표 1 비고 6 (일일 시간제 주차요금은 1일 주차권 요금의 한도를 초과하여 징수할 수 없다)",
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값(기본 30분 600원·10분마다 300원·1일 8,000원·월정기 70,000원)이 「동해시 주차장 설치 및 관리 조례」 별표 1과 정확히 일치해 조례 기준으로 계산한다. 1일 시간제 요금은 1일권 한도(8,000원)를 넘지 않는다(비고 6). 월정기 야간은 무료이다. 노상주차장은 주간에만 징수한다(비고 2). 주간은 3~10월 09:00~18:00, 11~2월 09:00~17:00이다."
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  },
+  {
+   "id": "gw-donghae-s011",
+   "mgmt_no": "253-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "시청편의점",
+   "gu": "동해시",
+   "dong": "천곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 동해시 천곡동 1090-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 46,
+   "tel": "033-532-5113",
+   "lat": 37.52490663,
+   "lng": 129.1132231,
+   "base_date": "2026-10-12",
+   "manager": "한국자유총연맹 동해시지부",
+   "note": "유공자+장애인+다자녀(3자녀이상)차량 면제(단, 2시간 경과시 반값할인) /경차+친환경+다자녀(2자녀이상) 차량 반값할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": 8,
+    "cap_fee": 8000,
+    "cap_src": "조례 별표 1 비고 6 (일일 시간제 주차요금은 1일 주차권 요금의 한도를 초과하여 징수할 수 없다)",
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값(기본 30분 600원·10분마다 300원·1일 8,000원·월정기 70,000원)이 「동해시 주차장 설치 및 관리 조례」 별표 1과 정확히 일치해 조례 기준으로 계산한다. 1일 시간제 요금은 1일권 한도(8,000원)를 넘지 않는다(비고 6). 월정기 야간은 무료이다. 노상주차장은 주간에만 징수한다(비고 2). 주간은 3~10월 09:00~18:00, 11~2월 09:00~17:00이다."
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  },
+  {
+   "id": "gw-donghae-s012",
+   "mgmt_no": "253-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "신한은행",
+   "gu": "동해시",
+   "dong": "천곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 동해시 천곡동 1090-19",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "033-532-5113",
+   "lat": 37.52045612,
+   "lng": 129.1150723,
+   "base_date": "2026-10-12",
+   "manager": "한국자유총연맹 동해시지부",
+   "note": "유공자+장애인+다자녀(3자녀이상)차량 면제(단, 2시간 경과시 반값할인) /경차+친환경+다자녀(2자녀이상) 차량 반값할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": 8,
+    "cap_fee": 8000,
+    "cap_src": "조례 별표 1 비고 6 (일일 시간제 주차요금은 1일 주차권 요금의 한도를 초과하여 징수할 수 없다)",
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값(기본 30분 600원·10분마다 300원·1일 8,000원·월정기 70,000원)이 「동해시 주차장 설치 및 관리 조례」 별표 1과 정확히 일치해 조례 기준으로 계산한다. 1일 시간제 요금은 1일권 한도(8,000원)를 넘지 않는다(비고 6). 월정기 야간은 무료이다. 노상주차장은 주간에만 징수한다(비고 2). 주간은 3~10월 09:00~18:00, 11~2월 09:00~17:00이다."
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  },
+  {
+   "id": "gw-donghae-s013",
+   "mgmt_no": "253-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "영동약국",
+   "gu": "동해시",
+   "dong": "천곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 동해시 천곡동 1091",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "033-532-5113",
+   "lat": 37.52110221,
+   "lng": 129.1120001,
+   "base_date": "2026-10-12",
+   "manager": "한국자유총연맹 동해시지부",
+   "note": "유공자+장애인+다자녀(3자녀이상)차량 면제(단, 2시간 경과시 반값할인) /경차+친환경+다자녀(2자녀이상) 차량 반값할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": 8,
+    "cap_fee": 8000,
+    "cap_src": "조례 별표 1 비고 6 (일일 시간제 주차요금은 1일 주차권 요금의 한도를 초과하여 징수할 수 없다)",
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값(기본 30분 600원·10분마다 300원·1일 8,000원·월정기 70,000원)이 「동해시 주차장 설치 및 관리 조례」 별표 1과 정확히 일치해 조례 기준으로 계산한다. 1일 시간제 요금은 1일권 한도(8,000원)를 넘지 않는다(비고 6). 월정기 야간은 무료이다. 노상주차장은 주간에만 징수한다(비고 2). 주간은 3~10월 09:00~18:00, 11~2월 09:00~17:00이다."
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  },
+  {
+   "id": "gw-donghae-s014",
+   "mgmt_no": "253-1-000014",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "이주민상가",
+   "gu": "동해시",
+   "dong": "천곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 동해시 천곡동 1090-19",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "033-532-5113",
+   "lat": 37.52045612,
+   "lng": 129.1150555,
+   "base_date": "2026-10-12",
+   "manager": "한국자유총연맹 동해시지부",
+   "note": "유공자+장애인+다자녀(3자녀이상)차량 면제(단, 2시간 경과시 반값할인) /경차+친환경+다자녀(2자녀이상) 차량 반값할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": 8,
+    "cap_fee": 8000,
+    "cap_src": "조례 별표 1 비고 6 (일일 시간제 주차요금은 1일 주차권 요금의 한도를 초과하여 징수할 수 없다)",
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값(기본 30분 600원·10분마다 300원·1일 8,000원·월정기 70,000원)이 「동해시 주차장 설치 및 관리 조례」 별표 1과 정확히 일치해 조례 기준으로 계산한다. 1일 시간제 요금은 1일권 한도(8,000원)를 넘지 않는다(비고 6). 월정기 야간은 무료이다. 노상주차장은 주간에만 징수한다(비고 2). 주간은 3~10월 09:00~18:00, 11~2월 09:00~17:00이다."
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  },
+  {
+   "id": "gw-donghae-s015",
+   "mgmt_no": "253-1-000017",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "천곡동행정복지센터",
+   "gu": "동해시",
+   "dong": "천곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 동해시 천곡동 1090-18",
+   "addr_road": "",
+   "road": null,
+   "spaces": 58,
+   "tel": "033-532-5113",
+   "lat": 37.52312376,
+   "lng": 129.1152422,
+   "base_date": "2026-10-12",
+   "manager": "한국자유총연맹 동해시지부",
+   "note": "유공자+장애인+다자녀(3자녀이상)차량 면제(단, 2시간 경과시 반값할인) /경차+친환경+다자녀(2자녀이상) 차량 반값할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": 8,
+    "cap_fee": 8000,
+    "cap_src": "조례 별표 1 비고 6 (일일 시간제 주차요금은 1일 주차권 요금의 한도를 초과하여 징수할 수 없다)",
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값(기본 30분 600원·10분마다 300원·1일 8,000원·월정기 70,000원)이 「동해시 주차장 설치 및 관리 조례」 별표 1과 정확히 일치해 조례 기준으로 계산한다. 1일 시간제 요금은 1일권 한도(8,000원)를 넘지 않는다(비고 6). 월정기 야간은 무료이다. 노상주차장은 주간에만 징수한다(비고 2). 주간은 3~10월 09:00~18:00, 11~2월 09:00~17:00이다."
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  },
+  {
+   "id": "gw-donghae-s016",
+   "mgmt_no": "253-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "축협",
+   "gu": "동해시",
+   "dong": "천곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 동해시 천곡동 1090-41",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "033-532-5113",
+   "lat": 37.52208112,
+   "lng": 129.1109855,
+   "base_date": "2026-10-12",
+   "manager": "한국자유총연맹 동해시지부",
+   "note": "유공자+장애인+다자녀(3자녀이상)차량 면제(단, 2시간 경과시 반값할인) /경차+친환경+다자녀(2자녀이상) 차량 반값할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": 8,
+    "cap_fee": 8000,
+    "cap_src": "조례 별표 1 비고 6 (일일 시간제 주차요금은 1일 주차권 요금의 한도를 초과하여 징수할 수 없다)",
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값(기본 30분 600원·10분마다 300원·1일 8,000원·월정기 70,000원)이 「동해시 주차장 설치 및 관리 조례」 별표 1과 정확히 일치해 조례 기준으로 계산한다. 1일 시간제 요금은 1일권 한도(8,000원)를 넘지 않는다(비고 6). 월정기 야간은 무료이다. 노상주차장은 주간에만 징수한다(비고 2). 주간은 3~10월 09:00~18:00, 11~2월 09:00~17:00이다."
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  },
+  {
+   "id": "gw-donghae-s017",
+   "mgmt_no": "253-1-000016",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "튼튼소아과",
+   "gu": "동해시",
+   "dong": "천곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 동해시 천곡동 1090-18",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "033-532-5113",
+   "lat": 37.52312376,
+   "lng": 129.1152191,
+   "base_date": "2026-10-12",
+   "manager": "한국자유총연맹 동해시지부",
+   "note": "유공자+장애인+다자녀(3자녀이상)차량 면제(단, 2시간 경과시 반값할인) /경차+친환경+다자녀(2자녀이상) 차량 반값할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": 8,
+    "cap_fee": 8000,
+    "cap_src": "조례 별표 1 비고 6 (일일 시간제 주차요금은 1일 주차권 요금의 한도를 초과하여 징수할 수 없다)",
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값(기본 30분 600원·10분마다 300원·1일 8,000원·월정기 70,000원)이 「동해시 주차장 설치 및 관리 조례」 별표 1과 정확히 일치해 조례 기준으로 계산한다. 1일 시간제 요금은 1일권 한도(8,000원)를 넘지 않는다(비고 6). 월정기 야간은 무료이다. 노상주차장은 주간에만 징수한다(비고 2). 주간은 3~10월 09:00~18:00, 11~2월 09:00~17:00이다."
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  },
+  {
+   "id": "gw-donghae-s018",
+   "mgmt_no": "253-1-000021",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "한마음병원",
+   "gu": "동해시",
+   "dong": "천곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 동해시 천곡동 1090-19",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "033-532-5113",
+   "lat": 37.52045612,
+   "lng": 129.1150723,
+   "base_date": "2026-10-12",
+   "manager": "한국자유총연맹 동해시지부",
+   "note": "유공자+장애인+다자녀(3자녀이상)차량 면제(단, 2시간 경과시 반값할인) /경차+친환경+다자녀(2자녀이상) 차량 반값할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 600,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "daily_fee": 8000,
+    "daily_hours": 8,
+    "cap_fee": 8000,
+    "cap_src": "조례 별표 1 비고 6 (일일 시간제 주차요금은 1일 주차권 요금의 한도를 초과하여 징수할 수 없다)",
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": 0,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 600,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "day": 8000,
+     "monthly": 70000
+    },
+    "basis": "표준데이터 등록값(기본 30분 600원·10분마다 300원·1일 8,000원·월정기 70,000원)이 「동해시 주차장 설치 및 관리 조례」 별표 1과 정확히 일치해 조례 기준으로 계산한다. 1일 시간제 요금은 1일권 한도(8,000원)를 넘지 않는다(비고 6). 월정기 야간은 무료이다. 노상주차장은 주간에만 징수한다(비고 2). 주간은 3~10월 09:00~18:00, 11~2월 09:00~17:00이다."
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 540,
+     "end": 1020,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "09:00",
+      "17:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 600,
+   "city": "동해시",
+   "city_slug": "donghae",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-22 02:37",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 24,
+  "원자료_동해시행수": 24,
+  "원자료_받은행수": 24,
+  "구별": {
+   "동해시": 24
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 6,
+  "노외_부설": {
+   "노외": 6
+  },
+  "노상_구간": 18,
+  "총_구획수": 1036,
+  "노상_구획수": 537,
+  "동별": {
+   "천곡동": 20,
+   "삼화동": 3,
+   "평릉동": 1
+  },
+  "동수": 3,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 24
+  },
+  "요금구분": {
+   "유료": 23,
+   "무료": 1
+  },
+  "요금_미상": [],
+  "유료_노상": 18,
+  "유료_노외": 5,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "같은 자리·같은 좌표에 이름만 다른 등록: 무릉계곡 제3주차장·무릉계곡 제2주차장 — 강원특별자치도 동해시 삼화동 859에 좌표(37.46349413, 129.0193939)가 같게 등록돼 있다. 이름이 다른 별개 등록이라 합치지 않고 전부 실었고, 같은 시설의 중복 등록인지는 동해시청 확인이 필요하다",
+   "같은 자리·같은 좌표에 이름만 다른 등록: 센트로빌2·센트로빌1·영동약국·대학로약국 — 강원특별자치도 동해시 천곡동 1091에 좌표(37.52110221, 129.1120001)가 같게 등록돼 있다. 이름이 다른 별개 등록이라 합치지 않고 전부 실었고, 같은 시설의 중복 등록인지는 동해시청 확인이 필요하다",
+   "같은 자리·같은 좌표에 이름만 다른 등록: 한마음병원·스타벅스·국민은행·신한은행 — 강원특별자치도 동해시 천곡동 1090-19에 좌표(37.52045612, 129.1150723)가 같게 등록돼 있다. 이름이 다른 별개 등록이라 합치지 않고 전부 실었고, 같은 시설의 중복 등록인지는 동해시청 확인이 필요하다",
+   "표준데이터 동해 등록 24행 전부 공영이라 민영 제외는 0건이다. 데이터기준일자는 2026-10-12 24행, 제공기관명은 강원특별자치도 동해시 24행이다",
+   "등록 급지구분은 24곳 전부 ‘기타’이다. 조례 별표 1에 급지 구분이 없어 급지를 쓰지 않고 std_grade로만 남겼다",
+   "좌표 결측은 0곳이다. 등록 좌표 24곳 전부가 동해 범위 안에 있다",
+   "운영요일은 24곳 전부 평일+토요일이라 공휴일은 미운영이다. 운영시간은 노외가 천곡동굴·무릉계곡 3곳 09:00~18:00, 공영터미널 09:00~19:00, 근로자종합복지회관 평일 09:00~18:00·토요일 00:00~18:00이고, 노상 18구간은 전부 09:00~17:00이다. 도로명주소는 24곳 중 7곳만 있고, 전화번호는 24곳 전부 있으며, 결제방법·특기사항은 근로자종합복지회관 1곳만 공란이고 장애인전용주차구역 보유여부는 전부 공란이며 부제시행구분은 전부 미시행이다",
+   "무료 1곳은 무료 등록이라 등록값을 유지했고, 별표 적용 19곳은 등록값이 별표와 정확히 일치해 조례 기준으로 계산했다. 관광지 시설 4곳은 제5조제1항 단서로 별표 1 적용 제외라 등록값을 유지하고 종일 정액으로 실었다. 요금 미상은 0곳이다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "무릉계곡 제1주차장",
+   "국민은행",
+   "금강",
+   "대학로약국",
+   "문화공연장",
+   "보건소",
+   "센트로빌1",
+   "센트로빌2",
+   "스타벅스",
+   "시청편의점",
+   "신한은행",
+   "영동약국",
+   "이주민상가",
+   "천곡동행정복지센터",
+   "축협",
+   "튼튼소아과",
+   "한마음병원"
+  ],
+  "감면_출처": "「동해시 주차장 설치 및 관리 조례」 제2471호 제6조 — 국가유공자·장애인·특수임무유공자·5·18 부상자·임산부·다자녀 3자녀 이상 가구 차량은 면제할 수 있고(2시간 경과 시 50퍼센트 감면), 경형자동차·환경친화적 자동차·다자녀 2자녀 가구·터미널 이용객·병역명문가·장기 기증자·제대군인은 50퍼센트를 감면한다. 모범·성실·유공납세자는 선정일로부터 1년간 면제할 수 있다",
+  "요금_출처": "조례 제5조제1항·별표 1 — 시장이 설치하는 노상·노외주차장의 주차요금은 별표 1과 같다. 별표 1(개정 2025.9.19)은 급지 구분 없는 단일 요금표로 기본 30분 600원·30분 초과 10분마다 300원·1일 8,000원·월정기 주간 70,000원·야간 무료이다. 별표 원본 HWP(flSeq 156469199)를 받아 PrvText와 BodyText를 교차 확인해 대조했다. 단, 관광지 등 별도 시설물의 주차요금은 관련 조례에 따른다(제5조제1항 단서)",
+  "급지_출처": "조례 별표 1에 급지 구분이 없다. 표준데이터 등록 급지구분은 24곳 전부 ‘기타’라 급지를 쓰지 않고 std_grade로만 남겼다",
+  "무료요일_출처": "조례 본문 어디에도 시 전체 주말·공휴일 자동 무료 조항은 없다. 무료 1곳의 표기는 표준데이터 등록값(요금정보 ‘무료’) 근거다. 24곳 전부 운영요일이 ‘평일+토요일’이라 공휴일은 미운영으로 표기한다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 동해 등록 24행 전부 공영(노외 6·노상 18, 총 1,573면)으로 무료 1·유료 22·혼합 1, 기준일 2026-10-12, 제공기관명은 강원특별자치도 동해시 전부이다. 중복 판정(전체 이름·지번·좌표 200m 가드)에 걸리는 쌍은 없어 24곳을 전부 실었다. 관리번호 중복은 없다. 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다",
+   "「동해시 주차장 설치 및 관리 조례」 제2471호(시행 2025-09-19, ordinSeq 2068013·ordinId 2230255) 본문 원문(data/raw/donghae-ordinance.txt) 대조 완료(2026-11-22) — 본문 제5조제1항이 시장이 설치하는 노상·노외주차장의 요금을 별표 1로 정한다. 별표 1(개정 2025.9.19)은 ELIS 첨부 HWP 원본(flSeq 156469199)을 data/raw/donghae-ordinance-b1.hwp로 저장하고 PrvText와 hwp5txt BodyText를 교차 확인해 확정했다 — 급지 구분 없는 단일 요금표로 기본 30분 600원·30분 초과 10분마다 300원·1일 8,000원·월정기 주간 70,000원·야간 무료이고, 최초 무료 구간은 없다. 비고 2는 노상주차장은 주간에만 징수(단, 동해시종합버스터미널 주차장 09:00~18:00), 비고 3은 주간 3~10월 09:00~18:00·11~2월 09:00~17:00, 비고 6은 일일 시간제 요금의 1일권 한도 초과 징수 불가, 비고 7은 100원 미만 절사이다",
+   "별표 적용 19곳(노상 18구간·공영터미널 1곳)은 등록값(기본 30분 600원·10분마다 300원·1일 8,000원·월정기 70,000원)이 별표 1과 정확히 일치해 조례 기준으로 계산했다. 1일주차권요금적용시간 480분은 8시간으로 환산해 daily_hours 8로 실었다(당진 선례). 공영터미널은 동해시종합버스터미널 주차장(평릉동 166-4·동해대로 5443)이라 별표 비고 2 단서의 징수 시간 09:00~18:00이 적용된다. 등록 급지구분은 24곳 전부 ‘기타’이나 별표에 급지가 없어 쓰지 않았다",
+   "관광지 시설 4곳은 제5조제1항 단서로 별표 1 적용 제외라 등록값을 유지하고 종일 정액(flat_day)으로 실었다. 무릉계곡 제1·제2·제3주차장(삼화동 859·858-3)은 등록값 기본 480분 2,000원이고 시설 안내 기준 소형 2,000원·대형 5,000원(1회 기준)으로 소형이 일치한다. 천곡동굴주차장(천곡동 1003)은 혼합 등록(기본 480분 2,000원)이고 시설 안내 기준 소형 1,000원·대형 2,000원으로 등록값은 대형과 일치하며 특기사항의 소형 50% 할인을 적용하면 소형 1,000원이 돼 시설 안내와 일치한다. 「동해시 천곡황금박쥐동굴 자연학습관 관리 조례」 제2438호(ordinSeq 1999991·ordinId 2233948·시행 2025-01-01)에는 주차요금 규정이 없어(별표 1 관람료·별표 2 시설이용료만 있음) 시설 안내와 등록값으로 표기했다",
+   "좌표 결측은 0곳이다. 등록 좌표 24곳 전부가 동해 범위(위도 37.463~37.528, 경도 129.019~129.118) 안에 있다. 지오코딩 보완은 없었다",
+   "주말·공휴일 전체 무료는 조례 본문 어디에도 없다. 무료 1곳의 표기는 표준데이터 등록값 근거다. 24곳 전부 운영요일이 ‘평일+토요일’이라 공휴일은 미운영으로 표기한다. 노상 18구간은 별표 비고 2로 주간에만 징수한다",
+   "동·읍·면 판정은 지번주소 기준이고 24곳 전부 판정됐다(천곡동 20·평릉동 1·삼화동 3). 근로자종합복지회관은 주소가 ‘강원특별자치도 동해시 천곡동1005-12’로 공백이 없어 토큰 방식으로 판정했다. 도로명주소는 24곳 중 7곳만 등록돼 있다. 같은 지번·같은 좌표에 이름만 다른 등록 3개 그룹(무릉계곡 제2·제3 / 천곡동 1090-19 4곳 / 천곡동 1091 4곳)은 이름이 다른 별개 등록이라 합치지 않고 전부 실었다",
+   "관리기관명은 강원특별자치도 동해시시설관리공단 6곳·한국자유총연맹 동해시지부 18곳이다(노외 6곳이 시설관리공단, 노상 18구간이 자유총연맹). 전화번호는 24곳 전부 등록돼 있고, 결제방법·특기사항은 근로자종합복지회관 1곳만 공란이며, 장애인전용주차구역 보유여부는 전부 공란이고 부제시행구분은 전부 미시행이다. 운영시간은 노외가 천곡동굴·무릉계곡 3곳 09:00~18:00, 공영터미널 09:00~19:00, 근로자종합복지회관 평일 09:00~18:00·토요일 00:00~18:00이고, 노상 18구간은 전부 09:00~17:00이다",
+   "확인 과제 — ① 천곡동굴주차장의 차종별 요금: 등록값 2,000원(대형)과 시설 안내 소형 1,000원의 적용을 현장에서 확인할 것 ② 무릉계곡 3곳의 대형 5,000원 징수 여부와 동해시 등록 차량 50% 감면 적용 여부를 확인할 것 ③ 공영터미널(동해시종합버스터미널 주차장)의 등록 운영시간 09:00~19:00과 별표 비고 2 단서 징수 시간 09:00~18:00의 차이 — 18:00~19:00은 무료 개방인지 확인할 것 ④ 노상 18구간의 월정기권(70,000원) 실제 시행 여부 — 별표에 노외 한정 문구가 없어 등록값을 그대로 실었으나 노상 월정기 시행 여부를 확인할 것 ⑤ 같은 지번·같은 좌표에 이름만 다른 등록 3개 그룹(무릉계곡 제2·제3 / 천곡동 1090-19 4곳 / 천곡동 1091 4곳)이 같은 시설의 중복 등록인지 확인할 것 ⑥ 근로자종합복지회관 토요일 운영시작 00:00 등록의 실제 운영시간을 확인할 것 ⑦ 노상 18구간의 야간 운영·징수 여부 — 별표 비고 2는 주간에만 징수한다고 정하나 등록 운영시간이 09:00~17:00이라 야간에는 운영하는지 확인할 것"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 1,
+  "무료_구획수": 100,
+  "평균_기본요금": 843,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 24,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-10-12"
+  ],
+  "관리기관": {
+   "강원특별자치도 동해시시설관리공단": 6,
+   "한국자유총연맹 동해시지부": 18
+  }
+ },
+ "fee_table": {
+  "style": "donghae_flat",
+  "unit_min": 10,
+  "base_min": 30,
+  "applies": "「동해시 주차장 설치 및 관리 조례」 제2471호(시행 2025-09-19) 제5조제1항·별표 1 — 국가법령정보센터 ordinSeq 2068013에서 확인",
+  "source_url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2068013&gubun=ELIS",
+  "grade_system": "조례 별표 1은 급지 구분이 없는 단일 요금표이다. 표준데이터 등록 급지구분은 24곳 전부 ‘기타’이다. 관광지 시설 4곳은 제5조제1항 단서로 별표 1이 적용되지 않아 등록값과 시설 안내를 함께 싣는다",
+  "rows": [
+   {
+    "label": "공영주차장 요금 (조례 별표 1)",
+    "grade": null,
+    "unit_label": "기본 30분 600원 · 30분 초과 10분마다 300원",
+    "hour": 1500,
+    "two_hour": 3300,
+    "day": 8000,
+    "month_all": null,
+    "month": 70000,
+    "month_night": 0,
+    "lots": 19
+   },
+   {
+    "label": "관광지 시설 주차요금 (무릉계곡·천곡동굴, 별표 1 적용 제외)",
+    "grade": null,
+    "unit_label": "무릉계곡 소형 2,000원·대형 5,000원, 천곡동굴 소형 1,000원·대형 2,000원 (1회 기준, 시설 안내)",
+    "hour": null,
+    "two_hour": null,
+    "day": null,
+    "month_all": null,
+    "month": null,
+    "month_night": null,
+    "lots": 4
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 5,
+   "street_paid": 18,
+   "free": 1,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "주간 시간구분 (조례 별표 1 비고 3)",
+    "hours": "3월~10월 09:00~18:00, 11월~2월 09:00~17:00 (나머지 시간은 야간)",
+    "free": "월정기권 주간·야간 구분의 기준이다"
+   },
+   {
+    "group": "노상주차장 징수 시간 (조례 별표 1 비고 2)",
+    "hours": "주간에만 징수 (단, 동해시종합버스터미널 주차장은 09:00~18:00)",
+    "free": "야간에는 노상주차장 요금을 받지 않는다"
+   },
+   {
+    "group": "1일 주차권 상한 (조례 별표 1 비고 6)",
+    "hours": "일일 시간제 주차요금이 1일 주차권 요금을 초과할 경우",
+    "free": "1일 주차권 요금(8,000원)까지만 징수한다"
+   },
+   {
+    "group": "100원 미만 절사 (조례 별표 1 비고 7)",
+    "hours": "주차요금 산정 시",
+    "free": "100원 미만은 절사한다"
+   }
+  ],
+  "discounts": [
+   {
+    "label": "국가유공자·장애인·특수임무유공자·5·18 부상자·임산부·다자녀 3자녀 이상 가구 차량 면제 가능(2시간 경과 시 50% 감면)",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 제6조제1호 — 국가유공자·장애인·특수임무유공자·5·18민주유공자 부상자·임산부가 본인 자동차를 직접 운행하거나 대리운전 동승하는 경우, 다자녀 가정(동일 주소에 주민등록된 18세 이하 막내자녀를 둔 3자녀 이상 가구) 본인(배우자 포함) 소유 차량은 주차요금을 면제할 수 있다. 단, 2시간 경과 시점부터는 50퍼센트 감면한다"
+   },
+   {
+    "label": "경형자동차·환경친화적 자동차·다자녀 2자녀 가구·터미널 이용객·병역명문가·장기 기증자·제대군인 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제6조제2호 — 경형자동차, 환경친화적 자동차(전기자동차 충전 시 최초 2시간 면제), 다자녀 2자녀 가구 본인 소유 차량, 동해시 종합버스터미널 이용 목적 차량(시외·고속버스 승차권 증빙 시), 병역명문가증 소지자 본인 소유 차량, 장기등 및 인체조직 기증자, 장기복무제대군인 본인 소유 차량은 주차요금의 50퍼센트를 감면할 수 있다"
+   },
+   {
+    "label": "모범납세자·성실납세자·유공납세자 면제 가능(선정일로부터 1년)",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 제6조제3호 — 국세청장 표창 이상 모범납세자, 강원특별자치도 성실납세자, 동해시 유공납세자로 선정돼 관련 증표시 또는 면제대상자로 등록된 차량은 선정일로부터 1년간 주차요금을 면제할 수 있다"
+   }
+  ],
+  "notes": "감면(조례 제6조)은 국가유공자·장애인·특수임무유공자·5·18 부상자·임산부·다자녀 3자녀 이상 가구 차량 면제(2시간 경과 시 50% 감면), 경형자동차·환경친화적 자동차·다자녀 2자녀 가구·터미널 이용객·병역명문가·장기 기증자·제대군인 50% 감면, 모범·성실·유공납세자 면제(선정일로부터 1년)이다. 월정기·1일권 감면율은 50%(제6조 제1호 각 목·제2호 가~나목)와 30%(제2호 다~사목)이다(별표 비고 4).",
+  "basis": "요금표는 「동해시 주차장 설치 및 관리 조례」 제2471호(시행 2025-09-19) 제5조제1항·별표 1(개정 2025.9.19)과 표준데이터(기준일 2026-10-12)를 대조해 실었다. 별표 1 원본 HWP는 flSeq 156469199이다. 별표 적용 19곳은 등록 요금이 별표와 정확히 일치해 조례 기준으로 계산했고, 무료 1곳은 등록값을 유지했다. 무릉계곡 3곳·천곡동굴 1곳은 관광지 시설 주차요금이라 별표 1이 적용되지 않아 등록값과 시설 안내를 함께 실었다. (조례 본문: data/raw/donghae-ordinance.txt, 별표 1 원문 HWP: data/raw/donghae-ordinance-b1.hwp)"
+ },
+ "slug": "donghae",
+ "province": "강원특별자치도",
+ "province_slug": "gangwon",
+ "dong_page_min_lots": 3,
+ "city": "동해시",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "국가유공자·장애인·특수임무유공자·5·18 부상자·임산부·다자녀 3자녀 이상 가구 차량 면제 가능(2시간 경과 시 50% 감면)",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제6조제1호 — 국가유공자·장애인·특수임무유공자·5·18민주유공자 부상자·임산부가 본인 자동차를 직접 운행하거나 대리운전 동승하는 경우, 다자녀 가정(동일 주소에 주민등록된 18세 이하 막내자녀를 둔 3자녀 이상 가구) 본인(배우자 포함) 소유 차량은 주차요금을 면제할 수 있다. 단, 2시간 경과 시점부터는 50퍼센트 감면한다"
+  },
+  {
+   "label": "경형자동차·환경친화적 자동차·다자녀 2자녀 가구·터미널 이용객·병역명문가·장기 기증자·제대군인 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제2호 — 경형자동차, 환경친화적 자동차(전기자동차 충전 시 최초 2시간 면제), 다자녀 2자녀 가구 본인 소유 차량, 동해시 종합버스터미널 이용 목적 차량(시외·고속버스 승차권 증빙 시), 병역명문가증 소지자 본인 소유 차량, 장기등 및 인체조직 기증자, 장기복무제대군인 본인 소유 차량은 주차요금의 50퍼센트를 감면할 수 있다"
+  },
+  {
+   "label": "모범납세자·성실납세자·유공납세자 면제 가능(선정일로부터 1년)",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제6조제3호 — 국세청장 표창 이상 모범납세자, 강원특별자치도 성실납세자, 동해시 유공납세자로 선정돼 관련 증표시 또는 면제대상자로 등록된 차량은 선정일로부터 1년간 주차요금을 면제할 수 있다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}

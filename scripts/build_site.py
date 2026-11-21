@@ -14569,6 +14569,64 @@ B·C지구는 등록 급지구분이 1급지이나 등록 요금이 2급지와 �
 """
 
 
+    if ft.get("style") == "donghae_flat":
+        # 동해시 — 공영 24곳(노외 6곳·노상 18구간,
+        #   총 1,573면)이 무료 1곳·유료 23곳으로
+        #   등록돼 있다. 「동해시 주차장 설치 및 관리
+        #   조례」 제2471호(시행 2025-09-19) 제5조
+        #   제1항·별표 1(개정 2025.9.19)은 급지 구분
+        #   없는 단일 요금표로 기본 30분 600원·30분
+        #   초과 10분마다 300원·1일 8,000원·월정기
+        #   주간 70,000원·야간 무료이고 최초 무료 구간은
+        #   없다. 별표 적용 19곳(노상 18구간·공영터미널)은
+        #   등록값이 별표와 정확히 일치해 조례 기준으로
+        #   계산했다. 무릉계곡 3곳·천곡동굴 1곳은 관광지
+        #   시설 주차요금이라 제5조제1항 단서로 별표 1이
+        #   적용되지 않아 등록값을 유지하고 종일 정액으로
+        #   싣는다(무릉계곡 소형 2,000원·대형 5,000원,
+        #   천곡동굴 소형 1,000원·대형 2,000원).
+        def _dh_cell(v):
+            return f"{v}곳" if v is not None else "—"
+        def _dh_night(v):
+            return "무료" if v == 0 else (won(v) if v else "—")
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{_dh_night(r["month_night"])}</td>'
+            f'<td class="num">{_dh_cell(r["lots"])}</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">동해시 공영주차장 <b>24곳</b>(노외 6곳·노상 18구간, 총 1,573면)은
+무료 <b>1곳</b>·유료 <b>23곳</b>으로 등록돼 있습니다. 「동해시 주차장 설치 및 관리 조례」 제2471호
+별표 1은 급지 구분이 없는 단일 요금표로 기본 30분 <b>600원</b>·30분 초과 시 10분마다 <b>300원</b>·
+1일 <b>8,000원</b>·월정기 주간 <b>70,000원</b>·야간 <b>무료</b>입니다. 최초 무료 구간은 없습니다.
+별표 적용 19곳(노상 18구간·공영터미널)의 등록 요금이 별표와 일치해 조례 기준으로 계산했습니다.
+무릉계곡 3곳과 천곡동굴 1곳은 관광지 시설 주차요금이라 별표 1이 적용되지 않아 등록값을 유지하고
+시설 안내(무릉계곡 소형 2,000원·대형 5,000원, 천곡동굴 소형 1,000원·대형 2,000원)를 함께 싣습니다.
+노상주차장은 주간에만 요금을 받습니다. 실제 요금은 현장 안내와 동해시청 교통과(033-530-2522)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th>
+  <th class="num">월정기 (주간)</th><th class="num">월정기 (야간)</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금으로 계산하는 유료는 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(

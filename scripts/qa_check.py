@@ -979,6 +979,9 @@ MIX["chuncheon"] = tuple(sorted(_all_mix_tokens))
 MIX["wonju"] = tuple(sorted(_all_mix_tokens))
 MIX["gangneung"] = tuple(sorted(_all_mix_tokens))
 
+# 동해 (조례 제2471호 별표 1: 급지 없는 단일 요금표 — 기본 30분 600원·30분 초과 10분마다 300원·1일 8,000원·월정기 주간 70,000원·야간 무료. 별표 적용 19곳은 등록값이 별표와 일치해 조례 기준 계산, 관광지 시설 4곳(무릉계곡 3·천곡동굴 1)은 제5조제1항 단서로 별표 적용 제외라 등록값 유지+종일 정액, 무료 1곳 등록값 유지)
+MIX["donghae"] = tuple(sorted(_all_mix_tokens))
+
 
 # 거창군 — 창원·진주·통영·사천·김해·밀양·거제·양산·남해·하동·산청과 같은 부류. 도 이름에
 #   '광주'가 없어 전 토큰을 그대로 쓴다. 거창 페이지에 정당하게 나오는
