@@ -1800,6 +1800,8 @@
   <url><loc>https://parking.9welfare.com/parking/gyeongbuk/uljin/jukbyeon-myeon/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gyeongbuk/uljin/hupo-myeon/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gyeongbuk/uljin/street-parking/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gyeongbuk/ulleung/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gyeongbuk/ulleung/ulleung-eup/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gyeonggi/suwon/std-001/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gyeonggi/suwon/std-002/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gyeonggi/suwon/std-003/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -4337,4 +4339,7 @@
   <url><loc>https://parking.9welfare.com/parking/gyeongbuk/chilgok/gb-chilgok-050/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gyeongbuk/yecheon/gb-yecheon-s002/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gyeongbuk/uljin/gb-uljin-025/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gyeongbuk/ulleung/gb-ulleung-001/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gyeongbuk/ulleung/gb-ulleung-003/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gyeongbuk/ulleung/gb-ulleung-004/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>
