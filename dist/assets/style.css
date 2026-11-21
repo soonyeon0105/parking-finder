@@ -220,6 +220,12 @@ table.data th { background: var(--panel-soft); font-size: 12px; color: var(--mut
 table.data td.num, table.data th.num { text-align: right; font-variant-numeric: tabular-nums; }
 table.data tr:last-child td { border-bottom: 0; }
 
+/* 요금표 가로 스크롤 래퍼 (2026-11-21, 성주 허브 390px 504px 넘침 수정).
+   8~9열 요금표는 390px 화면보다 넓으니 래퍼 안에서만 가로 스크롤하고,
+   테이블은 내용 너비(최소 100%)를 유지해 열이 찌그러지지 않는다. */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.table-scroll > table.data { width: max-content; min-width: 100%; }
+
 /* ---------- faq / notes ---------- */
 details.faq { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 11px 13px; margin-bottom: 8px; }
 details.faq summary { cursor: pointer; font-weight: 700; font-size: 14px; }

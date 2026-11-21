@@ -1,0 +1,2596 @@
+{
+ "meta": {
+  "generated_at": "2026-11-21 21:53",
+  "generated_at_iso": "2026-11-21T21:53:21+09:00",
+  "snapshot_at": "2026-11-21 21:53",
+  "region": {
+   "province": "경상북도",
+   "city": "예천군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-04-16",
+    "rows_total": 18994,
+    "rows_city": 20,
+    "fetched_at": "2026-11-21 21:53 (KST)",
+    "note": "예천군으로 등록된 행 20행을 읽어 중복 제거 0건, 제외 0건으로 20곳을 실었다. 유료 7곳·무료 13곳·미상 0곳이다. 데이터기준일자는 2026-04-16이다. 좌표 결측은 0곳이다. 조례 대조 완료 — 「예천군 주차장 조례」 제2617호(시행 2024-05-09, ordinSeq 1925583) 제3조제1항·별표 1 원문 대조 완료(2026-11-21)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "예천군 주차장 조례",
+    "org": "경상북도 예천군청",
+    "url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=1925583&gubun=ELIS",
+    "file": "yecheon-ordinance-b1.txt",
+    "sha256": "426058e23dc3653d5d9d2b2f3a1c9f199f962531ad2cd528ab76528856caaaa4",
+    "license": "자치법규(공개)",
+    "base_date": "2024-05-09",
+    "rows_total": null,
+    "fetched_at": "2026-11-21 21:53 (KST)",
+    "note": "예천군이 설치·관리하는 공영주차장에 적용하는 조례다. 표준데이터에 등록된 예천군 공영주차장 20곳(노외 15곳·노상 5구간, 총 1,667면)입니다. 등록은 전부 공영이고 요금 구분은 무료 13곳·유료 7곳입니다. 「예천군 주차장 조례」 제2617호 별표 1은 최초 1시간 이내 무료, 1시간 초과 시 30분 단위 500원, 월정기 70,000원(노외주차장에 한함)이고 1일 요금 상한은 없습니다. 유료 7곳은 등록 요금이 별표와 일치해 조례 기준으로 계산합니다. 유료 7곳은 특기사항에 토요일·공휴일 무료와 야간 무료(노외 19:00~09:00, 노상 18:00~09:00)가 명시돼 있습니다. (조례 본문: data/raw/yecheon-ordinance.txt, 별표 1 원문 HWP: data/raw/yecheon-ordinance-b1.hwp)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "예천군",
+   "slug": "yecheon"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gb-yecheon-001",
+   "mgmt_no": "370-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "맛고을 제1주차장",
+   "gu": "예천군",
+   "dong": "예천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 예천군 예천읍 남본리 223-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "054-650-6253",
+   "lat": 36.65613627,
+   "lng": 128.4538338,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 예천군청",
+   "note": "야간(19:00~09:00) 무료+토요일 공휴일 무료",
+   "notice": "승용차 5부제를 시행하는 구간입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 90,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 60,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": 70000
+    },
+    "basis": "등록 요금(기본 60분 0원·추가 30분 500원)이 조례 별표 1의 요금(최초 1시간 이내 무료, 1시간 초과 시 30분 단위 500원)과 일치해 조례 기준으로 계산한다. 계산기는 최초 60분 무료, 이후 30분마다 500원을 쓰고 1일 요금 상한은 별표에 없어 두지 않는다. 월정기 70,000원도 별표 1과 일치해 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": "19:00~09:00",
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "예천군",
+   "city_slug": "yecheon",
+   "zone": null
+  },
+  {
+   "id": "gb-yecheon-002",
+   "mgmt_no": "370-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "맛고을 제2주차장",
+   "gu": "예천군",
+   "dong": "예천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 예천군 예천읍 남본리 222-52",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "054-650-6253",
+   "lat": 36.65559091,
+   "lng": 128.4526347,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 예천군청",
+   "note": "야간(19:00~09:00) 무료+토요일 공휴일 무료",
+   "notice": "승용차 5부제를 시행하는 구간입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 90,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 60,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": 70000
+    },
+    "basis": "등록 요금(기본 60분 0원·추가 30분 500원)이 조례 별표 1의 요금(최초 1시간 이내 무료, 1시간 초과 시 30분 단위 500원)과 일치해 조례 기준으로 계산한다. 계산기는 최초 60분 무료, 이후 30분마다 500원을 쓰고 1일 요금 상한은 별표에 없어 두지 않는다. 월정기 70,000원도 별표 1과 일치해 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": "19:00~09:00",
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "예천군",
+   "city_slug": "yecheon",
+   "zone": null
+  },
+  {
+   "id": "gb-yecheon-003",
+   "mgmt_no": "370-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "맛고을 제3주차장",
+   "gu": "예천군",
+   "dong": "예천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 예천군 예천읍 남본리 222-85",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "054-650-6253",
+   "lat": 36.65531618,
+   "lng": 128.4516376,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 예천군청",
+   "note": "야간(19:00~09:00) 무료+토요일 공휴일 무료",
+   "notice": "승용차 5부제를 시행하는 구간입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 90,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 60,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": 70000
+    },
+    "basis": "등록 요금(기본 60분 0원·추가 30분 500원)이 조례 별표 1의 요금(최초 1시간 이내 무료, 1시간 초과 시 30분 단위 500원)과 일치해 조례 기준으로 계산한다. 계산기는 최초 60분 무료, 이후 30분마다 500원을 쓰고 1일 요금 상한은 별표에 없어 두지 않는다. 월정기 70,000원도 별표 1과 일치해 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": "19:00~09:00",
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "예천군",
+   "city_slug": "yecheon",
+   "zone": null
+  },
+  {
+   "id": "gb-yecheon-004",
+   "mgmt_no": "370-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "맛고을길 공영주차장",
+   "gu": "예천군",
+   "dong": "예천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 예천군 예천읍 동본리 494-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "054-650-6253",
+   "lat": 36.65806213,
+   "lng": 128.45786,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 예천군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "예천군",
+   "city_slug": "yecheon",
+   "zone": null
+  },
+  {
+   "id": "gb-yecheon-005",
+   "mgmt_no": "370-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백전리 생태하천 주차장",
+   "gu": "예천군",
+   "dong": "예천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 예천군 예천읍 백전리 94-55",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "054-650-6154",
+   "lat": 36.66281086,
+   "lng": 128.4602092,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 예천군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "예천군",
+   "city_slug": "yecheon",
+   "zone": null
+  },
+  {
+   "id": "gb-yecheon-006",
+   "mgmt_no": "370-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백전천 주차장",
+   "gu": "예천군",
+   "dong": "예천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 예천군 예천읍 백전리 447-77",
+   "addr_road": "",
+   "road": null,
+   "spaces": 45,
+   "tel": "054-650-6636",
+   "lat": 36.66299966,
+   "lng": 128.4612138,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 예천군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "예천군",
+   "city_slug": "yecheon",
+   "zone": null
+  },
+  {
+   "id": "gb-yecheon-007",
+   "mgmt_no": "370-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "예천읍 상설시장주차장",
+   "gu": "예천군",
+   "dong": "예천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 예천군 예천읍 동본리 553",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "054-650-6253",
+   "lat": 36.65600156,
+   "lng": 128.456683,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 예천군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "예천군",
+   "city_slug": "yecheon",
+   "zone": null
+  },
+  {
+   "id": "gb-yecheon-008",
+   "mgmt_no": "370-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙로 주차장",
+   "gu": "예천군",
+   "dong": "예천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 예천군 예천읍 노하리 61",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "054-650-6253",
+   "lat": 36.65801874,
+   "lng": 128.4550105,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 예천군청",
+   "note": "야간(19:00~09:00) 무료+토요일 공휴일 무료",
+   "notice": "승용차 5부제를 시행하는 구간입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 90,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 60,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": 70000
+    },
+    "basis": "등록 요금(기본 60분 0원·추가 30분 500원)이 조례 별표 1의 요금(최초 1시간 이내 무료, 1시간 초과 시 30분 단위 500원)과 일치해 조례 기준으로 계산한다. 계산기는 최초 60분 무료, 이후 30분마다 500원을 쓰고 1일 요금 상한은 별표에 없어 두지 않는다. 월정기 70,000원도 별표 1과 일치해 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": "19:00~09:00",
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "예천군",
+   "city_slug": "yecheon",
+   "zone": null
+  },
+  {
+   "id": "gb-yecheon-009",
+   "mgmt_no": "370-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙시장 주차장",
+   "gu": "예천군",
+   "dong": "예천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 예천군 예천읍 노하리 67-18",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "054-650-6253",
+   "lat": 36.65709874,
+   "lng": 128.4554117,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 예천군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "예천군",
+   "city_slug": "yecheon",
+   "zone": null
+  },
+  {
+   "id": "gb-yecheon-010",
+   "mgmt_no": "370-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한천주차장",
+   "gu": "예천군",
+   "dong": "예천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 예천군 예천읍 동본리 580",
+   "addr_road": "",
+   "road": null,
+   "spaces": 720,
+   "tel": "054-650-6919",
+   "lat": 36.65897876,
+   "lng": 128.4620834,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 예천군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "예천군",
+   "city_slug": "yecheon",
+   "zone": null
+  },
+  {
+   "id": "gb-yecheon-011",
+   "mgmt_no": "370-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "효자로 제1주차장",
+   "gu": "예천군",
+   "dong": "예천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 예천군 예천읍 노하리 73-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "054-650-6253",
+   "lat": 36.65714765,
+   "lng": 128.4546596,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 예천군청",
+   "note": "야간(19:00~09:00) 무료+토요일 공휴일 무료",
+   "notice": "승용차 5부제를 시행하는 구간입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 90,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 60,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": 70000
+    },
+    "basis": "등록 요금(기본 60분 0원·추가 30분 500원)이 조례 별표 1의 요금(최초 1시간 이내 무료, 1시간 초과 시 30분 단위 500원)과 일치해 조례 기준으로 계산한다. 계산기는 최초 60분 무료, 이후 30분마다 500원을 쓰고 1일 요금 상한은 별표에 없어 두지 않는다. 월정기 70,000원도 별표 1과 일치해 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": "19:00~09:00",
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "예천군",
+   "city_slug": "yecheon",
+   "zone": null
+  },
+  {
+   "id": "gb-yecheon-012",
+   "mgmt_no": "370-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "효자로 제2주차장",
+   "gu": "예천군",
+   "dong": "예천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 예천군 예천읍 남본리 233-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "054-650-6253",
+   "lat": 36.65564897,
+   "lng": 128.4512302,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 예천군청",
+   "note": "야간(19:00~09:00) 무료+토요일 공휴일 무료",
+   "notice": "승용차 5부제를 시행하는 구간입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 90,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 70000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 60,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": 70000
+    },
+    "basis": "등록 요금(기본 60분 0원·추가 30분 500원)이 조례 별표 1의 요금(최초 1시간 이내 무료, 1시간 초과 시 30분 단위 500원)과 일치해 조례 기준으로 계산한다. 계산기는 최초 60분 무료, 이후 30분마다 500원을 쓰고 1일 요금 상한은 별표에 없어 두지 않는다. 월정기 70,000원도 별표 1과 일치해 함께 싣는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": "19:00~09:00",
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "예천군",
+   "city_slug": "yecheon",
+   "zone": null
+  },
+  {
+   "id": "gb-yecheon-013",
+   "mgmt_no": "370-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "예천군제1공영주차장",
+   "gu": "예천군",
+   "dong": "호명읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 예천군 호명읍 산합리 1411",
+   "addr_road": "",
+   "road": null,
+   "spaces": 128,
+   "tel": "054-650-6253",
+   "lat": 36.57566076,
+   "lng": 128.4891409,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 예천군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "예천군",
+   "city_slug": "yecheon",
+   "zone": null
+  },
+  {
+   "id": "gb-yecheon-014",
+   "mgmt_no": "370-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "예천군제2공영주차장",
+   "gu": "예천군",
+   "dong": "호명읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 예천군 호명읍 산합리 1425",
+   "addr_road": "",
+   "road": null,
+   "spaces": 86,
+   "tel": "054-650-6253",
+   "lat": 36.5757901,
+   "lng": 128.4914193,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 예천군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "예천군",
+   "city_slug": "yecheon",
+   "zone": null
+  },
+  {
+   "id": "gb-yecheon-015",
+   "mgmt_no": "370-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "패밀리파크 공영주차장",
+   "gu": "예천군",
+   "dong": "호명읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 예천군 호명읍 산합리 74",
+   "addr_road": "",
+   "road": null,
+   "spaces": 95,
+   "tel": "054-650-6253",
+   "lat": 36.57227756,
+   "lng": 128.4880715,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 예천군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "예천군",
+   "city_slug": "yecheon",
+   "zone": null
+  },
+  {
+   "id": "gb-yecheon-s001",
+   "mgmt_no": "370-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "개심사지 노상주차장",
+   "gu": "예천군",
+   "dong": "예천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 예천군 예천읍 남본리 180-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "054-650-6253",
+   "lat": 36.65178511,
+   "lng": 128.4557,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 예천군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "예천군",
+   "city_slug": "yecheon",
+   "zone": null
+  },
+  {
+   "id": "gb-yecheon-s002",
+   "mgmt_no": "370-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "노상주차장(백한의원~권병원)",
+   "gu": "예천군",
+   "dong": "예천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 예천군 예천읍 남본리 221-20",
+   "addr_road": "",
+   "road": null,
+   "spaces": 114,
+   "tel": "054-650-6253",
+   "lat": 36.65607755,
+   "lng": 128.4548143,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 예천군청",
+   "note": "야간(18:00~09:00) 무료+토요일 공휴일 무료",
+   "notice": "승용차 5부제를 시행하는 구간입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 90,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 60,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금+가상계좌+카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "등록 요금(기본 60분 0원·추가 30분 500원)이 조례 별표 1의 요금(최초 1시간 이내 무료, 1시간 초과 시 30분 단위 500원)과 일치해 조례 기준으로 계산한다. 계산기는 최초 60분 무료, 이후 30분마다 500원을 쓰고 1일 요금 상한은 별표에 없어 두지 않는다. 월정기는 별표 1 비고 4상 노상주차장은 설치자가 따로 적용 여부를 결정하게 돼 있고 등록도 공란이라 싣지 않는다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": "18:00~09:00",
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "예천군",
+   "city_slug": "yecheon",
+   "zone": null
+  },
+  {
+   "id": "gb-yecheon-s003",
+   "mgmt_no": "370-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "보건소앞 노상주차장(보건소~경찰서)",
+   "gu": "예천군",
+   "dong": "예천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 예천군 예천읍 서본리 1-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "054-650-6253",
+   "lat": 36.65705923,
+   "lng": 128.4526868,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 예천군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "예천군",
+   "city_slug": "yecheon",
+   "zone": null
+  },
+  {
+   "id": "gb-yecheon-s004",
+   "mgmt_no": "370-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "한천길 노상주차장",
+   "gu": "예천군",
+   "dong": "예천읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 예천군 예천읍 동본리 557-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 154,
+   "tel": "054-650-6253",
+   "lat": 36.65544424,
+   "lng": 128.4571119,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 예천군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "예천군",
+   "city_slug": "yecheon",
+   "zone": null
+  },
+  {
+   "id": "gb-yecheon-s005",
+   "mgmt_no": "370-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "용궁시장 주차장",
+   "gu": "예천군",
+   "dong": "용궁면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 예천군 용궁면 읍부리 329-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "054-650-6253",
+   "lat": 36.60675598,
+   "lng": 128.2754745,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 예천군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 1,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "예천군",
+   "city_slug": "yecheon",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-21 21:53",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 20,
+  "원자료_예천군행수": 20,
+  "원자료_받은행수": 20,
+  "구별": {
+   "예천군": 20
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 15,
+  "노외_부설": {
+   "노외": 15
+  },
+  "노상_구간": 5,
+  "총_구획수": 1303,
+  "노상_구획수": 364,
+  "동별": {
+   "예천읍": 16,
+   "호명읍": 3,
+   "용궁면": 1
+  },
+  "동수": 3,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 20
+  },
+  "요금구분": {
+   "유료": 7,
+   "무료": 13
+  },
+  "요금_미상": [],
+  "유료_노상": 1,
+  "유료_노외": 6,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "표준데이터 등록 20행 전부 공영(민영 0행)을 읽었다. 데이터기준일자는 2026-04-16 20행, 제공기관명은 경상북도 예천군 20행, 관리기관명은 경상북도 예천군청 20곳이다",
+   "관리번호 370-1-000006을 공유하는 개심사지 노상주차장(예천읍 남본리 180-3, 29면)·한천길 노상주차장(예천읍 동본리 557-3, 154면)은 이름·지번이 다른 별개 등록이라 합치지 않고 둘 다 실었다. 등록 경위는 예천군청 확인이 필요하다",
+   "등록 급지구분은 20곳 전부 '1'이다. 조례 별표 1에는 급지 체계가 없어 요금 계산에는 쓰지 않았다",
+   "좌표는 20행 전부 등록돼 있다. 지오코딩 보완 대상이 없어 오버레이 추가도 0건이다",
+   "운영요일은 20곳 전부 평일+토요일+공휴일이고 운영시간은 20곳 전부 00:00~23:59이다. 부제시행구분은 유료 7곳 5부제·무료 13곳 미시행이다. 도로명주소는 20곳 전부 등록돼 있지 않다. 특기사항은 유료 7곳만 기재돼 있다(야간 무료+토요일 공휴일 무료). 결제방법은 유료 7곳만 등록돼 있다",
+   "20곳 중 무료 13곳·유료 7곳이다. 유료 7곳은 등록 요금이 조례 별표 1(최초 1시간 이내 무료·1시간 초과 시 30분 단위 500원)과 일치해 계산한다. 토요일·공휴일 무료는 조례가 아니라 유료 7곳 특기사항의 명시를 근거로 표기한다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "노상주차장(백한의원~권병원): 노상 유료 1곳으로 월정기권이 공란이다 — 별표 1 비고 4상 노상주차장의 월정기 적용 여부는 설치자가 따로 결정하게 돼 있어 미확정으로 남긴다. 1일주차권도 별표에 없어 공란을 무제한 또는 0원으로 변환하지 않는다"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "맛고을 제1주차장",
+   "맛고을 제2주차장",
+   "맛고을 제3주차장",
+   "맛고을길 공영주차장",
+   "백전리 생태하천 주차장",
+   "백전천 주차장",
+   "예천읍 상설시장주차장",
+   "중앙로 주차장",
+   "중앙시장 주차장",
+   "한천주차장",
+   "효자로 제1주차장",
+   "효자로 제2주차장",
+   "예천군제1공영주차장",
+   "예천군제2공영주차장",
+   "패밀리파크 공영주차장",
+   "개심사지 노상주차장",
+   "노상주차장(백한의원~권병원)",
+   "보건소앞 노상주차장(보건소~경찰서)",
+   "한천길 노상주차장",
+   "용궁시장 주차장"
+  ],
+  "감면_출처": "「예천군 주차장 조례」 제2617호 제3조의2 — 긴급자동차·성실납세증 부착 자동차(교부일부터 1년)는 면제, 등록장애인·국가유공자 상이 1~6급·고엽제 후유증환자·5·18 민주화운동부상자는 1일 1회 1시간 이내 면제·초과 시 50% 경감, 경형자동차(1,000㏄ 미만)는 60% 경감, 환경친화적 자동차는 50% 경감(전기자동차 충전 시 최초 1시간 면제)이다",
+  "요금_출처": "조례 제3조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같다. 별표 1은 최초 1시간 이내 무료, 1시간 초과 시 30분 단위 500원, 월정기 70,000원(노외 한정)이고 1일 요금은 없다. 별표 원본 HWP(flSeq 140325969)를 받아 추출해 대조했다",
+  "급지_출처": "조례 별표 1에는 급지 구분이 없다. 표준데이터 등록 급지구분은 20곳 전부 '1'이나 조례 급지 체계가 아니라 요금 계산에 쓰지 않았다",
+  "무료요일_출처": "조례 본문·별표 1 어디에도 군 전체 주말·공휴일 자동 무료 조항은 없다. 다만 표준데이터 특기사항에 유료 7곳 전부 '토요일 공휴일 무료'가 명시돼 있어 그 7곳만 토요일·공휴일 무료로 표기한다(인스팅트 앞단 패키지 확인, 2026-11-21 법제처 본문·별표 원문 재대조). 일요일은 별도 기재가 없어 공휴일과 겹치는 경우의 처리는 확인 과제다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 예천군 등록 20행 전부 공영(민영 0행), 노외 15·노상 5, 총 1,667면으로 무료 13·유료 7, 기준일 2026-04-16이다. 중복 판정(전체 이름·지번·좌표 200m 가드)에 걸리는 쌍은 없고, 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다. 인스팅트 앞단 패키지(경북 19/22, 2026-11-20)의 집계(공영 20행·1,667면, 노외 15·노상 5, 무료 13·유료 7, 기준일 2026-04-16)와 표준데이터 원본 대조 결과가 일치한다",
+   "「예천군 주차장 조례」 제2617호(시행 2024-05-09, ordinSeq 1925583) 본문 원문(data/raw/yecheon-ordinance.txt) 대조 완료(2026-11-21) — 본문 제3조제1항이 공영주차장 요금을 별표 1로 정한다. 별표 1은 ELIS 첨부 HWP 원본(flSeq 140325969)을 data/raw/yecheon-ordinance-b1.hwp로 저장하고 추출해 확정했다 — 최초 1시간 이내 무료, 1시간 초과 시 30분 단위 500원, 월정기 70,000원. 예시(1시간 초과~1시간 30분 500원·1시간 30분 초과~2시간 1,000원)로 올림 처리를 확인했다. 1일 요금은 별표에 없다. 월정기는 노외주차장에 한하되 노상주차장은 설치자가 따로 적용 여부를 결정할 수 있다(비고 4). 패키지가 연결한 flSeq 140325969는 받아 본 파일이 실제 별표 1([별표 1] 공영주차장 주차요금표, <개정 2024. 5. 9.>)임이 확인됐다 — 정정 없음",
+   "유료 7곳(중앙로·효자로 제1·제2·맛고을 제1·제2·제3 노외 6곳, 노상주차장(백한의원~권병원) 노상 1곳)의 등록 요금 기본 60분 0원·추가 30분 500원이 별표 1과 전부 일치한다 — free_min 60분 + 30분마다 500원으로 계산한다. 노외 6곳의 월 70,000원도 일치해 함께 싣는다. 노상 1곳은 월권 공란이라 싣지 않는다(별표 비고 4상 설치자 별도 결정, 미확정). 1일권은 별표에 없어 공란을 무제한 또는 0원으로 변환하지 않는다",
+   "좌표 결측은 0곳이다. 지오코딩 보완 대상이 없어 오버레이 추가도 0건이다",
+   "주말·공휴일 전체 무료는 조례 본문·별표 1 어디에도 없다. 다만 유료 7곳의 표준데이터 특기사항에 '토요일 공휴일 무료'가 명시돼 있어 그 범위만 표기한다. 일요일은 별도 기재가 없어 공휴일 해석은 확인 과제다. 야간 무료(노외 19:00~09:00, 노상 18:00~09:00)도 특기사항 근거로만 싣는다",
+   "관리번호 370-1-000006을 공유하는 개심사지 노상주차장(남본리 180-3, 29면)·한천길 노상주차장(동본리 557-3, 154면)은 이름·지번이 다른 별개 등록이라 합치지 않고 둘 다 실었다(관리번호로는 합치지 않는 원칙, 칠곡 관리번호 공유 선례). 이름이 겹치는 등록은 없다",
+   "동·읍·면 판정은 지번주소 기준이고 3개 읍·면(예천읍 16·호명읍 3·용궁면 1) 전부 판정됐다. 도로명주소는 20곳 전부 등록돼 있지 않다. 특기사항은 유료 7곳만 기재돼 있다. 결제방법은 유료 7곳만 등록돼 있다(현금+카드, 노상 1곳은 현금+가상계좌+카드)",
+   "관리기관명은 경상북도 예천군청 20곳 전부이다. 전화번호는 054-650-6253이 16곳, 054-650-6154·054-650-6919·054-650-6636이 각 1곳이다. 등록 급지구분은 20곳 전부 '1'이다",
+   "확인 과제 — ① 유료 7곳의 운영 공고와 일요일(공휴일과 겹치지 않는 일요일) 처리 방식을 확인할 것 ② 노상주차장(백한의원~권병원)의 월정기 적용 여부를 확인할 것 ③ 관리번호 370-1-000006을 공유하는 개심사지·한천길 노상주차장 2행의 등록 경위를 확인할 것 ④ 무료 13곳 등록 최신성·향후 유료 공고가 있는지 확인할 것 ⑤ 도로명주소 미등록 20곳의 도로명주소·건물번호를 확인할 것"
+  ],
+  "무료개방_표기": [
+   "맛고을 제1주차장",
+   "맛고을 제2주차장",
+   "맛고을 제3주차장",
+   "중앙로 주차장",
+   "효자로 제1주차장",
+   "효자로 제2주차장",
+   "노상주차장(백한의원~권병원)"
+  ],
+  "거주자우선": [],
+  "무료_요금구분": 13,
+  "무료_구획수": 1418,
+  "평균_기본요금": 500,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [
+   "370-1-000006"
+  ],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-16"
+  ],
+  "관리기관": {
+   "경상북도 예천군청": 20
+  }
+ },
+ "fee_table": {
+  "style": "yecheon_grade",
+  "unit_min": 30,
+  "base_min": 60,
+  "applies": "「예천군 주차장 조례」 제2617호(시행 2024-05-09) 제3조제1항·별표 1 — 국가법령정보센터 ordinSeq 1925583에서 확인",
+  "source_url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=1925583&gubun=ELIS",
+  "grade_system": "조례 별표 1에는 급지 구분이 없다. 1회 주차요금은 최초 1시간 이내 무료, 1시간 초과 시 30분 단위 500원이고 예시로 1시간 초과~1시간 30분 500원·1시간 30분 초과~2시간 1,000원을 명시한다(올림 처리). 1일 요금은 별표에 없어 상한이 없다. 월정기주차요금 70,000원은 노외주차장에 한하되, 노상주차장에 대하여는 주차 수요를 감안하여 주차장 설치자가 따로 적용 여부를 결정할 수 있다(별표 1 비고 4). 표준데이터 등록 급지구분은 20곳 전부 '1'이나 조례 급지 체계가 아니라 요금 계산에는 쓰지 않았다",
+  "rows": [
+   {
+    "label": "공영주차장 (조례 별표 1)",
+    "grade": "standard",
+    "unit_label": "최초 1시간 이내 무료 · 1시간 초과 시 30분 단위 500원",
+    "hour": 0,
+    "two_hour": 1000,
+    "day": null,
+    "month_all": null,
+    "month": 70000,
+    "month_night": null,
+    "lots": 7
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 6,
+   "street_paid": 1,
+   "free": 13,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "야간 무료 (표준데이터 특기사항)",
+    "hours": "노외 유료 6곳 19:00~09:00 · 노상 유료 1곳 18:00~09:00",
+    "free": "유료 7곳의 특기사항에 명시된 무료 시간대다. 조례 본문·별표 1의 규정은 아니다"
+   },
+   {
+    "group": "토요일·공휴일 무료 (표준데이터 특기사항)",
+    "hours": "유료 7곳 전부",
+    "free": "특기사항에 '토요일 공휴일 무료'로 명시돼 있다. 일요일은 별도 기재가 없어 공휴일과 겹치는 경우의 처리는 군청 확인이 필요하다"
+   },
+   {
+    "group": "월정기 적용 범위 (조례 별표 1 비고 4)",
+    "hours": "노외주차장에 한함 · 노상은 설치자가 따로 결정",
+    "free": "노상 유료 1곳(노상주차장(백한의원~권병원))은 월정기 등록이 공란이라 싣지 않았다"
+   }
+  ],
+  "discounts": [
+   {
+    "label": "긴급자동차·성실납세증 자동차 전액 면제",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 제3조의2제1항 — 「도로교통법」 제2조제22호에 따른 긴급자동차, 국세청장이 교부하는 성실납세증을 부착한 자동차는 주차요금을 면제할 수 있다(성실납세증 면제기간은 교부받은 날부터 1년)"
+   },
+   {
+    "label": "장애인·국가유공자(상이 1~6급)·고엽제 환자·5·18 부상자 — 1시간 이내 면제, 초과 시 50% 경감",
+    "rate": 0.5,
+    "exempt_min": 60,
+    "note": "조례 제3조의2제2항 — 「장애인복지법」 제2조에 따른 등록장애인, 상이등급 1급부터 6급까지의 국가유공자, 고엽제 후유증환자, 5·18 민주화운동부상자는 1일 1회에 한하여 1시간 이내의 경우 주차요금을 면제하고, 1시간 초과시와 1일주차권 또는 월정기주차권을 이용할 경우에는 주차요금의 100분의 50을 경감할 수 있다(본인 소유의 비사업용 차량을 직접 운전하거나 대리운전하게 하는 경우에 한하며, 감면 대상자임을 증명하여야 한다)"
+   },
+   {
+    "label": "경형자동차 60% 경감",
+    "rate": 0.4,
+    "exempt_min": 0,
+    "note": "조례 제3조의2제3항 — 「자동차관리법 시행규칙」 제2조에 따른 경형자동차(배기량 1,000㏄ 미만)는 주차요금의 100분의 60을 경감할 수 있다"
+   },
+   {
+    "label": "환경친화적 자동차 50% 경감 (전기자동차 충전 시 최초 1시간 면제)",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제3조의2제3항 — 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조제2호에 따른 환경친화적 자동차는 주차요금의 100분의 50을 경감할 수 있다. 다만, 전기자동차가 충전을 위하여 주차하는 경우에는 최초 1시간의 범위에서 주차요금을 면제한다"
+   }
+  ],
+  "notes": "감면(조례 제3조의2)은 긴급자동차·성실납세증 부착 자동차 전액 면제, 장애인·국가유공자(상이 1~6급)·고엽제 후유증환자·5·18 민주화운동부상자는 1일 1회 1시간 이내 면제·초과 시 50% 경감, 경형자동차(1,000㏄ 미만) 60% 경감, 환경친화적 자동차 50% 경감(전기자동차 충전 시 최초 1시간 면제)이다(관련 증명 필요).",
+  "basis": "요금표는 「예천군 주차장 조례」 제2617호(시행 2024-05-09) 제3조제1항·별표 1과 표준데이터(기준일 2026-04-16)를 대조해 실었다. 별표 1 원본 HWP는 flSeq 140325969이다. 유료 7곳의 등록 요금(기본 60분 0원·추가 30분 500원, 노외 6곳 월 70,000원)이 별표와 일치해 조례 기준으로 계산한다. (조례 본문: data/raw/yecheon-ordinance.txt, 별표 1 원문 HWP: data/raw/yecheon-ordinance-b1.hwp)"
+ },
+ "slug": "yecheon",
+ "province": "경상북도",
+ "province_slug": "gyeongbuk",
+ "dong_page_min_lots": 3,
+ "city": "예천군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·성실납세증 자동차 전액 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제3조의2제1항 — 「도로교통법」 제2조제22호에 따른 긴급자동차, 국세청장이 교부하는 성실납세증을 부착한 자동차는 주차요금을 면제할 수 있다(성실납세증 면제기간은 교부받은 날부터 1년)"
+  },
+  {
+   "label": "장애인·국가유공자(상이 1~6급)·고엽제 환자·5·18 부상자 — 1시간 이내 면제, 초과 시 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 60,
+   "note": "조례 제3조의2제2항 — 「장애인복지법」 제2조에 따른 등록장애인, 상이등급 1급부터 6급까지의 국가유공자, 고엽제 후유증환자, 5·18 민주화운동부상자는 1일 1회에 한하여 1시간 이내의 경우 주차요금을 면제하고, 1시간 초과시와 1일주차권 또는 월정기주차권을 이용할 경우에는 주차요금의 100분의 50을 경감할 수 있다(본인 소유의 비사업용 차량을 직접 운전하거나 대리운전하게 하는 경우에 한하며, 감면 대상자임을 증명하여야 한다)"
+  },
+  {
+   "label": "경형자동차 60% 경감",
+   "rate": 0.4,
+   "exempt_min": 0,
+   "note": "조례 제3조의2제3항 — 「자동차관리법 시행규칙」 제2조에 따른 경형자동차(배기량 1,000㏄ 미만)는 주차요금의 100분의 60을 경감할 수 있다"
+  },
+  {
+   "label": "환경친화적 자동차 50% 경감 (전기자동차 충전 시 최초 1시간 면제)",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제3조의2제3항 — 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조제2호에 따른 환경친화적 자동차는 주차요금의 100분의 50을 경감할 수 있다. 다만, 전기자동차가 충전을 위하여 주차하는 경우에는 최초 1시간의 범위에서 주차요금을 면제한다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
