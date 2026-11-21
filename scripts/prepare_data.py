@@ -346,7 +346,10 @@ def derive_free_fields(lot):
     # 영주시도 마찬가지다 — 조례 본문·별표 1 어디에도 시 전체 일괄 주말·공휴일
     # 무료 근거가 없고, 하망동 3공영 주차장의 특기사항 '공휴일+야간무료'는 운영요일
     # 등록(평일+토요일)과 어긋나 그 행도 공휴일 태그를 붙이지 않는다.
-    if lot["free_holiday"] or (fd["sun"] and lot.get("city") not in ("공주시", "보령시", "제천시", "김해시", "거제시", "양산시", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "경주시", "김천시", "안동시", "구미시", "영주시")):
+    # 상주시도 마찬가지다 — 조례 본문·별표 어디에도 시 전체 일괄 주말·공휴일
+    # 무료 근거가 없어, 26곳 전부 24시간 운영 등록만으로 공휴일 태그를 붙이지
+    # 않는다(2026-11-21).
+    if lot["free_holiday"] or (fd["sun"] and lot.get("city") not in ("공주시", "보령시", "제천시", "김해시", "거제시", "양산시", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "경주시", "김천시", "안동시", "구미시", "영주시", "상주시")):
         tags.append("공휴일")
     if overlaps_night(fw):
         tags.append("심야")
@@ -81211,6 +81214,680 @@ def build_yeongju():
 
 
 
+# ─────────────────────────────────────────────────────────────────────────
+# 상주시 (경상북도) — 「상주시 주차장 조례」 제1785호(시행
+#   2026-10-12, 일부개정), ordinSeq 2178211. law.go.kr 원문
+#   직접 확인(2026-11-21): 본문 data/raw/sangju-ordinance.txt,
+#   별표는 ELIS 첨부 HWP(flSeq 170438887,
+#   data/raw/sangju-ordinance-b1.hwp)를 받아 추출했다
+#   (sangju-ordinance-b1.txt). 국가법령정보센터 연혁에서
+#   제1785호(공포 2026-10-12)가 최신 공포본임을 확인했다.
+# 제3조제1항이 공영주차장 요금을 별표와 같다고 정한다.
+#   별표(2026-10-12 개정)는 급지를 나누지 않고 1구획당
+#   30분마다 500원, 1일 주차요금 6,000원, 월정기 주간
+#   75,000원·야간 56,000원이다. 1일 요금은 유료 6시간 이상
+#   주차 시 적용하고 그날 24:00까지(24시간 운영장은 다음날
+#   08:00까지)로 한다(일반기준 2). 주간은 4~10월
+#   08:00~20:00, 11~3월 09:00~19:00이고 나머지는 야간이다
+#   (일반기준 3). 주차장별로 유료운영 시간을 조정하거나
+#   표의 범위에서 요금을 조정할 수 있으나 시 홈페이지에
+#   게시해야 한다(일반기준 4).
+# 감면은 제3조의2다. 전액 감면(제1호)은 긴급자동차, 공무
+#   수행 중인 국가·시 소유 자동차, 성실납세증 부착 자동차
+#   (교부일부터 1년간)이고, 50% 감면(제2호)은 장애인·국가
+#   유공자·5·18민주유공자·특수임무유공자·고엽제후유의증
+#   환자 등(가목, 증표 제시), 경형 승용자동차·환경친화적
+#   자동차(나목), 전통시장 상인·고객(다목, 시장 안·인접
+#   공영주차장, 1일 총 주차면수의 30% 이내)이며, 시책 참여
+#   차량은 20%를 감면한다(제3호).
+# 표준데이터 상주시 등록 26행은 전부 공영·노외(총 1,411면)
+#   이고 민영 제외 0건, 요금 구분은 무료 24곳·유료 2곳이다
+#   — 인스팅트 앞단 패키지(경북 8/22, 2026-11-20) 집계와
+#   표준데이터 원본 대조 결과가 일치한다. 관리번호 중복
+#   0건, 이름+지번 중복 0건, 같은 자리·좌표 그룹 0건, 좌표
+#   결측 0건이다.
+# 유료 2곳의 판단은 패키지 판단안을 따랐다 — 공영유료
+#   주차장(88면)은 등록값(기본 30분 500원·추가 30분 500원·
+#   1일 6,000원·월 75,000원)이 별표와 전부 일치해 등록값
+#   으로 계산한다. 중앙시장 주차타워(222면)는 등록 기본
+#   단위가 60분 500원으로 현행 별표(30분마다 500원)와
+#   다르고 표준데이터 기준일(2026-04-17)이 별표 개정
+#   (2026-10-12)보다 앞서서, 일반기준 4의 개별 조정이 시
+#   홈페이지에 게시됐는지 확인되지 않아 시간요금을 확정
+#   하지 않고 요금 미상으로 표기한다(김해·함안 선례 —
+#   등록값은 std에 그대로 남긴다). 월 0원은 무료 정기권
+#   으로 해석하지 않는다. 조례 본문·별표 어디에도 시 전체
+#   일괄 주말·공휴일 무료 근거가 없어 공휴일 무료로 표기
+#   하지 않는다(24시간 운영 등록도 무료 근거가 아니다).
+#   좌표는 26곳 전부 등록돼 있어 보완이 0건이다.
+SANGJU_PROVINCE = "경상북도"
+SANGJU_PROVINCE_SLUG = "gyeongbuk"
+SANGJU_ORD_URL = ("https://www.law.go.kr/LSW/ordinInfoR.do?"
+                  "ordinSeq=2178211")
+SANGJU_ORD_TXT = RAW / "sangju-ordinance-b1.txt"
+SANGJU_ORD_NOTE = ("「상주시 주차장 조례」 제1785호(시행 2026-10-12) "
+                   "제3조제1항·별표 — 국가법령정보센터 ordinSeq 2178211에서 확인")
+
+SANGJU_DISCOUNTS = [
+    {"label": "긴급자동차·공무수행 차량 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제3조의2제1호가·나목 — 「도로교통법」 제2조제22호에 따른 긴급자동차와 공무수행(公務修行) 중인 국가나 시 소유의 자동차는 주차요금을 전액 감면할 수 있다"},
+    {"label": "성실납세자 면제 (1년간)", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제3조의2제1호다목 — 국세청, 경상북도지사, 시장이 교부한 국세·지방세의 성실납세증을 부착한 자동차는 교부일부터 1년간 주차요금을 전액 감면할 수 있다"},
+    {"label": "장애인·국가유공자 등 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조의2제2호가목 — 「장애인복지법」에 따른 장애인 소유의 등록된 자동차에 장애인이 직접 운전하거나 대리하여 운전을 한 차량, 「국가유공자 등 예우 및 지원에 관한 법률」 제6조에 따라 등록된 국가유공자가 직접 운전하거나 그 유족 또는 가족이 대리하여 운전을 한 차량, 「5·18민주유공자예우 및 단체설립에 관한 법률」 제7조에 따라 등록된 민주유공자가 직접 운전하거나 그 유족 또는 가족이 대리하여 운전을 한 차량, 「특수임무유공자 예우 및 단체설립에 관한 법률」 제6조에 따라 등록된 특수임무유공자가 직접 운전하거나 그 유족 또는 가족이 대리하여 운전을 한 차량, 「고엽제후유의증 등 환자지원 및 단체설립에 관한 법률」 제3조에 따른 고엽제후유의증 환자 등으로 결정·등록된 자가 직접 운전하거나 그 유족 또는 가족이 대리하여 운전을 한 차량은 주차요금의 50퍼센트를 감면할 수 있다(관리자에게 감면 대상자임을 증명할 수 있는 증표를 제시하여야 한다)"},
+    {"label": "임산부·영유아 동승·다자녀가정·우수자원봉사자 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조의2제2호가목 — 관내에 주소를 두고 「모자보건법」 제8조에 따라 신고된 임산부가 직접 운전하거나 동승한 차량(모자보건수첩 및 신분증 등 증명자료를 제시하는 경우), 관내에 주소를 두고 「모자보건법」 제2조제3호의 영유아가 동승하고 가족이 운전한 차량(신분증 및 가족관계 등 증명자료를 제시하는 경우), 「상주시 다자녀가정 우대 및 지원 조례」 제2조에 따른 다자녀가정의 부모가 운전을 한 차량(다복가정희망카드 제시 또는 가족관계 등 증명자료를 제시하는 경우), 「상주시 자원봉사활동 지원 조례」 제11조의2에 따른 자원봉사자가 운전을 한 차량(우수자원봉사자증을 소지한 경우)은 주차요금의 50퍼센트를 감면할 수 있다"},
+    {"label": "경형 승용자동차·환경친화적 자동차 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조의2제2호나목 — 「자동차관리법 시행규칙」 별표 1에 따른 경형 승용자동차 및 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조에 따른 환경친화적 자동차의 주차요금은 50퍼센트를 감면할 수 있다"},
+    {"label": "전통시장 상인·고객 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조의2제2호다목 — 「전통시장 및 상점가 육성을 위한 특별법」 제19조에 따른 시장(市場) 및 시장 활성화 구역의 상인(1일 총 주차면수의 30퍼센트 이내로 한다) 및 고객이 공영주차장[시장(市場) 또는 시장 활성화구역 안에 있거나 인접한 주차장]을 주로 사용하며, 같은 법 시행령 제3조에 따른 상인조직에서 발급한 증표를 제시하는 경우 주차요금의 50퍼센트를 감면할 수 있다(공영주차장만 해당한다)"},
+    {"label": "시책 참여 차량 20% 감면", "rate": 0.2, "exempt_min": 0,
+     "note": "조례 제3조의2제3호 — 그 밖에 시에서 추진하는 시책 참여 차량에 대하여는 주차요금의 20퍼센트를 감면할 수 있다"},
+]
+
+SANGJU_CONF = {
+    "city": "상주시",
+    "slug": "sangju",
+    "manager": "경상북도 상주시청",
+    "manager_inquiry": "상주시청 교통에너지과(054-537-6254, 조례 담당부서)",
+    "ordinance": ("상주시 주차장 조례", SANGJU_ORD_URL, SANGJU_ORD_NOTE),
+    "notes": (
+        "표준데이터에 등록된 상주시 공영주차장 26곳(전부 노외, 총 1,411면)입니다. "
+        "등록은 전부 공영이고 요금 구분은 무료 24곳·유료 2곳입니다. 「상주시 주차장 조례」 "
+        "제1785호 별표는 급지를 나누지 않고 1구획당 30분마다 500원, 1일 주차요금 "
+        "6,000원, 월정기 주간 75,000원·야간 56,000원으로 정합니다. 공영유료주차장"
+        "(88면)은 등록값이 별표와 전부 일치해 등록값으로 계산하고, 중앙시장 주차타워"
+        "(222면)는 등록 기본 단위(60분 500원)가 현행 별표와 달라 개별 조정 게시가 "
+        "확인되지 않아 요금 미상으로 표기했습니다."),
+    "discounts": SANGJU_DISCOUNTS,
+}
+
+SANGJU_BBOX = (36.30, 36.62, 127.88, 128.30)
+SANGJU_DONGS = {"함창읍", "사벌국면", "공검면", "이안면", "낙동면",
+                "청리면", "공성면", "외남면", "내서면", "모동면",
+                "모서면", "화동면", "화서면", "화북면", "외서면",
+                "은척면", "중동면",
+                "남원동", "북문동", "계림동", "동문동", "동성동",
+                "신봉동", "가장동", "만산동", "냉림동", "낙양동",
+                "복룡동", "인봉동", "남성동", "성동동", "서성동",
+                "화개동", "외답동", "개운동", "양촌동", "거동동",
+                "지천동", "병성동", "초산동", "헌신동", "오대동",
+                "계산동", "서문동", "무양동", "연원동", "화산동",
+                "죽전동", "도남동"}
+
+# 별표 요율 — 급지 구분 없이 단일 요율이다.
+#   (30분마다, 1일, 월 주간, 월 야간)
+SANGJU_RATE = (500, 6000, 75000, 56000)
+
+
+def sangju_dong_of(addr):
+    """상주시 법정 동·읍·면 판정 — 지번주소의 상주시 다음 토큰이
+    동·읍·면이다. 거제·고성·하동·김천·영주와 같은 정규식을 쓴다."""
+    if addr:
+        m = re.search(r"상주시\s*([가-힣0-9]+?(?:동|읍|면))(?=[\s0-9-]|$)", addr)
+        if m:
+            return m.group(1)
+    return None
+
+
+def sangju_fee(row, name, note_bits, fee_diff):
+    """상주시 공영주차장 한 곳의 요금 — 무료 24곳은 무료로
+    싣는다. 유료 2곳의 판단은 인스팅트 패키지 판단안을
+    따른다. 공영유료주차장(88면)은 등록값(기본 30분
+    500원·추가 30분 500원·1일 6,000원·월 75,000원)이
+    조례 별표와 전부 일치해 등록값으로 계산한다 — 등록
+    1일주차권요금적용시간 6000은 요금과 같은 숫자가 들어간
+    등록 오류로 보이며, 별표 일반기준 2는 1일 요금을
+    '유료 6시간 이상 주차 시' 적용한다고 정하고 30분마다
+    500원 산식도 360분에 6,000원에 닿아 결과가 같다.
+    중앙시장 주차타워(222면)는 등록 기본 단위가 60분
+    500원으로 현행 별표(30분마다 500원)와 다르고 표준
+    데이터 기준일(2026-04-17)이 별표 개정(2026-10-12)
+    보다 앞서며, 별표 일반기준 4의 개별 조정이 시 홈
+    페이지에 게시됐는지 확인되지 않아 시간요금을 확정
+    하지 않고 요금 미상으로 표기한다(김해·함안 선례).
+    등록 월 0원은 무료 정기권으로 해석하지 않는다.
+    등록값은 std에 그대로 남긴다."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    day_hours = to_int(row.get("1일주차권요금적용시간"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None, "monthly_night": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None, "bands": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표와 같다고 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 시청 확인 필요"})
+        return fee
+    unit_fee_ord, day_ord, month_ord, month_night_ord = SANGJU_RATE
+    if (base_min, base_fee, unit_min, unit_fee) == (30, unit_fee_ord, 30, unit_fee_ord):
+        upd = {"type": "유료", "base_min": base_min, "base_fee": base_fee,
+               "unit_min": unit_min, "unit_fee": unit_fee}
+        extra = []
+        if day == day_ord:
+            upd["daily_fee"] = day
+            upd["daily_hours"] = 24
+            if day_hours and day_hours != 24:
+                fee_diff.append(f"{name}: 등록 1일주차권요금적용시간 {day_hours}은 요금"
+                                f"({day_ord:,}원)과 같은 숫자가 들어간 등록 오류로 보인다 — "
+                                "별표 일반기준 2는 1일 요금을 '유료 6시간 이상 주차 시' "
+                                "적용한다고 정하고, 30분마다 500원 산식도 360분에 "
+                                "6,000원에 닿아 결과가 같다. 적용시간 칸의 뜻은 시청 "
+                                "확인 과제로 남긴다")
+                extra.append("등록 1일주차권요금적용시간은 등록 오류로 보여 별표 일반기준 2의 '유료 6시간 이상' 조건으로 계산한다")
+        elif day:
+            fee_diff.append(f"{name}: 등록 1일 요금 {day:,}원이 조례 별표의 1일 요금 "
+                            f"{day_ord:,}원과 달라 확정하지 않았다 — 시청 확인 과제다")
+            extra.append("등록 1일 요금은 별표와 달라 확정하지 않았다")
+        if month:
+            if month == month_ord:
+                upd["monthly"] = month
+                upd["monthly_label"] = "주간"
+            elif month == month_night_ord:
+                upd["monthly_night"] = month
+            else:
+                fee_diff.append(f"{name}: 등록 월 요금 {month:,}원이 조례 별표의 월 주간 "
+                                f"{month_ord:,}원·야간 {month_night_ord:,}원과 달라 "
+                                "확정하지 않았다 — 시청 확인 과제다")
+                extra.append("등록 월 요금은 별표와 달라 확정하지 않았다")
+        upd["basis"] = ("등록 시간요금(30분마다 500원)·1일 요금(6,000원)·월 정기"
+                        "(주간 75,000원)가 조례 별표와 전부 일치해 등록값으로 계산한다. "
+                        "1일 요금은 유료 6시간 이상 주차 시 적용한다(별표 일반기준 2)"
+                        + (". " + "·".join(extra) if extra else ""))
+        fee.update(upd)
+        return fee
+    if base_min and base_fee and unit_min and unit_fee and base_min != 30:
+        fee_diff.append(f"{name}: 등록 요금(기본 {base_min}분 {base_fee:,}원·추가 "
+                        f"{unit_min}분 {unit_fee:,}원·1일 {day:,}원·월 {month:,}원)의 "
+                        "기본 단위가 현행 조례 별표(30분마다 500원)와 다르고, 표준데이터 "
+                        "기준일(2026-04-17)이 별표 개정(2026-10-12)보다 앞서며, 별표 "
+                        "일반기준 4의 개별 조정 게시가 확인되지 않아 시간요금을 확정하지 "
+                        "않고 요금 미상으로 표기한다(김해·함안 선례). 등록 월 "
+                        f"{month:,}원은 무료 정기권으로 해석하지 않는다")
+        fee.update({"type": "미상",
+                    "basis": (f"표준데이터에는 기본 {base_min}분 {base_fee:,}원·추가 "
+                              f"{unit_min}분 {unit_fee:,}원·1일 {day:,}원으로 등록돼 "
+                              "있으나, 현행 「상주시 주차장 조례」 별표(2026-10-12 "
+                              "개정)는 1구획당 30분마다 500원으로 정하고 있어 기본 "
+                              "단위가 다르다. 별표 일반기준 4의 개별 조정이 시 홈페이지에 "
+                              "게시됐는지 확인되지 않아 요금 미상으로 표기한다 — 실제 "
+                              "요금은 상주시청(054-537-7392) 확인이 필요하다")})
+        return fee
+    if base_min and base_fee and unit_min and unit_fee:
+        fee_diff.append(f"{name}: 등록 요금(기본 {base_min}분 {base_fee:,}원·추가 {unit_min}분 "
+                        f"{unit_fee:,}원·1일 {day:,}원·월 {month:,}원)이 조례 별표와 "
+                        "달라, 등록값이 완전해 등록값으로 계산하되 차이는 시청 확인 "
+                        "과제로 남긴다")
+        fee.update({"type": "유료", "base_min": base_min, "base_fee": base_fee,
+                    "unit_min": unit_min, "unit_fee": unit_fee,
+                    "daily_fee": day if day else None,
+                    "daily_hours": day_hours if day_hours else None,
+                    "monthly": month if month else None,
+                    "basis": "표준데이터 등록값으로 계산한다. 조례 별표와 달라 시청 확인이 필요하다"})
+        return fee
+    fee_diff.append(f"{name}: 유료로 등록돼 있으나 등록 금액이 기본 {base_min}분 "
+                    f"{base_fee or 0:,}원에 나머지 금액이 공란이라 조례 별표 금액을 "
+                    "대입하지 않고 요금 미상으로 표기한다(김해 선례)")
+    fee.update({"type": "미상",
+                "basis": ("표준데이터에는 ‘유료’로 등록돼 있으나 등록 금액이 0원·공란이라 "
+                          "요금 미상으로 표기한다 — 실제 요금은 상주시청(054-537-7392) "
+                          "확인이 필요하다")})
+    return fee
+
+
+def sangju_fee_table(conf, lots):
+    """요금표 — 조례 별표를 싣는다. 급지 구분 없이
+    1구획당 30분마다 500원, 1일 6,000원, 월정기 주간
+    75,000원·야간 56,000원의 단일 요율이다. 1시간 금액은
+    단가의 2배, 2시간 금액은 4배다. 1일 요금은 유료
+    6시간 이상 주차 시 적용한다(별표 일반기준 2)."""
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    unit_fee, day, month, month_night = SANGJU_RATE
+    rows = [
+        {"label": "공영주차장 (조례 별표)", "grade": "1",
+         "unit_label": f"30분마다 {unit_fee:,}원",
+         "hour": unit_fee * 2, "two_hour": unit_fee * 4, "day": day,
+         "month_all": None, "month": month, "month_night": month_night,
+         "lots": len([l for l in lots if l["fee"]["std_grade"] == "1"])},
+    ]
+    return {
+        "style": "sangju_grade",
+        "unit_min": 30,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "source_url": conf["ordinance"][1],
+        "grade_system": ("별표는 급지를 나누지 않고 노상·노외 전 공영주차장에 같은 요율을 "
+                         "적용한다. 표준데이터 등록 급지는 26곳 전부 1급지로 적혀 있다"),
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["list_mode"] == "card"]),
+                 "street_paid": len([l for l in paid if l["list_mode"] == "street"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [
+            {"group": "주간·야간 시간구분 (별표 일반기준 3)",
+             "hours": "4~10월 주간 08:00~20:00 · 11~3월 주간 09:00~19:00 · 나머지는 야간",
+             "free": ("월정기 요금은 주간 75,000원·야간 56,000원으로 나뉜다. 표준데이터 "
+                      "등록 운영시간은 26곳 전부 00:00~23:59(평일+토요일+공휴일)이다")},
+            {"group": "1일 주차요금 적용 (별표 일반기준 2)",
+             "hours": "유료 6시간 이상 주차 시 1일 요금 6,000원 적용",
+             "free": ("주차한 그날 24:00까지이고, 24시간 운영하는 주차장은 다음날 "
+                      "08:00까지다. 30분마다 500원 산식으로도 360분(6시간)에 6,000원에 "
+                      "닿는다")},
+        ],
+        "discounts": conf["discounts"],
+        "notes": ("중앙시장 주차타워(222면)는 표준데이터에 기본 60분 500원·추가 30분 "
+                  "500원·1일 6,000원으로 등록돼 있으나 기본 단위가 별표(30분마다 "
+                  "500원)와 다르고, 별표 일반기준 4에 따른 개별 조정(시 홈페이지 게시)이 "
+                  "확인되지 않아 요금을 확정하지 않고 미상으로 표기했습니다. 등록 월 "
+                  "0원은 무료 정기권으로 해석하지 않았습니다. 공영유료주차장(88면)의 "
+                  "등록 1일주차권요금적용시간 6000은 요금과 같은 숫자가 들어간 등록 "
+                  "오류로 보이며, 1일 요금은 별표 일반기준 2의 '유료 6시간 이상' 조건으로 "
+                  "계산합니다. 주차장별로 유료운영 시간을 조정하거나 표의 범위에서 "
+                  "요금을 조정할 수 있으나 시 홈페이지에 게시해야 합니다(별표 일반기준 4)."),
+        "basis": ("요금표는 「상주시 주차장 조례」 제1785호(시행 2026-10-12) 제3조제1항·"
+                  "별표와 표준데이터(기준일 2026-04-17)를 대조해 실었다. 등록값이 별표와 "
+                  "전부 일치하는 유료 1곳은 등록값으로 계산한다. "
+                  "(조례 본문: data/raw/sangju-ordinance.txt, 별표 원문 HWP: "
+                  "data/raw/sangju-ordinance-b1.hwp)"),
+    }
+
+
+
+def sangju_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                   space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(lots)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동·읍·면 미상" for l in lots).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in lots if l["dong"]}),
+        "동_미상": [l["name"] for l in lots if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in lots)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「상주시 주차장 조례」 제1785호 제3조의2 — 전액 감면(제1호): "
+                      "「도로교통법」 제2조제22호에 따른 긴급자동차, 공무수행 중인 국가·시 "
+                      "소유 자동차, 성실납세증 부착 자동차(교부일부터 1년간). 50% 감면"
+                      "(제2호): 장애인·국가유공자·5·18민주유공자·특수임무유공자·"
+                      "고엽제후유의증 환자 등(가목), 경형 승용자동차·환경친화적 자동차"
+                      "(나목), 전통시장 상인·고객(다목). 시책 참여 차량은 20% 감면"
+                      "(제3호). 국가법령정보센터 본문 원문(ordinSeq 2178211)으로 확인했다"),
+        "요금_출처": ("조례 제3조제1항·별표 — 공영주차장의 주차요금은 별표와 같다. "
+                      "별표(2026-10-12 개정)는 급지 구분 없이 1구획당 30분마다 500원, "
+                      "1일 주차요금 6,000원, 월정기 주간 75,000원·야간 56,000원이다. "
+                      "1일 요금은 유료 6시간 이상 주차 시 적용하고 그날 24:00까지"
+                      "(24시간 운영장은 다음날 08:00까지)로 한다(일반기준 2). 주간은 "
+                      "4~10월 08:00~20:00, 11~3월 09:00~19:00이고 나머지는 야간이다"
+                      "(일반기준 3). 주차장별 조정은 시 홈페이지 게시가 필요하다"
+                      "(일반기준 4). 별표 원본 HWP(flSeq 170438887)를 받아 추출해 대조했다"),
+        "급지_출처": ("조례 별표는 급지를 나누지 않는다. 표준데이터 등록 급지는 26곳 전부 "
+                      "1급지이나 별표에 대응하는 급지 구분이 없어 요금은 단일 요율로 "
+                      "적용했다"),
+        "무료요일_출처": ("조례 본문·별표 어디에도 시 전체 일괄 주말·공휴일 무료 근거가 "
+                          "없어 주말·공휴일 무료로 표기하지 않았다(인스팅트 앞단 패키지 "
+                          "확인). 26곳 전부 24시간 운영으로 등록돼 있으나 24시간 운영은 "
+                          "무료 근거가 아니다. 요금 구분이 '무료'인 곳은 요일과 관계없이 무료다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 상주시 등록 26행이 전부 공영·노외(총 1,411면)라 민영 제외 0건으로 26곳을 전부 실었다. 중복 제거 0건, 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다. 인스팅트 앞단 패키지(경북 8/22, 2026-11-20)의 집계(공영 26곳·1,411면, 전부 노외, 무료 24·유료 2, 민영 제외 0, 기준일 2026-04-17)와 표준데이터 원본 대조 결과가 일치한다",
+            "관리번호 중복 0건, 이름+지번 중복 0건, 같은 지번·같은 좌표에 이름만 다르게 등록된 그룹도 0건이라 중복 제거와 이름 구분 표기가 필요 없었다",
+            "「상주시 주차장 조례」 제1785호(시행 2026-10-12, 일부개정, ordinSeq 2178211) 본문 원문(data/raw/sangju-ordinance.txt) 대조 완료(2026-11-21) — 국가법령정보센터 연혁에서 제1785호(공포 2026-10-12)가 최신 공포본임을 확인했고, 본문 제3조제1항이 공영주차장 요금을 별표와 같다고 정하고 감면은 제3조의2 본문 원문으로 확인했다",
+            "별표는 ELIS 첨부 HWP 원본(flSeq 170438887)을 data/raw/sangju-ordinance-b1.hwp로 저장하고 추출해 확정했다 — 30분마다 500원, 1일 6,000원, 월 주간 75,000원·야간 56,000원, 1일 요금의 6시간 이상 적용 조건(일반기준 2), 주간 시간구분(일반기준 3), 주차장별 조정과 시 홈페이지 게시(일반기준 4)가 들어 있다. 패키지가 연결한 flSeq 170438885는 별지 제1호서식(주차장이용안내표지판)이라 요금표가 아니다",
+            "유료 2곳의 판단은 패키지 판단안을 따랐다 — 공영유료주차장(남성동 85-49, 88면)은 등록값(기본 30분 500원·추가 30분 500원·1일 6,000원·월 75,000원)이 별표와 전부 일치해 기본·추가·일·월 주간 요금을 확정했다. 등록 1일주차권요금적용시간 6000은 요금과 같은 숫자가 들어간 등록 오류로 보이며, 별표 일반기준 2의 '유료 6시간 이상' 조건과 30분마다 500원 산식이 360분에 6,000원에 닿는 점이 일치해 1일 요금은 상한으로 계산한다 — 적용시간 칸의 뜻은 상주시청 확인 과제다",
+            "중앙시장 주차타워(남성동 110-1, 222면)는 등록 기본 단위(60분 500원)가 현행 별표(30분마다 500원)와 다르고 표준데이터 기준일(2026-04-17)이 별표 개정(2026-10-12)보다 앞선다. 별표 일반기준 4는 주차장별 요금 조정을 허용하지만 시 홈페이지 게시를 요구하는데 게시 여부가 확인되지 않아, 시간요금을 확정하지 않고 요금 미상으로 표기했다(김해·함안 선례, 패키지 판단안). 등록값은 std에 그대로 남겼고 등록 월 0원은 무료 정기권으로 해석하지 않았다. 중앙시장 기본 60분의 조정 근거와 2026-10-12 개정 후 시설 안내는 상주시청 확인 과제다",
+            "조례에 시 전체를 일괄 면제하는 문구나 요일별 무료 조항이 없어, 주말·공휴일 무료로 단정하지 않았다. derive_free_fields의 공휴일 태그 예외에 상주시를 공주·보령·제천·김해·거제·양산·남해·하동·산청·함양·거창·합천·의령·함안·창녕·경주·김천·안동·구미·영주와 함께 뒀다. 26곳 전부 평일+토요일+공휴일 24시간 운영으로 등록돼 있으나 24시간 운영은 무료 근거가 아니다(패키지 확인)",
+            "좌표는 26곳 전부 등록돼 있고 전부 상주시 범위(위도 36.3383~36.5701, 경도 127.9517~128.2096) 안이라 지오코딩 보완이 0건이다 — 오버레이(좌표누락_지오코딩_20261118.json)는 기존 719행 그대로 유지된다(인스팅트 패키지 ⑦과 같은 결론)",
+            "운영요일은 26곳 전부 평일+토요일+공휴일이고 운영시간은 전부 00:00~23:59다. 부제시행구분은 전부 미시행, 전화번호는 전부 054-537-7392, 관리기관은 전부 경상북도 상주시청, 데이터기준일자는 전부 2026-04-17이다. 도로명주소는 15곳만 등록돼 있다. 무료 24곳은 전부 요금 칸이 0원 패턴이고, 유료 2곳의 특기사항 감면 문구(경차·장애인·친환경·국가유공자 50%, 주차타워는 임산부·영유아동반 추가)는 조례 제3조의2의 50% 감면 항목과 방향이 같다",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] or 0 for l in paid) / len(paid)) if paid else 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_sangju():
+    """상주시 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「상주시 주차장 조례」
+    제1785호(시행 2026-10-12, ordinSeq
+    2178211) 제3조제1항·별표 원문 대조
+    완료(2026-11-21, 별표 ELIS 첨부 HWP
+    추출·본문 원문 기준). 표준데이터 등록
+    26행이 전부 공영·노외(총 1,411면)이고
+    요금 구분은 무료 24곳·유료 2곳이라
+    제외 없이 26곳을 싣는다. 좌표 결측은
+    0곳이다."""
+    conf = SANGJU_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all
+                if (r.get("제공기관명") or "").strip() == "경상북도 상주시"]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "상주시" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 상주시는
+    #   이름+지번 중복이 0건이라 중복 제거도 0건이다.
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, space_diff, dong_fixed, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (SANGJU_BBOX[0] < lat < SANGJU_BBOX[1]
+                                                        and SANGJU_BBOX[2] < lng < SANGJU_BBOX[3]):
+            # 상주시 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 상주시 범위 밖 — "
+                               "좌표 없음으로 표기하고 지오코딩 보완 대상으로 넘김")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음(0으로 등록)"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = sangju_dong_of(jibun)
+        if dong:
+            dong_src = "지번주소"
+        elif sangju_dong_of(road):
+            dong = sangju_dong_of(road)
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 동·읍·면 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:동|읍|면))", std_name)
+        if _name_head and _name_head.group(1) in SANGJU_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 동·읍·면({_name_head.group(1)})과 지번주소 기준 "
+                              f"동·읍·면({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = sangju_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "상주시", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _bunji = _parts[3].split("(")[0] if len(_parts) > 3 else \
+                (_parts[2] if len(_parts) > 2 else "")
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _bunji and not _same_place:
+                _suffix = f"({_bunji})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 지번 번지로 구분했다")
+
+    # 같은 지번·같은 좌표에 이름만 다르게 등록된 그룹 — 전부 다른 등록이라
+    #   합치지 않고 전부 싣는다(산청 선례). 상주시는 해당 그룹이 0건이다.
+    _place_groups = {}
+    for l in lots:
+        if l["lat"] is None or l["lng"] is None:
+            continue
+        _place_groups.setdefault(((l.get("addr_jibun") or l.get("addr_road")),
+                                  l["lat"], l["lng"]), []).append(l)
+    for (_addr, _la, _ln), _grp in sorted(_place_groups.items(),
+                                          key=lambda kv: kv[1][0]["name"]):
+        if len(_grp) > 1 and len({x["name"] for x in _grp}) > 1:
+            _names = "·".join(x["name"] for x in _grp)
+            note_fixed.append(f"같은 자리·같은 좌표에 이름만 다른 등록: {_names} — "
+                              f"{_addr}에 좌표({_la}, {_ln})가 같게 등록돼 있다. "
+                              "이름이 다른 별개 등록이라 합치지 않고 전부 실었고, "
+                              "같은 시설의 중복 등록인지는 상주시청 확인이 필요하다")
+    note_fixed.append("표준데이터 등록 26행이 전부 공영이라 민영 제외는 0건이다. "
+                      "데이터기준일자는 26행 전부 2026-04-17, 제공기관명은 전부 "
+                      "경상북도 상주시, 관리기관명은 전부 경상북도 상주시청이다")
+    note_fixed.append("관리번호 중복 0건이고 이름+지번 중복도 0건이라 중복 제거가 없었다")
+    note_fixed.append("등록 급지구분은 26곳 전부 1급지이나 조례 별표는 급지를 나누지 "
+                      "않아 단일 요율로 적용했다. 요금 구분은 무료 24곳·유료 2곳이고, "
+                      "무료 24곳은 전부 요금 칸 0원 패턴이다")
+    note_fixed.append("좌표는 26곳 전부 등록돼 있고 전부 상주시 범위 안이라 지오코딩 "
+                      "보완이 0건이다")
+    note_fixed.append("운영요일은 26곳 전부 평일+토요일+공휴일이고 운영시간은 전부 "
+                      "00:00~23:59, 부제시행구분은 전부 미시행이다. 도로명주소는 "
+                      "15곳만 등록돼 있다")
+    note_fixed.append("유료 2곳(공영유료주차장·중앙시장주차타워)의 등록 "
+                      "1일주차권요금적용시간은 둘 다 6000으로, 요금 6,000원과 같은 "
+                      "숫자가 들어간 등록 오류로 보인다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"gb-sangju-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"gb-sangju-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 상주시는 좌표 결측이 0곳이라 적용 대상이 없다.
+    _cf = apply_coord_fix(lots)
+
+    fee_table = sangju_fee_table(conf, lots)
+    quality = sangju_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                             fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-04-17",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"상주시로 등록된 행 {len(rows_std)}행(전부 공영)을 읽어 중복 "
+                 f"제거 {len(merged)}건, 제외 {len(excluded)}건으로 {len(lots)}곳을 실었다. "
+                 f"유료 {len([l for l in lots if l['fee']['type'] == '유료'])}곳·무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳·미상 "
+                 f"{len([l for l in lots if l['fee']['type'] == '미상'])}곳이다. "
+                 f"데이터기준일자는 26행 전부 2026-04-17이다. 좌표 결측은 0곳이다. "
+                 f"조례 대조 완료 — 「상주시 주차장 조례」 제1785호(시행 "
+                 f"2026-10-12, ordinSeq 2178211) 제3조제1항·별표 원문 대조 완료(2026-11-21)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": SANGJU_ORD_TXT.name if SANGJU_ORD_TXT.exists() else None,
+            "sha256": sha256(SANGJU_ORD_TXT) if SANGJU_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2026-10-12",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"상주시가 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/sangju-ordinance.txt, 별표 원문 HWP: "
+                    f"data/raw/sangju-ordinance-b1.hwp)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": SANGJU_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "상주시", "slug": "sangju"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": SANGJU_PROVINCE,
+        "province_slug": SANGJU_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "sangju_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -81223,7 +81900,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon", "uiryeong", "haman", "changnyeong", "pohang", "gyeongju", "gimcheon", "andong", "gumi", "yeongju",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon", "uiryeong", "haman", "changnyeong", "pohang", "gyeongju", "gimcheon", "andong", "gumi", "yeongju", "sangju",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -81241,7 +81918,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "포항시", "경주시", "김천시", "안동시", "구미시", "영주시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "포항시", "경주시", "김천시", "안동시", "구미시", "영주시", "상주시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -81299,7 +81976,7 @@ def main():
                                 "tongyeong": ["통영시"],
                                 "sacheon": ["사천시"],
                                 "gimhae": ["김해시"], "miryang": ["밀양시"],
-                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"], "hamyang": ["함양군"], "geochang": ["거창군"], "hapcheon": ["합천군"], "uiryeong": ["의령군"], "haman": ["함안군"], "changnyeong": ["창녕군"], "pohang": ["포항시"], "gyeongju": ["경주시"], "gimcheon": ["김천시"], "andong": ["안동시"], "gumi": ["구미시"], "yeongju": ["영주시"]}[args.city])
+                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"], "hamyang": ["함양군"], "geochang": ["거창군"], "hapcheon": ["합천군"], "uiryeong": ["의령군"], "haman": ["함안군"], "changnyeong": ["창녕군"], "pohang": ["포항시"], "gyeongju": ["경주시"], "gimcheon": ["김천시"], "andong": ["안동시"], "gumi": ["구미시"], "yeongju": ["영주시"], "sangju": ["상주시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -81573,6 +82250,8 @@ def main():
         cities.append(build_gumi())
     if "영주시" in want:
         cities.append(build_yeongju())
+    if "상주시" in want:
+        cities.append(build_sangju())
 
     if args.city == "all":
         site = build_site_payload(cities)

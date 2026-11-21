@@ -13449,6 +13449,44 @@ def fee_table_block(city) -> str:
 요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "sangju_grade":
+        # 상주시 — 공영 26곳이 전부 노외(총 1,411면)이고
+        #   무료 24곳·유료 1곳·요금 미상 1곳으로 등록돼
+        #   있다. 「상주시 주차장 조례」 제1785호(시행
+        #   2026-10-12) 제3조제1항·별표는 급지 구분 없이
+        #   30분마다 500원, 1일 6,000원, 월 주간
+        #   75,000원·야간 56,000원이다. 공영유료주차장은
+        #   등록값이 별표와 전부 일치해 확정했고,
+        #   중앙시장 주차타워는 등록 기본 단위(60분)가
+        #   별표(30분)와 달라 요금 미상이다.
+        def _sj_cell(v):
+            return won(v) if v else "—"
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{_sj_cell(r["day"])}</td>'
+            f'<td class="num">{_sj_cell(r["month"])}</td>'
+            f'<td class="num">{_sj_cell(r["month_night"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표)</h2>
+<p class="lede">상주시 공영주차장 <b>26곳</b>은 모두 노외 주차장이고 주차면은 모두 <b>1,411면</b>입니다.
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 시간요금을 확정해 안내하는 유료는 {corp.get('paid', 0)}곳
+(공영유료주차장 88면), 별표와 다른 기본 단위(60분)로 등록돼 요금을 확정하지 않은 곳은 {corp.get('unknown', 0)}곳
+(중앙시장 주차타워 222면)입니다. 요금·감면 문의는 상주시청 교통에너지과(054-537-6254)로 하세요.</p>
+<table class="fee">
+<thead><tr><th>구분</th><th>기본 요금</th><th>1시간</th><th>2시간</th><th>1일</th><th>월 주간</th><th>월 야간</th><th>곳수</th></tr></thead>
+<tbody>{rows_html}</tbody></table>
+<table class="fee">
+<thead><tr><th>시간 구분</th><th>시간</th><th>비고</th></tr></thead>
+<tbody>{win_rows}</tbody></table>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
