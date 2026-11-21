@@ -1767,6 +1767,9 @@
   <url><loc>https://parking.9welfare.com/parking/gyeongbuk/goryeong/seongsan-myeon/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gyeongbuk/goryeong/ssangrim-myeon/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gyeongbuk/goryeong/street-parking/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gyeongbuk/seongju/free/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gyeongbuk/seongju/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gyeongbuk/seongju/seongju-eup/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gyeonggi/suwon/std-001/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gyeonggi/suwon/std-002/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gyeonggi/suwon/std-003/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -4296,4 +4299,7 @@
   <url><loc>https://parking.9welfare.com/parking/gyeongbuk/uisung/gb-uisung-045/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gyeongbuk/cheongsong/gb-cheongsong-003/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gyeongbuk/goryeong/gb-goryeong-013/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gyeongbuk/seongju/gb-seongju-003/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gyeongbuk/seongju/gb-seongju-004/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gyeongbuk/seongju/gb-seongju-016/</loc><lastmod>2026-11-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>
