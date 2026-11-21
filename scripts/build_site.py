@@ -14291,6 +14291,61 @@ B·C지구는 등록 급지구분이 1급지이나 등록 요금이 2급지와 �
 요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "uljin_grade":
+        # 울진군 — 공영 58곳(노외 47곳·노상 10구간·부설
+        #   1곳, 총 4,546면)이 무료 57곳·요금 미상 1곳으로
+        #   등록돼 있다. 「울진군주차장조례」 제2755호
+        #   (시행 2025-05-20) 제3조제1항·별표 1은 1급지
+        #   최초 30분 1,000원·이후 30분당 500원·전일
+        #   5,000원·월정기 75,000원, 2급지 600원·300원·
+        #   3,000원·30,000원이다. 1급지는 읍·면 도시계획
+        #   구역 내 도시지역, 2급지는 그 외 지역이고,
+        #   전일·월정기권은 노외에만 있다. 혼합 1곳
+        #   (울진군청 공영주차장, 부설 67면)은 등록값이
+        #   별표와 일치하지 않고 부설은 별표 적용 대상도
+        #   아니라 요금 미상으로 표기했다(성주 선례).
+        #   조례 요금표는 참고표로만 싣는다. 등록 급지
+        #   구분은 전부 1급지이나 실제 지정과 다를 수
+        #   있어 자리 수는 세지 않는다.
+        def _uj_cell(v):
+            return f"{v}곳" if v is not None else "—"
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{_uj_cell(r["lots"])}</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">울진군 공영주차장 <b>58곳</b>(노외 47곳·노상 10구간·부설 1곳, 총 4,546면)은
+무료 <b>57곳</b>·요금 미상 <b>1곳</b>으로 등록돼 있습니다. 「울진군주차장조례」 제2755호
+별표 1은 <b>1급지</b> 최초 30분 <b>1,000원</b>·이후 30분당 <b>500원</b>·전일 <b>5,000원</b>·월정기 <b>75,000원</b>,
+<b>2급지</b> <b>600원·300원·3,000원·30,000원</b>입니다. 1급지는 읍·면 도시계획구역 내
+도시지역, 2급지는 그 외 지역이고, 전일·월정기권은 노외주차장에만 있습니다.
+요금 미상 1곳은 울진군청 공영주차장(부설)으로, 등록 요금이 별표와 달라 확정하지 않았습니다.
+이 사이트는 등록값을 유지하고 조례 요금표는 참고로만 실었습니다.
+궁금한 점은 울진군청(054-789-6392)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">전일주차권</th>
+  <th class="num">월정기권</th><th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금으로 계산하는 유료는 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+
+
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
