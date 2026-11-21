@@ -14134,6 +14134,58 @@ B·C지구는 등록 급지구분이 1급지이나 등록 요금이 2급지와 �
 """
 
 
+    if ft.get("style") == "chilgok_grade":
+        # 칠곡군 — 공영 69곳(노외 63곳·노상 6구간, 총
+        #   3,919면)으로 무료 66·혼합 3이다. 표준데이터
+        #   원본 138행은 동일 시설 69쌍의 중복 수록이라
+        #   69행을 제외했다. 「칠곡군 주차장 조례」
+        #   제2377호(시행 2016-10-31) 제4조제1항·별표 1은
+        #   1급지 30분마다 500원·1일 4,000원·월 주간
+        #   40,000원·야간 30,000원·주야간 50,000원,
+        #   2급지 200원·3,000원·28,000원·20,000원·
+        #   36,000원이다. 혼합 3곳은 기본 30분 500원만
+        #   등록되고 추가·1일·월이 공란이라 요금 미상으로
+        #   표기한다(성주·문경·김해·함안 선례). 요금
+        #   계산은 하지 않고 별표 1은 참고표로만 싣는다.
+        #   주말·공휴일 전체 무료 규정은 조례에 없다.
+        def _cg_cell(v):
+            return f"{v}곳" if v is not None else "—"
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td><td class="num">{won(r["month_all"])}</td>'
+            f'<td class="num">{_cg_cell(r["lots"])}</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">칠곡군 공영주차장 <b>69곳</b>(노외 63곳·노상 6구간, 총 3,919면) 중
+유료 계산을 하는 곳은 <b>없습니다</b>. 혼합 3곳(왜관시장 후문·왜관 북부·왜관 남부)은 기본 30분
+500원만 등록되고 나머지 요금이 비어 있어 <b>요금 미상</b>으로 표기합니다. 「칠곡군 주차장 조례」 제2377호
+별표 1은 <b>1급지 30분마다 500원·1일 4,000원</b>·월 주간 <b>40,000원</b>·야간 <b>30,000원</b>·
+주야간 <b>50,000원</b>입니다. 무료 66곳은 등록값(무료)을 유지합니다. 궁금한 점은 칠곡군청 교통행정과(054-979-6573)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차요금</th>
+  <th class="num">월정기(주간)</th><th class="num">월정기(야간)</th><th class="num">월정기(주야간)</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금으로 계산하는 유료는 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+
+
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
