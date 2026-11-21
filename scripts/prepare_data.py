@@ -89992,6 +89992,633 @@ def build_bonghwa():
     return payload
 
 
+# 울진군 — 표준데이터 울진 등록 62행 중 민영 4행을
+#   빼면 공영 58행(노외 47·노상 10·부설 1, 총
+#   4,546면), 무료 57·혼합 1, 기준일 2026-04-20이다.
+#   중복 판정(전체 이름·지번·좌표 200m 가드)에
+#   걸리는 쌍은 없고, 관리번호 중복도 없다. 구획수
+#   0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표
+#   결측 0건이다. 이름이 겹치는 망양해수욕장 공영
+#   주차장 2건은 서로 다른 자리(기성면 망양리
+#   140-1과 망양1길 7)라 번지로 구분해 전부 싣는다.
+# 조례 대조 완료(2026-11-21): 「울진군주차장조례」
+#   제2755호(시행 2025-05-20, ordinSeq 2040255)
+#   제3조제1항이 군수가 설치하는 노상·노외주차장의
+#   요금을 별표 1로 정한다. 본문 data/raw/
+#   uljin-ordinance.txt, 별표 1은 ELIS 첨부 HWPX
+#   원본(flSeq 151991437, data/raw/
+#   uljin-ordinance-b1.hwpx)을 받아 추출했다
+#   (uljin-ordinance-b1.txt). 별표 1: 시간제 1급지
+#   최초 30분 1,000원·이후 30분당 500원·전일
+#   5,000원·월정기 75,000원, 2급지 600원·300원·
+#   3,000원·30,000원. 1급지는 읍·면 도시계획구역
+#   내 도시지역, 2급지는 그 외 지역이다(비고 2).
+#   전일·월정기권은 노외 공영주차장에 한하고(비고
+#   4), 노외에 5시간 이상 주차하면 전일 요금으로
+#   징수한다(비고 5). 군수는 급지를 구분하지 않고
+#   특성에 따라 1급지 전일권 요금 이내에서 별도
+#   요금을 정할 수 있다(비고 6). 패키지가 연결한
+#   flSeq 151991437의 링크는 gubun이 빈 주소였으나
+#   gubun=ELIS로 다시 받은 파일이 실제 별표 1
+#   ([별표 1] 공영주차장 주차요금표 (제3조제1항
+#   관련))임이 본문 추출로 확인됐다 — 금액 정정
+#   없음.
+# 혼합 1행은 울진군청 공영주차장(부설 67면)뿐이다.
+#   등록값은 기본 60분 0원·추가 30분 500원·1일
+#   적용 3시간 2,000원·월정기 공란, 유료운영시간
+#   07:00~22:00(특기사항)인데, 별표 1의 어느 급지
+#   (1급지 1,000/500/5,000/75,000, 2급지
+#   600/300/3,000/30,000)와도 일치하지 않고, 부설
+#   주차장은 별표 1의 적용 대상(군수가 설치하는
+#   노상·노외주차장)도 아니다. 별표 비고 6의 별도
+#   요금일 수 있으나 설정 공고가 확인되지 않아,
+#   인스팅트 패키지(경북 21/22, 2026-11-20)의
+#   "계산값 미확정" 판단과 등록값이 별표와 일치
+#   하지 않으면 요금 미상으로 표기하는 선례(김해·
+#   함안·성주)에 따라 요금 미상으로 표기하고 등록
+#   값은 판정근거에 남긴다. 무료 57행은 등록값을
+#   유지한다.
+# 주말·공휴일 전체 무료는 조례 본문·별표 1 어디
+#   에도 없다(패키지 ④와 같은 확인). 무료 57곳의
+#   표기는 전부 표준데이터 등록값 근거다.
+# 패키지 대조(인스팅트 앞단 패키지 경북 21/22,
+#   2026-11-20): 집계(공영 58행·4,546면, 노외 47·
+#   노상 10·부설 1, 무료 57·혼합 1, 기준일
+#   2026-04-20, 좌표 결측 0)와 조례 번호·시행일·
+#   별표 금액 전부 일치한다.
+ULJIN_PROVINCE = "경상북도"
+ULJIN_PROVINCE_SLUG = "gyeongbuk"
+ULJIN_ORD_URL = ("https://www.law.go.kr/LSW/ordinInfoR.do?"
+                 "ordinSeq=2040255&gubun=ELIS")
+ULJIN_ORD_TXT = RAW / "uljin-ordinance-b1.txt"
+ULJIN_ORD_NOTE = ("「울진군주차장조례」 제2755호(시행 2025-05-20) "
+                  "제3조제1항·별표 1 — 국가법령정보센터 ordinSeq 2040255에서 확인")
+
+ULJIN_DISCOUNTS = [
+    {"label": "긴급자동차 전액 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제3조제2항 — 「도로교통법」 제2조제22호에 따른 긴급 자동차에 대하여는 주차요금을 면제할 수 있다"},
+    {"label": "장애인·국가유공자(상이등급 1~7급)·고엽제후유증환자·5·18민주화운동 부상자·병역명문가·장기등·인체조직 기증희망자 및 기증자·다자녀 가정 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조제4항 — 장애인이 본인 소유의 비사업용 차량을 직접 운전하거나 장애 정도가 심하여 대리 운전하게 하는 경우, 상이등급 1급 내지 7급의 국가유공자가 본인 소유의 비사업용 차량을 직접 운전하거나 대리 운전하게 하는 경우, 고엽제후유증환자, 5·18민주화운동 부상자, 병역명문가 예우대상자(병역명문가증과 주소가 기입된 신분증 제시), 장기등·인체조직 기증희망자 및 기증자(증명자료 제시), 관내 주소지를 두고 자녀 2명 이상을 양육하며 자녀 중 1명 이상이 19세 미만인 다자녀 가정(증명자료 제시)은 주차요금의 100분의 50을 감면할 수 있다. 감면대상자는 주차장관리자에게 감면대상자임을 증명하여야 한다"},
+    {"label": "경형자동차·환경친화적 자동차 60% 경감", "rate": 0.4, "exempt_min": 0,
+     "note": "조례 제3조제5항 — 「자동차관리법 시행규칙」 제2조에 따른 경형자동차(배기량 1000cc 미만), 환경친화적 자동차(하이브리드, 전기, 태양광, 연료전지, 클린디젤)가 공영주차장에 주차하는 경우 주차요금의 100분의 60을 경감할 수 있다"},
+]
+
+ULJIN_CONF = {
+    "city": "울진군",
+    "slug": "uljin",
+    "manager": "경상북도 울진군청",
+    "manager_inquiry": "울진군청(054-789-6392)",
+    "ordinance": ("울진군주차장조례", ULJIN_ORD_URL, ULJIN_ORD_NOTE),
+    "notes": (
+        "표준데이터에 등록된 울진군 공영주차장 58곳(노외 47곳·노상 10구간·부설 1곳, 총 4,546면)입니다. "
+        "57곳은 무료로 등록돼 있고, 울진군청 공영주차장(부설 67면) 1곳만 혼합으로 등록돼 있으나 등록 요금"
+        "(기본 60분 무료·추가 30분 500원·1일 2,000원)이 「울진군주차장조례」 제2755호 별표 1의 어느 급지와도 "
+        "일치하지 않아 요금 미상으로 표기했습니다. 별표 1은 1급지 최초 30분 1,000원·이후 30분당 500원·전일 "
+        "5,000원·월정기 75,000원, 2급지 600원·300원·3,000원·30,000원입니다."),
+    "discounts": ULJIN_DISCOUNTS,
+}
+
+ULJIN_BBOX = (36.60, 37.16, 129.30, 129.50)
+ULJIN_DONGS = {"울진읍", "평해읍", "북면", "서면", "근남면", "기성면",
+               "온정면", "죽변면", "후포면", "금강송면", "매화면"}
+
+# 별표 1 급지별 요금: 급지 -> (최초 30분, 30분당, 전일주차권, 월정기주차권)
+ULJIN_GRADES = {"1": (1000, 500, 5000, 75000), "2": (600, 300, 3000, 30000)}
+
+
+def uljin_dong_of(addr):
+    """울진군 법정 읍·면 판정 — 지번주소의 울진군 다음 토큰이
+    읍·면이다."""
+    if addr:
+        m = re.search(r"울진군\s*([가-힣0-9]+?(?:읍|면))", addr)
+        if m and m.group(1) in ULJIN_DONGS:
+            return m.group(1)
+    return None
+
+
+def uljin_fee(row, name, note_bits, fee_diff):
+    """울진군 공영주차장 한 곳의 요금 — 57곳은 무료
+    등록이라 무료를 유지한다. 혼합 1곳(울진군청
+    공영주차장, 부설)은 등록값(기본 60분 0원·추가
+    30분 500원·1일 2,000원)이 조례 별표 1의 어느
+    급지와도 일치하지 않고 부설은 별표 1의 적용
+    대상(노상·노외)도 아니라 요금 미상으로 표기
+    한다(패키지 판단·김해·함안·성주 선례). 등록이
+    유료로 바뀌어 있으면 급지별 별표 값(최초 30분·
+    30분당·전일·월정기)과 대조해 일치할 때만 계산
+    하고, 일치하지 않으면 요금 미상으로 표기한다."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    day_hours = to_int(row.get("1일주차권요금적용시간"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    ptype = (row.get("주차장유형") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None, "monthly_night": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None, "bands": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 군청 확인 필요"})
+        return fee
+    _day_s = f"{day:,}원" if day else "공란"
+    _month_s = f"{month:,}원" if month else "공란"
+    if ptype == "부설":
+        fee_diff.append(f"{name}: 부설주차장이라 조례 별표 1의 적용 대상(군수가 설치하는 노상·노외주차장)이 "
+                        f"아니고, 등록 요금(기본 {base_min}분 {base_fee or 0:,}원·추가 {unit_min}분 "
+                        f"{unit_fee or 0:,}원·1일 {_day_s}·월 {_month_s})도 별표 1의 어느 급지와도 일치하지 "
+                        "않아 요금 미상으로 표기한다")
+        fee.update({"type": "미상",
+                    "basis": (f"표준데이터의 등록 요금(기본 {base_min}분 {base_fee or 0:,}원·추가 "
+                              f"{unit_min}분 {unit_fee or 0:,}원·1일 {_day_s}·월 {_month_s})은, "
+                              "이 곳이 부설주차장이라 「울진군주차장조례」 별표 1(노상·노외 공영주차장 요금표)의 "
+                              "적용 대상이 아니고 별표 1의 어느 급지와도 일치하지 않아 요금 미상으로 "
+                              "표기한다 — 실제 요금은 울진군청(054-789-6392) 확인이 필요하다")})
+        return fee
+    exp = ULJIN_GRADES.get(grade)
+    if exp is None:
+        fee_diff.append(f"{name}: 등록 급지구분({grade or '공란'})이 조례 별표 1의 급지(1급지·2급지)와 "
+                        "대조되지 않아 요금 미상으로 표기한다")
+        fee.update({"type": "미상",
+                    "basis": "등록 급지구분이 조례 별표 1의 급지와 대조되지 않아 요금 미상으로 표기한다 — 실제 요금은 울진군청(054-789-6392) 확인이 필요하다"})
+        return fee
+    first30, unit30, day_fee, mon_fee = exp
+    _day_ok = ptype != "노외" or (not day) or day == day_fee
+    _month_ok = ptype != "노외" or (not month) or month == mon_fee
+    if (base_min, base_fee, unit_min, unit_fee) != (30, first30, 30, unit30) or not _day_ok or not _month_ok:
+        fee_diff.append(f"{name}: 등록 요금(기본 {base_min}분 {base_fee or 0:,}원·추가 "
+                        f"{unit_min}분 {unit_fee or 0:,}원·1일 {_day_s}·월 {_month_s})이 조례 별표 1의 "
+                        f"{grade}급지 요금(최초 30분 {first30:,}원·30분당 {unit30:,}원·전일 {day_fee:,}원·"
+                        f"월정기 {mon_fee:,}원)과 일치하지 않아, 시설별 조정이 확인되기 전에는 시간요금을 "
+                        "확정하지 않고 요금 미상으로 표기한다(김해·함안 선례)")
+        fee.update({"type": "미상",
+                    "basis": (f"표준데이터의 등록 요금(기본 {base_min}분 {base_fee or 0:,}원·추가 "
+                              f"{unit_min}분 {unit_fee or 0:,}원·1일 {_day_s}·월 {_month_s})이 "
+                              "「울진군주차장조례」 별표 1의 요금과 일치하지 않아 "
+                              "요금 미상으로 표기한다 — 실제 요금은 울진군청(054-789-6392) 확인이 필요하다")})
+        return fee
+    fee.update({"type": "유료", "base_min": 30, "base_fee": first30,
+                "unit_min": 30, "unit_fee": unit30,
+                "daily_fee": day_fee if ptype == "노외" else None,
+                "grade": grade, "grade_label": f"{grade}급지",
+                "monthly": month if (ptype == "노외" and month == mon_fee) else None,
+                "basis": (f"등록 요금이 조례 별표 1의 {grade}급지 요금(최초 30분 {first30:,}원·"
+                          f"30분당 {unit30:,}원·전일 {day_fee:,}원)과 일치해 조례 기준으로 계산한다")})
+    return fee
+
+
+def uljin_fee_table(conf, lots):
+    """요금표 — 조례 별표 1 급지 요금. 57곳 무료
+    등록·1곳 요금 미상이라 요금 계산은 하지 않고
+    참고표로만 싣는다(성주 선례). 표준데이터 등록
+    급지구분은 58곳 전부 1급지이나 실제 급지는
+    군수가 지정하는 것이라 자리 수로는 세지 않는다."""
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    rows = [
+        {"label": "1급지 (조례 별표 1)", "grade": "1",
+         "unit_label": "최초 30분 1,000원 · 이후 30분당 500원",
+         "hour": 1500, "two_hour": 2500, "day": 5000,
+         "month_all": None, "month": 75000, "month_night": None,
+         "lots": None},
+        {"label": "2급지 (조례 별표 1)", "grade": "2",
+         "unit_label": "최초 30분 600원 · 이후 30분당 300원",
+         "hour": 900, "two_hour": 1500, "day": 3000,
+         "month_all": None, "month": 30000, "month_night": None,
+         "lots": None},
+    ]
+    return {
+        "style": "uljin_grade",
+        "unit_min": 30,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "source_url": conf["ordinance"][1],
+        "grade_system": ("조례 별표 1 비고 2 — 급지 구분은 주차장의 실태 및 주차수요를 참작하여 "
+                         "군수가 지정하며 군의 특성 및 주차장의 위치에 따라 세분할 수 있다. "
+                         "1급지는 읍·면 도시계획구역 내 도시지역, 2급지는 1급지 외 지역이다. "
+                         "표준데이터 등록 급지구분은 58곳 전부 1급지로 돼 있으나 실제 급지 "
+                         "지정과 다를 수 있어 이 표의 자리 수로는 세지 않았다. 군수는 "
+                         "주차수요를 감안하여 주차시간에 따른 체증 또는 체감 방식을 적용할 "
+                         "수 있고(비고 3), 급지를 구분하지 않고 특성에 따라 1급지 전일 "
+                         "주차권 요금을 초과하지 않는 범위에서 주차요금을 따로 정할 수 "
+                         "있다(비고 6)"),
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": 0, "street_paid": 0,
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [
+            {"group": "전일주차권·월정기주차권 (조례 별표 1 비고 4)",
+             "hours": "노외 공영주차장에 한한다",
+             "free": "노상주차장과 부설주차장에는 전일주차권·월정기주차권이 없다"},
+            {"group": "전일 요금 징수 (조례 별표 1 비고 5)",
+             "hours": "노외 공영주차장에 5시간 이상 주차하는 경우",
+             "free": "주차 시간과 관계없이 전일 주차요금으로 징수한다"},
+        ],
+        "discounts": conf["discounts"],
+        "notes": ("감면(조례 제3조)은 긴급자동차 전액 면제, 장애인·상이등급 1~7급 국가유공자·"
+                  "고엽제후유증환자·5·18민주화운동 부상자·병역명문가 예우대상자·장기등·인체조직 "
+                  "기증희망자 및 기증자·다자녀 가정 50% 감면, 경형자동차·환경친화적 자동차 "
+                  "60% 경감이다."),
+        "basis": ("요금표는 「울진군주차장조례」 제2755호(시행 2025-05-20) 제3조제1항·"
+                  "별표 1과 표준데이터(기준일 2026-04-20)를 대조해 실었다. 별표 1 원본 "
+                  "HWPX는 flSeq 151991437이다. 57곳은 무료 등록이라 등록값을 유지하고, "
+                  "울진군청 공영주차장 1곳은 등록값이 별표 1과 일치하지 않아 요금 미상으로 "
+                  "표기했다. 조례 요금표는 참고로만 실었다. (조례 본문: "
+                  "data/raw/uljin-ordinance.txt, 별표 1 원문 HWPX: "
+                  "data/raw/uljin-ordinance-b1.hwpx)"),
+    }
+
+
+def uljin_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                  space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(lots)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동·읍·면 미상" for l in lots).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in lots if l["dong"]}),
+        "동_미상": [l["name"] for l in lots if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in lots)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「울진군주차장조례」 제2755호 제3조 — 긴급 자동차는 면제할 수 있고(제2항), "
+                      "장애인·상이등급 1급 내지 7급 국가유공자·고엽제후유증환자·5·18민주화운동 "
+                      "부상자·병역명문가 예우대상자·장기등·인체조직 기증희망자 및 기증자·다자녀 "
+                      "가정은 100분의 50을 감면할 수 있으며(제4항), 경형자동차·환경친화적 "
+                      "자동차는 100분의 60을 경감할 수 있다(제5항)"),
+        "요금_출처": ("조례 제3조제1항·별표 1 — 군수가 설치하는 노상·노외주차장의 주차요금은 "
+                      "별표 1과 같다. 별표 1은 1급지 최초 30분 1,000원·30분당 500원·전일 "
+                      "5,000원·월정기 75,000원, 2급지 600원·300원·3,000원·30,000원이다. "
+                      "별표 원본 HWPX(flSeq 151991437)를 받아 추출해 대조했다"),
+        "급지_출처": ("조례 별표 1 비고 2 — 급지는 군수가 지정하며 1급지는 읍·면 도시계획구역 내 "
+                      "도시지역, 2급지는 그 외 지역이다. 표준데이터 등록 급지구분은 58곳 전부 "
+                      "1급지이나 실제 지정 급지와 다를 수 있어 요금 판정에는 쓰지 않았다"),
+        "무료요일_출처": ("조례 본문·별표 1 어디에도 군 전체 주말·공휴일 자동 무료 조항은 없다. "
+                          "57곳의 무료 표기는 표준데이터 등록값(요금정보 ‘무료’) 근거다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 울진군 등록 62행 중 민영 4행(성류굴·덕구온천·울진원자력전시관·월송정 민영주차장)을 빼면 공영 58행, 노외 47·노상 10·부설 1, 총 4,546면으로 무료 57·혼합 1, 기준일 2026-04-20이다. 중복 판정(전체 이름·지번·좌표 200m 가드)에 걸리는 쌍은 없고 관리번호 중복도 없다. 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다. 이름이 겹치는 망양해수욕장 공영주차장 2건(기성면 망양리 140-1 118면·망양1길 7 134면)은 서로 다른 자리라 합치지 않고 번지로 구분해 전부 실었다. 인스팅트 앞단 패키지(경북 21/22, 2026-11-20)의 집계와 표준데이터 원본 대조 결과가 일치한다",
+            "「울진군주차장조례」 제2755호(시행 2025-05-20, ordinSeq 2040255) 본문 원문(data/raw/uljin-ordinance.txt) 대조 완료(2026-11-21) — 본문 제3조제1항이 군수가 설치하는 노상·노외주차장의 요금을 별표 1로 정한다. 별표 1은 ELIS 첨부 HWPX 원본(flSeq 151991437)을 data/raw/uljin-ordinance-b1.hwpx로 저장하고 Contents/section0.xml을 추출해 확정했다 — 1급지 최초 30분 1,000원·30분당 500원·전일 5,000원·월정기 75,000원, 2급지 600원·300원·3,000원·30,000원. 패키지가 연결한 링크는 gubun이 빈 주소였으나 gubun=ELIS로 다시 받은 파일이 실제 별표 1([별표 1] 공영주차장 주차요금표 (제3조제1항관련))임을 본문 추출로 확인했다 — 패키지 수치와 전부 일치, 정정 없음",
+            "혼합 1곳인 울진군청 공영주차장(부설 67면)의 등록값은 기본 60분 0원·추가 30분 500원·1일 적용 3시간 2,000원·월정기 공란, 특기사항에 유료운영시간 07:00~22:00이 적혀 있다. 이 값은 별표 1의 어느 급지와도 일치하지 않고, 부설주차장은 별표 1의 적용 대상(군수가 설치하는 노상·노외주차장)이 아니며, 별표 비고 6의 특성별 별도 요금 설정 공고도 확인되지 않았다. 인스팅트 패키지의 '계산값 미확정' 판단과 김해·함안·성주 선례에 따라 요금 미상으로 표기했다. 나머지 57곳은 전부 무료 등록이라 등록값을 유지한다",
+            "좌표 결측은 0곳이다. 지오코딩 보완 대상이 없어 오버레이 추가도 0건이다. 등록 좌표 58곳 전부가 울진군 범위(위도 36.645~37.126, 경도 129.339~129.467) 안에 있다",
+            "주말·공휴일 전체 무료는 조례 본문·별표 1 어디에도 없다. 57곳의 무료 표기는 전부 표준데이터 등록값 근거다. 울진군청 공영주차장의 유료운영시간(07:00~22:00)이 주말에도 적용되는지는 확인되지 않았다",
+            "동·읍·면 판정은 지번주소 기준(군청은 지번주소가 없어 도로명주소 기준)이고 8개 읍·면(후포면 12·죽변면 11·울진읍 9·근남면 8·평해읍 5·북면 5·기성면 5·온정면 3) 전부 판정됐다. 서면·금강송면·매화면은 등록이 없다. 도로명주소는 47곳만 등록돼 있고 11곳은 없다. 특기사항은 울진군청 공영주차장 1곳만 있다",
+            "관리기관명은 경상북도 울진군 57곳·경상북도 울진군청 1곳(울진군청 공영주차장)이고 전화번호는 054-789-6392로 전부 같다. 운영요일은 58곳 전부 평일+토요일+공휴일, 운영시간은 전부 00:00~23:59, 부제시행구분은 미시행 53곳·5부제 5곳(울진군청·죽변면사무소앞·후포생활체육공원·북면사무소(광장)·후포면사무소앞)이다. 결제방법은 울진군청 공영주차장만 현금+신용카드로 등록돼 있고 나머지는 공란이다. 등록 급지구분은 58곳 전부 1급지이나 실제 급지 지정과 다를 수 있어 판정에 쓰지 않았다",
+            "확인 과제 — ① 울진군청 공영주차장(부설)의 별도 요금표·요일별 적용(주말 징수 여부)·밤샘 경계·월정기 적용 여부를 확인할 것 ② 시설별 실제 급지 지정 현황과 별표 비고 6의 특성별 별도 요금 설정·조정 공고가 있는지 확인할 것 ③ 무료 57곳 등록 최신성·향후 유료 공고가 있는지 확인할 것 ④ 도로명주소 미등록 11곳의 도로명주소·건물번호를 확인할 것",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] or 0 for l in paid) / len(paid)) if paid else 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_uljin():
+    """울진군 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「울진군주차장조례」 제2755호
+    (시행 2025-05-20, ordinSeq 2040255) 제3조제1항·
+    별표 1 원문 대조 완료(2026-11-21, 별표 ELIS 첨부
+    HWPX 추출·본문 원문 기준 — 패키지 수치가 1차
+    출처와 전부 일치). 표준데이터 울진 등록 62행 중
+    민영 4행을 빼고 공영 58행(노외 47·노상 10·부설
+    1, 총 4,546면)을 읽어 무료 57곳은 등록값대로,
+    혼합 1곳(울진군청 부설)은 요금 미상으로 싣는다.
+    조례 요금표는 참고표로만 싣는다. 좌표 결측은
+    0곳이다."""
+    conf = ULJIN_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "울진군" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "울진군" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 울진군은
+    #   해당 쌍이 없다.
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, space_diff, dong_fixed, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (ULJIN_BBOX[0] < lat < ULJIN_BBOX[1]
+                                                        and ULJIN_BBOX[2] < lng < ULJIN_BBOX[3]):
+            # 울진군 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 울진군 범위 밖 — "
+                               "좌표 없음으로 표기하고 지오코딩 보완 대상으로 넘김")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음(0으로 등록)"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = uljin_dong_of(jibun)
+        if dong:
+            dong_src = "지번주소"
+        elif uljin_dong_of(road):
+            dong = uljin_dong_of(road)
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 동·읍·면 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:동|읍|면))", std_name)
+        if _name_head and _name_head.group(1) in ULJIN_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 동·읍·면({_name_head.group(1)})과 지번주소 기준 "
+                              f"동·읍·면({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = uljin_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        if (r.get("부제시행구분") or "").strip() == "5부제":
+            note_bits.append("승용차 5부제를 시행하는 구간입니다")
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "울진군", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _bunji = ""
+            for _tok in reversed(_parts):
+                if re.match(r"^\d+(?:-\d+)?$", _tok or ""):
+                    _bunji = _tok
+                    break
+            if not _bunji:
+                _bunji = _parts[3].split("(")[0] if len(_parts) > 3 else \
+                    (_parts[2] if len(_parts) > 2 else "")
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _bunji and not _same_place:
+                _suffix = f"({_bunji})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 지번 번지로 구분했다")
+
+    # 같은 지번·같은 좌표에 이름만 다르게 등록된 그룹 — 전부 다른 등록이라
+    #   합치지 않고 전부 싣는다(산청 선례). 울진군은 해당 쌍이 없다.
+    _place_groups = {}
+    for l in lots:
+        if l["lat"] is None or l["lng"] is None:
+            continue
+        _place_groups.setdefault(((l.get("addr_jibun") or l.get("addr_road")),
+                                  l["lat"], l["lng"]), []).append(l)
+    for (_addr, _la, _ln), _grp in sorted(_place_groups.items(),
+                                          key=lambda kv: kv[1][0]["name"]):
+        if len(_grp) > 1 and len({x["name"] for x in _grp}) > 1:
+            _names = "·".join(x["name"] for x in _grp)
+            note_fixed.append(f"같은 자리·같은 좌표에 이름만 다른 등록: {_names} — "
+                              f"{_addr}에 좌표({_la}, {_ln})가 같게 등록돼 있다. "
+                              "이름이 다른 별개 등록이라 합치지 않고 전부 실었고, "
+                              "같은 시설의 중복 등록인지는 울진군청 확인이 필요하다")
+    note_fixed.append("표준데이터 울진 등록 62행 중 민영 4행을 빼고 공영 58행을 읽었다. "
+                      "데이터기준일자는 2026-04-20 58행, 제공기관명은 경상북도 울진군 "
+                      "58행, 관리기관명은 경상북도 울진군 57곳·경상북도 울진군청 1곳이다")
+    note_fixed.append("등록 급지구분은 58곳 전부 1급지이나, 급지는 군수가 지정하는 것이라 "
+                      "실제 지정과 다를 수 있어 요금 계산에도 조례 요금표 참고표의 자리 "
+                      "수에도 쓰지 않았다")
+    note_fixed.append("좌표는 58행 전부 등록돼 있고 전부 울진군 범위 안에 있다. 지오코딩 "
+                      "보완 대상이 없어 오버레이 추가도 0건이다")
+    note_fixed.append("운영요일은 58곳 전부 평일+토요일+공휴일이고 운영시간은 58곳 전부 "
+                      "00:00~23:59이다. 부제시행구분은 미시행 53곳·5부제 5곳이다. "
+                      "도로명주소는 47곳만 등록돼 있고 11곳은 없다. 특기사항은 울진군청 "
+                      "공영주차장 1곳(유료운영시간 07:00~22:00)만 있고, 결제방법은 "
+                      "울진군청 공영주차장만 현금+신용카드로 등록돼 있다")
+    note_fixed.append("57곳은 무료로 등록돼 있어 등록값을 유지했고, 혼합 1곳(울진군청 "
+                      "공영주차장)은 등록값이 조례 별표 1과 일치하지 않아 요금 미상으로 "
+                      "표기했다. 조례 요금표는 참고표로만 실었다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"gb-uljin-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"gb-uljin-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 울진군은 좌표 결측 0곳이라 적용 대상이 없다.
+    _cf = apply_coord_fix(lots)
+
+    fee_table = uljin_fee_table(conf, lots)
+    quality = uljin_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                            fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-04-20",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"울진군으로 등록된 행 {len(rows_std)}행을 읽어 중복 "
+                 f"제거 {len(merged)}건, 제외 {len(excluded)}건으로 {len(lots)}곳을 실었다. "
+                 f"유료 {len([l for l in lots if l['fee']['type'] == '유료'])}곳·무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳·미상 "
+                 f"{len([l for l in lots if l['fee']['type'] == '미상'])}곳이다. "
+                 f"데이터기준일자는 2026-04-20이다. 좌표 결측은 0곳이다. "
+                 f"조례 대조 완료 — 「울진군주차장조례」 제2755호(시행 "
+                 f"2025-05-20, ordinSeq 2040255) 제3조제1항·별표 1 원문 대조 완료(2026-11-21)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": ULJIN_ORD_TXT.name if ULJIN_ORD_TXT.exists() else None,
+            "sha256": sha256(ULJIN_ORD_TXT) if ULJIN_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2025-05-20",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"울진군이 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/uljin-ordinance.txt, 별표 1 원문 HWPX: "
+                    f"data/raw/uljin-ordinance-b1.hwpx)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": ULJIN_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "울진군", "slug": "uljin"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": ULJIN_PROVINCE,
+        "province_slug": ULJIN_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "uljin_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -90004,7 +90631,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyeo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon", "uiryeong", "haman", "changnyeong", "pohang", "gyeongju", "gimcheon", "andong", "gumi", "yeongju", "yeongcheon", "sangju", "mungyeong", "gyeongsan", "cheongdo", "uisung", "cheongsong", "yeongyang", "yeongdeok", "goryeong", "seongju", "chilgok", "yecheon", "bonghwa",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyeo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon", "uiryeong", "haman", "changnyeong", "pohang", "gyeongju", "gimcheon", "andong", "gumi", "yeongju", "yeongcheon", "sangju", "mungyeong", "gyeongsan", "cheongdo", "uisung", "cheongsong", "yeongyang", "yeongdeok", "goryeong", "seongju", "chilgok", "yecheon", "bonghwa", "uljin",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -90022,7 +90649,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "포항시", "경주시", "김천시", "안동시", "구미시", "영주시", "영천시", "상주시", "문경시", "경산시", "청도군", "의성군", "청송군", "영양군", "영덕군", "고령군", "성주군", "칠곡군", "예천군", "봉화군"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "포항시", "경주시", "김천시", "안동시", "구미시", "영주시", "영천시", "상주시", "문경시", "경산시", "청도군", "의성군", "청송군", "영양군", "영덕군", "고령군", "성주군", "칠곡군", "예천군", "봉화군", "울진군"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -90080,7 +90707,7 @@ def main():
                                 "tongyeong": ["통영시"],
                                 "sacheon": ["사천시"],
                                 "gimhae": ["김해시"], "miryang": ["밀양시"],
-                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"], "hamyang": ["함양군"], "geochang": ["거창군"], "hapcheon": ["합천군"], "uiryeong": ["의령군"], "haman": ["함안군"], "changnyeong": ["창녕군"], "pohang": ["포항시"], "gyeongju": ["경주시"], "gimcheon": ["김천시"], "andong": ["안동시"], "gumi": ["구미시"], "yeongju": ["영주시"], "yeongcheon": ["영천시"], "sangju": ["상주시"], "mungyeong": ["문경시"], "gyeongsan": ["경산시"], "cheongdo": ["청도군"], "uisung": ["의성군"], "cheongsong": ["청송군"], "yeongyang": ["영양군"], "yeongdeok": ["영덕군"], "goryeong": ["고령군"], "seongju": ["성주군"], "chilgok": ["칠곡군"], "yecheon": ["예천군"], "bonghwa": ["봉화군"]}[args.city])
+                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"], "hamyang": ["함양군"], "geochang": ["거창군"], "hapcheon": ["합천군"], "uiryeong": ["의령군"], "haman": ["함안군"], "changnyeong": ["창녕군"], "pohang": ["포항시"], "gyeongju": ["경주시"], "gimcheon": ["김천시"], "andong": ["안동시"], "gumi": ["구미시"], "yeongju": ["영주시"], "yeongcheon": ["영천시"], "sangju": ["상주시"], "mungyeong": ["문경시"], "gyeongsan": ["경산시"], "cheongdo": ["청도군"], "uisung": ["의성군"], "cheongsong": ["청송군"], "yeongyang": ["영양군"], "yeongdeok": ["영덕군"], "goryeong": ["고령군"], "seongju": ["성주군"], "chilgok": ["칠곡군"], "yecheon": ["예천군"], "bonghwa": ["봉화군"], "uljin": ["울진군"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -90382,6 +91009,8 @@ def main():
         cities.append(build_yecheon())
     if "봉화군" in want:
         cities.append(build_bonghwa())
+    if "울진군" in want:
+        cities.append(build_uljin())
 
     if args.city == "all":
         site = build_site_payload(cities)
