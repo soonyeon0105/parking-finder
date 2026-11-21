@@ -7234,6 +7234,8 @@ def layout(*, title, description, path, body, crumbs, jsonld, nav_active, city=N
 {og_url_tag}<meta name="robots" content="{robots}">
 <meta name="generator" content="parking-finder static builder">
 {verification_head()}{ga_head()}{adsense_head()}{extra_head}
+<link rel="preload" href="{url('/assets/fonts/PretendardVariable.subset.91.woff2')}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{url('/assets/fonts/pretendardvariable-dynamic-subset.css')}?v={asset_ver()}">
 <link rel="stylesheet" href="{url('/assets/style.css')}?v={asset_ver()}">
 {script_jsonld(jsonld)}
 </head>
@@ -16892,6 +16894,10 @@ def main():
     (DIST / "assets").mkdir(parents=True)
     for f in ("style.css", "app.js", "nearby.js"):
         shutil.copy(ASSETS / f, DIST / "assets" / f)
+    # 폰트 표준화(2026-11-21): Pretendard 자체 호스팅 — assets/fonts/ 를 dist 로 통째로 복사.
+    fonts_src = ASSETS / "fonts"
+    if fonts_src.exists():
+        shutil.copytree(fonts_src, DIST / "assets" / "fonts")
     # T-08: 랜딩 '내 주변 주차장' 좌표 데이터셋 — 페이지를 만들 때 함께 다시 만든다.
     (DIST / "assets" / "nearby.json").write_text(build_nearby_data(site), encoding="utf-8")
 
