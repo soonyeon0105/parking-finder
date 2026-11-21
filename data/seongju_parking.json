@@ -1,0 +1,2595 @@
+{
+ "meta": {
+  "generated_at": "2026-11-21 19:32",
+  "generated_at_iso": "2026-11-21T19:32:28+09:00",
+  "snapshot_at": "2026-11-21 19:32",
+  "region": {
+   "province": "경상북도",
+   "city": "성주군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-04-16",
+    "rows_total": 18994,
+    "rows_city": 20,
+    "fetched_at": "2026-11-21 19:32 (KST)",
+    "note": "성주군으로 등록된 행 20행을 읽어 중복 제거 0건, 제외 0건으로 20곳을 실었다. 유료 0곳·무료 17곳·미상 3곳이다. 데이터기준일자는 2026-04-16이다. 좌표 결측은 0곳이다. 조례 대조 완료 — 「성주군 주차장 조례」 제2610호(시행 2025-10-30, ordinSeq 2082529) 제4조제1항·별표 1 원문 대조 완료(2026-11-21)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "성주군 주차장 조례",
+    "org": "경상북도 성주군청",
+    "url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2082529&ordinId=2082071&gubun=ELIS",
+    "file": "seongju-ordinance-b1.txt",
+    "sha256": "abb00cb37de0e6cbe3dc3cf8960df4b5f37caa6861f464586cec037e575a5ab7",
+    "license": "자치법규(공개)",
+    "base_date": "2025-10-30",
+    "rows_total": null,
+    "fetched_at": "2026-11-21 19:32 (KST)",
+    "note": "성주군이 설치·관리하는 공영주차장에 적용하는 조례다. 표준데이터에 등록된 성주군 공영주차장 20곳(노외 19곳·부설 1곳, 총 1,963면)입니다. 등록은 전부 공영이고 요금 구분은 무료 17곳·유료 3곳입니다. 「성주군 주차장 조례」 제2610호 별표 1은 1급지 기본 30분 500원·초과 10분마다 200원·회수권(1일) 4,000원·월 주간 60,000원·야간 40,000원, 2급지 400원·100원·3,000원·50,000원·30,000원, 3급지 300원·100원·2,500원·40,000원·20,000원입니다. 유료 3곳은 등록 요금이 별표 1 어느 급지와도 일치하지 않아 요금 미상으로 표기합니다. 주말·공휴일 전체 무료 규정은 조례에 없습니다. (조례 본문: data/raw/seongju-ordinance.txt, 별표 1 원문 HWP: data/raw/seongju-ordinance-b1.hwp)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "성주군",
+   "slug": "seongju"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gb-seongju-001",
+   "mgmt_no": "368-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "독용산성자연휴양림 주차장",
+   "gu": "성주군",
+   "dong": "금수면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 성주군 금수면 봉두리 산110",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "054-930-6253",
+   "lat": 35.90636658,
+   "lng": 128.1344133,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 성주군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "성주군",
+   "city_slug": "seongju",
+   "zone": null
+  },
+  {
+   "id": "gb-seongju-002",
+   "mgmt_no": "368-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "벽진면 소재지 주차장",
+   "gu": "성주군",
+   "dong": "벽진면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 성주군 벽진면 수촌리 839 외 3필지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "054-930-6253",
+   "lat": 35.9477607,
+   "lng": 128.2169303,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 성주군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "성주군",
+   "city_slug": "seongju",
+   "zone": null
+  },
+  {
+   "id": "gb-seongju-003",
+   "mgmt_no": "368-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "건강문화캠퍼스 주차장",
+   "gu": "성주군",
+   "dong": "성주읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 성주군 성주읍 성산리 2101",
+   "addr_road": "경상북도 성주군 성주읍 성주읍1길 4",
+   "road": null,
+   "spaces": 168,
+   "tel": "054-930-6253",
+   "lat": 35.9182616,
+   "lng": 128.290175,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 성주군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 1000,
+     "day": 5000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터에는 기본 120분 0원·추가 30분 1,000원·1일 5,000원로 등록돼 있으나, 「성주군 주차장 조례」 별표 1의 요금과 일치하지 않아 요금 미상으로 표기한다 — 실제 요금은 성주군청(054-930-6253) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "성주군",
+   "city_slug": "seongju",
+   "zone": null
+  },
+  {
+   "id": "gb-seongju-004",
+   "mgmt_no": "368-3-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "군청 전정주차장",
+   "gu": "성주군",
+   "dong": "성주읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상북도 성주군 성주읍 경산리 283-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 54,
+   "tel": "054-930-6253",
+   "lat": 35.9190428531,
+   "lng": 128.2837855586,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 성주군청",
+   "note": "",
+   "notice": "승용차 5부제를 시행하는 구간입니다",
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 0
+    },
+    "basis": "표준데이터에는 기본 60분 0원·추가 30분 500원·1일 5,000원로 등록돼 있으나, 「성주군 주차장 조례」 별표 1의 요금과 일치하지 않아 요금 미상으로 표기한다 — 실제 요금은 성주군청(054-930-6253) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "성주군",
+   "city_slug": "seongju",
+   "zone": null
+  },
+  {
+   "id": "gb-seongju-005",
+   "mgmt_no": "368-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "놀벤져스(1호) 제1주차장",
+   "gu": "성주군",
+   "dong": "성주읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 성주군 성주읍 백전리 643",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "054-930-6253",
+   "lat": 35.9216189,
+   "lng": 128.2783076,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 성주군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "성주군",
+   "city_slug": "seongju",
+   "zone": null
+  },
+  {
+   "id": "gb-seongju-006",
+   "mgmt_no": "368-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "놀벤져스(1호) 제2주차장",
+   "gu": "성주군",
+   "dong": "성주읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 성주군 성주읍 백전리 650-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "054-930-6253",
+   "lat": 35.922265,
+   "lng": 128.2791258,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 성주군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "성주군",
+   "city_slug": "seongju",
+   "zone": null
+  },
+  {
+   "id": "gb-seongju-007",
+   "mgmt_no": "368-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "별고을체육공원",
+   "gu": "성주군",
+   "dong": "성주읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 성주군 성주읍 대흥리 905-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 430,
+   "tel": "054-930-6253",
+   "lat": 35.91307892,
+   "lng": 128.2567841,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 성주군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "성주군",
+   "city_slug": "seongju",
+   "zone": null
+  },
+  {
+   "id": "gb-seongju-008",
+   "mgmt_no": "368-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성밖공원 주차장",
+   "gu": "성주군",
+   "dong": "성주읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 성주군 성주읍 경산리 763-73",
+   "addr_road": "",
+   "road": null,
+   "spaces": 80,
+   "tel": "054-930-6253",
+   "lat": 35.91525096,
+   "lng": 128.2808918,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 성주군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "성주군",
+   "city_slug": "seongju",
+   "zone": null
+  },
+  {
+   "id": "gb-seongju-009",
+   "mgmt_no": "368-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성산 2주차장(디지털플라자 맞은편)",
+   "gu": "성주군",
+   "dong": "성주읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 성주군 성주읍 성산리 652-1번지 외 1필지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 42,
+   "tel": "054-930-6253",
+   "lat": 35.9171512,
+   "lng": 128.2907491,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 성주군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "성주군",
+   "city_slug": "seongju",
+   "zone": null
+  },
+  {
+   "id": "gb-seongju-010",
+   "mgmt_no": "368-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성산2공원 주차장(커피스미스 성주점 옆)",
+   "gu": "성주군",
+   "dong": "성주읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 성주군 성주읍 성산리 546-13번지 외 2필지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "054-930-6253",
+   "lat": 35.9182941,
+   "lng": 128.2934325,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 성주군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "성주군",
+   "city_slug": "seongju",
+   "zone": null
+  },
+  {
+   "id": "gb-seongju-011",
+   "mgmt_no": "368-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성산리 임시주차장(롯데카센터 맞은편)",
+   "gu": "성주군",
+   "dong": "성주읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 성주군 성주읍 성산리 646-9번지 외 9필지",
+   "addr_road": "",
+   "road": null,
+   "spaces": 80,
+   "tel": "054-930-6253",
+   "lat": 35.916133,
+   "lng": 128.2891984,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 성주군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "성주군",
+   "city_slug": "seongju",
+   "zone": null
+  },
+  {
+   "id": "gb-seongju-012",
+   "mgmt_no": "368-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성주군 공영주차장",
+   "gu": "성주군",
+   "dong": "성주읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 성주군 성주읍 경산리 251",
+   "addr_road": "경상북도 성주군 성주읍 성주로 3184",
+   "road": null,
+   "spaces": 231,
+   "tel": "054-930-6253",
+   "lat": 35.9201119,
+   "lng": 128.2825875,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 성주군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "성주군",
+   "city_slug": "seongju",
+   "zone": null
+  },
+  {
+   "id": "gb-seongju-013",
+   "mgmt_no": "368-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성주어울림 공영주차장",
+   "gu": "성주군",
+   "dong": "성주읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 성주군 성주읍 경산리 597-2(버스터미널)",
+   "addr_road": "경상북도 성주군 성주읍 경산길 17",
+   "road": null,
+   "spaces": 117,
+   "tel": "054-930-6253",
+   "lat": 35.9169276,
+   "lng": 128.2852814,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 성주군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "성주군",
+   "city_slug": "seongju",
+   "zone": null
+  },
+  {
+   "id": "gb-seongju-014",
+   "mgmt_no": "368-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성주여고 맞은편 주차장",
+   "gu": "성주군",
+   "dong": "성주읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 성주군 성주읍 경산리 356-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 5,
+   "tel": "054-930-6253",
+   "lat": 35.91884179,
+   "lng": 128.281426,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 성주군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "성주군",
+   "city_slug": "seongju",
+   "zone": null
+  },
+  {
+   "id": "gb-seongju-015",
+   "mgmt_no": "368-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성주역사테마공원 주차장",
+   "gu": "성주군",
+   "dong": "성주읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 성주군 성주읍 예산리 516 일원 외 2개소",
+   "addr_road": "",
+   "road": null,
+   "spaces": 116,
+   "tel": "054-930-6253",
+   "lat": 35.9221246,
+   "lng": 128.2837306,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 성주군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "성주군",
+   "city_slug": "seongju",
+   "zone": null
+  },
+  {
+   "id": "gb-seongju-016",
+   "mgmt_no": "368-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성주전통시장 주차장",
+   "gu": "성주군",
+   "dong": "성주읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 성주군 성주읍 경산리 718-325",
+   "addr_road": "경상북도 성주군 성주읍 시장길 49",
+   "road": null,
+   "spaces": 129,
+   "tel": "054-930-6253",
+   "lat": 35.91407807,
+   "lng": 128.2851311,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 성주군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 1000,
+     "day": 5000,
+     "monthly": 40000
+    },
+    "basis": "표준데이터에는 기본 120분 0원·추가 30분 1,000원·1일 5,000원로 등록돼 있으나, 「성주군 주차장 조례」 별표 1의 요금과 일치하지 않아 요금 미상으로 표기한다 — 실제 요금은 성주군청(054-930-6253) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "성주군",
+   "city_slug": "seongju",
+   "zone": null
+  },
+  {
+   "id": "gb-seongju-017",
+   "mgmt_no": "368-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성주초교 후문 주차장",
+   "gu": "성주군",
+   "dong": "성주읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 성주군 성주읍 경산리 138",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "054-930-6253",
+   "lat": 35.9208532,
+   "lng": 128.2856441,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 성주군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "성주군",
+   "city_slug": "seongju",
+   "zone": null
+  },
+  {
+   "id": "gb-seongju-018",
+   "mgmt_no": "368-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "이천제방 주차장",
+   "gu": "성주군",
+   "dong": "성주읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 성주군 성주읍 경산리 765-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 200,
+   "tel": "054-930-6253",
+   "lat": 35.91378526,
+   "lng": 128.2829294,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 성주군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "성주군",
+   "city_slug": "seongju",
+   "zone": null
+  },
+  {
+   "id": "gb-seongju-019",
+   "mgmt_no": "368-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "제1주차장(구경찰서)",
+   "gu": "성주군",
+   "dong": "성주읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 성주군 성주읍 경산리 172-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 135,
+   "tel": "054-930-6703",
+   "lat": 35.91930867,
+   "lng": 128.2841971,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 성주군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "성주군",
+   "city_slug": "seongju",
+   "zone": null
+  },
+  {
+   "id": "gb-seongju-020",
+   "mgmt_no": "368-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "생명문화공원 주차장",
+   "gu": "성주군",
+   "dong": "월항면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 성주군 월항면 인촌리 218-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 54,
+   "tel": "054-930-6253",
+   "lat": 36.0138759,
+   "lng": 128.2970361,
+   "base_date": "2026-04-16",
+   "manager": "경상북도 성주군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "성주군",
+   "city_slug": "seongju",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-21 19:32",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 20,
+  "원자료_성주군행수": 20,
+  "원자료_받은행수": 20,
+  "구별": {
+   "성주군": 20
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 20,
+  "노외_부설": {
+   "노외": 19,
+   "부설": 1
+  },
+  "노상_구간": 0,
+  "총_구획수": 1963,
+  "노상_구획수": 0,
+  "동별": {
+   "성주읍": 17,
+   "금수면": 1,
+   "벽진면": 1,
+   "월항면": 1
+  },
+  "동수": 4,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 20
+  },
+  "요금구분": {
+   "무료": 17,
+   "미상": 3
+  },
+  "요금_미상": [
+   "건강문화캠퍼스 주차장",
+   "군청 전정주차장",
+   "성주전통시장 주차장"
+  ],
+  "유료_노상": 0,
+  "유료_노외": 0,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "인근 등록: 성주읍 중심가에 좌표 200m 이내로 가까운 등록이 7쌍 있다 — 지번이 달라 별개 등록으로 보고 전부 실었다. 같은 지번·같은 좌표에 이름만 다른 등록은 없다",
+   "표준데이터 등록 20행 전부 공영(노외 19·부설 1, 총 1,963면)을 읽었다. 데이터기준일자는 2026-04-16 20행, 제공기관명은 경상북도 성주군 20행, 관리기관명은 경상북도 성주군청 20곳이다",
+   "등록 급지구분은 '기타' 20곳 전부이다. 조례 별표 1의 급지는 1급지 성주읍 도시계획구역·2급지 가천·초전면 도시계획구역·그 외 3급지로, 등록 급지와는 별개라 요금 계산에는 쓰지 않았다",
+   "좌표는 20행 전부 등록돼 있다. 지오코딩 보완 대상이 없어 오버레이 추가도 0건이다",
+   "운영요일은 20곳 전부 평일+토요일+공휴일이고 운영시간은 20곳 전부 00:00~23:59이다. 부제시행구분은 미시행 19곳·5부제 1곳(군청 전정주차장)이다. 도로명주소는 4곳만 있고 16곳은 등록돼 있지 않다. 특기사항은 0행이다. 결제방법은 유료 3곳만 카드이고 나머지 17곳은 공란이다. 장애인전용주차구역은 20곳 전부 공란이다",
+   "무료 17곳·유료 3곳이다. 유료 3곳은 등록 요금이 별표 1 어느 급지와도 일치하지 않아 요금 미상으로 표기한다(문경·김해·함안 선례) — 성주전통시장·건강문화캠퍼스 120분 무료+30분 1,000원·1일 5,000원·월 40,000원, 군청 전정 60분 무료+30분 500원·1일 5,000원·월 0원. 별표 1의 1일 값은 회수권(쿠폰)이라 자동 1일 상한이 아니다. 주말·공휴일 전체 무료 규정은 조례에 없어 표기하지 않았다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "성주전통시장 주차장: 등록 요금(기본 120분 0원·추가 30분 1,000원·1일 5,000원·월 40,000원)이 조례 별표 1의 요금(1급지 기본 30분 500원·초과 10분마다 200원·회수권 4,000원·월 주간 60,000원·야간 40,000원)과 일치하지 않아, 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(문경·김해·함안 선례). 별표 1의 1일 값은 회수권(쿠폰)이라 자동 1일 상한이 아니다",
+   "건강문화캠퍼스 주차장: 등록 요금(기본 120분 0원·추가 30분 1,000원·1일 5,000원·월 40,000원)이 조례 별표 1의 요금(1급지 기본 30분 500원·초과 10분마다 200원·회수권 4,000원·월 주간 60,000원·야간 40,000원)과 일치하지 않아, 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(문경·김해·함안 선례). 별표 1의 1일 값은 회수권(쿠폰)이라 자동 1일 상한이 아니다",
+   "군청 전정주차장: 등록 요금(기본 60분 0원·추가 30분 500원·1일 5,000원·월 공란)이 조례 별표 1의 요금(1급지 기본 30분 500원·초과 10분마다 200원·회수권 4,000원·월 주간 60,000원·야간 40,000원)과 일치하지 않아, 시설별 조정이 확인되기 전에는 시간요금을 확정하지 않고 요금 미상으로 표기한다(문경·김해·함안 선례). 부설주차장도 조례 제18조제3항에 따라 노외주차장 관리규정(별표 1)을 준용한다. 별표 1의 1일 값은 회수권(쿠폰)이라 자동 1일 상한이 아니다"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "독용산성자연휴양림 주차장",
+   "벽진면 소재지 주차장",
+   "군청 전정주차장",
+   "놀벤져스(1호) 제1주차장",
+   "놀벤져스(1호) 제2주차장",
+   "별고을체육공원",
+   "성밖공원 주차장",
+   "성산 2주차장(디지털플라자 맞은편)",
+   "성산2공원 주차장(커피스미스 성주점 옆)",
+   "성산리 임시주차장(롯데카센터 맞은편)",
+   "성주여고 맞은편 주차장",
+   "성주역사테마공원 주차장",
+   "성주초교 후문 주차장",
+   "이천제방 주차장",
+   "제1주차장(구경찰서)",
+   "생명문화공원 주차장"
+  ],
+  "감면_출처": "「성주군 주차장 조례」 제2610호 제5조 — 긴급자동차·국가 또는 지방자치단체의 공용차량·모범납세자·국가유공자·관내 임산부·성실납세자 지원 대상자는 면제, 장애인·경형자동차·환경친화적 자동차·우수자원봉사자·다자녀 가정은 50% 감면한다(감면대상 증명 필요). 제1항제3호부터 제5호, 제2항제1호·제4호·제5호는 본인 소유차량으로 한정하고, 둘 이상의 사유에 해당할 경우 감면 비율이 높은 하나만을 적용한다",
+  "요금_출처": "조례 제4조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같다. 별표 1은 1급지 기본 30분 500원·초과 10분마다 200원·회수권 4,000원·월 주간 60,000원·야간 40,000원, 2급지 400원·100원·3,000원·50,000원·30,000원, 3급지 300원·100원·2,500원·40,000원·20,000원이다. 별표 원본 HWP(flSeq 157941309)를 받아 추출해 대조했다. 유료 3곳은 등록 요금이 별표 1과 일치하지 않아 요금 미상으로 표기하고 요금 계산은 하지 않는다",
+  "급지_출처": "조례 별표 1 비고 2 — 1급지: 성주읍 도시계획구역 안 지역. 2급지: 가천면·초전면 도시계획구역 안 지역. 3급지: 1·2급지 이외의 지역 모두. 표준데이터 등록 급지구분은 20곳 전부 '기타'라 요금 계산에는 쓰지 않았다",
+  "무료요일_출처": "조례 본문·별표 1 어디에도 군 전체 주말·공휴일 자동 무료 조항이 없다(인스팅트 앞단 패키지 확인, 2026-11-21 법제처 본문·별표 원문 재대조). 요금 구분이 '무료'인 곳은 요일과 관계없이 무료다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 성주군 등록 20행 전부 공영(노외 19·부설 1, 총 1,963면)으로 무료 17·유료 3, 기준일 2026-04-16이다. 중복 판정(전체 이름·지번·좌표 200m 가드)에 걸리는 쌍은 없고, 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다. 인스팅트 앞단 패키지(경북 17/22, 2026-11-20)의 집계(공영 20행·1,963면, 노외 19·부설 1, 무료 17·유료 3, 기준일 2026-04-16)와 표준데이터 원본 대조 결과가 일치한다",
+   "「성주군 주차장 조례」 제2610호(시행 2025-10-30, ordinSeq 2082529) 본문 원문(data/raw/seongju-ordinance.txt) 대조 완료(2026-11-21) — 본문 제4조제1항이 공영주차장 요금을 별표 1로 정하고, 군수가 관리·운영상 필요하다고 인정하면 요금을 무료로 하거나 별표 1 요금을 조정할 수 있는 단서가 있다. 별표 1은 ELIS 첨부 HWP 원본(flSeq 157941309)을 data/raw/seongju-ordinance-b1.hwp로 저장하고 추출해 확정했다 — 1급지 기본 30분 500원·초과 10분마다 200원·회수권 4,000원·월 주간 60,000원·야간 40,000원, 2급지 400원·100원·3,000원·50,000원·30,000원, 3급지 300원·100원·2,500원·40,000원·20,000원. 패키지가 연결한 flSeq 157941309는 ordinInfoR 첨부 목록에서 파일명으로 대조해 실제 별표 1(【별표 1】 공영주차장 주차요금표)임이 확인됐다 — 정정 없음. 급지: 1급지 성주읍 도시계획구역·2급지 가천·초전면 도시계획구역·그 외 3급지. 주간 4~10월 08:00~20:00·11~3월 09:00~19:30, 나머지는 야간. 차종별 가산은 1급지에만 적용한다",
+   "유료 3곳(성주전통시장 129면·건강문화캠퍼스 168면·군청 전정 54면)은 등록 요금이 별표 1 어느 급지와도 일치하지 않아 요금 미상으로 표기한다(문경·김해·함안 선례) — 전통시장·건강문화캠퍼스 120분 무료+30분 1,000원·1일 5,000원·월 40,000원, 군청 전정 60분 무료+30분 500원·1일 5,000원·월 0원. 별표 1의 1일 값은 회수권(쿠폰)이라 자동 1일 상한이 아니다. 성주군 주차장 조례 외 별도 시장·청사 요금 조례는 없다(법제처 검색 확인 — 성주군 주차장 관련 조례는 제2610호 하나뿐이다). 제4조제1항 단서상 군수 조정이 가능하나 조정 고시·공고를 확인하지 못해 무검증 채택을 하지 않는다. 등록값은 fee_diff에 전부 기록했다. 부설 군청 전정은 조례 제18조제3항에 따라 노외주차장 관리규정(별표 1)을 준용한다",
+   "좌표 결측은 0곳이다. 지오코딩 보완 대상이 없어 오버레이 추가도 0건이다",
+   "주말·공휴일 전체 무료는 조례 본문·별표 1 어디에도 없어 표기하지 않았다. 요금 구분이 '무료'인 곳은 요일과 관계없이 무료다",
+   "이름이 겹치는 등록은 없다. 같은 자리·같은 좌표에 이름만 다른 등록은 없다. 성주읍 중심가에 좌표 200m 이내로 가까운 등록이 7쌍 있으나(성주군 공영주차장~성주여고 맞은편·제1주차장·군청 전정, 성산 2주차장~성산리 임시·건강문화캠퍼스, 놀벤져스 제1~제2, 제1주차장~군청 전정) 지번이 달라 별개 등록으로 보고 전부 실었다",
+   "동·읍·면 판정은 지번주소 기준이고 4개 읍·면(성주읍 17·월항면 1·금수면 1·벽진면 1) 전부 판정됐다. 도로명주소는 4곳만 등록돼 있고 16곳은 없다. 특기사항은 0행이다. 결제방법은 유료 3곳만 카드이고 나머지 17곳은 공란이다. 5부제는 군청 전정주차장 1곳만 시행한다. 장애인전용주차구역은 20곳 전부 공란이다",
+   "관리기관명은 경상북도 성주군청 20곳이다. 전화번호는 054-930-6253이 19곳, 054-930-6703이 1곳(제1주차장 구경찰서)이다. 등록 급지구분은 '기타' 20곳 전부이다",
+   "확인 과제 — ① 유료 3곳의 실제 요금(제4조제1항 단서 조정 고시·공고 여부, 무료 시간·요일 공고)을 성주군청에 확인할 것 ② 별표 1의 회수권(1일) 4,000원이 자동 1일 상한인지, 회수권만 파는 것인지 확인할 것 ③ 군청 전정 5부제 적용 요일·끝번호를 확인할 것 ④ 무료 17곳 실측 시간·향후 유료 공고가 있는지 확인할 것 ⑤ 성주읍 중심가 200m 이내 근접 등록 7쌍이 별개 시설인지 확인할 것 ⑥ 도로명주소 미등록 16곳의 도로명주소·건물번호를 확인할 것"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 17,
+  "무료_구획수": 1612,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-16"
+  ],
+  "관리기관": {
+   "경상북도 성주군청": 20
+  }
+ },
+ "fee_table": {
+  "style": "seongju_grade",
+  "unit_min": 10,
+  "base_min": 30,
+  "applies": "「성주군 주차장 조례」 제2610호(시행 2025-10-30) 제4조제1항·별표 1 — 국가법령정보센터 ordinSeq 2082529에서 확인",
+  "source_url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2082529&ordinId=2082071&gubun=ELIS",
+  "grade_system": "조례 별표 1 급지 구분 — 1급지: 성주읍 도시계획구역 안 지역. 2급지: 가천면·초전면 도시계획구역 안 지역. 3급지: 1·2급지 이외의 지역 모두. 주간 시간은 4월~10월 08:00~20:00, 11월~3월 09:00~19:30이며 나머지는 야간이다. 표의 1일 값은 회수권(쿠폰)이라 자동 1일 상한이 아니다. 차종별 가산은 1급지에만 적용한다(승합 15~45인승 미만 2배·45인승 이상 3배, 화물 2.5~11톤 미만 2배·11톤 이상 3배). 주차시간이 30분 미만인 때에는 최초 30분까지로 본다(별표 1 비고 3). 표준데이터 등록 급지구분은 20곳 전부 '기타'라 요금 계산에는 쓰지 않았다",
+  "rows": [
+   {
+    "label": "1급지 (조례 별표 1)",
+    "grade": "grade1",
+    "unit_label": "기본 30분 500원 · 초과 10분마다 200원",
+    "hour": 1100,
+    "two_hour": 2300,
+    "day": 4000,
+    "month_all": null,
+    "month": 60000,
+    "month_night": 40000,
+    "lots": null
+   },
+   {
+    "label": "2급지 (조례 별표 1)",
+    "grade": "grade2",
+    "unit_label": "기본 30분 400원 · 초과 10분마다 100원",
+    "hour": 700,
+    "two_hour": 1300,
+    "day": 3000,
+    "month_all": null,
+    "month": 50000,
+    "month_night": 30000,
+    "lots": null
+   },
+   {
+    "label": "3급지 (조례 별표 1)",
+    "grade": "grade3",
+    "unit_label": "기본 30분 300원 · 초과 10분마다 100원",
+    "hour": 600,
+    "two_hour": 1200,
+    "day": 2500,
+    "month_all": null,
+    "month": 40000,
+    "month_night": 20000,
+    "lots": null
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 0,
+   "street_paid": 0,
+   "free": 17,
+   "unknown": 3
+  },
+  "windows": [
+   {
+    "group": "급지 구분 (조례 별표 1 비고 2)",
+    "hours": "1급지: 성주읍 도시계획구역 / 2급지: 가천·초전면 도시계획구역 / 3급지: 그 외",
+    "free": "표준데이터 등록 급지구분('기타' 20곳)은 조례 급지와 별개라 요금 계산에 쓰지 않았다"
+   },
+   {
+    "group": "주간 시간 구분 (조례 별표 1 비고 4)",
+    "hours": "4월~10월 08:00~20:00 · 11월~3월 09:00~19:30, 나머지는 야간",
+    "free": "월정기주차요금은 주간·야간으로 나뉜다"
+   },
+   {
+    "group": "차종별 가산 (조례 별표 1, 1급지에 한함)",
+    "hours": "승합 15~45인승 미만 2배·45인승 이상 3배 / 화물 2.5~11톤 미만 2배·11톤 이상 3배",
+    "free": "승용차·승합 15인승 미만·화물 2.5톤 미만은 기본요금이다"
+   },
+   {
+    "group": "군수 요금 조정 (조례 제4조제1항 단서)",
+    "hours": "군수가 관리·운영상 필요하다고 인정하면 요금을 무료로 하거나 별표 1 요금을 조정할 수 있다",
+    "free": "유료 3곳의 등록 요금은 이 조정으로 보이나 별도 고시·공고를 확인하지 못해 요금 미상으로 표기한다"
+   }
+  ],
+  "discounts": [
+   {
+    "label": "긴급자동차·공용차량·모범납세자·국가유공자·관내 임산부·성실납세자 전액 면제",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 제5조제1항 — 도로교통법 제2조제22호에 따른 긴급자동차, 국가 또는 지방자치단체의 공용차량, 성실납세로 모범납세 표창을 받은 자가 직접 운전하는 자동차로서 성실납세스티커를 부착한 자동차(스티커 교부일로부터 1년이 경과하지 않은 차량에 한함), 국가유공자 등 예우 및 지원에 관한 법률 제4조에 따른 국가유공자가 직접 운전하거나 동승한 자동차, 관내 주민등록을 둔 모자보건법 제2조제1호에 따른 임산부가 직접 운전하거나 동승한 자동차, 성주군 성실납세자 등 지원에 관한 조례 제4조제1항제2호에 따라 성실납세자 지원 대상자로 선정된 자가 직접 운전하는 자동차는 주차요금을 면제한다(감면대상 증명 필요)"
+   },
+   {
+    "label": "장애인·경형자동차·환경친화적 자동차·우수자원봉사자·다자녀 가정 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제5조제2항 — 장애인복지법 제39조제2항에 따라 발급한 장애인사용자동차 등표지가 부착된 자동차로서 장애인이 직접 운전하거나 동승한 자동차, 자동차관리법 시행규칙 제2조에 따른 경형자동차, 환경친화적 자동차의 개발 및 촉진에 관한 법률 제11조에 따라 환경친화적 자동차 표지를 부착한 자동차 및 대기환경보전법 제58조제11항에 따른 저공해자동차 표지를 부착한 자동차, 성주군 자원봉사활동 지원 조례 제14조의2에 따른 우수자원봉사자증을 소지한 자가 직접 운전하는 자동차, 관내 주민등록을 둔 성주군 출산·양육 지원 등에 관한 조례 제2조제7호에 따른 다자녀 가정으로 자녀 중 1인 이상이 19세 미만인 경우에 해당하는 다자녀 가정의 부모가 직접 운전하는 자동차는 별표 1에서 정한 주차요금의 2분의 1을 경감한다(감면대상 증명 필요). 제1항제3호부터 제5호, 제2항제1호·제4호·제5호는 자동차등록원부상 감면 사유 대상자 본인의 소유차량으로 한정한다(제5조제3항). 둘 이상의 사유에 해당할 경우 감면 비율이 높은 하나만을 적용한다(제5조제5항)"
+   }
+  ],
+  "notes": "감면(조례 제5조)은 긴급자동차·국가 또는 지방자치단체의 공용차량·모범납세자·국가유공자·관내 임산부·성실납세자 지원 대상자는 면제, 장애인·경형자동차·환경친화적 자동차·우수자원봉사자·다자녀 가정은 50% 감면이다(감면대상 증명 필요). 유료 3곳은 등록 요금이 별표 1과 일치하지 않아 요금 미상으로 표기하고 조례 별표 1은 참고표로만 싣는다.",
+  "basis": "요금표는 「성주군 주차장 조례」 제2610호(시행 2025-10-30) 제4조제1항·별표 1과 표준데이터(기준일 2026-04-16)를 대조해 실었다. 별표 1 원본 HWP는 flSeq 157941309이다. 유료 3곳이 전부 요금 미상이라 요금 계산은 하지 않는다. (조례 본문: data/raw/seongju-ordinance.txt, 별표 1 원문 HWP: data/raw/seongju-ordinance-b1.hwp)"
+ },
+ "slug": "seongju",
+ "province": "경상북도",
+ "province_slug": "gyeongbuk",
+ "dong_page_min_lots": 3,
+ "city": "성주군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·공용차량·모범납세자·국가유공자·관내 임산부·성실납세자 전액 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제5조제1항 — 도로교통법 제2조제22호에 따른 긴급자동차, 국가 또는 지방자치단체의 공용차량, 성실납세로 모범납세 표창을 받은 자가 직접 운전하는 자동차로서 성실납세스티커를 부착한 자동차(스티커 교부일로부터 1년이 경과하지 않은 차량에 한함), 국가유공자 등 예우 및 지원에 관한 법률 제4조에 따른 국가유공자가 직접 운전하거나 동승한 자동차, 관내 주민등록을 둔 모자보건법 제2조제1호에 따른 임산부가 직접 운전하거나 동승한 자동차, 성주군 성실납세자 등 지원에 관한 조례 제4조제1항제2호에 따라 성실납세자 지원 대상자로 선정된 자가 직접 운전하는 자동차는 주차요금을 면제한다(감면대상 증명 필요)"
+  },
+  {
+   "label": "장애인·경형자동차·환경친화적 자동차·우수자원봉사자·다자녀 가정 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제5조제2항 — 장애인복지법 제39조제2항에 따라 발급한 장애인사용자동차 등표지가 부착된 자동차로서 장애인이 직접 운전하거나 동승한 자동차, 자동차관리법 시행규칙 제2조에 따른 경형자동차, 환경친화적 자동차의 개발 및 촉진에 관한 법률 제11조에 따라 환경친화적 자동차 표지를 부착한 자동차 및 대기환경보전법 제58조제11항에 따른 저공해자동차 표지를 부착한 자동차, 성주군 자원봉사활동 지원 조례 제14조의2에 따른 우수자원봉사자증을 소지한 자가 직접 운전하는 자동차, 관내 주민등록을 둔 성주군 출산·양육 지원 등에 관한 조례 제2조제7호에 따른 다자녀 가정으로 자녀 중 1인 이상이 19세 미만인 경우에 해당하는 다자녀 가정의 부모가 직접 운전하는 자동차는 별표 1에서 정한 주차요금의 2분의 1을 경감한다(감면대상 증명 필요). 제1항제3호부터 제5호, 제2항제1호·제4호·제5호는 자동차등록원부상 감면 사유 대상자 본인의 소유차량으로 한정한다(제5조제3항). 둘 이상의 사유에 해당할 경우 감면 비율이 높은 하나만을 적용한다(제5조제5항)"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
