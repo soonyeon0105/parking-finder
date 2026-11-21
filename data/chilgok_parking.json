@@ -1,0 +1,8888 @@
+{
+ "meta": {
+  "generated_at": "2026-11-21 21:06",
+  "generated_at_iso": "2026-11-21T21:06:20+09:00",
+  "snapshot_at": "2026-11-21 21:06",
+  "region": {
+   "province": "경상북도",
+   "city": "칠곡군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-04-17",
+    "rows_total": 18994,
+    "rows_city": 138,
+    "fetched_at": "2026-11-21 21:06 (KST)",
+    "note": "칠곡군으로 등록된 행 138행을 읽어 중복 제거 69건, 제외 0건으로 69곳을 실었다. 유료 0곳·무료 66곳·미상 3곳이다. 데이터기준일자는 2026-04-17이다. 좌표 결측은 0곳이다. 조례 대조 완료 — 「칠곡군 주차장 조례」 제2377호(시행 2016-10-31, ordinSeq 1261093) 제4조제1항·별표 1 원문 대조 완료(2026-11-21)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "칠곡군 주차장 조례",
+    "org": "경상북도 칠곡군청",
+    "url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=1261093&ordinId=2130234&gubun=ELIS",
+    "file": "chilgok-ordinance-b1.txt",
+    "sha256": "2a3633e9fe953e053d3195d4a2d5d12c6b362563e884d514fffaa8ed3e5b7152",
+    "license": "자치법규(공개)",
+    "base_date": "2016-10-31",
+    "rows_total": null,
+    "fetched_at": "2026-11-21 21:06 (KST)",
+    "note": "칠곡군이 설치·관리하는 공영주차장에 적용하는 조례다. 표준데이터에 등록된 칠곡군 공영주차장 69곳(노외 63곳·노상 6구간, 총 3,919면)입니다. 등록은 전부 공영이고 요금 구분은 무료 66곳·혼합 3곳입니다. 표준데이터 원본 138행은 같은 시설이 제공기관만 달리해 두 번씩 실린 중복이라 69행을 제외했습니다. 「칠곡군 주차장 조례」 제2377호 별표 1은 1급지 30분마다 500원·1일 4,000원·월 주간 40,000원·야간 30,000원·주야간 50,000원, 2급지 200원·3,000원·28,000원·20,000원·36,000원입니다. 혼합 3곳은 기본 30분 500원만 등록되고 나머지 요금이 비어 있어 요금 미상으로 표기합니다. 주말·공휴일 전체 무료 규정은 조례에 없습니다. (조례 본문: data/raw/chilgok-ordinance.txt, 별표 1 원문 HWP: data/raw/chilgok-ordinance-b1.hwp)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "칠곡군",
+   "slug": "chilgok"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gb-chilgok-001",
+   "mgmt_no": "369-2-000061",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금화계곡",
+   "gu": "칠곡군",
+   "dong": "가산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 가산면 금화리 산49-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 46,
+   "tel": "",
+   "lat": 36.0514130924,
+   "lng": 128.5539452652,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-002",
+   "mgmt_no": "369-2-000062",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "다부동전적비",
+   "gu": "칠곡군",
+   "dong": "가산면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 가산면 다부리 285-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 94,
+   "tel": "",
+   "lat": 36.04729281,
+   "lng": 128.5186173,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-003",
+   "mgmt_no": "369-2-000054",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가산산성 남문",
+   "gu": "칠곡군",
+   "dong": "동명면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 동명면 남원리 산1-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 42,
+   "tel": "",
+   "lat": 36.02079127,
+   "lng": 128.5909281,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-004",
+   "mgmt_no": "369-2-000055",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가산산성 진남문",
+   "gu": "칠곡군",
+   "dong": "동명면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 동명면 남원리 625-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 127,
+   "tel": "",
+   "lat": 36.01931139,
+   "lng": 128.5893112,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-005",
+   "mgmt_no": "369-2-000060",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금암리 공영주차장",
+   "gu": "칠곡군",
+   "dong": "동명면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 동명면 금암리 436",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "",
+   "lat": 35.98866533,
+   "lng": 128.5544107,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-006",
+   "mgmt_no": "369-2-000059",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "누릿재",
+   "gu": "칠곡군",
+   "dong": "동명면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 동명면 남원리 산173",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "",
+   "lat": 36.0037715682,
+   "lng": 128.5766282318,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-007",
+   "mgmt_no": "369-2-000053",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동명팔거천 공영주차장",
+   "gu": "칠곡군",
+   "dong": "동명면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 동명면 금암리 1364-108",
+   "addr_road": "",
+   "road": null,
+   "spaces": 100,
+   "tel": "",
+   "lat": 35.99098236,
+   "lng": 128.5519303,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-008",
+   "mgmt_no": "369-2-000056",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송림사 내",
+   "gu": "칠곡군",
+   "dong": "동명면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 동명면 구덕리 88-47",
+   "addr_road": "",
+   "road": null,
+   "spaces": 70,
+   "tel": "",
+   "lat": 35.98149252,
+   "lng": 128.5767378,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-009",
+   "mgmt_no": "369-2-000057",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송림사 외",
+   "gu": "칠곡군",
+   "dong": "동명면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 동명면 구덕리 88-84",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "",
+   "lat": 35.98150831,
+   "lng": 128.5774993,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-010",
+   "mgmt_no": "369-2-000058",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한티재",
+   "gu": "칠곡군",
+   "dong": "동명면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 동명면 득명리 산108-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 120,
+   "tel": "",
+   "lat": 36.02054305,
+   "lng": 128.6299604,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-011",
+   "mgmt_no": "369-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "금오동천 둘레길 공영주차장",
+   "gu": "칠곡군",
+   "dong": "북삼읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 북삼읍 숭오리 산31-28",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "",
+   "lat": 36.06749293,
+   "lng": 128.297883,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-012",
+   "mgmt_no": "369-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "미성빌라 옆 주차장",
+   "gu": "칠곡군",
+   "dong": "북삼읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 북삼읍 인평리 1097-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "",
+   "lat": 36.06722636,
+   "lng": 128.3482323,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-013",
+   "mgmt_no": "369-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "인평체육공원",
+   "gu": "칠곡군",
+   "dong": "북삼읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 북삼읍 인평리 47",
+   "addr_road": "",
+   "road": null,
+   "spaces": 124,
+   "tel": "",
+   "lat": 36.07266889,
+   "lng": 128.3409003,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-014",
+   "mgmt_no": "369-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화진금봉아파트 옆 건너 산쪽",
+   "gu": "칠곡군",
+   "dong": "북삼읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 북삼읍 인평리 711-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "",
+   "lat": 36.06307669,
+   "lng": 128.3335672,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-015",
+   "mgmt_no": "369-2-000046",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "(임시)중리 공영주차장 (244-6)",
+   "gu": "칠곡군",
+   "dong": "석적읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 석적읍 중리 244-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "",
+   "lat": 36.07409825,
+   "lng": 128.4143868,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-016",
+   "mgmt_no": "369-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "(임시)중리 공영주차장 (245-9)",
+   "gu": "칠곡군",
+   "dong": "석적읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 석적읍 중리 245-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "",
+   "lat": 36.07405963,
+   "lng": 128.4147107,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-017",
+   "mgmt_no": "369-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "광암교 옆 공영주차장",
+   "gu": "칠곡군",
+   "dong": "석적읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 석적읍 중리 635-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "",
+   "lat": 36.07854157,
+   "lng": 128.4021192,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-018",
+   "mgmt_no": "369-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "석적 공단 공영주차장",
+   "gu": "칠곡군",
+   "dong": "석적읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 석적읍 중리 443-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 64,
+   "tel": "",
+   "lat": 36.08133224,
+   "lng": 128.4039858,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-019",
+   "mgmt_no": "369-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "석적농협 앞 공영주차장",
+   "gu": "칠곡군",
+   "dong": "석적읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 석적읍 남율리 751-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 36,
+   "tel": "",
+   "lat": 36.0760760819,
+   "lng": 128.3953828941,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-020",
+   "mgmt_no": "369-2-000048",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "석적읍사무소",
+   "gu": "칠곡군",
+   "dong": "석적읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 석적읍 남율리 895",
+   "addr_road": "",
+   "road": null,
+   "spaces": 129,
+   "tel": "",
+   "lat": 36.0667909,
+   "lng": 128.4009751,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-021",
+   "mgmt_no": "369-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "섬내공원 주차장",
+   "gu": "칠곡군",
+   "dong": "석적읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 석적읍 중리 884-122",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "",
+   "lat": 36.07607425,
+   "lng": 128.4066892,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-022",
+   "mgmt_no": "369-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중리 공영주차장",
+   "gu": "칠곡군",
+   "dong": "석적읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 석적읍 중리 493-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 141,
+   "tel": "",
+   "lat": 36.0786342555,
+   "lng": 128.4085416006,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-023",
+   "mgmt_no": "369-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중리 원마트 앞 공영주차장",
+   "gu": "칠곡군",
+   "dong": "석적읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 석적읍 중리 884-162",
+   "addr_road": "",
+   "road": null,
+   "spaces": 33,
+   "tel": "",
+   "lat": 36.0754429,
+   "lng": 128.407451,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-024",
+   "mgmt_no": "369-2-000069",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼주강변타운 공영주차장",
+   "gu": "칠곡군",
+   "dong": "약목면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 약목면 관호리 951",
+   "addr_road": "",
+   "road": null,
+   "spaces": 96,
+   "tel": "",
+   "lat": 36.0020725312,
+   "lng": 128.3882442572,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-025",
+   "mgmt_no": "369-2-000065",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신유장군유적지 앞",
+   "gu": "칠곡군",
+   "dong": "약목면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 약목면 남계리 산21-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 9,
+   "tel": "",
+   "lat": 36.02736287,
+   "lng": 128.350652,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-026",
+   "mgmt_no": "369-2-000064",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "약목고가도로밑 공영주차장",
+   "gu": "칠곡군",
+   "dong": "약목면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 약목면 관호리 156-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 51,
+   "tel": "",
+   "lat": 36.0204156729,
+   "lng": 128.3838660961,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-027",
+   "mgmt_no": "369-2-000063",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "약목두만천 공영주차장",
+   "gu": "칠곡군",
+   "dong": "약목면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 약목면 남계리 1097-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 107,
+   "tel": "",
+   "lat": 36.03034134,
+   "lng": 128.3621827,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-028",
+   "mgmt_no": "369-2-000066",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "약목버스터미널",
+   "gu": "칠곡군",
+   "dong": "약목면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 약목면 복성리 864",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "",
+   "lat": 36.03489159,
+   "lng": 128.3655584,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-029",
+   "mgmt_no": "369-2-000067",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "영남 정형외과 뒤",
+   "gu": "칠곡군",
+   "dong": "약목면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 약목면 복성리 853-1, 847-25",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "",
+   "lat": 36.0343429,
+   "lng": 128.3645776,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-030",
+   "mgmt_no": "369-2-000068",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "친환경체육공원",
+   "gu": "칠곡군",
+   "dong": "약목면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 약목면 복성리 1166-58",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "",
+   "lat": 36.04280159,
+   "lng": 128.3698877,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-031",
+   "mgmt_no": "369-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "경남산업 앞",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 금산리 1006-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "",
+   "lat": 35.96339328,
+   "lng": 128.4207249,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-032",
+   "mgmt_no": "369-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "공단운동장 입구",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 금산리 986",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "",
+   "lat": 35.96641436,
+   "lng": 128.4170036,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-033",
+   "mgmt_no": "369-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "군청 앞 공영주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 216-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 85,
+   "tel": "",
+   "lat": 35.99398403,
+   "lng": 128.4009004,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-034",
+   "mgmt_no": "369-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남부지구대 뒤편 주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 265",
+   "addr_road": "",
+   "road": null,
+   "spaces": 60,
+   "tel": "",
+   "lat": 35.99070932,
+   "lng": 128.3971207,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-035",
+   "mgmt_no": "369-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대덕정공앞",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 금산리 1005",
+   "addr_road": "",
+   "road": null,
+   "spaces": 64,
+   "tel": "",
+   "lat": 35.96810551,
+   "lng": 128.4116148,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-036",
+   "mgmt_no": "369-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대원바이오텍",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 금산리 1006",
+   "addr_road": "",
+   "road": null,
+   "spaces": 53,
+   "tel": "",
+   "lat": 35.96358473,
+   "lng": 128.4132088,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-037",
+   "mgmt_no": "369-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동정천 공영주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 1190-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 62,
+   "tel": "",
+   "lat": 35.978601956,
+   "lng": 128.3983586107,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-038",
+   "mgmt_no": "369-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "로얄3차앞 공영주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 775-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 45,
+   "tel": "",
+   "lat": 35.98447222,
+   "lng": 128.3996738,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-039",
+   "mgmt_no": "369-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백남소하천 공영주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 590-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 123,
+   "tel": "",
+   "lat": 35.9865717692,
+   "lng": 128.4128213579,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-040",
+   "mgmt_no": "369-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼성제침 뒷편 산쪽도로옆",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 금산리 1008",
+   "addr_road": "",
+   "road": null,
+   "spaces": 56,
+   "tel": "",
+   "lat": 35.96935675,
+   "lng": 128.4258735,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-041",
+   "mgmt_no": "369-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상공회의소 옆",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 삼청리 1101-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 150,
+   "tel": "",
+   "lat": 35.97413136,
+   "lng": 128.4268576,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-042",
+   "mgmt_no": "369-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "석전2리 임시공영 주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 석전리 835",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "",
+   "lat": 36.00387065,
+   "lng": 128.4124591,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-043",
+   "mgmt_no": "369-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "스톤카페 인근 공영주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 959-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "",
+   "lat": 35.9793543,
+   "lng": 128.4028494,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-044",
+   "mgmt_no": "369-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "아곡리 안찔",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 아곡리 538-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "",
+   "lat": 36.01051567,
+   "lng": 128.4241916,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-045",
+   "mgmt_no": "369-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "어르신전당 앞",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 273-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "",
+   "lat": 35.98957566,
+   "lng": 128.3974541,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-046",
+   "mgmt_no": "369-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "왜관 남부 공영주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 216-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 197,
+   "tel": "",
+   "lat": 35.99189307,
+   "lng": 128.4000114,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터에는 기본 30분 500원만 등록되고 추가·1일·월 요금이 비어 있으나, 「칠곡군 주차장 조례」 별표 1의 반복 과금·할인 운영 여부가 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 칠곡군청 교통행정과(054-979-6573) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-047",
+   "mgmt_no": "369-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "왜관 북부 공영주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 216-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 162,
+   "tel": "",
+   "lat": 35.99552723,
+   "lng": 128.4000734,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터에는 기본 30분 500원만 등록되고 추가·1일·월 요금이 비어 있으나, 「칠곡군 주차장 조례」 별표 1의 반복 과금·할인 운영 여부가 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 칠곡군청 교통행정과(054-979-6573) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-048",
+   "mgmt_no": "369-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "왜관 주조장 공영주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 288-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 63,
+   "tel": "",
+   "lat": 35.9895656911,
+   "lng": 128.3988661928,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-049",
+   "mgmt_no": "369-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "왜관11리 마을 주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 347-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "",
+   "lat": 35.98669721,
+   "lng": 128.405838,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-050",
+   "mgmt_no": "369-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "왜관시장 후문 공영주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 210-24",
+   "addr_road": "",
+   "road": null,
+   "spaces": 85,
+   "tel": "",
+   "lat": 35.99522245,
+   "lng": 128.396511,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "미상",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터에는 기본 30분 500원만 등록되고 추가·1일·월 요금이 비어 있으나, 「칠곡군 주차장 조례」 별표 1의 반복 과금·할인 운영 여부가 확인되지 않아 요금 미상으로 표기한다 — 실제 요금은 칠곡군청 교통행정과(054-979-6573) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-051",
+   "mgmt_no": "369-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "왜관읍 임시공영주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 308-18",
+   "addr_road": "",
+   "road": null,
+   "spaces": 37,
+   "tel": "",
+   "lat": 35.9880739,
+   "lng": 128.4003281,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-052",
+   "mgmt_no": "369-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "왜관초등학교 앞 공영주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 785-25",
+   "addr_road": "",
+   "road": null,
+   "spaces": 6,
+   "tel": "",
+   "lat": 35.9856710625,
+   "lng": 128.3950937177,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-053",
+   "mgmt_no": "369-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "읍사무소 뒤 공영주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 277-18",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "",
+   "lat": 35.9891151645,
+   "lng": 128.398414781,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-054",
+   "mgmt_no": "369-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "주공3단지 앞 공영주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 591",
+   "addr_road": "",
+   "road": null,
+   "spaces": 44,
+   "tel": "",
+   "lat": 35.98811836,
+   "lng": 128.412971,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-055",
+   "mgmt_no": "369-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙로9길 공영주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 262-75",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "",
+   "lat": 35.99117185,
+   "lng": 128.396526,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-056",
+   "mgmt_no": "369-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "칠곡군 석전리 공영주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 석전리 730-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 270,
+   "tel": "",
+   "lat": 35.99627704,
+   "lng": 128.4031789,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-057",
+   "mgmt_no": "369-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "칠곡도서관 앞 공영주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 1542",
+   "addr_road": "",
+   "road": null,
+   "spaces": 44,
+   "tel": "",
+   "lat": 35.9758274,
+   "lng": 128.3995016,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-058",
+   "mgmt_no": "369-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "평장노인회관 앞 주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 646-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "",
+   "lat": 35.98669563,
+   "lng": 128.4082127,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-059",
+   "mgmt_no": "369-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "회동마을 공영주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 1356-49",
+   "addr_road": "",
+   "road": null,
+   "spaces": 45,
+   "tel": "",
+   "lat": 35.99134719,
+   "lng": 128.4032253,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-060",
+   "mgmt_no": "369-2-000051",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "낙화담",
+   "gu": "칠곡군",
+   "dong": "지천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 지천면 창평리 629-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 36,
+   "tel": "",
+   "lat": 35.97044637,
+   "lng": 128.4897782,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-061",
+   "mgmt_no": "369-2-000049",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신동역 앞",
+   "gu": "칠곡군",
+   "dong": "지천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 지천면 신리 506-28",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "",
+   "lat": 35.95543781,
+   "lng": 128.486607,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-062",
+   "mgmt_no": "369-2-000052",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신동재",
+   "gu": "칠곡군",
+   "dong": "지천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 지천면 낙산리 산219-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "",
+   "lat": 35.92951531,
+   "lng": 128.5099837,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-063",
+   "mgmt_no": "369-2-000050",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "지천역 앞",
+   "gu": "칠곡군",
+   "dong": "지천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 칠곡군 지천면 용산리 632-30",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "",
+   "lat": 35.89765666,
+   "lng": 128.5003318,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-s001",
+   "mgmt_no": "369-1-000037",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "북삼읍 노상주차장",
+   "gu": "칠곡군",
+   "dong": "북삼읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 칠곡군 북삼읍 인평리 1117",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "",
+   "lat": 36.06861861,
+   "lng": 128.3464719,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-s002",
+   "mgmt_no": "369-1-000043",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "석적읍중리 노상주차장",
+   "gu": "칠곡군",
+   "dong": "석적읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 칠곡군 석적읍 중리 284",
+   "addr_road": "",
+   "road": null,
+   "spaces": 216,
+   "tel": "",
+   "lat": 36.0776855211,
+   "lng": 128.414300975,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-s003",
+   "mgmt_no": "369-1-000027",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "왜관2주공아파트 앞 노상주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 780-121",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "",
+   "lat": 35.9820392419,
+   "lng": 128.3966875131,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-s004",
+   "mgmt_no": "369-1-000025",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "왜관성당 주변 노상주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 281-186",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "",
+   "lat": 35.9877956996,
+   "lng": 128.3975633106,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-s005",
+   "mgmt_no": "369-1-000026",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "왜관역앞 노상주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 230-55",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "",
+   "lat": 35.9923992642,
+   "lng": 128.399484599,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  },
+  {
+   "id": "gb-chilgok-s006",
+   "mgmt_no": "369-1-000024",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "읍사무소 노상주차장",
+   "gu": "칠곡군",
+   "dong": "왜관읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 칠곡군 왜관읍 왜관리 281-192",
+   "addr_road": "",
+   "road": null,
+   "spaces": 4,
+   "tel": "",
+   "lat": 35.98919593,
+   "lng": 128.39768,
+   "base_date": "2026-04-17",
+   "manager": "경상북도 칠곡군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 1,
+     "end": 1439,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "00:01",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "칠곡군",
+   "city_slug": "chilgok",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-21 21:06",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 138,
+  "원자료_칠곡군행수": 138,
+  "원자료_받은행수": 138,
+  "구별": {
+   "칠곡군": 69
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 69,
+  "중복제거_행": [
+   {
+    "name": "삼주강변타운 공영주차장",
+    "addr": "경상북도 칠곡군 약목면 관호리 951",
+    "spaces": 96,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "삼주강변타운 공영주차장"
+   },
+   {
+    "name": "친환경체육공원",
+    "addr": "경상북도 칠곡군 약목면 복성리 1166-58",
+    "spaces": 10,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "친환경체육공원"
+   },
+   {
+    "name": "영남 정형외과 뒤",
+    "addr": "경상북도 칠곡군 약목면 복성리 853-1, 847-25",
+    "spaces": 10,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "영남 정형외과 뒤"
+   },
+   {
+    "name": "약목버스터미널",
+    "addr": "경상북도 칠곡군 약목면 복성리 864",
+    "spaces": 12,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "약목버스터미널"
+   },
+   {
+    "name": "신유장군유적지 앞",
+    "addr": "경상북도 칠곡군 약목면 남계리 산21-5",
+    "spaces": 9,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "신유장군유적지 앞"
+   },
+   {
+    "name": "약목고가도로밑 공영주차장",
+    "addr": "경상북도 칠곡군 약목면 관호리 156-3",
+    "spaces": 51,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "약목고가도로밑 공영주차장"
+   },
+   {
+    "name": "약목두만천 공영주차장",
+    "addr": "경상북도 칠곡군 약목면 남계리 1097-1",
+    "spaces": 107,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "약목두만천 공영주차장"
+   },
+   {
+    "name": "다부동전적비",
+    "addr": "경상북도 칠곡군 가산면 다부리 285-1",
+    "spaces": 94,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "다부동전적비"
+   },
+   {
+    "name": "금화계곡",
+    "addr": "경상북도 칠곡군 가산면 금화리 산49-9",
+    "spaces": 46,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "금화계곡"
+   },
+   {
+    "name": "금암리 공영주차장",
+    "addr": "경상북도 칠곡군 동명면 금암리 436",
+    "spaces": 14,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "금암리 공영주차장"
+   },
+   {
+    "name": "누릿재",
+    "addr": "경상북도 칠곡군 동명면 남원리 산173",
+    "spaces": 24,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "누릿재"
+   },
+   {
+    "name": "한티재",
+    "addr": "경상북도 칠곡군 동명면 득명리 산108-1",
+    "spaces": 120,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "한티재"
+   },
+   {
+    "name": "송림사 외",
+    "addr": "경상북도 칠곡군 동명면 구덕리 88-84",
+    "spaces": 10,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "송림사 외"
+   },
+   {
+    "name": "송림사 내",
+    "addr": "경상북도 칠곡군 동명면 구덕리 88-47",
+    "spaces": 70,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "송림사 내"
+   },
+   {
+    "name": "가산산성 진남문",
+    "addr": "경상북도 칠곡군 동명면 남원리 625-1",
+    "spaces": 127,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "가산산성 진남문"
+   },
+   {
+    "name": "가산산성 남문",
+    "addr": "경상북도 칠곡군 동명면 남원리 산1-1",
+    "spaces": 42,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "가산산성 남문"
+   },
+   {
+    "name": "동명팔거천 공영주차장",
+    "addr": "경상북도 칠곡군 동명면 금암리 1364-108",
+    "spaces": 100,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "동명팔거천 공영주차장"
+   },
+   {
+    "name": "신동재",
+    "addr": "경상북도 칠곡군 지천면 낙산리 산219-3",
+    "spaces": 32,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "신동재"
+   },
+   {
+    "name": "낙화담",
+    "addr": "경상북도 칠곡군 지천면 창평리 629-1",
+    "spaces": 36,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "낙화담"
+   },
+   {
+    "name": "지천역 앞",
+    "addr": "경상북도 칠곡군 지천면 용산리 632-30",
+    "spaces": 18,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "지천역 앞"
+   },
+   {
+    "name": "신동역 앞",
+    "addr": "경상북도 칠곡군 지천면 신리 506-28",
+    "spaces": 40,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "신동역 앞"
+   },
+   {
+    "name": "석적읍사무소",
+    "addr": "경상북도 칠곡군 석적읍 남율리 895",
+    "spaces": 129,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "석적읍사무소"
+   },
+   {
+    "name": "(임시)중리 공영주차장",
+    "addr": "경상북도 칠곡군 석적읍 중리 245-9",
+    "spaces": 10,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "(임시)중리 공영주차장"
+   },
+   {
+    "name": "(임시)중리 공영주차장",
+    "addr": "경상북도 칠곡군 석적읍 중리 244-6",
+    "spaces": 17,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "(임시)중리 공영주차장"
+   },
+   {
+    "name": "석적농협 앞 공영주차장",
+    "addr": "경상북도 칠곡군 석적읍 남율리 751-2",
+    "spaces": 36,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "석적농협 앞 공영주차장"
+   },
+   {
+    "name": "석적 공단 공영주차장",
+    "addr": "경상북도 칠곡군 석적읍 중리 443-5",
+    "spaces": 64,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "석적 공단 공영주차장"
+   },
+   {
+    "name": "석적읍중리 노상주차장",
+    "addr": "경상북도 칠곡군 석적읍 중리 284",
+    "spaces": 216,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "석적읍중리 노상주차장"
+   },
+   {
+    "name": "중리 공영주차장",
+    "addr": "경상북도 칠곡군 석적읍 중리 493-13",
+    "spaces": 141,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "중리 공영주차장"
+   },
+   {
+    "name": "중리 원마트 앞 공영주차장",
+    "addr": "경상북도 칠곡군 석적읍 중리 884-162",
+    "spaces": 33,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "중리 원마트 앞 공영주차장"
+   },
+   {
+    "name": "섬내공원 주차장",
+    "addr": "경상북도 칠곡군 석적읍 중리 884-122",
+    "spaces": 17,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "섬내공원 주차장"
+   },
+   {
+    "name": "광암교 옆 공영주차장",
+    "addr": "경상북도 칠곡군 석적읍 중리 635-4",
+    "spaces": 30,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "광암교 옆 공영주차장"
+   },
+   {
+    "name": "금오동천 둘레길 공영주차장",
+    "addr": "경상북도 칠곡군 북삼읍 숭오리 산31-28",
+    "spaces": 20,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "금오동천 둘레길 공영주차장"
+   },
+   {
+    "name": "북삼읍 노상주차장",
+    "addr": "경상북도 칠곡군 북삼읍 인평리 1117",
+    "spaces": 35,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "북삼읍 노상주차장"
+   },
+   {
+    "name": "미성빌라 옆 주차장",
+    "addr": "경상북도 칠곡군 북삼읍 인평리 1097-6",
+    "spaces": 20,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "미성빌라 옆 주차장"
+   },
+   {
+    "name": "화진금봉아파트 옆 건너 산쪽",
+    "addr": "경상북도 칠곡군 북삼읍 인평리 711-2",
+    "spaces": 26,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "화진금봉아파트 옆 건너 산쪽"
+   },
+   {
+    "name": "인평체육공원",
+    "addr": "경상북도 칠곡군 북삼읍 인평리 47",
+    "spaces": 124,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "인평체육공원"
+   },
+   {
+    "name": "왜관 주조장 공영주차장",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 288-1",
+    "spaces": 63,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "왜관 주조장 공영주차장"
+   },
+   {
+    "name": "백남소하천 공영주차장",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 590-1",
+    "spaces": 123,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "백남소하천 공영주차장"
+   },
+   {
+    "name": "스톤카페 인근 공영주차장",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 959-5",
+    "spaces": 19,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "스톤카페 인근 공영주차장"
+   },
+   {
+    "name": "동정천 공영주차장",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 1190-6",
+    "spaces": 62,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "동정천 공영주차장"
+   },
+   {
+    "name": "석전2리 임시공영 주차장",
+    "addr": "경상북도 칠곡군 왜관읍 석전리 835",
+    "spaces": 25,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "석전2리 임시공영 주차장"
+   },
+   {
+    "name": "칠곡군 석전리 공영주차장",
+    "addr": "경상북도 칠곡군 왜관읍 석전리 730-9",
+    "spaces": 270,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "칠곡군 석전리 공영주차장"
+   },
+   {
+    "name": "왜관2주공아파트 앞 노상주차장",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 780-121",
+    "spaces": 10,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "왜관2주공아파트 앞 노상주차장"
+   },
+   {
+    "name": "왜관역앞 노상주차장",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 230-55",
+    "spaces": 21,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "왜관역앞 노상주차장"
+   },
+   {
+    "name": "왜관성당 주변 노상주차장",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 281-186",
+    "spaces": 34,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "왜관성당 주변 노상주차장"
+   },
+   {
+    "name": "읍사무소 노상주차장",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 281-192",
+    "spaces": 4,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "읍사무소 노상주차장"
+   },
+   {
+    "name": "왜관읍 임시공영주차장",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 308-18",
+    "spaces": 37,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "왜관읍 임시공영주차장"
+   },
+   {
+    "name": "왜관시장 후문 공영주차장",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 210-24",
+    "spaces": 85,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "왜관시장 후문 공영주차장"
+   },
+   {
+    "name": "칠곡도서관 앞 공영주차장",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 1542",
+    "spaces": 44,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "칠곡도서관 앞 공영주차장"
+   },
+   {
+    "name": "어르신전당 앞",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 273-1",
+    "spaces": 25,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "어르신전당 앞"
+   },
+   {
+    "name": "아곡리 안찔",
+    "addr": "경상북도 칠곡군 왜관읍 아곡리 538-2",
+    "spaces": 10,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "아곡리 안찔"
+   },
+   {
+    "name": "상공회의소 옆",
+    "addr": "경상북도 칠곡군 왜관읍 삼청리 1101-4",
+    "spaces": 150,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "상공회의소 옆"
+   },
+   {
+    "name": "대덕정공앞",
+    "addr": "경상북도 칠곡군 왜관읍 금산리 1005",
+    "spaces": 64,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "대덕정공앞"
+   },
+   {
+    "name": "경남산업 앞",
+    "addr": "경상북도 칠곡군 왜관읍 금산리 1006-2",
+    "spaces": 20,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "경남산업 앞"
+   },
+   {
+    "name": "삼성제침 뒷편 산쪽도로옆",
+    "addr": "경상북도 칠곡군 왜관읍 금산리 1008",
+    "spaces": 56,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "삼성제침 뒷편 산쪽도로옆"
+   },
+   {
+    "name": "대원바이오텍",
+    "addr": "경상북도 칠곡군 왜관읍 금산리 1006",
+    "spaces": 53,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "대원바이오텍"
+   },
+   {
+    "name": "공단운동장 입구",
+    "addr": "경상북도 칠곡군 왜관읍 금산리 986",
+    "spaces": 25,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "공단운동장 입구"
+   },
+   {
+    "name": "중앙로9길 공영주차장",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 262-75",
+    "spaces": 12,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "중앙로9길 공영주차장"
+   },
+   {
+    "name": "읍사무소 뒤 공영주차장",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 277-18",
+    "spaces": 12,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "읍사무소 뒤 공영주차장"
+   },
+   {
+    "name": "왜관초등학교 앞 공영주차장",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 785-25",
+    "spaces": 6,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "왜관초등학교 앞 공영주차장"
+   },
+   {
+    "name": "왜관11리 마을 주차장",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 347-10",
+    "spaces": 35,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "왜관11리 마을 주차장"
+   },
+   {
+    "name": "남부지구대 뒤편 주차장",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 265",
+    "spaces": 60,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "남부지구대 뒤편 주차장"
+   },
+   {
+    "name": "주공3단지 앞 공영주차장",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 591",
+    "spaces": 44,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "주공3단지 앞 공영주차장"
+   },
+   {
+    "name": "회동마을 공영주차장",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 1356-49",
+    "spaces": 45,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "회동마을 공영주차장"
+   },
+   {
+    "name": "군청 앞 공영주차장",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 216-9",
+    "spaces": 85,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "군청 앞 공영주차장"
+   },
+   {
+    "name": "평장노인회관 앞 주차장",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 646-1",
+    "spaces": 30,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "평장노인회관 앞 주차장"
+   },
+   {
+    "name": "로얄3차앞 공영주차장",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 775-9",
+    "spaces": 45,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "로얄3차앞 공영주차장"
+   },
+   {
+    "name": "왜관 북부 공영주차장",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 216-13",
+    "spaces": 162,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "왜관 북부 공영주차장"
+   },
+   {
+    "name": "왜관 남부 공영주차장",
+    "addr": "경상북도 칠곡군 왜관읍 왜관리 216-1",
+    "spaces": 197,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 제공기관만 다른 동일 시설 중복 수록이라 한 행만 남김",
+    "base_date": "2026-04-17",
+    "kept": "왜관 남부 공영주차장"
+   }
+  ],
+  "총_주차장": 63,
+  "노외_부설": {
+   "노외": 63
+  },
+  "노상_구간": 6,
+  "총_구획수": 3599,
+  "노상_구획수": 320,
+  "동별": {
+   "왜관읍": 33,
+   "석적읍": 10,
+   "동명면": 8,
+   "약목면": 7,
+   "북삼읍": 5,
+   "지천면": 4,
+   "가산면": 2
+  },
+  "동수": 7,
+  "동_미상": [],
+  "동_보정": [
+   "이름이 겹치는 주차장 (임시)중리 공영주차장 — 전부 다른 자리라 지번 번지로 구분했다"
+  ],
+  "동_근거": {
+   "지번주소": 69
+  },
+  "요금구분": {
+   "무료": 66,
+   "미상": 3
+  },
+  "요금_미상": [
+   "왜관 남부 공영주차장",
+   "왜관 북부 공영주차장",
+   "왜관시장 후문 공영주차장"
+  ],
+  "유료_노상": 0,
+  "유료_노외": 0,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "표준데이터 등록 138행 전부 공영(노외 126·노상 12, 총 7,838면)을 읽었다. 138행은 제공기관만 다른 동일 시설 69쌍의 중복 수록이라 69행을 제외하고 69시설(노외 63·노상 6, 총 3,919면)을 실었다. 데이터기준일자는 2026-04-17 138행, 제공기관명은 경상북도 칠곡군 69행·경상북도 칠곡군 주민생활지원과 69행, 관리기관명은 경상북도 칠곡군 69곳이다",
+   "등록 급지구분은 1급지 48곳·2급지 21곳으로 조례 별표 1의 급지(1급지 왜관읍·북삼읍·석적읍, 2급지 지천면·동명면·가산면·약목면·기산면)와 완전히 일치한다. 요금 계산을 하지 않아 계산에는 쓰지 않았다",
+   "좌표는 69곳 전부 등록돼 있다. 지오코딩 보완 대상이 없어 오버레이 추가도 0건이다",
+   "운영요일은 69곳 전부 평일+토요일+공휴일이고 운영시간은 69곳 전부 00:01~23:59이다. 부제시행구분은 69곳 전부 미시행이다. 도로명주소는 69곳 전부 등록돼 있지 않다. 특기사항은 0행이다. 결제방법·전화번호·장애인전용주차구역은 69곳 전부 공란이다",
+   "무료 66곳·혼합 3곳이다. 혼합 3곳(왜관시장 후문·왜관 북부·왜관 남부)은 기본 30분 500원만 등록되고 추가·1일·월이 공란이라 요금 미상으로 표기한다(성주·문경·김해·함안 선례) — 기본값은 별표 1급지 30분 요금과 같지만 반복 과금·할인 운영 여부를 확정할 수 없다. 주말·공휴일 전체 무료 규정은 조례에 없어 표기하지 않았다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "왜관시장 후문 공영주차장: 등록 요금(기본 30분 500원·추가·1일·월 공란)이 기본값만으로는 조례 별표 1(1급지 30분마다 500원·1일 4,000원·월 주간 40,000원·야간 30,000원·주야간 50,000원)의 반복 과금·1일 상한·할인 운영 여부를 확정할 수 없어 요금 미상으로 표기한다(성주·문경·김해·함안 선례)",
+   "왜관 북부 공영주차장: 등록 요금(기본 30분 500원·추가·1일·월 공란)이 기본값만으로는 조례 별표 1(1급지 30분마다 500원·1일 4,000원·월 주간 40,000원·야간 30,000원·주야간 50,000원)의 반복 과금·1일 상한·할인 운영 여부를 확정할 수 없어 요금 미상으로 표기한다(성주·문경·김해·함안 선례)",
+   "왜관 남부 공영주차장: 등록 요금(기본 30분 500원·추가·1일·월 공란)이 기본값만으로는 조례 별표 1(1급지 30분마다 500원·1일 4,000원·월 주간 40,000원·야간 30,000원·주야간 50,000원)의 반복 과금·1일 상한·할인 운영 여부를 확정할 수 없어 요금 미상으로 표기한다(성주·문경·김해·함안 선례)"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "금화계곡",
+   "다부동전적비",
+   "가산산성 남문",
+   "가산산성 진남문",
+   "금암리 공영주차장",
+   "누릿재",
+   "동명팔거천 공영주차장",
+   "송림사 내",
+   "송림사 외",
+   "한티재",
+   "금오동천 둘레길 공영주차장",
+   "미성빌라 옆 주차장",
+   "인평체육공원",
+   "화진금봉아파트 옆 건너 산쪽",
+   "(임시)중리 공영주차장 (244-6)",
+   "(임시)중리 공영주차장 (245-9)",
+   "광암교 옆 공영주차장",
+   "석적 공단 공영주차장",
+   "석적농협 앞 공영주차장",
+   "석적읍사무소",
+   "섬내공원 주차장",
+   "중리 공영주차장",
+   "중리 원마트 앞 공영주차장",
+   "삼주강변타운 공영주차장",
+   "신유장군유적지 앞",
+   "약목고가도로밑 공영주차장",
+   "약목두만천 공영주차장",
+   "약목버스터미널",
+   "영남 정형외과 뒤",
+   "친환경체육공원",
+   "경남산업 앞",
+   "공단운동장 입구",
+   "군청 앞 공영주차장",
+   "남부지구대 뒤편 주차장",
+   "대덕정공앞",
+   "대원바이오텍",
+   "동정천 공영주차장",
+   "로얄3차앞 공영주차장",
+   "백남소하천 공영주차장",
+   "삼성제침 뒷편 산쪽도로옆",
+   "상공회의소 옆",
+   "석전2리 임시공영 주차장",
+   "스톤카페 인근 공영주차장",
+   "아곡리 안찔",
+   "어르신전당 앞",
+   "왜관 남부 공영주차장",
+   "왜관 북부 공영주차장",
+   "왜관 주조장 공영주차장",
+   "왜관11리 마을 주차장",
+   "왜관시장 후문 공영주차장",
+   "왜관읍 임시공영주차장",
+   "왜관초등학교 앞 공영주차장",
+   "읍사무소 뒤 공영주차장",
+   "주공3단지 앞 공영주차장",
+   "중앙로9길 공영주차장",
+   "칠곡군 석전리 공영주차장",
+   "칠곡도서관 앞 공영주차장",
+   "평장노인회관 앞 주차장",
+   "회동마을 공영주차장",
+   "낙화담",
+   "신동역 앞",
+   "신동재",
+   "지천역 앞",
+   "북삼읍 노상주차장",
+   "석적읍중리 노상주차장",
+   "왜관2주공아파트 앞 노상주차장",
+   "왜관성당 주변 노상주차장",
+   "왜관역앞 노상주차장",
+   "읍사무소 노상주차장"
+  ],
+  "감면_출처": "「칠곡군 주차장 조례」 제2377호 제5조 — 긴급자동차는 면제, 국가유공자·5.18민주유공자·의사상자가 직접 운전하거나 동승한 차량은 면제(증명서 제시), 국가 또는 지방자치단체 시책사업으로 군수가 인정하는 차량·공무수행 중인 군 소유 차량은 면제, 성실납세자 차량은 1년간 면제한다. 장애인·경형자동차는 50퍼센트 감면(스티커 부착 또는 증명서 제시), 행복플러스카드를 소지하고 두 자녀 이상을 동승한 차량·환경친화적 자동차·저공해자동차 표지 부착 자동차도 50퍼센트 감면한다",
+  "요금_출처": "조례 제4조제1항·별표 1 — 공영주차장의 주차요금은 별표 1과 같고, 이용도를 높이기 위하여 필요한 경우 무료로 하거나 별표 1 요금을 할인해 운영할 수 있다. 별표 1은 1급지 30분마다 500원·1일 4,000원·월 주간 40,000원·야간 30,000원·주야간 50,000원, 2급지 200원·3,000원·28,000원·20,000원·36,000원이다. 별표 원본 HWP(flSeq 135959737)를 받아 추출해 대조했다. 혼합 3곳은 기본 요금만 등록돼 있어 요금 미상으로 표기하고 요금 계산은 하지 않는다",
+  "급지_출처": "조례 별표 1 비고 3 — 1급지: 왜관읍·북삼읍·석적읍. 2급지: 지천면·동명면·가산면·약목면·기산면. 표준데이터 등록 급지구분(1급지 48곳·2급지 21곳)이 조례 급지와 완전히 일치한다",
+  "무료요일_출처": "조례 본문·별표 1 어디에도 군 전체 주말·공휴일 자동 무료 조항이 없다(인스팅트 앞단 패키지 확인, 2026-11-21 법제처 본문·별표 원문 재대조 — 본문에서 공휴일·주말·휴일 키워드 0건). 요금 구분이 '무료'인 곳은 요일과 관계없이 무료다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 칠곡군 등록 138행 전부 공영(노외 126·노상 12, 총 7,838면)으로 무료 132·혼합 6, 기준일 2026-04-17이다. 138행은 제공기관명·제공기관코드만 다르고 나머지 전 필드가 같은 69쌍의 중복 수록이라(제공기관 경상북도 칠곡군 69행·경상북도 칠곡군 주민생활지원과 69행), 이름+지번+좌표 200m 가드로 69행을 중복 제거해 69시설(노외 63·노상 6, 총 3,919면, 무료 66·혼합 3)을 실었다. 인스팅트 앞단 패키지(경북 18/22, 2026-11-20)의 집계·판정과 원본 대조 결과가 일치한다. 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다",
+   "「칠곡군 주차장 조례」 제2377호(시행 2016-10-31, ordinSeq 1261093) 본문 원문(data/raw/chilgok-ordinance.txt) 대조 완료(2026-11-21) — 본문 제4조제1항이 공영주차장 요금을 별표 1로 정하고, 이용도를 높이기 위하여 필요한 경우 요금을 무료로 하거나 할인하여 운영할 수 있는 단서가 있다. 별표 1은 ELIS 첨부 HWP 원본(flSeq 135959737)을 data/raw/chilgok-ordinance-b1.hwp로 저장하고 추출해 확정했다 — 1급지 30분마다 500원·1일 4,000원·월 주간 40,000원·야간 30,000원·주야간 50,000원, 2급지 200원·3,000원·28,000원·20,000원·36,000원. 패키지가 연결한 flSeq 135959737은 받아 본 파일이 실제 별표 1([별표 1] 공영주차장 주차요금표)임이 확인됐다 — 정정 없음. 급지: 1급지 왜관읍·북삼읍·석적읍, 2급지 지천면·동명면·가산면·약목면·기산면. 주간 08:00~22:00, 야간은 나머지(월정기 19:00~08:00). 노상에는 1일·월 요금을 적용하지 않는다. 할인 상한은 시간당 500원·1일 2,000원·월 30,000원이고 1시간 범위 무료 운영이 가능하다",
+   "혼합 3곳(왜관시장 후문 공영주차장 85면·왜관 북부 공영주차장 162면·왜관 남부 공영주차장 197면, 전부 왜관읍 1급지)은 기본 30분 500원만 등록되고 추가 단위·1일·월 요금이 공란이라, 별표 1급지 기본값과 같아도 반복 과금·1일 상한·할인 운영 여부를 확정할 수 없어 요금 미상으로 표기한다(성주·문경·김해·함안 선례, 패키지 ③ 판단안). 등록값은 fee_diff에 전부 기록했다",
+   "좌표 결측은 0곳이다. 지오코딩 보완 대상이 없어 오버레이 추가도 0건이다",
+   "주말·공휴일 전체 무료는 조례 본문·별표 1 어디에도 없어 표기하지 않았다. 요금 구분이 '무료'인 곳은 요일과 관계없이 무료다",
+   "이름이 겹치는 등록은 '(임시)중리 공영주차장' 2곳(석적읍 중리 245-9·10면 / 244-6·17면)으로 지번·좌표가 달라 별개 시설이라 지번 번지로 구분했다. 같은 지번·같은 좌표에 이름만 다른 등록은 없다. 관리번호 369-2-000029는 동정천 공영주차장(왜관리 1190-6·62면)과 석전2리 임시공영 주차장(석전리 835·25면)이 공유하는 번호라 관리번호로 합치지 않고 둘 다 실었다(패키지 ⑥ 경고)",
+   "동·읍·면 판정은 지번주소 기준이고 7개 읍·면(왜관읍 33·석적읍 10·동명면 8·약목면 7·북삼읍 5·지천면 4·가산면 2) 전부 판정됐다. 기산면 등록은 없다. 도로명주소는 69곳 전부 등록돼 있지 않다. 특기사항은 0행이다. 결제방법·장애인전용주차구역·전화번호는 69곳 전부 공란이다. 부제시행구분은 69곳 전부 미시행이다",
+   "관리기관명은 경상북도 칠곡군 69곳 전부이다. 운영요일은 69곳 전부 평일+토요일+공휴일이고 운영시간은 00:01~23:59이다. 등록 급지구분은 1급지 48곳·2급지 21곳으로 조례 별표 1 급지와 완전히 일치한다",
+   "확인 과제 — ① 혼합 3곳(왜관시장 후문·왜관 북부·왜관 남부)의 실제 징수 요금·징수 요일·무료 시간·할인 요금 공고를 칠곡군청에 확인할 것 ② 별표 비고 6의 1시간 무료 운영이 실제 적용되는 시설이 있는지 확인할 것 ③ 관리번호 369-2-000029를 공유하는 동정천·석전2리 두 시설의 등록 경위를 확인할 것 ④ 무료 66곳의 실측 운영시간(등록 00:01~23:59가 실제와 같은지)·향후 유료 공고가 있는지 확인할 것 ⑤ 도로명주소 미등록 69곳의 도로명주소·건물번호를 확인할 것 ⑥ '(임시)중리 공영주차장' 2곳의 임시 운영 종료·정식 전환 계획을 확인할 것"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 66,
+  "무료_구획수": 3475,
+  "평균_기본요금": 0,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [
+   "369-2-000029"
+  ],
+  "전화번호_없음": 69,
+  "데이터기준일": [
+   "2026-04-17"
+  ],
+  "관리기관": {
+   "경상북도 칠곡군": 69
+  }
+ },
+ "fee_table": {
+  "style": "chilgok_grade",
+  "unit_min": 30,
+  "base_min": 30,
+  "applies": "「칠곡군 주차장 조례」 제2377호(시행 2016-10-31) 제4조제1항·별표 1 — 국가법령정보센터 ordinSeq 1261093에서 확인",
+  "source_url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=1261093&ordinId=2130234&gubun=ELIS",
+  "grade_system": "조례 별표 1 급지 구분 — 1급지: 왜관읍·북삼읍·석적읍. 2급지: 지천면·동명면·가산면·약목면·기산면. 표준데이터 등록 급지구분(1급지 48곳·2급지 21곳)이 조례 급지와 완전히 일치한다. 주간은 08:00~22:00, 야간은 나머지 시간이다(월정기주차차량은 19:00~08:00). 노상주차장(주차장법 제7조)에는 1일 주차요금과 월 정기 주차요금을 적용하지 않는다(별표 비고 1). 표의 1시간·2시간 금액은 30분 요금을 반복 적용한 조례 요율 그대로의 금액이다",
+  "rows": [
+   {
+    "label": "1급지 (조례 별표 1)",
+    "grade": "grade1",
+    "unit_label": "30분마다 500원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": 4000,
+    "month_all": 50000,
+    "month": 40000,
+    "month_night": 30000,
+    "lots": null
+   },
+   {
+    "label": "2급지 (조례 별표 1)",
+    "grade": "grade2",
+    "unit_label": "30분마다 200원",
+    "hour": 400,
+    "two_hour": 800,
+    "day": 3000,
+    "month_all": 36000,
+    "month": 28000,
+    "month_night": 20000,
+    "lots": null
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 0,
+   "street_paid": 0,
+   "free": 66,
+   "unknown": 3
+  },
+  "windows": [
+   {
+    "group": "급지 구분 (조례 별표 1 비고 3)",
+    "hours": "1급지: 왜관읍·북삼읍·석적읍 / 2급지: 지천면·동명면·가산면·약목면·기산면",
+    "free": "표준데이터 등록 급지구분(1급지 48곳·2급지 21곳)과 완전히 일치한다"
+   },
+   {
+    "group": "주간·야간 시간 구분 (조례 별표 1 비고 2)",
+    "hours": "주간 08:00~22:00 · 야간 나머지 시간 (월정기주차차량 19:00~08:00)",
+    "free": "월 정기 주차요금은 주간·야간·주야간으로 나뉜다"
+   },
+   {
+    "group": "노상주차장 적용 (조례 별표 1 비고 1)",
+    "hours": "노상(주차장법 제7조)에는 1일 주차요금·월 정기 주차요금을 적용하지 않는다",
+    "free": "이 사이트의 노상 6구간은 전부 무료 등록이다"
+   },
+   {
+    "group": "할인 요금 상한 (조례 별표 1 비고 5)",
+    "hours": "할인 운영 시 1회 주차요금은 시간당 500원 이하 · 1일 2,000원 이하 · 월 30,000원 이하 (급지 무관)",
+    "free": "조례 제4조제1항 단서상 군수가 무료·할인 운영을 할 수 있다"
+   },
+   {
+    "group": "무료 운영 가능 (조례 별표 1 비고 6)",
+    "hours": "공영주차장 이용자 편의를 위해 1시간 범위에서 무료로 운영할 수 있다",
+    "free": "자동 적용이 아니라 운영 여부는 시설별 공고로 확인해야 한다"
+   },
+   {
+    "group": "차종별 배율 (조례 별표 1 비고 4)",
+    "hours": "16~45인승 승합·1.5톤 초과 11톤 이하 화물 기준요금 × 1.5 / 45인승 초과·11톤 초과 × 2",
+    "free": "기준은 승용차·15인승 이하 승합·1.5톤 이하 화물 1대이다"
+   }
+  ],
+  "discounts": [
+   {
+    "label": "긴급자동차·국가유공자·5.18민주유공자·의사상자·시책 차량·군 공무 차량·성실납세자 전액 면제",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 제5조제1호·제2호·제4호·제5호·제6호 — 「도로교통법」 제2조제22호에 따른 긴급자동차는 면제한다. 「국가유공자 등 예우 및 지원에 관한 법률」 제4조에 따른 국가유공자, 「5.18민주유공자예우에 관한 법률」 제4조에 따른 5.18민주유공자, 「의사상자 등 예우 및 지원에 관한 법률」 제2조제3호에 따른 의상자 또는 같은 조 제5호에 따른 의사자유족이 직접 운전하거나 동승한 일반차량은 면제한다(증명서 제시). 국가 또는 지방자치단체 시책사업으로 군수가 인정하는 차량, 공무수행 중인 칠곡군 소유 차량은 면제하고, 국·지방세 성실 납세자로 포상을 받은 납세자 차량(성실납세자증 스티커 부착)은 1년간 면제한다"
+   },
+   {
+    "label": "장애인·경형자동차·행복플러스카드 두 자녀 동승·환경친화적 자동차·저공해자동차 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제5조제3호·제7호·제8호·제9호 — 「장애인복지법」 제2조에 따른 장애인이 직접 운전하거나 동승한 일반차량과 「자동차관리법 시행규칙」 제2조에 따른 경형자동차는 50퍼센트 감면한다(스티커 부착 또는 증명서 제시). 칠곡 행복플러스카드를 소지하고 두 자녀 이상을 동승한 차량, 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조제2호에 따른 환경친화적 자동차, 「대기환경보전법 시행규칙」 제79조의7에 따른 저공해자동차 표지 등을 부착한 자동차도 50퍼센트 감면한다(증명서 제시)"
+   }
+  ],
+  "notes": "감면(조례 제5조)은 긴급자동차·국가유공자·5.18민주유공자·의사상자·군수가 인정하는 시책 차량·군 소유 공무 차량·성실납세자(1년)는 면제, 장애인·경형자동차·행복플러스카드 두 자녀 이상 동승 차량·환경친화적 자동차·저공해자동차는 50% 감면이다(감면대상 증명 필요). 혼합 3곳은 기본 요금만 등록돼 있어 요금 미상으로 표기하고 조례 별표 1은 참고표로만 싣는다.",
+  "basis": "요금표는 「칠곡군 주차장 조례」 제2377호(시행 2016-10-31) 제4조제1항·별표 1과 표준데이터(기준일 2026-04-17)를 대조해 실었다. 별표 1 원본 HWP는 flSeq 135959737이다. 혼합 3곳이 전부 요금 미상이라 요금 계산은 하지 않는다. (조례 본문: data/raw/chilgok-ordinance.txt, 별표 1 원문 HWP: data/raw/chilgok-ordinance-b1.hwp)"
+ },
+ "slug": "chilgok",
+ "province": "경상북도",
+ "province_slug": "gyeongbuk",
+ "dong_page_min_lots": 3,
+ "city": "칠곡군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·국가유공자·5.18민주유공자·의사상자·시책 차량·군 공무 차량·성실납세자 전액 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제5조제1호·제2호·제4호·제5호·제6호 — 「도로교통법」 제2조제22호에 따른 긴급자동차는 면제한다. 「국가유공자 등 예우 및 지원에 관한 법률」 제4조에 따른 국가유공자, 「5.18민주유공자예우에 관한 법률」 제4조에 따른 5.18민주유공자, 「의사상자 등 예우 및 지원에 관한 법률」 제2조제3호에 따른 의상자 또는 같은 조 제5호에 따른 의사자유족이 직접 운전하거나 동승한 일반차량은 면제한다(증명서 제시). 국가 또는 지방자치단체 시책사업으로 군수가 인정하는 차량, 공무수행 중인 칠곡군 소유 차량은 면제하고, 국·지방세 성실 납세자로 포상을 받은 납세자 차량(성실납세자증 스티커 부착)은 1년간 면제한다"
+  },
+  {
+   "label": "장애인·경형자동차·행복플러스카드 두 자녀 동승·환경친화적 자동차·저공해자동차 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제5조제3호·제7호·제8호·제9호 — 「장애인복지법」 제2조에 따른 장애인이 직접 운전하거나 동승한 일반차량과 「자동차관리법 시행규칙」 제2조에 따른 경형자동차는 50퍼센트 감면한다(스티커 부착 또는 증명서 제시). 칠곡 행복플러스카드를 소지하고 두 자녀 이상을 동승한 차량, 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조제2호에 따른 환경친화적 자동차, 「대기환경보전법 시행규칙」 제79조의7에 따른 저공해자동차 표지 등을 부착한 자동차도 50퍼센트 감면한다(증명서 제시)"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
