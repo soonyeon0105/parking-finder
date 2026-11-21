@@ -13761,6 +13761,64 @@ B·C지구는 등록 급지구분이 1급지이나 등록 요금이 2급지와 �
 요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "cheongdo_grade":
+        # 청도군 — 공영 36곳(노외 36곳, 총 2,133면)이
+        #   전부 무료로 등록돼 있다. 「청도군 주차장
+        #   조례」 제2278호(시행 2019-09-26) 제3조제1항·
+        #   별표 1은 1급지 1회 30분마다 500원·1일
+        #   4,000원·월 주간 75,000원·야간 56,000원,
+        #   2급지 소형차 1회 30분마다 300원·1일 2,000원,
+        #   대형차 1회 30분마다 500원·1일 3,000원·월
+        #   주간 40,000원·야간 30,000원이다. 공원 지역은
+        #   1일 주차권, 공원 외 지역은 1회 주차권을
+        #   적용하고 3시간을 초과하면 1일 주차권이다.
+        #   전량 무료 등록이라 요금 계산은 하지 않고
+        #   조례 요금표는 참고표로만 싣는다(산청·서천
+        #   선례). 2급지는 소형차·대형차 요금이 달라
+        #   두 행으로 나눴고, 곳수는 소형차 행에 합쳐
+        #   표기했다. 주말·공휴일 전체 무료 규정은
+        #   조례에 없다.
+        def _cd_cell(v):
+            return f"{v}곳" if v is not None else "—"
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td>'
+            f'<td class="num">{_cd_cell(r["lots"])}</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">청도군 공영주차장 <b>36곳</b>(노외 36곳, 총 2,133면)은
+전부 무료로 등록돼 있습니다. 「청도군 주차장 조례」 제2278호
+별표 1은 <b>1급지</b> 1회 30분마다 <b>500원</b>, 1일 <b>4,000원</b>,
+월 주간 <b>75,000원</b>·야간 <b>56,000원</b>이고, <b>2급지 소형차</b>는
+<b>300원·2,000원</b>, <b>대형차</b>는 <b>500원·3,000원</b>,
+월 주간 <b>40,000원</b>·야간 <b>30,000원</b>입니다.
+공원 지역은 1일 주차권, 공원 외 지역은 1회 주차권을 적용하고
+3시간을 초과하면 1일 주차권입니다. 이 사이트는 등록값(무료)을
+유지하고 조례 요금표는 참고로만 실었습니다.
+궁금한 점은 청도군청(054-370-2253)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th>
+  <th class="num">월정기(주간)</th><th class="num">월정기(야간)</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금으로 계산하는 유료는 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
