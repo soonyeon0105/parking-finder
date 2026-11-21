@@ -8436,11 +8436,14 @@ def build_district(city, d, lots, site, path=None, hub=False):
 {street_rows(street, with_price=True, unit_label=street_unit_label(city))}
 """
     free_in_gu = len([l for l in lots if l["fee"]["type"] == "무료"])
+    # 노상 무료 구간도 '요일과 관계없이 무료'인 곳이다 — FAQ·주말 운영 문구의 무료 곳수는 카드+노상 합산으로 센다.
+    # (2026-11-22 속초·태백·강릉에서 카드만 세어 틀린 숫자가 나간 것을 정정)
+    free_all_gu = free_in_gu + len([l for l in street if l["fee"]["type"] == "무료"])
     free_resident_in_gu = len([l for l in lots if l["fee"].get("category") == "resident"])
     # 주거지 전용 구역은 주간에만 무료 개방이라 ‘요일과 관계없이 무료’로 적지 않는다(하남시).
-    free_nuance = (f" 가운데 {free_in_gu - free_resident_in_gu}곳은 요일과 관계없이 무료이고, "
+    free_nuance = (f" 가운데 {free_all_gu - free_resident_in_gu}곳은 요일과 관계없이 무료이고, "
                    f"주거지 전용 {free_resident_in_gu}곳은 주간(09:00~18:00)에만 무료로 개방합니다."
-                   if free_resident_in_gu and free_in_gu > free_resident_in_gu else
+                   if free_resident_in_gu and free_all_gu > free_resident_in_gu else
                    f"은 주거지 전용(거주자우선주차) 구역으로 주간(09:00~18:00)에만 무료로 개방합니다."
                    if free_resident_in_gu else
                    "은 요일과 관계없이 무료입니다.")
@@ -8696,10 +8699,10 @@ def build_district(city, d, lots, site, path=None, hub=False):
         weekend_link = (
         f"""
 <h2>{esc(gu)} 주말·공휴일 운영</h2>
-<p class="lede">이 {area} 주차장 가운데 공공데이터에서 요금 구분이 <b>‘무료’</b>인 {free_in_gu}곳{free_nuance}
+<p class="lede">이 {area} 주차장 가운데 공공데이터에서 요금 구분이 <b>‘무료’</b>인 {free_all_gu}곳{free_nuance}
 {_wk_extra}{_rest_txt}토요일 미운영 {s['closed_sat']}곳, 일요일·공휴일 미운영 {s['closed_sun']}곳입니다.
 {ui.get("weekend_note") or ""}계산기의 요일을 ‘토요일’이나 ‘일요일·공휴일’로 바꾸면 그날 기준 예상요금으로 다시 정렬됩니다.</p>
-""" if free_in_gu else f"""
+""" if free_all_gu else f"""
 <h2>{esc(gu)} 주말·공휴일 운영</h2>
 <p class="lede">이 {area} 주차장은 공공데이터에 요금 구분이 ‘무료’인 곳이 없습니다.
 {_wk_core}{_rest_txt}토요일 미운영 {s['closed_sat']}곳, 일요일·공휴일 미운영 {s['closed_sun']}곳입니다.
@@ -8709,10 +8712,10 @@ def build_district(city, d, lots, site, path=None, hub=False):
         weekend_link = (
         f"""
 <h2>{esc(gu)} 주말·공휴일 운영</h2>
-<p class="lede">이 {area} 주차장 가운데 공공데이터에서 요금 구분이 <b>‘무료’</b>인 {free_in_gu}곳{free_nuance}
+<p class="lede">이 {area} 주차장 가운데 공공데이터에서 요금 구분이 <b>‘무료’</b>인 {free_all_gu}곳{free_nuance}
 {weekend_extra}{weekend_rest}은 주말에도 요금이 부과되고, 토요일 미운영 {s['closed_sat']}곳, 일요일·공휴일 미운영 {s['closed_sun']}곳입니다.
 {ui.get("weekend_note") or ""}계산기의 요일을 ‘토요일’이나 ‘일요일·공휴일’로 바꾸면 그날 기준 예상요금으로 다시 정렬됩니다.</p>
-""" if free_in_gu else f"""
+""" if free_all_gu else f"""
 <h2>{esc(gu)} 주말·공휴일 운영</h2>
 <p class="lede">이 {area} 주차장은 공공데이터에 주말 무료 개방 표기가 없습니다.
 토요일 미운영 {s['closed_sat']}곳, 일요일·공휴일 미운영 {s['closed_sun']}곳이며 나머지는 주말에도 요금이 부과됩니다.
@@ -8753,10 +8756,10 @@ def build_district(city, d, lots, site, path=None, hub=False):
            + f"주차 구획은 총 {s['spaces']:,}면입니다."
            + (f" 이 밖에 노상(거리) 주차 구간 {len(street)}곳이 따로 등록되어 있습니다." if street else "")))),
         (f"{gu}에서 일요일·공휴일에 무료로 주차할 수 있는 곳은?",
-         ((f"요금 구분이 ‘무료’로 등록된 곳은 {free_in_gu}곳으로, 요일과 관계없이 무료입니다. "
+         ((f"요금 구분이 ‘무료’로 등록된 곳은 {free_all_gu}곳으로, 요일과 관계없이 무료입니다. "
            + (f"이 밖에 {ui.get('free_weekend_phrase') or '특기사항에 주말·공휴일 무료 개방이 적힌'} 곳이 "
               f"{free_weekend_in_gu}곳 있습니다. " if free_weekend_in_gu else "")
-           if (free_in_gu or free_weekend_in_gu) else
+           if (free_all_gu or free_weekend_in_gu) else
            f"자료에 무료 개방으로 표기된 곳은 {s['sun_free']}곳입니다. ")
           + (ui["free_example"] if s["sun_free"] else "")
           + (ui.get("sun_free_note") or "")
