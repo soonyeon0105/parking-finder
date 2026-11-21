@@ -6357,6 +6357,24 @@ def jsonld_itemlist(lots, path):
     }
 
 
+def jsonld_link_itemlist(name, items):
+    """허브 페이지용 ItemList — 개별 주차장이 아니라 페이지에 실제로 있는
+    지역 카드 링크(이름·URL)만 넣는다. items 는 (표시 이름, 절대 경로) 쌍."""
+    return {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": name,
+        "numberOfItems": len(items),
+        "itemListOrder": "https://schema.org/ItemListOrderAscending",
+        "itemListElement": [
+            {"@type": "ListItem", "position": i + 1,
+             "name": label,
+             "url": f"{SITE_BASE}{href}"}
+            for i, (label, href) in enumerate(items)
+        ],
+    }
+
+
 def jsonld_faq(qa, path):
     return {
         "@context": "https://schema.org",
@@ -16022,6 +16040,68 @@ def city_free_path(city) -> str:
     return f"{city_path(city)}free/"
 
 
+def province_free_path(prov_slug: str) -> str:
+    return f"/parking/{prov_slug}/free/"
+
+
+def strict_free_lots(lots) -> list:
+    """요금 구분이 '무료'인 곳만(요금 미상·주말/야간 무료 개방은 제외)."""
+    return [l for l in lots if l["fee"]["type"] == "무료"]
+
+
+def strict_free_stats(lots) -> dict:
+    free = strict_free_lots(lots)
+    return {"n": len(free), "spaces": sum(l.get("spaces") or 0 for l in free)}
+
+
+def region_filter_block() -> str:
+    """지역명 검색 필터 — data-name 이 붙은 지역 카드를 이름으로 거른다.
+
+    외부 라이브러리 없이 페이지 안 스크립트로만 동작한다. data-group 섹션은
+    안의 카드가 전부 숨으면 함께 숨긴다. 이 블록은 카드 섹션보다 앞에 출력되므로
+    스크립트는 DOMContentLoaded 이후에 실행해 카드가 모두 파싱된 뒤에 찾는다.
+    """
+    return """
+<div class="hero-search">
+  <label for="region-q">지역명으로 찾기</label>
+  <div class="hs-row">
+    <input type="search" id="region-q" placeholder="시·군·구 이름을 입력하세요" autocomplete="off">
+  </div>
+  <p class="ff-status" id="region-q-status" aria-live="polite"></p>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var input = document.getElementById('region-q');
+  if (!input) return;
+  var items = Array.prototype.slice.call(document.querySelectorAll('[data-name]'));
+  var groups = Array.prototype.slice.call(document.querySelectorAll('[data-group]'));
+  var status = document.getElementById('region-q-status');
+  function norm(s) { return (s || '').replace(/\\s+/g, ''); }
+  function apply() {
+    var q = norm(input.value);
+    var shown = 0;
+    items.forEach(function (el) {
+      var hit = !q || norm(el.getAttribute('data-name')).indexOf(q) !== -1;
+      el.style.display = hit ? '' : 'none';
+      if (hit) shown += 1;
+    });
+    groups.forEach(function (g) {
+      var any = false;
+      Array.prototype.forEach.call(g.querySelectorAll('[data-name]'), function (el) {
+        if (el.style.display !== 'none') any = true;
+      });
+      g.style.display = any ? '' : 'none';
+    });
+    if (status) {
+      status.textContent = !q ? '' : (shown ? shown + '개 지역을 찾았습니다.' : '검색 결과가 없습니다. 지역명을 확인해 주세요.');
+    }
+  }
+  input.addEventListener('input', apply);
+});
+</script>
+"""
+
+
 def free_hub_link(city, path, lots=None) -> str:
     """목록 페이지 머리에서 무료 개방 허브로 가는 짧은 안내(5곳 이상일 때만)."""
     c = free_counts(lots if lots is not None else (city.get("_card_lots") or []))
@@ -16055,6 +16135,7 @@ def build_free_hub(site):
     path = "/parking/free/"
     all_lots = [l for c in site["cities"] for l in (c.get("_card_lots") or [])]
     total = free_counts(all_lots)
+    sf_total = strict_free_stats(all_lots)
     weekend = sorted([l for l in free_open_lots(all_lots)
                       if "주말" in lot_free_tags(l) or "공휴일" in lot_free_tags(l)],
                      key=lambda l: (-(l["spaces"] or 0)))[:40]
@@ -16063,19 +16144,27 @@ def build_free_hub(site):
     free_type = [l for l in free_open_lots(all_lots) if "무료" in lot_free_tags(l)]
 
     sections = []
+    card_links = []
     for prov in province_order(site):
         cards = []
+        prov_slug = ""
         for city in [c for c in site["cities"] if (c.get("province") or "지역") == prov]:
+            prov_slug = city.get("province_slug") or prov_slug
             c = free_counts(city.get("_card_lots") or [])
             if not c["union"]:
                 continue
+            sf = strict_free_stats(city.get("_card_lots") or [])
             href = city_free_path(city) if c["union"] >= 5 else city_path(city)
-            cards.append(f'''<a class="link-card" href="{rel(path, href)}">
+            card_links.append((f"{prov} {city['city']}", href))
+            cards.append(f'''<a class="link-card" data-name="{esc(prov)} {esc(city['city'])}" href="{rel(path, href)}">
   <span class="t">{city['city']}<span class="go">{c['union']}곳 →</span></span>
-  <span class="d">무료 {c['free']} · 주말·공휴일 {c['weekend']} · 야간 {c['night']}</span>
+  <span class="d">무료로 쓸 수 있는 곳 {c['union']}곳 — 요금 무료 {c['free']}곳({sf['spaces']:,}면) · 주말·공휴일 무료 {c['weekend']}곳 · 야간 무료 {c['night']}곳</span>
 </a>''')
         if cards:
-            sections.append(f'<h3 class="prov">{esc(prov)}</h3><div class="grid-2">{"".join(cards)}</div>')
+            sections.append(
+                f'<section data-group><h3 class="prov">{esc(prov)} · '
+                f'<a href="{rel(path, province_free_path(prov_slug))}">{esc(prov)} 무료 주차장 모아보기 →</a></h3>'
+                f'<div class="grid-2">{"".join(cards)}</div></section>')
 
     def tag_rows(items, label):
         rows = "".join(
@@ -16143,6 +16232,7 @@ def build_free_hub(site):
 </div>
 <div class="note-box" style="margin-top:14px">
   <p><b>야간 무료 개방</b> {total['night']}곳 · <b>공휴일에만 무료</b> {len([l for l in free_open_lots(all_lots) if '공휴일' in lot_free_tags(l)])}곳.
+  요금 구분이 ‘무료’인 곳은 {total['free']}곳 · 총 {sf_total['spaces']:,}면입니다(노상 구간 제외).
   주차장 카드의 ‘무료’ 표기와 무료 시간을 함께 보세요.</p>
   <p>노상(거리) 주차구간은 카드로 세지 않았습니다 — 무료로 쓸 수 있는 노상 구간 {street_free_n}곳은 각 지역의
   <a href="{rel(path, '/parking/regions/')}">지역 페이지</a> 안 노상주차장 요금 페이지와 무료 개방 페이지 표에 있습니다.</p>
@@ -16154,6 +16244,7 @@ def build_free_hub(site):
   <a href="#night">야간 {total['night']}</a>
 </nav>
 <h2 id="all">지역별 무료 주차장</h2>
+{region_filter_block()}
 {''.join(sections)}
 <h2 id="weekend">주말·공휴일 무료 주차장 {total['weekend']}곳</h2>
 <p class="lede">토요일·일요일·공휴일에 요금을 받지 않는 주차장입니다(구획이 많은 순 40곳). 지역별 전체 목록은 위 지역 카드에서 볼 수 있습니다.</p>
@@ -16191,7 +16282,101 @@ def build_free_hub(site):
                      f"{total['union']}곳을 지역별로 정리했습니다. 공휴일 기준과 야간 무료 시간대도 함께 확인하세요."),
         path=path, body=body, crumbs=crumbs, nav_active="free", city=None,
         jsonld=[jsonld_breadcrumb(crumbs, path),
-                jsonld_itemlist(free_open_lots(all_lots)[:60], path),
+                jsonld_link_itemlist("지역별 무료 공영주차장", card_links),
+                jsonld_faq(qa, path)])
+
+
+def build_province_free(prov, site):
+    """ /parking/{province_slug}/free/ — 도별 무료 주차장 모아보기.
+
+    전국 허브(/parking/free/)가 '무료 개방'(주말·공휴일·야간 포함) 기준이라면,
+    이 페이지는 요금 구분이 '무료'인 곳만 시·군별로 모은다(요금 미상 제외).
+    집계는 사이트의 다른 페이지와 같은 카드(노외·부설) 기준이고, 무료인 노상
+    구간은 개수만 아래에 따로 적는다.
+    """
+    cities = [c for c in site["cities"] if (c.get("province") or "지역") == prov]
+    prov_slug = next((c.get("province_slug") for c in cities if c.get("province_slug")), "")
+    path = province_free_path(prov_slug)
+    rows = []
+    all_free = []
+    street_free_n = 0
+    for city in cities:
+        card_lots = city.get("_card_lots") or []
+        street_free_n += len(strict_free_lots(city.get("_street_lots") or []))
+        sf = strict_free_stats(card_lots)
+        if not sf["n"]:
+            continue
+        all_free.extend(strict_free_lots(card_lots))
+        href = city_free_path(city) if city_free_count(city) >= 5 else city_path(city)
+        rows.append((city, sf, href))
+    rows.sort(key=lambda r: (-r[1]["n"], -r[1]["spaces"], r[0]["city"]))
+    total_n = sum(r[1]["n"] for r in rows)
+    total_spaces = sum(r[1]["spaces"] for r in rows)
+    cards = "".join(
+        f'''<a class="link-card" data-name="{esc(prov)} {esc(city['city'])}" href="{rel(path, href)}">
+  <span class="t">{esc(city['city'])}<span class="go">무료 {sf['n']}곳 →</span></span>
+  <span class="d">총 {sf['spaces']:,}면 · 전체 {len(city.get('_card_lots') or [])}곳 중 무료 {sf['n']}곳</span>
+</a>''' for city, sf, href in rows)
+    top_names = " · ".join(f"{r[0]['city']} {r[1]['n']}곳" for r in rows[:3])
+    top_rows = "".join(
+        f'<tr><td>{esc(l["name"])}</td><td>{esc(l.get("city") or "")}</td>'
+        f'<td>{esc(l.get("dong") or "")}</td><td class="num">{l["spaces"] or "-"}</td></tr>'
+        for l in sorted(all_free, key=lambda x: -(x["spaces"] or 0))[:20])
+    qa = [
+        (f"{prov}에서 요금이 무료인 공영주차장은 몇 곳인가요?",
+         f"{total_n}곳(총 {total_spaces:,}면)입니다. 지역별로는 {top_names} 순으로 많습니다."
+         + (f" 요금이 무료인 노상(거리) 구간 {street_free_n}곳은 이 집계에 넣지 않고 "
+            "각 지역의 노상주차장 페이지에 적었습니다." if street_free_n else "")),
+        ("주말·공휴일이나 야간에 무료로 쓸 수 있는 곳도 있나요?",
+         "있습니다. 요금은 유료여도 주말·공휴일·야간에 무료로 개방하는 곳은 각 지역의 무료 개방 페이지와 "
+         "전국 무료 개방 허브에서 볼 수 있습니다. 이 페이지는 요금 구분이 ‘무료’인 곳만 모았습니다."),
+        ("무료 주차장도 운영시간이 정해져 있나요?",
+         "네. 요금이 무료여도 운영시간이 정해진 곳이 많습니다. 각 주차장 카드에 평일·토요일·일요일(공휴일) "
+         "운영시간이 적혀 있으니 방문 전에 확인하세요."),
+    ]
+    street_note = (f"<li>요금이 무료인 노상(거리) 구간 {street_free_n}곳은 카드 집계에서 빼고, "
+                   "각 지역의 노상주차장 요금 페이지에 적었습니다.</li>") if street_free_n else ""
+    body = f"""
+<h1>{esc(prov)} 무료 공영주차장 {total_n}곳</h1>
+<p class="lede">{esc(prov)} 공영주차장 가운데 요금이 무료인 {total_n}곳(총 {total_spaces:,}면)을 시·군별로 모았습니다.
+지역 이름을 누르면 그 지역의 무료 개방 목록으로 이동합니다. 주말·공휴일·야간에 무료로 개방하는 곳까지 보려면
+<a href="{rel(path, '/parking/free/')}">전국 무료 개방 허브</a>를 보세요.</p>
+<p class="updated">자료 기준일 {esc((site.get('meta') or {}).get('generated_at') or BUILD_TS)}</p>
+<div class="stats">
+  <div class="stat free"><span class="k">요금 무료</span><span class="v">{total_n}<small>곳</small></span></div>
+  <div class="stat"><span class="k">총 구획</span><span class="v">{total_spaces:,}<small>면</small></span></div>
+  <div class="stat"><span class="k">무료 있는 지역</span><span class="v">{len(rows)}<small>곳</small></span></div>
+</div>
+{region_filter_block()}
+<section data-group>
+<h2>시·군별 무료 주차장</h2>
+<div class="grid-2">{cards}</div>
+</section>
+<h2>구획이 가장 많은 무료 주차장</h2>
+<p class="lede">요금이 무료인 주차장 가운데 구획이 많은 순입니다. 위치와 운영시간은 지역 페이지에서 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>주차장</th><th>지역</th><th>동·읍·면</th><th class="num">구획</th></tr></thead>
+  <tbody>{top_rows}</tbody>
+</table>
+{faq_block(qa)}
+<section class="note-box" style="margin-top:18px">
+  <h2>데이터 출처와 한계</h2>
+  <ul>
+    <li>행정안전부 전국주차장정보표준데이터(기준일 2026-04-16)의 요금 구분을 기준으로, 요금 구분이 ‘무료’인 곳만 모았습니다. 요금 미상은 넣지 않았습니다.</li>
+    {street_note}
+    <li>‘무료’는 원자료의 요금 구분 표기 기준입니다. 현장 운영이 다를 수 있으니 방문 전 관리기관에 확인하세요.</li>
+  </ul>
+</section>
+"""
+    crumbs = [("홈", "/"), (prov, None), ("무료 주차장", "")]
+    return path, layout(
+        title=f"{esc(prov)} 무료 공영주차장 {total_n}곳 — 시·군별 모아보기 | {SITE_NAME}",
+        description=(f"{prov} 공영주차장 가운데 요금이 무료인 {total_n}곳(총 {total_spaces:,}면)을 "
+                     "시·군별로 정리했습니다. 지역명으로 검색해 무료 주차장을 찾으세요."),
+        path=path, body=body, crumbs=crumbs, nav_active="free", city=None,
+        jsonld=[jsonld_breadcrumb(crumbs, path),
+                jsonld_link_itemlist(f"{prov} 시·군별 무료 주차장",
+                                     [(r[0]["city"], r[2]) for r in rows]),
                 jsonld_faq(qa, path)])
 
 
@@ -16309,7 +16494,10 @@ def build_regions(site):
             free_link = (f' · <a href="{city_free_path(city)}">무료 {free_n}곳</a>' if free_n >= 5 else "")
             rows.append(f'<tr><td><a href="{city_path(city)}">{esc(city["city"])}</a>{free_link}</td>'
                         f'<td class="num">{n}</td><td class="sub-links">{" · ".join(sub) or "—"}</td></tr>')
-        blocks.append(f'<h2>{esc(prov)} <small>{len([c for c in site["cities"] if (c.get("province") or "지역") == prov])}개 지역</small></h2>'
+        _pslug = next((c.get("province_slug") for c in site["cities"]
+                       if (c.get("province") or "지역") == prov and c.get("province_slug")), "")
+        blocks.append(f'<h2>{esc(prov)} <small>{len([c for c in site["cities"] if (c.get("province") or "지역") == prov])}개 지역</small>'
+                      f' · <a href="{province_free_path(_pslug)}">무료 주차장 모아보기 →</a></h2>'
                       f'<table class="data"><thead><tr><th>시·군·구</th><th class="num">주차장</th><th>구·동별 페이지</th></tr></thead>'
                       f'<tbody>{"".join(rows)}</tbody></table>')
     body = f"""
@@ -17010,6 +17198,7 @@ def main():
     pages = [build_landing(site), build_privacy(site),
              build_free_hub(site), build_regions(site),
              build_about(site), build_contact(site), build_terms(site)]
+    pages += [build_province_free(prov, site) for prov in province_order(site)]
     for city in site["cities"]:
         card_lots = city["_card_lots"]
         if city_free_count(city) >= 5:
