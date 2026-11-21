@@ -91925,6 +91925,659 @@ def build_wonju():
 
 
 
+
+
+# ================================================================
+# 강릉시 — 표준데이터 강릉 등록 170행 전부 공영
+#   (노외 147·노상 23, 총 12,784면), 무료 152·
+#   유료 18, 기준일 2026-04-12이다. 중복 판정
+#   (전체 이름·지번·좌표 200m 가드)에 걸리는 쌍은
+#   청량학동길 임시주차장 2건(252-2-000149·
+#   252-2-000034 — 이름·지번·좌표·면수가 전부
+#   같음)뿐이라 1건을 빼고 169곳(노외 146·노상
+#   23, 총 12,779면)을 싣는다. 관리번호 중복은
+#   없고, 구획수 0 등록 0건, 주소 없음 0건, 이름
+#   없음 0건, 좌표 결측 2건이다. 이름이 겹치는
+#   송정동 공영주차장 2건은 서로 다른 자리(송정동
+#   966·24면, 송정동 77·11면)라 번지로 구분해
+#   전부 싣는다.
+# 조례 대조 완료(2026-11-21): 「강릉시 주차장
+#   설치 및 관리 조례」 제1794호(시행 2024-09-25,
+#   ordinSeq 1969911·ordinId 2020565) 제3조제1항이
+#   시장이 관리하는 노상·노외주차장의 요금을
+#   별표 1로 정한다. 본문 data/raw/
+#   gangneung-ordinance.txt, 별표 1은 ELIS 첨부
+#   HWP 원본(flSeq 144400979, data/raw/
+#   gangneung-ordinance-b1.hwp)을 받아 PrvText와
+#   BodyText 레코드 파싱을 교차 확인해 추출했다
+#   (gangneung-ordinance-b1.txt). 별표 1(개정
+#   2023-03-02): 1급지 최초 30분 600원·30분 초과
+#   10분마다 300원·2시간 이상 주차 시 10분마다
+#   400원(노상주차장)·1일 10,000원·월정기 주간
+#   75,000원·야간 56,000원, 2급지 300원·100원·
+#   200원·1일 3,600원·월 주간 30,000원·야간
+#   22,000원. 최초 무료 구간은 없다. 급지는
+#   비고 3이 1급지를 도시계획구역 내 읍·면·동
+#   지역(단, 읍·면지역으로 공원 및 관광지 내에
+#   준하는 지역 포함), 2급지를 그 밖의 지역으로
+#   정한다. 1회 주차요금이 1일 주차요금을 초과
+#   하면 1일 주차요금에 준한다(비고 4). 1일·
+#   월정기권은 노외주차장에 한하고 시행 여부는
+#   따로 결정할 수 있다(비고 5). 주간은 4~10월
+#   08:00~20:00, 11~3월 09:00~19:30이다(비고 2).
+# 유료 18곳은 요금 구분만 '유료'로 등록돼 있고
+#   기본시간·기본요금·추가단위·1일·월정기 요금
+#   칸이 전부 비어 있어, 등록 부가정보가 불완전
+#   하면 조례 기준으로 계산하는 선례(논산·부여·
+#   음성 등)에 따라 별표 1 1급지로 계산한다.
+#   급지 판정은 동 지역 15곳에 읍·면 지역 3곳
+#   (정동진·주문진해안 주차타워·안반데기 — 전부
+#   해안·산간 관광지라 비고 3 단서로 1급지)을
+#   더한 18곳 전부 1급지이고, 등록 급지구분도
+#   170곳 전부 '1'로 일치한다. 노외 16곳은 1일
+#   10,000원(비고 4 상한 겸함)·월정기 주간
+#   75,000원을 함께 싣고, 노상 2곳은 2시간 초과
+#   요율(10분마다 400원)을 steps로 반영한다.
+#   요금 미상은 0곳이다.
+# 주말·공휴일 전체 무료는 조례 본문에 없다.
+#   170곳 전부 운영요일이 '평일+토요일+공휴일'
+#   이라 미운영 표기도 없다. 제3조의2제5항의
+#   전통시장 지정 공영주차장 최초 60분 면제는
+#   시장이 지정한 곳에만 적용돼 개별 주차장에
+#   단정하지 않는다.
+GANGNEUNG_PROVINCE = "강원특별자치도"
+GANGNEUNG_PROVINCE_SLUG = "gangwon"
+GANGNEUNG_ORD_URL = ("https://www.law.go.kr/LSW/ordinInfoR.do?"
+                     "ordinSeq=1969911&gubun=ELIS")
+GANGNEUNG_ORD_TXT = RAW / "gangneung-ordinance-b1.txt"
+GANGNEUNG_ORD_NOTE = ("「강릉시 주차장 설치 및 관리 조례」 제1794호(시행 2024-09-25) "
+                      "제3조제1항·별표 1 — 국가법령정보센터 ordinSeq 1969911에서 확인")
+
+GANGNEUNG_DISCOUNTS = [
+    {"label": "애국지사·국가유공자 상이 1~3급·심한 장애인·긴급자동차·성실납세자 표지 차량(교부일부터 1년)·전기차 충전(2시간 이내)·공무수행 차량 전액 면제 가능", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제3조의2제1항 — 애국지사가 승차한 차량, 국가유공자 상이등급 1급부터 3급까지의 해당자가 승차한 차량과 장애의 정도가 심한 장애인이 본인 또는 공동명의로 등록해 보철용으로 사용하는 자동차로 본인이 승차한 차량, 긴급자동차, 유공납세자 인증서 또는 성실납세표지를 제시·부착한 차량(교부일로부터 1년), 전기자동차가 충전 목적으로 충전시설에 2시간 이내 충전하는 경우, 공무수행 차량과 공공 행사·회의 참여 차량(주차장 관리 부서에 사전 서면 신청·승인된 경우)은 주차요금을 면제할 수 있다. 제1항제2호 차량이 2시간을 초과해 주차하면 초과분은 50퍼센트 감면 대상이다(제3항제3호)"},
+    {"label": "국가보훈대상자·장애인·경형자동차·6세 미만 영유아 탑승·임산부 표지·70세 이상 운전자·다자녀 가정·의사상자·장기기증자·병역명문가·저공해자동차·환경친화적 자동차·명예시민 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제3조의2제3항 — 국가보훈대상자(제1항제2호 해당자 제외)의 차량으로 본인이 승차한 차량, 장애인(제1항제2호 해당자 제외)의 차량으로 본인이 운행하는 차량, 경형자동차, 6세 미만의 영유아가 탑승한 차량, 임산부가 탑승한 임산부 표시 부착 차량, 70세 이상 운전자가 운전하는 차량, 2자녀 이상 양육하고 최연소 자녀가 18세 이하인 다자녀 가정의 차량, 의사상자 및 의사자 유족이 승차한 차량, 장기 및 인체조직 기증자 및 유족이 승차한 차량, 병역명문가증을 발급받은 사람 중 강릉시에 주소를 두고 거주하는 사람, 저공해자동차 표지 부착 차량, 환경친화적 자동차 표지 부착 차량, 명예시민증서 수여자가 승차한 차량은 주차요금의 50퍼센트를 감면할 수 있다"},
+    {"label": "전통시장 지정 공영주차장 최초 60분 면제 가능·월정기권 40% 범위 감면", "rate": 0.5, "exempt_min": 60,
+     "note": "조례 제3조의2제5항 — 전통시장 및 상권활성화를 위하여 시장이 지정한 공영주차장에 한하여 최초부터 60분까지 주차요금을 면제할 수 있고(60분 초과분은 별표 1에 따른다), 인근 상가 운영자 및 종사자에 한하여 주차요금을 면제할 수 있으며, 월정기권 주차요금에 한하여 40퍼센트 범위 내에서 감면할 수 있다"},
+]
+
+GANGNEUNG_CONF = {
+    "city": "강릉시",
+    "slug": "gangneung",
+    "manager": "강원특별자치도 강릉시청",
+    "manager_inquiry": "강릉시청 교통과(033-660-2018)",
+    "ordinance": ("강릉시 주차장 설치 및 관리 조례", GANGNEUNG_ORD_URL, GANGNEUNG_ORD_NOTE),
+    "notes": (
+        "표준데이터에 등록된 강릉시 공영주차장 169곳(노외 146곳·노상 23구간, 총 12,779면)입니다. "
+        "151곳은 무료로 등록돼 있고, 유료 18곳(중앙시장 제1·제2·제3공영주차장, 강문해변 "
+        "제1·제2공영주차장, 정동진 공영주차장, 주문진해안 주차타워 등)은 요금 구분만 "
+        "‘유료’로 등록돼 있고 기본·추가·1일·월정기 요금 칸이 전부 비어 있어 "
+        "「강릉시 주차장 설치 및 관리 조례」 제1794호 별표 1의 1급지 요율(최초 30분 "
+        "600원·30분 초과 10분마다 300원·1일 10,000원·월정기 주간 75,000원)로 계산했습니다."),
+    "discounts": GANGNEUNG_DISCOUNTS,
+}
+
+GANGNEUNG_BBOX = (37.55, 37.98, 128.65, 129.12)
+GANGNEUNG_DONGS = {"성남동", "주문진읍", "홍제동", "포남동", "강문동", "임당동", "명주동",
+                   "남문동", "용강동", "옥천동", "옥계면", "연곡면", "견소동", "초당동",
+                   "구정면", "청량동", "성산면", "두산동", "입암동", "남항진동", "유천동",
+                   "안현동", "노암동", "강동면", "왕산면", "죽헌동", "교동", "내곡동",
+                   "운정동", "저동", "사천면", "송정동"}
+GANGNEUNG_EUPMYEON = {"주문진읍", "성산면", "왕산면", "구정면", "강동면", "옥계면",
+                      "사천면", "연곡면"}
+
+
+def gangneung_dong_of(addr):
+    """강릉시 법정동·읍·면 판정 — 지번주소의
+    강릉시 다음 토큰이 동·읍·면이다. '강동면'을
+    '강동'으로 자르지 않게 토큰 단위로 본다."""
+    if addr:
+        m = re.search(r"강릉시\s+(\S+)", addr)
+        if m:
+            return m.group(1) if m.group(1) in GANGNEUNG_DONGS else None
+    return None
+
+
+def gangneung_fee(row, name, note_bits, fee_diff):
+    """강릉시 공영주차장 한 곳의 요금 — 무료
+    151곳은 무료 등록이라 무료를 유지한다. 유료
+    18곳은 요금 구분만 '유료'이고 기본시간·기본
+    요금·추가단위·1일·월정기 요금 칸이 전부 비어
+    있어, 등록 부가정보가 불완전하면 조례 기준
+    으로 계산하는 선례에 따라 「강릉시 주차장
+    설치 및 관리 조례」 별표 1(개정 2023-03-02)
+    1급지로 계산한다. 별표 1급지는 최초 30분
+    600원·30분 초과 10분마다 300원·1일 10,000원·
+    월정기 주간 75,000원·야간 56,000원이고 최초
+    무료 구간은 없다. 급지 판정은 별표 비고 3
+    (1급지: 도시계획구역 내 읍·면·동 지역, 단
+    읍·면지역으로 공원·관광지에 준하는 지역
+    포함)으로 하고, 유료 18곳은 동 지역 15곳과
+    읍·면 관광지 3곳(정동진·주문진해안 주차타워·
+    안반데기)이라 전부 1급지이며 등록 급지구분
+    '1'과도 일치한다. 노외는 1일 10,000원을
+    비고 4의 상한과 함께 싣고, 노상은 2시간
+    초과 요율(10분마다 400원)을 steps로 반영
+    하며 1일·월정기권은 비고 5로 노외에 한해
+    표기하지 않는다."""
+    base_min = to_int(row.get("주차기본시간"))
+    base_fee = to_int(row.get("주차기본요금"))
+    unit_min = to_int(row.get("추가단위시간"))
+    unit_fee = to_int(row.get("추가단위요금"))
+    day = to_int(row.get("1일주차권요금"))
+    day_hours = to_int(row.get("1일주차권요금적용시간"))
+    month = to_int(row.get("월정기권요금"))
+    raw_type = (row.get("요금정보") or "").strip()
+    grade = (row.get("급지구분") or "").strip()
+    ptype = (row.get("주차장유형") or "").strip()
+    jibun = (row.get("소재지지번주소") or "").strip()
+    dong = gangneung_dong_of(jibun)
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None, "monthly_night": None,
+           "grade": None, "grade_label": None, "std_grade": grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": raw_type == "혼합", "progressive": False,
+           "steps": None, "steps_label": None, "bands": None,
+           "pay": (row.get("결제방법") or "").strip(), "std": None}
+    fee["std"] = {"base_min": base_min, "base_fee": base_fee, "unit_min": unit_min,
+                  "unit_fee": unit_fee, "day": day, "monthly": month}
+    if raw_type == "무료":
+        fee.update({"type": "무료",
+                    "basis": "요금 구분 ‘무료’ — 조례 제3조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"})
+        return fee
+    if raw_type not in ("유료", "혼합"):
+        fee.update({"type": "미상", "basis": "요금 칸이 비어 있거나 요금 구분을 알 수 없음 — 시청 확인 필요"})
+        return fee
+    _tour = (" 읍·면 지역이나 해안·산간 관광지라 별표 1 비고 3 단서(공원 및 관광지 내에 "
+             "준하는 지역)로 1급지로 판정했다." if dong in GANGNEUNG_EUPMYEON else "")
+    if ptype == "노상":
+        fee.update({"type": "유료", "base_min": 30, "base_fee": 600,
+                    "unit_min": 10, "unit_fee": 300,
+                    "steps": [{"until": 120, "unit_min": 10, "unit_fee": 300},
+                              {"until": None, "unit_min": 10, "unit_fee": 400}],
+                    "steps_label": "2시간 이상 주차 시 10분마다 400원 (별표 1, 노상주차장)",
+                    "grade": 1, "grade_label": "1급지",
+                    "basis": ("표준데이터에 요금 구분만 ‘유료’로 등록돼 있고 요금 칸이 전부 "
+                              "비어 있어 「강릉시 주차장 설치 및 관리 조례」 별표 1의 1급지 "
+                              "요율(최초 30분 600원·30분 초과 10분마다 300원, 2시간 이상 "
+                              "주차 시 10분마다 400원)로 계산한다." + _tour +
+                              " 1일·월정기권은 노외주차장에만 있어 표기하지 않는다(비고 5)")})
+        return fee
+    fee.update({"type": "유료", "base_min": 30, "base_fee": 600,
+                "unit_min": 10, "unit_fee": 300,
+                "daily_fee": 10000, "cap_fee": 10000,
+                "cap_src": "조례 별표 1 비고 4 (1회 주차요금이 1일 주차요금을 초과할 경우 1일 주차요금에 준한다)",
+                "monthly": 75000,
+                "grade": 1, "grade_label": "1급지",
+                "basis": ("표준데이터에 요금 구분만 ‘유료’로 등록돼 있고 요금 칸이 전부 "
+                          "비어 있어 「강릉시 주차장 설치 및 관리 조례」 별표 1의 1급지 "
+                          "요율(최초 30분 600원·30분 초과 10분마다 300원·1일 10,000원·"
+                          "월정기 주간 75,000원)로 계산한다." + _tour +
+                          " 1회 주차요금이 1일 주차요금을 넘으면 1일 주차요금까지만 "
+                          "받는다(비고 4). 월정기 야간 56,000원은 요금표에만 싣는다")})
+    return fee
+
+
+def gangneung_fee_table(conf, lots):
+    """요금표 — 조례 별표 1 급지별 요금표. 유료로
+    계산하는 18곳은 전부 1급지이고 2급지 계산
+    대상은 없다. 1시간은 600+300×3=1,500원,
+    2시간은 600+300×9=3,300원이다(최초 무료
+    구간 없음). 2급지 1시간은 300+100×3=600원,
+    2시간은 300+100×9=1,200원이다."""
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    rows = [
+        {"label": "1급지 (도시계획구역 내 읍·면·동 지역)", "grade": 1,
+         "unit_label": "최초 30분 600원 · 30분 초과 10분마다 300원 (노상 2시간 이상 주차 시 10분마다 400원)",
+         "hour": 1500, "two_hour": 3300, "day": 10000,
+         "month_all": None, "month": 75000, "month_night": 56000,
+         "lots": len(paid)},
+        {"label": "2급지 (1급지 이외의 지역)", "grade": 2,
+         "unit_label": "최초 30분 300원 · 30분 초과 10분마다 100원 (노상 2시간 이상 주차 시 10분마다 200원)",
+         "hour": 600, "two_hour": 1200, "day": 3600,
+         "month_all": None, "month": 30000, "month_night": 22000,
+         "lots": 0},
+    ]
+    return {
+        "style": "gangneung_grade",
+        "unit_min": 10,
+        "base_min": 30,
+        "applies": conf["ordinance"][2],
+        "source_url": conf["ordinance"][1],
+        "grade_system": ("조례 별표 1 비고 3은 1급지를 도시계획구역 내 읍·면·동 지역(단, "
+                         "읍·면지역으로 공원 및 관광지 내에 준하는 지역 포함), 2급지를 "
+                         "1급지 이외의 지역으로 정한다. 표준데이터 등록 급지구분은 170곳 "
+                         "전부 ‘1’이다. 유료 18곳 중 동 지역이 15곳, 읍·면 지역이 3곳"
+                         "(정동진·주문진해안 주차타워·안반데기)인데 세 곳 모두 해안·산간 "
+                         "관광지라 비고 3 단서로 1급지로 판정했고 등록 급지와도 일치한다"),
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["ptype"] != "노상"]),
+                 "street_paid": len([l for l in paid if l["ptype"] == "노상"]),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [
+            {"group": "주간 시간구분 (조례 별표 1 비고 2)",
+             "hours": "4월~10월 08:00~20:00, 11월~3월 09:00~19:30 (나머지 시간은 야간)",
+             "free": "월정기권 주간·야간 구분의 기준이다"},
+            {"group": "1일 주차권·월 정기 주차권 (조례 별표 1 비고 5)",
+             "hours": "노외주차장에 한해 실시",
+             "free": "지역 및 주차수요 등을 고려하여 따로 시행 여부를 결정할 수 있다"},
+            {"group": "1회 주차요금 상한 (조례 별표 1 비고 4)",
+             "hours": "1회 주차요금이 1일 주차요금을 초과할 경우",
+             "free": "1일 주차요금에 준해 받는다"},
+            {"group": "대형버스·화물차 별도 구획 (조례 별표 1 비고 6)",
+             "hours": "대형버스 및 화물차를 위해 별도 설치한 주차구획",
+             "free": "본 요금의 3배를 징수할 수 있고, 주차구획을 점유한 수만큼 배로 징수할 수 있다"},
+        ],
+        "discounts": conf["discounts"],
+        "notes": ("감면(조례 제3조의2)은 애국지사·국가유공자 상이 1~3급·심한 장애인·"
+                  "긴급자동차·성실납세자 표지 차량(교부일부터 1년)·전기차 충전(2시간 "
+                  "이내)·공무수행 차량 면제, 국가보훈대상자·장애인·경형자동차·6세 미만 "
+                  "영유아 탑승·임산부·70세 이상 운전자·다자녀·의사상자·장기기증자·"
+                  "병역명문가·저공해자동차·환경친화적 자동차·명예시민 50% 감면, 전통시장 "
+                  "지정 공영주차장 최초 60분 면제(월정기권 40% 범위 감면)이다."),
+        "basis": ("요금표는 「강릉시 주차장 설치 및 관리 조례」 제1794호(시행 2024-09-25) "
+                  "제3조제1항·별표 1(개정 2023-03-02)과 표준데이터(기준일 2026-04-12)를 "
+                  "대조해 실었다. 별표 1 원본 HWP는 flSeq 144400979이다. 유료 18곳은 "
+                  "등록 요금 칸이 전부 비어 있어 조례 1급지 기준으로 계산했고, 무료 "
+                  "151곳은 등록값을 유지했다. (조례 본문: "
+                  "data/raw/gangneung-ordinance.txt, 별표 1 원문 HWP: "
+                  "data/raw/gangneung-ordinance-b1.hwp)"),
+    }
+
+
+def gangneung_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                      space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(lots)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동·읍·면 미상" for l in lots).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in lots if l["dong"]}),
+        "동_미상": [l["name"] for l in lots if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in lots)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「강릉시 주차장 설치 및 관리 조례」 제1794호 제3조의2 — 애국지사, 국가유공자 "
+                      "상이 1~3급·심한 장애인 본인 승차 차량, 긴급자동차, 성실납세자 인증서·표지 "
+                      "차량(교부일부터 1년), 전기차 충전(2시간 이내), 공무수행·공공 행사 차량"
+                      "(사전 서면 신청·승인)은 면제할 수 있고(제1항), 국가보훈대상자·장애인·"
+                      "경형자동차·6세 미만 영유아 탑승·임산부 표지·70세 이상 운전자·다자녀 가정·"
+                      "의사상자·장기기증자·병역명문가·저공해자동차·환경친화적 자동차·명예시민은 "
+                      "50퍼센트를 감면한다(제3항). 전통시장 지정 공영주차장은 최초 60분 면제와 "
+                      "월정기권 40퍼센트 범위 감면이 가능하다(제5항)"),
+        "요금_출처": ("조례 제3조제1항·별표 1 — 시장이 관리하는 노상·노외주차장의 주차요금은 별표 1과 "
+                      "같다. 별표 1(개정 2023-03-02)은 1급지 최초 30분 600원·30분 초과 10분마다 "
+                      "300원·2시간 이상 주차 시 10분마다 400원(노상주차장)·1일 10,000원·월정기 "
+                      "주간 75,000원·야간 56,000원, 2급지 300원·100원·200원·1일 3,600원·월 주간 "
+                      "30,000원·야간 22,000원이다. 별표 원본 HWP(flSeq 144400979)를 받아 "
+                      "PrvText와 BodyText를 교차 확인해 대조했다"),
+        "급지_출처": ("조례 별표 1 비고 3은 1급지를 도시계획구역 내 읍·면·동 지역(단, 읍·면지역으로 "
+                      "공원 및 관광지 내에 준하는 지역 포함), 2급지를 1급지 이외의 지역으로 정한다. "
+                      "표준데이터 등록 급지구분은 170곳 전부 ‘1’이다. 유료 18곳은 동 지역 15곳과 "
+                      "읍·면 관광지 3곳이라 비고 3으로 전부 1급지로 판정했고 등록 급지는 "
+                      "std_grade로만 남겼다"),
+        "무료요일_출처": ("조례 본문 어디에도 시 전체 주말·공휴일 자동 무료 조항은 없다. 무료 151곳의 "
+                          "표기는 표준데이터 등록값(요금정보 ‘무료’) 근거다. 170곳 전부 운영요일이 "
+                          "‘평일+토요일+공휴일’이라 토요일·공휴일 미운영 표기도 없다. 제3조의2제5항의 "
+                          "전통시장 지정 공영주차장 최초 60분 면제는 시장이 지정한 곳에만 적용돼 "
+                          "개별 주차장에 단정하지 않는다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 강릉 등록 170행 전부 공영(노외 147·노상 23, 총 12,784면)으로 무료 152·유료 18, 기준일 2026-04-12, 제공기관명은 강원특별자치도 강릉시 전부이다. 중복 판정(전체 이름·지번·좌표 200m 가드)에 걸리는 쌍은 청량학동길 임시주차장 2건(252-2-000149·252-2-000034 — 이름·지번주소·좌표·면수 5면이 전부 같음)뿐이라 1건을 빼고 169곳(노외 146·노상 23, 총 12,779면)을 실었다. 관리번호 중복은 없다. 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 2건이다",
+            "「강릉시 주차장 설치 및 관리 조례」 제1794호(시행 2024-09-25, ordinSeq 1969911·ordinId 2020565) 본문 원문(data/raw/gangneung-ordinance.txt) 대조 완료(2026-11-21) — 본문 제3조제1항이 시장이 관리하는 노상·노외주차장의 요금을 별표 1로 정한다. 별표 1(개정 2023-03-02)은 ELIS 첨부 HWP 원본(flSeq 144400979)을 data/raw/gangneung-ordinance-b1.hwp로 저장하고 PrvText와 BodyText 레코드 파싱을 교차 확인해 확정했다 — 1급지 최초 30분 600원·30분 초과 10분마다 300원·2시간 이상 주차 시 10분마다 400원(노상주차장)·1일 10,000원·월정기 주간 75,000원·야간 56,000원, 2급지 300원·100원·200원·1일 3,600원·월 주간 30,000원·야간 22,000원이고, 최초 무료 구간은 없다. 1회 주차요금이 1일 주차요금을 초과하면 1일 주차요금에 준하고(비고 4), 1일·월정기권은 노외주차장에 한하며 시행 여부는 따로 결정할 수 있다(비고 5)",
+            "유료 18곳(중앙시장 제1 375면·강문해변 제1 170면·주문진해안 주차타워 230면·정동진 151면·경포생태저류지 143면·동부시장 129면·강문해변 제2 91면·강남동 축구장 옆 70면·유천지구 58면·성내동 광장 56면·서부시장 54면·금성로 노상 54면·안반데기 53면·중앙시장 제2 45면·도심 43면·중앙시장 제3 노상 36면·노암동 324-68 6면·노암동 279-19 6면)은 요금 구분만 ‘유료’로 등록돼 있고 기본시간·기본요금·추가단위시간·추가단위요금·1일주차권·월정기권 칸이 전부 비어 있어, 등록 부가정보가 불완전하면 조례 기준으로 계산하는 선례에 따라 별표 1 1급지로 계산했다. 노외 16곳은 1일 10,000원(비고 4 상한 겸함)과 월정기 주간 75,000원을 함께 실었고, 노상 2곳(중앙시장 제3·금성로)은 2시간 초과 요율(10분마다 400원)을 steps로 반영했다",
+            "급지 판정은 별표 비고 3으로 했다. 유료 18곳 중 동 지역(성남동·강문동·홍제동·노암동·용강동·옥천동·죽헌동)이 15곳이고, 읍·면 지역은 정동진(강동면)·주문진해안 주차타워(주문진읍)·안반데기(왕산면) 3곳인데 세 곳 모두 해안·산간 관광지라 비고 3 단서(공원 및 관광지 내에 준하는 지역)로 1급지로 판정했다. 등록 급지구분도 170곳 전부 ‘1’로 일치한다",
+            "좌표 결측은 2곳이다. 영진해변 공영주차장2(연곡면 영진리 367-27)는 ArcGIS World Geocoding 반환 주소가 등록 지번의 리·번지와 일치하고 score 100·PointAddress라 오버레이(좌표누락_지오코딩_20261118.json)에 채택 근거를 기록해 채웠다. 동부시장 공영 주차장(옥천동 244)은 번지까지 일치하는 후보가 없어(최고 score 91.58, Locality) 좌표 없음으로 남긴다. 등록 좌표 168곳 전부가 강릉 범위(위도 37.611~37.910, 경도 128.739~129.046) 안에 있다",
+            "주말·공휴일 전체 무료는 조례 본문 어디에도 없다. 무료 151곳의 표기는 표준데이터 등록값 근거다. 170곳 전부 운영요일이 ‘평일+토요일+공휴일’이라 미운영인 곳은 없다. 제3조의2제5항의 전통시장 지정 공영주차장 최초 60분 면제는 지정 현황이 확인되지 않아 중앙시장·동부시장·서부시장 주차장에도 단정하지 않는다",
+            "동·읍·면 판정은 지번주소 기준이고 169곳 중 168곳이 판정됐다(홍제동 20·교동 16·주문진읍 15·노암동 13·강동면 11·내곡동 10·성남동 9 등 32개 동·읍·면). 기쁨교회부지 컬링경기장은 주소가 ‘강원특별자치도강릉시 교동 622’로 도 이름과 시 이름이 붙어 있어 강릉시 뒤 토큰으로 판정했다. 영진해변 공영주차장2는 등록 주소가 ‘강릉시 영진리 367-27’로 읍·면이 빠져 판정하지 못했다(실제는 연곡면 영진리). 도로명주소는 170곳 전부 등록돼 있지 않다. 이름이 겹치는 송정동 공영주차장 2건(송정동 966·24면, 송정동 77·11면)은 서로 다른 자리라 번지로 구분해 전부 실었다",
+            "관리기관명은 강원특별자치도 강릉시청 교통과 161곳·소상공인과 3곳·도시재생과 2곳·문화체육시설사업소 1곳·관광개발과 1곳·관광정책과 1곳·건설과 1곳이다(중복 제거 전 170행 기준). 전화번호는 170곳 전부 공란이고, 결제방법·특기사항·장애인전용주차구역 보유여부도 전부 공란이며, 부제시행구분은 전부 미시행이다. 운영시간은 166곳이 전 요일 00:00~23:59이고, 평일만 08:00에 시작하는 곳이 2곳(명주동 주차장·관동중 앞), 평일만 10:00에 시작하는 곳이 2곳(남대천 옥천 공영주차장·성내동 광장 주차장)이다. 노상 구간 1곳(창해로(현대수산-강문건어물))은 이름에 ‘거주자우선’이 적혀 있다",
+            "확인 과제 — ① 읍·면 관광지 3곳(정동진·주문진해안 주차타워·안반데기)의 1급지 판정 근거인 별표 비고 3 단서의 ‘준하는 지역’ 지정이 시 고시로 정해져 있는지 확인할 것 ② 유료 18곳의 실제 징수 요금과 1일권·월정기권 시행 여부(별표 비고 5는 시행 여부를 따로 결정할 수 있다)를 확인할 것 ③ 노상 2곳에 비고 4의 1일 주차요금 상한이 적용되는지 확인할 것 ④ 동부시장 공영 주차장(옥천동 244)의 좌표를 확인할 것 ⑤ 영진해변 공영주차장2 등록 주소의 읍·면 누락(연곡면 영진리)을 정정할 것 ⑥ 제3조의2제5항 전통시장 지정 공영주차장의 지정 현황(중앙시장·동부시장·서부시장 주차장의 최초 60분 면제 적용 여부)을 확인할 것 ⑦ 창해로(현대수산-강문건어물) 노상 구간의 거주자우선 운영 여부를 확인할 것",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [l["name"] for l in lots if "거주자우선" in l["name"]],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] or 0 for l in paid) / len(paid)) if paid else 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l["name"] for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_gangneung():
+    """강릉시 하나를 표준데이터로 추출한다.
+    조례 대조 완료 — 「강릉시 주차장 설치 및 관리
+    조례」 제1794호(시행 2024-09-25, ordinSeq
+    1969911) 제3조제1항·별표 1 원문 대조 완료
+    (2026-11-21, 별표 ELIS 첨부 HWP PrvText·
+    BodyText 교차 확인). 표준데이터 강릉 등록
+    170행 전부 공영(노외 147·노상 23, 총
+    12,784면)을 읽어 중복 1건을 빼고 169곳을
+    싣는다. 무료 151곳은 등록값 대로, 유료 18곳은
+    요금 칸이 전부 비어 있어 조례 별표 1 1급지
+    기준으로 계산한다. 좌표 결측은 2곳 중 1곳을
+    지오코딩으로 채웠다."""
+    conf = GANGNEUNG_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    rows_std = [r for r in rows_all if "강릉시" in _owner(r)]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "강릉시" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 강릉시는
+    #   청량학동길 임시주차장 2건(이름·지번·좌표·면수 전부 동일)이 해당한다.
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, space_diff, dong_fixed, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (GANGNEUNG_BBOX[0] < lat < GANGNEUNG_BBOX[1]
+                                                        and GANGNEUNG_BBOX[2] < lng < GANGNEUNG_BBOX[3]):
+            # 강릉시 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 강릉시 범위 밖 — "
+                               "좌표 없음으로 표기하고 지오코딩 보완 대상으로 넘김")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음(0으로 등록)"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = gangneung_dong_of(jibun)
+        if dong:
+            dong_src = "지번주소"
+        elif gangneung_dong_of(road):
+            dong = gangneung_dong_of(road)
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        # 이름 첫머리에 동·읍·면 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:동|읍|면))", std_name)
+        if _name_head and _name_head.group(1) in GANGNEUNG_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 동·읍·면({_name_head.group(1)})과 지번주소 기준 "
+                              f"동·읍·면({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = gangneung_fee(r, std_name, note_bits, fee_diff)
+        free_days = {"sat": False, "sun": False}
+        free_window = None
+        _buje = (r.get("부제시행구분") or "").strip()
+        if _buje and _buje != "미시행":
+            note_bits.append(f"승용차 {_buje}를 시행하는 곳입니다")
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "강릉시", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _bunji = ""
+            for _tok in reversed(_parts):
+                if re.match(r"^\d+(?:-\d+)?$", _tok or ""):
+                    _bunji = _tok
+                    break
+            if not _bunji:
+                _bunji = _parts[3].split("(")[0] if len(_parts) > 3 else \
+                    (_parts[2] if len(_parts) > 2 else "")
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _bunji and not _same_place:
+                _suffix = f"({_bunji})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 지번 번지로 구분했다")
+
+    # 같은 지번·같은 좌표에 이름만 다르게 등록된 그룹 — 전부 다른 등록이라
+    #   합치지 않고 전부 싣는다(산청 선례).
+    _place_groups = {}
+    for l in lots:
+        if l["lat"] is None or l["lng"] is None:
+            continue
+        _place_groups.setdefault(((l.get("addr_jibun") or l.get("addr_road")),
+                                  l["lat"], l["lng"]), []).append(l)
+    for (_addr, _la, _ln), _grp in sorted(_place_groups.items(),
+                                          key=lambda kv: kv[1][0]["name"]):
+        if len(_grp) > 1 and len({x["name"] for x in _grp}) > 1:
+            _names = "·".join(x["name"] for x in _grp)
+            note_fixed.append(f"같은 자리·같은 좌표에 이름만 다른 등록: {_names} — "
+                              f"{_addr}에 좌표({_la}, {_ln})가 같게 등록돼 있다. "
+                              "이름이 다른 별개 등록이라 합치지 않고 전부 실었고, "
+                              "같은 시설의 중복 등록인지는 강릉시청 확인이 필요하다")
+    note_fixed.append("표준데이터 강릉 등록 170행 전부 공영이라 민영 제외는 0건이다. "
+                      "데이터기준일자는 2026-04-12 170행, 제공기관명은 강원특별자치도 강릉시 "
+                      "170행이다")
+    note_fixed.append("등록 급지구분은 170곳 전부 ‘1’이다. 조례 별표 1의 급지 정의(비고 3)로 "
+                      "판정해도 유료 18곳은 전부 1급지라 등록 급지와 어긋나는 곳은 없고, "
+                      "등록 급지는 std_grade로만 남겼다")
+    note_fixed.append("좌표 결측은 2곳이다. 영진해변 공영주차장2는 ArcGIS 지오코딩으로 "
+                      "번지까지 일치(score 100)해 오버레이에 근거를 기록하고 채웠고, "
+                      "동부시장 공영 주차장은 번지 일치 후보가 없어 좌표 없음으로 남긴다")
+    note_fixed.append("운영요일은 170곳 전부 평일+토요일+공휴일이다. 운영시간은 166곳이 전 "
+                      "요일 00:00~23:59이고, 평일만 08:00 시작 2곳(명주동 주차장·관동중 앞)·"
+                      "평일만 10:00 시작 2곳(남대천 옥천 공영주차장·성내동 광장 주차장)이 있다. "
+                      "도로명주소는 170곳 전부 없고, 전화번호·결제방법·특기사항·장애인전용"
+                      "주차구역 보유여부도 전부 공란이며 부제시행구분은 전부 미시행이다")
+    note_fixed.append("무료 151곳은 무료 등록이라 등록값을 유지했고, 유료 18곳은 요금 칸이 "
+                      "전부 비어 있어 조례 별표 1 1급지 기준으로 계산했다. 요금 미상은 0곳이다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"gw-gangneung-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"gw-gangneung-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 강릉시는 좌표 결측 2곳 중 영진해변 공영주차장2가 대상이다.
+    _cf = apply_coord_fix(lots)
+
+    fee_table = gangneung_fee_table(conf, lots)
+    quality = gangneung_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                                fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-04-12",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"강릉시로 등록된 행 {len(rows_std)}행을 읽어 중복 "
+                 f"제거 {len(merged)}건, 제외 {len(excluded)}건으로 {len(lots)}곳을 실었다. "
+                 f"유료 {len([l for l in lots if l['fee']['type'] == '유료'])}곳·무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳·미상 "
+                 f"{len([l for l in lots if l['fee']['type'] == '미상'])}곳이다. "
+                 f"데이터기준일자는 2026-04-12이다. 좌표 결측은 2곳 중 1곳을 지오코딩으로 채웠다. "
+                 f"조례 대조 완료 — 「강릉시 주차장 설치 및 관리 조례」 제1794호(시행 "
+                 f"2024-09-25, ordinSeq 1969911) 제3조제1항·별표 1 원문 대조 완료(2026-11-21)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": GANGNEUNG_ORD_TXT.name if GANGNEUNG_ORD_TXT.exists() else None,
+            "sha256": sha256(GANGNEUNG_ORD_TXT) if GANGNEUNG_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2024-09-25",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"강릉시가 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/gangneung-ordinance.txt, 별표 1 원문 HWP: "
+                    f"data/raw/gangneung-ordinance-b1.hwp)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": GANGNEUNG_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "강릉시", "slug": "gangneung"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": GANGNEUNG_PROVINCE,
+        "province_slug": GANGNEUNG_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "gangneung_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
 # 울진군 — 표준데이터 울진 등록 62행 중 민영 4행을
 #   빼면 공영 58행(노외 47·노상 10·부설 1, 총
 #   4,546면), 무료 57·혼합 1, 기준일 2026-04-20이다.
@@ -92564,7 +93217,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyeo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon", "uiryeong", "haman", "changnyeong", "pohang", "gyeongju", "gimcheon", "andong", "gumi", "yeongju", "yeongcheon", "sangju", "mungyeong", "gyeongsan", "cheongdo", "uisung", "cheongsong", "yeongyang", "yeongdeok", "goryeong", "seongju", "chilgok", "yecheon", "bonghwa", "uljin", "ulleung", "chuncheon", "wonju",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyeo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon", "uiryeong", "haman", "changnyeong", "pohang", "gyeongju", "gimcheon", "andong", "gumi", "yeongju", "yeongcheon", "sangju", "mungyeong", "gyeongsan", "cheongdo", "uisung", "cheongsong", "yeongyang", "yeongdeok", "goryeong", "seongju", "chilgok", "yecheon", "bonghwa", "uljin", "ulleung", "chuncheon", "wonju", "gangneung",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -92582,7 +93235,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "포항시", "경주시", "김천시", "안동시", "구미시", "영주시", "영천시", "상주시", "문경시", "경산시", "청도군", "의성군", "청송군", "영양군", "영덕군", "고령군", "성주군", "칠곡군", "예천군", "봉화군", "울진군", "울릉군", "춘천시", "원주시"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "포항시", "경주시", "김천시", "안동시", "구미시", "영주시", "영천시", "상주시", "문경시", "경산시", "청도군", "의성군", "청송군", "영양군", "영덕군", "고령군", "성주군", "칠곡군", "예천군", "봉화군", "울진군", "울릉군", "춘천시", "원주시", "강릉시"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -92640,7 +93293,7 @@ def main():
                                 "tongyeong": ["통영시"],
                                 "sacheon": ["사천시"],
                                 "gimhae": ["김해시"], "miryang": ["밀양시"],
-                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"], "hamyang": ["함양군"], "geochang": ["거창군"], "hapcheon": ["합천군"], "uiryeong": ["의령군"], "haman": ["함안군"], "changnyeong": ["창녕군"], "pohang": ["포항시"], "gyeongju": ["경주시"], "gimcheon": ["김천시"], "andong": ["안동시"], "gumi": ["구미시"], "yeongju": ["영주시"], "yeongcheon": ["영천시"], "sangju": ["상주시"], "mungyeong": ["문경시"], "gyeongsan": ["경산시"], "cheongdo": ["청도군"], "uisung": ["의성군"], "cheongsong": ["청송군"], "yeongyang": ["영양군"], "yeongdeok": ["영덕군"], "goryeong": ["고령군"], "seongju": ["성주군"], "chilgok": ["칠곡군"], "yecheon": ["예천군"], "bonghwa": ["봉화군"], "uljin": ["울진군"], "ulleung": ["울릉군"], "chuncheon": ["춘천시"], "wonju": ["원주시"]}[args.city])
+                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"], "hamyang": ["함양군"], "geochang": ["거창군"], "hapcheon": ["합천군"], "uiryeong": ["의령군"], "haman": ["함안군"], "changnyeong": ["창녕군"], "pohang": ["포항시"], "gyeongju": ["경주시"], "gimcheon": ["김천시"], "andong": ["안동시"], "gumi": ["구미시"], "yeongju": ["영주시"], "yeongcheon": ["영천시"], "sangju": ["상주시"], "mungyeong": ["문경시"], "gyeongsan": ["경산시"], "cheongdo": ["청도군"], "uisung": ["의성군"], "cheongsong": ["청송군"], "yeongyang": ["영양군"], "yeongdeok": ["영덕군"], "goryeong": ["고령군"], "seongju": ["성주군"], "chilgok": ["칠곡군"], "yecheon": ["예천군"], "bonghwa": ["봉화군"], "uljin": ["울진군"], "ulleung": ["울릉군"], "chuncheon": ["춘천시"], "wonju": ["원주시"], "gangneung": ["강릉시"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -92950,6 +93603,8 @@ def main():
         cities.append(build_chuncheon())
     if "원주시" in want:
         cities.append(build_wonju())
+    if "강릉시" in want:
+        cities.append(build_gangneung())
 
     if args.city == "all":
         site = build_site_payload(cities)

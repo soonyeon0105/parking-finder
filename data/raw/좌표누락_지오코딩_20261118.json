@@ -49297,6 +49297,100 @@
      "note": "등록 번지 886과 일치하는 PointAddress 후보가 없고 행정동(Locality) 중심점만 돌아와 기각."
     }
    ]
+  },
+  {
+   "id": "gw-gangneung-146",
+   "city": "강릉시",
+   "gu": "강릉시",
+   "dong": "연곡면",
+   "name": "영진해변 공영주차장2",
+   "addr_jibun": "강원특별자치도 강릉시 영진리 367-27",
+   "addr_road": "",
+   "chosen": {
+    "kind": "geocode",
+    "how": "지오코딩(지번)",
+    "query": "강원특별자치도 강릉시 연곡면 영진리 367-27",
+    "lat": 37.875042603293,
+    "lng": 128.837614203262,
+    "addr": "강원특별자치도 강릉시 연곡면 영진리 367-27",
+    "source": "ArcGIS World Geocoding",
+    "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?SingleLine=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84+%EA%B0%95%EB%A6%89%EC%8B%9C+%EC%97%B0%EA%B3%A1%EB%A9%B4+%EC%98%81%EC%A7%84%EB%A6%AC+367-27&countryCode=KOR&maxLocations=3&outFields=%2A&f=json",
+    "score": 100,
+    "sig_ok": true,
+    "bbox_ok": true,
+    "wide_ok": true,
+    "addr_match": true,
+    "dong_m": 0,
+    "confidence": "high",
+    "agree": true,
+    "checked_at": "2026-11-22 (KST)",
+    "note": "등록 주소는 ‘강릉시 영진리 367-27’로 읍·면이 빠져 있으나, 영진리는 연곡면에만 있어 연곡면을 넣어 조회했다. 반환 주소가 리·번지까지 정확히 일치하고 score 100·PointAddress라 채택."
+   },
+   "candidates": [
+    {
+     "kind": "geocode",
+     "how": "지오코딩(지번)",
+     "query": "강원특별자치도 강릉시 연곡면 영진리 367-27",
+     "lat": 37.875042603293,
+     "lng": 128.837614203262,
+     "addr": "강원특별자치도 강릉시 연곡면 영진리 367-27",
+     "source": "ArcGIS World Geocoding",
+     "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?SingleLine=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84+%EA%B0%95%EB%A6%89%EC%8B%9C+%EC%97%B0%EA%B3%A1%EB%A9%B4+%EC%98%81%EC%A7%84%EB%A6%AC+367-27&countryCode=KOR&maxLocations=3&outFields=%2A&f=json",
+     "score": 100,
+     "sig_ok": true,
+     "bbox_ok": true,
+     "wide_ok": true,
+     "addr_match": true,
+     "dong_m": 0,
+     "note": "번지까지 일치 — 채택."
+    },
+    {
+     "kind": "geocode",
+     "how": "지오코딩(지번)",
+     "query": "강원특별자치도 강릉시 연곡면 영진리 367-27",
+     "lat": 37.82861,
+     "lng": 128.7206,
+     "addr": "강원 강릉시 연곡면",
+     "source": "ArcGIS World Geocoding",
+     "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?SingleLine=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84+%EA%B0%95%EB%A6%89%EC%8B%9C+%EC%97%B0%EA%B3%A1%EB%A9%B4+%EC%98%81%EC%A7%84%EB%A6%AC+367-27&countryCode=KOR&maxLocations=3&outFields=%2A&f=json",
+     "score": 78.35,
+     "sig_ok": true,
+     "bbox_ok": true,
+     "wide_ok": false,
+     "addr_match": false,
+     "dong_m": null,
+     "note": "Locality 중심점이라 기각."
+    }
+   ]
+  },
+  {
+   "id": "gw-gangneung-082",
+   "city": "강릉시",
+   "gu": "강릉시",
+   "dong": "옥천동",
+   "name": "동부시장 공영 주차장",
+   "addr_jibun": "강원특별자치도 강릉시 옥천동 244",
+   "addr_road": "",
+   "chosen": null,
+   "candidates": [
+    {
+     "kind": "geocode",
+     "how": "지오코딩(지번)",
+     "query": "강원특별자치도 강릉시 옥천동 244",
+     "lat": 37.758551539935,
+     "lng": 128.901590221888,
+     "addr": "강원특별자치도 강릉시 옥천동",
+     "source": "ArcGIS World Geocoding",
+     "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?SingleLine=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84+%EA%B0%95%EB%A6%89%EC%8B%9C+%EC%98%A5%EC%B2%9C%EB%8F%99+244&countryCode=KOR&maxLocations=3&outFields=%2A&f=json",
+     "score": 91.58,
+     "sig_ok": true,
+     "bbox_ok": true,
+     "wide_ok": false,
+     "addr_match": false,
+     "dong_m": null,
+     "note": "등록 번지 244와 일치하는 PointAddress 후보가 없고 행정동(Locality) 중심점만 돌아와 기각. 좌표 없음으로 남김."
+    }
+   ]
   }
  ],
  "city_signatures": {
