@@ -7234,6 +7234,8 @@ def layout(*, title, description, path, body, crumbs, jsonld, nav_active, city=N
 {og_url_tag}<meta name="robots" content="{robots}">
 <meta name="generator" content="parking-finder static builder">
 {verification_head()}{ga_head()}{adsense_head()}{extra_head}
+<link rel="preload" href="{url('/assets/fonts/PretendardVariable.subset.91.woff2')}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{url('/assets/fonts/pretendardvariable-dynamic-subset.css')}?v={asset_ver()}">
 <link rel="stylesheet" href="{url('/assets/style.css')}?v={asset_ver()}">
 {script_jsonld(jsonld)}
 </head>
@@ -13449,24 +13451,24 @@ def fee_table_block(city) -> str:
 요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
-    if ft.get("style") == "sangju_grade":
-        # 상주시 — 공영 26곳이 전부 노외(총 1,411면)이고
-        #   무료 24곳·유료 1곳·요금 미상 1곳으로 등록돼
-        #   있다. 「상주시 주차장 조례」 제1785호(시행
-        #   2026-10-12) 제3조제1항·별표는 급지 구분 없이
-        #   30분마다 500원, 1일 6,000원, 월 주간
-        #   75,000원·야간 56,000원이다. 공영유료주차장은
-        #   등록값이 별표와 전부 일치해 확정했고,
-        #   중앙시장 주차타워는 등록 기본 단위(60분)가
-        #   별표(30분)와 달라 요금 미상이다.
-        def _sj_cell(v):
-            return won(v) if v else "—"
+    if ft.get("style") == "yeongcheon_grade":
+        # 영천시 — 공영 115곳(부설 60곳·노외 41곳·노상
+        #   14구간, 총 5,723면)이 무료 110곳·유료 4곳·요금
+        #   미상 1곳으로 등록돼 있다. 「영천시 주차장
+        #   조례」 제1388호(시행 2025-11-19) 제5조제1항·
+        #   별표 1은 30분마다 1급지 500원·2급지 200원과
+        #   월 정기(1급지 주간 75,000원·야간 56,000원)를
+        #   정하고 1일 요금은 두지 않는다. 부설 요금은
+        #   제6조에 따라 관리규칙으로 정한다. 등록값이
+        #   별표 1급지와 같은 노상 2곳과 등록값이 완전한
+        #   부설 2곳만 계산하고, 요금이 0원으로 등록된
+        #   충혼탑 부설은 요금 미상으로 표기한다(김해·
+        #   함안 선례).
         rows_html = "".join(
             f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
             f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
-            f'<td class="num">{_sj_cell(r["day"])}</td>'
-            f'<td class="num">{_sj_cell(r["month"])}</td>'
-            f'<td class="num">{_sj_cell(r["month_night"])}</td>'
+            f'<td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td>'
             f'<td class="num">{r["lots"]}곳</td></tr>'
             for r in ft["rows"])
         win_rows = "".join(
@@ -13474,17 +13476,26 @@ def fee_table_block(city) -> str:
             for w in ft.get("windows") or [])
         corp = ft.get("corp") or {}
         return f"""
-<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표)</h2>
-<p class="lede">상주시 공영주차장 <b>26곳</b>은 모두 노외 주차장이고 주차면은 모두 <b>1,411면</b>입니다.
-요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 시간요금을 확정해 안내하는 유료는 {corp.get('paid', 0)}곳
-(공영유료주차장 88면), 별표와 다른 기본 단위(60분)로 등록돼 요금을 확정하지 않은 곳은 {corp.get('unknown', 0)}곳
-(중앙시장 주차타워 222면)입니다. 요금·감면 문의는 상주시청 교통에너지과(054-537-6254)로 하세요.</p>
-<table class="fee">
-<thead><tr><th>구분</th><th>기본 요금</th><th>1시간</th><th>2시간</th><th>1일</th><th>월 주간</th><th>월 야간</th><th>곳수</th></tr></thead>
-<tbody>{rows_html}</tbody></table>
-<table class="fee">
-<thead><tr><th>시간 구분</th><th>시간</th><th>비고</th></tr></thead>
-<tbody>{win_rows}</tbody></table>
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">영천시 공영주차장 <b>115곳</b>(부설 60곳·노외 41곳·노상 14구간, 총 5,723면)은
+무료 <b>110곳</b>·유료 <b>4곳</b>·요금 미상 <b>1곳</b>입니다.
+「영천시 주차장 조례」 제1388호 별표 1은 1회 주차요금을 1구획당 30분마다
+<b>1급지</b>(동지역) <b>500원</b>, <b>2급지</b>(읍면지역) <b>200원</b>으로 정하고,
+1일 요금은 두지 않습니다. 부설주차장 요금은 조례 제6조에 따라 관리규칙으로 정합니다.
+궁금한 점은 영천시청 교통행정과(054-330-6264)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">월정기 주간</th><th class="num">월정기 야간</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금으로 계산하는 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
     if ft.get("style") == "daejeon_grade":
@@ -16883,6 +16894,10 @@ def main():
     (DIST / "assets").mkdir(parents=True)
     for f in ("style.css", "app.js", "nearby.js"):
         shutil.copy(ASSETS / f, DIST / "assets" / f)
+    # 폰트 표준화(2026-11-21): Pretendard 자체 호스팅 — assets/fonts/ 를 dist 로 통째로 복사.
+    fonts_src = ASSETS / "fonts"
+    if fonts_src.exists():
+        shutil.copytree(fonts_src, DIST / "assets" / "fonts")
     # T-08: 랜딩 '내 주변 주차장' 좌표 데이터셋 — 페이지를 만들 때 함께 다시 만든다.
     (DIST / "assets" / "nearby.json").write_text(build_nearby_data(site), encoding="utf-8")
 

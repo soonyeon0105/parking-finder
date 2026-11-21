@@ -922,8 +922,10 @@ MIX["gumi"] = tuple(sorted(_all_mix_tokens))
 #   다른 지역 이름은 없다.
 MIX["yeongju"] = tuple(sorted(_all_mix_tokens))
 
-# 상주 (조례 제1785호 별표: 30분마다 500원·1일 6,000원·월 주간 75,000원·야간 56,000원)
-MIX["sangju"] = tuple(sorted(_all_mix_tokens))
+# 영천시 — 창원·진주·통영·사천·김해·밀양·거제·양산·남해·하동·산청·함양·거창·합천·의령·함안·창녕·포항·경주·안동과 같은 부류. 도 이름에
+#   '광주'가 없어 전 토큰을 그대로 쓴다. 영천 페이지에 정당하게 나오는
+#   다른 지역 이름은 없다.
+MIX["yeongcheon"] = tuple(sorted(_all_mix_tokens))
 
 
 # 거창군 — 창원·진주·통영·사천·김해·밀양·거제·양산·남해·하동·산청과 같은 부류. 도 이름에
