@@ -1,0 +1,7608 @@
+{
+ "meta": {
+  "generated_at": "2026-11-21 09:01",
+  "generated_at_iso": "2026-11-21T09:01:22+09:00",
+  "snapshot_at": "2026-11-21 09:01",
+  "region": {
+   "province": "경상남도",
+   "city": "남해군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-04-21",
+    "rows_total": 18994,
+    "rows_city": 62,
+    "fetched_at": "2026-11-21 09:01 (KST)",
+    "note": "남해군으로 등록된 행 62행 중 공영 62행을 읽어 중복 제거 0건, 제외 0건으로 62곳을 실었다. 유료 5곳·무료 57곳·미상 0곳이다. 데이터기준일자는 62곳 전부 2026-04-21이다. 좌표 결측은 0곳이다. 조례 대조 완료 — 「남해군 주차장 조례」 제2738호(시행 2024-04-30, ordinSeq 1923161) 제5조제1항·별표 1 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "남해군 주차장 조례",
+    "org": "경상남도 남해군",
+    "url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=1923161&ordinId=1923161&gubun=ELIS",
+    "file": "namhae-ordinance-b1.txt",
+    "sha256": "220382bb25dcdd0d5ba6c6ebc3b0352600b8e7712169e0852823f3bbe3597f39",
+    "license": "자치법규(공개)",
+    "base_date": "2024-04-30",
+    "rows_total": null,
+    "fetched_at": "2026-11-21 09:01 (KST)",
+    "note": "남해군이 설치·관리하는 공영주차장에 적용하는 조례다. 표준데이터에 등록된 남해군 공영주차장 62곳(노외 36곳·노상 26구간, 총 4,289면)입니다. 등록은 전부 공영이고 요금 구분은 무료 57곳·유료 5곳입니다. 유료 5곳은 전부 남해읍에 있고 등록 급지(3급지 2곳·2급지 2곳·1급지 1곳)의 소형 별표 금액과 등록값이 전부 일치합니다. 1급지 1곳(남해읍간선도로공영주차장)은 최초 10분이 무료입니다. 도로명주소는 13곳만 등록돼 있어 나머지는 지번주소로 안내합니다. 운영요일은 62곳 전부 평일+토요일로 등록돼 있고 공휴일은 운영하지 않습니다. (조례 본문: data/raw/namhae-ordinance.txt, 별표 원문: data/raw/namhae-ordinance-b1.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "남해군",
+   "slug": "namhae"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gn-namhae-001",
+   "mgmt_no": "393-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고현시장 주차장",
+   "gu": "남해군",
+   "dong": "고현면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 고현면 대사리 768",
+   "addr_road": "경상남도 남해군 고현면 탑동로 68-2",
+   "road": null,
+   "spaces": 12,
+   "tel": "055-860-3455",
+   "lat": 34.89701834,
+   "lng": 127.8728264,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-002",
+   "mgmt_no": "393-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "이락사 주차장",
+   "gu": "남해군",
+   "dong": "고현면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 고현면 차면리 107",
+   "addr_road": "경상남도 남해군 고현면 남해대로 3829",
+   "road": null,
+   "spaces": 72,
+   "tel": "055-860-3455",
+   "lat": 34.91252187,
+   "lng": 127.8578101,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-003",
+   "mgmt_no": "393-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "탑동로 주차장",
+   "gu": "남해군",
+   "dong": "고현면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 고현면 대사리 663",
+   "addr_road": "경상남도 남해군 고현면 탑동로 51",
+   "road": null,
+   "spaces": 52,
+   "tel": "055-860-3455",
+   "lat": 34.89573715,
+   "lng": 127.8733019,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-004",
+   "mgmt_no": "393-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남면사무소 뒤편",
+   "gu": "남해군",
+   "dong": "남면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 남면 당항리 1440-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "055-860-3455",
+   "lat": 34.7717925,
+   "lng": 127.8869289,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-005",
+   "mgmt_no": "393-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "사촌해수욕장 1주차장",
+   "gu": "남해군",
+   "dong": "남면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 남면 임포리 1173",
+   "addr_road": "경상남도 남해군 남면 남면로1229번길 36-12",
+   "road": null,
+   "spaces": 40,
+   "tel": "055-860-3455",
+   "lat": 34.74264669,
+   "lng": 127.8568309,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-006",
+   "mgmt_no": "393-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "사촌해수욕장 2주차장",
+   "gu": "남해군",
+   "dong": "남면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 남면 임포리 1195-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 37,
+   "tel": "055-860-3455",
+   "lat": 34.74513051,
+   "lng": 127.8549628,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-007",
+   "mgmt_no": "393-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "선구마을 내 주차장",
+   "gu": "남해군",
+   "dong": "남면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 남면 선구리 1310-17",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "055-860-3455",
+   "lat": 34.73722821,
+   "lng": 127.8576886,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-008",
+   "mgmt_no": "393-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "월포마을 1주차장",
+   "gu": "남해군",
+   "dong": "남면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 남면 석교리 149",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "055-860-3455",
+   "lat": 34.76172793,
+   "lng": 127.904052,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-009",
+   "mgmt_no": "393-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "월포마을 2주차장",
+   "gu": "남해군",
+   "dong": "남면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 남면 석교리 1034-1",
+   "addr_road": "경상남도 남해군 남면 남서대로 611-17",
+   "road": null,
+   "spaces": 100,
+   "tel": "055-860-3455",
+   "lat": 34.76717298,
+   "lng": 127.9050425,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-010",
+   "mgmt_no": "393-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "공설운동장 주차장",
+   "gu": "남해군",
+   "dong": "남해읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 남해읍 서변리 491",
+   "addr_road": "",
+   "road": null,
+   "spaces": 195,
+   "tel": "055-860-3455",
+   "lat": 34.83464722,
+   "lng": 127.892329,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-011",
+   "mgmt_no": "393-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남해읍 공영주차장",
+   "gu": "남해군",
+   "dong": "남해읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 남해읍 북변리 321-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 224,
+   "tel": "055-860-3455",
+   "lat": 34.84096232,
+   "lng": 127.8979757,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "경차 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3000,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 30000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3000,
+     "monthly": 30000
+    },
+    "basis": "표준데이터 등록값이 등록 급지의 소형 별표 금액과 일치해 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-012",
+   "mgmt_no": "393-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "남해읍(나래숲) 주거지 주차장",
+   "gu": "남해군",
+   "dong": "남해읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 남해읍 아산리 262",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "055-860-3455",
+   "lat": 34.8412162583,
+   "lng": 127.8902922,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-013",
+   "mgmt_no": "393-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "모아원룸 옆 주차장",
+   "gu": "남해군",
+   "dong": "남해읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 남해읍 서변리 327-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 5,
+   "tel": "055-860-3455",
+   "lat": 34.8366345298,
+   "lng": 127.8891478,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-014",
+   "mgmt_no": "393-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "쏭애드 앞 주차장",
+   "gu": "남해군",
+   "dong": "남해읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 남해읍 서변리 305-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 4,
+   "tel": "055-860-3455",
+   "lat": 34.8374164,
+   "lng": 127.8917679,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-015",
+   "mgmt_no": "393-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "아름다운 교회 앞 주차장",
+   "gu": "남해군",
+   "dong": "남해읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 남해읍 아산리 374-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 5,
+   "tel": "055-860-3455",
+   "lat": 34.8405284,
+   "lng": 127.891681,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-016",
+   "mgmt_no": "393-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "천주교 남해교회 앞 주차장",
+   "gu": "남해군",
+   "dong": "남해읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 남해읍 북변리 608-19",
+   "addr_road": "",
+   "road": null,
+   "spaces": 4,
+   "tel": "055-860-3455",
+   "lat": 34.8419473,
+   "lng": 127.8922227,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-017",
+   "mgmt_no": "393-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "미조 체육공원 주차장",
+   "gu": "남해군",
+   "dong": "미조면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 미조면 송정리 1258-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 79,
+   "tel": "055-860-3455",
+   "lat": 34.72714846,
+   "lng": 128.0264315,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-018",
+   "mgmt_no": "393-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "미조면 공영주차장",
+   "gu": "남해군",
+   "dong": "미조면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 미조면 미조리 102",
+   "addr_road": "경상남도 남해군 미조면 미송로 60",
+   "road": null,
+   "spaces": 52,
+   "tel": "055-860-3455",
+   "lat": 34.71203221,
+   "lng": 128.0459923,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-019",
+   "mgmt_no": "393-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "북항 주차장",
+   "gu": "남해군",
+   "dong": "미조면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 미조면 미조리 107",
+   "addr_road": "",
+   "road": null,
+   "spaces": 109,
+   "tel": "055-860-3455",
+   "lat": 34.71277134,
+   "lng": 128.0446612,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-020",
+   "mgmt_no": "393-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "설리해수욕장 주차장",
+   "gu": "남해군",
+   "dong": "미조면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 미조면 송정리 961-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 33,
+   "tel": "055-860-3455",
+   "lat": 34.70472766,
+   "lng": 128.0265317,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-021",
+   "mgmt_no": "393-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "설리해수욕장 주차장(어촌뉴딜)",
+   "gu": "남해군",
+   "dong": "미조면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 미조면 송정리 966",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "055-860-3455",
+   "lat": 34.705414,
+   "lng": 128.024721044,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-022",
+   "mgmt_no": "393-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송정솔바람해변 주차장",
+   "gu": "남해군",
+   "dong": "미조면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 미조면 송정리 1130",
+   "addr_road": "",
+   "road": null,
+   "spaces": 182,
+   "tel": "055-860-3455",
+   "lat": 34.7234311,
+   "lng": 128.0248128,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-023",
+   "mgmt_no": "393-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "독일마을 주차장",
+   "gu": "남해군",
+   "dong": "삼동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 삼동면 봉화리 2572-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 91,
+   "tel": "055-860-3455",
+   "lat": 34.8002925501,
+   "lng": 128.0379514,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-024",
+   "mgmt_no": "393-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "물건 어부림 주차장",
+   "gu": "남해군",
+   "dong": "삼동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 삼동면 물건리 479",
+   "addr_road": "",
+   "road": null,
+   "spaces": 57,
+   "tel": "055-860-3455",
+   "lat": 34.79580002,
+   "lng": 128.0499545,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-025",
+   "mgmt_no": "393-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "물건항 주차장",
+   "gu": "남해군",
+   "dong": "삼동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 삼동면 물건리 484",
+   "addr_road": "경상남도 남해군 삼동면 동부대로1030번길 39",
+   "road": null,
+   "spaces": 94,
+   "tel": "055-860-3455",
+   "lat": 34.79419594,
+   "lng": 128.0508291,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-026",
+   "mgmt_no": "393-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "원예예술촌 주차장",
+   "gu": "남해군",
+   "dong": "삼동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 삼동면 봉화리 2613",
+   "addr_road": "",
+   "road": null,
+   "spaces": 130,
+   "tel": "055-860-3455",
+   "lat": 34.8016623,
+   "lng": 128.0379222107,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-027",
+   "mgmt_no": "393-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화암 주차장",
+   "gu": "남해군",
+   "dong": "삼동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 삼동면 봉화리 1096",
+   "addr_road": "",
+   "road": null,
+   "spaces": 249,
+   "tel": "055-860-3455",
+   "lat": 34.8026779,
+   "lng": 128.029795,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-028",
+   "mgmt_no": "393-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상주은모래비치 주차장",
+   "gu": "남해군",
+   "dong": "상주면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 상주면 상주리 1227",
+   "addr_road": "",
+   "road": null,
+   "spaces": 350,
+   "tel": "055-860-3455",
+   "lat": 34.72255623,
+   "lng": 127.9881147,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-029",
+   "mgmt_no": "393-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한려체육공원 주차장",
+   "gu": "남해군",
+   "dong": "상주면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 상주면 상주리 1781-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 128,
+   "tel": "055-860-3455",
+   "lat": 34.72331334,
+   "lng": 127.9811143,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-030",
+   "mgmt_no": "393-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "스포츠파크 주차장",
+   "gu": "남해군",
+   "dong": "서면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 서면 서상리 1182-4",
+   "addr_road": "경상남도 남해군 서면 스포츠파크길 15",
+   "road": null,
+   "spaces": 363,
+   "tel": "055-860-3455",
+   "lat": 34.8063611872,
+   "lng": 127.8385747633,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-031",
+   "mgmt_no": "393-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "노량주차장",
+   "gu": "남해군",
+   "dong": "설천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 설천면 노량리 410-36",
+   "addr_road": "",
+   "road": null,
+   "spaces": 157,
+   "tel": "055-860-3455",
+   "lat": 34.93989504,
+   "lng": 127.8749647,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-032",
+   "mgmt_no": "393-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "이동공설시장주차장",
+   "gu": "남해군",
+   "dong": "이동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 이동면 무림리 1802",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "055-860-3455",
+   "lat": 34.79842859,
+   "lng": 127.9544864,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-033",
+   "mgmt_no": "393-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화계공원내주차장",
+   "gu": "남해군",
+   "dong": "이동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 이동면 화계리 104-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "055-860-3455",
+   "lat": 34.77843883,
+   "lng": 127.9433101,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-034",
+   "mgmt_no": "393-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "단항회센타 앞 주차장",
+   "gu": "남해군",
+   "dong": "창선면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 창선면 대벽리 6-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 130,
+   "tel": "055-860-3455",
+   "lat": 34.91666214,
+   "lng": 128.0303413,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-035",
+   "mgmt_no": "393-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "면소재지 복개 주차장",
+   "gu": "남해군",
+   "dong": "창선면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 창선면 상죽리 668",
+   "addr_road": "",
+   "road": null,
+   "spaces": 73,
+   "tel": "055-860-3455",
+   "lat": 34.85809234,
+   "lng": 128.0134858,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-036",
+   "mgmt_no": "393-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "창선 단항공영주차장",
+   "gu": "남해군",
+   "dong": "창선면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 남해군 창선면 대벽리 1098",
+   "addr_road": "",
+   "road": null,
+   "spaces": 182,
+   "tel": "055-860-3455",
+   "lat": 34.917265777,
+   "lng": 128.0284796092,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s001",
+   "mgmt_no": "393-1-000022",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "화방사주차장 (노상 15면)",
+   "gu": "남해군",
+   "dong": "고현면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 고현면 대곡리 1201-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "055-860-3455",
+   "lat": 34.86808032,
+   "lng": 127.8649277,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s002",
+   "mgmt_no": "393-1-000017",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "화방사주차장 (노상 55면)",
+   "gu": "남해군",
+   "dong": "고현면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 고현면 대곡리 1149-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 55,
+   "tel": "055-860-3455",
+   "lat": 34.86545156,
+   "lng": 127.8649842,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s003",
+   "mgmt_no": "393-1-000015",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "가천다랭이마을 주차장",
+   "gu": "남해군",
+   "dong": "남면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 남면 홍현리 840-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 33,
+   "tel": "055-860-3455",
+   "lat": 34.72797292,
+   "lng": 127.8911214,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s004",
+   "mgmt_no": "393-1-000026",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "가천주차장",
+   "gu": "남해군",
+   "dong": "남면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 남면 홍현리 744-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "055-860-3455",
+   "lat": 34.72954079,
+   "lng": 127.8956357,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s005",
+   "mgmt_no": "393-1-000014",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남면사무소 앞 노상주차장",
+   "gu": "남해군",
+   "dong": "남면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 남면 당항리 2112-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 70,
+   "tel": "055-860-3455",
+   "lat": 34.77340326,
+   "lng": 127.8867174,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s006",
+   "mgmt_no": "393-1-000023",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남면주차장",
+   "gu": "남해군",
+   "dong": "남면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 남면 당항리 1481-5",
+   "addr_road": "경상남도 남해군 남면 남서대로 758-1",
+   "road": "남서대로",
+   "spaces": 73,
+   "tel": "055-860-3455",
+   "lat": 34.77089129,
+   "lng": 127.8889632,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s007",
+   "mgmt_no": "393-1-000024",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "빛담촌주차장",
+   "gu": "남해군",
+   "dong": "남면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 남면 선구리 1405",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "055-860-3455",
+   "lat": 34.72993103,
+   "lng": 127.8678164,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s008",
+   "mgmt_no": "393-1-000025",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "석교리 주차장",
+   "gu": "남해군",
+   "dong": "남면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 남면 석교리 183",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "055-860-3455",
+   "lat": 34.76037984,
+   "lng": 127.9033965,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s009",
+   "mgmt_no": "393-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "군청뒷편 주차장",
+   "gu": "남해군",
+   "dong": "남해읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 남해읍 서변리 27-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "055-860-3455",
+   "lat": 34.83769481,
+   "lng": 127.8918762,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s010",
+   "mgmt_no": "393-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "군청앞 도로변 주차장",
+   "gu": "남해군",
+   "dong": "남해읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 남해읍 서변리 52-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "055-860-3455",
+   "lat": 34.83677681,
+   "lng": 127.8932456,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s011",
+   "mgmt_no": "393-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남해읍간선도로공영주차장",
+   "gu": "남해군",
+   "dong": "남해읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 남해읍 북변리 634",
+   "addr_road": "",
+   "road": null,
+   "spaces": 78,
+   "tel": "055-860-3455",
+   "lat": 34.83934308,
+   "lng": 127.8939838,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "경차 50프로 할인",
+   "notice": "조례 별표 1 비고 7에 따라 1급지는 최초 10분이 무료입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 0,
+    "unit_min": 10,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 10,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 0,
+     "unit_min": 10,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(최초 10분 0원·추가 10분마다 500원)이 조례 별표 1의 1급지 행·비고 7(최초 10분 무료)과 일치해 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 0,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s012",
+   "mgmt_no": "393-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남해읍일반도로공영주차장",
+   "gu": "남해군",
+   "dong": "남해읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 남해읍 북변리 96-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "055-860-3455",
+   "lat": 34.83799862,
+   "lng": 127.895683,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "경차 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값이 등록 급지의 소형 별표 금액과 일치해 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s013",
+   "mgmt_no": "393-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남해초등학교옆주차장",
+   "gu": "남해군",
+   "dong": "남해읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 남해읍 아산리 367-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "055-860-3455",
+   "lat": 34.83868894,
+   "lng": 127.8918385,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s014",
+   "mgmt_no": "393-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "농협옆 유료주차장",
+   "gu": "남해군",
+   "dong": "남해읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 남해읍 북변리 287-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "055-860-3455",
+   "lat": 34.84105344,
+   "lng": 127.8936596,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "경차 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 6000,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 6000,
+     "monthly": 60000
+    },
+    "basis": "표준데이터 등록값이 등록 급지의 소형 별표 금액과 일치해 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s015",
+   "mgmt_no": "393-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "시외버스터미널 주변 주차장",
+   "gu": "남해군",
+   "dong": "남해읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 남해읍 북변리 316-3",
+   "addr_road": "경상남도 남해군 남해읍 남해대로 2835",
+   "road": "남해대로",
+   "spaces": 10,
+   "tel": "055-860-3455",
+   "lat": 34.84179084,
+   "lng": 127.8984844,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s016",
+   "mgmt_no": "393-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "아산공영유료주차장",
+   "gu": "남해군",
+   "dong": "남해읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 남해읍 아산리 497-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 69,
+   "tel": "055-860-3455",
+   "lat": 34.83763567,
+   "lng": 127.8849426,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "경차 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 10,
+    "base_fee": 100,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3000,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 30000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": 3,
+    "grade_label": "3급지",
+    "std_grade": "3",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금+카드",
+    "std": {
+     "base_min": 10,
+     "base_fee": 100,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3000,
+     "monthly": 30000
+    },
+    "basis": "표준데이터 등록값이 등록 급지의 소형 별표 금액과 일치해 그대로 적용했다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 100,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s017",
+   "mgmt_no": "393-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "유림사거리~남해병원 주차장",
+   "gu": "남해군",
+   "dong": "남해읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 남해읍 북변리 558-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 31,
+   "tel": "055-860-3455",
+   "lat": 34.84285406,
+   "lng": 127.8941656,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s018",
+   "mgmt_no": "393-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "학생백화점~향교 주차장",
+   "gu": "남해군",
+   "dong": "남해읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 남해읍 북변리 290-3",
+   "addr_road": "경상남도 남해군 남해읍 망운로10번길 34",
+   "road": "망운로10번길",
+   "spaces": 23,
+   "tel": "055-860-3455",
+   "lat": 34.8411541,
+   "lng": 127.8930155,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s019",
+   "mgmt_no": "393-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "화전도서관 옆 주차장",
+   "gu": "남해군",
+   "dong": "남해읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 남해읍 아산리 355-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "055-860-3455",
+   "lat": 34.83836405,
+   "lng": 127.8909021,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s020",
+   "mgmt_no": "393-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "효성아파트 앞 주차장",
+   "gu": "남해군",
+   "dong": "남해읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 남해읍 아산리 969-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 36,
+   "tel": "055-860-3455",
+   "lat": 34.83856644,
+   "lng": 127.8864812,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s021",
+   "mgmt_no": "393-1-000021",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "바람흔적미술관 앞",
+   "gu": "남해군",
+   "dong": "삼동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 삼동면 봉화리 2005-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "055-860-3455",
+   "lat": 34.76362227,
+   "lng": 128.0122825,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s022",
+   "mgmt_no": "393-1-000020",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "삼동보건소 앞 주차장",
+   "gu": "남해군",
+   "dong": "삼동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 삼동면 지족리 266-19",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "055-860-3455",
+   "lat": 34.83238752,
+   "lng": 128.0012809,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s023",
+   "mgmt_no": "393-1-000018",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "지족1어항 주차장",
+   "gu": "남해군",
+   "dong": "삼동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 삼동면 지족리 1036-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 48,
+   "tel": "055-860-3455",
+   "lat": 34.83275199,
+   "lng": 127.9927782,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s024",
+   "mgmt_no": "393-1-000019",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "창선대교 밑 주차장",
+   "gu": "남해군",
+   "dong": "삼동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 삼동면 지족리 291-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 46,
+   "tel": "055-860-3455",
+   "lat": 34.8325509,
+   "lng": 128.0001578,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s025",
+   "mgmt_no": "393-1-000027",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "동대만휴게소주차장",
+   "gu": "남해군",
+   "dong": "창선면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 창선면 동대리 482-20",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "055-860-3455",
+   "lat": 34.87245374,
+   "lng": 128.009355,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  },
+  {
+   "id": "gn-namhae-s026",
+   "mgmt_no": "393-1-000016",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "창선 면소재지 주차장",
+   "gu": "남해군",
+   "dong": "창선면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 남해군 창선면 상죽리 101-29",
+   "addr_road": "",
+   "road": null,
+   "spaces": 73,
+   "tel": "055-860-3455",
+   "lat": 34.85768033,
+   "lng": 128.012782,
+   "base_date": "2026-04-21",
+   "manager": "경상남도 남해군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 24,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": false
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": false,
+     "start": 0,
+     "end": 0,
+     "24h": false,
+     "listed": false,
+     "raw": [
+      "00:00",
+      "00:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "남해군",
+   "city_slug": "namhae",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-21 09:01",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 62,
+  "원자료_남해군행수": 62,
+  "원자료_받은행수": 62,
+  "구별": {
+   "남해군": 62
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 36,
+  "노외_부설": {
+   "노외": 36
+  },
+  "노상_구간": 26,
+  "총_구획수": 3387,
+  "노상_구획수": 902,
+  "동별": {
+   "남해읍": 19,
+   "남면": 12,
+   "삼동면": 9,
+   "미조면": 6,
+   "고현면": 5,
+   "창선면": 5,
+   "상주면": 2,
+   "이동면": 2,
+   "서면": 1,
+   "설천면": 1
+  },
+  "동수": 10,
+  "동_미상": [],
+  "동_보정": [
+   "이름이 겹치는 주차장 화방사주차장 — 전부 다른 자리라 주소 끝부분·면수·노상 표기로 구분했다"
+  ],
+  "동_근거": {
+   "지번주소": 62
+  },
+  "요금구분": {
+   "무료": 57,
+   "유료": 5
+  },
+  "요금_미상": [],
+  "유료_노상": 4,
+  "유료_노외": 1,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 29건 있다 — 물건 어부림 주차장·물건항 주차장(195m), 설리해수욕장 주차장·설리해수욕장 주차장(어촌뉴딜)(180m), 쏭애드 앞 주차장·군청뒷편 주차장(32m), 쏭애드 앞 주차장·군청앞 도로변 주차장(151m), 쏭애드 앞 주차장·화전도서관 옆 주차장(131m), 쏭애드 앞 주차장·남해초등학교옆주차장(141m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 62행이 전부 공영이라 민영 제외 없이 62곳을 실었다. 데이터기준일자는 62곳 전부 2026-04-21, 제공기관명은 경상남도 남해군 62곳, 관리기관명은 경상남도 남해군청 62곳이다",
+   "유료 5곳은 전부 남해읍에 있고 특기사항이 전부 '경차 50프로 할인'이다 — 조례 제5조의3제2항제5호의 경형자동차 50% 경감과 같다",
+   "도로명주소는 13곳만 등록돼 있고, 특기사항은 무료 57곳 전부 비어 있다",
+   "전화번호는 62곳 전부 남해군청 055-860-3455로 등록돼 있다",
+   "좌표는 62곳 전부 등록돼 있고 전부 남해군 범위 안이라 지오코딩 보완이 0건이다",
+   "운영요일은 62곳 전부 평일+토요일이고 공휴일 운영시간은 전부 00:00~00:00이다. 부제시행구분은 전부 미시행, 장애인전용주차구역 보유여부는 전부 공란이다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "남해읍일반도로공영주차장: 2급지이나 1일·월정기 등록이 비어 있다 — 별표에는 1일·월 금액이 있으나 미운영인지 등록 누락인지 단정할 수 없어 등록 없음으로 남겼다(군청 확인 과제)"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "남면사무소 뒤편",
+   "사촌해수욕장 2주차장",
+   "선구마을 내 주차장",
+   "월포마을 1주차장",
+   "공설운동장 주차장",
+   "남해읍 공영주차장",
+   "남해읍(나래숲) 주거지 주차장",
+   "모아원룸 옆 주차장",
+   "쏭애드 앞 주차장",
+   "아름다운 교회 앞 주차장",
+   "천주교 남해교회 앞 주차장",
+   "미조 체육공원 주차장",
+   "북항 주차장",
+   "설리해수욕장 주차장",
+   "설리해수욕장 주차장(어촌뉴딜)",
+   "송정솔바람해변 주차장",
+   "독일마을 주차장",
+   "물건 어부림 주차장",
+   "원예예술촌 주차장",
+   "화암 주차장",
+   "상주은모래비치 주차장",
+   "한려체육공원 주차장",
+   "노량주차장",
+   "이동공설시장주차장",
+   "화계공원내주차장",
+   "단항회센타 앞 주차장",
+   "면소재지 복개 주차장",
+   "창선 단항공영주차장",
+   "화방사주차장 (노상 15면)",
+   "화방사주차장 (노상 55면)",
+   "가천다랭이마을 주차장",
+   "가천주차장",
+   "남면사무소 앞 노상주차장",
+   "빛담촌주차장",
+   "석교리 주차장",
+   "군청뒷편 주차장",
+   "군청앞 도로변 주차장",
+   "남해읍간선도로공영주차장",
+   "남해읍일반도로공영주차장",
+   "남해초등학교옆주차장",
+   "농협옆 유료주차장",
+   "아산공영유료주차장",
+   "유림사거리~남해병원 주차장",
+   "화전도서관 옆 주차장",
+   "효성아파트 앞 주차장",
+   "바람흔적미술관 앞",
+   "삼동보건소 앞 주차장",
+   "지족1어항 주차장",
+   "창선대교 밑 주차장",
+   "동대만휴게소주차장",
+   "창선 면소재지 주차장"
+  ],
+  "감면_출처": "「남해군 주차장 조례」 제2738호 제5조제2항·제5조의3 — 면제: 긴급자동차와 국가 또는 지방자치단체의 공용차량(제5조제2항). 100% 감면: 군 단위 이상 행사 지정(제5조의3제2항제1호), 모범납세자(수상일로부터 1년, 제2호), 이장의 공무 방문(제3호). 50% 경감: 장애인과 국가유공자 상이자 1~6급(제4호), 경형자동차(제5호), 환경친화적 자동차(제6호), 병역명문가 예우대상자와 가족(제7호), 임산부(제10호), 경남i다누리카드 소지자(제11호). 20% 경감: 부제 운행 준수 차량(제8호). 투표확인증을 제출한 사람은 2,000원까지 감면한다(제9호) — 정액 감면이라 계산기 감면 목록에는 넣지 않았다. 본문 원문(data/raw/namhae-ordinance.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 제5조제1항·별표 1 — 공영주차장 주차요금은 별표 1과 같다. 별표 1은 10분당 요금으로 1급지 소형 500원(1일·월 해당없음)·2급지 소형 200원·1일 6,000원·월 60,000원·3급지 소형 100원·1일 3,000원·월 30,000원이고 대형은 각 2배다. 표준데이터 유료 5곳의 등록값이 등록 급지의 소형 행과 전 항목 일치해 등록값을 쓴다",
+  "급지_출처": "표준데이터 등록 급지구분은 유료 5곳만 1·2·3급지(3급지 2곳·2급지 2곳·1급지 1곳)이고 무료 57곳은 전부 '기타'이다. 조례 별표 1 비고 1의 급지는 군수가 지정하는 구분이다",
+  "무료요일_출처": "표준데이터 특기사항에 주말·공휴일 무료 문구가 있는 곳이 없다 — 유료 5곳의 특기사항은 전부 '경차 50프로 할인'이고 무료 57곳은 공란이다. 운영요일은 62곳 전부 평일+토요일로 등록돼 공휴일은 운영하지 않는다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 남해군 등록 62행이 전부 공영(노외 36·노상 26)이라 민영 제외 0건으로 62곳·4,289면을 실었다. 중복 제거 0건, 구획수 0 등록 0건, 주소 없음 0건이다. 읍·면별로는 남해읍 19곳·남면 12곳·삼동면 9곳·미조면 6곳·창선면 5곳·고현면 5곳·상주면 2곳·이동면 2곳·서면 1곳·설천면 1곳 등 10개 읍·면이다",
+   "「남해군 주차장 조례」 제2738호(시행 2024-04-30, 일부개정, ordinSeq 1923161) 본문 원문(data/raw/namhae-ordinance.txt) 대조 완료(2026-11-20) — 현행 표제본이 제2738호이고 부칙(제2738호)은 일괄개정조례로 '공포한 날부터 시행'이다. 본문 제5조제1항이 공영주차장 요금을 별표 1로 정한다",
+   "별표 1은 HWP 원본(flSeq 159804803)을 data/raw/namhae-ordinance-b1.hwp로 저장하고 전문을 추출해 확정했다(개정 2006.8.7, 2009.7.10) — 급지×차종 6행과 비고 7개가 들어 있다. 본문 제5조제1항이 별표 1을 참조하고 첨부에도 별표 1(공영주차장 주차요금표)이 들어 있어 첨부파일 오등록이 아니다",
+   "유료 5곳의 등록값이 등록 급지의 소형 별표 금액과 전 항목 일치한다 — 3급지 2곳(남해읍 공영주차장·아산공영유료주차장: 10분 100원·1일 3,000원·월 30,000원), 2급지 1곳(농협옆 유료주차장: 10분 200원·1일 6,000원·월 60,000원), 2급지 1곳(남해읍일반도로공영주차장: 10분 200원, 1일·월 등록 없음), 1급지 1곳(남해읍간선도로공영주차장: 최초 10분 0원·추가 10분 500원). 등록값이 별표와 같아 계산기는 등록값으로 한다",
+   "1급지 최초 10분 무료(별표 비고 7)는 free_min=10으로 명시 구현했다. 1급지는 별표에도 1일·월 금액이 없어 일상한을 만들지 않았다",
+   "1일 요금은 별표 비고 5(1일 주차는 6시간 이상)에 따라 daily_hours=6으로 표기한다(공주·당진 선례). 등록 1일주차권요금적용시간은 유료 5곳 전부 비어 있다",
+   "2급지 남해읍일반도로공영주차장의 1일·월정기 공란은 미운영인지 등록 누락인지 단정할 수 없어 등록 없음으로 남겼다 — 군청 확인 과제다. 무료 57곳의 개별 운영 근거(조례 별표 유료표와의 관계)도 확인 과제다",
+   "별표 비고 2의 계절별 적용시간(4~10월 08:00~20:00, 11~3월 09:00~18:00)과 등록 운영시간이 다른 곳이 있다 — 남해읍 공영주차장(노외)은 평일 00:00~23:59, 아산공영유료주차장은 평일·토요일 00:00~23:59로 등록돼 있고, 나머지 유료 3곳은 평일 08:00~20:00(하절기 창과 같음)이나 토요일은 00:00~23:59다. 등록 시간을 그대로 싣고 계절 창은 요금표에 병기했다 — 유료 5곳의 계절시간·현장 대조는 확인 과제다",
+   "조례에 군 전체를 일괄 면제하는 문구가 없고 제5조의3의 면제는 개별 지정 권한이라, 주말·공휴일 무료로 단정하지 않았다. derive_free_fields의 공휴일 태그 예외에 남해군을 공주·보령·제천·김해·거제·양산과 함께 뒀다. 실제로는 특기사항에 무료 개방 문구가 없어 free_days가 붙은 곳도 없다",
+   "좌표는 62곳 전부 등록돼 있고 전부 남해군 범위 안이라 지오코딩 보완이 0건이다 — 오버레이(좌표누락_지오코딩_20261118.json)는 718행 그대로다",
+   "도로명주소는 13곳(노외 10곳·노상 3곳)만 등록돼 있고 나머지는 지번주소만 있다. 노상 26구간 중 도로명이 있는 구간은 남면주차장·학생백화점~향교 주차장·시외버스터미널 주변 주차장뿐이라 대부분 구간의 위치는 지번주소와 좌표로 확인해야 한다",
+   "화방사주차장이 같은 이름으로 2곳 등록돼 있다(고현면 대곡리 1201-1 15면·1149-4 55면, 둘 다 노상) — 다른 자리라 합치지 않고 주소 끝부분으로 구분했다. 설리해수욕장 주차장(미조면 송정리 961-5, 33면)과 설리해수욕장 주차장(어촌뉴딜)(송정리 966, 50면)은 이름이 다른 별개 등록이라 둘 다 실었다",
+   "운영요일은 62곳 전부 평일+토요일이고 공휴일 운영시간은 전부 00:00~00:00(미운영)이다. 부제시행구분은 62곳 전부 미시행, 장애인전용주차구역 보유여부는 전부 공란이다. 전화번호는 62곳 전부 남해군청 055-860-3455, 관리기관은 전부 경상남도 남해군청, 제공기관은 경상남도 남해군, 데이터기준일자는 전부 2026-04-21이다",
+   "후속 개정 확인: 현행 표제본은 제2738호(시행 2024-04-30)이고 별표 1 자체는 2009.7.10 개정본이다. 요금표 후속 개정 여부는 다음 수집 때 다시 확인한다"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 57,
+  "무료_구획수": 3886,
+  "평균_기본요금": 120,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 62,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-21"
+  ],
+  "관리기관": {
+   "경상남도 남해군청": 62
+  }
+ },
+ "fee_table": {
+  "style": "namhae_grade",
+  "unit_min": 10,
+  "base_min": 10,
+  "applies": "「남해군 주차장 조례」 제2738호(시행 2024-04-30) 제5조제1항·별표 1 — 국가법령정보센터 ordinSeq 1923161에서 확인",
+  "source_url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=1923161&ordinId=1923161&gubun=ELIS",
+  "grade_system": "등록 급지구분은 유료 5곳만 1·2·3급지로 등록돼 있고 무료 57곳은 전부 '기타'이다. 조례 별표 1 비고 1의 급지는 군수가 지정하는 구분으로, 1급지는 주차 수요를 참작하여 군수가 지정한 주차장, 2급지는 1급지를 제외하고 군수가 지정한 주차장, 3급지는 1·2급지를 제외한 주차장이다",
+  "rows": [
+   {
+    "label": "1급지 (소형)",
+    "grade": "grade1",
+    "unit_label": "최초 10분 무료 · 이후 10분마다 500원 · 1일·월 해당없음",
+    "hour": 2500,
+    "two_hour": 5500,
+    "day": null,
+    "month": null,
+    "month_night": null,
+    "lots": 1
+   },
+   {
+    "label": "1급지 (대형)",
+    "grade": "grade1_large",
+    "unit_label": "최초 10분 무료 · 이후 10분마다 1,000원 · 1일·월 해당없음",
+    "hour": 5000,
+    "two_hour": 11000,
+    "day": null,
+    "month": null,
+    "month_night": null,
+    "lots": 0
+   },
+   {
+    "label": "2급지 (소형)",
+    "grade": "grade2",
+    "unit_label": "10분마다 200원 · 1일 6,000원 · 월 60,000원",
+    "hour": 1200,
+    "two_hour": 2400,
+    "day": 6000,
+    "month": 60000,
+    "month_night": null,
+    "lots": 2
+   },
+   {
+    "label": "2급지 (대형)",
+    "grade": "grade2_large",
+    "unit_label": "10분마다 400원 · 1일 12,000원 · 월 120,000원",
+    "hour": 2400,
+    "two_hour": 4800,
+    "day": 12000,
+    "month": 120000,
+    "month_night": null,
+    "lots": 0
+   },
+   {
+    "label": "3급지 (소형)",
+    "grade": "grade3",
+    "unit_label": "10분마다 100원 · 1일 3,000원 · 월 30,000원",
+    "hour": 600,
+    "two_hour": 1200,
+    "day": 3000,
+    "month": 30000,
+    "month_night": null,
+    "lots": 2
+   },
+   {
+    "label": "3급지 (대형)",
+    "grade": "grade3_large",
+    "unit_label": "10분마다 200원 · 1일 6,000원 · 월 60,000원",
+    "hour": 1200,
+    "two_hour": 2400,
+    "day": 6000,
+    "month": 60000,
+    "month_night": null,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 1,
+   "street_paid": 4,
+   "free": 57,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "요금 적용시간 (조례 별표 1 비고 2)",
+    "hours": "4월~10월 08:00~20:00 · 11월~3월 09:00~18:00",
+    "free": "계절별 과금 시간 기준이다. 이 사이트의 운영시간은 표준데이터 등록 시간이라, 등록 운영시간이 이 창과 다른 곳은 현장 확인이 필요하다"
+   }
+  ],
+  "discounts": [
+   {
+    "label": "긴급자동차·공용차량 면제",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 제5조제2항 — 「도로교통법」에 따른 긴급자동차와 국가 또는 지방자치단체의 공용차량은 주차요금을 받지 아니한다"
+   },
+   {
+    "label": "모범납세자 100% 감면 (수상일로부터 1년간)",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 제5조의3제2항제2호 — 모범납세자 표창을 받은 자로서 군수 또는 국세청장이 교부한 성실납세증 표지(스티커)를 부착한 차량에 대하여 수상일로부터 1년간 주차요금을 감면한다"
+   },
+   {
+    "label": "장애인·국가유공자 상이자 50% 경감",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제5조의3제2항제4호 — 등록 장애인과 국가유공자 상이자 1급부터 6급까지가 본인 소유의 비사업용 자동차를 직접 운전하거나 장애정도가 심하여 장애인을 동반한 자동차. 장애인 자동차 표지(스티커) 부착 차량에 한한다"
+   },
+   {
+    "label": "경형자동차 50% 경감",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제5조의3제2항제5호 — 「자동차관리법」에 따른 경형자동차. 유료 5곳의 표준데이터 특기사항에도 '경차 50프로 할인'으로 등록돼 있다"
+   },
+   {
+    "label": "환경친화적 자동차 50% 경감",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제5조의3제2항제6호 — 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조제2호에 따른 환경친화적자동차"
+   },
+   {
+    "label": "병역명문가 예우대상자·가족 50% 경감",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제5조의3제2항제7호 — 「남해군 병역명문가 예우에 관한 조례」에 따른 예우대상자와 예우대상자 가족"
+   },
+   {
+    "label": "임산부 50% 경감",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제5조의3제2항제10호 — 「모자보건법」에 따른 임산부가 직접 운전하거나 동승한 차량으로, 모자보건수첩·임산부 자동차 표지 등 임산부 증명자료를 제시한 경우"
+   },
+   {
+    "label": "경남i다누리카드 소지자 50% 경감",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제5조의3제2항제11호 — 경남i다누리 카드 지원대상으로 해당 카드를 소지한 사람의 자동차"
+   },
+   {
+    "label": "부제 운행 준수 차량 20% 경감",
+    "rate": 0.2,
+    "exempt_min": 0,
+    "note": "조례 제5조의3제2항제8호 — 군수가 정하는 기준 및 방법에 의한 자동차 부제 운행을 준수하는 차량. 부제 참여 자동차표지(스티커) 부착 자동차에 한한다"
+   }
+  ],
+  "notes": "1회 주차는 10분 단위이고 주차 시간이 10분 미만이면 10분으로 계산한다(비고 4). 1일 주차는 주차면 1구획에 1일 6시간 이상 주차하는 경우를 말한다(비고 5) — 이 사이트는 1일 요금을 6시간 기준으로 표기한다. 대형자동차(소형자동차 이외의 자동차)는 소형의 2배 요금이다(별표 1). 월 주차는 월 단위를 기준으로 한 정기주차다(비고 6). 소형은 이륜·승용·15인 이하 승합·최대적재량 1톤 이하 화물이다(비고 3).",
+  "basis": "요금표는 「남해군 주차장 조례」 제2738호(시행 2024-04-30) 제5조제1항·별표 1과 표준데이터(기준일 2026-04-21)를 대조해 실었다. 유료 5곳의 등록값이 등록 급지의 소형 별표 금액과 전부 일치해 이 사이트의 요금 계산도 등록값을 쓴다. (조례 본문: data/raw/namhae-ordinance.txt, 별표 원문: data/raw/namhae-ordinance-b1.txt)"
+ },
+ "slug": "namhae",
+ "province": "경상남도",
+ "province_slug": "gyeongnam",
+ "dong_page_min_lots": 3,
+ "city": "남해군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·공용차량 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제5조제2항 — 「도로교통법」에 따른 긴급자동차와 국가 또는 지방자치단체의 공용차량은 주차요금을 받지 아니한다"
+  },
+  {
+   "label": "모범납세자 100% 감면 (수상일로부터 1년간)",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제5조의3제2항제2호 — 모범납세자 표창을 받은 자로서 군수 또는 국세청장이 교부한 성실납세증 표지(스티커)를 부착한 차량에 대하여 수상일로부터 1년간 주차요금을 감면한다"
+  },
+  {
+   "label": "장애인·국가유공자 상이자 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제5조의3제2항제4호 — 등록 장애인과 국가유공자 상이자 1급부터 6급까지가 본인 소유의 비사업용 자동차를 직접 운전하거나 장애정도가 심하여 장애인을 동반한 자동차. 장애인 자동차 표지(스티커) 부착 차량에 한한다"
+  },
+  {
+   "label": "경형자동차 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제5조의3제2항제5호 — 「자동차관리법」에 따른 경형자동차. 유료 5곳의 표준데이터 특기사항에도 '경차 50프로 할인'으로 등록돼 있다"
+  },
+  {
+   "label": "환경친화적 자동차 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제5조의3제2항제6호 — 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조제2호에 따른 환경친화적자동차"
+  },
+  {
+   "label": "병역명문가 예우대상자·가족 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제5조의3제2항제7호 — 「남해군 병역명문가 예우에 관한 조례」에 따른 예우대상자와 예우대상자 가족"
+  },
+  {
+   "label": "임산부 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제5조의3제2항제10호 — 「모자보건법」에 따른 임산부가 직접 운전하거나 동승한 차량으로, 모자보건수첩·임산부 자동차 표지 등 임산부 증명자료를 제시한 경우"
+  },
+  {
+   "label": "경남i다누리카드 소지자 50% 경감",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제5조의3제2항제11호 — 경남i다누리 카드 지원대상으로 해당 카드를 소지한 사람의 자동차"
+  },
+  {
+   "label": "부제 운행 준수 차량 20% 경감",
+   "rate": 0.2,
+   "exempt_min": 0,
+   "note": "조례 제5조의3제2항제8호 — 군수가 정하는 기준 및 방법에 의한 자동차 부제 운행을 준수하는 차량. 부제 참여 자동차표지(스티커) 부착 자동차에 한한다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}

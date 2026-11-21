@@ -5800,6 +5800,35 @@ def street_path(city) -> str:
     return f"{city_path(city)}street-parking/"
 
 
+# ------------------------------------------------------------------ 상세페이지
+# 큰 유료 주차장은 이름 검색(“○○주차장 월정기”)에 닿도록 개별 상세페이지를 만든다
+# (운영자 결정 2026-11-20 — 시범이 아니라 대상 전부). 대상: 요금 구분이 ‘무료’가
+# 아니고(유료·미상) 구획수가 기준 이상인 곳. 경로는 시 페이지 아래에 내부 id를 쓴다.
+DETAIL_MIN_SPACES = 50
+
+
+def is_detail_target(lot) -> bool:
+    return lot["fee"]["type"] != "무료" and (lot.get("spaces") or 0) >= DETAIL_MIN_SPACES
+
+
+def detail_path(city, lot) -> str:
+    return f"{city_path(city)}{lot['id']}/"
+
+
+_CITY_BY_NAME: dict = {}
+
+
+def city_of(lot):
+    """카드·표처럼 city dict가 손에 없는 렌더러에서 lot의 city dict를 찾는다.
+
+    slug는 광역시 자치구끼리 겹친다(부산·대구·광주·울산 북구 전부 'buk-gu') —
+    그래서 유일한 도시 이름(lot['city'], 예: '부산 북구')으로 찾는다.
+    """
+    if not _CITY_BY_NAME:
+        _CITY_BY_NAME.update({c["city"]: c for c in SITE_CITIES})
+    return _CITY_BY_NAME.get(lot.get("city") or "")
+
+
 # ------------------------------------------------------------------ utils
 def esc(s) -> str:
     return html.escape(str(s if s is not None else ""), quote=True)
@@ -7431,7 +7460,7 @@ def default_discounts():
 
 
 def calculator(lots, default_day="weekday", default_minutes=120, path="", mode="district",
-               discounts=None):
+               discounts=None, single=False):
     s = stats_for(lots)
     day_btn = "".join(
         f'<button type="button" class="seg-btn" data-day="{k}" aria-pressed="{"true" if k == default_day else "false"}">'
@@ -7456,7 +7485,10 @@ def calculator(lots, default_day="weekday", default_minutes=120, path="", mode="
         for i, o in enumerate(opts)
     )
     cols = "cols-2" if len(opts) > 3 else "cols-3"
-    return f"""<section class="calc" aria-labelledby="calc-title">
+    # single: 상세페이지처럼 주차장 1곳만 계산하는 경우 — 결과 요약 문구를 집계형이
+    # 아니라 단일 주차장용으로 내도록 app.js에 표시한다(밀크 검수 지적, 2026-11-20).
+    single_attr = ' data-single="1"' if single else ""
+    return f"""<section class="calc" aria-labelledby="calc-title"{single_attr}>
   <h2 id="calc-title">내 주차 조건으로 바로 계산</h2>
   <p class="hint">요일과 시간을 고르면 아래 목록의 예상 요금이 즉시 다시 계산되고 저렴한 순으로 정렬됩니다.</p>
 
@@ -7491,7 +7523,7 @@ def calculator(lots, default_day="weekday", default_minutes=120, path="", mode="
 </section>"""
 
 
-def lot_card(lot, idx, default_day="weekday", default_minutes=120):
+def lot_card(lot, idx, default_day="weekday", default_minutes=120, link_detail=True):
     res = price_for(lot, default_minutes, default_day)
     if res["state"] == "free":
         # 요금 구분이 '무료'인 주차장은 요일과 관계없이 무료라 ‘선택한 요일’이라고 쓰지 않는다.
@@ -7579,9 +7611,15 @@ def lot_card(lot, idx, default_day="weekday", default_minutes=120):
     lines.append(f'<p class="fee-line">자료 기준일: {esc(lot["base_date"])}</p>')
 
     kakao, naver = map_links(lot)
+    name_html = esc(lot['name'])
+    if link_detail and is_detail_target(lot):
+        _city = city_of(lot)
+        if _city:
+            # 큰 유료 주차장은 이름이 곧 상세페이지 링크다(개별 상세페이지로 연결).
+            name_html = f'<a href="{detail_path(_city, lot)}">{name_html}</a>'
     return f"""<article class="card lot{' free' if res['state'] == 'free' else ''}" data-lot="{esc(lot['id'])}" id="lot-{idx}">
   <div class="lot-head">
-    <h3>{esc(lot['name'])}</h3>
+    <h3>{name_html}</h3>
     <div class="badges">{''.join(badges)}</div>
   </div>
   <p class="addr">{esc(addr_text(lot))}</p>
@@ -7595,10 +7633,11 @@ def lot_card(lot, idx, default_day="weekday", default_minutes=120):
 </article>"""
 
 
-def lot_list(lots, path, default_day="weekday", with_ad=True, default_minutes=120, chips=True):
+def lot_list(lots, path, default_day="weekday", with_ad=True, default_minutes=120, chips=True,
+             link_detail=True):
     cards = []
     for i, lot in enumerate(lots, 1):
-        cards.append(lot_card(lot, i, default_day))
+        cards.append(lot_card(lot, i, default_day, link_detail=link_detail))
         if with_ad and i == 5:
             cards.append(ad_slot().replace('<div class="ad-slot"', '<div style="order:5" class="ad-slot"', 1))
     data = json.dumps([{
@@ -7683,8 +7722,14 @@ def street_rows(street_lots, *, with_price=True, with_daily=None, unit_label="�
         else:
             # 노상 구간은 고유 이름 대신 도로명·지번 주소로 찾는다(모바일에서는 앱 검색으로 이어진다)
             kurl = f"https://map.kakao.com/link/search/{quote(addr)}"
+        dlink = ""
+        if is_detail_target(l):
+            _city = city_of(l)
+            if _city:
+                # 노상 구간은 카드가 없어 표의 이름 옆 ‘상세’로 상세페이지에 연결한다.
+                dlink = f' <a href="{detail_path(_city, l)}">상세</a>'
         rows.append(
-            f'<tr><td><a href="{esc(kurl)}" target="_blank" rel="nofollow noopener">{esc(l["name"])}</a></td>'
+            f'<tr><td><a href="{esc(kurl)}" target="_blank" rel="nofollow noopener">{esc(l["name"])}</a>{dlink}</td>'
             f'<td>{esc(place(l))}</td>'
             f'<td>{esc(road)}</td>'
             f'<td class="num">{l["spaces"]:,}</td>'
@@ -9031,6 +9076,268 @@ def build_dong(city, d, dong, lots, site, slug_override=None):
         path=path, body=body, crumbs=crumbs, nav_active=gu, city=city,
         jsonld=[jsonld_breadcrumb(crumbs, path), jsonld_itemlist(lots_sorted, path), jsonld_faq(qa, path)])
 
+
+def lot_display_name(name: str) -> str:
+    """상세페이지 표기 이름 — 원자료 이름이 이미 ‘주차장’으로 끝나면 템플릿 접미
+    ‘공영주차장’을 겹쳐 붙이지 않는다(밀크 검수 지적, 2026-11-20)."""
+    if name.endswith("주차장"):
+        return name
+    return f"{name} 공영주차장"
+
+
+def jsonld_lot(lot, city, path):
+    """상세페이지용 ParkingFacility 구조화 데이터 — 값이 있는 항목만 싣는다."""
+    obj = {"@context": "https://schema.org", "@type": "ParkingFacility",
+           "name": lot_display_name(lot["name"]),
+           "url": SITE_BASE + path,
+           "address": {"@type": "PostalAddress",
+                       "streetAddress": lot["addr_road"] or lot["addr_jibun"],
+                       "addressLocality": city["city"],
+                       "addressRegion": city.get("province") or "",
+                       "addressCountry": "KR"}}
+    if lot.get("lat") and lot.get("lng"):
+        obj["geo"] = {"@type": "GeoCoordinates",
+                      "latitude": lot["lat"], "longitude": lot["lng"]}
+    if lot.get("tel"):
+        obj["telephone"] = lot["tel"]
+    return obj
+
+
+def detail_description(city, lot) -> str:
+    """상세페이지 메타 설명 — 이름 검색에서 바로 답이 보이도록 핵심 수치를 넣는다."""
+    fee = lot["fee"]
+    bits = []
+    if fee.get("monthly"):
+        bits.append(f"월정기 {won(fee['monthly'])}")
+    if fee.get("daily_fee"):
+        bits.append(f"1일 {won(fee['daily_fee'])}")
+    if fee.get("base_fee") is not None and fee.get("base_min"):
+        bits.append(f"기본 {fee['base_min']}분 {won(fee['base_fee'])}")
+    if fee["type"] == "미상" and not bits:
+        # 월정기 값이 없는데 ‘월정기 전용’이라 쓰지 않는다(밀크 검수 지적, 2026-11-20).
+        bits.append("시간요금 미등록")
+    addr = lot["addr_road"] or lot["addr_jibun"] or city["city"]
+    core = " · ".join(bits)
+    return (f"{lot_display_name(lot['name'])}({addr}) — {lot['spaces']:,}면"
+            + (f", {core}" if core else "")
+            + ". 요금 계산기·운영시간·감면 정보를 공공데이터로 정리했습니다.")
+
+
+def build_lot_detail(city, lot, site, existing_paths, dong_path=None):
+    """큰 유료 주차장 1곳의 개별 상세페이지. 시·동 페이지와 같은 계산기·카드를 재사용한다."""
+    path = detail_path(city, lot)
+    fee = lot["fee"]
+    name = lot["name"]
+    addr = lot["addr_road"] or lot["addr_jibun"] or ""
+
+    # 요일별 운영시간 표
+    hour_rows = ""
+    for k, label in (("weekday", "평일"), ("sat", "토요일"), ("sun", "일요일·공휴일")):
+        h = (lot.get("hours") or {}).get(k) or {}
+        if not h.get("open"):
+            v = "운영 안 함"
+        elif h.get("24h"):
+            v = "24시간"
+        else:
+            v = f"{hhmm(h.get('start') or 0)}~{hhmm(h.get('end') or 0)}"
+        hour_rows += f'<tr><td>{label}</td><td>{v}</td></tr>'
+
+    info_rows = []
+    if lot["addr_road"]:
+        info_rows.append(f'<tr><td>주소(도로명)</td><td>{esc(lot["addr_road"])}</td></tr>')
+    if lot["addr_jibun"]:
+        info_rows.append(f'<tr><td>주소(지번)</td><td>{esc(lot["addr_jibun"])}</td></tr>')
+    info_rows.append(f'<tr><td>구획수</td><td>{lot["spaces"]:,}면</td></tr>')
+    info_rows.append(f'<tr><td>유형</td><td>{esc(lot["kind"] or "공영")} · {esc(lot["ptype"] or "주차장")}</td></tr>')
+    grade = fee.get("grade_label") or (f'{fee["grade"]}급지' if fee.get("grade") else "")
+    if grade:
+        info_rows.append(f'<tr><td>급지</td><td>{esc(grade)}</td></tr>')
+    if lot.get("tel"):
+        rep = " (대표번호)" if lot.get("tel_rep") else ""
+        info_rows.append(f'<tr><td>전화</td><td><a href="tel:{esc(lot["tel"])}">{esc(lot["tel"])}</a>{rep}</td></tr>')
+    if lot.get("manager"):
+        info_rows.append(f'<tr><td>관리기관</td><td>{esc(lot["manager"])}</td></tr>')
+    info_rows.append(f'<tr><td>자료 기준일</td><td>{esc(lot["base_date"])}</td></tr>')
+
+    # 요금표 — 등록된 항목만 행으로 만든다(없는 요금을 지어내지 않는다).
+    fee_rows = []
+    if fee.get("base_min") and fee.get("base_fee") is not None:
+        fee_rows.append(f'<tr><td>기본요금</td><td>최초 {fee["base_min"]}분 {won(fee["base_fee"])}</td></tr>')
+    if fee.get("unit_min") and fee.get("unit_fee") is not None:
+        fee_rows.append(f'<tr><td>추가요금</td><td>{fee["unit_min"]}분당 {won(fee["unit_fee"])}</td></tr>')
+    if fee.get("daily_fee"):
+        fee_rows.append(f'<tr><td>1일 요금</td><td>{won(fee["daily_fee"])}</td></tr>')
+    if fee.get("monthly"):
+        fee_rows.append(f'<tr><td>월정기</td><td>월 {won(fee["monthly"])}</td></tr>')
+    if fee.get("pay"):
+        fee_rows.append(f'<tr><td>결제</td><td>{esc(fee["pay"])}</td></tr>')
+    if fee.get("basis"):
+        fee_rows.append(f'<tr><td>요금 비고</td><td>{esc(fee["basis"])}</td></tr>')
+
+    # 시간별 예상 요금(평일, 일반 차량) — 시·동 페이지 계산기와 같은 price_for 규칙.
+    # 시간 요금이 없어 전 구간이 ‘현장 확인’이 되는 곳(월정기 전용 등)은 표를 감추고
+    # 한 줄로 안내한다(밀크 검수 지적, 2026-11-20).
+    est_results = [(label, price_for(lot, mins, "weekday"))
+                   for mins, label in ((30, "30분"), (60, "1시간"), (120, "2시간"),
+                                       (240, "4시간"), (480, "8시간"), (1440, "24시간"))]
+    if all(r["state"] == "unknown" for _, r in est_results):
+        est_note = ("시간요금 미등록(월정기 전용) — 현장 확인" if fee.get("monthly")
+                    else "시간요금 미등록 — 현장 확인")
+        est_block = f'<p class="lede">{est_note}</p>'
+    else:
+        est_rows = ""
+        for label, r in est_results:
+            if r["state"] == "paid":
+                v = won(r["amount"]) + (" (1일 상한 적용)" if r.get("capped") else "")
+            elif r["state"] == "free":
+                v = "무료"
+            elif r["state"] == "closed":
+                v = "운영 안 함"
+            else:
+                v = "현장 확인"
+            est_rows += f'<tr><td>{label}</td><td class="num">{v}</td></tr>'
+        est_block = ('<table class="data">\n'
+                     '  <thead><tr><th>주차 시간</th><th class="num">예상 요금</th></tr></thead>\n'
+                     f'  <tbody>{est_rows}</tbody>\n'
+                     '</table>')
+
+    # 감면 안내 — 도시 공통(조례 기준) 목록을 그대로 보여 준다.
+    disc = city.get("discounts") or default_discounts()
+    disc_items = "".join(
+        f'<li><b>{esc(o["label"])}</b>' + (f' — {esc(o["note"])}' if o.get("note") else "") + '</li>'
+        for o in disc)
+
+    free_bits = []
+    fn = free_note(lot)
+    if fn:
+        free_bits.append(fn)
+    if lot.get("free_hour_note"):
+        free_bits.append(f'무료 시간: {lot["free_hour_note"]}')
+    if lot.get("free_window_raw"):
+        free_bits.append(f'무료 시간대: {lot["free_window_raw"]}')
+    free_block = ""
+    if free_bits:
+        free_block = (f'<h2>무료로 쓸 수 있는 시간</h2>\n<ul>'
+                      + "".join(f'<li>{esc(b)}</li>' for b in free_bits) + '</ul>\n')
+
+    qa = []
+    if fee["type"] == "유료":
+        a = f"{name}의 요금은 {fee_text(lot)}입니다."
+        r2 = price_for(lot, 120, "weekday")
+        if r2["state"] == "paid":
+            a += f" 평일 기준 2시간 주차하면 {won(r2['amount'])}입니다."
+        qa.append((f"{name} 주차요금은 얼마인가요?", a))
+    elif fee["type"] == "미상":
+        if fee.get("monthly"):
+            qa.append((f"{name} 주차요금은 얼마인가요?",
+                       f"{name}은(는) 월정기(정기권) 전용으로 등록돼 있어 시간 주차요금이 공개되어 있지 않습니다. "
+                       f"월정기는 월 {won(fee['monthly'])}이고, 신청은 관리기관({lot.get('manager') or '관리기관'})에 문의하세요."))
+        else:
+            qa.append((f"{name} 주차요금은 얼마인가요?",
+                       f"{name}의 요금은 공개 데이터에 등록되어 있지 않아 현장 확인이 필요합니다."))
+    if fee.get("monthly") and fee["type"] == "유료":
+        qa.append((f"{name} 월정기 요금은 얼마인가요?",
+                   f"월정기 요금은 월 {won(fee['monthly'])}입니다. 신청 방법과 잔여 구획은 "
+                   f"관리기관({lot.get('manager') or '관리기관'})에 확인하세요."))
+    qa.append((f"{name} 운영시간은 어떻게 되나요?",
+               f"{name}은(는) {hours_text(lot)} 운영합니다."))
+    if lot["free_days"].get("sat") or lot["free_days"].get("sun"):
+        days = "·".join(d for d, on in (("토요일", lot["free_days"].get("sat")),
+                                        ("일요일", lot["free_days"].get("sun"))) if on)
+        qa.append((f"{name}은(는) 주말에 무료인가요?",
+                   f"네. {name}은(는) {days}에 무료로 개방됩니다."))
+
+    if lot.get("list_mode") == STREET_MODE:
+        # 노상 구간은 사이트 관례(노상 페이지)대로 계산기·카드 없이 표로 보여 준다.
+        # 지도 버튼은 카드와 같은 map_links 방식을 쓴다.
+        kakao, naver = map_links(lot)
+        main_block = f"""
+<h2>구간 정보</h2>
+{street_rows([lot], unit_label=street_unit_label(city))}
+<div class="actions" style="margin-top:12px">
+  <a class="btn solid" href="{esc(kakao)}" target="_blank" rel="nofollow noopener">카카오맵</a>
+  <a class="btn" href="{esc(naver)}" target="_blank" rel="nofollow noopener">네이버지도</a>
+</div>
+"""
+        lede_tail = "구간 요금과 운영 정보를 공공데이터로 정리했습니다."
+    else:
+        main_block = f"""
+{calculator([lot], path=path, discounts=city.get("discounts"), single=True)}
+<div class="toolbar">
+  <h2>주차장 정보</h2>
+</div>
+{lot_list([lot], path, with_ad=False, chips=False, link_detail=False)}
+"""
+        lede_tail = "아래 계산기로 내 조건의 예상 요금을 바로 계산해 보세요."
+
+    back_links = [f'<a class="btn" href="{rel(path, city_path(city))}">← {esc(city["city"])} 공영주차장 전체 보기</a>']
+    if dong_path:
+        back_links.append(f'<a class="btn" href="{rel(path, dong_path)}">{esc(lot["dong"])} 주차장 보기</a>')
+    if lot.get("list_mode") == STREET_MODE:
+        back_links.append(f'<a class="btn" href="{rel(path, street_path(city))}">노상 주차장 전체 보기</a>')
+
+    body = f"""
+<h1>{esc(lot_display_name(name))}</h1>
+<p class="lede">{esc(addr)}에 있는 {esc(lot['ptype'] or '공영')}주차장입니다. {lot['spaces']:,}면 규모이며,
+요금·월정기·운영시간·감면 정보를 공공데이터로 정리했습니다. {lede_tail}</p>
+<p class="updated">자료 기준일 {esc(lot['base_date'])} · 관리 {esc(lot.get('manager') or '-')}</p>
+{ad_slot()}
+{main_block}
+
+<h2>기본 정보</h2>
+<table class="data">
+  <tbody>{''.join(info_rows)}</tbody>
+</table>
+
+<h2>운영시간</h2>
+<table class="data">
+  <tbody>{hour_rows}</tbody>
+</table>
+
+<h2>요금 안내</h2>
+<p class="lede">요금: {esc(fee_text(lot))}</p>
+<table class="data">
+  <tbody>{''.join(fee_rows)}</tbody>
+</table>
+
+<h2>시간별 예상 요금 (평일·일반 차량)</h2>
+{est_block}
+{free_block}
+<h2>감면 안내 — {esc(city['city'])} 공통</h2>
+<ul>{disc_items}</ul>
+<p class="updated">감면은 {esc(city['city'])} 조례 기준의 공통 안내입니다. 이 주차장에서 실제로 적용되는
+감면 종류와 조건, 중복 적용 여부는 현장과 관리기관에서 확인하세요.</p>
+
+{faq_block(qa)}
+
+<p style="margin-top:16px">{' '.join(back_links)}</p>
+
+<section class="note-box" style="margin-top:20px">
+  <h2>데이터 출처와 한계</h2>
+  <ul>
+    <li>출처: 행정안전부 전국주차장정보표준데이터 및 {esc(city['city'])} 공영주차장 안내 (자료 기준일 {esc(lot['base_date'])})</li>
+    <li>요금·운영시간은 등록 데이터 기준이며, 조례 개정이나 현장 사정에 따라 실제와 다를 수 있습니다.</li>
+  </ul>
+</section>
+"""
+    crumbs = [("홈", "/"), (city.get("province") or "경기도", None),
+              (city["city"], city_path(city))]
+    d = next((x for x in city["districts"] if x["name"] == lot.get("gu")), None)
+    if d:
+        dpath = district_path(city, d)
+        if dpath != city_path(city) and dpath in existing_paths:
+            crumbs.append((f"{d['name']} 공영주차장", dpath))
+    crumbs.append((lot_display_name(name), ""))
+    # ‘월정기’는 월정기 값이 있는 곳의 title에만 넣는다(밀크 검수 지적, 2026-11-20).
+    title_fee = "요금·월정기·운영시간" if fee.get("monthly") else "요금·운영시간"
+    return path, layout(
+        title=f"{lot_display_name(name)} {title_fee} | {SITE_NAME}",
+        description=detail_description(city, lot),
+        path=path, body=body, crumbs=crumbs,
+        nav_active=(lot.get("gu") or city["city"]), city=city,
+        jsonld=[jsonld_breadcrumb(crumbs, path),
+                jsonld_lot(lot, city, path),
+                jsonld_faq(qa, path)])
 
 CITY_UI.update({
     # 사천시 — 표준데이터 등록이 노상 구간 9곳뿐이라 시 허브 목록 자체가
@@ -12288,6 +12595,779 @@ def fee_table_block(city) -> str:
 요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
+    if ft.get("style") == "geoje_grade":
+        # 거제시 — 공영 39곳(노외 3곳·노상 35구간·부설 1곳, 총
+        #   1,672면)이 전부 유료로 등록돼 있다. 「거제시 주차장
+        #   조례」 제2434호(시행 2026-11-12) 제3조제1항·별표 1은
+        #   급지(1급지 동지역·2급지 면지역)×차종(소형·대형)
+        #   요금표로, 1급지 소형은 최초 1시간 1,000원·1시간 초과
+        #   30분마다 500원·1일 6,000원(노상 제외)·월 정기 주간
+        #   80,000원이다. 등록 급지구분은 39곳 전부 '1'이고
+        #   시간제 등록값이 전부 1급지 소형 행과 같아 등록값으로
+        #   계산한다. 시장 공영주차장 3곳은 1일 4,000원이, 노상
+        #   7곳은 1일 6,000원(6시간)이 등록돼 있다. 시장 3곳을
+        #   뺀 36곳은 토요일·일요일 무료 운영으로 등록돼 있다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td><td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">거제시 공영주차장 <b>39곳</b>은 전부 유료로 등록돼 있습니다. 아래 표는
+「거제시 주차장 조례」 제2434호 별표 1이 정한 기준 요금입니다. 별표 1은 급지(1급지 동지역·
+2급지 면지역)와 차종(소형·대형)으로 요금을 정합니다 —
+<b>1급지 소형</b>은 최초 1시간 <b>1,000원</b>에 1시간 초과 30분마다 <b>500원</b>, 1일
+<b>6,000원</b>(노상 제외)이고, 월 정기권은 주간 <b>80,000원</b>입니다. 등록된 39곳이 전부
+동 지역에 있고 요금이 1급지 소형 행과 정확히 같아 이 사이트도 등록값으로 계산합니다.
+시장 공영주차장 3곳(고현종합시장·옥포국제시장·고현중앙)은 1일 요금이 <b>4,000원</b>으로
+등록돼 있어 그 금액을 적용합니다. 시장 3곳을 뺀 36곳은 토요일·일요일에 무료로 운영합니다.
+궁금한 점은 거제시청 교통과(055-639-4542)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월정기(주간)</th>
+  <th class="num">월정기(야간)</th><th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+    if ft.get("style") == "yangsan_grade":
+        # 양산시 — 공영 103곳(노외 48곳·노상 55구간, 총
+        #   4,695면)이 무료 87곳·유료 16곳으로 등록돼 있다.
+        #   「양산시 주차장 설치 및 관리조례」 제2336호(시행
+        #   2026-08-27) 제3조제1항·별표 1은 급지(1급지 읍·동
+        #   지역 및 유원지·2급지 그 밖의 지역) 요금표로, 1급지는
+        #   최초 1시간 무료·1시간 초과 후 30분 600원·이후
+        #   10분마다 200원·1일 6,000원·월정기 주간 75,000원·
+        #   야간 56,000원이다. 유료 16곳은 전부 읍·동 지역이고
+        #   등록값(기본 30분 600원·추가 10분 200원·1일
+        #   6,000원)의 단위 금액은 별표 1급지 행과 같으나
+        #   별표의 최초 1시간 무료 구조가 없고 월정기 등록값
+        #   (40,000원, 7곳만)이 별표와 달라, 등록값이 완전하고
+        #   최신이라 계산기는 등록값으로 하고 요금표는 조례
+        #   별표를 싣는다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td><td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">양산시 공영주차장 <b>103곳</b>은 무료 <b>87곳</b>·유료 <b>16곳</b>으로 등록돼
+있습니다. 아래 표는 「양산시 주차장 설치 및 관리조례」 제2336호 별표 1이 정한 기준
+요금입니다. 별표 1은 급지(1급지 읍·동 지역 및 유원지·2급지 그 밖의 지역)로 요금을
+정합니다 — <b>1급지</b>는 최초 1시간 <b>무료</b>에 1시간 초과 후 30분 <b>600원</b>, 이후
+10분마다 <b>200원</b>, 1일 <b>6,000원</b>이고, 월정기권은 주간 <b>75,000원</b>·야간
+<b>56,000원</b>입니다. 유료로 등록된 16곳은 전부 읍·동 지역에 있고, 등록값(기본 30분
+600원·추가 10분 200원·1일 6,000원)의 단위 금액은 별표 1급지 행과 같지만 별표의
+'최초 1시간 무료' 구조는 등록값에 없습니다. 등록값이 완전하고 조례보다 최신이라 이
+사이트의 요금 계산은 등록값을 쓰므로, 짧게 주차할 때는 별표로 계산한 금액과 다를 수
+있습니다. 월정기는 7곳만 40,000원으로 등록돼 있습니다. 궁금한 점은 양산시청
+교통정책과(055-392-2883)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월정기(주간)</th>
+  <th class="num">월정기(야간)</th><th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+    if ft.get("style") == "goseong_grade":
+        # 고성군 — 공영 15곳(노외 12곳·노상 3구간, 총 784면)이
+        #   무료 3곳·유료 11곳·혼합 1곳으로 등록돼 있다. 「고성군
+        #   주차장 조례」 제2890호(시행 2024-06-25) 제3조제1항·
+        #   별표 1(개정 2020.11.5)은 노상·노외 공통 급지표로,
+        #   1급지는 최초 30분 500원·30분 초과 10분마다 200원·
+        #   1시간까지 1,000원·1시간 초과 30분마다 500원·1일
+        #   4,000원이다. 등록 급지구분은 15곳 전부 '1'이고 유료·
+        #   혼합 12곳의 등록값이 별표 1급지의 첫 구간 단가·1일
+        #   요금과 같아 등록값으로 계산한다. 월정기 등록은 없다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td><td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">고성군 공영주차장 <b>15곳</b>은 무료 3곳·유료 11곳·혼합 1곳으로 등록돼 있습니다. 아래 표는
+「고성군 주차장 조례」 제2890호 별표 1이 정한 기준 요금입니다. 별표 1은 노상·노외 공통으로
+1급지·2급지로 요금을 나누는데, <b>1급지</b>는 최초 30분 <b>500원</b>에 30분 초과 후 10분마다
+<b>200원</b>, 1시간까지 <b>1,000원</b>, 1시간 초과 후 30분마다 <b>500원</b>, 1일 <b>4,000원</b>입니다.
+등록된 15곳은 전부 1급지이고 유료·혼합 12곳의 등록값이 별표의 첫 구간 단가·1일 요금과 같아
+이 사이트도 등록값으로 계산합니다. 월정기 요금은 등록된 곳이 없습니다. 궁금한 점은 고성군청
+(055-670-2335)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월정기(주간)</th>
+  <th class="num">월정기(야간)</th><th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+    if ft.get("style") == "namhae_grade":
+        # 남해군 — 공영 62곳(노외 36곳·노상 26구간, 총
+        #   4,289면)이 무료 57곳·유료 5곳으로 등록돼 있다.
+        #   「남해군 주차장 조례」 제2738호(시행 2024-04-30)
+        #   제5조제1항·별표 1은 급지(1·2·3급지)×차종(소형·
+        #   대형) 요금표로 10분당 요금이다 — 소형은 1급지
+        #   500원(최초 10분 무료, 1일·월 해당없음)·2급지
+        #   200원(1일 6,000원·월 60,000원)·3급지 100원
+        #   (1일 3,000원·월 30,000원)이고 대형은 각 2배다.
+        #   유료 5곳은 전부 남해읍에 있고 등록 급지의 소형
+        #   금액과 등록값이 전부 일치해 등록값으로 계산한다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">남해군 공영주차장 <b>62곳</b>은 무료 <b>57곳</b>·유료 <b>5곳</b>으로 등록돼
+있습니다. 아래 표는 「남해군 주차장 조례」 제2738호 별표 1이 정한 기준 요금입니다.
+별표 1은 급지(1·2·3급지)와 차종(소형·대형)으로 10분당 요금을 정합니다 — 소형은
+<b>1급지</b> 10분마다 <b>500원</b>(최초 10분 무료, 1일·월 해당없음), <b>2급지</b>
+<b>200원</b>(1일 6,000원·월 60,000원), <b>3급지</b> <b>100원</b>(1일 3,000원·월
+30,000원)이고, 대형은 각 금액의 2배입니다. 유료로 등록된 5곳은 전부 남해읍에 있고
+(3급지 2곳·2급지 2곳·1급지 1곳), 등록값이 등록 급지의 소형 금액과 전부 일치해
+이 사이트도 등록값으로 계산합니다. 궁금한 점은 남해군청
+건설교통과(055-860-3451)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월정기</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+    if ft.get("style") == "hadong_grade":
+        # 하동군 — 공영 59곳(노외 57곳·노상 2구간, 총
+        #   4,189면)이 무료 56곳·유료 3곳으로 등록돼 있다.
+        #   「하동군 주차장 조례」 제2769호(시행 2026-09-30)
+        #   제3조제1항·별표 1(개정 2016.8.5)은 급지표로, 양
+        #   급지 모두 최초 30분 면제·30분~1시간 500원·이후
+        #   매 10분 1급지 200원·2급지 100원이고 노외 1일
+        #   주차권은 1급지 6,000원·2급지 2,400원이다. 등록
+        #   급지구분은 59곳 전부 '2'이고, 유료 3곳은 기본
+        #   요금만 등록돼 있어 별표 1의 2급지 구간 산식으로
+        #   계산한다. 청학동공설주차장은 별표 1의2가 따로
+        #   있으나 표준데이터에 무료로 등록돼 있다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td><td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">하동군 공영주차장 <b>59곳</b>은 무료 <b>56곳</b>·유료 <b>3곳</b>으로 등록돼 있습니다. 아래 표는
+「하동군 주차장 조례」 제2769호 별표 1이 정한 기준 요금입니다. 별표 1은 급지(1급지 하동읍·진교면 등
+도시계획지역·2급지 그 밖의 지역)로 요금을 나누는데, 양 급지 모두 최초 30분은 <b>면제</b>이고
+30분~1시간 <b>500원</b>, 이후 10분마다 1급지 <b>200원</b>·2급지 <b>100원</b>입니다. 노외 1일 주차권은
+1급지 <b>6,000원</b>·2급지 <b>2,400원</b>입니다. 등록된 급지구분은 59곳 전부 '2'이고, 유료 3곳
+(화개장터·화개보건지소·하동공설시장)은 기본요금만 등록돼 있어 이 사이트도 별표 1의 2급지 구간
+요금으로 계산합니다. 청학동공설주차장은 별표 1의2의 전용 요금표가 있으나 표준데이터에는 무료로
+등록돼 있어 무료로 표기합니다. 궁금한 점은 하동군청(055-880-7233)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월정기(주간)</th>
+  <th class="num">월정기(야간)</th><th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+    if ft.get("style") == "sancheong_grade":
+        # 산청군 — 공영 233곳(노외 201곳·부설 21곳·노상 11구간, 총
+        #   7,108면)이 전부 무료로 등록돼 있다. 「산청군 주차장 조례」
+        #   제2523호(시행 2021-03-16) 제3조제1항·별표 1은 노상·노외
+        #   공통으로 최초 30분 500원·30분 초과 후 15분마다 200원의
+        #   유료 요금표를 두고, 1일·월정기(전일·주간·야간 3단)는
+        #   노외만 있다. 전량 무료 등록이라 표는 조례 참고표로 싣고
+        #   계산은 하지 않는다(서천 선례).
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month_all"])}</td>'
+            f'<td class="num">{won(r["month"])}</td><td class="num">{won(r["month_night"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">산청군 공영주차장 <b>233곳</b>(노외 201곳·부설 21곳·노상 11구간, 총 7,108면)은
+표준데이터에 <b>전부 무료</b>로 등록돼 있습니다. 다만 「산청군 주차장 조례」 제2523호 별표 1은
+노상·노외 공통으로 <b>최초 30분 500원</b>에 <b>30분 초과 후 15분마다 200원</b>인 유료 요금표를
+두고 있어, 아래 표는 그 조례 요금표(참고)입니다. 1일 주차권(5,000원)과 월정기(전일 50,000원·
+주간 30,000원·야간 25,000원)는 <b>노외주차장만</b> 있고 노상주차장에는 없습니다. 주간 시간구분은
+4~10월 <b>08:30~19:00</b>, 11~3월 <b>09:00~18:00</b>이고 나머지는 야간입니다. 무료로 운영하는
+근거(군 공고 등)는 산청군청 교통정책담당(055-970-8581) 확인이 필요합니다.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월정기(전일)</th>
+  <th class="num">월정기(주간)</th><th class="num">월정기(야간)</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+    if ft.get("style") == "hamyang_grade":
+        # 함양군 — 공영 56곳(노외 43곳·노상 13구간, 총
+        #   4,526면)이 무료 46곳·혼합 6곳·유료 4곳으로
+        #   등록돼 있다. 「함양군 주차장 설치 및 관리 조례」
+        #   제2831호(시행 2026-04-02) 제4조제1항·별표 1은
+        #   급지가 아니라 주차장 유형(노상·일반 노외·한들·
+        #   용평)으로 요금을 나누고 유형마다 최초 무료
+        #   시간(노상 30분·일반 노외 10분·한들·용평 1시간)
+        #   을 둔다. 등록 기본요금에는 이 무료 구간이 반영돼
+        #   있지 않아 유료·혼합 10곳은 별표 산식으로
+        #   계산한다. 등록 급지구분(노상 '1'·노외 '2')은
+        #   별표 유형과 어긋나 계산에 쓰지 않는다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td><td class="num">{won(r["month_all"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">함양군 공영주차장 <b>56곳</b>은 무료 <b>46곳</b>·혼합 <b>6곳</b>·유료 <b>4곳</b>으로 등록돼 있습니다. 아래 표는
+「함양군 주차장 설치 및 관리 조례」 제2831호 별표 1이 정한 기준 요금입니다. 별표 1은 급지가 아니라
+주차장 유형으로 요금을 나누며, 유형마다 최초 무료 시간이 다릅니다 — <b>노상</b>은 최초 <b>30분 무료</b>에
+이후 30분마다 <b>500원</b>, <b>일반 노외</b>는 최초 <b>10분 무료</b>에 10~30분 <b>500원</b>·이후 30분마다
+<b>500원</b>, <b>한들</b>과 <b>용평 주차타워</b>는 최초 <b>1시간 무료</b>에 이후 한들은 30분마다 <b>300원</b>·
+용평은 10분마다 <b>200원</b>입니다. 표준데이터의 등록 기본요금에는 이 무료 구간이 반영돼 있지 않아,
+이 사이트는 별표의 무료 시간을 적용해 계산합니다. 궁금한 점은 함양군청(055-960-6350)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월정기(주간)</th>
+  <th class="num">월정기(야간)</th><th class="num">월정기(주야간)</th><th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+    if ft.get("style") == "geochang_grade":
+        # 거창군 — 공영 71곳(노외 49곳·노상 22구간, 총
+        #   3,740면)이 무료 66곳·유료 5곳으로 등록돼 있다.
+        #   「거창군 주차장 설치 및 관리 조례」 제3012호
+        #   (시행 2025-12-31) 제3조제1항·별표 1은 급지 구분
+        #   없이 공영주차장 공통으로 최초 30분 500원·이후
+        #   10분마다 200원·1일 5,000원·월 정기주차권
+        #   50,000원이고, 주차시간 30분 미만은 최초 30분
+        #   으로 보며 노상주차장은 5분 이하 주차·정차 시
+        #   면제한다. 유료 5곳 중 중앙교 구간은 등록값이
+        #   별표와 일치해 등록값으로, 거점·재래시장 2곳은
+        #   추가 단위가 비어 있어 별표 단위를 적용해
+        #   계산하고, 수승대·휴양림은 별표와 다른 등록값을
+        #   그대로 유지한다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">거창군 공영주차장 <b>71곳</b>은 무료 <b>66곳</b>·유료 <b>5곳</b>으로 등록돼
+있습니다. 아래 표는 「거창군 주차장 설치 및 관리 조례」 제3012호 별표 1이 정한 기준 요금입니다.
+별표 1은 급지 구분 없이 공영주차장 전체에 <b>최초 30분 500원</b>, 이후 <b>10분마다 200원</b>,
+<b>1일 5,000원</b>, <b>월 정기주차권 50,000원</b>을 적용합니다. 주차시간이 30분 미만이면
+최초 30분으로 보고, 노상주차장은 5분 이하로 주차하거나 정차하면 요금이 면제됩니다.
+유료 5곳 중 중앙교~북부주유소 사거리 구간은 등록 요금이 별표와 일치해 등록값으로 계산하고,
+거창읍 거점·재래시장 2곳은 추가 단위요금이 비어 있어 별표 단위를 적용해 계산합니다. 위천
+수승대와 금원산자연휴양림은 별표와 다른 등록 요금으로 운영돼 그 금액으로 계산합니다.
+궁금한 점은 거창군청(055-940-3380)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월정기</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+    if ft.get("style") == "hapcheon_grade":
+        # 합천군 — 공영 186곳(노외 71곳·부설 104곳·노상
+        #   11구간, 총 7,328면)이 무료 178곳·유료 8곳으로
+        #   등록돼 있다. 「합천군 주차장 설치 및 관리 조례」
+        #   제2918호(시행 2026-04-16) 제6조제1항·별표 4는
+        #   노상을 최초 30분 500원·이후 30분마다 500원
+        #   (1일·월 정기권 없음), 노외를 최초 2시간 무료·
+        #   이후 30분마다 500원·1일 4,000원·월 정기권
+        #   30,000원으로 정하고 노외 유료 운영 시간은
+        #   08:00~19:00다. 유료 노외 7곳은 등록 기본요금
+        #   (120분 500원)이 최초 2시간 무료와 어긋나 별표
+        #   산식으로 계산하고, 유료 노상 1곳은 등록값이
+        #   노외 양식이라 별표 노상 산식으로 계산한다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 4)</h2>
+<p class="lede">합천군 공영주차장 <b>186곳</b>은 무료 <b>178곳</b>·유료 <b>8곳</b>으로 등록돼
+있습니다. 아래 표는 「합천군 주차장 설치 및 관리 조례」 제2918호 별표 4가 정한 기준 요금입니다.
+별표 4는 <b>노외</b>를 최초 <b>2시간 무료</b>에 이후 30분마다 <b>500원</b>·<b>1일 4,000원</b>·
+<b>월 정기권 30,000원</b>으로 정하고(유료 운영 08:00~19:00), <b>노상</b>은 최초 <b>30분
+500원</b>에 이후 30분마다 <b>500원</b>입니다(1일·월 정기권 없음). 유료 노외 7곳의 등록
+기본요금(120분 500원)에는 최초 2시간 무료가 반영돼 있지 않아, 이 사이트는 별표의 무료
+시간을 적용해 계산합니다. 궁금한 점은 합천군청(055-930-3373)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 4)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월정기</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+    if ft.get("style") == "uiryeong_grade":
+        # 의령군 — 공영 95곳(노외 87곳·노상 8구간, 총
+        #   2,348면)이 전부 무료로 등록돼 있다. 「의령군
+        #   주차장 조례」 제2359호(시행 2019-10-04) 제6조
+        #   제1항·별표 4는 급지별(1급지 의령읍·부림면 소재지·
+        #   관광지, 2급지 그 밖의 면 소재지, 3급지 그 밖의
+        #   지역) 유료 요금표를 두고, 1일·월정기는 노상
+        #   주차장을 제외한다. 전량 무료 등록이라 표는 조례
+        #   참고표로 싣고 계산은 하지 않는다(산청 선례).
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 4)</h2>
+<p class="lede">의령군 공영주차장 <b>95곳</b>(노외 87곳·노상 8구간, 총 2,348면)은
+표준데이터에 <b>전부 무료</b>로 등록돼 있습니다. 다만 「의령군 주차장 조례」 제2359호
+별표 4는 급지별 유료 요금표를 두고 있어, 아래 표는 그 조례 요금표(참고)입니다.
+<b>1급지</b>(의령읍·부림면 소재지·관광지)는 최초 30분 <b>500원</b>에 30분 초과 후
+15분마다 <b>250원</b>, <b>2급지</b>(그 밖의 면 소재지)는 <b>300원·150원</b>,
+<b>3급지</b>(그 밖의 지역)는 <b>200원·100원</b>입니다. 1일 주차요금과 월정기는
+<b>노상주차장에는 없고</b>, 주차시간 5시간 이상은 1일로 봅니다. 주간 시간구분은
+4~10월 <b>08:00~20:00</b>, 11~3월 <b>09:00~19:00</b>이고 나머지는 야간입니다.
+무료로 운영하는 근거(군 공고 등)는 의령군청 건설교통과 교통정책팀(055-570-3643)
+확인이 필요합니다.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 4)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차요금 (노외만)</th>
+  <th class="num">월정기(주간)</th><th class="num">월정기(야간)</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+    if ft.get("style") == "haman_grade":
+        # 함안군 — 공영 31곳(노외 30곳·노상 1구간, 총
+        #   1,840면)이 무료 29곳·유료 2곳으로 등록돼 있다.
+        #   「함안군 주차장 조례」 제2902호(시행 2024-10-16)
+        #   제3조제1항·별표 1은 급지(1급지: 가야읍·칠원읍·
+        #   함안면·군북면·대산면 도시계획구역 안, 2급지:
+        #   그 밖의 지역)와 차종으로 요금을 나누고, 최초
+        #   60분 무료(1일 1회)·다음 30분 기준요금·이후
+        #   15분마다 추가요금·5시간 이상 1일을 정한다.
+        #   유료 2곳은 등록 금액이 기본 60분 요금뿐이고
+        #   최초 60분 무료와 어긋나 요금 미상으로 표기한다
+        #   (인스팅트 패키지 판단안·김해 선례).
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month_all"])}</td>'
+            f'<td class="num">{won(r["month"])}</td><td class="num">{won(r["month_night"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">함안군 공영주차장 <b>31곳</b>은 무료 <b>29곳</b>·유료 <b>2곳</b>으로 등록돼
+있습니다. 아래 표는 「함안군 주차장 조례」 제2902호 별표 1이 정한 기준 요금입니다.
+별표 1은 <b>1급지</b>(가야읍·칠원읍·함안면·군북면·대산면 도시계획구역 안)와 <b>2급지</b>
+(그 밖의 지역), 차종으로 요금을 나누며, 모든 공영주차장에 <b>최초 60분 무료</b>(1일 1회)를
+적용하고 다음 30분 기준요금, 이후 <b>15분마다</b> 추가요금을 받습니다. 주차시간이
+<b>5시간 이상</b>이면 1일로 봅니다. 유료로 등록된 가야재래시장유료주차장과
+함안공영주차타워는 등록 금액이 기본 60분 요금뿐이고 최초 60분 무료와 어긋나, 이
+사이트에서는 <b>요금 미상</b>으로 표기합니다. 궁금한 점은 함안군청(055-580-2626)에
+확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월정기(전일)</th>
+  <th class="num">월정기(주간)</th><th class="num">월정기(야간)</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+    if ft.get("style") == "changnyeong_grade":
+        # 창녕군 — 공영 113곳(노외 106곳·노상 7구간, 총
+        #   6,042면)이 전부 무료로 등록돼 있다. 「창녕군
+        #   주차장 조례」 제2610호(시행 2021-04-05) 제3조
+        #   제1항·별표 1은 급지·차종별 유료 요금표를 두고,
+        #   1급지는 창녕읍·남지읍 도시계획구역 안과 부곡
+        #   온천지구, 2급지는 그 밖의 지역이다. 전량 무료
+        #   등록이라 표는 조례 참고표로 싣고 계산은 하지
+        #   않는다(의령 선례). 별표 1의 1시간 초과 구간은
+        #   '1시간까지'·'30분마다' 금액을 따로 두는 병합열
+        #   구조라 2시간 금액은 참고값으로만 싣는다.
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">창녕군 공영주차장 <b>113곳</b>(노외 106곳·노상 7구간, 총 6,042면)은
+표준데이터에 <b>전부 무료</b>로 등록돼 있습니다. 다만 「창녕군 주차장 조례」 제2610호
+별표 1은 급지·차종별 유료 요금표를 두고 있어, 아래 표는 그 조례 요금표(참고)입니다.
+<b>1급지</b>(창녕읍·남지읍 도시계획구역 안·부곡온천지구)는 승용·소형 기준 최초 30분
+<b>500원</b>에 10분마다 <b>200원</b>, <b>2급지</b>(그 밖의 지역)는 <b>400원·150원</b>이고,
+1시간을 넘기면 구간 금액이 따로 정해져 있습니다. 주차시간 <b>5시간 이상</b>은 1일로
+봅니다. 주간 시간구분은 4~10월 <b>08:00~20:00</b>, 11~3월 <b>09:00~19:30</b>이고
+나머지는 야간입니다. 무료로 운영하는 근거(군 공고 등)는 창녕군청 건설교통과
+(055-530-1723) 확인이 필요합니다.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간 (참고)</th><th class="num">1일 주차료</th>
+  <th class="num">월정기(주간)</th><th class="num">월정기(야간)</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+    if ft.get("style") == "pohang_grade":
+        # 포항시 — 공영 341곳(노외 127곳·노상 213구간·
+        #   부설 1곳, 총 17,576면)이 무료 294곳·유료
+        #   46곳·혼합 1곳으로 등록돼 있다. 「포항시
+        #   주차장 설치 및 관리 조례」 제2295호(시행
+        #   2025-10-01) 제5조제1항·별표 1은 급지(1급지:
+        #   죽도시장·영일대해수욕장 인근, 2급지: 그 밖의
+        #   동 지역, 3급지: 읍·면 지역)와 차종으로 요금을
+        #   나누고, 승용·소형은 51~60분 구간만 1,200원
+        #   (3급지 600원)으로 따로 정한다. 등록 단가가
+        #   별표와 같은 22곳과 부설 혼합 1곳만 등록값으로
+        #   계산하고, 기본 요금만 등록된 24곳은 요금
+        #   미상으로 표기한다(인스팅트 패키지 판단안).
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">포항시 공영주차장 <b>341곳</b>(노외 127곳·노상 213구간·부설 1곳, 총 17,576면)은
+무료 <b>294곳</b>·유료 <b>46곳</b>·혼합 <b>1곳</b>으로 등록돼 있습니다. 「포항시 주차장 설치 및
+관리 조례」 제2295호 별표 1은 <b>1급지</b>(죽도시장·영일대해수욕장 인근)·<b>2급지</b>(그 밖의
+동 지역)·<b>3급지</b>(읍·면 지역)와 차종으로 요금을 나누며, 승용·소형 기준 1·2급지는
+최초 20분 <b>500원</b>에 10분마다 <b>200원</b>, 3급지는 <b>300원·100원</b>입니다. 51~60분
+구간은 특례로 1·2급지 <b>1,200원</b>(3급지 600원)입니다. 이 사이트에서는 등록 단가가 별표와
+같은 곳만 등록값으로 계산하고, 기본 요금만 등록된 곳은 <b>요금 미상</b>으로 표기합니다.
+궁금한 점은 포항시청 교통지원과(054-270-3638)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th>
+  <th class="num">월정기(주간)</th><th class="num">월정기(야간)</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+    if ft.get("style") == "gyeongju_grade":
+        # 경주시 — 공영 175곳(노외 121곳·노상 54구간, 총
+        #   10,192면)이 무료 108곳·유료 64곳·요금 미상
+        #   3곳으로 등록돼 있다. 「경주시 주차장 조례」
+        #   제1954호(시행 2026-02-25) 제3조제1항·별표 1은
+        #   급지별 요금표(1급지 동 지역, 2급지 그 밖의
+        #   지역)와 전통시장내 행을 두고, 1회 주차 총액
+        #   상한(1급지 10,000원·2급지 6,000원)과 10분
+        #   이내 무료(비고 4)를 정한다. 별표 2는 사적지
+        #   요금표다. 등록 단가가 별표 1 1급지와 같은
+        #   곳만 등록값으로 계산하고, 기본 요금이 없는
+        #   3곳은 요금 미상으로 표기한다(김해·함안 선례).
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">경주시 공영주차장 <b>175곳</b>(노외 121곳·노상 54구간, 총 10,192면)은
+무료 <b>108곳</b>·유료 <b>64곳</b>·요금 미상 <b>3곳</b>으로 등록돼 있습니다.
+「경주시 주차장 조례」 제1954호 별표 1은 <b>1급지</b>(동 지역) 최초 30분 <b>500원</b>에
+10분마다 <b>200원</b>, <b>2급지</b>(그 밖의 지역) <b>200원·100원</b>으로 정하고,
+주차시간 <b>10분 이내</b>는 무료입니다. 1회 주차 총액 상한은 1급지 <b>10,000원</b>·
+2급지 <b>6,000원</b>입니다. 아래 표의 1시간·2시간 금액은 10분 무료를 반영한
+실제 부과액입니다. 사적지주차장은 별표 2의 별도 요금표(대릉원 2시간 2,000원 등)를
+적용하는데, 이 사이트의 사적지 이름 주차장은 표준데이터에 일반 공영 단가로 등록돼
+있어 등록값으로 계산합니다. 궁금한 점은 경주시청 교통행정과(054-779-6528)에
+확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1회 주차 총액 상한</th>
+  <th class="num">월정기</th><th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+    if ft.get("style") == "gimcheon_grade":
+        # 김천시 — 공영 34곳(노외 31곳·노상 3구간, 총
+        #   1,947면)이 무료 27곳·유료 7곳으로 등록돼
+        #   있다. 「김천시 주차장 설치 및 관리 조례」
+        #   제1596호(시행 2024-11-14) 제6조제1항·별표 1은
+        #   급지(1급지: 동지역과 읍·면의 도시계획구역 안,
+        #   2급지: 그 밖)와 차종으로 요금을 나누고, 승용·
+        #   소형 1급지는 최초 30분 500원에 10분마다
+        #   200원이다. 유료 7곳이 전부 1급지이고 등록
+        #   단가가 별표와 정확히 일치해 등록값으로
+        #   계산한다(인스팅트 패키지 판정 명세). 1일
+        #   요금은 7시간 이상 24시간 미만일 때 적용
+        #   된다(별표 1 비고 2).
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td><td class="num">{won(r["month_all"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">김천시 공영주차장 <b>34곳</b>(노외 31곳·노상 3구간, 총 1,947면)은
+무료 <b>27곳</b>·유료 <b>7곳</b>으로 등록돼 있습니다. 「김천시 주차장 설치 및
+관리 조례」 제1596호 별표 1은 <b>1급지</b>(동지역과 읍·면의 도시계획구역 안)·
+<b>2급지</b>(그 밖의 지역)와 차종으로 요금을 나누며, 승용·소형 기준 1급지는
+최초 30분 <b>500원</b>에 10분마다 <b>200원</b>, 2급지는 <b>300원·100원</b>입니다.
+유료 7곳은 전부 1급지이고 등록 요금이 별표 단가와 일치해 이 사이트도 등록값으로
+계산합니다. 1일 요금은 주차시간이 <b>7시간 이상 24시간 미만</b>일 때 적용됩니다.
+궁금한 점은 김천시청(054-420-6843)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차요금</th>
+  <th class="num">월정기(주간)</th><th class="num">월정기(야간)</th>
+  <th class="num">월정기(주야간)</th><th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+    if ft.get("style") == "andong_grade":
+        # 안동시 — 공영 132곳(노외 82곳·노상 49구간·부설
+        #   1곳, 총 8,221면)이 무료 96곳·유료 33곳·요금
+        #   미상 3곳으로 등록돼 있다. 「안동시 주차장
+        #   조례」 제2252호(시행 2025-07-04) 제5조제1항·
+        #   별표 1은 급지별 요금표(1급지 기본 30분 500원·
+        #   10분마다 200원, 2급지 200원·100원)를 두고,
+        #   1일·월정기는 노외 한정이다. 노상은 비고 6의
+        #   최초 15분 면제가 있다. 등록 단가가 별표 1
+        #   1급지와 같은 곳만 계산하고, 단가가 어긋나는
+        #   3곳은 요금 미상으로 표기한다(김해·함안 선례).
+        def _month_cell(v):
+            return won(v) if v else "—"
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{_month_cell(r["month_night"])}</td>'
+            f'<td class="num">{_month_cell(r["month_all"])}</td>'
+            f'<td class="num">{r["lots"]}곳</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">안동시 공영주차장 <b>132곳</b>(노외 82곳·노상 49구간·부설 1곳, 총 8,221면)은
+무료 <b>96곳</b>·유료 <b>33곳</b>·요금 미상 <b>3곳</b>입니다.
+「안동시 주차장 조례」 제2252호 별표 1은 <b>1급지</b> 기본(최초 30분) <b>500원</b>에
+10분마다 <b>200원</b>, <b>2급지</b> <b>200원·100원</b>으로 정하고, 1일 요금과 월정기는
+<b>노외주차장만</b> 적용합니다. 노상주차장은 1일 1회에 한해 <b>최초 15분</b>까지 요금이
+면제됩니다. 아래 표의 1시간·2시간 금액은 노외 기준 부과액입니다. 궁금한 점은 안동시청
+교통행정과(054-840-5424)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 (노외 한정)</th>
+  <th class="num">월정기 주간</th><th class="num">월정기 야간</th>
+  <th class="num">월정기 주야간</th><th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금으로 계산하는 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
     if ft.get("style") == "daejeon_grade":
         # 대전광역시·구 조례 별표1(1~4급지 · 2시간까지 10분 단위 · 2시간 초과는 요금표 금액의 2배)
         rows_html = "".join(
@@ -14505,6 +15585,10 @@ def _build_street_mixed(city, street, site):
     # 조례·등록값이 일요일·공휴일 무료라고 정한 노상 구간(김포시 등)
     sun_free = [l for l in street if l["free_days"].get("sun") and l["fee"]["type"] != "무료"]
     pay_text = ((sample or (paid or street)[0])["fee"]["pay"] or "현장 확인")
+    # 대표 구간의 예시 요금은 그 구간이 실제로 운영하는 요일로 계산한다
+    #   (평일 미운영·주말 전용 구간은 평일 기준으로 물으면 휴무가 된다).
+    _ex_day = ("weekday" if sample and sample["oper"].get("weekday") else
+               "sat" if sample and sample["oper"].get("sat") else "sun")
 
     qa = [
         (f"{city['city']} 노상주차장은 몇 곳인가요?",
@@ -14538,8 +15622,8 @@ def _build_street_mixed(city, street, site):
          (calc_line
           + (f"{daily_txt}이 상한입니다. " if daily_txt else
              (f"일일 최대요금 {won(cap_fee)}이 상한입니다. " if cap_fee else ""))
-          + f"예를 들어 2시간은 {won(price_for(sample, 120, 'weekday')['amount'])}, 4시간은 "
-          f"{won(price_for(sample, 240, 'weekday')['amount'])}입니다.")
+          + f"예를 들어 2시간은 {won(price_for(sample, 120, _ex_day)['amount'])}, 4시간은 "
+          f"{won(price_for(sample, 240, _ex_day)['amount'])}입니다.")
          if sample else
          (f"유료 구간 {len(paid)}곳은 시간 요금이 아니라 당일 정액입니다 — "
           + ", ".join(f'{esc(l["name"])} {won(l["fee"]["base_fee"])}' for l in paid)
@@ -15895,6 +16979,44 @@ def main():
                 pages.append(build_dong(city, d, dong, dl, site, slug_override=slugs[dong]))
         if city["_street_lots"]:
             pages.append(build_street(city, city["_street_lots"], site))
+
+    # 개별 상세페이지 — 큰 유료 주차장 전부(운영자 결정 2026-11-20). 시·동 페이지가
+    # 다 만들어진 뒤에 붙여야 동 페이지 존재 여부를 보고 역링크를 걸 수 있다.
+    existing_paths = {p for p, _ in pages}
+    n_detail = 0
+    for city in site["cities"]:
+        # 동 페이지 경로 맵 — 본문 루프와 같은 조건(동 미상·최소 곳수)으로 만든 것만.
+        dong_paths = {}
+        if is_city_wide(city):
+            dong_groups = [(city["districts"][0], city["_card_lots"])]
+        else:
+            dong_groups = [(d, [l for l in city["_card_lots"] if l["gu"] == d["name"]])
+                           for d in city["districts"]]
+        for d, d_lots in dong_groups:
+            if not d_lots:
+                continue
+            by_dong = {}
+            for l in d_lots:
+                by_dong.setdefault(l["dong"], []).append(l)
+            slugs = dong_slug_map(by_dong)
+            for dong, dl in by_dong.items():
+                if dong == UNKNOWN_DONG:
+                    continue
+                if len(dl) < city.get("dong_page_min_lots", DONG_PAGE_MIN_LOTS):
+                    continue
+                dong_paths[(d["name"], dong)] = f"{district_path(city, d)}{slugs[dong]}/"
+        for lot in city["_lots"]:
+            if not is_detail_target(lot):
+                continue
+            p = detail_path(city, lot)
+            if p in existing_paths:
+                continue        # 기존 페이지와 경로가 겹치면 만들지 않는다
+            pages.append(build_lot_detail(
+                city, lot, site, existing_paths,
+                dong_path=dong_paths.get((lot.get("gu"), lot.get("dong")))))
+            existing_paths.add(p)
+            n_detail += 1
+    print(f"개별 상세페이지: {n_detail}개")
 
     for path, html_text in pages:
         out = DIST / path.strip("/") / "index.html" if path != "/" else DIST / "index.html"

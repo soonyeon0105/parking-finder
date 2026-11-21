@@ -1,0 +1,4246 @@
+{
+ "meta": {
+  "generated_at": "2026-11-21 09:01",
+  "generated_at_iso": "2026-11-21T09:01:22+09:00",
+  "snapshot_at": "2026-11-21 09:01",
+  "region": {
+   "province": "경상북도",
+   "city": "김천시"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-13",
+    "rows_total": 18994,
+    "rows_city": 34,
+    "fetched_at": "2026-11-21 09:01 (KST)",
+    "note": "김천시로 등록된 행 34행(전부 공영)을 읽어 중복 제거 0건, 제외 0건으로 34곳을 실었다. 유료 7곳·무료 27곳·미상 0곳이다. 데이터기준일자는 34행 전부 2026-10-13이다. 좌표 결측은 0곳이다. 조례 대조 완료 — 「김천시 주차장 설치 및 관리 조례」 제1596호(시행 2024-11-14, ordinSeq 1985395) 제6조제1항·별표 1 원문 대조 완료(2026-11-21)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "김천시 주차장 설치 및 관리 조례",
+    "org": "경상북도 김천시청",
+    "url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=1985395",
+    "file": "gimcheon-ordinance-b1.txt",
+    "sha256": "91193655496fc9b3ec612ae00dab0a7988957459d8278f4879376b3c2b1443bc",
+    "license": "자치법규(공개)",
+    "base_date": "2024-11-14",
+    "rows_total": null,
+    "fetched_at": "2026-11-21 09:01 (KST)",
+    "note": "김천시가 설치·관리하는 공영주차장에 적용하는 조례다. 표준데이터에 등록된 김천시 공영주차장 34곳(노외 31곳·노상 3구간, 총 1,947면)입니다. 등록은 전부 공영이고 요금 구분은 무료 27곳·유료 7곳입니다. 유료 7곳은 전부 1급지로 등록돼 있고 등록 요금(기본 30분 500원·추가 10분마다 200원·1일 5,000원·월 60,000원)이 「김천시 주차장 설치 및 관리 조례」 제1596호 별표 1의 1급지 단가와 일치해 등록값으로 계산합니다. 1일 요금은 조례 별표 1 비고 2에 따라 주차시간 7시간 이상 24시간 미만일 때 적용됩니다. 운영시간은 34곳 전부 연중 00:00~23:59로 등록돼 있습니다. (조례 본문: data/raw/gimcheon-ordinance.txt, 별표 1 원문 HWP: data/raw/gimcheon-ordinance-b1.hwp)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "김천시",
+   "slug": "gimcheon"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gb-gimcheon-001",
+   "mgmt_no": "353-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "배시내",
+   "gu": "김천시",
+   "dong": "감문면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 감문면 태촌리 121-4",
+   "addr_road": "경상북도 김천시 감문면 배시내길 31",
+   "road": null,
+   "spaces": 20,
+   "tel": "054-420-6843",
+   "lat": 36.19069523,
+   "lng": 128.2298522,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-002",
+   "mgmt_no": "353-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "교동",
+   "gu": "김천시",
+   "dong": "교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 교동 592-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "054-420-6843",
+   "lat": 36.13477015,
+   "lng": 128.0975975,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-003",
+   "mgmt_no": "353-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "교동화물차",
+   "gu": "김천시",
+   "dong": "교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 교동 607-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 63,
+   "tel": "054-420-6843",
+   "lat": 36.132396,
+   "lng": 128.096825,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-004",
+   "mgmt_no": "353-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한일길",
+   "gu": "김천시",
+   "dong": "교동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 교동 744-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "054-420-6844",
+   "lat": 36.13517833,
+   "lng": 128.0955596,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-005",
+   "mgmt_no": "353-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "김천로",
+   "gu": "김천시",
+   "dong": "남산동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 남산동 49-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "054-420-6843",
+   "lat": 36.1212454712,
+   "lng": 128.1175144672,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-006",
+   "mgmt_no": "353-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "직지",
+   "gu": "김천시",
+   "dong": "대항면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 대항면 향천리 307-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 789,
+   "tel": "054-420-6843",
+   "lat": 36.11582593,
+   "lng": 128.0180969,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-007",
+   "mgmt_no": "353-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "모암1",
+   "gu": "김천시",
+   "dong": "모암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 모암동 161-9",
+   "addr_road": "경상북도 김천시 자산로 71",
+   "road": null,
+   "spaces": 43,
+   "tel": "054-420-6843",
+   "lat": 36.1191825,
+   "lng": 128.1237406,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "국가유공자 전액감면+ 경차 장애인 임산부 환경친화적 차량 50 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": 260,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 60000
+    },
+    "basis": "등록 요금(기본 30분 500원·추가 10분마다 200원·1일 5,000원·월 60,000원)이 조례 별표 1의 1급지 단가(월은 주야간 월권)와 일치해 등록값으로 계산한다. 최초 30분 미만은 30분으로 보며(별표 1 비고 6), 1일 요금은 주차시간 7시간 이상 24시간 미만일 때 적용된다(별표 1 비고 2). 16인승 이상 승합차·1.5톤 초과 화물차는 별표 1 비고 4에 따라 이 요금의 2배다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-008",
+   "mgmt_no": "353-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "모암2",
+   "gu": "김천시",
+   "dong": "모암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 모암동 190-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 57,
+   "tel": "054-420-6843",
+   "lat": 36.12281373,
+   "lng": 128.1257368,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "국가유공자 전액감면+ 경차 장애인 임산부 환경친화적 차량 50 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": 260,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 60000
+    },
+    "basis": "등록 요금(기본 30분 500원·추가 10분마다 200원·1일 5,000원·월 60,000원)이 조례 별표 1의 1급지 단가(월은 주야간 월권)와 일치해 등록값으로 계산한다. 최초 30분 미만은 30분으로 보며(별표 1 비고 6), 1일 요금은 주차시간 7시간 이상 24시간 미만일 때 적용된다(별표 1 비고 2). 16인승 이상 승합차·1.5톤 초과 화물차는 별표 1 비고 4에 따라 이 요금의 2배다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-009",
+   "mgmt_no": "353-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "모암행복1길",
+   "gu": "김천시",
+   "dong": "모암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 모암동 132-4",
+   "addr_road": "경상북도 김천시 모암행복1길20",
+   "road": null,
+   "spaces": 32,
+   "tel": "054-420-6843",
+   "lat": 36.1205094165,
+   "lng": 128.1269200594,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-010",
+   "mgmt_no": "353-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "자산",
+   "gu": "김천시",
+   "dong": "모암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 모암동 135-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "054-420-6843",
+   "lat": 36.11966671,
+   "lng": 128.1258885,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-011",
+   "mgmt_no": "353-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "자산동",
+   "gu": "김천시",
+   "dong": "모암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 모암동 177-9",
+   "addr_road": "경상북도 김천시 모암사랑1길 68",
+   "road": null,
+   "spaces": 65,
+   "tel": "054-420-6843",
+   "lat": 36.12602744,
+   "lng": 128.1261498,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-012",
+   "mgmt_no": "353-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙시장",
+   "gu": "김천시",
+   "dong": "모암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 모암동 158-1",
+   "addr_road": "경상북도 김천시 중앙시장3길 12",
+   "road": null,
+   "spaces": 44,
+   "tel": "054-420-6843",
+   "lat": 36.11866056,
+   "lng": 128.1251592,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-013",
+   "mgmt_no": "353-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백옥길",
+   "gu": "김천시",
+   "dong": "백옥동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 백옥동 241-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 51,
+   "tel": "054-420-6843",
+   "lat": 36.124098701,
+   "lng": 128.0787424,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-014",
+   "mgmt_no": "353-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "가메실5길",
+   "gu": "김천시",
+   "dong": "부곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 부곡동 281-8",
+   "addr_road": "경상북도 김천시 가메실5길 28-9",
+   "road": null,
+   "spaces": 23,
+   "tel": "054-420-6843",
+   "lat": 36.12239605,
+   "lng": 128.100857,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-015",
+   "mgmt_no": "353-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문지왈",
+   "gu": "김천시",
+   "dong": "부곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 부곡동 1117-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 47,
+   "tel": "054-420-6843",
+   "lat": 36.11948846,
+   "lng": 128.0892451,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-016",
+   "mgmt_no": "353-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부곡길",
+   "gu": "김천시",
+   "dong": "부곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 부곡동 910-19",
+   "addr_road": "",
+   "road": null,
+   "spaces": 41,
+   "tel": "054-420-6843",
+   "lat": 36.12588976,
+   "lng": 128.0940684,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-017",
+   "mgmt_no": "353-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부곡맛고을",
+   "gu": "김천시",
+   "dong": "부곡동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 부곡동 1353",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "054-420-6843",
+   "lat": 36.1244,
+   "lng": 128.09028,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-018",
+   "mgmt_no": "353-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구읍길",
+   "gu": "김천시",
+   "dong": "삼락동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 삼락동 1147-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 70,
+   "tel": "054-420-6843",
+   "lat": 36.1389970811,
+   "lng": 128.0915574572,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-019",
+   "mgmt_no": "353-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성내",
+   "gu": "김천시",
+   "dong": "성내동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 성내동 81-9",
+   "addr_road": "경상북도 김천시 충효5길 4",
+   "road": null,
+   "spaces": 13,
+   "tel": "054-420-6843",
+   "lat": 36.122577,
+   "lng": 128.1209796,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-020",
+   "mgmt_no": "353-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신음새동네1길",
+   "gu": "김천시",
+   "dong": "신음동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 신음동 440-13",
+   "addr_road": "경상북도 김천시 신음새동네1길 37",
+   "road": null,
+   "spaces": 16,
+   "tel": "054-420-6843",
+   "lat": 36.13484552,
+   "lng": 128.1213246,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-021",
+   "mgmt_no": "353-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양천",
+   "gu": "김천시",
+   "dong": "양천동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 양천동 392-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 31,
+   "tel": "054-420-6844",
+   "lat": 36.0993889,
+   "lng": 128.1159515,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-022",
+   "mgmt_no": "353-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "배다리길",
+   "gu": "김천시",
+   "dong": "지좌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 지좌동 233-3",
+   "addr_road": "경상북도 김천시 배다리길 113",
+   "road": null,
+   "spaces": 21,
+   "tel": "054-420-6843",
+   "lat": 36.12279924,
+   "lng": 128.1343977,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-023",
+   "mgmt_no": "353-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "지좌동",
+   "gu": "김천시",
+   "dong": "지좌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 지좌동 436-1",
+   "addr_road": "경상북도 김천시 마잠호동옛길 39-13",
+   "road": null,
+   "spaces": 31,
+   "tel": "054-420-6843",
+   "lat": 36.11960253,
+   "lng": 128.145382,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-024",
+   "mgmt_no": "353-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "황산2길",
+   "gu": "김천시",
+   "dong": "지좌동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 지좌동 761-34",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "054-420-6843",
+   "lat": 36.11696956,
+   "lng": 128.1335169,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-025",
+   "mgmt_no": "353-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구름다리5길",
+   "gu": "김천시",
+   "dong": "평화동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 평화동 51-18",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "054-420-6843",
+   "lat": 36.12607787,
+   "lng": 128.115789,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-026",
+   "mgmt_no": "353-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "평화동서부",
+   "gu": "김천시",
+   "dong": "평화동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 평화동 363-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "054-420-6843",
+   "lat": 36.12491821,
+   "lng": 128.1083604,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-027",
+   "mgmt_no": "353-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "평화시장",
+   "gu": "김천시",
+   "dong": "평화동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 평화동 334-6",
+   "addr_road": "경상북도 김천시 평화길 88",
+   "road": null,
+   "spaces": 63,
+   "tel": "054-420-6843",
+   "lat": 36.12372186,
+   "lng": 128.1113355,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "국가유공자 전액감면+ 경차 장애인 임산부 환경친화적 평화시장 이용고객 차량 50 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": 260,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 60000
+    },
+    "basis": "등록 요금(기본 30분 500원·추가 10분마다 200원·1일 5,000원·월 60,000원)이 조례 별표 1의 1급지 단가(월은 주야간 월권)와 일치해 등록값으로 계산한다. 최초 30분 미만은 30분으로 보며(별표 1 비고 6), 1일 요금은 주차시간 7시간 이상 24시간 미만일 때 적용된다(별표 1 비고 2). 16인승 이상 승합차·1.5톤 초과 화물차는 별표 1 비고 4에 따라 이 요금의 2배다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-028",
+   "mgmt_no": "353-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문화공영주차장",
+   "gu": "김천시",
+   "dong": "황금동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 황금동 12-7",
+   "addr_road": "경상북도 김천시 김천로 208",
+   "road": null,
+   "spaces": 34,
+   "tel": "054-420-6843",
+   "lat": 36.1183394,
+   "lng": 128.1229399,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "국가유공자 전액감면+ 경차 장애인 임산부 환경친화적 차량 50 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": 260,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 60000
+    },
+    "basis": "등록 요금(기본 30분 500원·추가 10분마다 200원·1일 5,000원·월 60,000원)이 조례 별표 1의 1급지 단가(월은 주야간 월권)와 일치해 등록값으로 계산한다. 최초 30분 미만은 30분으로 보며(별표 1 비고 6), 1일 요금은 주차시간 7시간 이상 24시간 미만일 때 적용된다(별표 1 비고 2). 16인승 이상 승합차·1.5톤 초과 화물차는 별표 1 비고 4에 따라 이 요금의 2배다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-029",
+   "mgmt_no": "353-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "황금",
+   "gu": "김천시",
+   "dong": "황금동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 황금동 102-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "054-420-6843",
+   "lat": 36.114961,
+   "lng": 128.1235129,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-030",
+   "mgmt_no": "353-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "황금동",
+   "gu": "김천시",
+   "dong": "황금동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 황금동 164-7",
+   "addr_road": "경상북도 김천시 양금로 193",
+   "road": null,
+   "spaces": 17,
+   "tel": "054-420-6844",
+   "lat": 36.11138959,
+   "lng": 128.1224533,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-031",
+   "mgmt_no": "353-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "황금시장",
+   "gu": "김천시",
+   "dong": "황금동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상북도 김천시 황금동 31-1",
+   "addr_road": "경상북도 김천시 황금시장4길 20",
+   "road": null,
+   "spaces": 36,
+   "tel": "054-420-6843",
+   "lat": 36.11665981,
+   "lng": 128.1252833,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "국가유공자 전액감면+ 경차 장애인 임산부 환경친화적 황금시장 이용고객 차량 50 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": 260,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 60000
+    },
+    "basis": "등록 요금(기본 30분 500원·추가 10분마다 200원·1일 5,000원·월 60,000원)이 조례 별표 1의 1급지 단가(월은 주야간 월권)와 일치해 등록값으로 계산한다. 최초 30분 미만은 30분으로 보며(별표 1 비고 6), 1일 요금은 주차시간 7시간 이상 24시간 미만일 때 적용된다(별표 1 비고 2). 16인승 이상 승합차·1.5톤 초과 화물차는 별표 1 비고 4에 따라 이 요금의 2배다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-s001",
+   "mgmt_no": "353-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "삼각로타리",
+   "gu": "김천시",
+   "dong": "모암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 김천시 모암동 136-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "054-420-6843",
+   "lat": 36.1191521,
+   "lng": 128.1244723,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "국가유공자 전액감면+ 경차 장애인 임산부 환경친화적 차량 50 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": 260,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 60000
+    },
+    "basis": "등록 요금(기본 30분 500원·추가 10분마다 200원·1일 5,000원·월 60,000원)이 조례 별표 1의 1급지 단가(월은 주야간 월권)와 일치해 등록값으로 계산한다. 최초 30분 미만은 30분으로 보며(별표 1 비고 6), 1일 요금은 주차시간 7시간 이상 24시간 미만일 때 적용된다(별표 1 비고 2). 16인승 이상 승합차·1.5톤 초과 화물차는 별표 1 비고 4에 따라 이 요금의 2배다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-s002",
+   "mgmt_no": "353-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "김천역 ~ 열린안경",
+   "gu": "김천시",
+   "dong": "평화동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 김천시 평화동 245-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 50,
+   "tel": "054-420-6843",
+   "lat": 36.12544313,
+   "lng": 128.1111219,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제6조제1항은 공영주차장 요금을 별표 1 및 별표 2로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  },
+  {
+   "id": "gb-gimcheon-s003",
+   "mgmt_no": "353-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "황금시장 ~ 한신아파트 앞",
+   "gu": "김천시",
+   "dong": "황금동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상북도 김천시 황금동 111-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 59,
+   "tel": "054-420-6843",
+   "lat": 36.11747888,
+   "lng": 128.1251407,
+   "base_date": "2026-10-13",
+   "manager": "경상북도 김천시",
+   "note": "국가유공자 전액감면+ 경차 장애인 임산부 환경친화적 황금시장 이용고객 차량 50 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 5000,
+    "daily_hours": 260,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 60000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 5000,
+     "monthly": 60000
+    },
+    "basis": "등록 요금(기본 30분 500원·추가 10분마다 200원·1일 5,000원·월 60,000원)이 조례 별표 1의 1급지 단가(월은 주야간 월권)와 일치해 등록값으로 계산한다. 최초 30분 미만은 30분으로 보며(별표 1 비고 6), 1일 요금은 주차시간 7시간 이상 24시간 미만일 때 적용된다(별표 1 비고 2). 16인승 이상 승합차·1.5톤 초과 화물차는 별표 1 비고 4에 따라 이 요금의 2배다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "김천시",
+   "city_slug": "gimcheon",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-21 09:01",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 34,
+  "원자료_김천시행수": 34,
+  "원자료_받은행수": 34,
+  "구별": {
+   "김천시": 34
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 31,
+  "노외_부설": {
+   "노외": 31
+  },
+  "노상_구간": 3,
+  "총_구획수": 1822,
+  "노상_구획수": 125,
+  "동별": {
+   "모암동": 7,
+   "황금동": 5,
+   "부곡동": 4,
+   "평화동": 4,
+   "교동": 3,
+   "지좌동": 3,
+   "감문면": 1,
+   "남산동": 1,
+   "대항면": 1,
+   "백옥동": 1,
+   "삼락동": 1,
+   "성내동": 1,
+   "신음동": 1,
+   "양천동": 1
+  },
+  "동수": 14,
+  "동_미상": [],
+  "동_보정": [
+   "자산동: 이름의 동·읍·면(자산동)과 지번주소 기준 동·읍·면(모암동)이 달라 지번주소 기준으로 판정"
+  ],
+  "동_근거": {
+   "지번주소": 34
+  },
+  "요금구분": {
+   "무료": 27,
+   "유료": 7
+  },
+  "요금_미상": [],
+  "유료_노상": 2,
+  "유료_노외": 5,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "표준데이터 등록 34행이 전부 공영이라 민영 제외는 0건이다. 데이터기준일자는 34행 전부 2026-10-13, 제공기관명은 전부 경상북도 김천시, 관리기관명은 전부 경상북도 김천시이다",
+   "등록 급지구분은 1급지 33곳·2급지 1곳(대항면 직지)이다. 요금 구분은 무료 27곳·유료 7곳이고 유료는 전부 1급지다",
+   "좌표는 34곳 전부 등록돼 있고 전부 김천시 범위 안이라 지오코딩 보완이 0건이다. 특기사항은 유료 7곳에만 감면 안내가 등록돼 있다",
+   "운영요일은 34곳 전부 평일+토요일+공휴일이고 운영시간은 전부 00:00~23:59, 부제시행구분은 전부 미시행이다. 도로명주소는 14곳만 등록돼 있다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "교동",
+   "교동화물차",
+   "한일길",
+   "김천로",
+   "직지",
+   "모암2",
+   "자산",
+   "백옥길",
+   "문지왈",
+   "부곡길",
+   "부곡맛고을",
+   "구읍길",
+   "양천",
+   "황산2길",
+   "구름다리5길",
+   "평화동서부",
+   "황금",
+   "삼각로타리",
+   "김천역 ~ 열린안경",
+   "황금시장 ~ 한신아파트 앞"
+  ],
+  "감면_출처": "「김천시 주차장 설치 및 관리 조례」 제1596호 제7조 — 전액 감면(제1항): 「도로교통법」 제2조제22호에 따른 긴급자동차, 「국가유공자 등 예우 및 지원에 관한 법률」 제6조에 따라 국가유공자로 등록 및 결정된 자(증명서 제시). 50% 감면(제2항): 장애인, 고엽제후유의증 환자 등으로 결정·등록된 자, 5·18민주유공자, 김천시에 주소를 둔 임산부, 의사자 유족 또는 의상자 및 그 가족, 병역명문가 예우대상자(증명 소지·본인 소유 비사업용·직접 운전 조건). 경형자동차(제3항), 환경친화적 자동차(제4항, 전기자동차 충전 주차는 최초 1시간 감면), 전통시장 안의 공영주차장과 시장이 지정하는 인근 공영주차장의 시장상인·이용고객(제5항), 다자녀가정(제6항)도 50% 감면이다. 국가법령정보센터 본문 원문(ordinSeq 1985395)으로 확인했다",
+  "요금_출처": "조례 제6조제1항·별표 1 — 공영주차장 주차요금은 별표 1 및 별표 2와 같다. 별표 1은 승용·15인승 이하 승합·1.5톤 이하 화물 기준 급지표로, 1급지 최초 30분 500원·10분마다 200원·1일 5,000원·월 주간 50,000원/야간 40,000원/주야간 60,000원, 2급지 300/100원·1일 3,000원·월 30,000/25,000/40,000원이다. 주차시간 7시간 이상 24시간 미만은 1일로 하고(비고 2), 주간은 08:00~20:00이며(비고 3), 16인승 이상 승합·1.5톤 초과 화물은 2배를 적용하고(비고 4), 최초 30분 미만은 30분으로 본다(비고 6). 유료 7곳의 등록 요금이 별표 1의 1급지 단가와 정확히 일치해 등록값을 썼다. 별표 합본 HWP 원본(flSeq 161270877)을 받아 별표 1을 추출해 대조했다",
+  "급지_출처": "조례 별표 1 비고 5 — 1급지는 동지역과 읍·면의 도시계획구역 안 지역, 2급지는 그 밖의 지역이다. 표준데이터 등록 급지는 1급지 33곳·2급지 1곳(대항면 직지)이고 유료 7곳은 전부 1급지다. 감문면 배시내가 1급지로 등록돼 있는 것은 도시계획구역 안 여부에 따라 달라질 수 있어 등록값을 그대로 썼다",
+  "무료요일_출처": "조례 본문·별표 1·2 어디에도 시 전체 일괄 주말·공휴일 무료 근거가 없어 주말·공휴일 무료로 표기하지 않았다(인스팅트 앞단 패키지 확인). 요금 구분이 '무료'인 곳은 요일과 관계없이 무료다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 김천시 등록 34행이 전부 공영(노외 31·노상 3, 총 1,947면)이라 민영 제외 0건으로 34곳을 전부 실었다. 중복 제거 0건, 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다. 인스팅트 앞단 패키지(경북 3/22, 2026-11-20)의 집계(공영 34곳·1,947면, 노외 31·노상 3, 무료 27·유료 7, 민영 제외 0, 기준일 2026-10-13)와 표준데이터 원본 대조 결과가 일치한다",
+   "「김천시 주차장 설치 및 관리 조례」 제1596호(시행 2024-11-14, ordinSeq 1985395) 본문 원문(data/raw/gimcheon-ordinance.txt) 대조 완료(2026-11-21) — 국가법령정보센터 검색에서 제1596호(공포 2024-11-14, 일부개정)가 최신 시행본임을 확인했고, 본문 제6조제1항이 공영주차장 요금을 별표 1 및 별표 2로 정하고 감면은 제7조 본문 원문으로 확인했다. 검색에 함께 잡히는 「김천시 육아종합지원센터 부설 주차장 관리 및 운영 조례」(제1583호)는 별도 부설 조례라 요금 조례가 아니다",
+   "별표 1은 합본 HWP 원본(flSeq 161270877)을 data/raw/gimcheon-ordinance-b1.hwp로 저장하고 추출해 확정했다 — 급지별 단가(요금_출처 참조), 7시간 이상 24시간 미만을 1일로 보는 규정(비고 2), 주간 08:00~20:00(비고 3), 대형 2배(비고 4), 급지 정의(비고 5), 최초 30분 미만은 30분으로 보는 규정(비고 6)이 들어 있다. 별표 2는 관광지·유원지 요금(소형 1회 1,000원·월 20,000원, 대형 1회 2,000원·월 30,000원)이다",
+   "유료 7곳(모암2·황금시장·평화시장·모암1·문화공영주차장·황금시장~한신아파트 앞·삼각로타리)은 전부 1급지로 등록돼 있고 등록 요금(기본 30분 500원·추가 10분 200원·1일 5,000원·월 60,000원)이 별표 1의 1급지 단가(월은 주야간 월권)와 정확히 일치해 등록값으로 계산했다. 무료 27곳은 무료를 유지했고, 기본·추가 요금이 0원이거나 공란이어도 별도 요금으로 채우지 않았다(인스팅트 패키지 판정 명세)",
+   "1일 요금의 7시간 조건(별표 1 비고 2)과 등록 1일주차권요금적용시간 260(분)의 관계: 260분은 산식 요금(30분 500원 + 10분마다 200원)이 1일 요금 5,000원에 닿는 시간과 같아, 계산에서는 그 시간부터 1일 요금을 상한으로 적용했다. 다만 조례 문언상 7시간 미만은 시간 요금을 누적하는 것이 원칙이라, 260분~7시간 구간의 실제 부과 방식은 김천시청 확인 과제다(인스팅트 패키지 확인 과제 '유료 7곳 일권의 7시간 경계 실무') — 단순 최소 일상한으로 단정하지 않았다",
+   "조례에 시 전체를 일괄 면제하는 문구나 요일별 무료 조항이 없어, 주말·공휴일 무료로 단정하지 않았다. derive_free_fields의 공휴일 태그 예외에 김천시를 공주·보령·제천·김해·거제·양산·남해·하동·산청·함양·거창·합천·의령·함안·창녕과 함께 뒀다",
+   "좌표는 34곳 전부 등록돼 있고 전부 김천시 범위(위도 36.0994~36.1907, 경도 128.0181~128.2299) 안이라 지오코딩 보완이 0건이다 — 오버레이(좌표누락_지오코딩_20261118.json)는 기존 행 그대로 유지된다",
+   "이름이 겹치는 주차장은 없고, 같은 지번·같은 좌표에 이름만 다른 등록도 없다. 황금시장(노외, 황금동 31-1)과 황금시장~한신아파트 앞(노상, 황금동 111-5)은 이름이 비슷하나 지번과 유형이 다른 별개 등록이라 둘 다 실었다",
+   "대항면 직지(789면)는 직지사 관광지 입구 주차장으로 보이나 무료로 등록돼 있어 무료로 실었고, 별표 2(관광지·유원지) 요금의 적용 여부는 김천시청 확인 과제다. 감문면 배시내의 1급지 등록도 도시계획구역 안 여부 확인 과제다",
+   "운영시간은 34곳 전부 평일·토요일·공휴일 00:00~23:59로 등록돼 있다. 부제시행구분은 전부 미시행, 전화번호는 054-420-6843이 31곳·054-420-6844가 3곳, 관리기관은 전부 경상북도 김천시, 데이터기준일자는 전부 2026-10-13이다. 도로명주소는 14곳만 등록돼 있다. 유료 7곳의 특기사항에는 조례 제7조와 정합하는 감면 안내(국가유공자 전액감면, 경차·장애인·임산부·환경친화적 차량 50% 할인, 황금시장·평화시장 이용고객 50% 할인)가 등록돼 있다"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 27,
+  "무료_구획수": 1639,
+  "평균_기본요금": 500,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-10-13"
+  ],
+  "관리기관": {
+   "경상북도 김천시": 34
+  }
+ },
+ "fee_table": {
+  "style": "gimcheon_grade",
+  "unit_min": 10,
+  "base_min": 30,
+  "applies": "「김천시 주차장 설치 및 관리 조례」 제1596호(시행 2024-11-14) 제6조제1항·별표 1 — 국가법령정보센터 ordinSeq 1985395에서 확인",
+  "source_url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=1985395",
+  "grade_system": "1급지는 동지역과 읍·면의 도시계획구역 안 지역이고, 2급지는 그 밖의 지역이다(별표 1 비고 5). 표준데이터 등록 급지는 1급지 33곳·2급지 1곳이고, 유료 7곳은 전부 1급지다",
+  "rows": [
+   {
+    "label": "1급지 승용·소형 (조례 별표 1)",
+    "grade": "1",
+    "unit_label": "최초 30분 500원 · 10분마다 200원 · 7시간 이상 1일",
+    "hour": 1100,
+    "two_hour": 2300,
+    "day": 5000,
+    "month_all": 60000,
+    "month": 50000,
+    "month_night": 40000,
+    "lots": 33
+   },
+   {
+    "label": "2급지 승용·소형 (조례 별표 1)",
+    "grade": "2",
+    "unit_label": "최초 30분 300원 · 10분마다 100원 · 7시간 이상 1일",
+    "hour": 600,
+    "two_hour": 1200,
+    "day": 3000,
+    "month_all": 40000,
+    "month": 30000,
+    "month_night": 25000,
+    "lots": 1
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 5,
+   "street_paid": 2,
+   "free": 27,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "주간·야간 시간구분 (별표 1 비고 3)",
+    "hours": "주간 08:00~20:00 · 야간은 나머지 시간",
+    "free": "월 정기주차요금은 주간·야간·주야간으로 나뉜다(1급지 주간 50,000원·야간 40,000원·주야간 60,000원). 표준데이터 등록 운영시간은 34곳 전부 평일·토요일·공휴일 00:00~23:59다"
+   }
+  ],
+  "discounts": [
+   {
+    "label": "긴급자동차·국가유공자 전액 감면",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 제7조제1항 — 「도로교통법」 제2조제22호에 따른 긴급자동차, 「국가유공자 등 예우 및 지원에 관한 법률」 제6조에 따라 국가유공자로 등록 및 결정된 자(증명서 제시)는 주차요금 전액을 감면한다"
+   },
+   {
+    "label": "장애인·고엽제후유의증 환자·5·18민주유공자 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제7조제2항제1·2·3호 — 「장애인복지법」 제2조에 따른 장애인, 「고엽제후유의증 등 환자지원 및 단체설립에 관한 법률」 제3조에 따른 고엽제후유의증 환자 등으로 결정·등록된 자, 「5·18민주유공자예우 및 단체설립에 관한 법률」 제4조에 따른 5·18민주유공자는 주차요금의 100분의 50을 감면한다. 단, 증명을 소지하고 본인 소유의 비사업용 자동차를 직접 운전하거나 장애정도가 심하여 타인에게 대리 운전하게 하는 경우에 한한다"
+   },
+   {
+    "label": "임산부·의사상자 가족·병역명문가 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제7조제2항제4·5·6호 — 김천시에 주소를 둔 「모자보건법」 제2조제1호에 따른 임산부, 「김천시 의사상자 등 예우 및 지원에 관한 조례」에 따른 의사자 유족 또는 의상자 및 그 가족이 운전하는 자동차, 「김천시 병역명문가 예우 및 지원에 관한 조례」에 따른 예우대상자는 주차요금의 100분의 50을 감면한다(제2항의 증명·운전 조건 적용)"
+   },
+   {
+    "label": "경형자동차 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제7조제3항 — 「자동차관리법 시행규칙」 별표 1의 경형자동차는 주차요금의 100분의 50을 감면한다"
+   },
+   {
+    "label": "환경친화적 자동차 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제7조제4항 — 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조제2호에 따른 환경친화적 자동차는 주차요금의 100분의 50을 감면한다. 다만 전기자동차가 충전을 위하여 주차하는 경우에는 최초 1시간의 주차요금을 감면한다"
+   },
+   {
+    "label": "전통시장 이용고객·다자녀가정 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제7조제5·6항 — 전통시장 활성화를 위하여 설치한 전통시장 안의 공영주차장 및 시장이 지정하는 그 인근 공영주차장은 시장상인 및 이용고객이 영수증 또는 시장상인회가 발행한 주차확인증을 제출하는 경우 주차요금의 100분의 50을 감면하고, 「김천시 인구정책 기본 조례」에 따른 다자녀가정은 감면 신청 시 등록한 차량 1대에 한정하여 100분의 50을 감면한다(등록일부터 1년간 유효)"
+   }
+  ],
+  "notes": "유료 7곳은 전부 1급지이고 등록 요금이 별표 1 단가와 일치합니다. 1일 요금 5,000원은 조례 별표 1 비고 2에 따라 주차시간이 7시간 이상 24시간 미만일 때 적용됩니다. 등록된 1일주차권요금적용시간 260분은 산식 요금이 1일 요금에 닿는 시간으로, 이 사이트의 계산은 그 시간부터 1일 요금을 상한으로 적용합니다 — 260분~7시간 구간의 실제 부과 방식은 김천시청 확인이 필요합니다. 16인승 이상 승합차와 1.5톤 초과 화물차는 별표 1 비고 4에 따라 위 요금의 2배입니다. 관광지·유원지 공영주차장에는 별표 2 요금(소형 1회 1,000원·월 20,000원, 대형 1회 2,000원·월 30,000원)이 따로 정해져 있으나, 34곳 중 관광지 해당 여부가 확인되지 않아 표에는 넣지 않았습니다.",
+  "basis": "요금표는 「김천시 주차장 설치 및 관리 조례」 제1596호(시행 2024-11-14) 제6조제1항·별표 1과 표준데이터(기준일 2026-10-13)를 대조해 실었다. 유료 7곳의 등록 요금이 별표 1의 1급지 단가와 일치해 등록값으로 계산한다. (조례 본문: data/raw/gimcheon-ordinance.txt, 별표 1 원문 HWP: data/raw/gimcheon-ordinance-b1.hwp)"
+ },
+ "slug": "gimcheon",
+ "province": "경상북도",
+ "province_slug": "gyeongbuk",
+ "dong_page_min_lots": 3,
+ "city": "김천시",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·국가유공자 전액 감면",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제7조제1항 — 「도로교통법」 제2조제22호에 따른 긴급자동차, 「국가유공자 등 예우 및 지원에 관한 법률」 제6조에 따라 국가유공자로 등록 및 결정된 자(증명서 제시)는 주차요금 전액을 감면한다"
+  },
+  {
+   "label": "장애인·고엽제후유의증 환자·5·18민주유공자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제7조제2항제1·2·3호 — 「장애인복지법」 제2조에 따른 장애인, 「고엽제후유의증 등 환자지원 및 단체설립에 관한 법률」 제3조에 따른 고엽제후유의증 환자 등으로 결정·등록된 자, 「5·18민주유공자예우 및 단체설립에 관한 법률」 제4조에 따른 5·18민주유공자는 주차요금의 100분의 50을 감면한다. 단, 증명을 소지하고 본인 소유의 비사업용 자동차를 직접 운전하거나 장애정도가 심하여 타인에게 대리 운전하게 하는 경우에 한한다"
+  },
+  {
+   "label": "임산부·의사상자 가족·병역명문가 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제7조제2항제4·5·6호 — 김천시에 주소를 둔 「모자보건법」 제2조제1호에 따른 임산부, 「김천시 의사상자 등 예우 및 지원에 관한 조례」에 따른 의사자 유족 또는 의상자 및 그 가족이 운전하는 자동차, 「김천시 병역명문가 예우 및 지원에 관한 조례」에 따른 예우대상자는 주차요금의 100분의 50을 감면한다(제2항의 증명·운전 조건 적용)"
+  },
+  {
+   "label": "경형자동차 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제7조제3항 — 「자동차관리법 시행규칙」 별표 1의 경형자동차는 주차요금의 100분의 50을 감면한다"
+  },
+  {
+   "label": "환경친화적 자동차 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제7조제4항 — 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조제2호에 따른 환경친화적 자동차는 주차요금의 100분의 50을 감면한다. 다만 전기자동차가 충전을 위하여 주차하는 경우에는 최초 1시간의 주차요금을 감면한다"
+  },
+  {
+   "label": "전통시장 이용고객·다자녀가정 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제7조제5·6항 — 전통시장 활성화를 위하여 설치한 전통시장 안의 공영주차장 및 시장이 지정하는 그 인근 공영주차장은 시장상인 및 이용고객이 영수증 또는 시장상인회가 발행한 주차확인증을 제출하는 경우 주차요금의 100분의 50을 감면하고, 「김천시 인구정책 기본 조례」에 따른 다자녀가정은 감면 신청 시 등록한 차량 1대에 한정하여 100분의 50을 감면한다(등록일부터 1년간 유효)"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}

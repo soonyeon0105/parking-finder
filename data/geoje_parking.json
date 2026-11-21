@@ -1,0 +1,4971 @@
+{
+ "meta": {
+  "generated_at": "2026-11-21 09:01",
+  "generated_at_iso": "2026-11-21T09:01:22+09:00",
+  "snapshot_at": "2026-11-21 09:01",
+  "region": {
+   "province": "경상남도",
+   "city": "거제시"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-10-15",
+    "rows_total": 18994,
+    "rows_city": 39,
+    "fetched_at": "2026-11-21 09:01 (KST)",
+    "note": "거제시로 등록된 행 39행 중 공영 39행을 읽어 중복 제거 0건, 제외 0건으로 39곳을 실었다. 유료 39곳·무료 0곳·미상 0곳이다. 데이터기준일자는 38곳이 2026-10-15, 고현종합시장 공영주차장 1곳이 2026-10-14다. 좌표 결측은 0곳이다. 조례 대조 완료 — 「거제시 주차장 조례」 제2434호(시행 2026-11-12, ordinSeq 2184983) 제3조제1항·별표 1 원문 대조 완료(2026-11-20)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "거제시 주차장 조례",
+    "org": "경상남도 거제시",
+    "url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2184983&ordinId=2184983&gubun=ELIS",
+    "file": "geoje-ordinance-b1.txt",
+    "sha256": "7eca4153fff7b40b820e0c3561c11bb67cefd075904e11258da11c6f031d5d17",
+    "license": "자치법규(공개)",
+    "base_date": "2026-11-12",
+    "rows_total": null,
+    "fetched_at": "2026-11-21 09:01 (KST)",
+    "note": "거제시가 설치·관리하는 공영주차장에 적용하는 조례다. 표준데이터에 등록된 거제시 공영주차장 39곳(노외 3곳·노상 35구간·부설 1곳, 총 1,672면)입니다. 등록은 전부 공영이고 요금 구분은 39곳 전부 '유료', 급지구분은 전부 '1'로 등록돼 있습니다. 39곳 전부 기본 60분 1,000원·추가 30분 500원으로, 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 같습니다. 시장 공영주차장 3곳(고현종합시장·옥포국제시장·고현중앙)은 1일 4,000원·월정기 80,000원이, 노상 7곳은 1일 적용시간 6시간·1일 6,000원·월정기 80,000원이 등록돼 있습니다. 시장 3곳을 뺀 36곳은 특기사항에 토요일·일요일 무료 운영으로 등록돼 있습니다. 운영시간은 39곳 전부 08:00~20:00입니다. (조례 본문: data/raw/geoje-ordinance.txt, 별표 원문: data/raw/geoje-ordinance-b1.txt, 감면 별표: data/raw/geoje-ordinance-b13.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "거제시",
+   "slug": "geoje"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gn-geoje-001",
+   "mgmt_no": "387-3-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고현종합시장 공영주차장",
+   "gu": "거제시",
+   "dong": "고현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "부설",
+   "addr_jibun": "경상남도 거제시 고현동 104-2",
+   "addr_road": "경상남도 거제시 거제중앙로17길 6",
+   "road": null,
+   "spaces": 272,
+   "tel": "055-639-8179",
+   "lat": 34.88542867,
+   "lng": 128.6240168,
+   "base_date": "2026-10-14",
+   "manager": "경상남도 거제해양관광개발공사",
+   "note": "2시간 무료 시행, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "전통시장 등 이용 확인증(할인권)을 제시하면 당일 2시간까지 무료입니다(조례 별표 1의3). 시장이 지정하는 공영주차장은 1시간까지 무료입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": null,
+    "monthly_label": "주간",
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 4000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원·1일 4,000원·월정기 80,000원) 중 시간제 금액이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 정확히 같고 월정기 80,000원도 별표 주간 금액과 같아 등록값을 그대로 적용했다. 1일 요금만 별표(6,000원)보다 낮은 4,000원으로 등록돼 있어 등록값을 쓴다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-002",
+   "mgmt_no": "387-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고현중앙 공영주차장",
+   "gu": "거제시",
+   "dong": "고현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거제시 고현동 977-1",
+   "addr_road": "경상남도 거제시 거제중앙로 1930-7",
+   "road": null,
+   "spaces": 283,
+   "tel": "055-639-4548",
+   "lat": 34.89069556,
+   "lng": 128.622781,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "2시간 무료 시행, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "전통시장 등 이용 확인증(할인권)을 제시하면 당일 2시간까지 무료입니다(조례 별표 1의3). 시장이 지정하는 공영주차장은 1시간까지 무료입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": null,
+    "monthly_label": "주간",
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 4000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원·1일 4,000원·월정기 80,000원) 중 시간제 금액이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 정확히 같고 월정기 80,000원도 별표 주간 금액과 같아 등록값을 그대로 적용했다. 1일 요금만 별표(6,000원)보다 낮은 4,000원으로 등록돼 있어 등록값을 쓴다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-003",
+   "mgmt_no": "387-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "아주노외",
+   "gu": "거제시",
+   "dong": "아주동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거제시 아주동 1688-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "055-639-4549",
+   "lat": 34.866717,
+   "lng": 128.6883909,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 1일·월정기 금액은 등록돼 있지 않다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-004",
+   "mgmt_no": "387-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "옥포국제시장 공영주차장",
+   "gu": "거제시",
+   "dong": "옥포동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 거제시 옥포동 530-16",
+   "addr_road": "경상남도 거제시 옥포대첩로 43",
+   "road": null,
+   "spaces": 145,
+   "tel": "055-639-4548",
+   "lat": 34.894008,
+   "lng": 128.6921455,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "2시간 무료 시행, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "전통시장 등 이용 확인증(할인권)을 제시하면 당일 2시간까지 무료입니다(조례 별표 1의3). 시장이 지정하는 공영주차장은 1시간까지 무료입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 4000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": null,
+    "monthly_label": "주간",
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 4000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원·1일 4,000원·월정기 80,000원) 중 시간제 금액이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 정확히 같고 월정기 80,000원도 별표 주간 금액과 같아 등록값을 그대로 적용했다. 1일 요금만 별표(6,000원)보다 낮은 4,000원으로 등록돼 있어 등록값을 쓴다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s001",
+   "mgmt_no": "387-1-000017",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "고현1",
+   "gu": "거제시",
+   "dong": "고현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 고현동 81-13",
+   "addr_road": "경상남도 거제시 거제중앙로1868",
+   "road": null,
+   "spaces": 20,
+   "tel": "055-639-4548",
+   "lat": 34.88506632,
+   "lng": 128.6249437,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s002",
+   "mgmt_no": "387-1-000026",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "고현10",
+   "gu": "거제시",
+   "dong": "고현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 고현동 961-24",
+   "addr_road": "경상남도 거제시 거제중앙로27길 6",
+   "road": "거제중앙로27길",
+   "spaces": 16,
+   "tel": "055-639-4548",
+   "lat": 34.88881006,
+   "lng": 128.6223573,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s003",
+   "mgmt_no": "387-1-000027",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "고현11",
+   "gu": "거제시",
+   "dong": "고현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 고현동 961-96",
+   "addr_road": "경상남도 거제시 거제중앙로25길16",
+   "road": null,
+   "spaces": 15,
+   "tel": "055-639-4548",
+   "lat": 34.88792506,
+   "lng": 128.6215199,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s004",
+   "mgmt_no": "387-1-000028",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "고현12",
+   "gu": "거제시",
+   "dong": "고현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 고현동 961-139",
+   "addr_road": "경상남도 거제시 거제중앙로23길6",
+   "road": null,
+   "spaces": 16,
+   "tel": "055-639-4548",
+   "lat": 34.88779365,
+   "lng": 128.6228196,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s005",
+   "mgmt_no": "387-1-000018",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "고현2",
+   "gu": "거제시",
+   "dong": "고현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 고현동 246-6",
+   "addr_road": "경상남도 거제시 거제중앙로1810",
+   "road": null,
+   "spaces": 9,
+   "tel": "055-639-4548",
+   "lat": 34.88031038,
+   "lng": 128.627416,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s006",
+   "mgmt_no": "387-1-000021",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "고현5",
+   "gu": "거제시",
+   "dong": "고현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 고현동 73-2",
+   "addr_road": "경상남도 거제시 고현천로86",
+   "road": null,
+   "spaces": 9,
+   "tel": "055-639-4548",
+   "lat": 34.88463102,
+   "lng": 128.6273674,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s007",
+   "mgmt_no": "387-1-000022",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "고현6",
+   "gu": "거제시",
+   "dong": "고현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 고현동 930-7",
+   "addr_road": "경상남도 거제시 고현천로74",
+   "road": null,
+   "spaces": 22,
+   "tel": "055-639-4565",
+   "lat": 34.88562338,
+   "lng": 128.6268852,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s008",
+   "mgmt_no": "387-1-000023",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "고현7",
+   "gu": "거제시",
+   "dong": "고현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 고현동 930-19",
+   "addr_road": "경상남도 거제시 고현천로 56",
+   "road": "고현천로",
+   "spaces": 27,
+   "tel": "055-639-4548",
+   "lat": 34.88704073,
+   "lng": 128.6262181,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s009",
+   "mgmt_no": "387-1-000024",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "고현8",
+   "gu": "거제시",
+   "dong": "고현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 고현동 961-180",
+   "addr_road": "경상남도 거제시 고현천로 22",
+   "road": "고현천로",
+   "spaces": 9,
+   "tel": "055-639-4548",
+   "lat": 34.88987544,
+   "lng": 128.6248884,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s010",
+   "mgmt_no": "387-1-000025",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "고현9",
+   "gu": "거제시",
+   "dong": "고현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 고현동 961-1",
+   "addr_road": "경상남도 거제시 서문로6길1",
+   "road": null,
+   "spaces": 19,
+   "tel": "055-639-4548",
+   "lat": 34.888728,
+   "lng": 128.6210854,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s011",
+   "mgmt_no": "387-1-000032",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "고현로14길",
+   "gu": "거제시",
+   "dong": "고현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 고현동 930-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "055-639-4548",
+   "lat": 34.8878359,
+   "lng": 128.6268933,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": null,
+    "monthly_label": "주간",
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원·1일 6,000원(적용시간 6시간)·월정기 80,000원) 중 시간제 금액이 조례 별표 1의 1급지(동지역) 소형 행과 정확히 같아 등록값을 그대로 적용했다. 1일 요금은 별표 비고 3의 '주차시간 6시간 이상은 1일로 본다'와 대응한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s012",
+   "mgmt_no": "387-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "무인정산",
+   "gu": "거제시",
+   "dong": "고현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 고현동 977-4",
+   "addr_road": "경상남도 거제시 거제중앙로1936",
+   "road": null,
+   "spaces": 100,
+   "tel": "055-639-4548",
+   "lat": 34.89077092,
+   "lng": 128.6221849,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s013",
+   "mgmt_no": "387-1-000033",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중곡 제1공영주차장",
+   "gu": "거제시",
+   "dong": "고현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 고현동 986",
+   "addr_road": "경상남도 거제시 중곡로7길 36",
+   "road": "중곡로7길",
+   "spaces": 78,
+   "tel": "055-639-4548",
+   "lat": 34.89704763,
+   "lng": 128.6262062,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": null,
+    "monthly_label": "주간",
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원·1일 6,000원(적용시간 6시간)·월정기 80,000원) 중 시간제 금액이 조례 별표 1의 1급지(동지역) 소형 행과 정확히 같아 등록값을 그대로 적용했다. 1일 요금은 별표 비고 3의 '주차시간 6시간 이상은 1일로 본다'와 대응한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s014",
+   "mgmt_no": "387-1-000034",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중곡 제2공영주차장",
+   "gu": "거제시",
+   "dong": "고현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 고현동 1000-1",
+   "addr_road": "경상남도 거제시 중곡로3길 24",
+   "road": "중곡로3길",
+   "spaces": 52,
+   "tel": "055-639-4548",
+   "lat": 34.8939372,
+   "lng": 128.627812,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": null,
+    "monthly_label": "주간",
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원·1일 6,000원(적용시간 6시간)·월정기 80,000원) 중 시간제 금액이 조례 별표 1의 1급지(동지역) 소형 행과 정확히 같아 등록값을 그대로 적용했다. 1일 요금은 별표 비고 3의 '주차시간 6시간 이상은 1일로 본다'와 대응한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s015",
+   "mgmt_no": "387-1-000035",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중곡 제3공영주차장",
+   "gu": "거제시",
+   "dong": "고현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 고현동 1006-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 47,
+   "tel": "055-639-4548",
+   "lat": 34.89279955,
+   "lng": 128.6252712,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": null,
+    "monthly_label": "주간",
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원·1일 6,000원(적용시간 6시간)·월정기 80,000원) 중 시간제 금액이 조례 별표 1의 1급지(동지역) 소형 행과 정확히 같아 등록값을 그대로 적용했다. 1일 요금은 별표 비고 3의 '주차시간 6시간 이상은 1일로 본다'와 대응한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s016",
+   "mgmt_no": "387-1-000036",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중곡 제4공영주차장",
+   "gu": "거제시",
+   "dong": "고현동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 고현동 990-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 81,
+   "tel": "055-639-4548",
+   "lat": 34.89579009,
+   "lng": 128.625682,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": null,
+    "monthly_label": "주간",
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원·1일 6,000원(적용시간 6시간)·월정기 80,000원) 중 시간제 금액이 조례 별표 1의 1급지(동지역) 소형 행과 정확히 같아 등록값을 그대로 적용했다. 1일 요금은 별표 비고 3의 '주차시간 6시간 이상은 1일로 본다'와 대응한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s017",
+   "mgmt_no": "387-1-000019",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "고현3",
+   "gu": "거제시",
+   "dong": "상동동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 상동동 977-2",
+   "addr_road": "경상남도 거제시 거제중앙로1788",
+   "road": null,
+   "spaces": 19,
+   "tel": "055-639-4548",
+   "lat": 34.87854667,
+   "lng": 128.6285273,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s018",
+   "mgmt_no": "387-1-000020",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "고현4",
+   "gu": "거제시",
+   "dong": "상동동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 상동동 436-16",
+   "addr_road": "경상남도 거제시 거제중앙로1767",
+   "road": null,
+   "spaces": 32,
+   "tel": "055-639-4548",
+   "lat": 34.8768591,
+   "lng": 128.629206,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s019",
+   "mgmt_no": "387-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "옥포1",
+   "gu": "거제시",
+   "dong": "옥포동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 옥포동 530-19",
+   "addr_road": "경상남도 거제시 옥포대첩로35",
+   "road": null,
+   "spaces": 11,
+   "tel": "055-639-4548",
+   "lat": 34.893995,
+   "lng": 128.691392,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s020",
+   "mgmt_no": "387-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "옥포10",
+   "gu": "거제시",
+   "dong": "옥포동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 옥포동 137",
+   "addr_road": "경상남도 거제시 옥포로6길 23",
+   "road": "옥포로6길",
+   "spaces": 23,
+   "tel": "055-639-4548",
+   "lat": 34.89156244,
+   "lng": 128.6952595,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s021",
+   "mgmt_no": "387-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "옥포2",
+   "gu": "거제시",
+   "dong": "옥포동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 옥포동 535-3",
+   "addr_road": "경상남도 거제시 옥포대첩로36",
+   "road": null,
+   "spaces": 15,
+   "tel": "055-639-4548",
+   "lat": 34.8933971,
+   "lng": 128.6915009,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s022",
+   "mgmt_no": "387-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "옥포3",
+   "gu": "거제시",
+   "dong": "옥포동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 옥포동 536-14",
+   "addr_road": "경상남도 거제시 옥포로209",
+   "road": null,
+   "spaces": 21,
+   "tel": "055-639-4548",
+   "lat": 34.89339111,
+   "lng": 128.6908759,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s023",
+   "mgmt_no": "387-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "옥포4",
+   "gu": "거제시",
+   "dong": "옥포동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 옥포동 547-20",
+   "addr_road": "경상남도 거제시 옥포로181",
+   "road": null,
+   "spaces": 11,
+   "tel": "055-639-4548",
+   "lat": 34.89093492,
+   "lng": 128.6914311,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s024",
+   "mgmt_no": "387-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "옥포5",
+   "gu": "거제시",
+   "dong": "옥포동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 옥포동 553-41",
+   "addr_road": "경상남도 거제시 옥포성안로33",
+   "road": null,
+   "spaces": 32,
+   "tel": "055-639-4548",
+   "lat": 34.88940946,
+   "lng": 128.6938358,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s025",
+   "mgmt_no": "387-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "옥포6",
+   "gu": "거제시",
+   "dong": "옥포동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 옥포동 375",
+   "addr_road": "경상남도 거제시 옥포성안로38",
+   "road": null,
+   "spaces": 19,
+   "tel": "055-639-4548",
+   "lat": 34.88975213,
+   "lng": 128.6942309,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s026",
+   "mgmt_no": "387-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "옥포7",
+   "gu": "거제시",
+   "dong": "옥포동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 옥포동 398-2",
+   "addr_road": "경상남도 거제시 옥포성안로45",
+   "road": null,
+   "spaces": 17,
+   "tel": "055-639-4548",
+   "lat": 34.89045295,
+   "lng": 128.6941015,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s027",
+   "mgmt_no": "387-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "옥포8",
+   "gu": "거제시",
+   "dong": "옥포동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 옥포동 574-5",
+   "addr_road": "경상남도 거제시 옥포성안로72",
+   "road": null,
+   "spaces": 14,
+   "tel": "055-639-4548",
+   "lat": 34.8928831,
+   "lng": 128.695003,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s028",
+   "mgmt_no": "387-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "옥포9",
+   "gu": "거제시",
+   "dong": "옥포동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 옥포동 158",
+   "addr_road": "경상남도 거제시 옥포로6길 11-1",
+   "road": "옥포로6길",
+   "spaces": 18,
+   "tel": "055-639-4548",
+   "lat": 34.89061452,
+   "lng": 128.6949439,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s029",
+   "mgmt_no": "387-1-000030",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "옥포매립지",
+   "gu": "거제시",
+   "dong": "옥포동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 옥포동 1915-1",
+   "addr_road": "경상남도 거제시 옥포로6길 30",
+   "road": "옥포로6길",
+   "spaces": 52,
+   "tel": "055-639-4548",
+   "lat": 34.8919341,
+   "lng": 128.6956551,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": null,
+    "monthly_label": "주간",
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원·1일 6,000원(적용시간 6시간)·월정기 80,000원) 중 시간제 금액이 조례 별표 1의 1급지(동지역) 소형 행과 정확히 같아 등록값을 그대로 적용했다. 1일 요금은 별표 비고 3의 '주차시간 6시간 이상은 1일로 본다'와 대응한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s030",
+   "mgmt_no": "387-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "장평1",
+   "gu": "거제시",
+   "dong": "장평동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 장평동 614-7",
+   "addr_road": "경상남도 거제시 장평1로134",
+   "road": null,
+   "spaces": 22,
+   "tel": "055-639-4548",
+   "lat": 34.89255743,
+   "lng": 128.6063346,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s031",
+   "mgmt_no": "387-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "장평2",
+   "gu": "거제시",
+   "dong": "장평동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 장평동 231",
+   "addr_road": "경상남도 거제시 장평로69-1",
+   "road": null,
+   "spaces": 20,
+   "tel": "055-639-4548",
+   "lat": 34.89099672,
+   "lng": 128.6097135,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s032",
+   "mgmt_no": "387-1-000014",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "장평3",
+   "gu": "거제시",
+   "dong": "장평동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 장평동 45-2",
+   "addr_road": "경상남도 거제시 장평로53",
+   "road": null,
+   "spaces": 11,
+   "tel": "055-639-4548",
+   "lat": 34.89099309,
+   "lng": 128.611449,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s033",
+   "mgmt_no": "387-1-000015",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "장평4",
+   "gu": "거제시",
+   "dong": "장평동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 장평동 45-6",
+   "addr_road": "경상남도 거제시 장평로49",
+   "road": null,
+   "spaces": 15,
+   "tel": "055-639-4548",
+   "lat": 34.89091195,
+   "lng": 128.6119173,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s034",
+   "mgmt_no": "387-1-000016",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "장평5",
+   "gu": "거제시",
+   "dong": "장평동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 장평동 1195-69",
+   "addr_road": "경상남도 거제시 장평로 16-13",
+   "road": "장평로",
+   "spaces": 11,
+   "tel": "055-639-4548",
+   "lat": 34.89212988,
+   "lng": 128.6165294,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원)이 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 금액이 정확히 같아 등록값을 그대로 적용했다. 노상주차장은 별표 비고 3에 따라 시간당 주차요금으로 징수해 1일 요금이 없고, 월 정기 주차권도 별표에서 노상은 제외된다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  },
+  {
+   "id": "gn-geoje-s035",
+   "mgmt_no": "387-1-000031",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "장평우체국",
+   "gu": "거제시",
+   "dong": "장평동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 거제시 장평동 45-2",
+   "addr_road": "경상남도 거제시 장평로53",
+   "road": null,
+   "spaces": 21,
+   "tel": "055-639-4548",
+   "lat": 34.89099901,
+   "lng": 128.611449,
+   "base_date": "2026-10-15",
+   "manager": "경상남도 거제시청",
+   "note": "토요일, 일요일 무료 운영, 요금감면 등(장애인+국가유공자+경차+수급자+친환경자동차+다누리카드소지자+만65세이상 경로운전자 등 50 경감)",
+   "notice": "토요일·일요일은 무료로 운영합니다(등록 특기사항)",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 1000,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 6000,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 80000,
+    "monthly_all": null,
+    "monthly_label": "주간",
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 60,
+     "base_fee": 1000,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 6000,
+     "monthly": 80000
+    },
+    "basis": "표준데이터 등록값(기본 60분 1,000원·추가 30분 500원·1일 6,000원(적용시간 6시간)·월정기 80,000원) 중 시간제 금액이 조례 별표 1의 1급지(동지역) 소형 행과 정확히 같아 등록값을 그대로 적용했다. 1일 요금은 별표 비고 3의 '주차시간 6시간 이상은 1일로 본다'와 대응한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 1000,
+   "city": "거제시",
+   "city_slug": "geoje",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-21 09:01",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 39,
+  "원자료_거제시행수": 39,
+  "원자료_받은행수": 39,
+  "구별": {
+   "거제시": 39
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 4,
+  "노외_부설": {
+   "부설": 1,
+   "노외": 3
+  },
+  "노상_구간": 35,
+  "총_구획수": 734,
+  "노상_구획수": 938,
+  "동별": {
+   "고현동": 18,
+   "옥포동": 12,
+   "장평동": 6,
+   "상동동": 2,
+   "아주동": 1
+  },
+  "동수": 5,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 39
+  },
+  "요금구분": {
+   "유료": 39
+  },
+  "요금_미상": [],
+  "유료_노상": 35,
+  "유료_노외": 3,
+  "유료_부설": 1,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 38건 있다 — 고현종합시장 공영주차장·고현1(93m), 옥포국제시장 공영주차장·옥포3(133m), 옥포국제시장 공영주차장·옥포2(89m), 옥포국제시장 공영주차장·옥포1(68m), 고현중앙 공영주차장·무인정산(54m), 중곡 제4공영주차장·중곡 제1공영주차장(147m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 39행이 전부 공영이라 민영 제외 없이 39곳을 실었다. 데이터기준일자는 고현종합시장 공영주차장만 2026-10-14이고 나머지 38곳은 2026-10-15, 제공기관명은 경상남도 거제시 38곳·거제해양관광개발공사 1곳, 관리기관명은 경상남도 거제시청 38곳·경상남도 거제해양관광개발공사 1곳이다",
+   "유료 39곳의 등록 요금이 전부 같은 패턴(기본 60분 1,000원·추가 30분 500원)이다. 1일·월정기는 시장 공영주차장 3곳(1일 4,000원·월정기 80,000원)과 노상 7곳(1일 6,000원·적용시간 6시간·월정기 80,000원)만 등록돼 있다",
+   "전화번호는 39곳 전부 등록돼 있다 — 거제시청 055-639-4548이 36곳, 아주노외 055-639-4549, 고현6 055-639-4565, 고현종합시장 공영주차장 055-639-8179다",
+   "좌표는 39곳 전부 등록돼 있고 전부 거제시 범위 안이라 지오코딩 보완이 0건이다",
+   "고현3·고현4는 이름이 고현 지역을 가리키나 지번주소는 상동동으로 등록돼 있어 주소 기준 동(상동동)으로 묶었다",
+   "시장 공영주차장 3곳(고현종합시장·옥포국제시장·고현중앙)의 특기사항 '2시간 무료 시행'은 조례 별표 1의3의 확인증 제시 시 2시간 무료와 대응하는 조건부 감면이라 계산기 무료시간으로 넣지 않고 안내 문구로만 적었다",
+   "부제시행구분은 39곳 전부 미시행이고, 운영요일은 39곳 전부 평일+토요일+공휴일, 운영시간은 전부 08:00~20:00이다. 장애인전용주차구역 보유여부는 24곳 Y, 15곳 N이다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "고현종합시장 공영주차장: 1일 요금 등록값 4,000원이 조례 별표 1의 1급지 소형 1일 요금 6,000원보다 낮다 — 등록값이 완전해 등록값을 그대로 계산에 썼다(조례 제3조제4항은 개별 공영주차장의 주차요금을 가감조정하여 징수할 수 있게 한다). 실제 징수 기준은 시청 확인 과제",
+   "옥포국제시장 공영주차장: 1일 요금 등록값 4,000원이 조례 별표 1의 1급지 소형 1일 요금 6,000원보다 낮다 — 등록값이 완전해 등록값을 그대로 계산에 썼다(조례 제3조제4항은 개별 공영주차장의 주차요금을 가감조정하여 징수할 수 있게 한다). 실제 징수 기준은 시청 확인 과제",
+   "고현중앙 공영주차장: 1일 요금 등록값 4,000원이 조례 별표 1의 1급지 소형 1일 요금 6,000원보다 낮다 — 등록값이 완전해 등록값을 그대로 계산에 썼다(조례 제3조제4항은 개별 공영주차장의 주차요금을 가감조정하여 징수할 수 있게 한다). 실제 징수 기준은 시청 확인 과제",
+   "중곡 제4공영주차장: 조례 별표 1의 월 정기 주차권은 '노상주차장 제외'라 노상에는 월 정기권이 없으나 표준데이터에는 월정기 80,000원이 등록돼 있어 등록값을 실었다 — 시청 확인 과제. 1일 요금 6,000원은 별표 비고 3(주차시간 6시간 이상은 1일로 본다)의 적용시간 6시간과 대응하고, 시간제로 계산한 6시간 요금과 금액이 같다",
+   "중곡 제3공영주차장: 조례 별표 1의 월 정기 주차권은 '노상주차장 제외'라 노상에는 월 정기권이 없으나 표준데이터에는 월정기 80,000원이 등록돼 있어 등록값을 실었다 — 시청 확인 과제. 1일 요금 6,000원은 별표 비고 3(주차시간 6시간 이상은 1일로 본다)의 적용시간 6시간과 대응하고, 시간제로 계산한 6시간 요금과 금액이 같다",
+   "중곡 제2공영주차장: 조례 별표 1의 월 정기 주차권은 '노상주차장 제외'라 노상에는 월 정기권이 없으나 표준데이터에는 월정기 80,000원이 등록돼 있어 등록값을 실었다 — 시청 확인 과제. 1일 요금 6,000원은 별표 비고 3(주차시간 6시간 이상은 1일로 본다)의 적용시간 6시간과 대응하고, 시간제로 계산한 6시간 요금과 금액이 같다",
+   "중곡 제1공영주차장: 조례 별표 1의 월 정기 주차권은 '노상주차장 제외'라 노상에는 월 정기권이 없으나 표준데이터에는 월정기 80,000원이 등록돼 있어 등록값을 실었다 — 시청 확인 과제. 1일 요금 6,000원은 별표 비고 3(주차시간 6시간 이상은 1일로 본다)의 적용시간 6시간과 대응하고, 시간제로 계산한 6시간 요금과 금액이 같다",
+   "고현로14길: 조례 별표 1의 월 정기 주차권은 '노상주차장 제외'라 노상에는 월 정기권이 없으나 표준데이터에는 월정기 80,000원이 등록돼 있어 등록값을 실었다 — 시청 확인 과제. 1일 요금 6,000원은 별표 비고 3(주차시간 6시간 이상은 1일로 본다)의 적용시간 6시간과 대응하고, 시간제로 계산한 6시간 요금과 금액이 같다",
+   "장평우체국: 조례 별표 1의 월 정기 주차권은 '노상주차장 제외'라 노상에는 월 정기권이 없으나 표준데이터에는 월정기 80,000원이 등록돼 있어 등록값을 실었다 — 시청 확인 과제. 1일 요금 6,000원은 별표 비고 3(주차시간 6시간 이상은 1일로 본다)의 적용시간 6시간과 대응하고, 시간제로 계산한 6시간 요금과 금액이 같다",
+   "옥포매립지: 조례 별표 1의 월 정기 주차권은 '노상주차장 제외'라 노상에는 월 정기권이 없으나 표준데이터에는 월정기 80,000원이 등록돼 있어 등록값을 실었다 — 시청 확인 과제. 1일 요금 6,000원은 별표 비고 3(주차시간 6시간 이상은 1일로 본다)의 적용시간 6시간과 대응하고, 시간제로 계산한 6시간 요금과 금액이 같다",
+   "아주노외: 노외주차장이라 조례 별표 1의 1일 요금(6,000원)·월 정기 주차권이 있는 자리이나 표준데이터에 1일·월정기 금액이 등록돼 있지 않아 일일 상한을 적용하지 않았다 — 시청 확인 과제(김해 선례)",
+   "공통: 조례 별표 1의 1급지 소형 행에는 10분 초과~30분 500원·30분 초과 10분마다 200원의 단시간 구간이 따로 있으나, 표준데이터 등록값은 39곳 전부 기본 60분 1,000원·추가 30분 500원이라 1시간 이상 요금은 별표와 같고 1시간 미만 구간만 등록값으로 계산한다 — 단시간 실제 부과가 별표 구간대로인지는 시청 확인 과제"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "아주노외",
+   "고현로14길",
+   "중곡 제3공영주차장",
+   "중곡 제4공영주차장"
+  ],
+  "감면_출처": "「거제시 주차장 조례」 제2434호 제3조의2·별표 1의3 — 면제: 긴급자동차(법 제7조제1항에 따라 설치한 노상주차장에 한함), 세정 유공납세자 주차증을 부착한 차량(유효기간까지), 거제시민상 수상자로서 '자랑스러운 거제시민증'을 소지한 사람이 운전하는 차량. 50% 감면: 장애인 자가운전차량(장애인을 동반한 일반차량 포함)·국가보훈대상자 본인 소유 비영업용 승용자동차(1대 한함), 경형자동차, 장기등 및 인체조직 기증자·기증희망자 본인 소유 비영업용 승용자동차(1대 한함), 고엽제후유의증 환자·5·18 민주유공자 증서 소지자가 운전하는 자동차, 수급자 차량(시장이 발행한 증명서 제출), 임산부 증명자료를 소지한 임산부가 운전하거나 동승한 자동차, 경남 아이 다누리카드 소지자가 운전하는 자동차, 저공해·환경친화적 자동차(다만 충전목적으로 충전시설을 이용한 경우 최초 2시간 면제), 65세 이상 경로대상자가 운전하는 자동차, 유효한 자원봉사증을 소지한 사람이 운전하는 자동차, 다회 헌혈자(감면 확인증 발급일로부터 3년간)가 운전하는 자동차. 그 밖에 투표확인증 제출 시 2,000원까지 감면, 자가용 승용차 부제 자율참여 표지 부착 차량 20% 경감, 인근 상가 등의 주차권 선구매(1,000매 이상 20%·2,000매 이상 30%) 경감, 시장이 지정하는 공영주차장 1시간 무료와 시장 등 이용 확인증 제시 시 당일 2시간 무료가 있다. 감면액의 100원 미만은 절사하고 둘 이상의 감면사유에 해당하면 감면율이 높은 하나만 적용한다(제3조의2제1항). 본문 원문(data/raw/geoje-ordinance.txt)·별표 1의3 원문(data/raw/geoje-ordinance-b13.txt) 대조 완료(2026-11-20)",
+  "요금_출처": "조례 제3조제1항·별표 1 — 공영주차장 주차요금은 별표 1과 같다. 별표 1은 1급지(동지역) 소형 기준 10분 초과~30분 500원·30분 초과 10분마다 200원·최초 1시간 1,000원·1시간 초과 30분마다 500원·1일 6,000원(노상 제외)·월 정기 주간 80,000원·야간 60,000원·주야간 120,000원(노상 제외)이고, 대형 행과 2급지(면지역) 소형·대형 행도 둔다. 표준데이터 등록 39곳이 전부 기본 60분 1,000원·추가 30분 500원이라 별표 1급지 소형의 1시간 이상 금액과 같아 등록값을 쓴다",
+  "급지_출처": "표준데이터 등록 급지구분은 39곳 전부 '1'이고, 조례 별표 1의 1급지는 동지역, 2급지는 면지역이다 — 등록된 39곳은 전부 동 지역(고현동·상동동·옥포동·장평동·아주동)이라 전부 1급지다",
+  "무료요일_출처": "표준데이터 특기사항 — 시장 공영주차장 3곳을 뺀 36곳이 '토요일, 일요일 무료 운영'으로 등록돼 있어 토·일 무료로 표기했다. 조례 별표 1·1의3에는 주말 무료 규정이 없고, 공휴일 무료도 특기사항·조례 어디에도 없어 공휴일은 무료로 표기하지 않았다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 거제시 등록 39행이 전부 공영(노외 3·노상 35·부설 1)이라 민영 제외 0건으로 39곳·1,672면을 실었다. 중복 제거 0건, 구획수 0 등록 0건, 주소 없음 0건이다. 동별로는 고현동 18곳·옥포동 12곳·장평동 6곳·상동동 2곳·아주동 1곳으로 5개 동이다",
+   "「거제시 주차장 조례」 제2434호(시행 2026-11-12, 공포 2026-11-12, 일부개정, ordinSeq 2184983) 본문 원문(data/raw/geoje-ordinance.txt) 대조 완료(2026-11-20) — 부칙(조례 제2434호)은 '공포한 날부터 시행'이라 표제 시행일과 같다. 국가법령정보센터에서 함께 검색되는 「거제시 도시재생 공동이용시설 부설 주차장 관리 및 운영 조례」(제2371호)는 도시재생 공동이용시설 전용이라 등록 39곳에 해당 시설이 없고, 「거제시 고현종합시장 주차장 내 판매시설 관리 운영 조례」(제1285호)는 판매시설 관리 조례라, 공영주차장 요금 조례는 이 조례가 유일하다. 본문 제3조제1항이 공영주차장 요금을 별표 1로 정한다",
+   "별표 1은 HWPX 원본(flSeq 171495199)을 data/raw/geoje-ordinance-b1.hwpx로 저장하고 PrvText 추출과 Contents/section0.xml 전문 파싱을 교차 확인해 확정했다(개정 2026.11.12) — 1급지(동지역)·2급지(면지역)×소형·대형 4행과 비고 7개가 들어 있다. 본문 제3조제1항이 별표 1을 참조하고 첨부에도 별표 1이 들어 있어 첨부파일 오등록이 아니다. 감면 기준인 별표 1의3(flSeq 171495203, HWPX)과 영업점 앞 노상 주차구획 사용요금인 별표 1의2(flSeq 171495201, HWP)도 함께 저장했다 — 별표 1의2는 사용허가 전용 제도라 등록 39곳의 요금에는 적용하지 않는다",
+   "등록 39곳이 전부 기본 60분 1,000원·추가 30분 500원으로, 조례 별표 1의 1급지(동지역) 소형 행(최초 1시간 1,000원·1시간 초과 30분마다 500원)과 정확히 같아 등록값을 그대로 계산에 쓴다(공주·청양·창원·진주·통영 선례). 원등록값은 각 주차장의 std 필드에 그대로 남겼다. 별표 소형 행의 단시간 구간(10분 초과~30분 500원·30분 초과 10분마다 200원)은 등록값이 담지 못해 급지_요금_차이에 남겼다",
+   "1일 요금 등록은 시장 공영주차장 3곳의 4,000원과 노상 7곳의 6,000원(적용시간 6시간)뿐이다. 시장 3곳의 4,000원은 별표 1일 요금 6,000원보다 낮으나 등록값이 완전해 등록값을 쓰고 차이를 남겼다(조례 제3조제4항은 개별 공영주차장의 요금 가감조정을 허용한다). 노상 7곳의 6,000원은 별표 비고 3(주차시간 6시간 이상은 1일로 본다)과 대응하고 시간제로 계산한 6시간 요금과 동액이다. 노상 7곳의 월정기 80,000원은 별표가 월 정기 주차권에서 노상을 제외하는데도 등록돼 있어 등록값을 실었다. 아주노외(노외)는 별표상 1일 요금이 있는 자리이나 등록이 비어 있어 일일 상한을 적용하지 않았다(김해 선례)",
+   "시장 공영주차장 3곳을 뺀 36곳은 등록 특기사항에 '토요일, 일요일 무료 운영'으로 적혀 있어 토요일·일요일 무료로 표기했다. 조례 별표에는 주말 무료 규정이 없어 시 운영 등록이 근거이고, 공휴일은 특기사항·조례 어디에도 언급이 없어 무료로 표기하지 않았다 — derive_free_fields의 공휴일 태그 예외에 거제시를 공주·보령·제천·김해와 함께 뒀다",
+   "시장 공영주차장 3곳의 특기사항 '2시간 무료 시행'은 조례 별표 1의3 3호 마목(시장 등 이용 확인증(할인권) 제시 시 당일 2시간까지 무료)과 대응한다 — 확인증 제시가 조건인 감면이라 계산기의 무조건 무료시간으로는 넣지 않고 안내 문구로 적었다. 같은 호 라목(시장이 지정하는 공영주차장은 1시간까지 무료)도 함께 안내한다",
+   "좌표는 39곳 전부 등록돼 있고 전부 거제시 범위 안이라 지오코딩 보완이 0건이다 — 오버레이(좌표누락_지오코딩_20261118.json)는 718행 그대로다",
+   "장평우체국과 장평3은 지번주소(장평동 45-2)·도로명주소(장평로53)가 같고 좌표도 같은 자리이나 이름이 다른 별개 등록이라 합치지 않고 둘 다 실었다(옥천·영동 선례) — 같은 시설의 이중 등록인지는 시청 확인 과제다. 고현3·고현4는 이름이 고현 지역을 가리키나 지번주소가 상동동으로 등록돼 있어 주소 기준 동(상동동)으로 묶었다",
+   "운영요일은 39곳 전부 평일+토요일+공휴일, 운영시간은 전부 08:00~20:00이고, 부제시행구분은 39곳 전부 미시행이다. 전화번호는 39곳 전부 등록돼 있다(거제시청 055-639-4548이 36곳, 아주노외 055-639-4549, 고현6 055-639-4565, 고현종합시장 공영주차장 055-639-8179). 장애인전용주차구역 보유여부는 24곳 Y·15곳 N이다. 데이터기준일자는 고현종합시장 공영주차장만 2026-10-14이고 나머지 38곳은 2026-10-15다. 관리기관은 거제시청 38곳·거제해양관광개발공사 1곳(고현종합시장 공영주차장)이다"
+  ],
+  "무료개방_표기": [
+   "아주노외",
+   "고현1",
+   "고현10",
+   "고현11",
+   "고현12",
+   "고현2",
+   "고현5",
+   "고현6",
+   "고현7",
+   "고현8",
+   "고현9",
+   "고현로14길",
+   "무인정산",
+   "중곡 제1공영주차장",
+   "중곡 제2공영주차장",
+   "중곡 제3공영주차장",
+   "중곡 제4공영주차장",
+   "고현3",
+   "고현4",
+   "옥포1",
+   "옥포10",
+   "옥포2",
+   "옥포3",
+   "옥포4",
+   "옥포5",
+   "옥포6",
+   "옥포7",
+   "옥포8",
+   "옥포9",
+   "옥포매립지",
+   "장평1",
+   "장평2",
+   "장평3",
+   "장평4",
+   "장평5",
+   "장평우체국"
+  ],
+  "거주자우선": [],
+  "무료_요금구분": 0,
+  "무료_구획수": 0,
+  "평균_기본요금": 1000,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-10-14",
+   "2026-10-15"
+  ],
+  "관리기관": {
+   "경상남도 거제해양관광개발공사": 1,
+   "경상남도 거제시청": 38
+  }
+ },
+ "fee_table": {
+  "style": "geoje_grade",
+  "unit_min": 30,
+  "base_min": 60,
+  "applies": "「거제시 주차장 조례」 제2434호(시행 2026-11-12) 제3조제1항·별표 1(개정 2026.11.12) — 국가법령정보센터 ordinSeq 2184983에서 확인",
+  "source_url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2184983&ordinId=2184983&gubun=ELIS",
+  "grade_system": "등록 급지구분은 39곳 전부 '1'이고, 조례 별표 1은 1급지(동지역)·2급지(면지역)와 차종(소형·대형)으로 요금을 나눈다. 등록된 39곳은 전부 동 지역이라 1급지다",
+  "rows": [
+   {
+    "label": "1급지 (동지역) 소형",
+    "grade": "grade1_small",
+    "unit_label": "최초 1시간 1,000원 · 1시간 초과 30분마다 500원 · 1일 6,000원(노상 제외) · 월정기 주야간 120,000원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": 6000,
+    "month": 80000,
+    "month_night": 60000,
+    "lots": 39
+   },
+   {
+    "label": "1급지 (동지역) 대형",
+    "grade": "grade1_large",
+    "unit_label": "최초 1시간 2,500원 · 1시간 초과 30분마다 1,500원 · 1일 12,000원(노상 제외) · 월정기 주야간 200,000원",
+    "hour": 2500,
+    "two_hour": 5500,
+    "day": 12000,
+    "month": 160000,
+    "month_night": 80000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 (면지역) 소형",
+    "grade": "grade2_small",
+    "unit_label": "최초 1시간 500원 · 1시간 초과 30분마다 200원 · 1일 3,000원(노상 제외) · 월정기 주야간 60,000원",
+    "hour": 500,
+    "two_hour": 900,
+    "day": 3000,
+    "month": 40000,
+    "month_night": 30000,
+    "lots": 0
+   },
+   {
+    "label": "2급지 (면지역) 대형",
+    "grade": "grade2_large",
+    "unit_label": "최초 1시간 1,500원 · 1시간 초과 30분마다 1,200원 · 1일 6,000원(노상 제외) · 월정기 주야간 100,000원",
+    "hour": 1500,
+    "two_hour": 3900,
+    "day": 6000,
+    "month": 60000,
+    "month_night": 50000,
+    "lots": 0
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 4,
+   "street_paid": 35,
+   "free": 0,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "주간·야간 시간 구분 (조례 별표 1 비고 2)",
+    "hours": "주간 08:00~20:00 · 나머지 시간은 야간",
+    "free": "등록된 39곳은 전부 주간 시간대(08:00~20:00)에만 운영하는 것으로 등록돼 있다"
+   }
+  ],
+  "discounts": [
+   {
+    "label": "긴급자동차 면제 (노상주차장에 한함)",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 별표 1의3 1호 가목 — 「도로교통법」 제2조제22호에 따른 긴급자동차. 단, 법 제7조제1항의 규정에 따라 설치한 노상주차장에 한한다"
+   },
+   {
+    "label": "세정 유공납세자 주차증 부착 차량 면제",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 별표 1의3 1호 나목 — 「거제시 성실납세자 등 지원에 관한 조례」 제5조제2항에 따른 '세정 유공납세자 주차증'을 부착한 차량(다만, 면제기간은 유효기간까지로 한다)"
+   },
+   {
+    "label": "거제시민상 수상자 차량 면제",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 별표 1의3 1호 다목 — 「거제시민상 조례」 제13조제3호에 따른 거제시민상 수상자로서 '자랑스러운 거제시민증'을 소지한 사람이 운전하는 차량"
+   },
+   {
+    "label": "장애인·국가보훈대상자 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 별표 1의3 2호 가목 — 장애인의 자가운전차량(장애인을 동반한 일반차량 포함) 및 「거제시 국가보훈대상자 등 예우 및 지원에 관한 조례」 제4조에 따른 국가보훈대상자 본인 소유의 비영업용 승용자동차(1대에 한함)"
+   },
+   {
+    "label": "경형자동차 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 별표 1의3 2호 나목 — 「자동차관리법 시행규칙」 제2조에 따른 경형자동차"
+   },
+   {
+    "label": "장기등 및 인체조직 기증자·기증희망자 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 별표 1의3 2호 다목 — 「거제시 장기등 및 인체조직 기증 장려에 관한 조례」 제9조에 따라 장기등 및 인체조직 기증자ㆍ장기등 및 인체조직 기증희망자 본인 소유의 비영업용 승용자동차(1대에 한함)"
+   },
+   {
+    "label": "고엽제·5·18 증서 소지자 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 별표 1의3 2호 라목 — 고엽제후유의증 환자로 국가 또는 지방보훈청장이 발행한 증서를 소지한 자와 5·18 민주유공자 증서를 소지한 자가 운전하는 자동차"
+   },
+   {
+    "label": "기초생활수급자 차량 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 별표 1의3 2호 마목 — 「국민기초생활 보장법」에 따른 수급자 차량으로 시장이 발행한 증명서를 제출하는 자동차"
+   },
+   {
+    "label": "임산부 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 별표 1의3 2호 바목 — 모자보건수첩, 임산부 자동차 표지 등 임산부 증명자료를 소지한 임산부가 운전하거나 동승한 자동차"
+   },
+   {
+    "label": "경남 아이 다누리카드 소지자 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 별표 1의3 2호 사목 — 경남 아이 다누리카드 소지자가 운전하는 자동차"
+   },
+   {
+    "label": "저공해·환경친화적 자동차 50% 감면 (충전 시 최초 2시간 면제)",
+    "rate": 0.5,
+    "exempt_min": 120,
+    "note": "조례 별표 1의3 2호 아목 — 「대기환경보전법」 제2조제16호에 따른 저공해 자동차 또는 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조제2호에 따른 환경친화적 자동차. 단, 충전목적으로 충전시설을 이용한 경우 최초 2시간 범위에서 주차요금을 면제한다"
+   },
+   {
+    "label": "65세 이상 경로대상자 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 별표 1의3 2호 자목 — 경로사상 고취를 위하여 65세 이상 경로대상자가 운전하는 자동차"
+   },
+   {
+    "label": "자원봉사증 소지자 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 별표 1의3 2호 차목 — 「거제시 자원봉사활동 지원 조례」 제13조에 따른 유효한 자원봉사증을 소지한 사람이 운전하는 자동차"
+   },
+   {
+    "label": "다회 헌혈자 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 별표 1의3 2호 카목 — 「거제시 헌혈 권장 조례」 제10조의2에 따라 다회 헌혈자(감면 확인증 발급일로부터 3년간)가 운전하는 자동차"
+   }
+  ],
+  "notes": "요금은 후불 징수를 원칙으로 하고, 노상주차장은 18:00 이후 1시간 이상 주차를 요하는 차량에 대해 선불로 징수할 수 있다(비고 1). 주차시간 6시간 이상은 1일로 보되 노상주차장은 시간당 주차요금으로 징수한다(비고 3). 무료 주차 이용 횟수는 1일 1회로 한정한다(비고 4). 소형은 승용차, 25인승 미만 승합자동차, 2.5톤 미만 화물자동차다(비고 5). 시장은 주차수요 등을 감안해 체증 또는 체감방식을 적용할 수 있고(비고 6), 개별 공영주차장의 요금을 가감조정하여 징수할 수 있다(제3조제4항). 전통시장 등 이용 촉진을 위해 시장이 지정하는 공영주차장은 1시간까지 무료이고, 이용 확인증(할인권)을 제시하면 당일 2시간까지 무료다(별표 1의3 3호 라·마목). 거제시의 다른 조례에 별도 규정이 있는 주차장은 이 요금표를 적용하지 않는다(비고 7). 별표 1의2(영업점 앞 노상 주차구획 사용요금, 월정료 80,000원)는 영업점 앞 구획 사용허가 전용 제도라 이 표에 싣지 않았다. 대형·2급지(면지역) 행은 등록된 주차장이 없어 조례 기준 행이다.",
+  "basis": "요금표는 「거제시 주차장 조례」 제2434호(시행 2026-11-12) 제3조제1항·별표 1(개정 2026.11.12)과 표준데이터(기준일 2026-10-15)를 대조해 실었다. 등록 39곳 전부 급지 '1'·동 지역에 있고 시간제 등록값이 별표 1급지 소형 행과 같아 등록값으로 계산한다. (조례 본문: data/raw/geoje-ordinance.txt, 별표 원문: data/raw/geoje-ordinance-b1.txt)"
+ },
+ "slug": "geoje",
+ "province": "경상남도",
+ "province_slug": "gyeongnam",
+ "dong_page_min_lots": 3,
+ "city": "거제시",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차 면제 (노상주차장에 한함)",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 별표 1의3 1호 가목 — 「도로교통법」 제2조제22호에 따른 긴급자동차. 단, 법 제7조제1항의 규정에 따라 설치한 노상주차장에 한한다"
+  },
+  {
+   "label": "세정 유공납세자 주차증 부착 차량 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 별표 1의3 1호 나목 — 「거제시 성실납세자 등 지원에 관한 조례」 제5조제2항에 따른 '세정 유공납세자 주차증'을 부착한 차량(다만, 면제기간은 유효기간까지로 한다)"
+  },
+  {
+   "label": "거제시민상 수상자 차량 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 별표 1의3 1호 다목 — 「거제시민상 조례」 제13조제3호에 따른 거제시민상 수상자로서 '자랑스러운 거제시민증'을 소지한 사람이 운전하는 차량"
+  },
+  {
+   "label": "장애인·국가보훈대상자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1의3 2호 가목 — 장애인의 자가운전차량(장애인을 동반한 일반차량 포함) 및 「거제시 국가보훈대상자 등 예우 및 지원에 관한 조례」 제4조에 따른 국가보훈대상자 본인 소유의 비영업용 승용자동차(1대에 한함)"
+  },
+  {
+   "label": "경형자동차 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1의3 2호 나목 — 「자동차관리법 시행규칙」 제2조에 따른 경형자동차"
+  },
+  {
+   "label": "장기등 및 인체조직 기증자·기증희망자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1의3 2호 다목 — 「거제시 장기등 및 인체조직 기증 장려에 관한 조례」 제9조에 따라 장기등 및 인체조직 기증자ㆍ장기등 및 인체조직 기증희망자 본인 소유의 비영업용 승용자동차(1대에 한함)"
+  },
+  {
+   "label": "고엽제·5·18 증서 소지자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1의3 2호 라목 — 고엽제후유의증 환자로 국가 또는 지방보훈청장이 발행한 증서를 소지한 자와 5·18 민주유공자 증서를 소지한 자가 운전하는 자동차"
+  },
+  {
+   "label": "기초생활수급자 차량 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1의3 2호 마목 — 「국민기초생활 보장법」에 따른 수급자 차량으로 시장이 발행한 증명서를 제출하는 자동차"
+  },
+  {
+   "label": "임산부 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1의3 2호 바목 — 모자보건수첩, 임산부 자동차 표지 등 임산부 증명자료를 소지한 임산부가 운전하거나 동승한 자동차"
+  },
+  {
+   "label": "경남 아이 다누리카드 소지자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1의3 2호 사목 — 경남 아이 다누리카드 소지자가 운전하는 자동차"
+  },
+  {
+   "label": "저공해·환경친화적 자동차 50% 감면 (충전 시 최초 2시간 면제)",
+   "rate": 0.5,
+   "exempt_min": 120,
+   "note": "조례 별표 1의3 2호 아목 — 「대기환경보전법」 제2조제16호에 따른 저공해 자동차 또는 「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조제2호에 따른 환경친화적 자동차. 단, 충전목적으로 충전시설을 이용한 경우 최초 2시간 범위에서 주차요금을 면제한다"
+  },
+  {
+   "label": "65세 이상 경로대상자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1의3 2호 자목 — 경로사상 고취를 위하여 65세 이상 경로대상자가 운전하는 자동차"
+  },
+  {
+   "label": "자원봉사증 소지자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1의3 2호 차목 — 「거제시 자원봉사활동 지원 조례」 제13조에 따른 유효한 자원봉사증을 소지한 사람이 운전하는 자동차"
+  },
+  {
+   "label": "다회 헌혈자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 1의3 2호 카목 — 「거제시 헌혈 권장 조례」 제10조의2에 따라 다회 헌혈자(감면 확인증 발급일로부터 3년간)가 운전하는 자동차"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}

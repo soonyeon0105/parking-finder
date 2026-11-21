@@ -1,0 +1,6851 @@
+{
+ "meta": {
+  "generated_at": "2026-11-21 09:01",
+  "generated_at_iso": "2026-11-21T09:01:22+09:00",
+  "snapshot_at": "2026-11-21 09:01",
+  "region": {
+   "province": "경상남도",
+   "city": "함양군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-09-28",
+    "rows_total": 18994,
+    "rows_city": 56,
+    "fetched_at": "2026-11-21 09:01 (KST)",
+    "note": "함양군으로 등록된 행 56행(전부 공영)을 읽어 중복 제거 0건, 제외 0건으로 56곳을 실었다. 유료 10곳·무료 46곳·미상 0곳이다. 데이터기준일자는 56행 전부 2026-09-28이다. 좌표 결측은 0곳이다. 조례 대조 완료 — 「함양군 주차장 설치 및 관리 조례」 제2831호(시행 2026-04-02, ordinSeq 2119253) 제4조제1항·별표 1 원문 대조 완료(2026-11-21)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "함양군 주차장 설치 및 관리 조례",
+    "org": "경상남도 함양군",
+    "url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2119253&ordinId=2119253&gubun=ELIS",
+    "file": "hamyang-ordinance-b1.txt",
+    "sha256": "03d5cfe1346a8645ceb28923c257cf9b0fcaf36aa8cf3f8bbf8bfeb16d864d67",
+    "license": "자치법규(공개)",
+    "base_date": "2026-04-02",
+    "rows_total": null,
+    "fetched_at": "2026-11-21 09:01 (KST)",
+    "note": "함양군이 설치·관리하는 공영주차장에 적용하는 조례다. 표준데이터에 등록된 함양군 공영주차장 56곳(노외 43곳·노상 13구간, 총 4,526면)입니다. 요금 구분은 무료 46곳·혼합 6곳·유료 4곳이고, 혼합 6곳은 전부 노상, 유료 4곳은 전부 노외입니다. 조례 별표 1은 주차장 유형별로 최초 무료 시간을 정하는데(노상 30분·일반 노외 10분·한들·용평 1시간) 등록 기본요금에는 이 무료 구간이 반영돼 있지 않아, 이 사이트는 별표의 무료 시간을 적용해 계산합니다. 56곳 전부 평일·토요일·공휴일 00:00~23:59 운영으로 등록돼 있습니다. (별표 원문: data/raw/hamyang-ordinance-b1.txt)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "함양군",
+   "slug": "hamyang"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gn-hamyang-001",
+   "mgmt_no": "396-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도계공원주차장",
+   "gu": "함양군",
+   "dong": "마천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 마천면 가흥리 1205-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "055-960-6350",
+   "lat": 35.40389628,
+   "lng": 127.6545137,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-002",
+   "mgmt_no": "396-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "도마마을 다랭이논 주차장",
+   "gu": "함양군",
+   "dong": "마천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 마천면 군자리 480",
+   "addr_road": "",
+   "road": null,
+   "spaces": 44,
+   "tel": "055-960-6350",
+   "lat": 35.39853322,
+   "lng": 127.650629,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-003",
+   "mgmt_no": "396-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "마천면소재지 공영주차장",
+   "gu": "함양군",
+   "dong": "마천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 마천면 가흥리 299",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "055-960-6350",
+   "lat": 35.39719027,
+   "lng": 127.6669359,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-004",
+   "mgmt_no": "396-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "마천시장주차장",
+   "gu": "함양군",
+   "dong": "마천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 마천면 가흥리 1208",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "055-960-6350",
+   "lat": 35.40583046,
+   "lng": 127.6523424,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-005",
+   "mgmt_no": "396-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백무동 주차장",
+   "gu": "함양군",
+   "dong": "마천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 마천면 강청리 197-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 194,
+   "tel": "055-960-6350",
+   "lat": 35.363137,
+   "lng": 127.6802402,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-006",
+   "mgmt_no": "396-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "지리산조망공원주차장",
+   "gu": "함양군",
+   "dong": "마천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 마천면 구양리 산60-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "055-960-6350",
+   "lat": 35.4415145,
+   "lng": 127.6929857,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-007",
+   "mgmt_no": "396-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "추성계곡 주차장",
+   "gu": "함양군",
+   "dong": "마천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 마천면 추성리 340-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 117,
+   "tel": "055-960-6350",
+   "lat": 35.3894452,
+   "lng": 127.6961097,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-008",
+   "mgmt_no": "396-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백전교회앞 주차장",
+   "gu": "함양군",
+   "dong": "백전면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 백전면 평정리 563-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 48,
+   "tel": "055-960-6350",
+   "lat": 35.5512729,
+   "lng": 127.6338945,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-009",
+   "mgmt_no": "396-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대봉스카이랜드 대봉휴양밸리관주차장",
+   "gu": "함양군",
+   "dong": "병곡면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 병곡면 광평리 656",
+   "addr_road": "",
+   "road": null,
+   "spaces": 507,
+   "tel": "055-960-6350",
+   "lat": 35.5665282,
+   "lng": 127.7161125,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-010",
+   "mgmt_no": "396-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대봉캠핑랜드 주차장",
+   "gu": "함양군",
+   "dong": "병곡면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 병곡면 원산리 산1-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 269,
+   "tel": "055-960-6350",
+   "lat": 35.58906613,
+   "lng": 127.6781395,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-011",
+   "mgmt_no": "396-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "부전계곡주차장",
+   "gu": "함양군",
+   "dong": "서상면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 서상면 옥산리 981",
+   "addr_road": "",
+   "road": null,
+   "spaces": 94,
+   "tel": "055-960-6350",
+   "lat": 35.6451366,
+   "lng": 127.6616291,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-012",
+   "mgmt_no": "396-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서상논개묘주차장",
+   "gu": "함양군",
+   "dong": "서상면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 서상면 금당리 540",
+   "addr_road": "",
+   "road": null,
+   "spaces": 98,
+   "tel": "055-960-6350",
+   "lat": 35.68153424,
+   "lng": 127.6753903,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-013",
+   "mgmt_no": "396-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "서상재래시장주차장",
+   "gu": "함양군",
+   "dong": "서상면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 서상면 도천리 1074-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "055-960-6350",
+   "lat": 35.6798808,
+   "lng": 127.6884886,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-014",
+   "mgmt_no": "396-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "거연정 주차장",
+   "gu": "함양군",
+   "dong": "서하면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 서하면 봉전리 831-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 48,
+   "tel": "055-960-6350",
+   "lat": 35.6279294,
+   "lng": 127.7374243,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-015",
+   "mgmt_no": "396-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "황암사 주차장",
+   "gu": "함양군",
+   "dong": "서하면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 서하면 황산리 38-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "055-960-6350",
+   "lat": 35.62403602,
+   "lng": 127.7728662,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-016",
+   "mgmt_no": "396-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수동면버스승강장주차장",
+   "gu": "함양군",
+   "dong": "수동면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 수동면 화산리 1186-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "055-960-6350",
+   "lat": 35.52151812,
+   "lng": 127.7846328,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-017",
+   "mgmt_no": "396-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "농월정 주차장",
+   "gu": "함양군",
+   "dong": "안의면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 안의면 월림리 692",
+   "addr_road": "",
+   "road": null,
+   "spaces": 98,
+   "tel": "055-960-6350",
+   "lat": 35.6230491,
+   "lng": 127.782214,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-018",
+   "mgmt_no": "396-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "심원정 주차장",
+   "gu": "함양군",
+   "dong": "안의면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 안의면 하원리 1359-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 139,
+   "tel": "055-960-6350",
+   "lat": 35.66883397,
+   "lng": 127.787478,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-019",
+   "mgmt_no": "396-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "안의 석천공영주차장",
+   "gu": "함양군",
+   "dong": "안의면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 안의면 석천리 161-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "055-960-6350",
+   "lat": 35.6267661,
+   "lng": 127.8143745,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-020",
+   "mgmt_no": "396-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "안의공영주차장",
+   "gu": "함양군",
+   "dong": "안의면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 안의면 이전리 13-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 54,
+   "tel": "055-960-6350",
+   "lat": 35.625478,
+   "lng": 127.813542,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-021",
+   "mgmt_no": "396-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "연암물레방아공원주차장",
+   "gu": "함양군",
+   "dong": "안의면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 안의면 상원리 525-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "055-960-6350",
+   "lat": 35.67114906,
+   "lng": 127.7853563,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-022",
+   "mgmt_no": "396-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "일주문 주차장",
+   "gu": "함양군",
+   "dong": "안의면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 안의면 상원리 960",
+   "addr_road": "",
+   "road": null,
+   "spaces": 63,
+   "tel": "055-960-6350",
+   "lat": 35.68392897,
+   "lng": 127.7658232,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-023",
+   "mgmt_no": "396-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "함양용추오토캠핑장주차장",
+   "gu": "함양군",
+   "dong": "안의면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 안의면 상원리 758-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 108,
+   "tel": "055-960-6350",
+   "lat": 35.6747309,
+   "lng": 127.7733983,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-024",
+   "mgmt_no": "396-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "지곡다목적체육관 주차장",
+   "gu": "함양군",
+   "dong": "지곡면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 지곡면 개평리 51-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "055-960-6350",
+   "lat": 35.5670684,
+   "lng": 127.7720734,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-025",
+   "mgmt_no": "396-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "공설운동장체육관주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 함양읍 백연리 584",
+   "addr_road": "",
+   "road": null,
+   "spaces": 71,
+   "tel": "055-960-6350",
+   "lat": 35.52019007,
+   "lng": 127.7159431,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-026",
+   "mgmt_no": "396-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문화예술회관주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 함양읍 교산리 1044",
+   "addr_road": "",
+   "road": null,
+   "spaces": 74,
+   "tel": "055-960-6350",
+   "lat": 35.52469258,
+   "lng": 127.7222695,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-027",
+   "mgmt_no": "396-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "산삼항노화산지유통센터주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 함양읍 교산리 1043",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "055-960-6350",
+   "lat": 35.5270011,
+   "lng": 127.7197745,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-028",
+   "mgmt_no": "396-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상림공영주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 함양읍 교산리 1069-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 135,
+   "tel": "055-960-6350",
+   "lat": 35.52372642,
+   "lng": 127.7218597,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-029",
+   "mgmt_no": "396-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상림제2주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 함양읍 죽곡리 253-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 108,
+   "tel": "055-960-6350",
+   "lat": 35.5298802,
+   "lng": 127.7114191,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-030",
+   "mgmt_no": "396-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "어린이공원주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 함양읍 죽곡리 15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "055-960-6350",
+   "lat": 35.52283616,
+   "lng": 127.7164992,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-031",
+   "mgmt_no": "396-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "지리산함양시장 제3주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 함양읍 용평리 603-24",
+   "addr_road": "",
+   "road": null,
+   "spaces": 64,
+   "tel": "055-960-6350",
+   "lat": 35.5173675,
+   "lng": 127.7295692,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "소형기준",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 30000,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "monthly_night": 25000,
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": 10,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드+현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "조례 별표 1의 일반 노외 요금으로 계산한다 — 최초 10분 무료(조례 제5조제1항제4호), 10~30분 500원, 이후 매 30분 500원, 1일 5,000원, 월정기 주간 30,000원·야간 25,000원·주야간 50,000원. 등록 기본요금(30분 500원)에는 최초 10분 무료가 반영돼 있지 않아 별표 산식을 썼고 등록값은 std에 남겼다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-032",
+   "mgmt_no": "396-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "지리산함양시장주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 함양읍 용평리 607-119",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "055-960-6350",
+   "lat": 35.5184984,
+   "lng": 127.7295369,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "소형기준",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 30000,
+    "monthly_all": 50000,
+    "monthly_label": null,
+    "monthly_night": 25000,
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": 10,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드+현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 5000,
+     "monthly": 50000
+    },
+    "basis": "조례 별표 1의 일반 노외 요금으로 계산한다 — 최초 10분 무료(조례 제5조제1항제4호), 10~30분 500원, 이후 매 30분 500원, 1일 5,000원, 월정기 주간 30,000원·야간 25,000원·주야간 50,000원. 등록 기본요금(30분 500원)에는 최초 10분 무료가 반영돼 있지 않아 별표 산식을 썼고 등록값은 std에 남겼다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-033",
+   "mgmt_no": "396-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "최치원역사공원 주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "도로명주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "",
+   "addr_road": "경상남도 함양군 함양읍 필봉산길 61",
+   "road": null,
+   "spaces": 18,
+   "tel": "055-960-6350",
+   "lat": 35.52654011,
+   "lng": 127.7219691,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-034",
+   "mgmt_no": "396-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한들생태환경주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 함양읍 용평리 974",
+   "addr_road": "",
+   "road": null,
+   "spaces": 457,
+   "tel": "055-960-6350",
+   "lat": 35.51856612,
+   "lng": 127.7321802,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "소형기준",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 90,
+    "base_fee": 300,
+    "unit_min": 30,
+    "unit_fee": 300,
+    "daily_fee": 3000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 20000,
+    "monthly_all": 30000,
+    "monthly_label": null,
+    "monthly_night": 15000,
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": 60,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 300,
+     "unit_min": 30,
+     "unit_fee": 300,
+     "day": 3000,
+     "monthly": 30000
+    },
+    "basis": "조례 별표 1의 한들 노외 요금으로 계산한다 — 최초 1시간 무료(조례 제5조제1항제4호), 이후 매 30분 300원, 1일 3,000원, 월정기 주간 20,000원·야간 15,000원·주야간 30,000원. 등록 기본요금(60분 300원)에는 최초 1시간 무료가 반영돼 있지 않아 별표 산식을 썼고 등록값은 std에 남겼다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 300,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-035",
+   "mgmt_no": "396-2-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "함양 용평공영주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 함양읍 용평리 721-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 92,
+   "tel": "055-960-6350",
+   "lat": 35.5182090611,
+   "lng": 127.7274822066,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "소형기준",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 70,
+    "base_fee": 200,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 100000,
+    "monthly_all": 120000,
+    "monthly_label": null,
+    "monthly_night": 50000,
+    "grade": 2,
+    "grade_label": "2급지",
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": 60,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 200,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 100000
+    },
+    "basis": "조례 별표 1의 용평 노외 주차타워 요금으로 계산한다 — 최초 1시간 무료(조례 제5조제1항제4호), 이후 매 10분 200원, 1일 10,000원, 월정기 주간 100,000원·야간 50,000원·주야간 120,000원. 등록 기본요금(60분 200원)에는 최초 1시간 무료가 반영돼 있지 않아 별표 산식을 썼고 등록값은 std에 남겼다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 200,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-036",
+   "mgmt_no": "396-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "함양국민체육센터주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 함양읍 백연리 637",
+   "addr_road": "",
+   "road": null,
+   "spaces": 64,
+   "tel": "055-960-6350",
+   "lat": 35.5171077,
+   "lng": 127.7142469,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-037",
+   "mgmt_no": "396-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "함양군볼링장주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 함양읍 백연리 636",
+   "addr_road": "",
+   "road": null,
+   "spaces": 60,
+   "tel": "055-960-6350",
+   "lat": 35.51749275,
+   "lng": 127.7141909,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-038",
+   "mgmt_no": "396-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "함양생활체육공원주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 함양읍 백연리 654",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "055-960-6350",
+   "lat": 35.5168194,
+   "lng": 127.7156697,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-039",
+   "mgmt_no": "396-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "함양스포츠파크 주차장(1)",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 함양읍 백연리 611-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 92,
+   "tel": "055-960-6350",
+   "lat": 35.5182442,
+   "lng": 127.7147029,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-040",
+   "mgmt_no": "396-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "함양스포츠파크 주차장(2)",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 함양읍 백연리 610",
+   "addr_road": "",
+   "road": null,
+   "spaces": 205,
+   "tel": "055-960-6350",
+   "lat": 35.51823503,
+   "lng": 127.7157743,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-041",
+   "mgmt_no": "396-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "함양스포츠파크 축구장주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 함양읍 백연리 641",
+   "addr_road": "",
+   "road": null,
+   "spaces": 109,
+   "tel": "055-960-6350",
+   "lat": 35.5171565,
+   "lng": 127.7133088,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-042",
+   "mgmt_no": "396-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "함양전천후족구장주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 함양읍 백연리 621",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "055-960-6350",
+   "lat": 35.51838491,
+   "lng": 127.7137057,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-043",
+   "mgmt_no": "396-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오도재주차장",
+   "gu": "함양군",
+   "dong": "휴천면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경상남도 함양군 휴천면 월평리 산123-21",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "055-960-6350",
+   "lat": 35.44451028,
+   "lng": 127.7001242,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-s001",
+   "mgmt_no": "396-1-000011",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "광풍루 강변주차장",
+   "gu": "함양군",
+   "dong": "안의면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 함양군 안의면 금천리 44-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 51,
+   "tel": "055-960-6350",
+   "lat": 35.629476,
+   "lng": 127.8127284,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-s002",
+   "mgmt_no": "396-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "안의시외버스터미널 강변주차장",
+   "gu": "함양군",
+   "dong": "안의면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 함양군 안의면 금천리 255-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "055-960-6350",
+   "lat": 35.627851,
+   "lng": 127.8143009,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-s003",
+   "mgmt_no": "396-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "낙원사거리+보건소주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 함양군 함양읍 용평리 709-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 78,
+   "tel": "055-960-6350",
+   "lat": 35.518606,
+   "lng": 127.7282356,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드+현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분은 ‘혼합’으로 등록돼 있으나 유·무료 시간대가 없어, 조례 별표 1의 노상 요금으로 계산한다 — 최초 30분 무료(조례 제5조제1항제4호), 이후 매 30분 500원, 누적 금액이 1일 요금 5,000원에 도달하면 1일 요금 적용(별표 1 비고 3). 실제 유·무료 시간대는 군청 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-s004",
+   "mgmt_no": "396-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "남양떡방앗간+삼성디지털프라자주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 함양군 함양읍 운림리 35-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "055-960-6350",
+   "lat": 35.519343,
+   "lng": 127.7248497,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드+현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분은 ‘혼합’으로 등록돼 있으나 유·무료 시간대가 없어, 조례 별표 1의 노상 요금으로 계산한다 — 최초 30분 무료(조례 제5조제1항제4호), 이후 매 30분 500원, 누적 금액이 1일 요금 5,000원에 도달하면 1일 요금 적용(별표 1 비고 3). 실제 유·무료 시간대는 군청 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-s005",
+   "mgmt_no": "396-1-000009",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "대일떡방앗간+만경가요주점주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 함양군 함양읍 용평리 627-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "055-960-6350",
+   "lat": 35.51928501,
+   "lng": 127.7310087,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드+현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분은 ‘혼합’으로 등록돼 있으나 유·무료 시간대가 없어, 조례 별표 1의 노상 요금으로 계산한다 — 최초 30분 무료(조례 제5조제1항제4호), 이후 매 30분 500원, 누적 금액이 1일 요금 5,000원에 도달하면 1일 요금 적용(별표 1 비고 3). 실제 유·무료 시간대는 군청 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-s006",
+   "mgmt_no": "396-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "목화예식장+(구)대보반점주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 함양군 함양읍 용평리 612-24",
+   "addr_road": "",
+   "road": null,
+   "spaces": 57,
+   "tel": "055-960-6350",
+   "lat": 35.52070303,
+   "lng": 127.7293125,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드+현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분은 ‘혼합’으로 등록돼 있으나 유·무료 시간대가 없어, 조례 별표 1의 노상 요금으로 계산한다 — 최초 30분 무료(조례 제5조제1항제4호), 이후 매 30분 500원, 누적 금액이 1일 요금 5,000원에 도달하면 1일 요금 적용(별표 1 비고 3). 실제 유·무료 시간대는 군청 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-s007",
+   "mgmt_no": "396-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "상림슈퍼+그린캐슬빌라주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 함양군 함양읍 운림리 95-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "055-960-6350",
+   "lat": 35.520417,
+   "lng": 127.7241801,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-s008",
+   "mgmt_no": "396-1-000006",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "상아치과의원+한마음의원주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 함양군 함양읍 용평리 702-14",
+   "addr_road": "",
+   "road": null,
+   "spaces": 76,
+   "tel": "055-960-6350",
+   "lat": 35.519714,
+   "lng": 127.7284081,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드+현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분은 ‘혼합’으로 등록돼 있으나 유·무료 시간대가 없어, 조례 별표 1의 노상 요금으로 계산한다 — 최초 30분 무료(조례 제5조제1항제4호), 이후 매 30분 500원, 누적 금액이 1일 요금 5,000원에 도달하면 1일 요금 적용(별표 1 비고 3). 실제 유·무료 시간대는 군청 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-s009",
+   "mgmt_no": "396-1-000008",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "양지다방+행복건강원주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 함양군 함양읍 용평리 874-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "055-960-6350",
+   "lat": 35.516566,
+   "lng": 127.7271136,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-s010",
+   "mgmt_no": "396-1-000003",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "인당교+돌북교강변주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 함양군 함양읍 용평리 906-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 60,
+   "tel": "055-960-6350",
+   "lat": 35.51574602,
+   "lng": 127.7280323,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-s011",
+   "mgmt_no": "396-1-000010",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "하림도시계획도로(중로3-5)주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 함양군 함양읍 용평리 530-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 60,
+   "tel": "055-960-6350",
+   "lat": 35.514442,
+   "lng": 127.7310812,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-s012",
+   "mgmt_no": "396-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "함양어탕+시장입구주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 함양군 함양읍 용평리 733-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "055-960-6350",
+   "lat": 35.517623,
+   "lng": 127.7268639,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "",
+    "std": {
+     "base_min": 10,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제4조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  },
+  {
+   "id": "gn-hamyang-s013",
+   "mgmt_no": "396-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "함양중학교+두루침교주차장",
+   "gu": "함양군",
+   "dong": "함양읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "경상남도 함양군 함양읍 용평리 699-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 112,
+   "tel": "055-960-6350",
+   "lat": 35.519853,
+   "lng": 127.7274055,
+   "base_date": "2026-09-28",
+   "manager": "경상남도 함양군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 30,
+    "unit_fee": 500,
+    "daily_fee": 5000,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": 1,
+    "grade_label": "1급지",
+    "std_grade": "1",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": true,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "pay": "카드+현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": null,
+     "monthly": null
+    },
+    "basis": "요금 구분은 ‘혼합’으로 등록돼 있으나 유·무료 시간대가 없어, 조례 별표 1의 노상 요금으로 계산한다 — 최초 30분 무료(조례 제5조제1항제4호), 이후 매 30분 500원, 누적 금액이 1일 요금 5,000원에 도달하면 1일 요금 적용(별표 1 비고 3). 실제 유·무료 시간대는 군청 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "함양군",
+   "city_slug": "hamyang",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-21 09:01",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 56,
+  "원자료_함양군행수": 56,
+  "원자료_받은행수": 56,
+  "구별": {
+   "함양군": 56
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 43,
+  "노외_부설": {
+   "노외": 43
+  },
+  "노상_구간": 13,
+  "총_구획수": 3832,
+  "노상_구획수": 694,
+  "동별": {
+   "함양읍": 29,
+   "안의면": 9,
+   "마천면": 7,
+   "서상면": 3,
+   "병곡면": 2,
+   "서하면": 2,
+   "백전면": 1,
+   "수동면": 1,
+   "지곡면": 1,
+   "휴천면": 1
+  },
+  "동수": 10,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 55,
+   "도로명주소": 1
+  },
+  "요금구분": {
+   "무료": 46,
+   "유료": 10
+  },
+  "요금_미상": [],
+  "유료_노상": 6,
+  "유료_노외": 4,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "이름이 다른 주차장이 200m 안에 이웃한 쌍이 42건 있다 — 안의공영주차장·안의 석천공영주차장(161m), 지리산함양시장주차장·함양 용평공영주차장(188m), 지리산함양시장주차장·지리산함양시장 제3주차장(126m), 지리산함양시장주차장·대일떡방앗간+만경가요주점주차장(159m), 지리산함양시장주차장·상아치과의원+한마음의원주차장(169m), 지리산함양시장주차장·낙원사거리+보건소주차장(118m) 등. 전부 이름·등록이 다른 별개 주차장이라 합치지 않고 전부 실었다",
+   "표준데이터 등록 56행은 전부 공영이라 민영 제외는 0건이다. 데이터기준일자는 56행 전부 2026-09-28, 제공기관명은 전부 경상남도 함양군이다",
+   "전화번호·관리기관은 56곳 전부 함양군청(055-960-6350)이다. 도로명주소는 최치원역사공원주차장 1곳만 등록돼 있고(지번주소 없음), 장애인전용주차구역 보유여부는 56곳 전부 비어 있다",
+   "운영요일·운영시간은 56곳 전부 평일+토요일+공휴일 00:00~23:59로 같다. 부제시행구분은 미시행 45곳·2부제 7곳·5부제 4곳이다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [
+   "지리산함양시장주차장: 등록 기본요금(30분 500원)에는 조례 별표 1의 최초 10분 무료가 반영돼 있지 않아 계산은 별표 일반 노외 산식(최초 10분 무료·10~30분 500원·이후 매 30분 500원)을 쓴다. 등록 월정기 50,000원은 별표 주야간 값과 같고, 계산에는 별표의 주간·야간·주야간 3단을 전부 실었다",
+   "함양 용평공영주차장: 등록 기본요금(60분 200원)에는 조례 별표 1의 최초 1시간 무료가 반영돼 있지 않아 계산은 별표 용평 산식(최초 1시간 무료·이후 매 10분 200원)을 쓴다. 등록 월정기 100,000원은 별표 주간 값과 같고, 계산에는 별표의 주간·야간·주야간 3단을 전부 실었다",
+   "지리산함양시장 제3주차장: 등록 기본요금(30분 500원)에는 조례 별표 1의 최초 10분 무료가 반영돼 있지 않아 계산은 별표 일반 노외 산식(최초 10분 무료·10~30분 500원·이후 매 30분 500원)을 쓴다. 등록 월정기 50,000원은 별표 주야간 값과 같고, 계산에는 별표의 주간·야간·주야간 3단을 전부 실었다",
+   "한들생태환경주차장: 등록 기본요금(60분 300원)에는 조례 별표 1의 최초 1시간 무료가 반영돼 있지 않아 계산은 별표 한들 산식(최초 1시간 무료·이후 매 30분 300원)을 쓴다. 등록 월정기 30,000원은 별표 주야간 값과 같고, 계산에는 별표의 주간·야간·주야간 3단을 전부 실었다",
+   "대일떡방앗간+만경가요주점주차장: 요금 구분이 '혼합'이나 유·무료 시간대가 등록돼 있지 않고 1일·월정기 값도 비어 있다 — 계산은 조례 별표 1의 노상 요금(최초 30분 무료·이후 매 30분 500원)으로 하고 비고 3에 따라 1일 5,000원을 상한으로 적용한다. 등록 기본요금(30분 500원)은 별표의 최초 30분 무료와 어긋나며, 실제 유·무료 시간 구분은 군청 확인 과제다",
+   "상아치과의원+한마음의원주차장: 요금 구분이 '혼합'이나 유·무료 시간대가 등록돼 있지 않고 1일·월정기 값도 비어 있다 — 계산은 조례 별표 1의 노상 요금(최초 30분 무료·이후 매 30분 500원)으로 하고 비고 3에 따라 1일 5,000원을 상한으로 적용한다. 등록 기본요금(30분 500원)은 별표의 최초 30분 무료와 어긋나며, 실제 유·무료 시간 구분은 군청 확인 과제다",
+   "목화예식장+(구)대보반점주차장: 요금 구분이 '혼합'이나 유·무료 시간대가 등록돼 있지 않고 1일·월정기 값도 비어 있다 — 계산은 조례 별표 1의 노상 요금(최초 30분 무료·이후 매 30분 500원)으로 하고 비고 3에 따라 1일 5,000원을 상한으로 적용한다. 등록 기본요금(30분 500원)은 별표의 최초 30분 무료와 어긋나며, 실제 유·무료 시간 구분은 군청 확인 과제다",
+   "남양떡방앗간+삼성디지털프라자주차장: 요금 구분이 '혼합'이나 유·무료 시간대가 등록돼 있지 않고 1일·월정기 값도 비어 있다 — 계산은 조례 별표 1의 노상 요금(최초 30분 무료·이후 매 30분 500원)으로 하고 비고 3에 따라 1일 5,000원을 상한으로 적용한다. 등록 기본요금(30분 500원)은 별표의 최초 30분 무료와 어긋나며, 실제 유·무료 시간 구분은 군청 확인 과제다",
+   "낙원사거리+보건소주차장: 요금 구분이 '혼합'이나 유·무료 시간대가 등록돼 있지 않고 1일·월정기 값도 비어 있다 — 계산은 조례 별표 1의 노상 요금(최초 30분 무료·이후 매 30분 500원)으로 하고 비고 3에 따라 1일 5,000원을 상한으로 적용한다. 등록 기본요금(30분 500원)은 별표의 최초 30분 무료와 어긋나며, 실제 유·무료 시간 구분은 군청 확인 과제다",
+   "함양중학교+두루침교주차장: 요금 구분이 '혼합'이나 유·무료 시간대가 등록돼 있지 않고 1일·월정기 값도 비어 있다 — 계산은 조례 별표 1의 노상 요금(최초 30분 무료·이후 매 30분 500원)으로 하고 비고 3에 따라 1일 5,000원을 상한으로 적용한다. 등록 기본요금(30분 500원)은 별표의 최초 30분 무료와 어긋나며, 실제 유·무료 시간 구분은 군청 확인 과제다",
+   "공통: 등록 급지구분은 노상 13곳 전부 '1'·노외 43곳 전부 '2'인데 조례 별표 1은 급지가 아니라 주차장 유형(노상·일반 노외·한들·용평)으로 요금을 나눈다 — 급지 등록값은 계산에 쓰지 않았고, 구분 방식의 어긋남은 군청 확인 과제다"
+  ],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "도계공원주차장",
+   "도마마을 다랭이논 주차장",
+   "마천면소재지 공영주차장",
+   "마천시장주차장",
+   "백무동 주차장",
+   "지리산조망공원주차장",
+   "추성계곡 주차장",
+   "백전교회앞 주차장",
+   "대봉스카이랜드 대봉휴양밸리관주차장",
+   "대봉캠핑랜드 주차장",
+   "부전계곡주차장",
+   "서상논개묘주차장",
+   "서상재래시장주차장",
+   "거연정 주차장",
+   "황암사 주차장",
+   "수동면버스승강장주차장",
+   "농월정 주차장",
+   "심원정 주차장",
+   "안의 석천공영주차장",
+   "안의공영주차장",
+   "연암물레방아공원주차장",
+   "일주문 주차장",
+   "함양용추오토캠핑장주차장",
+   "지곡다목적체육관 주차장",
+   "공설운동장체육관주차장",
+   "문화예술회관주차장",
+   "산삼항노화산지유통센터주차장",
+   "상림공영주차장",
+   "상림제2주차장",
+   "어린이공원주차장",
+   "지리산함양시장 제3주차장",
+   "지리산함양시장주차장",
+   "한들생태환경주차장",
+   "함양 용평공영주차장",
+   "함양국민체육센터주차장",
+   "함양군볼링장주차장",
+   "함양생활체육공원주차장",
+   "함양스포츠파크 주차장(1)",
+   "함양스포츠파크 주차장(2)",
+   "함양스포츠파크 축구장주차장",
+   "함양전천후족구장주차장",
+   "오도재주차장",
+   "광풍루 강변주차장",
+   "안의시외버스터미널 강변주차장",
+   "낙원사거리+보건소주차장",
+   "남양떡방앗간+삼성디지털프라자주차장",
+   "대일떡방앗간+만경가요주점주차장",
+   "목화예식장+(구)대보반점주차장",
+   "상림슈퍼+그린캐슬빌라주차장",
+   "상아치과의원+한마음의원주차장",
+   "양지다방+행복건강원주차장",
+   "인당교+돌북교강변주차장",
+   "하림도시계획도로(중로3-5)주차장",
+   "함양어탕+시장입구주차장",
+   "함양중학교+두루침교주차장"
+  ],
+  "감면_출처": "「함양군 주차장 설치 및 관리 조례」 제2831호 제5조·제6조 — 제5조제1항 긴급자동차·국가/지자체 공용차량·성실납세자 차량(선정일로부터 1년)·별표 1 무료 주차 시간 이내 면제, 제6조제1항 경형자동차 60% 경감, 제2항 국가유공자·장애인·고엽제후유의증환자·5·18 부상자·환경친화적 자동차·경남i다누리카드·임산부·병역명문가 50% 경감, 제3항 승용차 10부제 참여표식·함께 타기 참여표식·저공해자동차 표지 30% 경감. 국가법령정보센터 본문 원문(ordinSeq 2119253)으로 확인했다",
+  "요금_출처": "조례 제4조제1항·별표 1 — 공영주차장 주차요금은 별표 1과 같다. 별표 1은 유형별로 노상(소형) 최초 30분 무료·이후 매 30분 500원·1일 5,000원, 일반 노외(소형) 최초 10분 무료·10~30분 500원·이후 매 30분 500원·1일 5,000원·월 30,000/25,000/50,000원, 한들(소형) 최초 1시간 무료·이후 매 30분 300원·1일 3,000원·월 20,000/15,000/30,000원, 용평(소형) 최초 1시간 무료·이후 매 10분 200원·1일 10,000원·월 100,000/50,000/120,000원이다. 등록 기본요금에 무료 구간이 반영돼 있지 않아 유료·혼합 10곳은 별표 산식으로 계산한다",
+  "급지_출처": "조례 별표 1은 급지가 아니라 주차장 유형으로 요금을 나누나 표준데이터 등록 급지구분은 노상 13곳 전부 '1'·노외 43곳 전부 '2'다 — 등록값과 조례의 구분 방식이 어긋나는 점은 확인 과제이고, 계산에는 급지를 쓰지 않는다",
+  "무료요일_출처": "표준데이터 특기사항은 유료 4곳의 '소형기준'뿐이고, 조례 제5조·제6조·별표 1 어디에도 군 전체 일괄 주말·공휴일 무료 근거가 없어 주말·공휴일 무료로 표기한 곳이 없다(인스팅트 앞단 패키지 확인). 별표의 최초 무료 시간은 요일과 무관하게 적용된다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 함양군 등록 56행은 전부 공영(노외 43·노상 13, 총 4,526면)이라 민영 제외 0건이고, 중복 제거 0건·구획수 0 등록 0건·주소 없음 0건·좌표 결측 0건·이름 중복 0건이다. 인스팅트 앞단 패키지(2026-11-20)의 집계(공영 56곳·4,526면, 무료 46·혼합 6·유료 4, 기준일 2026-09-28)와 표준데이터 원본 대조 결과가 일치한다",
+   "「함양군 주차장 설치 및 관리 조례」 제2831호(시행 2026-04-02, ordinSeq 2119253) — 제4조제1항이 공영주차장 요금을 별표 1로 정한다. 별표 1은 HWP 원본(flSeq 163076169)을 받아 텍스트를 추출해 대조했고, 면제·경감은 제5조·제6조 본문 원문으로 확인했다(경형자동차 60% 경감 포함)",
+   "등록 기본요금에는 별표의 최초 무료 구간이 녹아 있지 않다 — 혼합 노상 6곳은 기본 30분 500원(별표는 최초 30분 무료), 시장 노외 2곳은 기본 30분 500원(별표는 최초 10분 무료), 한들은 기본 60분 300원·용평은 기본 60분 200원(별표는 둘 다 최초 1시간 무료)이다. 그대로 계산하면 무료 구간이 오과금되므로 별표의 무료 시간을 free_min으로 구현하고, 계산기의 raw_charge가 전체 시간을 base_min과 대조하는 구조에 맞춰 base_min = 무료시간 + 첫 유료구간으로 잡았다(하동 선례). 구간 대조: 노상 45분 500원·노상 90분 1,000원, 일반 노외 20분 500원·45분 1,000원, 한들 90분 300원·100분 600원, 용평 70분 200원·75분 400원으로 별표와 전 지점 일치한다",
+   "혼합 6곳(대일떡방앗간+만경가요주점·상아치과의원+한마음의원·목화예식장+(구)대보반점·남양떡방앗간+삼성디지털프라자·낙원사거리+보건소·함양중학교+두루침교, 전부 노상·함양읍)은 유·무료 시간대가 등록돼 있지 않아 별표 노상 요금으로 계산하고, 비고 3(누적 금액이 1일 요금에 도달하면 1일 요금 적용)에 따라 1일 5,000원을 상한으로 적용한다. 비고 1이 노상의 1일 주차를 제한하는 것과 비고 3의 상한 적용이 어떻게 함께 운영되는지, 실제 유·무료 시간 구분은 군청 확인 과제다",
+   "유료 4곳(지리산함양시장주차장·지리산함양시장 제3주차장·한들생태환경주차장·함양 용평공영주차장)은 전부 노외이고 특기사항이 전부 '소형기준'이라 소형 기준으로 계산한다. 등록 월정기는 시장 2곳 50,000원(별표 주야간 값)·한들 30,000원(별표 주야간 값)·용평 100,000원(별표 주간 값)으로 별표 값과 어긋나지 않으며, 계산에는 별표의 주간·야간·주야간 3단을 전부 실었다. 대형 요금은 별표 대형 행을 요금표 비고에 참고로 실었다",
+   "등록 급지구분은 노상 13곳 전부 '1'·노외 43곳 전부 '2'인데 조례 별표 1은 급지가 아니라 유형(노상·일반 노외·한들·용평)으로 요금을 나눈다. 급지 등록값은 계산에 쓰지 않고 어긋남 자체를 급지_요금_차이의 공통 항목과 이곳에 남긴다 — 군청 확인 과제다",
+   "주말·공휴일 무료는 특기사항(유료 4곳 '소형기준'뿐)·조례 어디에도 근거가 없어 한 곳도 표기하지 않았다. 별표 1 비고 4는 군수가 주차장별로 운영시간·요금을 따로 정할 수 있다고 정하는데, 별도 지정 공고가 있는지는 확인 과제다",
+   "함양스포츠파크 주차장(1)·(2)는 지번이 다르고(함양읍 백연리 611-1·610) 좌표가 약 96m 이웃한 별개 등록이라 합치지 않고 전부 실었다. 같은 백연리의 함양스포츠파크 축구장주차장도 별개 등록이다. 동 판정은 56곳 전부 지번주소에서 됐고(함양읍 29·안의면 9·마천면 7·서상면 3·병곡면 2·서하면 2·지곡면 1·백전면 1·휴천면 1·수동면 1, 유림면은 등록 0곳), 도로명주소는 최치원역사공원주차장 1곳만 등록돼 있다(지번주소 없음)",
+   "좌표는 56곳 전부 등록돼 있고 전부 함양군 범위 안이다. 운영요일·운영시간은 56곳 전부 평일+토요일+공휴일 00:00~23:59로 같고, 관리기관·전화번호는 56곳 전부 함양군청(055-960-6350)이다. 부제시행구분은 미시행 45곳·2부제 7곳·5부제 4곳이고, 결제방법은 혼합 6곳·유료 2곳이 카드+현금, 유료 2곳이 카드, 무료 46곳은 비어 있다. 장애인전용주차구역 보유여부는 56곳 전부 비어 있다. 데이터기준일자는 56행 전부 2026-09-28이다"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 46,
+  "무료_구획수": 3493,
+  "평균_기본요금": 450,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-09-28"
+  ],
+  "관리기관": {
+   "경상남도 함양군청": 56
+  }
+ },
+ "fee_table": {
+  "style": "hamyang_grade",
+  "unit_min": 30,
+  "base_min": 30,
+  "applies": "「함양군 주차장 설치 및 관리 조례」 제2831호(시행 2026-04-02) 제4조제1항·별표 1 — 국가법령정보센터 ordinSeq 2119253에서 확인",
+  "source_url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2119253&ordinId=2119253&gubun=ELIS",
+  "grade_system": "조례 별표 1은 급지가 아니라 주차장 유형(노상·일반 노외·한들 노외·용평 노외 주차타워)으로 요금을 나눈다. 표준데이터 등록 급지구분은 노상 13곳 전부 '1'·노외 43곳 전부 '2'라 별표의 유형 구분과 어긋나며, 이 사이트는 급지가 아닌 유형·이름 기준으로 계산한다",
+  "rows": [
+   {
+    "label": "노상 (소형)",
+    "grade": "street",
+    "unit_label": "최초 30분 무료 · 이후 매 30분 500원 · 월정기 없음(비고 1)",
+    "hour": 500,
+    "two_hour": 1500,
+    "day": 5000,
+    "month": null,
+    "month_night": null,
+    "month_all": null,
+    "lots": 6
+   },
+   {
+    "label": "일반 노외 (소형)",
+    "grade": "offstreet",
+    "unit_label": "최초 10분 무료 · 10~30분 500원 · 이후 매 30분 500원",
+    "hour": 1000,
+    "two_hour": 2000,
+    "day": 5000,
+    "month": 30000,
+    "month_night": 25000,
+    "month_all": 50000,
+    "lots": 2
+   },
+   {
+    "label": "한들 노외 (소형)",
+    "grade": "handeul",
+    "unit_label": "최초 1시간 무료 · 이후 매 30분 300원",
+    "hour": 0,
+    "two_hour": 600,
+    "day": 3000,
+    "month": 20000,
+    "month_night": 15000,
+    "month_all": 30000,
+    "lots": 1
+   },
+   {
+    "label": "용평 노외 주차타워 (소형)",
+    "grade": "yongpyeong",
+    "unit_label": "최초 1시간 무료 · 이후 매 10분 200원",
+    "hour": 0,
+    "two_hour": 1200,
+    "day": 10000,
+    "month": 100000,
+    "month_night": 50000,
+    "month_all": 120000,
+    "lots": 1
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 4,
+   "street_paid": 6,
+   "free": 46,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "등록 운영시간 (56곳 공통)",
+    "hours": "평일·토요일·공휴일 00:00~23:59",
+    "free": "56곳 전부 같은 운영시간으로 등록돼 있다. 조례 별표 1 비고 2의 주간 구분(4~10월 08:00~20:00, 11~3월 09:00~18:00)은 월정기 주·야간 구분일 뿐 등록 운영시간과 다르다"
+   }
+  ],
+  "discounts": [
+   {
+    "label": "긴급자동차·공용차량 면제",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 제5조제1항제1호·제2호 — 「도로교통법」 제2조제22호에 따른 긴급자동차와 국가나 지방자치단체의 공용차량은 주차요금을 면제한다"
+   },
+   {
+    "label": "성실납세자 차량 면제 (1년간)",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 제5조제1항제3호 — 국가와 지방자치단체에서 선정한 성실납세자의 차량은 선정일로부터 1년간 주차요금을 면제한다"
+   },
+   {
+    "label": "경형자동차 60% 감면",
+    "rate": 0.6,
+    "exempt_min": 0,
+    "note": "조례 제6조제1항 — 「자동차관리법」 제3조 및 같은 법 시행규칙 제2조에 따른 경형자동차는 주차요금의 100분의 60을 경감한다"
+   },
+   {
+    "label": "국가유공자·장애인·환경친화적 자동차 등 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제6조제2항 — 국가유공자·장애인·고엽제후유의증환자의 비사업용 승용자동차와 탑승한 자가용 자동차, 5·18민주화운동 부상자, 환경친화적 자동차, 경남i다누리카드 소지자, 임산부가 직접 운전하거나 동승한 자동차, 병역명문가 예우대상자의 자동차"
+   },
+   {
+    "label": "10부제·함께 타기·저공해 표지 30% 감면",
+    "rate": 0.3,
+    "exempt_min": 0,
+    "note": "조례 제6조제3항 — 승용차 10부제 참여표식·함께 타기 참여표식·저공해자동차 표지를 부착한 자동차는 주차요금의 100분의 30을 경감한다"
+   }
+  ],
+  "notes": "대형(소형 외 차종 — 16인승 이상 승합·적재정량 2.5톤 이상 화물 등, 별표 1 비고 5)은 노상 매 30분 1,000원·1일 10,000원, 일반 노외 10~30분 1,000원·이후 매 30분 1,000원·1일 10,000원·월 60,000/50,000/100,000원, 한들 매 30분 500원·1일 5,000원·월 40,000/30,000/50,000원이고, 용평은 별표에 대형 행이 없다. 이 사이트의 계산은 소형 기준이다(유료 4곳의 표준데이터 특기사항도 전부 '소형기준'). 노상주차장은 원활한 교통소통을 위해 1일 주차와 월 정기주차를 제한한다(별표 1 비고 1) — 다만 비고 3이 누적 금액이 1일 요금에 도달·초과하면 1일 요금을 적용한다고 정해, 이 사이트는 혼합 노상 6곳의 1일 상한으로 5,000원을 적용한다. 군수는 주차장별로 운영시간과 주차요금을 따로 정할 수 있다(별표 1 비고 4) — 별도 지정이 있는지는 확인 과제다.",
+  "basis": "요금표는 「함양군 주차장 설치 및 관리 조례」 제2831호(시행 2026-04-02) 제4조제1항·별표 1과 표준데이터(기준일 2026-09-28)를 대조해 실었다. 등록 기본요금에 별표의 최초 무료 구간이 반영돼 있지 않아 유료·혼합 10곳은 별표 유형별 산식으로 계산한다. (별표 원문: data/raw/hamyang-ordinance-b1.txt)"
+ },
+ "slug": "hamyang",
+ "province": "경상남도",
+ "province_slug": "gyeongnam",
+ "dong_page_min_lots": 3,
+ "city": "함양군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·공용차량 면제",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제5조제1항제1호·제2호 — 「도로교통법」 제2조제22호에 따른 긴급자동차와 국가나 지방자치단체의 공용차량은 주차요금을 면제한다"
+  },
+  {
+   "label": "성실납세자 차량 면제 (1년간)",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제5조제1항제3호 — 국가와 지방자치단체에서 선정한 성실납세자의 차량은 선정일로부터 1년간 주차요금을 면제한다"
+  },
+  {
+   "label": "경형자동차 60% 감면",
+   "rate": 0.6,
+   "exempt_min": 0,
+   "note": "조례 제6조제1항 — 「자동차관리법」 제3조 및 같은 법 시행규칙 제2조에 따른 경형자동차는 주차요금의 100분의 60을 경감한다"
+  },
+  {
+   "label": "국가유공자·장애인·환경친화적 자동차 등 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제2항 — 국가유공자·장애인·고엽제후유의증환자의 비사업용 승용자동차와 탑승한 자가용 자동차, 5·18민주화운동 부상자, 환경친화적 자동차, 경남i다누리카드 소지자, 임산부가 직접 운전하거나 동승한 자동차, 병역명문가 예우대상자의 자동차"
+  },
+  {
+   "label": "10부제·함께 타기·저공해 표지 30% 감면",
+   "rate": 0.3,
+   "exempt_min": 0,
+   "note": "조례 제6조제3항 — 승용차 10부제 참여표식·함께 타기 참여표식·저공해자동차 표지를 부착한 자동차는 주차요금의 100분의 30을 경감한다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
