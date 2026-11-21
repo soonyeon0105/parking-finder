@@ -1,7 +1,7 @@
 {
  "meta": {
-  "generated_at": "2026-11-21 10:59",
-  "generated_at_iso": "2026-11-21T10:59:16+09:00",
+  "generated_at": "2026-11-21 11:40",
+  "generated_at_iso": "2026-11-21T11:40:21+09:00",
   "snapshot_at": "2026-11-17 16:21",
   "region": {
    "province": "경기도",
@@ -1408,8 +1408,8 @@
    "road": null,
    "spaces": 67,
    "tel": "031-677-6262",
-   "lat": null,
-   "lng": null,
+   "lat": 37.0043557,
+   "lng": 127.2745067,
    "base_date": "2026-06-10",
    "manager": "안성시시설관리공단",
    "note": "",
@@ -1512,7 +1512,8 @@
    "udc_id": null,
    "price_key": 2000,
    "city": "안성시",
-   "city_slug": "anseong"
+   "city_slug": "anseong",
+   "coord_src": "지오코딩(지오코딩(도로명)·Google Maps)"
   },
   {
    "id": "aseo-013",
@@ -1992,8 +1993,8 @@
    "road": null,
    "spaces": 49,
    "tel": "031-677-6262",
-   "lat": null,
-   "lng": null,
+   "lat": 37.0022658,
+   "lng": 127.2214173,
    "base_date": "2026-06-10",
    "manager": "안성시시설관리공단",
    "note": "",
@@ -2096,7 +2097,8 @@
    "udc_id": null,
    "price_key": 1000,
    "city": "안성시",
-   "city_slug": "anseong"
+   "city_slug": "anseong",
+   "coord_src": "지오코딩(지오코딩(지번)·Google Maps)"
   },
   {
    "id": "aseo-018",
@@ -2687,8 +2689,8 @@
    "road": null,
    "spaces": 288,
    "tel": "031-677-6262",
-   "lat": null,
-   "lng": null,
+   "lat": 36.9812239,
+   "lng": 127.252058,
    "base_date": "2026-06-10",
    "manager": "안성시시설관리공단",
    "note": "",
@@ -2791,7 +2793,8 @@
    "udc_id": null,
    "price_key": 1000,
    "city": "안성시",
-   "city_slug": "anseong"
+   "city_slug": "anseong",
+   "coord_src": "지오코딩(지오코딩(지번)·Google Maps)"
   },
   {
    "id": "aseo-024",
@@ -3973,8 +3976,8 @@
    "road": null,
    "spaces": 65,
    "tel": "031-677-6262",
-   "lat": null,
-   "lng": null,
+   "lat": 37.0079386,
+   "lng": 127.2576378,
    "base_date": "2026-06-10",
    "manager": "안성시시설관리공단",
    "note": "",
@@ -4077,7 +4080,8 @@
    "udc_id": null,
    "price_key": 2000,
    "city": "안성시",
-   "city_slug": "anseong"
+   "city_slug": "anseong",
+   "coord_src": "지오코딩(지오코딩(지번)·Google Maps)"
   },
   {
    "id": "aseo-035",
@@ -4317,8 +4321,8 @@
    "road": null,
    "spaces": 86,
    "tel": "031-677-6262",
-   "lat": null,
-   "lng": null,
+   "lat": 37.0404483,
+   "lng": 127.1299736,
    "base_date": "2026-06-10",
    "manager": "안성시시설관리공단",
    "note": "",
@@ -4421,7 +4425,8 @@
    "udc_id": null,
    "price_key": 1000,
    "city": "안성시",
-   "city_slug": "anseong"
+   "city_slug": "anseong",
+   "coord_src": "지오코딩(지오코딩(지번)·Google Maps)"
   },
   {
    "id": "aseo-038",
@@ -6699,7 +6704,7 @@
   }
  ],
  "quality": {
-  "generated_at": "2026-11-21 10:59",
+  "generated_at": "2026-11-21 11:40",
   "원자료_전국행수": 18994,
   "원자료_행수": 52,
   "원자료_안성시행수": 52,
@@ -6797,13 +6802,7 @@
   "평균_기본요금": 420,
   "토요일_미운영": 0,
   "일공휴일_미운영": 0,
-  "좌표_없음": [
-   "안성맞춤공감센터 공영주차장",
-   "대덕면 광덕 공영주차장",
-   "안성 제2산업단지 공영주차장",
-   "아양지구 제3공영주차장",
-   "원곡면 공영주차장"
-  ],
+  "좌표_없음": [],
   "주소_없음": [],
   "이름중복": [],
   "관리번호중복": [],

@@ -1,7 +1,7 @@
 {
  "meta": {
-  "generated_at": "2026-11-21 10:59",
-  "generated_at_iso": "2026-11-21T10:59:16+09:00",
+  "generated_at": "2026-11-21 11:40",
+  "generated_at_iso": "2026-11-21T11:40:21+09:00",
   "snapshot_at": "2026-11-17 13:52",
   "region": {
    "province": "경기도",
@@ -228,8 +228,8 @@
    "road": null,
    "spaces": 75,
    "tel": "02-2680-6499",
-   "lat": null,
-   "lng": null,
+   "lat": 37.4680698,
+   "lng": 126.848802,
    "base_date": "2026-11-17",
    "manager": "광명시",
    "note": "",
@@ -330,7 +330,8 @@
    "udc_id": null,
    "price_key": 300,
    "city": "광명시",
-   "city_slug": "gwangmyeong"
+   "city_slug": "gwangmyeong",
+   "coord_src": "지오코딩(지오코딩(지번)·Google Maps)"
   },
   {
    "id": "gmy-003",
@@ -1592,8 +1593,8 @@
    "road": null,
    "spaces": 52,
    "tel": "02-2610-7390",
-   "lat": null,
-   "lng": null,
+   "lat": 37.4212396,
+   "lng": 126.886224,
    "base_date": "2026-11-17",
    "manager": "광명시",
    "note": "",
@@ -1694,7 +1695,8 @@
    "udc_id": null,
    "price_key": 300,
    "city": "광명시",
-   "city_slug": "gwangmyeong"
+   "city_slug": "gwangmyeong",
+   "coord_src": "지오코딩(지오코딩(지번)·Google Maps)"
   },
   {
    "id": "gmy-014",
@@ -2724,8 +2726,8 @@
    "road": null,
    "spaces": 192,
    "tel": "02-2610-7390",
-   "lat": null,
-   "lng": null,
+   "lat": 37.4619093,
+   "lng": 126.8733479,
    "base_date": "2026-11-17",
    "manager": "광명시",
    "note": "",
@@ -2826,7 +2828,8 @@
    "udc_id": null,
    "price_key": 300,
    "city": "광명시",
-   "city_slug": "gwangmyeong"
+   "city_slug": "gwangmyeong",
+   "coord_src": "지오코딩(지오코딩(지번)·Google Maps)"
   },
   {
    "id": "gmy-s023",
@@ -2844,8 +2847,8 @@
    "road": null,
    "spaces": 25,
    "tel": "02-2680-6499",
-   "lat": null,
-   "lng": null,
+   "lat": 37.4691236,
+   "lng": 126.8470469,
    "base_date": "2026-11-17",
    "manager": "광명시",
    "note": "",
@@ -2935,7 +2938,8 @@
    "udc_id": null,
    "price_key": null,
    "city": "광명시",
-   "city_slug": "gwangmyeong"
+   "city_slug": "gwangmyeong",
+   "coord_src": "지오코딩(지오코딩(지번)·Google Maps)"
   },
   {
    "id": "gmy-s024",
@@ -4091,7 +4095,7 @@
   }
  ],
  "quality": {
-  "generated_at": "2026-11-21 10:59",
+  "generated_at": "2026-11-21 11:40",
   "원자료_전국행수": 18994,
   "원자료_행수": 28,
   "원자료_광명시행수": 28,
@@ -4196,12 +4200,7 @@
   "평균_기본요금": 800,
   "토요일_미운영": 0,
   "일공휴일_미운영": 0,
-  "좌표_없음": [
-   "광명6동 노외",
-   "새빛공원",
-   "안현철골",
-   "광명6동 소형"
-  ],
+  "좌표_없음": [],
   "주소_없음": [],
   "이름중복": [],
   "관리번호중복": [],
