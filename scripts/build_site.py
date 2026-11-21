@@ -30,6 +30,7 @@ from urllib.parse import quote
 
 BASE = Path(__file__).resolve().parent.parent
 DATA_FILE = BASE / "data" / "site.json"
+AFFILIATE_FILE = BASE / "data" / "affiliate.json"   # 제휴 안내 링크·문구 (배포본 /affiliate.json 으로 복사)
 LEGACY_DATA_FILE = BASE / "data" / "suwon_parking.json"
 DIST = BASE / "dist"
 ASSETS = BASE / "assets"
@@ -7347,6 +7348,20 @@ def ad_slot(kind="inline"):
             '</div>')
 
 
+def affiliate_block(placement, path) -> str:
+    """제휴 안내 슬롯 — 링크·문구는 HTML에 박지 않고 data/affiliate.json 에서 읽는다.
+
+    nearby.js 와 같은 방식: 빈 슬롯 + assets/affiliate.js 가 배포본 /affiliate.json 을
+    fetch 해 placement(detail=상세페이지·hub=시·군 허브)가 맞는 카드만 그린다.
+    링크 교체·OFF(enabled=false)는 JSON 파일만 바꾸면 되므로 재빌드가 필요 없다.
+    고지 문구(공정위 추천·보증 심사지침 + 쿠팡 파트너스 지정 문구)는 JSON에 있고
+    접지 않고 항상 표시한다. 길안내 버튼·요금표 옆에는 두지 않고 본문 최하단에만 둔다.
+    """
+    return (f'<div class="affiliate-slot" data-affiliate-slot data-placement="{placement}" '
+            f'data-affiliate-url="{rel(path, "/affiliate.json")}"></div>\n'
+            f'<script src="{rel(path, "/assets/affiliate.js")}?v={asset_ver()}" defer></script>')
+
+
 def park_label(city) -> str:
     """주차장 유형 표기 — 부설주차장이 있는 도시는 '노외·부설'로 적는다."""
     kinds = (city.get("quality") or {}).get("노외_부설") or {}
@@ -8952,6 +8967,7 @@ def build_district(city, d, lots, site, path=None, hub=False):
 {dataset_lines}
   </ul>
 </section>
+{(affiliate_block("hub", path) if hub else "")}
 """
     # 구가 없는 시는 시 페이지가 이 페이지를 겸하므로 breadcrumb 에 같은 주소를 두 번 넣지 않는다.
     crumbs = ([("홈", "/"), (city.get("province") or "경기도", None), (f"{gu} 공영주차장", "")] if hub
@@ -9425,6 +9441,7 @@ def build_lot_detail(city, lot, site, existing_paths, dong_path=None):
     <li>요금·운영시간은 등록 데이터 기준이며, 조례 개정이나 현장 사정에 따라 실제와 다를 수 있습니다.</li>
   </ul>
 </section>
+{affiliate_block("detail", path)}
 """
     crumbs = [("홈", "/"), (city.get("province") or "경기도", None),
               (city["city"], city_path(city))]
@@ -15977,6 +15994,7 @@ def build_city(city, lots, site):
 </table>
 {ad_slot()}
 {faq_block(qa)}
+{affiliate_block("hub", path)}
 """
     crumbs = [("홈", "/"), (city.get("province") or "경기도", None), (f"{city['city']} 공영주차장", "")]
     return path, layout(
@@ -16064,6 +16082,7 @@ def build_street_only_hub(city, site):
 {dataset_lines}
   </ul>
 </section>
+{affiliate_block("hub", path)}
 """
     crumbs = [("홈", "/"), (city.get("province") or "경기도", None), (f"{city['city']} 공영주차장", "")]
     title, description = hub_meta(city, city["city"], s["n"])
@@ -17738,7 +17757,7 @@ def main():
     if DIST.exists():
         shutil.rmtree(DIST)
     (DIST / "assets").mkdir(parents=True)
-    for f in ("style.css", "app.js", "nearby.js"):
+    for f in ("style.css", "app.js", "nearby.js", "affiliate.js"):
         shutil.copy(ASSETS / f, DIST / "assets" / f)
     # 폰트 표준화(2026-11-21): Pretendard 자체 호스팅 — assets/fonts/ 를 dist 로 통째로 복사.
     fonts_src = ASSETS / "fonts"
@@ -17746,6 +17765,10 @@ def main():
         shutil.copytree(fonts_src, DIST / "assets" / "fonts")
     # T-08: 랜딩 '내 주변 주차장' 좌표 데이터셋 — 페이지를 만들 때 함께 다시 만든다.
     (DIST / "assets" / "nearby.json").write_text(build_nearby_data(site), encoding="utf-8")
+    # 제휴 안내 데이터 — 루트에 두어 /assets/* 의 1년 immutable 캐시를 피한다.
+    # 링크 교체·OFF는 이 파일만 교체하면 재빌드 없이 반영된다.
+    if AFFILIATE_FILE.exists():
+        shutil.copy(AFFILIATE_FILE, DIST / "affiliate.json")
 
     pages = [build_landing(site), build_privacy(site),
              build_free_hub(site), build_regions(site),
