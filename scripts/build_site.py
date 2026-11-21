@@ -8308,7 +8308,11 @@ def hub_meta(city, gu, n):
              f"{_fee_row_phrase(rows[0], full=False)} | {SITE_NAME}")
     fee_part = ", ".join(phrases)
     corp = ft.get("corp") or {}
-    if corp.get("paid") == 0 and corp.get("free") and not corp.get("unknown"):
+    # corp는 노외 카드 기준이라 유료가 노상에만 있는 도시(횡성군)는 paid==0으로 보인다.
+    # 노상 유료 구간이 있으면 '모두 무료' 분기를 타지 않는다.
+    _street_paid_n = len([l for l in city.get("_street_lots", [])
+                          if (l.get("fee") or {}).get("type") == "유료"])
+    if corp.get("paid") == 0 and corp.get("free") and not corp.get("unknown") and not _street_paid_n:
         # 유료 주차장이 한 곳도 없는 지역 — 조례 요금표는 참고표로만 싣는다.
         description = (f"{gu} 공영주차장 {n}곳은 모두 무료로 등록돼 있습니다. 조례 요금표"
                        f"({fee_part})와 운영시간·구획수를 공공데이터로 정리했습니다.")
@@ -8723,12 +8727,21 @@ def build_district(city, d, lots, site, path=None, hub=False):
 """)
 
     # 2시간 요금 FAQ 답 — 유료 곳이 하나도 없으면 '모두 무료'와 '요금 미상'을 나눠 적는다(문경시).
-    if not _paid_gu and _unknown_gu:
+    # 유료가 노상에만 있는 도시(횡성군)는 카드 유료가 0곳이라 prices가 비어 이 폴백이 쓰인다.
+    _street_paid = [l for l in street if l["fee"]["type"] == "유료"]
+    if not _paid_gu and not _street_paid and _unknown_gu:
         _two_h_answer = (f"이 지역 공영주차장 {s['n']}곳 가운데 요금 구분이 ‘무료’인 {free_in_gu}곳은 2시간 주차요금도 0원이고, "
                          f"요금 미상인 {_unknown_gu}곳은 시간요금을 확정할 수 없어 계산에서 제외했습니다. "
                          f"조례 별표1의 요금 상한은 위 ‘{gu} 주차요금표’에 적었습니다.")
-    elif not _paid_gu:
+    elif not _paid_gu and not _street_paid:
         _two_h_answer = (f"이 지역 공영주차장 {s['n']}곳이 모두 <b>무료</b>로 등록되어 있어 2시간 주차요금도 0원입니다. "
+                         f"조례 별표1의 요금 상한은 위 ‘{gu} 주차요금표’에 적었습니다.")
+    elif _street_paid and not _paid_gu:
+        _two_h_prices = two_h_price(_street_paid, "weekday")
+        _two_h_txt = (won(_two_h_prices[0]) if len(set(_two_h_prices)) == 1
+                      else f"{won(min(_two_h_prices))}~{won(max(_two_h_prices))}")
+        _two_h_answer = (f"이 지역 공영주차장 {s['n'] + len(street)}곳 가운데 요금 구분이 ‘무료’인 {free_all_gu}곳은 "
+                         f"2시간 주차요금도 0원이고, 노상 유료 구간 {len(_street_paid)}곳은 2시간 {_two_h_txt}입니다. "
                          f"조례 별표1의 요금 상한은 위 ‘{gu} 주차요금표’에 적었습니다.")
     else:
         _two_h_answer = "요금 정보가 있는 주차장이 없어 계산할 수 없습니다."
@@ -9516,6 +9529,29 @@ CITY_UI.update({
                      "경형자동차·환경친화적 자동차 50%, 2시간 초과 후 국가유공자 등·모범납세자·저공해자동차 50% "
                      "감면, 전통시장 방문 고객 최초 30분 면제 가능입니다(현장 확인)."),
         "daily_example": "1일 주차권 6,000원(노외만)",
+    },
+    # 횡성군 — 63곳 전부 횡성읍·둔내면·안흥면·우천면·공근면·강림면·청일면, 유료 13곳 전부
+    #   횡성읍 읍상리·읍하리 노상이라 1급지 소형차량이다. cheap_lede 자동 생성 로직은
+    #   2시간 요금 2,400원을 맞게 내지만 "노외 1급지" 표현을 쓴다(유료 13곳은 노상이다).
+    #   오버라이드로 바로잡는다.
+    "횡성군": {
+        "manager": "강원특별자치도 횡성군청",
+        "manager_inquiry": "횡성군청 도시교통과(033-340-2652)",
+        "std_base_date": "2026-05-13",
+        "area_label": "군", "dong_unit_label": "읍·면",
+        "discount_note": ("횡성군 조례 제7조 기준입니다. 긴급자동차·국가·지방자치단체 소유 자동차·모범납세자·"
+                          "성실납세자(증명 발급일로부터 1년)·군수 인정 차량은 전액 면제, 국가유공자 등·장애인·"
+                          "환경친화적 자동차·저공해자동차(경유차 제외)·임산부·우수자원봉사자·병역명문가·의사상자 등·"
+                          "장기기증등록자는 50% 감면(전기차 충전 최초 1시간 면제), 승용차 부제·함께 타기 참여 차량은 "
+                          "20% 감면입니다(현장 확인)."),
+        "calc_note": ("차량 감면은 <b>횡성군 조례 제7조</b> 기준입니다. 긴급자동차·국가·지방자치단체 소유 자동차·"
+                     "모범납세자·성실납세자(증명 발급일로부터 1년)·군수 인정 차량은 전액 면제, 국가유공자 등·장애인·"
+                     "환경친화적 자동차·저공해자동차(경유차 제외)·임산부·우수자원봉사자·병역명문가·의사상자 등·"
+                     "장기기증등록자는 50% 감면(전기차 충전 최초 1시간 면제), 승용차 부제·함께 타기 참여 차량은 "
+                     "20% 감면입니다(현장 확인)."),
+        "daily_example": "1일 주차권 5,000원(1회 요금이 1일권을 넘으면 1일권 적용)",
+        "cheap_lede": ("횡성군 유료 노상 공영주차장 13곳은 최초 10분이 무료라 10분까지는 0원, "
+                       "2시간은 2,400원입니다. "),
     },
 })
 
@@ -14819,6 +14855,63 @@ B·C지구는 등록 급지구분이 1급지이나 등록 요금이 2급지와 �
   <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
   <th class="num">2시간</th><th class="num">1일 주차권</th>
   <th class="num">월정기 (주간)</th><th class="num">월정기 (야간)</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금으로 계산하는 유료는 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+
+
+    if ft.get("style") == "hoengseong_grade":
+        # 횡성군 — 공영 63곳(노외 29곳·노상 34구간,
+        #   총 1,297면)이 무료 50곳·유료 13곳으로
+        #   등록돼 있다. 「횡성군 주차장 설치 및 관리
+        #   조례」 제2893호(시행 2025-12-17) 제6조
+        #   ·별표 1은 1급지 소형차량 최초 10분 무료·
+        #   2시간까지 30분마다 600원·2시간 초과
+        #   30분마다 1,000원·1일 5,000원·월정기
+        #   55,000원, 1급지 보통차량 700원·1,200원·
+        #   6,000원·70,000원, 2급지 소형차량 300원·
+        #   400원·2,000원·20,000원, 2급지 보통차량
+        #   500원·800원·4,000원·35,000원이다. 유료
+        #   13곳은 등록 요금이 별표와 2시간까지
+        #   일치하나 2시간 초과 구간을 표현할 수 없어
+        #   조례 기준으로 계산했고, 전부 횡성읍
+        #   읍상리·읍하리라 1급지 소형차량이다.
+        def _hs_cell(v):
+            return f"{v}곳" if v is not None else "—"
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{won(r["month_night"])}</td>'
+            f'<td class="num">{_hs_cell(r["lots"])}</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">횡성군 공영주차장 <b>63곳</b>(노외 29곳·노상 34구간, 총 1,297면)은
+무료 <b>50곳</b>·유료 <b>13곳</b>으로 등록돼 있습니다. 「횡성군 주차장 설치 및 관리 조례」 제2893호
+별표 1은 1급지 소형차량 최초 10분 무료·2시간까지 30분마다 <b>600원</b>·2시간 초과 30분마다 <b>1,000원</b>·
+1일 <b>5,000원</b>·월정기 <b>55,000원</b>이고, 1급지 보통차량은 700원·1,200원·6,000원·70,000원, 2급지
+소형차량은 300원·400원·2,000원·20,000원, 2급지 보통차량은 500원·800원·4,000원·35,000원입니다.
+유료 13곳은 표준데이터 등록 요금이 별표와 2시간까지 일치하나 2시간 초과 구간을 표현할 수 없어 조례 기준으로
+계산했습니다. 1시간은 1,200원, 2시간은 2,400원입니다.
+실제 요금은 현장 안내와 횡성군청 도시교통과(033-340-2652)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th>
+  <th class="num">월정기</th><th class="num">월정기 (야간)</th>
   <th class="num">이 사이트 주차장</th></tr></thead>
   <tbody>{rows_html}</tbody>
 </table>
