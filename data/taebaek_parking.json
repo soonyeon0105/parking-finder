@@ -1,0 +1,8210 @@
+{
+ "meta": {
+  "generated_at": "2026-11-22 03:12",
+  "generated_at_iso": "2026-11-22T03:12:52+09:00",
+  "snapshot_at": "2026-11-22 03:12",
+  "region": {
+   "province": "강원특별자치도",
+   "city": "태백시"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-04-15",
+    "rows_total": 18994,
+    "rows_city": 69,
+    "fetched_at": "2026-11-22 03:12 (KST)",
+    "note": "태백시로 등록된 행 69행을 읽어 중복 제거 1건, 제외 0건으로 68곳을 실었다. 유료 12곳·무료 56곳·미상 0곳이다. 데이터기준일자는 2026-04-15이다. 좌표 결측은 0곳이다. 조례 대조 완료 — 「태백시 주차장 설치 및 관리 조례」 제2323호(시행 2026-07-08, ordinSeq 2146191) 제5조제1항·별표 1 원문 대조 완료(2026-11-22)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "태백시 주차장 설치 및 관리 조례",
+    "org": "강원특별자치도 태백시청",
+    "url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2146191&gubun=ELIS",
+    "file": "taebaek-ordinance-b1.txt",
+    "sha256": "5b2998b30688da2fcf59c934c0ada19f7f9a26ebf8a472b89688a641632cf1d8",
+    "license": "자치법규(공개)",
+    "base_date": "2026-07-08",
+    "rows_total": null,
+    "fetched_at": "2026-11-22 03:12 (KST)",
+    "note": "태백시가 설치·관리하는 공영주차장에 적용하는 조례다. 표준데이터에 등록된 태백시 공영주차장 68곳(노외 33곳·노상 35구간, 총 2,033면)입니다. 57곳은 무료로 등록돼 있고, 유료 12곳은 등록 요금이 「태백시 주차장 설치 및 관리 조례」 제2323호 별표 1(5분 초과 최초 30분까지 500원·30분 초과 10분마다 200원·1일 10,000원·월정기 75,000원)과 정확히 일치해 조례 기준으로 계산했습니다. 최초 5분은 무료이고, 야간 주차요금은 무료입니다. 경자동차는 250원·100원·5,000원·37,500원입니다. (조례 본문: data/raw/taebaek-ordinance.txt, 별표 1 원문 HWP: data/raw/taebaek-ordinance-b1.hwp)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "태백시",
+   "slug": "taebaek"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gw-taebaek-001",
+   "mgmt_no": "254-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구문소옆",
+   "gu": "태백시",
+   "dong": "동점동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 동점동 산 6-3",
+   "addr_road": "강원특별자치도 태백시 동태백로 11",
+   "road": null,
+   "spaces": 10,
+   "tel": "033-550-2105",
+   "lat": 37.09296812,
+   "lng": 129.0422636,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-002",
+   "mgmt_no": "254-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동점초등학교옆",
+   "gu": "태백시",
+   "dong": "동점동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 동점동 498-101",
+   "addr_road": "강원특별자치도 태백시 방터골길 27",
+   "road": null,
+   "spaces": 47,
+   "tel": "033-550-2105",
+   "lat": 37.09917855,
+   "lng": 129.0492946,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-003",
+   "mgmt_no": "254-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문곡소도동주민센터옆",
+   "gu": "태백시",
+   "dong": "소도동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 소도동 78",
+   "addr_road": "강원특별자치도 태백시 용담1길 9-4",
+   "road": null,
+   "spaces": 18,
+   "tel": "033-550-2105",
+   "lat": 37.13151797,
+   "lng": 128.9593539,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-004",
+   "mgmt_no": "254-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "소도다목적광장",
+   "gu": "태백시",
+   "dong": "소도동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 소도동 316-48",
+   "addr_road": "강원특별자치도 태백시 태백산로 4725",
+   "road": null,
+   "spaces": 139,
+   "tel": "033-550-2105",
+   "lat": 37.1310592,
+   "lng": 128.9564218,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-005",
+   "mgmt_no": "254-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "수재민사택",
+   "gu": "태백시",
+   "dong": "장성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 장성동 44-11",
+   "addr_road": "강원특별자치도 태백시 비와야폭포길 7",
+   "road": null,
+   "spaces": 17,
+   "tel": "033-550-2105",
+   "lat": 37.10340833,
+   "lng": 129.0235773,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-006",
+   "mgmt_no": "254-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장성 호암동",
+   "gu": "태백시",
+   "dong": "장성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 장성동 54-151",
+   "addr_road": "강원특별자치도 태백시 장성로 91",
+   "road": null,
+   "spaces": 22,
+   "tel": "033-550-2105",
+   "lat": 37.10470484,
+   "lng": 129.0127212,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-007",
+   "mgmt_no": "254-2-000055",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장성농공단지옆",
+   "gu": "태백시",
+   "dong": "장성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 장성동 240-12",
+   "addr_road": "강원특별자치도 태백시 계산8길 37",
+   "road": null,
+   "spaces": 10,
+   "tel": "033-550-2105",
+   "lat": 37.10741685,
+   "lng": 128.998827,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-008",
+   "mgmt_no": "254-2-000052",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장성석공마트옆",
+   "gu": "태백시",
+   "dong": "장성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 장성동 147-1",
+   "addr_road": "강원특별자치도 태백시 석공길 24",
+   "road": null,
+   "spaces": 11,
+   "tel": "033-550-2105",
+   "lat": 37.10342569,
+   "lng": 129.0076444,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-009",
+   "mgmt_no": "254-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장성어린이집옆",
+   "gu": "태백시",
+   "dong": "장성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 장성동 150-54",
+   "addr_road": "강원특별자치도 태백시 장성1길 66",
+   "road": null,
+   "spaces": 37,
+   "tel": "033-550-2105",
+   "lat": 37.10097439,
+   "lng": 129.0059579,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-010",
+   "mgmt_no": "254-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장성중앙시장옆",
+   "gu": "태백시",
+   "dong": "장성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 장성동 159-8",
+   "addr_road": "강원특별자치도 태백시 장성로 44",
+   "road": null,
+   "spaces": 23,
+   "tel": "033-550-2105",
+   "lat": 37.10114312,
+   "lng": 129.0100055,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-011",
+   "mgmt_no": "254-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "철암 삼방교위",
+   "gu": "태백시",
+   "dong": "철암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 철암동 351-7",
+   "addr_road": "강원특별자치도 태백시 삼방길 10",
+   "road": null,
+   "spaces": 19,
+   "tel": "033-550-2105",
+   "lat": 37.11629505,
+   "lng": 129.0384673,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-012",
+   "mgmt_no": "254-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "철암 후미끼리",
+   "gu": "태백시",
+   "dong": "철암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 철암동 331-3",
+   "addr_road": "강원특별자치도 태백시 마산등길 32",
+   "road": null,
+   "spaces": 10,
+   "tel": "033-550-2105",
+   "lat": 37.11727155,
+   "lng": 129.0460318,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-013",
+   "mgmt_no": "254-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "철암남동교",
+   "gu": "태백시",
+   "dong": "철암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 철암동 378-42",
+   "addr_road": "강원특별자치도 태백시 샛들3길 3-10",
+   "road": null,
+   "spaces": 23,
+   "tel": "033-550-2105",
+   "lat": 37.11120323,
+   "lng": 129.0358604,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-014",
+   "mgmt_no": "254-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "철암보건지소옆",
+   "gu": "태백시",
+   "dong": "철암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 철암동 349-18",
+   "addr_road": "강원특별자치도 태백시 철암길 2",
+   "road": null,
+   "spaces": 74,
+   "tel": "033-550-2105",
+   "lat": 37.11728633,
+   "lng": 129.0397963,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-015",
+   "mgmt_no": "254-2-000054",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화전동 마을회관",
+   "gu": "태백시",
+   "dong": "화전동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 화전동 11-22",
+   "addr_road": "강원특별자치도 태백시 외솔배기길 100",
+   "road": null,
+   "spaces": 28,
+   "tel": "033-550-2105",
+   "lat": 37.17934921,
+   "lng": 128.9769662,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-016",
+   "mgmt_no": "254-2-000066",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "1주공앞(8공영)",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 황지동 25-150",
+   "addr_road": "강원특별자치도 태백시 서황지로 4",
+   "road": null,
+   "spaces": 46,
+   "tel": "033-550-2105",
+   "lat": 37.17200869,
+   "lng": 128.9901312,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "경차+국가유공자+장애인 차량 50퍼센트 할인",
+   "notice": "승용차 5부제를 시행하는 곳입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": 10000,
+    "cap_src": "조례 별표 1 비고 4 (1회 주차요금이 1일 주차요금을 초과할 경우 1일 주차요금에 준한다)",
+    "monthly": 75000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 5,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 75000
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(5분 초과 최초 30분까지 500원·30분 초과 10분마다 200원·1일 10,000원·월정기 75,000원)과 일치해 조례 기준으로 계산한다. 최초 5분은 무료이다. 1일권 적용시간 등록 5,000분은 별표에 근거가 없어 적용시간으로 쓰지 않고 1일권 상한(비고 4)만 적용한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-017",
+   "mgmt_no": "254-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "SK부자주유소옆",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 황지동 108-33",
+   "addr_road": "강원특별자치도 태백시 상장로 86",
+   "road": null,
+   "spaces": 31,
+   "tel": "033-550-2105",
+   "lat": 37.1541607,
+   "lng": 128.9899637,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-018",
+   "mgmt_no": "254-2-000067",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고려의원옆(9공영)",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 황지동 62-3",
+   "addr_road": "강원특별자치도 태백시 황지로 90",
+   "road": null,
+   "spaces": 36,
+   "tel": "033-550-2105",
+   "lat": 37.16674399,
+   "lng": 128.9921716,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "경차+국가유공자+장애인 차량 50퍼센트 할인",
+   "notice": "승용차 5부제를 시행하는 곳입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": 10000,
+    "cap_src": "조례 별표 1 비고 4 (1회 주차요금이 1일 주차요금을 초과할 경우 1일 주차요금에 준한다)",
+    "monthly": 75000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 5,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 75000
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(5분 초과 최초 30분까지 500원·30분 초과 10분마다 200원·1일 10,000원·월정기 75,000원)과 일치해 조례 기준으로 계산한다. 최초 5분은 무료이다. 1일권 적용시간 등록 5,000분은 별표에 근거가 없어 적용시간으로 쓰지 않고 1일권 상한(비고 4)만 적용한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-019",
+   "mgmt_no": "254-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "고원예식장앞",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 황지동 194-13",
+   "addr_road": "강원특별자치도 태백시 짐대배기2길 12",
+   "road": null,
+   "spaces": 7,
+   "tel": "033-550-2105",
+   "lat": 37.15594774,
+   "lng": 128.9885693,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-020",
+   "mgmt_no": "254-2-000061",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "국민은행옆(2공영)",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 황지동 253-148",
+   "addr_road": "강원특별자치도 태백시 먹거리길 71",
+   "road": null,
+   "spaces": 36,
+   "tel": "033-550-2105",
+   "lat": 37.1751845,
+   "lng": 128.9885423,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "경차+국가유공자+장애인 차량 50퍼센트 할인",
+   "notice": "승용차 5부제를 시행하는 곳입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": 10000,
+    "cap_src": "조례 별표 1 비고 4 (1회 주차요금이 1일 주차요금을 초과할 경우 1일 주차요금에 준한다)",
+    "monthly": 75000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 5,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 75000
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(5분 초과 최초 30분까지 500원·30분 초과 10분마다 200원·1일 10,000원·월정기 75,000원)과 일치해 조례 기준으로 계산한다. 최초 5분은 무료이다. 1일권 적용시간 등록 5,000분은 별표에 근거가 없어 적용시간으로 쓰지 않고 1일권 상한(비고 4)만 적용한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-021",
+   "mgmt_no": "254-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "너와집옆",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 황지동 208-9",
+   "addr_road": "강원특별자치도 태백시 고원로 35",
+   "road": null,
+   "spaces": 12,
+   "tel": "033-550-2105",
+   "lat": 37.15854059,
+   "lng": 128.9879394,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-022",
+   "mgmt_no": "254-2-000068",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대산아파트옆(11공영)",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 황지동 24",
+   "addr_road": "강원특별자치도 태백시 풀미당골길 35",
+   "road": null,
+   "spaces": 49,
+   "tel": "033-550-2105",
+   "lat": 37.17117887,
+   "lng": 128.9949238,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "경차+국가유공자+장애인 차량 50퍼센트 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": 10000,
+    "cap_src": "조례 별표 1 비고 4 (1회 주차요금이 1일 주차요금을 초과할 경우 1일 주차요금에 준한다)",
+    "monthly": 75000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 5,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 75000
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(5분 초과 최초 30분까지 500원·30분 초과 10분마다 200원·1일 10,000원·월정기 75,000원)과 일치해 조례 기준으로 계산한다. 최초 5분은 무료이다. 1일권 적용시간 등록 5,000분은 별표에 근거가 없어 적용시간으로 쓰지 않고 1일권 상한(비고 4)만 적용한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-023",
+   "mgmt_no": "254-2-000048",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "범패사 입구",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 황지동 23-5",
+   "addr_road": "강원특별자치도 태백시 풀미당골길 1-4",
+   "road": null,
+   "spaces": 20,
+   "tel": "033-550-2105",
+   "lat": 37.17395014,
+   "lng": 128.9945769,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-024",
+   "mgmt_no": "254-2-000057",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상장동(구)골든세차장",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 황지동 114-34",
+   "addr_road": "강원특별자치도 태백시 상장로 33",
+   "road": null,
+   "spaces": 24,
+   "tel": "033-550-2105",
+   "lat": 37.14936651,
+   "lng": 128.9903229,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-025",
+   "mgmt_no": "254-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "엄목교위",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 황지동 621-63",
+   "addr_road": "강원특별자치도 태백시 삼수길 25",
+   "road": null,
+   "spaces": 21,
+   "tel": "033-550-2105",
+   "lat": 37.17875977,
+   "lng": 128.9806967,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-026",
+   "mgmt_no": "254-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "절골 서울설비옆",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 황지동 353-23",
+   "addr_road": "강원특별자치도 태백시 고원로 305-5",
+   "road": null,
+   "spaces": 44,
+   "tel": "033-550-2105",
+   "lat": 37.1773358,
+   "lng": 128.9793649,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-027",
+   "mgmt_no": "254-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "절골안길",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 황지동 362-47",
+   "addr_road": "강원특별자치도 태백시 절골2길 28",
+   "road": null,
+   "spaces": 55,
+   "tel": "033-550-2105",
+   "lat": 37.17638519,
+   "lng": 128.9791853,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-028",
+   "mgmt_no": "254-2-000069",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙로 노외(12공영)",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 황지동 45-46",
+   "addr_road": "강원특별자치도 태백시 황지로 139-11",
+   "road": null,
+   "spaces": 35,
+   "tel": "033-550-2106",
+   "lat": 37.17134009,
+   "lng": 128.991602,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "경차+국가유공자+장애인 차량 50퍼센트 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": 10000,
+    "cap_src": "조례 별표 1 비고 4 (1회 주차요금이 1일 주차요금을 초과할 경우 1일 주차요금에 준한다)",
+    "monthly": 75000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 5,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 75000
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(5분 초과 최초 30분까지 500원·30분 초과 10분마다 200원·1일 10,000원·월정기 75,000원)과 일치해 조례 기준으로 계산한다. 최초 5분은 무료이다. 1일권 적용시간 등록 5,000분은 별표에 근거가 없어 적용시간으로 쓰지 않고 1일권 상한(비고 4)만 적용한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-029",
+   "mgmt_no": "254-2-000060",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "태백역, 황연동사무소(1공영)",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 황지동 274-681",
+   "addr_road": "강원특별자치도 태백시 황연길 29",
+   "road": null,
+   "spaces": 60,
+   "tel": "033-550-2105",
+   "lat": 37.1778968,
+   "lng": 128.9880201,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "경차+국가유공자+장애인 차량 50퍼센트 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": 10000,
+    "cap_src": "조례 별표 1 비고 4 (1회 주차요금이 1일 주차요금을 초과할 경우 1일 주차요금에 준한다)",
+    "monthly": 75000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 5,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 75000
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(5분 초과 최초 30분까지 500원·30분 초과 10분마다 200원·1일 10,000원·월정기 75,000원)과 일치해 조례 기준으로 계산한다. 최초 5분은 무료이다. 1일권 적용시간 등록 5,000분은 별표에 근거가 없어 적용시간으로 쓰지 않고 1일권 상한(비고 4)만 적용한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-030",
+   "mgmt_no": "254-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "태백역옆",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 황지동 257",
+   "addr_road": "강원특별자치도 태백시 서황지로 79",
+   "road": null,
+   "spaces": 46,
+   "tel": "033-550-2105",
+   "lat": 37.17634042,
+   "lng": 128.9833806,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-031",
+   "mgmt_no": "254-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "현대아파트옆",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 황지동 665",
+   "addr_road": "강원특별자치도 태백시 해지개길 26",
+   "road": null,
+   "spaces": 26,
+   "tel": "033-550-2105",
+   "lat": 37.16124507,
+   "lng": 128.9833791,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-032",
+   "mgmt_no": "254-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "황지연지지구",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 황지동 20-37",
+   "addr_road": "강원특별자치도 태백시 태백로 915",
+   "road": null,
+   "spaces": 47,
+   "tel": "033-550-2105",
+   "lat": 37.17582449,
+   "lng": 128.9933884,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-033",
+   "mgmt_no": "254-2-000059",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "황지자유시장(제2주차장)",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 태백시 황지동 38-277",
+   "addr_road": "강원특별자치도 태백시 새시장1길 42-5",
+   "road": null,
+   "spaces": 40,
+   "tel": "033-552-2634",
+   "lat": 37.17426606,
+   "lng": 128.9924165,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시 황지자유시장조합",
+   "note": "경차+국가유공자+장애인 차량 50퍼센트 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": 10000,
+    "daily_hours": null,
+    "cap_fee": 10000,
+    "cap_src": "조례 별표 1 비고 4 (1회 주차요금이 1일 주차요금을 초과할 경우 1일 주차요금에 준한다)",
+    "monthly": 75000,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 5,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 75000
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(5분 초과 최초 30분까지 500원·30분 초과 10분마다 200원·1일 10,000원·월정기 75,000원)과 일치해 조례 기준으로 계산한다. 최초 5분은 무료이다. 1일권 적용시간 등록 5,000분은 별표에 근거가 없어 적용시간으로 쓰지 않고 1일권 상한(비고 4)만 적용한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s001",
+   "mgmt_no": "254-1-000022",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "자연사박물관앞",
+   "gu": "태백시",
+   "dong": "동점동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 동점동 295",
+   "addr_road": "강원특별자치도 태백시 태백로 2249",
+   "road": "태백로",
+   "spaces": 5,
+   "tel": "033-550-2105",
+   "lat": 37.0948994,
+   "lng": 129.0396319,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s002",
+   "mgmt_no": "254-1-000018",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "장성동 삼미원옆",
+   "gu": "태백시",
+   "dong": "장성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 장성동 222-34",
+   "addr_road": "강원특별자치도 태백시 장성로 47-1",
+   "road": "장성로",
+   "spaces": 27,
+   "tel": "033-550-2105",
+   "lat": 37.10124695,
+   "lng": 129.0105764,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s003",
+   "mgmt_no": "254-1-000020",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "태백교육지원청옆",
+   "gu": "태백시",
+   "dong": "장성동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 장성동 55-3",
+   "addr_road": "강원특별자치도 태백시 장성로 191",
+   "road": "장성로",
+   "spaces": 65,
+   "tel": "033-550-2105",
+   "lat": 37.10367378,
+   "lng": 129.0227743,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s004",
+   "mgmt_no": "254-1-000026",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "철암역옆",
+   "gu": "태백시",
+   "dong": "철암동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 철암동 370-1",
+   "addr_road": "강원특별자치도 태백시 동태백로 389",
+   "road": "동태백로",
+   "spaces": 15,
+   "tel": "033-550-2105",
+   "lat": 37.11483357,
+   "lng": 129.0369596,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s005",
+   "mgmt_no": "254-1-000030",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "통리 의용소방대앞",
+   "gu": "태백시",
+   "dong": "통동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 통동 346-104",
+   "addr_road": "강원특별자치도 태백시 통리길 13",
+   "road": "통리길",
+   "spaces": 121,
+   "tel": "033-550-2105",
+   "lat": 37.16883825,
+   "lng": 129.0370166,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s006",
+   "mgmt_no": "254-1-000032",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "통리초등학교옆",
+   "gu": "태백시",
+   "dong": "통동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 통동 70-3",
+   "addr_road": "강원특별자치도 태백시 통골길 13",
+   "road": "통골길",
+   "spaces": 32,
+   "tel": "033-550-2105",
+   "lat": 37.16713707,
+   "lng": 129.0350302,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s007",
+   "mgmt_no": "254-1-000053",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "2주공아파트옆",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 90-7",
+   "addr_road": "강원특별자치도 태백시 황지로 19",
+   "road": "황지로",
+   "spaces": 7,
+   "tel": "033-550-2105",
+   "lat": 37.16068735,
+   "lng": 128.9901189,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s008",
+   "mgmt_no": "254-1-000007",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "2주공후문",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 87-36",
+   "addr_road": "강원특별자치도 태백시 황지로 13-1",
+   "road": "황지로",
+   "spaces": 13,
+   "tel": "033-550-2105",
+   "lat": 37.1601932,
+   "lng": 128.9900224,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s009",
+   "mgmt_no": "254-1-000034",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "3주공옆",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 674",
+   "addr_road": "강원특별자치도 태백시 고원로 279",
+   "road": "고원로",
+   "spaces": 28,
+   "tel": "033-550-2105",
+   "lat": 37.17547577,
+   "lng": 128.9815262,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s010",
+   "mgmt_no": "254-1-000047",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "LA갈비옆",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 273-9",
+   "addr_road": "강원특별자치도 태백시 황지로 247-1",
+   "road": "황지로",
+   "spaces": 19,
+   "tel": "033-550-2105",
+   "lat": 37.17827968,
+   "lng": 128.9846843,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s011",
+   "mgmt_no": "254-1-000039",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "대현목욕탕옆",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 70-52",
+   "addr_road": "강원특별자치도 태백시 황지남3길 6",
+   "road": "황지남3길",
+   "spaces": 11,
+   "tel": "033-550-2105",
+   "lat": 37.17012519,
+   "lng": 128.9926728,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s012",
+   "mgmt_no": "254-1-000004",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "먹거리길",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 262-77",
+   "addr_road": "강원특별자치도 태백시 먹거리길 36",
+   "road": "먹거리길",
+   "spaces": 35,
+   "tel": "033-550-2105",
+   "lat": 37.17596264,
+   "lng": 128.9867044,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s013",
+   "mgmt_no": "254-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "문곡역옆(상장)",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 180",
+   "addr_road": "강원특별자치도 태백시 상장로 61",
+   "road": "상장로",
+   "spaces": 17,
+   "tel": "033-550-2105",
+   "lat": 37.1520758,
+   "lng": 128.9897877,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s014",
+   "mgmt_no": "254-1-000063",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "보건소앞우회도로(4공영)",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 38-383",
+   "addr_road": "강원특별자치도 태백시 태백로 922",
+   "road": "태백로",
+   "spaces": 46,
+   "tel": "033-550-2105",
+   "lat": 37.17498458,
+   "lng": 128.9927881,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "경차+국가유공자+장애인 차량 50퍼센트 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": 10000,
+    "cap_src": "조례 별표 1 비고 4 (1회 주차요금이 1일 주차요금을 초과할 경우 1일 주차요금에 준한다)",
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 5,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 75000
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(5분 초과 최초 30분까지 500원·30분 초과 10분마다 200원)과 일치해 조례 기준으로 계산한다. 최초 5분은 무료이다. 1일·월정기권은 노외주차장에만 있어 표기하지 않는다(비고 5). 1회 요금이 1일 요금(10,000원)을 넘으면 1일 요금에 준한다(비고 4)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s015",
+   "mgmt_no": "254-1-000038",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "부일갈비옆",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 71-94",
+   "addr_road": "강원특별자치도 태백시 문화로3길 91",
+   "road": "문화로3길",
+   "spaces": 20,
+   "tel": "033-550-2105",
+   "lat": 37.17052461,
+   "lng": 128.9934965,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s016",
+   "mgmt_no": "254-1-000062",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "산칠록목욕탕옆(3공영)",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 8-2",
+   "addr_road": "강원특별자치도 태백시 연지로 28",
+   "road": "연지로",
+   "spaces": 45,
+   "tel": "033-550-2105",
+   "lat": 37.17586199,
+   "lng": 128.9902313,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "경차+국가유공자+장애인 차량 50퍼센트 할인",
+   "notice": "승용차 5부제를 시행하는 곳입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": 10000,
+    "cap_src": "조례 별표 1 비고 4 (1회 주차요금이 1일 주차요금을 초과할 경우 1일 주차요금에 준한다)",
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 5,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 75000
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(5분 초과 최초 30분까지 500원·30분 초과 10분마다 200원)과 일치해 조례 기준으로 계산한다. 최초 5분은 무료이다. 1일·월정기권은 노외주차장에만 있어 표기하지 않는다(비고 5). 1회 요금이 1일 요금(10,000원)을 넘으면 1일 요금에 준한다(비고 4)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s017",
+   "mgmt_no": "254-1-000043",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "삼성프라자옆",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 73-15",
+   "addr_road": "강원특별자치도 태백시 태백로 992",
+   "road": "태백로",
+   "spaces": 18,
+   "tel": "033-550-2105",
+   "lat": 37.16905188,
+   "lng": 128.9941075,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s018",
+   "mgmt_no": "254-1-000056",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "삼성화재후면",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 59-46",
+   "addr_road": "강원특별자치도 태백시 문화로북길 8",
+   "road": "문화로북길",
+   "spaces": 46,
+   "tel": "033-550-2105",
+   "lat": 37.16712283,
+   "lng": 128.9914104,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s019",
+   "mgmt_no": "254-1-000042",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "성지사우나옆",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 368-254",
+   "addr_road": "강원특별자치도 태백시 금계길 28",
+   "road": "금계길",
+   "spaces": 16,
+   "tel": "033-550-2105",
+   "lat": 37.17813611,
+   "lng": 128.9824282,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s020",
+   "mgmt_no": "254-1-000001",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "시청사앞",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 244-3",
+   "addr_road": "강원특별자치도 태백시 태붐로 21",
+   "road": "태붐로",
+   "spaces": 21,
+   "tel": "033-550-2105",
+   "lat": 37.16421677,
+   "lng": 128.986554,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s021",
+   "mgmt_no": "254-1-000002",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "엄목교삼거리",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 274-229",
+   "addr_road": "강원특별자치도 태백시 오투로 15",
+   "road": "오투로",
+   "spaces": 35,
+   "tel": "033-550-2105",
+   "lat": 37.17940194,
+   "lng": 128.9816494,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s022",
+   "mgmt_no": "254-1-000044",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "조화사옆",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 108-35",
+   "addr_road": "강원특별자치도 태백시 상장3길 3",
+   "road": "상장3길",
+   "spaces": 14,
+   "tel": "033-550-2105",
+   "lat": 37.15408119,
+   "lng": 128.9899506,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s023",
+   "mgmt_no": "254-1-000037",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙공업사옆",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 74-123",
+   "addr_road": "강원특별자치도 태백시 문화로2길 6",
+   "road": "문화로2길",
+   "spaces": 12,
+   "tel": "033-550-2105",
+   "lat": 37.16656549,
+   "lng": 128.9927465,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s024",
+   "mgmt_no": "254-1-000064",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "중앙로(5공영)",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 42-14",
+   "addr_road": "강원특별자치도 태백시 번영로 349",
+   "road": "번영로",
+   "spaces": 35,
+   "tel": "033-550-2105",
+   "lat": 37.1719572,
+   "lng": 128.9914473,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "경차+국가유공자+장애인 차량 50퍼센트 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": 10000,
+    "cap_src": "조례 별표 1 비고 4 (1회 주차요금이 1일 주차요금을 초과할 경우 1일 주차요금에 준한다)",
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 5,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 75000
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(5분 초과 최초 30분까지 500원·30분 초과 10분마다 200원)과 일치해 조례 기준으로 계산한다. 최초 5분은 무료이다. 1일·월정기권은 노외주차장에만 있어 표기하지 않는다(비고 5). 1회 요금이 1일 요금(10,000원)을 넘으면 1일 요금에 준한다(비고 4)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s025",
+   "mgmt_no": "254-1-000049",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "청솔아파트옆",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 665",
+   "addr_road": "강원특별자치도 태백시 해지개길 26",
+   "road": "해지개길",
+   "spaces": 20,
+   "tel": "033-550-2105",
+   "lat": 37.16124507,
+   "lng": 128.9833791,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s026",
+   "mgmt_no": "254-1-000005",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "태광주유소앞",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 8-71",
+   "addr_road": "강원특별자치도 태백시 태백로 892",
+   "road": "태백로",
+   "spaces": 22,
+   "tel": "033-550-2105",
+   "lat": 37.17722583,
+   "lng": 128.9904699,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s027",
+   "mgmt_no": "254-1-000046",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "태백시외버스터미널옆",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 368-132",
+   "addr_road": "강원특별자치도 태백시 금계길 9-7",
+   "road": "금계길",
+   "spaces": 10,
+   "tel": "033-550-2105",
+   "lat": 37.17705864,
+   "lng": 128.9843263,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s028",
+   "mgmt_no": "254-1-000065",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "한마음신협앞(6공영)",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 29-7",
+   "addr_road": "강원특별자치도 태백시 번영로 362",
+   "road": "번영로",
+   "spaces": 27,
+   "tel": "033-550-2105",
+   "lat": 37.1714144,
+   "lng": 128.9927815,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "경차+국가유공자+장애인 차량 50퍼센트 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": 10000,
+    "cap_src": "조례 별표 1 비고 4 (1회 주차요금이 1일 주차요금을 초과할 경우 1일 주차요금에 준한다)",
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 5,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 75000
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(5분 초과 최초 30분까지 500원·30분 초과 10분마다 200원)과 일치해 조례 기준으로 계산한다. 최초 5분은 무료이다. 1일·월정기권은 노외주차장에만 있어 표기하지 않는다(비고 5). 1회 요금이 1일 요금(10,000원)을 넘으면 1일 요금에 준한다(비고 4)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s029",
+   "mgmt_no": "254-1-000013",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "함태중학교앞",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 166-2",
+   "addr_road": "강원특별자치도 태백시 번영로 11",
+   "road": "번영로",
+   "spaces": 34,
+   "tel": "033-550-2105",
+   "lat": 37.14594878,
+   "lng": 128.9865614,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s030",
+   "mgmt_no": "254-1-000045",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "황연동주민센터옆",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 274-643",
+   "addr_road": "강원특별자치도 태백시 황연3길 13",
+   "road": "황연3길",
+   "spaces": 32,
+   "tel": "033-550-2105",
+   "lat": 37.17823087,
+   "lng": 128.9875151,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s031",
+   "mgmt_no": "254-1-000041",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "황연동주민센터위",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 274-498",
+   "addr_road": "강원특별자치도 태백시 황연길 19",
+   "road": "황연길",
+   "spaces": 16,
+   "tel": "033-550-2105",
+   "lat": 37.17755719,
+   "lng": 128.9876581,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s032",
+   "mgmt_no": "254-1-000050",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "황지고둥학교옆",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 665",
+   "addr_road": "강원특별자치도 태백시 해지개길 24",
+   "road": "해지개길",
+   "spaces": 17,
+   "tel": "033-550-2105",
+   "lat": 37.16111252,
+   "lng": 128.9837359,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s033",
+   "mgmt_no": "254-1-000070",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "황지연못 뒤(13공영)",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 25-90",
+   "addr_road": "강원특별자치도 태백시 황지연못길 15",
+   "road": "황지연못길",
+   "spaces": 16,
+   "tel": "033-550-2107",
+   "lat": 37.17302557,
+   "lng": 128.9903229,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "경차+국가유공자+장애인 차량 50퍼센트 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 30,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 200,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": 10000,
+    "cap_src": "조례 별표 1 비고 4 (1회 주차요금이 1일 주차요금을 초과할 경우 1일 주차요금에 준한다)",
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 5,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "day": 10000,
+     "monthly": 75000
+    },
+    "basis": "등록 요금이 조례 별표 1의 요율(5분 초과 최초 30분까지 500원·30분 초과 10분마다 200원)과 일치해 조례 기준으로 계산한다. 최초 5분은 무료이다. 1일·월정기권은 노외주차장에만 있어 표기하지 않는다(비고 5). 1회 요금이 1일 요금(10,000원)을 넘으면 1일 요금에 준한다(비고 4)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "N",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s034",
+   "mgmt_no": "254-1-000051",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "황지중앙초등학교옆",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 274-508",
+   "addr_road": "강원특별자치도 태백시 장수길 18",
+   "road": "장수길",
+   "spaces": 8,
+   "tel": "033-550-2105",
+   "lat": 37.17914351,
+   "lng": 128.9850259,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  },
+  {
+   "id": "gw-taebaek-s035",
+   "mgmt_no": "254-1-000040",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "황지체육사옆",
+   "gu": "태백시",
+   "dong": "황지동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 태백시 황지동 33-67",
+   "addr_road": "강원특별자치도 태백시 시장남1길 17",
+   "road": "시장남1길",
+   "spaces": 5,
+   "tel": "033-550-2105",
+   "lat": 37.17231342,
+   "lng": 128.9931021,
+   "base_date": "2026-04-15",
+   "manager": "강원특별자치도 태백시청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "요금 구분 ‘무료’ — 조례 제5조제1항은 공영주차장 요금을 별표 1로 정하나 이 곳은 표준데이터에 ‘무료’로 등록돼 있어 무료로 표기한다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "태백시",
+   "city_slug": "taebaek",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-22 03:12",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 69,
+  "원자료_태백시행수": 69,
+  "원자료_받은행수": 69,
+  "구별": {
+   "태백시": 68
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 1,
+  "중복제거_행": [
+   {
+    "name": "통리초등학교옆",
+    "addr": "강원특별자치도 태백시 통동 70-3",
+    "spaces": 32,
+    "note": "같은 이름·같은 자리·좌표 200m 이내의 재등록 — 노외 등록만 남김",
+    "base_date": "2026-04-15",
+    "kept": "통리초등학교옆"
+   }
+  ],
+  "총_주차장": 33,
+  "노외_부설": {
+   "노외": 33
+  },
+  "노상_구간": 35,
+  "총_구획수": 1123,
+  "노상_구획수": 910,
+  "동별": {
+   "황지동": 47,
+   "장성동": 8,
+   "철암동": 5,
+   "동점동": 3,
+   "소도동": 2,
+   "통동": 2,
+   "화전동": 1
+  },
+  "동수": 7,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 68
+  },
+  "요금구분": {
+   "무료": 56,
+   "유료": 12
+  },
+  "요금_미상": [],
+  "유료_노상": 5,
+  "유료_노외": 7,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "같은 자리·같은 좌표에 이름만 다른 등록: 청솔아파트옆·현대아파트옆 — 강원특별자치도 태백시 황지동 665에 좌표(37.16124507, 128.9833791)가 같게 등록돼 있다. 이름이 다른 별개 등록이라 합치지 않고 전부 실었고, 같은 시설의 중복 등록인지는 태백시청 확인이 필요하다",
+   "표준데이터 태백 등록 69행 전부 공영이라 민영 제외는 0건이다. 데이터기준일자는 2026-04-15 69행, 제공기관명은 강원특별자치도 태백시 69행이다",
+   "등록 급지구분은 69곳 전부 ‘기타’이다. 조례 별표 1에 급지 구분이 없어 급지를 쓰지 않고 std_grade로만 남겼다",
+   "좌표 결측은 0곳이다. 등록 좌표 69곳 전부가 태백 범위 안에 있다",
+   "운영요일은 69곳 전부 평일+토요일+공휴일이라 공휴일도 운영이다. 운영시간은 69곳 전부 00:00~23:59이다. 도로명주소는 69곳 전부 있고, 전화번호는 69곳 전부 있으며, 결제방법·특기사항은 유료 12곳만 등록돼 있고 무료 57곳은 공란이며, 장애인전용주차구역 보유여부는 전부 공란이고 부제시행구분은 5부제 4곳·미시행 65곳이다",
+   "무료 57곳은 무료 등록이라 등록값을 유지했고, 유료 12곳은 등록값이 별표와 정확히 일치해 조례 기준으로 계산했다. 1일권 적용시간 등록 5,000분은 별표에 근거가 없어 적용시간으로 쓰지 않았다. 노상 5곳은 1일·월정기권이 없어(비고 5) 시간제만 적용했다. 요금 미상은 0곳이다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [],
+  "감면_출처": "「태백시 주차장 설치 및 관리 조례」 제2323호 제6조 — 긴급자동차·모범납세자·국가유공자·고엽제후유의증환자는 면제할 수 있고(국가유공자·고엽제환자는 2시간 이내), 경형자동차·장애인·병역명문가·전통시장 상인·고객·환경친화적 자동차·저공해자동차·시책 참여 차량·진폐장해등급자는 50퍼센트를 감면할 수 있다",
+  "요금_출처": "조례 제5조제1항·별표 1 — 시장이 설치하는 노상·노외주차장의 주차요금은 별표 1과 같다. 별표 1은 급지 구분 없는 단일 요금표로 5분 초과 최초 30분까지 500원·30분 초과 10분마다 200원·1일 10,000원·월정기 75,000원이고, 경자동차는 250원·100원·5,000원·37,500원이다. 별표 원본 HWP(flSeq 166853735)를 받아 hwp5txt와 hwp5html로 교차 확인해 대조했다",
+  "급지_출처": "조례 별표 1에 급지 구분이 없다. 표준데이터 등록 급지구분은 69곳 전부 ‘기타’라 급지를 쓰지 않고 std_grade로만 남겼다",
+  "무료요일_출처": "조례 본문 어디에도 시 전체 주말·공휴일 자동 무료 조항은 없다. 무료 57곳의 표기는 표준데이터 등록값(요금정보 ‘무료’) 근거다. 69곳 전부 운영요일이 ‘평일+토요일+공휴일’이라 공휴일도 운영으로 표기한다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 태백 등록 69행 전부 공영(노외 33·노상 36, 총 2,065면)으로 무료 57·유료 12, 기준일 2026-04-15, 제공기관명은 강원특별자치도 태백시 전부이다. 중복 판정(전체 이름·지번·좌표 200m 가드)에 걸리는 쌍은 통리초등학교옆 2건(이름·지번·좌표·면수 32 전부 동일)뿐이라 1건을 제거해 68곳·2,033면을 실었다. 관리번호 중복은 없다. 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건, 좌표 결측 0건이다",
+   "「태백시 주차장 설치 및 관리 조례」 제2323호(시행 2026-07-08, ordinSeq 2146191·ordinId 2130688) 본문 원문(data/raw/taebaek-ordinance.txt) 대조 완료(2026-11-22) — 본문 제5조제1항이 시장이 설치하는 노상·노외주차장의 요금을 별표 1로 정한다. 별표 1은 ELIS 첨부 HWP 원본(flSeq 166853735)을 data/raw/taebaek-ordinance-b1.hwp로 저장하고 hwp5txt와 hwp5html로 교차 확인해 확정했다 — 급지 구분 없는 단일 요금표로 5분 초과 최초 30분까지 500원·30분 초과 10분마다 200원·1일 10,000원·월정기 75,000원이고, 경자동차는 250원·100원·5,000원·37,500원이다. 비고 2는 주간 4~10월 09:00~20:00·11~3월 09:00~19:00, 야간 주차요금 무료, 비고 3은 최초 30분 미만은 30분으로·30분 초과 10분 미만은 10분으로, 비고 4는 1회 요금이 1일 요금을 초과하면 1일 요금에 준함, 비고 5는 1일·월정기권제는 노외 주차장에 한하여 실시이다",
+   "유료 12곳은 등록값(기본 30분 500원·10분마다 200원·1일 10,000원·월정기 75,000원)이 별표 1과 정확히 일치해 조례 기준으로 계산했다. 최초 5분은 무료로 보고 free_min 5로 분리하고 base_min은 등록 기본 30분으로 두었다(원주 선례). 1일권 적용시간 등록 5,000분은 별표에 근거가 없어 daily_hours로 쓰지 않고 1일권 상한(비고 4)만 적용했다. 노상 5곳은 1일·월정기권이 없어(비고 5: 노외 한정) 시간제만 적용했다(원주 선례). 등록 급지구분은 69곳 전부 ‘기타’이나 별표에 급지가 없어 쓰지 않았다",
+   "좌표 결측은 0곳이다. 등록 좌표 69곳 전부가 태백 범위(위도 37.093~37.179, 경도 128.956~129.049) 안에 있다. 지오코딩 보완은 없었다",
+   "주말·공휴일 전체 무료는 조례 본문 어디에도 없다. 무료 57곳의 표기는 표준데이터 등록값 근거다. 69곳 전부 운영요일이 ‘평일+토요일+공휴일’이라 공휴일도 운영으로 표기한다. 야간은 별표 비고 2로 주차요금이 무료이다",
+   "동·읍·면 판정은 지번주소 기준이고 69곳 전부 판정됐다(황지동 47·장성동 8·철암동 5·통동 3·동점동 3·소도동 2·화전동 1). 도로명주소는 69곳 전부 등록돼 있다. 같은 지번·같은 좌표에 이름만 다른 등록 1개 그룹(황지동 665 청솔아파트옆·현대아파트옆)은 이름이 다른 별개 등록이라 합치지 않고 전부 실었다",
+   "관리기관명은 강원특별자치도 태백시청 68곳·강원특별자치도 태백시 황지자유시장조합 1곳이다. 전화번호는 69곳 전부 등록돼 있고(033-550-2105 66곳), 결제방법은 유료 12곳만 ‘현금’으로 등록돼 있고 무료 57곳은 공란이며, 특기사항도 유료 12곳만 ‘경차+국가유공자+장애인 차량 50퍼센트 할인’으로 등록돼 있고 무료 57곳은 공란이며, 장애인전용주차구역 보유여부는 전부 공란이고 부제시행구분은 5부제 4곳·미시행 65곳이다. 운영시간은 69곳 전부 00:00~23:59이다",
+   "확인 과제 — ① 유료 12곳의 1일권 적용시간 등록 5,000분은 별표에 없는 값(83시간에 해당)이라 등록 오류로 보인다 — 실제 1일권 적용시간을 태백시청에 확인할 것 ② 노상 5곳의 월정기권(75,000원)·1일권 실제 시행 여부 — 별표 비고 5는 노외 한정이라 노상에는 표기하지 않았으나 등록값에는 있어 시행 여부를 확인할 것 ③ 같은 지번·같은 좌표에 이름만 다른 등록 1개 그룹(황지동 665 청솔아파트옆·현대아파트옆)이 같은 시설의 중복 등록인지 확인할 것 ④ 황지동 665에 3곳(황지고등학교옆·청솔아파트옆·현대아파트옆)이 등록돼 있으나 좌표가 달라 별개 자리로 실었다 — 현장에서 확인할 것 ⑤ 무료 57곳 중 노상 31곳의 실제 무료 개방 여부와 운영시간(등록 00:00~23:59)을 확인할 것 ⑥ 야간 무료(별표 비고 2)의 실제 적용 — 등록 운영시간이 24시간이라 야간에도 운영하는지, 야간 무료가 실제로 적용되는지 확인할 것 ⑦ 부제 5부제 4곳(고려의원옆·1주공앞·산칠록목욕탕옆·국민은행옆)의 실제 부제 시행 여부를 확인할 것"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 56,
+  "무료_구획수": 1562,
+  "평균_기본요금": 500,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-15"
+  ],
+  "관리기관": {
+   "강원특별자치도 태백시청": 67,
+   "강원특별자치도 태백시 황지자유시장조합": 1
+  }
+ },
+ "fee_table": {
+  "style": "taebaek_flat",
+  "unit_min": 10,
+  "base_min": 30,
+  "applies": "「태백시 주차장 설치 및 관리 조례」 제2323호(시행 2026-07-08) 제5조제1항·별표 1 — 국가법령정보센터 ordinSeq 2146191에서 확인",
+  "source_url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2146191&gubun=ELIS",
+  "grade_system": "조례 별표 1은 급지 구분이 없는 단일 요금표이다. 표준데이터 등록 급지구분은 69곳 전부 ‘기타’이다. 경자동차 요금은 별표 1에 따로 정해져 있다",
+  "rows": [
+   {
+    "label": "공영주차장 요금 (조례 별표 1)",
+    "grade": null,
+    "unit_label": "최초 5분 무료 · 5분 초과 최초 30분까지 500원 · 30분 초과 10분마다 200원",
+    "hour": 1100,
+    "two_hour": 2300,
+    "day": 10000,
+    "month_all": null,
+    "month": 75000,
+    "month_night": null,
+    "lots": 12
+   },
+   {
+    "label": "경자동차 (조례 별표 1)",
+    "grade": null,
+    "unit_label": "최초 5분 무료 · 5분 초과 최초 30분까지 250원 · 30분 초과 10분마다 100원",
+    "hour": 550,
+    "two_hour": 1150,
+    "day": 5000,
+    "month_all": null,
+    "month": 37500,
+    "month_night": null,
+    "lots": null
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 7,
+   "street_paid": 5,
+   "free": 56,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "주간 시간구분 (조례 별표 1 비고 2)",
+    "hours": "4월~10월 09:00~20:00, 11월~3월 09:00~19:00 (나머지 시간은 야간)",
+    "free": "야간 주차요금은 무료이다"
+   },
+   {
+    "group": "1구획 초과 징수 (조례 별표 1 비고 1)",
+    "hours": "주차 시 1구획을 초과하는 자동차",
+    "free": "점용구획수에 따라 징수한다"
+   },
+   {
+    "group": "시간 올림 (조례 별표 1 비고 3)",
+    "hours": "주차시간이 최초 30분 미만일 때에는 30분으로, 30분 초과 10분 미만일 때에는 10분으로 한다",
+    "free": "10분 단위로 올림해 계산한다"
+   },
+   {
+    "group": "1일 주차권 상한 (조례 별표 1 비고 4)",
+    "hours": "1회 주차요금이 1일 주차요금을 초과할 경우",
+    "free": "1일 주차권 요금(10,000원)까지만 징수한다"
+   },
+   {
+    "group": "1일·월정기권 노외 한정 (조례 별표 1 비고 5)",
+    "hours": "1일주차권 및 월 정기주차권제는 노외 주차장에 한하여 실시",
+    "free": "지역 및 주차수요를 감안하여 시장이 따로 시행 여부를 결정할 수 있다"
+   }
+  ],
+  "discounts": [
+   {
+    "label": "긴급자동차·모범납세자·국가유공자·고엽제후유의증환자 면제 가능(국가유공자·고엽제환자는 2시간 이내)",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 제6조제1호 — 도로교통법에 따른 긴급 자동차 및 시장이 필요하다고 인정하는 차량, 모범납세자로 표창을 받은 자로서 성실납세증표지(스티커)를 부착한 차량(지정일로부터 1년), 국가유공자로서 소유차량에 표지를 부착하고 본인이 탑승한 차량, 고엽제후유의증환자로서 소유차량에 표지를 부착하고 본인이 탑승한 차량은 주차요금을 면제할 수 있다. 다만, 국가유공자·고엽제후유의증환자는 면제 시간이 2시간 이내이다"
+   },
+   {
+    "label": "경형자동차·장애인·병역명문가·전통시장 상인·고객·환경친화적 자동차·저공해자동차·시책 참여 차량·진폐장해등급자 50% 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제6조제2호 — 경형자동차, 장애인복지법에 따라 등록된 장애인으로서 소유차량에 장애인 표지를 부착하고 본인이 탑승한 차량, 태백시 병역명문가 예우에 관한 조례에 따른 병역명문가의 차량으로 그 구성원이 탑승한 때, 전통시장 상인 및 고객을 위한 전용주차장을 이용하고 전통시장 상점 이용증표를 제출하는 사람(다만, 최초 1시간까지 주차요금을 면제할 수 있다), 환경친화적 자동차, 저공해자동차 표지를 부착한 차량, 시가 추진하는 시책(10부제 운행 등)에 참여하는 차량, 관내에 주민등록을 두고 거주하는 자로서 진폐판정 결과 진폐장해등급이 결정된 자가 탑승한 차량은 주차요금의 50퍼센트를 감면할 수 있다"
+   }
+  ],
+  "notes": "감면(조례 제6조)은 긴급자동차·모범납세자·국가유공자·고엽제후유의증환자 면제(국가유공자·고엽제환자는 2시간 이내), 경형자동차·장애인·병역명문가·전통시장 상인·고객·환경친화적 자동차·저공해자동차·시책 참여 차량·진폐장해등급자 50% 감면이다.",
+  "basis": "요금표는 「태백시 주차장 설치 및 관리 조례」 제2323호(시행 2026-07-08) 제5조제1항·별표 1과 표준데이터(기준일 2026-04-15)를 대조해 실었다. 별표 1 원본 HWP는 flSeq 166853735이다. 유료 12곳은 등록 요금이 별표와 정확히 일치해 조례 기준으로 계산했고, 무료 57곳은 등록값을 유지했다. (조례 본문: data/raw/taebaek-ordinance.txt, 별표 1 원문 HWP: data/raw/taebaek-ordinance-b1.hwp)"
+ },
+ "slug": "taebaek",
+ "province": "강원특별자치도",
+ "province_slug": "gangwon",
+ "dong_page_min_lots": 3,
+ "city": "태백시",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·모범납세자·국가유공자·고엽제후유의증환자 면제 가능(국가유공자·고엽제환자는 2시간 이내)",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제6조제1호 — 도로교통법에 따른 긴급 자동차 및 시장이 필요하다고 인정하는 차량, 모범납세자로 표창을 받은 자로서 성실납세증표지(스티커)를 부착한 차량(지정일로부터 1년), 국가유공자로서 소유차량에 표지를 부착하고 본인이 탑승한 차량, 고엽제후유의증환자로서 소유차량에 표지를 부착하고 본인이 탑승한 차량은 주차요금을 면제할 수 있다. 다만, 국가유공자·고엽제후유의증환자는 면제 시간이 2시간 이내이다"
+  },
+  {
+   "label": "경형자동차·장애인·병역명문가·전통시장 상인·고객·환경친화적 자동차·저공해자동차·시책 참여 차량·진폐장해등급자 50% 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제2호 — 경형자동차, 장애인복지법에 따라 등록된 장애인으로서 소유차량에 장애인 표지를 부착하고 본인이 탑승한 차량, 태백시 병역명문가 예우에 관한 조례에 따른 병역명문가의 차량으로 그 구성원이 탑승한 때, 전통시장 상인 및 고객을 위한 전용주차장을 이용하고 전통시장 상점 이용증표를 제출하는 사람(다만, 최초 1시간까지 주차요금을 면제할 수 있다), 환경친화적 자동차, 저공해자동차 표지를 부착한 차량, 시가 추진하는 시책(10부제 운행 등)에 참여하는 차량, 관내에 주민등록을 두고 거주하는 자로서 진폐판정 결과 진폐장해등급이 결정된 자가 탑승한 차량은 주차요금의 50퍼센트를 감면할 수 있다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
