@@ -1,7 +1,7 @@
 {
  "meta": {
-  "generated_at": "2026-11-22 18:08",
-  "generated_at_iso": "2026-11-22T18:08:56+09:00",
+  "generated_at": "2026-11-22 20:09",
+  "generated_at_iso": "2026-11-22T20:09:41+09:00",
   "snapshot_at": "2026-11-17 07:58",
   "region": {
    "province": "경기도",
@@ -353,7 +353,7 @@
    "mgmt_no": "214-2-000086",
    "src": "표준데이터",
    "list_mode": "card",
-   "name": "서재제1공영주차장",
+   "name": "서재제1공영주차장(동삭동 712-12)",
    "gu": "평택시",
    "dong": "동삭동",
    "dong_src": "지번주소",
@@ -443,14 +443,15 @@
    "udc_id": null,
    "price_key": 600,
    "city": "평택시",
-   "city_slug": "pyeongtaek"
+   "city_slug": "pyeongtaek",
+   "notice": "같은 이름의 주차장이 다른 자리에 하나 더 등록되어 있어 주소(동삭동 712-12)를 붙여 구분했습니다"
   },
   {
    "id": "pt-063",
    "mgmt_no": "214-2-000121",
    "src": "표준데이터",
    "list_mode": "card",
-   "name": "서재제1공영주차장",
+   "name": "서재제1공영주차장(동삭동 712-12)",
    "gu": "평택시",
    "dong": "동삭동",
    "dong_src": "지번주소",
@@ -540,7 +541,8 @@
    "udc_id": null,
    "price_key": 600,
    "city": "평택시",
-   "city_slug": "pyeongtaek"
+   "city_slug": "pyeongtaek",
+   "notice": "같은 이름의 주차장이 다른 자리에 하나 더 등록되어 있어 주소(동삭동 712-12)를 붙여 구분했습니다"
   },
   {
    "id": "pt-066",
@@ -7139,108 +7141,11 @@
    "city_slug": "pyeongtaek"
   },
   {
-   "id": "pt-010",
-   "mgmt_no": "214-2-000083",
-   "src": "표준데이터",
-   "list_mode": "card",
-   "name": "합정공영주차장",
-   "gu": "평택시",
-   "dong": "합정동",
-   "dong_src": "지번주소",
-   "kind": "공영",
-   "ptype": "노외",
-   "addr_jibun": "경기도 평택시 합정동 609-1",
-   "addr_road": "",
-   "road": null,
-   "spaces": 425,
-   "tel": "031-8024-4993",
-   "lat": 36.99083203,
-   "lng": 127.0915001,
-   "base_date": "2026-04-17",
-   "manager": "경기도 평택시청",
-   "note": "4시간면제후 50퍼센트감면(국가유공자+고엽제후유증환자+참전유공자+국가보훈대상자+성실납세자+우수자원봉사증소지자)+ 2시간면제후 50퍼센트감면(장애인자동차+전기자동차)+50퍼센트감면(장기기증자+저공해자동차+경형자동차+병역명문가+다자녀가정(두자녀이상))+ 20퍼센트감면(승용차부제 및 함께타기 표지부착차량)",
-   "fee": {
-    "type": "유료",
-    "raw_type": "유료",
-    "mixed": false,
-    "grade": 2,
-    "base_min": 30,
-    "base_fee": 800,
-    "unit_min": 10,
-    "unit_fee": 300,
-    "steps": null,
-    "free_min": 0,
-    "cap_fee": 10000,
-    "cap_src": "포털 일일최대요금",
-    "daily_hours": null,
-    "daily_fee": null,
-    "prepaid_day": null,
-    "prepaid_weekend": null,
-    "monthly": 80000,
-    "pay": "신용카드",
-    "basis": "「평택시 주차장 설치 및 관리 조례」 별표1 급지별 요금(2급지) · 평택도시공사 포털 요금 안내(2026-11-17 확인)"
-   },
-   "oper": {
-    "weekday": true,
-    "sat": true,
-    "sun": true
-   },
-   "hours": {
-    "weekday": {
-     "open": true,
-     "start": 0,
-     "end": 1440,
-     "24h": true,
-     "listed": true,
-     "raw": [
-      "00:00",
-      "24:00"
-     ]
-    },
-    "sat": {
-     "open": true,
-     "start": 0,
-     "end": 1440,
-     "24h": true,
-     "listed": true,
-     "raw": [
-      "00:00",
-      "24:00"
-     ]
-    },
-    "sun": {
-     "open": true,
-     "start": 0,
-     "end": 1440,
-     "24h": true,
-     "listed": true,
-     "raw": [
-      "00:00",
-      "24:00"
-     ]
-    }
-   },
-   "free_days": {
-    "sat": false,
-    "sun": false
-   },
-   "free_window": null,
-   "closed_from_note": false,
-   "disabled_area": "Y",
-   "capa_detail": null,
-   "portal_name": "합정공영주차장",
-   "realtime": null,
-   "udc_id": null,
-   "price_key": 800,
-   "city": "평택시",
-   "city_slug": "pyeongtaek"
-  },
-  {
    "id": "pt-070",
    "mgmt_no": "214-2-000074",
    "src": "표준데이터",
    "list_mode": "card",
-   "name": "합정공영주차장",
+   "name": "합정공영주차장(합정동 608-1)",
    "gu": "평택시",
    "dong": "합정동",
    "dong_src": "지번주소",
@@ -7330,7 +7235,106 @@
    "udc_id": null,
    "price_key": 800,
    "city": "평택시",
-   "city_slug": "pyeongtaek"
+   "city_slug": "pyeongtaek",
+   "notice": "같은 이름의 주차장이 다른 자리에 하나 더 등록되어 있어 주소(합정동 608-1)를 붙여 구분했습니다"
+  },
+  {
+   "id": "pt-010",
+   "mgmt_no": "214-2-000083",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "합정공영주차장(합정동 609-1)",
+   "gu": "평택시",
+   "dong": "합정동",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "경기도 평택시 합정동 609-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 425,
+   "tel": "031-8024-4993",
+   "lat": 36.99083203,
+   "lng": 127.0915001,
+   "base_date": "2026-04-17",
+   "manager": "경기도 평택시청",
+   "note": "4시간면제후 50퍼센트감면(국가유공자+고엽제후유증환자+참전유공자+국가보훈대상자+성실납세자+우수자원봉사증소지자)+ 2시간면제후 50퍼센트감면(장애인자동차+전기자동차)+50퍼센트감면(장기기증자+저공해자동차+경형자동차+병역명문가+다자녀가정(두자녀이상))+ 20퍼센트감면(승용차부제 및 함께타기 표지부착차량)",
+   "fee": {
+    "type": "유료",
+    "raw_type": "유료",
+    "mixed": false,
+    "grade": 2,
+    "base_min": 30,
+    "base_fee": 800,
+    "unit_min": 10,
+    "unit_fee": 300,
+    "steps": null,
+    "free_min": 0,
+    "cap_fee": 10000,
+    "cap_src": "포털 일일최대요금",
+    "daily_hours": null,
+    "daily_fee": null,
+    "prepaid_day": null,
+    "prepaid_weekend": null,
+    "monthly": 80000,
+    "pay": "신용카드",
+    "basis": "「평택시 주차장 설치 및 관리 조례」 별표1 급지별 요금(2급지) · 평택도시공사 포털 요금 안내(2026-11-17 확인)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "closed_from_note": false,
+   "disabled_area": "Y",
+   "capa_detail": null,
+   "portal_name": "합정공영주차장",
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 800,
+   "city": "평택시",
+   "city_slug": "pyeongtaek",
+   "notice": "같은 이름의 주차장이 다른 자리에 하나 더 등록되어 있어 주소(합정동 609-1)를 붙여 구분했습니다"
   },
   {
    "id": "pt-street-008",
@@ -15676,7 +15680,7 @@
   }
  ],
  "quality": {
-  "generated_at": "2026-11-22 18:08",
+  "generated_at": "2026-11-22 20:09",
   "원자료_전국행수": 18994,
   "원자료_행수": 161,
   "원자료_평택시행수": 161,
@@ -15746,8 +15750,7 @@
   "좌표_없음": [],
   "주소_없음": [],
   "이름중복": [
-   "서재제1공영주차장",
-   "합정공영주차장"
+   "서재제1공영주차장(동삭동 712-12)"
   ],
   "관리번호중복": [],
   "전화번호_없음": 0,

@@ -2896,6 +2896,26 @@ def build_pyeongtaek():
             "city_slug": "pyeongtaek",
         })
 
+    # 이름이 같은 주차장이 다른 자리에 따로 있는 경우 — 카드에서 구분되도록 이름 뒤에
+    #  법정동과 번지를 붙인다(서재제1공영주차장 동삭동 712-12 2곳·합정공영주차장 2곳).
+    #  서재제1 쌍은 같은 지번(동삭동 712-12)에 면수만 다르게(23면·25면) 등록된
+    #  물리중복 의심 건으로, 병합·삭제하지 않고 둘 다 유지하고 안내 문구만 붙인다
+    #  (광주 북구 일곡동주민센터 쌍과 같은 처리 — 확인 과제로 남긴다).
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        for l in lots:
+            if l["name"] not in _name_dups:
+                continue
+            _beonji = ((l.get("addr_jibun") or "").split() or [""])[-1]
+            _suffix = (f"({l['dong']} {_beonji})" if l.get("dong") and _beonji else
+                       f"({l['dong']})" if l.get("dong") else f"({_beonji})" if _beonji else "")
+            if not _suffix:
+                continue
+            _note = (f"같은 이름의 주차장이 다른 자리에 하나 더 등록되어 있어 주소"
+                     f"{_suffix}를 붙여 구분했습니다")
+            l["name"] = f"{l['name']}{_suffix}"
+            l["notice"] = " · ".join(x for x in (l.get("notice"), _note) if x)
+
     lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
 
     quality = check_quality_pyeongtaek(rows_all, rows, lots, excluded, portal)
@@ -100744,7 +100764,7 @@ def build_inje():
             _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
             _bunji = ""
             for _tok in reversed(_parts):
-                if re.match(r"^\\d+(?:-\\d+)?$", _tok or ""):
+                if re.match(r"^\d+(?:-\d+)?$", _tok or ""):
                     _bunji = _tok
                     break
             if not _bunji:
@@ -101292,7 +101312,7 @@ def build_gangwon_goseong():
             _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
             _bunji = ""
             for _tok in reversed(_parts):
-                if re.match(r"^\\d+(?:-\\d+)?$", _tok or ""):
+                if re.match(r"^\d+(?:-\d+)?$", _tok or ""):
                     _bunji = _tok
                     break
             if not _bunji:

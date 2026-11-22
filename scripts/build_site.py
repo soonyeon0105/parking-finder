@@ -5651,17 +5651,21 @@ def city_ui(city) -> dict:
                "daily_example": "1일 주차권 요금", "street_examples": "", "street_fee_caveat": "",
                "rate_bullets": None}
     ui = {**default, **CITY_UI.get(city["city"] if city else "", {})}
-    # CITY_UI에 없는 도시는 해당 도시 lots의 최빈값으로 채운다 (점유율 50% 미만이면
-    #   빈 값 유지 — 그 경우 렌더링 지점에서 문구 자체를 뺀다). 큐레이션된 CITY_UI 값이 있으면 우선한다.
+    # 기준일이 비어 있으면(CITY_UI에 항목은 있으나 std_base_date만 없는 도시 —
+    #   공주시·보령시·청양군·태백시·삼척시·속초시·진도군 — 포함) 해당 도시 lots의
+    #   최빈값으로 채운다 (점유율 50% 미만이면 빈 값 유지 — 그 경우 렌더링 지점에서
+    #   문구 자체를 뺀다). 큐레이션된 CITY_UI 값이 있으면 우선한다.
+    #   관리기관 추론은 종전대로 CITY_UI에 없는 도시만 대상으로 한다(큐레이션 값 보호).
     lots = (city or {}).get("_lots") or []
-    if lots and (city or {}).get("city") not in CITY_UI:
+    if lots:
         n = len(lots)
         _bd = Counter(l.get("base_date") for l in lots if l.get("base_date")).most_common(1)
         if _bd and _bd[0][1] * 2 >= n and not ui.get("std_base_date"):
             ui["std_base_date"] = _bd[0][0]
-        _mg = Counter(l.get("manager") for l in lots if l.get("manager")).most_common(1)
-        if _mg and _mg[0][1] * 2 >= n and ui.get("manager") in ("", "관리기관"):
-            ui["manager"] = _mg[0][0]
+        if (city or {}).get("city") not in CITY_UI:
+            _mg = Counter(l.get("manager") for l in lots if l.get("manager")).most_common(1)
+            if _mg and _mg[0][1] * 2 >= n and ui.get("manager") in ("", "관리기관"):
+                ui["manager"] = _mg[0][0]
     return ui
 
 
@@ -8295,7 +8299,7 @@ def fee_meta_phrases(city) -> list:
     return out
 
 
-def hub_meta(city, gu, n):
+def hub_meta(city, gu, n, street_only=False):
     """구가 없는 시·군 페이지(hub)의 제목·메타 설명 — 도시별 템플릿이 없을 때 쓴다.
 
     예전에는 평택시 문구("1급지 90분 무료·2급지 30분 800원·3급지 30분 600원")가
@@ -8308,11 +8312,14 @@ def hub_meta(city, gu, n):
     ft = city.get("fee_table") or {}
     rows = ft.get("rows") or []
     phrases = fee_meta_phrases(city)
+    # 노상 구간만 있는 도시(사천시)는 카드가 0곳이라 "N곳"이 노상 구간을 세는 꼴이 된다 —
+    # 타이틀·설명에는 "노상 N구간"으로 적는다.
+    n_txt = f"노상 {n}구간" if street_only else f"{n}곳"
     if not phrases:
-        return (f"{gu} 공영주차장 {n}곳 요금·무료 개방 총정리 | {SITE_NAME}",
-                f"{gu} 공영주차장 {n}곳의 주차요금, 운영시간, 구획수, 주말·공휴일 무료 개방 정보를 "
+        return (f"{gu} 공영주차장 {n_txt} 요금·무료 개방 총정리 | {SITE_NAME}",
+                f"{gu} 공영주차장 {n_txt}의 주차요금, 운영시간, 구획수, 주말·공휴일 무료 개방 정보를 "
                 f"공공데이터로 정리했습니다. 2시간 주차 예상요금과 무료 개방 여부를 바로 계산해 보세요.")
-    title = (f"{gu} 공영주차장 {n}곳 주차요금 계산 — "
+    title = (f"{gu} 공영주차장 {n_txt} 주차요금 계산 — "
              f"{_fee_row_phrase(rows[0], full=False)} | {SITE_NAME}")
     fee_part = ", ".join(phrases)
     corp = ft.get("corp") or {}
@@ -8322,7 +8329,7 @@ def hub_meta(city, gu, n):
                           if (l.get("fee") or {}).get("type") == "유료"])
     if corp.get("paid") == 0 and corp.get("free") and not corp.get("unknown") and not _street_paid_n:
         # 유료 주차장이 한 곳도 없는 지역 — 조례 요금표는 참고표로만 싣는다.
-        description = (f"{gu} 공영주차장 {n}곳은 모두 무료로 등록돼 있습니다. 조례 요금표"
+        description = (f"{gu} 공영주차장 {n_txt}은 모두 무료로 등록돼 있습니다. 조례 요금표"
                        f"({fee_part})와 운영시간·구획수를 공공데이터로 정리했습니다.")
     elif corp.get("paid") == 0 and corp.get("unknown"):
         # 유료로 계산하는 곳은 없지만 요금 미상인 곳이 있는 지역(문경시) — '모두 무료'가 아니다.
@@ -8331,7 +8338,7 @@ def hub_meta(city, gu, n):
         if _cards:
             _cf = len([l for l in _cards if l["fee"]["type"] == "무료"])
             _cu = len([l for l in _cards if l["fee"]["type"] == "미상"])
-            description = (f"{gu} 공영주차장 {n}곳은 무료 {_cf}곳·요금 미상 {_cu}곳으로 "
+            description = (f"{gu} 공영주차장 {n_txt}은 무료 {_cf}곳·요금 미상 {_cu}곳으로 "
                            f"등록돼 있습니다. 조례 요금표({fee_part})는 참고표로 싣고, "
                            "운영시간·구획수를 공공데이터로 정리했습니다.")
         else:
@@ -8340,7 +8347,7 @@ def hub_meta(city, gu, n):
                            f"등록돼 있습니다. 조례 요금표({fee_part})는 참고표로 싣고, "
                            "운영시간·구획수를 공공데이터로 정리했습니다.")
     else:
-        description = (f"{gu} 공영주차장 {n}곳의 주차요금({fee_part})과 운영시간·구획수를 "
+        description = (f"{gu} 공영주차장 {n_txt}의 주차요금({fee_part})과 운영시간·구획수를 "
                        f"공공데이터로 정리했습니다. 2시간·하루 주차비를 바로 계산해 보세요.")
     return title, description
 
@@ -8870,6 +8877,45 @@ def build_district(city, d, lots, site, path=None, hub=False):
                    "노외·부설 유료 5곳도 최초 3시간 무료라 2시간은 0원이며, 노상 유료 구간 3곳은 2시간 1,500원입니다. "
                    "조례 별표1의 요금 상한은 위 ‘화천군 주차요금표’에 적었습니다.")
               if "2시간 요금은 얼마" in q else a) for q, a in qa]
+
+    if city["city"] in ("단양군", "함평군", "영광군", "합천군", "의성군", "고령군"):
+        # 이 6곳은 카드 유료가 전부 최초 2시간 무료 구간 안이거나(함평·영광·합천·
+        #   의성·고령) 관광지 1일 정액(단양)이라 two_h_price(lots)가 비어 폴백
+        #   문구("요금 정보가 있는 주차장이 없어 계산할 수 없습니다")가 틀리게
+        #   나온다 — 실제 요금 구조로 답을 직접 적는다(화천군 선례).
+        #   단양 유료 2곳(고수동굴·도담삼봉)은 별표 1-1 관광지 당일 정액 3,000원,
+        #   합천 노상 유료 1구간(이화예식장~합천시장입구)은 2시간 2,000원이다.
+        if city["city"] == "단양군":
+            _two_h_faq = (f"이 지역 공영주차장 {s['n']}곳 가운데 요금 구분이 ‘무료’인 {free_in_gu}곳은 "
+                          f"2시간 주차요금도 0원이고, 유료인 고수동굴주차장·도담삼봉 주차장 2곳은 시간 단위 "
+                          f"요금이 아니라 「단양군 주차장 조례」 별표 1-1의 관광지 당일 정액 3,000원입니다. "
+                          f"자세한 요금표는 위 ‘{gu} 주차요금표’에 적었습니다.")
+        elif city["city"] == "함평군":
+            _two_h_faq = (f"이 지역 공영주차장 {s['n']}곳 가운데 요금 구분이 ‘무료’인 {free_in_gu}곳은 "
+                          f"2시간 주차요금도 0원이고, 유료인 함평읍공영주차장 1곳도 최초 2시간이 무료라 "
+                          f"2시간은 0원입니다(2시간을 넘기면 30분마다 500원, 1일 5,000원). "
+                          f"조례 별표1의 요금 상한은 위 ‘{gu} 주차요금표’에 적었습니다.")
+        elif city["city"] == "영광군":
+            _two_h_faq = (f"이 지역 공영주차장 {s['n'] + len(street)}곳 가운데 요금 구분이 ‘무료’인 "
+                          f"{free_all_gu}곳은 2시간 주차요금도 0원이고, 유료 2곳(영광터미널 공용주차장·"
+                          f"우시장 주차광장)도 조례 별표 1상 최초 2시간이 무료라 2시간은 0원입니다"
+                          f"(2시간을 넘기면 30분마다 500원, 1일 5,000원).")
+        elif city["city"] == "합천군":
+            _two_h_faq = (f"이 지역 공영주차장 {s['n'] + len(street)}곳 가운데 요금 구분이 ‘무료’인 "
+                          f"{free_all_gu}곳은 2시간 주차요금도 0원이고, 노외 유료 7곳도 조례 별표 4상 "
+                          f"최초 2시간이 무료라 2시간은 0원이며, 노상 유료 구간 1곳(이화예식장~합천시장입구)은 "
+                          f"2시간 2,000원입니다. 자세한 요금표는 위 ‘{gu} 주차요금표’에 적었습니다.")
+        elif city["city"] == "의성군":
+            _two_h_faq = (f"이 지역 공영주차장 {s['n'] + len(street)}곳 가운데 요금 구분이 ‘무료’인 "
+                          f"{free_all_gu}곳은 2시간 주차요금도 0원이고, 유료 5곳도 조례 별표 1상 최초 "
+                          f"2시간이 무료라 2시간은 0원입니다(2시간을 넘기면 1시간마다 1,000원, "
+                          f"1일 최대 5,000원).")
+        else:  # 고령군
+            _two_h_faq = (f"이 지역 공영주차장 {s['n'] + len(street)}곳 가운데 요금 구분이 ‘무료’인 "
+                          f"{free_all_gu}곳은 2시간 주차요금도 0원이고, 유료인 대가야 역사공원 공영주차장 "
+                          f"1곳도 조례 별표 1상 최초 2시간이 무료라 2시간은 0원입니다"
+                          f"(2시간을 넘기면 30분마다 300원, 1일 3,000원).")
+        qa = [(q, _two_h_faq if "2시간 요금은 얼마" in q else a) for q, a in qa]
 
     if city["city"] == "양주시":
         # 별표1(최초 10분 무료·30분 600원·10분당 200원)로 직접 계산한 값 — 1시간 1,200원·2시간 2,400원.
@@ -10412,7 +10458,11 @@ def _fee_table_block_raw(city) -> str:
 2급지는 <b>1시간 500원</b>에 초과 <b>30분마다 250원</b>, 1일 3,000원, 월정기 주간
 30,000원·야간 20,000원입니다. 조례에 최초 무료 시간이나 요일별 무료 조항은 없습니다.
 무료로 운영하는 근거(고시 등)는 서천군청(041-950-4354) 확인이 필요합니다. 주간 시간구분은
-4~10월 <b>08:00~20:00</b>, 11~3월 <b>08:00~19:00</b>이고 나머지는 야간입니다.</p>
+4~10월 <b>08:00~20:00</b>, 11~3월 <b>08:00~19:00</b>이고 나머지는 야간입니다.
+표준데이터(기준일 2026-04-21)에는 서천군 28곳이 등록돼 있었으나 같은 자리에 번호만 다르게
+중복 등록된 3곳을 합쳐 이 사이트에는 25곳을 실었습니다. 더 최신 자료(기준일 2026-10-26)에는
+22곳으로 나와 있어, 서천읍·장항읍·판교면 각 1곳이 실제로 폐쇄·통합됐는지는 서천군청 확인이
+필요합니다.</p>
 <table class="data">
   <thead><tr><th>구분</th><th>요율</th><th class="num">1시간</th>
   <th class="num">2시간</th><th class="num">1일 주차권</th><th class="num">월 정기권</th>
@@ -17536,6 +17586,96 @@ def fee_table_block(city) -> str:
     return _wrap_first_fee_table(_fee_table_block_raw(city))
 
 
+def _two_h_group_summary(paid, label, unit="곳"):
+    """유료곳 목록의 2시간 요금 요약 — (본문, 미산정_곳수, 평일미운영_곳수)를 돌려준다.
+
+    two_h_price로 계산되는 곳은 최저/중간값/최고(값이 하나면 그 값 하나)로 적고,
+    120분 price_for가 free인 곳(최초 무료 2시간 이상)은 0원으로 적는다.
+    unknown인 곳(시간 요금 없음 — 월 정기권 전용 등)과 closed인 곳(평일 미운영)은
+    본문에 넣지 않고 개수만 돌려줘 호출 쪽이 제외 문장으로 적는다.
+    paid가 비어 있으면 ("", 0, 0)을 돌려준다. won()은 '원'까지 포함한 문자열이다.
+    """
+    if not paid:
+        return "", 0, 0
+    amounts, free120, unpriced, closed = [], 0, 0, 0
+    for l in paid:
+        r = price_for(l, 120, "weekday")
+        if r.get("state") == "paid":
+            amounts.append(r["amount"])
+        elif r.get("state") == "free":
+            free120 += 1
+        elif r.get("state") == "closed":
+            closed += 1
+        else:
+            unpriced += 1
+    if amounts:
+        amounts.sort()
+        if len(set(amounts)) == 1:
+            amt = f"{won(amounts[0])}"
+        else:
+            med = amounts[len(amounts) // 2]
+            amt = (f"최저 {won(amounts[0])}, 중간값 {won(med)}, "
+                   f"최고 {won(amounts[-1])}")
+        if free120:
+            txt = (f"{label} 유료 {len(paid)}{unit} 가운데 {free120}{unit}은 2시간이 무료라 0원이고, "
+                   f"나머지는 2시간 {amt}")
+        else:
+            txt = f"{label} 유료 {len(paid)}{unit}은 2시간 {amt}"
+    elif free120 == len(paid):
+        txt = f"{label} 유료 {len(paid)}{unit}도 2시간이 무료라 0원"
+    elif free120:
+        txt = f"{label} 유료 {len(paid)}{unit} 가운데 {free120}{unit}은 2시간이 무료라 0원"
+    else:
+        txt = ""
+    return txt, unpriced, closed
+
+
+def _city_two_h_answer(city, lots, street):
+    """구가 있는 도시(시 허브)의 시 단위 2시간 요금 답 — 카드+노상 전수 기준.
+
+    시 허브 FAQ에는 '가장 싼 곳은?'만 있고 시 단위 2시간 답이 없어 전수 검증
+    29도시 목록에 올랐다(구별 페이지는 이미 2시간 답이 있다). 구 단위 답
+    (build_district)과 같은 분기를 시 전체에 적용한다 — 오버라이드가 아니라
+    데이터에서 계산하므로 다음 갱신에도 숫자가 따라간다. 계산되지 않는 유료곳은
+    사유와 함께 제외 문장으로 적는다.
+    """
+    all_lots = list(lots) + list(street)
+    n = len(all_lots)
+    free_n = len([l for l in all_lots if l["fee"]["type"] == "무료"])
+    unknown_n = len([l for l in all_lots if l["fee"]["type"] == "미상"])
+    paid_cards = [l for l in lots if l["fee"]["type"] == "유료"]
+    paid_street = [l for l in street if l["fee"]["type"] == "유료"]
+    if not paid_cards and not paid_street:
+        ans = f"이 지역 공영주차장 {n}곳은 모두 무료라 평일 2시간 주차요금도 0원입니다."
+    else:
+        if free_n:
+            ans = (f"이 지역 공영주차장 {n}곳 가운데 요금 구분이 ‘무료’인 {free_n}곳은 "
+                   f"2시간 주차요금도 0원입니다. ")
+        else:
+            ans = f"이 지역 공영주차장 {n}곳은 모두 유료입니다. "
+        unpriced, closed = 0, 0
+        card_txt, card_un, card_cl = _two_h_group_summary(paid_cards, "노외·부설")
+        if card_txt:
+            ans += card_txt + "입니다. "
+        unpriced += card_un
+        closed += card_cl
+        street_txt, st_un, st_cl = _two_h_group_summary(paid_street, "노상", "구간")
+        if street_txt:
+            ans += street_txt + "입니다. "
+        unpriced += st_un
+        closed += st_cl
+        ans = ans.rstrip()
+        if unpriced:
+            ans += (f" 시간 요금이 등록돼 있지 않아 2시간 요금을 매길 수 없는 곳이 "
+                    f"{unpriced}곳 있어 제외했습니다.")
+        if closed:
+            ans += (f" 평일 미운영이라 평일 2시간 요금을 매길 수 없는 곳이 "
+                    f"{closed}곳 있어 제외했습니다.")
+    if unknown_n:
+        ans += f" 요금 정보 미상인 {unknown_n}곳은 제외했습니다."
+    return ans
+
+
 def build_city(city, lots, site):
     path = city_path(city)
     ui = city_ui(city)
@@ -17610,6 +17750,8 @@ def build_city(city, lots, site):
          + (f"이 밖에 노상(거리) 주차 구간 {len(street)}곳이 따로 등록되어 있습니다. " if street else "")
          + (f"이 가운데 요금 구분이 ‘무료’인 곳은 {free_type_n}곳입니다." if free_type_n
             else f"이 가운데 무료·주말 무료 개방 표기가 있는 곳은 {s['free']}곳입니다.")),
+        (f"{city['city']} 공영주차장 2시간 요금은 얼마인가요?",
+         _city_two_h_answer(city, lots, street)),
         (f"{city['city']}에서 주말에 무료인 공영주차장은 어디인가요?",
          (f"공식 자료에 일요일·공휴일 무료 개방으로 표기된 곳은 {s['sun_free']}곳입니다. "
           "구별 ‘주말·공휴일 무료 개방’ 페이지에서 확인할 수 있습니다.")
@@ -17725,7 +17867,7 @@ def build_street_only_hub(city, site):
         _updated_parts.append(f"실시간 잔여면수 {esc(SNAPSHOT_TS)} 조회")
     _updated_line = f'<p class="updated">{" · ".join(_updated_parts)}</p>' if _updated_parts else ""
     body = f"""
-<h1>{city['city']} 공영주차장 {s['n']}곳 · 요금과 무료 개방 한눈에</h1>
+<h1>{city['city']} 공영주차장 노상 {len(street)}구간 · 요금과 무료 개방 한눈에</h1>
 <p class="lede">{city['city']} 공영주차장은 공공데이터에 <b>노상(거리) 주차 구간 {len(street)}곳</b>만 등록되어 있습니다.
 노외·부설 공영주차장은 표준데이터에 등록이 없어, 도로변 유료 구간의 요금과 운영시간을 정리했습니다.</p>
 {_updated_line}
@@ -17753,7 +17895,7 @@ def build_street_only_hub(city, site):
 {affiliate_block("hub", path)}
 """
     crumbs = [("홈", "/"), (city.get("province") or "경기도", None), (f"{city['city']} 공영주차장", "")]
-    title, description = hub_meta(city, city["city"], s["n"])
+    title, description = hub_meta(city, city["city"], s["n"], street_only=True)
     if ui.get("hub_title_tpl"):
         title = ui["hub_title_tpl"].format(gu=city["city"], n=s["n"], site=SITE_NAME)
     if ui.get("hub_description_tpl"):
@@ -18270,7 +18412,7 @@ def free_chips(lots) -> str:
             f'<button type="button" class="ff-chip ff-now" id="ff-now" aria-pressed="false">'
             f'지금 무료·운영 중</button></div>\n'
             f'  <p class="ff-status" id="ff-status" aria-live="polite">{c["all"]}곳 표시 중 · '
-            f'무료로 쓸 수 있는 곳 {c["union"]}곳</p>\n'
+            f'이 중 무료로 쓸 수 있는 곳 {c["union"]}곳</p>\n'
             f'</div>\n'
             f'<script type="application/json" id="holiday-data">{holidays.replace("</", "<\\/")}</script>')
 
@@ -19022,17 +19164,28 @@ def build_landing(site):
     free_total = sum(city_free_count(c) for c in site["cities"])
     if multi:
         # 34개 지역 이름을 제목에 다 적으면 너무 길어져, 시·도별 개수로 줄인다.
+        # 2026-07-01 「전남광주통합특별시 설치를 위한 특별법」 시행으로 광주광역시·전라남도는
+        # 폐지되고 전남광주통합특별시가 출범했다(법률 제21620호 제7조). 루트 요약줄에는 폐지된
+        # 광주광역시를 별도 시·도로 적지 않고, 광주 5개 구를 전남광주통합특별시에 합산한다.
+        # (URL·탭·시·도 섹션은 기존 /parking/gwangju/·/parking/jeonnam/ 구조를 유지한다.)
         parts = []
+        _gwangju_n = len(groups.get("광주광역시", []))
         for prov in order:
-            unit = ("개 자치구" if prov == "서울특별시"
-                    else ("개 구·군" if any(c["city"].endswith("군") for c in groups[prov])
-                          else "개 구")
-                    if prov in ("인천광역시", "부산광역시", "대구광역시", "대전광역시", "광주광역시",
-                                "울산광역시") else "개 시·군")
-            parts.append(f"{prov} {len(groups[prov])}{unit}")
+            if prov == "광주광역시":
+                continue
+            _n = len(groups[prov]) + (_gwangju_n if prov == "전남광주통합특별시" else 0)
+            if prov == "전남광주통합특별시":
+                unit = "개 시·군·구"
+            else:
+                unit = ("개 자치구" if prov == "서울특별시"
+                        else ("개 구·군" if any(c["city"].endswith("군") for c in groups[prov])
+                              else "개 구")
+                        if prov in ("인천광역시", "부산광역시", "대구광역시", "대전광역시",
+                                    "울산광역시") else "개 시·군")
+            parts.append(f"{prov} {_n}{unit}")
         city_names = " · ".join(parts)
         region_unit = "개 시·군·구"
-        province_names = "·".join(order)
+        province_names = "·".join(p for p in order if p != "광주광역시")
     else:
         city_names = "·".join(c["city"] for c in site["cities"])
         region_unit = "개 시·군"
@@ -19383,6 +19536,8 @@ def buyeo_redirects(pages) -> list:
         if old != p:
             out.append(f"{old} {p} 301")
     return out
+
+
 
 
 def main():

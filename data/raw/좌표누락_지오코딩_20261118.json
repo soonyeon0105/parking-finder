@@ -49391,6 +49391,82 @@
      "note": "등록 번지 244와 일치하는 PointAddress 후보가 없고 행정동(Locality) 중심점만 돌아와 기각. 좌표 없음으로 남김."
     }
    ]
+  },
+  {
+   "id": "gw-hongcheon-008",
+   "city": "홍천군",
+   "gu": "홍천군",
+   "dong": "홍천읍",
+   "name": "신장대리 구홍천문화원 공영노외주차장",
+   "addr_jibun": "강원특별자치도 홍천군 홍천읍 신장대리 51-20",
+   "addr_road": "",
+   "chosen": null,
+   "candidates": [
+    {
+     "kind": "geocode",
+     "how": "지오코딩(지번)",
+     "query": "강원특별자치도 홍천군 홍천읍 신장대리 51-20",
+     "lat": 37.691849026686,
+     "lng": 127.886439854226,
+     "addr": "강원특별자치도 홍천군 홍천읍 신장대리 5-1",
+     "source": "ArcGIS World Geocoding",
+     "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?SingleLine=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84+%ED%99%8D%EC%B2%9C%EA%B5%B0+%ED%99%8D%EC%B2%9C%EC%9D%8D+%EC%8B%A0%EC%9E%A5%EB%8C%80%EB%A6%AC+51-20&countryCode=KOR&maxLocations=3&outFields=%2A&f=json",
+     "score": 96.18,
+     "addr_match": false,
+     "note": "반환 주소가 신장대리 5-1로 등록 번지(51-20)와 다르고 score 100이 아니라 기각 — 좌표 없음 유지(군청 확인 과제). 구 도명·'번지' 표기 변형으로 재조회해도 같은 결과(95.28·93.03)."
+    },
+    {
+     "kind": "geocode",
+     "how": "지오코딩(지번)",
+     "query": "강원특별자치도 홍천군 홍천읍 신장대리 51-20",
+     "lat": 37.689816319544,
+     "lng": 127.885651554534,
+     "addr": "강원특별자치도 홍천군 홍천읍 신장대리",
+     "source": "ArcGIS World Geocoding",
+     "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?SingleLine=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84+%ED%99%8D%EC%B2%9C%EA%B5%B0+%ED%99%8D%EC%B2%9C%EC%9D%8D+%EC%8B%A0%EC%9E%A5%EB%8C%80%EB%A6%AC+51-20&countryCode=KOR&maxLocations=3&outFields=%2A&f=json",
+     "score": 89.57,
+     "addr_match": false,
+     "note": "Locality 중심점이라 기각."
+    }
+   ]
+  },
+  {
+   "id": "gw-hongcheon-015",
+   "city": "홍천군",
+   "gu": "홍천군",
+   "dong": "홍천읍",
+   "name": "희망리 제3공영노외주차장",
+   "addr_jibun": "강원특별자치도 홍천군 홍천읍 희망리 67-4",
+   "addr_road": "",
+   "chosen": null,
+   "candidates": [
+    {
+     "kind": "geocode",
+     "how": "지오코딩(지번)",
+     "query": "강원특별자치도 홍천군 홍천읍 희망리 67-4",
+     "lat": 37.692663747674,
+     "lng": 127.885867956973,
+     "addr": "강원특별자치도 홍천군 홍천읍 희망리 67",
+     "source": "ArcGIS World Geocoding",
+     "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?SingleLine=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84+%ED%99%8D%EC%B2%9C%EA%B5%B0+%ED%99%8D%EC%B2%9C%EC%9D%8D+%ED%9D%AC%EB%A7%9D%EB%A6%AC+67-4&countryCode=KOR&maxLocations=3&outFields=%2A&f=json",
+     "score": 99.47,
+     "addr_match": false,
+     "note": "반환 주소가 희망리 67로 등록 번지(67-4)의 부번이 빠져 번지까지 일치로 볼 수 없고 score 100도 아니라 기각 — 좌표 없음 유지(군청 확인 과제). 구 도명·'번지' 표기 변형으로 재조회해도 같은 결과(99.33·98.57)."
+    },
+    {
+     "kind": "geocode",
+     "how": "지오코딩(지번)",
+     "query": "강원특별자치도 홍천군 홍천읍 희망리 67-4",
+     "lat": 37.699572702316,
+     "lng": 127.882194570035,
+     "addr": "강원특별자치도 홍천군 홍천읍 희망리",
+     "source": "ArcGIS World Geocoding",
+     "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?SingleLine=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84+%ED%99%8D%EC%B2%9C%EA%B5%B0+%ED%99%8D%EC%B2%9C%EC%9D%8D+%ED%9D%AC%EB%A7%9D%EB%A6%AC+67-4&countryCode=KOR&maxLocations=3&outFields=%2A&f=json",
+     "score": 91.18,
+     "addr_match": false,
+     "note": "Locality 중심점이라 기각."
+    }
+   ]
   }
  ],
  "city_signatures": {
