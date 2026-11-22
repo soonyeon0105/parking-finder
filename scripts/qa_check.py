@@ -437,8 +437,14 @@ for city in CITIES:
     if not hub.exists():
         fails.append(f"{city['city']}: 시 허브 없음")
         continue
-    card_lots = [l for l in LOTS if l.get("city") == city["city"] and l.get("list_mode", "card") != "street"]
-    street_lots = [l for l in LOTS if l.get("city") == city["city"] and l.get("list_mode") == "street"]
+    # 같은 도시명이 두 도에 있는 경우(경남·강원 고성군) 도 슬러그까지 맞춰야 한다.
+    #   province_slug가 없는 옛 lot은 도시명만으로 매칭한다(하위 호환).
+    card_lots = [l for l in LOTS if l.get("city") == city["city"]
+                 and l.get("province_slug", city.get("province_slug")) == city.get("province_slug")
+                 and l.get("list_mode", "card") != "street"]
+    street_lots = [l for l in LOTS if l.get("city") == city["city"]
+                   and l.get("province_slug", city.get("province_slug")) == city.get("province_slug")
+                   and l.get("list_mode") == "street"]
     for d in city["districts"]:
         p = DIST / "parking" / (city.get("province_slug") or "gyeonggi") / d["slug"] / "index.html"
         if not p.exists():

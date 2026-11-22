@@ -5861,10 +5861,18 @@ def city_of(lot):
 
     slug는 광역시 자치구끼리 겹친다(부산·대구·광주·울산 북구 전부 'buk-gu') —
     그래서 유일한 도시 이름(lot['city'], 예: '부산 북구')으로 찾는다.
+    같은 도시명이 두 도에 있는 경우(경남·강원 고성군)는 도 슬러그까지 맞춘다.
     """
     if not _CITY_BY_NAME:
-        _CITY_BY_NAME.update({c["city"]: c for c in SITE_CITIES})
-    return _CITY_BY_NAME.get(lot.get("city") or "")
+        _CITY_BY_NAME.update({(c["city"], c.get("province_slug")): c for c in SITE_CITIES})
+    key = (lot.get("city") or "", lot.get("province_slug"))
+    if key in _CITY_BY_NAME:
+        return _CITY_BY_NAME[key]
+    # province_slug가 없는 옛 lot은 도시명만으로 찾는다(하위 호환).
+    for (name, _prov), c in _CITY_BY_NAME.items():
+        if name == lot.get("city"):
+            return c
+    return None
 
 
 # ------------------------------------------------------------------ utils
@@ -15563,6 +15571,65 @@ B·C지구는 등록 급지구분이 1급지이나 등록 요금이 2급지와 �
 """
 
 
+    if ft.get("style") == "gangwon_goseong_grade":
+        # 강원 고성군 — 공영 124곳(노외 100곳·부설 20곳·노상 4구간,
+        #   총 6,529면)이 모두 무료로 등록돼 있다.
+        #   「고성군 주차장 설치 및 관리 조례」
+        #   제2845호(시행 2026-04-10) 제4조·별표 1은
+        #   일반 주차장 요금을 30분까지 500원·30분
+        #   초과 매 10분마다 100원·1일 6,000원·월정기
+        #   주간 72,000원·야간 54,000원·주간+야간
+        #   126,000원, 간성전통시장 주차장 요금을
+        #   30분까지 500원·30분 초과 매 10분마다
+        #   100원·1일 6,000원·월정기 주간 30,000원·
+        #   야간 무료로 정한다. 무료 구간이 없어
+        #   1시간은 800원·2시간은 1,400원이다.
+        #   124곳 전부 무료 등록이라 이 요금표는
+        #   조례 기준 참고 요금이다.
+        def _gs_cell(v):
+            return f"{v}곳" if v is not None else "—"
+        def _gs_night(v):
+            return "무료" if v == 0 else (won(v) if v is not None else "—")
+        rows_html = "".join(
+            f'<tr><td>{esc(r["label"])}</td><td class="num">{esc(r["unit_label"])}</td>'
+            f'<td class="num">{won(r["hour"])}</td><td class="num">{won(r["two_hour"])}</td>'
+            f'<td class="num">{won(r["day"])}</td><td class="num">{won(r["month"])}</td>'
+            f'<td class="num">{_gs_night(r["month_night"])}</td>'
+            f'<td class="num">{_gs_cell(r["lots"])}</td></tr>'
+            for r in ft["rows"])
+        win_rows = "".join(
+            f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
+            for w in ft.get("windows") or [])
+        corp = ft.get("corp") or {}
+        return f"""
+<h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
+<p class="lede">고성군 공영주차장 <b>124곳</b>(노외 100곳·부설 20곳·노상 4구간, 총 6,529면)은
+모두 <b>무료</b>로 등록돼 있습니다. 「고성군 주차장 설치 및 관리 조례」 제2845호
+별표 1은 일반 주차장 요금을 30분까지 <b>500원</b>·30분 초과 매 10분마다 <b>100원</b>·
+1일 <b>6,000원</b>·월정기 주간 <b>72,000원</b>·야간 <b>54,000원</b>·주간+야간 <b>126,000원</b>,
+간성전통시장 주차장 요금을 30분까지 <b>500원</b>·30분 초과 매 10분마다 <b>100원</b>·
+1일 <b>6,000원</b>·월정기 주간 <b>30,000원</b>·야간 <b>무료</b>로 정합니다.
+1시간은 800원·2시간은 1,400원입니다. 124곳 전부 무료 등록이라 이 요금표는 조례 기준 참고 요금입니다.
+제4조 단서는 도시지역 이외의 지역에 설치한 주차장의 주차요금은 군수가 따로 결정·고시한다고 정합니다.
+실제 요금은 현장 안내와 고성군청(033-680-3021)에 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>구분 (조례 별표 1)</th><th>요율</th><th class="num">1시간</th>
+  <th class="num">2시간</th><th class="num">1일 주차권</th>
+  <th class="num">월정기 (주간)</th><th class="num">월정기 (야간)</th>
+  <th class="num">이 사이트 주차장</th></tr></thead>
+  <tbody>{rows_html}</tbody>
+</table>
+<table class="data">
+  <thead><tr><th>구분</th><th>시간</th><th>비고</th></tr></thead>
+  <tbody>{win_rows}</tbody>
+</table>
+<p class="updated">{esc(ft.get('notes') or '')}</p>
+<p class="updated">이 사이트에 실은 공영 주차장 중 요금으로 계산하는 유료는 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+<p class="updated">{esc(ft['basis'])}</p>
+"""
+
+
     if ft.get("style") == "samcheok_flat":
         # 삼척시 — 공영 13곳(노외 9곳·노상 4구간,
         #   총 1,036면)이 무료 1곳·유료 12곳으로
@@ -19255,7 +19322,10 @@ def main():
                              "src_name": r.get("name") or l["name"],
                              "src": r.get("src") or "live", "ts": ts or SNAPSHOT_TS}
     for c in site["cities"]:
-        city_lots = [l for l in site["lots"] if l.get("city") == c["city"]]
+        # 같은 도시명이 두 도에 있는 경우(경남·강원 고성군) 도 슬러그까지 맞춰야 한다.
+        #   province_slug가 없는 옛 lot은 도시명만으로 매칭한다(하위 호환).
+        city_lots = [l for l in site["lots"] if l.get("city") == c["city"]
+                     and l.get("province_slug", c.get("province_slug")) == c.get("province_slug")]
         for l in city_lots:
             l.setdefault("city", c["city"])
         c["_lots"] = city_lots
