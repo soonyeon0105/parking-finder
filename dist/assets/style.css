@@ -87,6 +87,8 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 
 /* ---------- titles ---------- */
 h1 { font-size: 22px; line-height: 1.35; margin: 10px 0 6px; letter-spacing: -.02em; font-weight: 700; }
+/* 홈 제목은 도시 이름 나열이 길어 마지막 줄에 한두 글자만 남는 일이 있어 줄바꿈을 균형 있게 나눈다. */
+body[data-page="home"] h1 { text-wrap: balance; }
 h2 { font-size: 17px; margin: 28px 0 10px; letter-spacing: -.02em; font-weight: 700; }
 h3 { font-size: 16px; margin: 0; letter-spacing: -.02em; font-weight: 700; }
 .lede { margin: 0 0 16px; color: var(--ink-soft); font-size: 14px; }
