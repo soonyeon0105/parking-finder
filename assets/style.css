@@ -72,7 +72,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .site-nav select {
   appearance: none; font-family: inherit; font-size: 12.5px; font-weight: 600; color: var(--ink-soft);
   border: 1px solid var(--line); background: #fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M0 0l5 6 5-6z' fill='%2364748b'/></svg>") no-repeat right 7px center;
-  border-radius: 999px; padding: 5px 22px 5px 10px; max-width: 140px; cursor: pointer;
+  border-radius: 999px; padding: 5px 22px 5px 10px; max-width: 252px; cursor: pointer;
 }
 .site-nav a {
   font-size: 12.5px; color: var(--ink-soft); border: 1px solid var(--line);
@@ -87,6 +87,8 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 
 /* ---------- titles ---------- */
 h1 { font-size: 22px; line-height: 1.35; margin: 10px 0 6px; letter-spacing: -.02em; font-weight: 700; }
+/* 홈 제목은 도시 이름 나열이 길어 마지막 줄에 한두 글자만 남는 일이 있어 줄바꿈을 균형 있게 나눈다. */
+body[data-page="home"] h1 { text-wrap: balance; }
 h2 { font-size: 17px; margin: 28px 0 10px; letter-spacing: -.02em; font-weight: 700; }
 h3 { font-size: 16px; margin: 0; letter-spacing: -.02em; font-weight: 700; }
 .lede { margin: 0 0 16px; color: var(--ink-soft); font-size: 14px; }

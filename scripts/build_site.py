@@ -5622,6 +5622,13 @@ CITY_UI.update({
         # 청양군 유료 2곳은 조례 별표1 비고2로 토·일·공휴일 무료 운영 — 징수시간 08:00~20:00.
         "free_weekend_phrase": "청양군 조례 별표1 비고2에 토·일·공휴일 무료 운영인",
     },
+    "구미시": {
+        # 구미시는 요금 구분 무료가 카드 177곳뿐이라 히어로의 '주말·공휴일 무료 0곳'이
+        #   계산기의 '일요일·공휴일 177곳 무료'와 어긋나 보인다 — 두 수의 기준 차이를
+        #   히어로 안내 문구에 적는다(부이 실물 확인 2026-11-21 불일치 2).
+        "free_link_note": ("주말·공휴일 무료는 평일에 요금을 받는 곳만 센 값이고, "
+                           "요금 구분이 무료인 곳은 일요일·공휴일에도 무료입니다. "),
+    },
     "진도군": {
         # 진도군 유료는 노상 1구간(철마~남문간)뿐이라 hub_meta의 '전부 무료' 문구가
         #   어긋난다 — 템플릿으로 고정한다.
@@ -6430,11 +6437,23 @@ def nav_html(city, url, nav_active) -> str:
         opts.append(f'<optgroup label="{esc(prov)}">')
         _pslug = next((c.get("province_slug") for c in cities if c.get("province_slug")), "")
         _pn = sum(len(c.get("_card_lots") or []) for c in cities)
-        opts.append(f'<option value="{url(province_path(_pslug))}">▸ {esc(prov)} 전체 ({_pn}곳)</option>')
+        if _pslug == "jeonnam":
+            # 전남광주통합특별시 허브는 광주광역시 5개 구도 합산한다(build_province_hub와
+            # 같은 기준) — 빠른 이동 라벨 숫자도 허브 제목(1,473곳)과 맞춘다.
+            _pn += sum(len(c.get("_card_lots") or []) for c in SITE_CITIES
+                       if (c.get("province") or "지역") == "광주광역시")
+        opts.append(f'<option value="{url(province_path(_pslug))}">▸ {esc(prov)} 전체 ({_pn:,}곳)</option>')
         for c in cities:
             sel = " selected" if city and c["city"] == city["city"] else ""
             n = len(c.get("_card_lots") or [])
-            opts.append(f'<option value="{url(city_path(c))}"{sel}>{esc(c["city"])} ({n}곳)</option>')
+            if n:
+                _cnt = f"{n:,}곳"
+            else:
+                # 카드가 없는 노상 전용 지역(사천)은 도별 허브 카드와 같은
+                # '노상 N구간' 기준으로 적는다 — '0곳'으로 두지 않는다.
+                _sn = len(c.get("_street_lots") or [])
+                _cnt = f"노상 {_sn}구간" if _sn else "0곳"
+            opts.append(f'<option value="{url(city_path(c))}"{sel}>{esc(c["city"])} ({_cnt})</option>')
         opts.append('</optgroup>')
     if city and not is_city_wide(city):
         here = [d for d in city["districts"]]
@@ -7225,8 +7244,8 @@ def footer_sources(city, url) -> str:
         std_rows = city_rows_total(city)
         return (f'    <p><strong>{SITE_NAME}</strong>는 공공데이터포털 '
                 f'<a href="https://www.data.go.kr/data/15012896/standard.do" rel="nofollow noopener" target="_blank">'
-                f'전국주차장정보표준데이터</a>({esc(city["city"])} {std_rows}행, 기준일 '
-                f'{esc(city_ui(city)["std_base_date"])})를 기준으로 만든 참고용 정보입니다. '
+                f'전국주차장정보표준데이터</a>({esc(city["city"])} {std_rows}행'
+                f'{std_date_suffix(city_ui(city))})를 기준으로 만든 참고용 정보입니다. '
                 f'실제 요금·운영시간은 현장에서 확인하세요.</p>\n'
                 f'    <p>생성 시각 {esc(BUILD_TS)}</p>\n'
                 f'    <p><a href="{url(city_path(city))}">{esc(city["city"])} 전체 보기</a> · '
@@ -8253,6 +8272,16 @@ def district_dataset_lines(city, ui, gap_line) -> str:
     <li>동·읍·면 이름은 주소의 <b>법정동</b> 기준입니다(제주시는 동지역과 애월·조천·구좌·한림읍과 한경·추자·우도면, 서귀포시는 동지역과 대정·남원·성산읍·안덕·표선면). {city.get("dong_page_min_lots", DONG_PAGE_MIN_LOTS)}곳 미만인 동·읍·면은 이 페이지 표에만 싣고 별도 페이지를 만들지 않았습니다(빈 페이지 방지).</li>
     <li>실시간 잔여면수는 연동하지 않았습니다. 카드의 구획수는 표준데이터 <b>등록면수</b>입니다(노외·부설 {q['총_구획수']:,}면{(' + 노상 ' + format(q['노상_구획수'], ',') + '면') if q.get('노상_구획수') else ''}). {('<a href="' + esc(_page_url) + '" rel="nofollow noopener" target="_blank">' + esc(_page_name) + '</a>도 함께 확인하세요.') if _page_url else ''}</li>"""
 
+    if city["city"] == "서천군":
+        # 서천군 — 표준데이터(기준일 2026-04-21) 28곳 중 같은 자리 재등록 3곳을
+        #   합쳐 25곳을 실었다. 더 최신 자료(기준일 2026-10-26)에는 22곳으로 나와
+        #   있어 빠진 3곳의 폐쇄·통합 여부는 서천군청 확인 필요 — 요금표 안내문과
+        #   같은 내용을 출처 절에도 적는다(인스팅트 PR #100 재검증 권고).
+        return f"""    <li><b>요금·운영시간·구획수</b>: 공공데이터포털 전국주차장정보표준데이터({esc(city['city'])} {city_rows_total(city)}행{std_date_suffix(ui)})</li>
+    <li><b>등록 정리</b>: 표준데이터(기준일 2026-04-21)에는 서천군 28곳이 등록돼 있었으나 같은 자리에 번호만 다르게 중복 등록된 3곳을 합쳐 이 사이트에는 25곳을 실었습니다. 더 최신 자료(기준일 2026-10-26)에는 22곳으로 나와 있어, 서천읍·장항읍·판교면 각 1곳이 실제로 폐쇄·통합됐는지는 서천군청 확인이 필요합니다.</li>
+    <li>실시간 잔여면수는 연동하지 않았습니다.</li>
+    <li>표준데이터에는 일요일 전용 운영시간 칸이 없어 <b>일요일은 공휴일 칸을 준용</b>했습니다.</li>"""
+
     return f"""    <li><b>요금·운영시간·구획수</b>: 공공데이터포털 전국주차장정보표준데이터({esc(city['city'])} {city_rows_total(city)}행{std_date_suffix(ui)})</li>
     <li>실시간 잔여면수는 연동하지 않았습니다.</li>
     <li>표준데이터에는 일요일 전용 운영시간 칸이 없어 <b>일요일은 공휴일 칸을 준용</b>했습니다.</li>"""
@@ -8466,6 +8495,11 @@ def build_district(city, d, lots, site, path=None, hub=False):
     # 노상 무료 구간도 '요일과 관계없이 무료'인 곳이다 — FAQ·주말 운영 문구의 무료 곳수는 카드+노상 합산으로 센다.
     # (2026-11-22 속초·태백·강릉에서 카드만 세어 틀린 숫자가 나간 것을 정정)
     free_all_gu = free_in_gu + len([l for l in street if l["fee"]["type"] == "무료"])
+    street_free_gu = len([l for l in street if l["fee"]["type"] == "무료"])
+    # 노상 무료 구간이 합산에 들어간 도시(구미 등)는 합산 내역을 괄호로 밝혀,
+    #   카드 곳수만 적은 요금표·히어로 표기와 어긋나 보이지 않게 한다.
+    free_all_label = (f"{free_all_gu}곳({park_label(city)} {free_in_gu}곳, 노상 구간 {street_free_gu}곳)"
+                      if street_free_gu else f"{free_all_gu}곳")
     free_resident_in_gu = len([l for l in lots if l["fee"].get("category") == "resident"])
     # 주거지 전용 구역은 주간에만 무료 개방이라 ‘요일과 관계없이 무료’로 적지 않는다(하남시).
     free_nuance = (f" 가운데 {free_all_gu - free_resident_in_gu}곳은 요일과 관계없이 무료이고, "
@@ -8726,7 +8760,7 @@ def build_district(city, d, lots, site, path=None, hub=False):
         weekend_link = (
         f"""
 <h2>{esc(gu)} 주말·공휴일 운영</h2>
-<p class="lede">이 {area} 주차장 가운데 공공데이터에서 요금 구분이 <b>‘무료’</b>인 {free_all_gu}곳{free_nuance}
+<p class="lede">이 {area} 주차장 가운데 공공데이터에서 요금 구분이 <b>‘무료’</b>인 {free_all_label}{free_nuance}
 {_wk_extra}{_rest_txt}토요일 미운영 {s['closed_sat']}곳, 일요일·공휴일 미운영 {s['closed_sun']}곳입니다.
 {ui.get("weekend_note") or ""}계산기의 요일을 ‘토요일’이나 ‘일요일·공휴일’로 바꾸면 그날 기준 예상요금으로 다시 정렬됩니다.</p>
 """ if free_all_gu else f"""
@@ -8739,7 +8773,7 @@ def build_district(city, d, lots, site, path=None, hub=False):
         weekend_link = (
         f"""
 <h2>{esc(gu)} 주말·공휴일 운영</h2>
-<p class="lede">이 {area} 주차장 가운데 공공데이터에서 요금 구분이 <b>‘무료’</b>인 {free_all_gu}곳{free_nuance}
+<p class="lede">이 {area} 주차장 가운데 공공데이터에서 요금 구분이 <b>‘무료’</b>인 {free_all_label}{free_nuance}
 {weekend_extra}{weekend_rest}은 주말에도 요금이 부과되고, 토요일 미운영 {s['closed_sat']}곳, 일요일·공휴일 미운영 {s['closed_sun']}곳입니다.
 {ui.get("weekend_note") or ""}계산기의 요일을 ‘토요일’이나 ‘일요일·공휴일’로 바꾸면 그날 기준 예상요금으로 다시 정렬됩니다.</p>
 """ if free_all_gu else f"""
@@ -8763,7 +8797,7 @@ def build_district(city, d, lots, site, path=None, hub=False):
         _two_h_prices = two_h_price(_street_paid, "weekday")
         _two_h_txt = (won(_two_h_prices[0]) if len(set(_two_h_prices)) == 1
                       else f"{won(min(_two_h_prices))}~{won(max(_two_h_prices))}")
-        _two_h_answer = (f"이 지역 공영주차장 {s['n'] + len(street)}곳 가운데 요금 구분이 ‘무료’인 {free_all_gu}곳은 "
+        _two_h_answer = (f"이 지역 공영주차장 {s['n'] + len(street)}곳 가운데 요금 구분이 ‘무료’인 {free_all_label}은 "
                          f"2시간 주차요금도 0원이고, 노상 유료 구간 {len(_street_paid)}곳은 2시간 {_two_h_txt}입니다. "
                          f"조례 별표1의 요금 상한은 위 ‘{gu} 주차요금표’에 적었습니다.")
     else:
@@ -8792,7 +8826,7 @@ def build_district(city, d, lots, site, path=None, hub=False):
            + f"주차 구획은 총 {s['spaces']:,}면입니다."
            + (f" 이 밖에 노상(거리) 주차 구간 {len(street)}곳이 따로 등록되어 있습니다." if street else "")))),
         (f"{gu}에서 일요일·공휴일에 무료로 주차할 수 있는 곳은?",
-         ((f"요금 구분이 ‘무료’로 등록된 곳은 {free_all_gu}곳으로, 요일과 관계없이 무료입니다. "
+         ((f"요금 구분이 ‘무료’로 등록된 곳은 {free_all_label}으로, 요일과 관계없이 무료입니다. "
            + (f"이 밖에 {ui.get('free_weekend_phrase') or '특기사항에 주말·공휴일 무료 개방이 적힌'} 곳이 "
               f"{free_weekend_in_gu}곳 있습니다. " if free_weekend_in_gu else "")
            if (free_all_gu or free_weekend_in_gu) else
@@ -13939,6 +13973,15 @@ def _fee_table_block_raw(city) -> str:
             f'<tr><td>{esc(w["group"])}</td><td>{esc(w["hours"])}</td><td>{esc(w["free"])}</td></tr>'
             for w in ft.get("windows") or [])
         corp = ft.get("corp") or {}
+        # 무료 188곳은 노외·부설 177곳 + 노상 11구간 — 유료 줄과 같은 형식으로
+        #   내역을 적는다(밀크 폰트 검수 별건·부이 실물 확인 2026-11-21).
+        _free_card = len([l for l in (city.get("_card_lots") or [])
+                          if l["fee"]["type"] == "무료"])
+        _free_street = len([l for l in (city.get("_street_lots") or [])
+                            if l["fee"]["type"] == "무료"])
+        _free_detail = (f"(노외·부설 {_free_card}곳, 노상 {_free_street}구간)"
+                        if _free_street and _free_card + _free_street == corp.get('free', 0)
+                        else "")
         return f"""
 <h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
 <p class="lede">구미시 공영주차장 <b>241곳</b>(노외 173곳·부설 57곳·노상 11구간, 총 21,177면)은
@@ -13964,7 +14007,9 @@ def _fee_table_block_raw(city) -> str:
 </table>
 <p class="updated">{esc(ft.get('notes') or '')}</p>
 <p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
-요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.</p>
+요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳{_free_detail}, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.
+금오산 공영주차장 10곳은 1회 정액(승용 1,500원, 대주차장 2,000원)이라 시간 요금을 계산하지 않으므로,
+주차장 목록에서는 ‘요금 정보 미상’으로 표시합니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
     if ft.get("style") == "yeongju_grade":
@@ -18517,8 +18562,10 @@ def free_hub_link(city, path, lots=None) -> str:
     c = free_counts(lots if lots is not None else (city.get("_card_lots") or []))
     if c["union"] < 5:
         return ""
+    note = city_ui(city).get("free_link_note") or ""
     return (f'<p class="updated"><b>무료 개방 주차장</b> — 요금 구분 무료 {c["free"]}곳 · '
             f'주말·공휴일 무료 {c["weekend"]}곳 · 야간 무료 {c["night"]}곳. '
+            f'{note}'
             f'<a class="btn" href="{rel(path, city_free_path(city))}">무료 개방 목록 보기 →</a></p>')
 
 
@@ -19448,7 +19495,8 @@ def build_landing(site):
         title=f"{SITE_NAME} — {city_names} 공영주차장 요금·무료 개방 계산",
         description=f"{city_names} 공영주차장 요금을 요일·시간·감면 조건으로 바로 계산하고, "
                     "주말·공휴일 무료 개방 주차장과 실시간 잔여면수를 확인하세요.",
-        path=path, body=body, crumbs=[("홈", "")], nav_active="", city=None, jsonld=home_ld)
+        path=path, body=body, crumbs=[("홈", "")], nav_active="", city=None, jsonld=home_ld,
+        body_attrs=' data-page="home"')
 
 
 # ------------------------------------------------------------------ 개인정보처리방침
