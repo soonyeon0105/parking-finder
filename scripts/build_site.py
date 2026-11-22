@@ -6428,6 +6428,9 @@ def nav_html(city, url, nav_active) -> str:
         if not cities:
             continue
         opts.append(f'<optgroup label="{esc(prov)}">')
+        _pslug = next((c.get("province_slug") for c in cities if c.get("province_slug")), "")
+        _pn = sum(len(c.get("_card_lots") or []) for c in cities)
+        opts.append(f'<option value="{url(province_path(_pslug))}">▸ {esc(prov)} 전체 ({_pn}곳)</option>')
         for c in cities:
             sel = " selected" if city and c["city"] == city["city"] else ""
             n = len(c.get("_card_lots") or [])
@@ -6462,8 +6465,9 @@ def footer_directory(url) -> str:
         cities = [c for c in SITE_CITIES if (c.get("province") or "지역") == prov]
         if not cities:
             continue
+        _slug = next((c.get("province_slug") for c in cities if c.get("province_slug")), "")
         links = " · ".join(f'<a href="{url(city_path(c))}">{esc(c["city"])}</a>' for c in cities)
-        blocks.append(f'<p><b>{esc(prov)}</b> {links}</p>')
+        blocks.append(f'<p><b><a href="{url(province_path(_slug))}">{esc(prov)}</a></b> {links}</p>')
     total = sum(len(c.get("_card_lots") or []) for c in SITE_CITIES)
     return ('<details class="foot-dir">'
             f'<summary>지역 전체 보기 — {len(SITE_CITIES)}개 시·군·구 · {total:,}곳</summary>'
@@ -9057,8 +9061,8 @@ def build_district(city, d, lots, site, path=None, hub=False):
 {(affiliate_block("hub", path) if hub else "")}
 """
     # 구가 없는 시는 시 페이지가 이 페이지를 겸하므로 breadcrumb 에 같은 주소를 두 번 넣지 않는다.
-    crumbs = ([("홈", "/"), (city.get("province") or "경기도", None), (f"{gu} 공영주차장", "")] if hub
-              else [("홈", "/"), (city.get("province") or "경기도", None), (city["city"], city_path(city)),
+    crumbs = ([("홈", "/"), (city.get("province") or "경기도", province_path(city["province_slug"])), (f"{gu} 공영주차장", "")] if hub
+              else [("홈", "/"), (city.get("province") or "경기도", province_path(city["province_slug"])), (city["city"], city_path(city)),
                     (f"{gu} 공영주차장", "")])
     if hub:
         # 구가 없는 시·군 — 메타는 그 도시 fee_table 에서 뽑는다(hub_meta).
@@ -9146,7 +9150,7 @@ def build_weekend(city, d, lots, site):
 
 {faq_block(qa)}
 """
-    crumbs = [("홈", "/"), (city.get("province") or "경기도", None), (city["city"], city_path(city)),
+    crumbs = [("홈", "/"), (city.get("province") or "경기도", province_path(city["province_slug"])), (city["city"], city_path(city)),
               (f"{gu} 공영주차장", district_path(city, d)), ("주말·공휴일 무료 개방", "")]
     return path, layout(
         title=f"{gu} 주말·공휴일 무료 개방 공영주차장 {len(free_lots)}곳 | {SITE_NAME}",
@@ -9274,9 +9278,9 @@ def build_dong(city, d, dong, lots, site, slug_override=None):
 {faq_block(qa)}
 """
     # 구가 없는 시는 시 페이지가 곧 목록 페이지라, 같은 주소를 breadcrumb 에 두 번 넣지 않는다.
-    crumbs = ([("홈", "/"), (city.get("province") or "경기도", None), (f"{gu} 공영주차장", city_path(city)), (dong, "")]
+    crumbs = ([("홈", "/"), (city.get("province") or "경기도", province_path(city["province_slug"])), (f"{gu} 공영주차장", city_path(city)), (dong, "")]
               if is_city_wide(city) else
-              [("홈", "/"), (city.get("province") or "경기도", None), (city["city"], city_path(city)),
+              [("홈", "/"), (city.get("province") or "경기도", province_path(city["province_slug"])), (city["city"], city_path(city)),
                (f"{gu} 공영주차장", district_path(city, d)), (dong, "")])
     return path, layout(
         title=f"{gu} {dong} 공영주차장 {s['n']}곳 요금·운영시간 | {SITE_NAME}",
@@ -9530,7 +9534,7 @@ def build_lot_detail(city, lot, site, existing_paths, dong_path=None):
 </section>
 {affiliate_block("detail", path)}
 """
-    crumbs = [("홈", "/"), (city.get("province") or "경기도", None),
+    crumbs = [("홈", "/"), (city.get("province") or "경기도", province_path(city["province_slug"])),
               (city["city"], city_path(city))]
     d = next((x for x in city["districts"] if x["name"] == lot.get("gu")), None)
     if d:
@@ -17806,7 +17810,7 @@ def build_city(city, lots, site):
 {faq_block(qa)}
 {affiliate_block("hub", path)}
 """
-    crumbs = [("홈", "/"), (city.get("province") or "경기도", None), (f"{city['city']} 공영주차장", "")]
+    crumbs = [("홈", "/"), (city.get("province") or "경기도", province_path(city["province_slug"])), (f"{city['city']} 공영주차장", "")]
     return path, layout(
         title=f"{city['city']} 공영주차장 {s['n']}곳 요금·무료 개방 지도 | {SITE_NAME}",
         description=f"{city['city']} {len(city['districts'])}개 구 공영주차장 {s['n']}곳의 주차요금, 운영시간, 무료 개방 정보를 정리했습니다. "
@@ -17894,7 +17898,7 @@ def build_street_only_hub(city, site):
 </section>
 {affiliate_block("hub", path)}
 """
-    crumbs = [("홈", "/"), (city.get("province") or "경기도", None), (f"{city['city']} 공영주차장", "")]
+    crumbs = [("홈", "/"), (city.get("province") or "경기도", province_path(city["province_slug"])), (f"{city['city']} 공영주차장", "")]
     title, description = hub_meta(city, city["city"], s["n"], street_only=True)
     if ui.get("hub_title_tpl"):
         title = ui["hub_title_tpl"].format(gu=city["city"], n=s["n"], site=SITE_NAME)
@@ -18026,7 +18030,7 @@ def _build_street_all_mixed(city, street, site):
 <p class="updated">주차구획은 표준데이터 등록면수입니다. 위치는 도로명·지번주소 기준이며, 구간 이름을 누르면 지도에서 찾을 수 있습니다.</p>
 {faq_block(qa)}
 """
-    crumbs = [("홈", "/"), (city.get("province") or "경기도", None), (city["city"], city_path(city)), ("노상주차장 요금", "")]
+    crumbs = [("홈", "/"), (city.get("province") or "경기도", province_path(city["province_slug"])), (city["city"], city_path(city)), ("노상주차장 요금", "")]
     return path, layout(
         title=f"{city['city']} 노상주차장 {len(street)}구간 요금·운영시간 총정리 | {SITE_NAME}",
         description=f"{city['city']} 공영 노상(거리) 주차구간 {len(street)}곳의 요금(기본 {bmin}분 {won(bfee)}, "
@@ -18312,7 +18316,7 @@ def _build_street_mixed(city, street, site):
 <p class="updated">주차구획은 표준데이터 등록면수입니다. 위치는 도로명·지번주소 기준이며, 구간 이름을 누르면 지도에서 찾을 수 있습니다.</p>
 {faq_block(qa)}
 """
-    crumbs = [("홈", "/"), (city.get("province") or "경기도", None), (city["city"], city_path(city)), ("노상주차장 요금", "")]
+    crumbs = [("홈", "/"), (city.get("province") or "경기도", province_path(city["province_slug"])), (city["city"], city_path(city)), ("노상주차장 요금", "")]
     return path, layout(
         title=(f"{city['city']} 노상주차장 {len(street)}구간 · 무료 개방 {len(free)}곳·요금 총정리 | {SITE_NAME}"
                if free_resident else
@@ -18667,6 +18671,125 @@ def build_free_hub(site):
                 jsonld_faq(qa, path)])
 
 
+def province_path(prov_slug: str) -> str:
+    return f"/parking/{prov_slug}/"
+
+
+def build_province_hub(prov, site):
+    """ /parking/{province_slug}/ — 도별 공영주차장 허브.
+
+    부이 화면 전수 검증 배치 0(2026-11-22)에서 도별 허브 17곳이 404로 잡혔다 —
+    빌드가 이 경로를 만들지 않았기 때문이다. 시·도별 전체 공영주차장 수와
+    소속 시·군 허브 목록을 한 페이지에 모은다. 집계는 사이트의 다른 페이지와
+    같은 카드(노외·부설) 기준이고, 노상 구간은 개수만 따로 적는다.
+    """
+    cities = [c for c in site["cities"] if (c.get("province") or "지역") == prov]
+    prov_slug = next((c.get("province_slug") for c in cities if c.get("province_slug")), "")
+    path = province_path(prov_slug)
+    card_lots = [l for c in cities for l in (c.get("_card_lots") or [])]
+    street_lots = [l for c in cities for l in (c.get("_street_lots") or [])]
+    st = stats_for(card_lots)
+    sf = strict_free_stats(card_lots)
+    paid_n = len([l for l in card_lots if l["fee"]["type"] == "유료"])
+    free_union = sum(city_free_count(c) for c in cities)
+    rows = []
+    for city in cities:
+        cl = city.get("_card_lots") or []
+        sl = city.get("_street_lots") or []
+        rows.append((city, len(cl), sum(l.get("spaces") or 0 for l in cl),
+                     city_free_count(city), len(sl)))
+    rows.sort(key=lambda r: (-r[1], -r[2], r[0]["city"]))
+    cards = []
+    for city, n, spaces, free_n, street_n in rows:
+        go = f"{n}곳" if n else f"노상 {street_n}구간"
+        desc = (f"총 {spaces:,}면 · 무료로 쓸 수 있는 곳 {free_n}곳" if n
+                else f"노상 구간 {street_n}곳")
+        if n and street_n:
+            desc += f" · 노상 구간 {street_n}곳"
+        cards.append(f'''<a class="link-card" data-name="{esc(prov)} {esc(city['city'])}" href="{rel(path, city_path(city))}">
+  <span class="t">{esc(city['city'])}<span class="go">{go} →</span></span>
+  <span class="d">{desc}</span>
+</a>''')
+    top_rows = "".join(
+        f'<tr><td>{esc(l["name"])}</td><td>{esc(l.get("city") or "")}</td>'
+        f'<td>{esc(l.get("dong") or "")}</td><td class="num">{l["spaces"] or "-"}</td></tr>'
+        for l in sorted(card_lots, key=lambda x: -(x["spaces"] or 0))[:20])
+    street_note = (f" 요금이 무료인 노상(거리) 구간은 이 집계에 넣지 않고 각 지역의 "
+                   "노상주차장 페이지에 적었습니다.") if street_lots else ""
+    qa = [
+        (f"{prov} 공영주차장은 몇 곳인가요?",
+         f"카드 기준 {st['n']}곳(총 {st['spaces']:,}면)입니다. 요금 무료 {sf['n']}곳·유료 {paid_n}곳·"
+         f"요금 미상 {st['unknown_fee']}곳입니다."
+         + (f" 노상(거리) 구간 {len(street_lots)}곳은 이 집계에 넣지 않았습니다." if street_lots else "")),
+        (f"{prov}에서 무료로 쓸 수 있는 공영주차장은 몇 곳인가요?",
+         f"{free_union}곳입니다. 요금 구분이 ‘무료’인 곳 {sf['n']}곳에 주말·공휴일·야간에 무료로 "
+         "개방하는 곳을 더한 숫자입니다. 무료 개방만 모은 목록은 아래 도별 무료 허브에서 볼 수 있습니다."),
+        ("각 지역의 주차요금은 어디서 확인하나요?",
+         "아래 지역 이름을 누르면 그 지역의 요금 계산기와 주차장 목록으로 이동합니다. "
+         "2시간·하루 주차비를 요일·감면 조건에 맞춰 계산할 수 있습니다."),
+    ]
+    # 2026-07-01 「전남광주통합특별시 설치를 위한 특별법」(법률 제21620호) 시행으로
+    # 광주광역시·전라남도는 폐지되고 전남광주통합특별시가 출범했다. URL 구조는 기존
+    # /parking/gwangju/·/parking/jeonnam/ 을 유지하고, 두 허브에서 서로를 안내한다.
+    merge_note = ""
+    if prov_slug == "gwangju":
+        merge_note = ("<p>2026-07-01 「전남광주통합특별시 설치를 위한 특별법」(법률 제21620호) 시행으로 "
+                      "광주광역시·전라남도는 폐지되고 전남광주통합특별시가 출범했습니다. 이 페이지는 기존 "
+                      "광주광역시 5개 구의 공영주차장을 모은 것이고, 전남 지역은 "
+                      f"<a href=\"{rel(path, '/parking/jeonnam/')}\">전남광주통합특별시 허브</a>에서 볼 수 있습니다.</p>")
+    elif prov_slug == "jeonnam":
+        merge_note = ("<p>2026-07-01 「전남광주통합특별시 설치를 위한 특별법」(법률 제21620호) 시행으로 "
+                      "광주광역시·전라남도는 폐지되고 전남광주통합특별시가 출범했습니다. 기존 광주광역시 5개 구는 "
+                      f"<a href=\"{rel(path, '/parking/gwangju/')}\">광주광역시 허브</a>에서 따로 볼 수 있습니다.</p>")
+    body = f"""
+<h1>{esc(prov)} 공영주차장 {st['n']}곳</h1>
+<p class="lede">{esc(prov)} 공영주차장 {st['n']}곳(총 {st['spaces']:,}면)을 {len(cities)}개 시·군·구별로 모았습니다.
+지역 이름을 누르면 그 지역의 요금 계산기와 주차장 목록으로 이동합니다.</p>
+<p class="updated">자료 기준일 {esc((site.get('meta') or {}).get('generated_at') or BUILD_TS)}</p>
+<div class="stats">
+  <div class="stat"><span class="k">등록 주차장</span><span class="v">{st['n']}<small>곳</small></span></div>
+  <div class="stat"><span class="k">총 구획</span><span class="v">{st['spaces']:,}<small>면</small></span></div>
+  <div class="stat free"><span class="k">무료로 쓸 수 있는 곳</span><span class="v">{free_union}<small>곳</small></span></div>
+</div>
+<div class="note-box" style="margin-top:14px">
+  <p><b>무료 개방 주차장 {free_union}곳</b> — 요금이 무료이거나 주말·공휴일·야간에 무료로 개방하는 곳을 따로 모았습니다.
+  <a class="btn" href="{rel(path, province_free_path(prov_slug))}">{esc(prov)} 무료 주차장 모아보기 →</a>
+  <a class="btn" href="{rel(path, '/parking/free/')}">전국 무료 개방 허브 →</a></p>
+</div>
+{merge_note}
+{region_filter_block()}
+<section data-group>
+<h2>시·군별 공영주차장</h2>
+<div class="grid-2">{''.join(cards)}</div>
+</section>
+<h2>구획이 가장 많은 주차장</h2>
+<p class="lede">요금 구분과 관계없이 구획이 많은 순입니다. 위치와 운영시간은 지역 페이지에서 확인하세요.</p>
+<table class="data">
+  <thead><tr><th>주차장</th><th>지역</th><th>동·읍·면</th><th class="num">구획</th></tr></thead>
+  <tbody>{top_rows}</tbody>
+</table>
+{faq_block(qa)}
+<section class="note-box" style="margin-top:18px">
+  <h2>데이터 출처와 한계</h2>
+  <ul>
+    <li>행정안전부 전국주차장정보표준데이터(기준일 2026-04-16)의 요금 구분을 기준으로, 카드(노외·부설) 주차장 {st['n']}곳을 집계했습니다.{street_note}</li>
+    <li>‘무료로 쓸 수 있는 곳’은 요금 구분이 ‘무료’인 곳에 주말·공휴일·야간 무료 개방을 더한 수입니다(중복 제외).</li>
+    <li>‘무료’는 원자료의 요금 구분 표기 기준입니다. 현장 운영이 다를 수 있으니 방문 전 관리기관에 확인하세요.</li>
+  </ul>
+</section>
+"""
+    crumbs = [("홈", "/"), (prov, "")]
+    return path, layout(
+        title=f"{esc(prov)} 공영주차장 {st['n']}곳 — 시·군별 요금·무료 개방 | {SITE_NAME}",
+        description=(f"{prov} 공영주차장 {st['n']}곳(총 {st['spaces']:,}면)을 시·군별로 정리했습니다. "
+                     "지역명으로 검색해 요금 계산기와 무료 개방 정보를 확인하세요."),
+        path=path, body=body, crumbs=crumbs, nav_active="", city=None,
+        jsonld=[jsonld_breadcrumb(crumbs, path),
+                jsonld_link_itemlist(f"{prov} 시·군별 공영주차장",
+                                     [(r[0]["city"], city_path(r[0])) for r in rows]),
+                jsonld_faq(qa, path)])
+
+
 def build_province_free(prov, site):
     """ /parking/{province_slug}/free/ — 도별 무료 주차장 모아보기.
 
@@ -18749,7 +18872,7 @@ def build_province_free(prov, site):
   </ul>
 </section>
 """
-    crumbs = [("홈", "/"), (prov, None), ("무료 주차장", "")]
+    crumbs = [("홈", "/"), (prov, province_path(prov_slug)), ("무료 주차장", "")]
     return path, layout(
         title=f"{esc(prov)} 무료 공영주차장 {total_n}곳 — 시·군별 모아보기 | {SITE_NAME}",
         description=(f"{prov} 공영주차장 가운데 요금이 무료인 {total_n}곳(총 {total_spaces:,}면)을 "
@@ -18849,7 +18972,7 @@ def build_city_free(city, site):
   </ul>
 </section>
 """
-    crumbs = [("홈", "/"), (city.get("province") or "경기도", None),
+    crumbs = [("홈", "/"), (city.get("province") or "경기도", province_path(city["province_slug"])),
               (city["city"], city_path(city)), ("무료 개방", "")]
     return path, layout(
         title=f"{esc(city['city'])} 무료 공영주차장 {c['union']}곳 — 주말·공휴일·야간 무료 | {SITE_NAME}",
@@ -18878,6 +19001,7 @@ def build_regions(site):
         _pslug = next((c.get("province_slug") for c in site["cities"]
                        if (c.get("province") or "지역") == prov and c.get("province_slug")), "")
         blocks.append(f'<h2>{esc(prov)} <small>{len([c for c in site["cities"] if (c.get("province") or "지역") == prov])}개 지역</small>'
+                      f' · <a href="{province_path(_pslug)}">전체 보기 →</a>'
                       f' · <a href="{province_free_path(_pslug)}">무료 주차장 모아보기 →</a></h2>'
                       f'<table class="data"><thead><tr><th>시·군·구</th><th class="num">주차장</th><th>구·동별 페이지</th></tr></thead>'
                       f'<tbody>{"".join(rows)}</tbody></table>')
@@ -19155,7 +19279,7 @@ def build_landing(site):
         # 한 시·도만 보이게 탭으로 나눈다(첫 시·도만 열림). 나머지 지역 링크도 HTML 에는 그대로 남는다.
         hidden = "" if not tabs else " hidden"
         panels.append(f'<section class="prov-panel" id="panel-{esc(_prov_slug)}" data-prov="{esc(_prov_slug)}"'
-                      f'{hidden}>{head}<div class="grid-2">{"".join(cards)}</div></section>')
+                      f'{hidden}>{head}<p class="prov-all"><a href="parking/{esc(_prov_slug)}/">{esc(prov)} 공영주차장 전체 보기 →</a></p><div class="grid-2">{"".join(cards)}</div></section>')
         tabs.append(f'<button type="button" class="ptab" role="tab" data-panel="{esc(_prov_slug)}"'
                     f' aria-selected="{"true" if len(tabs) == 0 else "false"}">{esc(prov)}'
                     f' <small>{len(groups[prov])}</small></button>')
@@ -19599,6 +19723,7 @@ def main():
     pages = [build_landing(site), build_privacy(site),
              build_free_hub(site), build_regions(site),
              build_about(site), build_contact(site), build_terms(site)]
+    pages += [build_province_hub(prov, site) for prov in province_order(site)]
     pages += [build_province_free(prov, site) for prov in province_order(site)]
     for city in site["cities"]:
         card_lots = city["_card_lots"]
