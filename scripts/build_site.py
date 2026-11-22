@@ -6437,11 +6437,23 @@ def nav_html(city, url, nav_active) -> str:
         opts.append(f'<optgroup label="{esc(prov)}">')
         _pslug = next((c.get("province_slug") for c in cities if c.get("province_slug")), "")
         _pn = sum(len(c.get("_card_lots") or []) for c in cities)
-        opts.append(f'<option value="{url(province_path(_pslug))}">▸ {esc(prov)} 전체 ({_pn}곳)</option>')
+        if _pslug == "jeonnam":
+            # 전남광주통합특별시 허브는 광주광역시 5개 구도 합산한다(build_province_hub와
+            # 같은 기준) — 빠른 이동 라벨 숫자도 허브 제목(1,473곳)과 맞춘다.
+            _pn += sum(len(c.get("_card_lots") or []) for c in SITE_CITIES
+                       if (c.get("province") or "지역") == "광주광역시")
+        opts.append(f'<option value="{url(province_path(_pslug))}">▸ {esc(prov)} 전체 ({_pn:,}곳)</option>')
         for c in cities:
             sel = " selected" if city and c["city"] == city["city"] else ""
             n = len(c.get("_card_lots") or [])
-            opts.append(f'<option value="{url(city_path(c))}"{sel}>{esc(c["city"])} ({n}곳)</option>')
+            if n:
+                _cnt = f"{n:,}곳"
+            else:
+                # 카드가 없는 노상 전용 지역(사천)은 도별 허브 카드와 같은
+                # '노상 N구간' 기준으로 적는다 — '0곳'으로 두지 않는다.
+                _sn = len(c.get("_street_lots") or [])
+                _cnt = f"노상 {_sn}구간" if _sn else "0곳"
+            opts.append(f'<option value="{url(city_path(c))}"{sel}>{esc(c["city"])} ({_cnt})</option>')
         opts.append('</optgroup>')
     if city and not is_city_wide(city):
         here = [d for d in city["districts"]]
