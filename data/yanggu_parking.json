@@ -1,0 +1,6667 @@
+{
+ "meta": {
+  "generated_at": "2026-11-22 15:03",
+  "generated_at_iso": "2026-11-22T15:03:31+09:00",
+  "snapshot_at": "2026-11-22 15:03",
+  "region": {
+   "province": "강원특별자치도",
+   "city": "양구군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-05-12",
+    "rows_total": 18994,
+    "rows_city": 53,
+    "fetched_at": "2026-11-22 15:03 (KST)",
+    "note": "양구군으로 등록된 행 53행을 읽어 중복 제거 0건, 제외 0건으로 53곳을 실었다. 유료 32곳·무료 21곳·미상 0곳이다. 데이터기준일자는 2026-05-12이다. 좌표 결측은 0곳이다. 조례 대조 완료 — 「양구군 주차장 설치 및 관리조례」 제2746호(시행 2024-11-15, ordinSeq 1986065) 제5조·별표 1 원문 대조 완료(2026-11-22)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "양구군 주차장 설치 및 관리조례",
+    "org": "강원특별자치도 양구군",
+    "url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=1986065&gubun=ELIS",
+    "file": "yanggu-ordinance.txt",
+    "sha256": "36e477c27943859cf53b4d8e50bcc59f0153c85cd157a45d8d3fede1a213215d",
+    "license": "자치법규(공개)",
+    "base_date": "2024-11-15",
+    "rows_total": null,
+    "fetched_at": "2026-11-22 15:03 (KST)",
+    "note": "양구군이 설치·관리하는 공영주차장에 적용하는 조례다. 표준데이터에 등록된 양구군 공영주차장 53곳(노외 49·노상 4, 총 1,459면)입니다. 무료 21곳은 등록값을 유지했고, 유료 32곳은 조례 별표 1 기준으로 계산해 표기했다. 유료 32곳은 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원이 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내·연주차권(주간) 100,000원 이내·월정기(야간) 40,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않아 조례 기준 계산으로 표기했다(최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원, 2시간 1,100원). 별표 1은 급지 구분이 없는 단일 요금표이고, 등록 급지구분은 53곳 전부 ‘기타’이다. (조례 본문: data/raw/yanggu-ordinance.txt, 별표 원문 HWP: data/raw/yanggu-ordinance-b1.hwp)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "양구군",
+   "slug": "yanggu"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gw-yanggu-001",
+   "mgmt_no": "264-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "경동약국 앞",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 206-145",
+   "addr_road": "",
+   "road": null,
+   "spaces": 69,
+   "tel": "033-480-7443",
+   "lat": 38.103842,
+   "lng": 127.9877892777,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 1은 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-002",
+   "mgmt_no": "264-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "군민공원",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 278",
+   "addr_road": "",
+   "road": null,
+   "spaces": 10,
+   "tel": "033-480-7443",
+   "lat": 38.1061260543,
+   "lng": 127.990577,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-003",
+   "mgmt_no": "264-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "군지부~인도교",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 526",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "033-480-7443",
+   "lat": 38.106682,
+   "lng": 127.985664,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-004",
+   "mgmt_no": "264-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "노인복지센터",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 217-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 36,
+   "tel": "033-480-7443",
+   "lat": 38.1060569208,
+   "lng": 127.9875163379,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-005",
+   "mgmt_no": "264-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "농협군지부 옆(최가네)",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 520",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "033-480-7443",
+   "lat": 38.1072481456,
+   "lng": 127.986636,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-006",
+   "mgmt_no": "264-2-000046",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "다성각",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 262-17",
+   "addr_road": "",
+   "road": null,
+   "spaces": 4,
+   "tel": "033-480-7443",
+   "lat": 38.105164,
+   "lng": 127.9899182453,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 1은 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-007",
+   "mgmt_no": "264-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대청마루 앞",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 259-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 33,
+   "tel": "033-480-7443",
+   "lat": 38.104645,
+   "lng": 127.989907,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-008",
+   "mgmt_no": "264-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "대흥문구 뒤",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 227-52",
+   "addr_road": "",
+   "road": null,
+   "spaces": 24,
+   "tel": "033-480-7443",
+   "lat": 38.1061865353,
+   "lng": 127.988693,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-009",
+   "mgmt_no": "264-2-000052",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동대문옷간지 옆",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 134-16",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "033-480-7443",
+   "lat": 38.095177,
+   "lng": 127.995234,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 1은 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-010",
+   "mgmt_no": "264-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "명품관",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 313",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "033-480-7443",
+   "lat": 38.1068678861,
+   "lng": 127.9906610642,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-011",
+   "mgmt_no": "264-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "목화장 앞",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 227-135",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "033-480-7443",
+   "lat": 38.1052883186,
+   "lng": 127.987625,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-012",
+   "mgmt_no": "264-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "무도화랑관 옆",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 181-28",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "033-480-7443",
+   "lat": 38.101554,
+   "lng": 127.990361,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 1은 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-013",
+   "mgmt_no": "264-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "백암순대 뒤",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 227-14",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "033-480-7443",
+   "lat": 38.106281,
+   "lng": 127.988005,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-014",
+   "mgmt_no": "264-2-000053",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "버드나무 예술창고",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 569-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 12,
+   "tel": "033-480-7443",
+   "lat": 38.1001143226,
+   "lng": 127.98952087,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 1은 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-015",
+   "mgmt_no": "264-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "법률구조공단 뒤",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 317-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 32,
+   "tel": "033-480-7443",
+   "lat": 38.107377,
+   "lng": 127.990932,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-016",
+   "mgmt_no": "264-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "산림조합 앞",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 336-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "033-480-7443",
+   "lat": 38.107365,
+   "lng": 127.9886150438,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-017",
+   "mgmt_no": "264-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "산림조합 옆",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 중리 33-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "033-480-7443",
+   "lat": 38.107718,
+   "lng": 127.9881042716,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-018",
+   "mgmt_no": "264-2-000050",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상6리 마6을회관 앞",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 192-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "033-480-7443",
+   "lat": 38.102464,
+   "lng": 127.992156,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 1은 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-019",
+   "mgmt_no": "264-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "상리 DC 아울렛",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 239-14",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "033-480-7443",
+   "lat": 38.103386,
+   "lng": 127.989479,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-020",
+   "mgmt_no": "264-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "성심병원 뒤",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 255-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 36,
+   "tel": "033-480-7443",
+   "lat": 38.104874,
+   "lng": 127.9914909567,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-021",
+   "mgmt_no": "264-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "세종호텔 옆",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 262-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 27,
+   "tel": "033-480-7443",
+   "lat": 38.1053678399,
+   "lng": 127.990184,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-022",
+   "mgmt_no": "264-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송청리 심곡사",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 송청리 58-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 37,
+   "tel": "033-480-7443",
+   "lat": 38.0950842798,
+   "lng": 127.9969118653,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 1은 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-023",
+   "mgmt_no": "264-2-000043",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송청택지 제2주차장",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 603",
+   "addr_road": "",
+   "road": null,
+   "spaces": 34,
+   "tel": "033-480-7443",
+   "lat": 38.096712,
+   "lng": 127.990676,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 1은 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-024",
+   "mgmt_no": "264-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "송청택지제1주차장",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 591-5",
+   "addr_road": "",
+   "road": null,
+   "spaces": 35,
+   "tel": "033-480-7443",
+   "lat": 38.098234,
+   "lng": 127.989359,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 1은 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-025",
+   "mgmt_no": "264-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신라장 옆",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 중리 26-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "033-480-7443",
+   "lat": 38.108425,
+   "lng": 127.989179,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-026",
+   "mgmt_no": "264-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양구 드론스쿨 옆",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 정림리 196-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "033-480-7443",
+   "lat": 38.103125,
+   "lng": 127.986628,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-027",
+   "mgmt_no": "264-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양구군지적장애인자립지원센터",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 239-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 52,
+   "tel": "033-480-7443",
+   "lat": 38.103316,
+   "lng": 127.9889667973,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-028",
+   "mgmt_no": "264-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양구신협 옆",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 377-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "033-480-7443",
+   "lat": 38.106352,
+   "lng": 127.9859196984,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-029",
+   "mgmt_no": "264-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양구읍사무소",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 324-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 42,
+   "tel": "033-480-7443",
+   "lat": 38.1080670891,
+   "lng": 127.990515,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": "승용차 5부제를 시행하는 곳입니다",
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-030",
+   "mgmt_no": "264-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양구종합약국 뒤",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 258-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "033-480-7443",
+   "lat": 38.104369,
+   "lng": 127.990579,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-031",
+   "mgmt_no": "264-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양구초교 앞",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 248-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 41,
+   "tel": "033-480-7443",
+   "lat": 38.103292,
+   "lng": 127.990859,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-032",
+   "mgmt_no": "264-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양구트레이닝센터 옆",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 하리 97-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "033-480-7443",
+   "lat": 38.109064,
+   "lng": 127.9861054744,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 1은 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-033",
+   "mgmt_no": "264-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "양자강~희망화원",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 272-17",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "033-480-7443",
+   "lat": 38.106413,
+   "lng": 127.989831,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-034",
+   "mgmt_no": "264-2-000051",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "오렌지세차장 인근",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 569-12",
+   "addr_road": "",
+   "road": null,
+   "spaces": 31,
+   "tel": "033-480-7443",
+   "lat": 38.100102,
+   "lng": 127.989534,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 1은 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-035",
+   "mgmt_no": "264-2-000049",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "옥림세차장 앞",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 중리 20-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "033-480-7443",
+   "lat": 38.1087001209,
+   "lng": 127.9882192695,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 1은 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-036",
+   "mgmt_no": "264-2-000044",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "웰빙먹거리 타운1",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 송청리 195",
+   "addr_road": "",
+   "road": null,
+   "spaces": 21,
+   "tel": "033-480-7443",
+   "lat": 38.089903,
+   "lng": 127.997663,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 1은 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-037",
+   "mgmt_no": "264-2-000045",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "웰빙먹거리 타운2",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 송청리 195-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "033-480-7443",
+   "lat": 38.0893481377,
+   "lng": 127.998011,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 1은 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-038",
+   "mgmt_no": "264-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장원정육점 뒤",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 207-34",
+   "addr_road": "",
+   "road": null,
+   "spaces": 28,
+   "tel": "033-480-7443",
+   "lat": 38.1034262787,
+   "lng": 127.9871840546,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-039",
+   "mgmt_no": "264-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "장태수법무사 뒤",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 중리 8-8",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "033-480-7443",
+   "lat": 38.108374,
+   "lng": 127.989834,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-040",
+   "mgmt_no": "264-2-000048",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "전원예식장",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 정림리 148-14",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "033-480-7443",
+   "lat": 38.097565565,
+   "lng": 127.983629,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 1은 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-041",
+   "mgmt_no": "264-2-000047",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "종합운동장 뒤",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 하리 97-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 170,
+   "tel": "033-480-7443",
+   "lat": 38.1087979919,
+   "lng": 127.9851471267,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 1은 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-042",
+   "mgmt_no": "264-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "중앙시장",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 238-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 42,
+   "tel": "033-480-7443",
+   "lat": 38.103869,
+   "lng": 127.988526,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 1은 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-043",
+   "mgmt_no": "264-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "카페 봉봉",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 하리 82-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 19,
+   "tel": "033-480-7443",
+   "lat": 38.1089661224,
+   "lng": 127.987134,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 1은 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-044",
+   "mgmt_no": "264-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "투가리감자탕 앞",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 227-99",
+   "addr_road": "",
+   "road": null,
+   "spaces": 53,
+   "tel": "033-480-7443",
+   "lat": 38.105311,
+   "lng": 127.988914,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-045",
+   "mgmt_no": "264-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "한우마을",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 549",
+   "addr_road": "",
+   "road": null,
+   "spaces": 85,
+   "tel": "033-480-7443",
+   "lat": 38.103658,
+   "lng": 127.985623,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-046",
+   "mgmt_no": "264-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "해피플라워 옆",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 231-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "033-480-7443",
+   "lat": 38.104648,
+   "lng": 127.9885043237,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-047",
+   "mgmt_no": "264-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "향군회관 뒤",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 중리 18-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "033-480-7443",
+   "lat": 38.1092023409,
+   "lng": 127.9882846926,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-048",
+   "mgmt_no": "264-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "현대관광 뒤",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 373",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "033-480-7443",
+   "lat": 38.1056925835,
+   "lng": 127.9862019893,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 1은 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-049",
+   "mgmt_no": "264-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "황해장여관 뒤",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 중리 10-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 8,
+   "tel": "033-480-7443",
+   "lat": 38.108174,
+   "lng": 127.9893967885,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-s001",
+   "mgmt_no": "264-1-000039",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "감리교회",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 정림리 1-6",
+   "addr_road": "",
+   "road": null,
+   "spaces": 15,
+   "tel": "033-480-7443",
+   "lat": 38.1025984456,
+   "lng": 127.9876952912,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 1은 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-s002",
+   "mgmt_no": "264-1-000012",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "군민공원 앞",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 267-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "033-480-7443",
+   "lat": 38.106162,
+   "lng": 127.990131,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-s003",
+   "mgmt_no": "264-1-000029",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "열린문화쉼터",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 269-11",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "033-480-7443",
+   "lat": 38.1057004935,
+   "lng": 127.989496,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "경차 50프로 할인+저공해 차량 50프로 할인",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 100,
+    "daily_fee": 3500,
+    "daily_hours": 6,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 10000,
+    "monthly_all": 10000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": 30,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 100
+     }
+    ],
+    "steps_label": "최초 30분 무료 · 이후 30분까지 500원 · 이후 10분마다 100원",
+    "bands": null,
+    "category": null,
+    "pay": "현금",
+    "std": {
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "day": 3500,
+     "monthly": 10000
+    },
+    "basis": "표준데이터 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원은 「양구군 주차장 설치 및 관리조례」 별표 1(최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내)과 일치하나 최초 30분 무료만 등록에 표현되지 않는다(등록은 최초 30분부터 500원, 별표는 최초 30분 무료). 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기한다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 실제 요금은 양구군청(033-480-7443) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 600,
+     "end": 960,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "10:00",
+      "16:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  },
+  {
+   "id": "gw-yanggu-s004",
+   "mgmt_no": "264-1-000038",
+   "src": "표준데이터",
+   "list_mode": "street",
+   "name": "용사의집",
+   "gu": "양구군",
+   "dong": "양구읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노상",
+   "addr_jibun": "강원특별자치도 양구군 양구읍 상리 193-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 4,
+   "tel": "033-480-7443",
+   "lat": 38.103141,
+   "lng": 127.991883,
+   "base_date": "2026-05-12",
+   "manager": "강원특별자치도 양구군청",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "기타",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 1은 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "양구군",
+   "city_slug": "yanggu",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-22 15:03",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 53,
+  "원자료_양구군행수": 53,
+  "원자료_받은행수": 53,
+  "구별": {
+   "양구군": 53
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 49,
+  "노외_부설": {
+   "노외": 49
+  },
+  "노상_구간": 4,
+  "총_구획수": 1406,
+  "노상_구획수": 53,
+  "동별": {
+   "양구읍": 53
+  },
+  "동수": 1,
+  "동_미상": [],
+  "동_보정": [],
+  "동_근거": {
+   "지번주소": 53
+  },
+  "요금구분": {
+   "무료": 21,
+   "유료": 32
+  },
+  "요금_미상": [],
+  "유료_노상": 2,
+  "유료_노외": 30,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "표준데이터 양구 등록 53행 전부 공영으로 민영 제외 0건, 공영 53곳을 실었다. 데이터기준일자는 2026-05-12 53행, 제공기관명은 강원특별자치도 양구군 53행이다",
+   "등록 급지구분은 53곳 전부 ‘기타’이다. 조례 별표 1은 급지 구분이 없는 단일 요금표이다 — 등록값은 std_grade로 남겼다",
+   "좌표 결측은 0곳이다. 53곳 전부 등록 좌표가 있고 양구 범위(위도 38.0893~38.1092, 경도 127.9836~127.9980) 안에 있다",
+   "운영요일은 53곳 전부 평일+토요일+공휴일이다. 운영시간은 유료 32곳이 평일 10:00~16:00이고 무료 21곳이 00:00~23:59이며 토요일·공휴일은 53곳 전부 00:00~23:59이다. 전화번호는 53곳 전부 033-480-7443이고, 도로명주소는 0곳이고, 결제방법은 유료 32곳 전부 현금이고 무료 21곳은 공란이고, 특기사항은 유료 32곳 전부 '경차 50프로 할인+저공해 차량 50프로 할인'이고 무료 21곳은 공란이고, 장애인전용주차구역 보유여부는 53곳 전부 공란이고, 부제시행구분은 5부제 1곳(양구읍사무소)·미시행 52곳이다",
+   "무료 21곳은 무료 등록이라 등록값을 유지했고, 유료 32곳은 조례 별표 1 기준으로 계산해 표기했다 — 최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원(2시간 1,100원). 요금 미상은 0곳이다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "경동약국 앞",
+   "군민공원",
+   "군지부~인도교",
+   "노인복지센터",
+   "농협군지부 옆(최가네)",
+   "다성각",
+   "대청마루 앞",
+   "대흥문구 뒤",
+   "동대문옷간지 옆",
+   "명품관",
+   "목화장 앞",
+   "무도화랑관 옆",
+   "백암순대 뒤",
+   "버드나무 예술창고",
+   "법률구조공단 뒤",
+   "산림조합 앞",
+   "산림조합 옆",
+   "상6리 마6을회관 앞",
+   "상리 DC 아울렛",
+   "성심병원 뒤",
+   "세종호텔 옆",
+   "송청리 심곡사",
+   "송청택지 제2주차장",
+   "송청택지제1주차장",
+   "신라장 옆",
+   "양구 드론스쿨 옆",
+   "양구군지적장애인자립지원센터",
+   "양구신협 옆",
+   "양구읍사무소",
+   "양구종합약국 뒤",
+   "양구초교 앞",
+   "양구트레이닝센터 옆",
+   "양자강~희망화원",
+   "오렌지세차장 인근",
+   "옥림세차장 앞",
+   "웰빙먹거리 타운1",
+   "웰빙먹거리 타운2",
+   "장원정육점 뒤",
+   "장태수법무사 뒤",
+   "전원예식장",
+   "종합운동장 뒤",
+   "중앙시장",
+   "카페 봉봉",
+   "투가리감자탕 앞",
+   "한우마을",
+   "해피플라워 옆",
+   "향군회관 뒤",
+   "현대관광 뒤",
+   "황해장여관 뒤",
+   "감리교회",
+   "군민공원 앞",
+   "열린문화쉼터",
+   "용사의집"
+  ],
+  "감면_출처": "「양구군 주차장 설치 및 관리조례」 제2746호 제6조 — 긴급자동차(해당 업무 수행), 공무수행 중인 관용자동차, 성실납세자 또는 유공납세자로 지정된 사람으로서 주차요금 감면 자동차로 등록되거나 성실(유공)납세증표시(스티커)를 부착한 자동차(지정일로부터 1년), 2시간 이내 주차한 국가유공자 소유(본인 탑승)·양구군 홍보랩핑·투표확인증 소지·임산부주차증 부착·충전 중 전기자동차·상이 1급부터 7급까지 보훈보상대상자, 그 밖에 군수가 특별한 사유가 있다고 인정하는 자동차는 전액 감면할 수 있고, 장애인(본인 탑승), 경형자동차, 장기 및 인체조직 기증 장려 조례에 따른 기증자 및 기증자 유족이 승차한 자동차, 환경친화적 자동차표지 부착 자동차, 저공해자동차 표지 부착 자동차, 반비다복카드를 소지한 자동차는 50퍼센트 범위에서 감면할 수 있다",
+  "요금_출처": "조례 제5조제1항·별표 1 — 군수가 설치한 공영주차장의 주차요금은 법 제9조제1항 및 법 제14조제1항에 따라 징수할 수 있고 별표 1의 범위에서 규칙으로 정한다. 별표 1은 급지 구분이 없는 단일 요금표로 최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내·연주차권(주간) 100,000원 이내·월정기(야간) 40,000원 이내이다. 비고 1은 법 제7조제1항 및 제12조제1항에 따라 설치된 노상·노외주차장에 적용한다고 정한다. 별표 원본 HWP(flSeq 163567583)를 받아 PrvText·hwp5proc xml로 표 구조까지 대조했다",
+  "급지_출처": "조례 별표 1은 급지 구분이 없는 단일 요금표이다. 표준데이터 등록 급지구분은 53곳 전부 ‘기타’이고 등록값을 std_grade로 남겼다",
+  "무료요일_출처": "조례 별표 1에는 공휴일·야간 무료 규정이 없고, 표준데이터 운영요일은 53곳 전부 평일+토요일+공휴일이다. 무료 21곳은 요금정보 ‘무료’ 등록 근거다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 양구 등록 53행 전부 공영(노외 49·노상 4, 총 1,459면)으로 무료 21·유료 32, 기준일 2026-05-12, 제공기관명은 강원특별자치도 양구군 전부이다. 중복 판정(전체 이름·지번·좌표 200m 가드)에 걸리는 쌍은 없어 53곳·1,459면을 그대로 실었다. 관리번호 중복은 없다. 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건이다",
+   "「양구군 주차장 설치 및 관리조례」 제2746호(시행 2024-11-15, ordinSeq 1986065·ordinId 2088152) 본문 원문(data/raw/yanggu-ordinance.txt) 대조 완료(2026-11-22) — 본문 제5조제1항이 군수가 설치한 공영주차장의 주차요금을 별표 1의 범위에서 규칙으로 정하고, 제6조는 감면(전액 감면 5호·50% 범위 감면 6호)을 정한다. 별표는 ELIS 첨부 원본(flSeq 163567583, HWP 5.0, 30,208바이트)을 data/raw/yanggu-ordinance-b1.hwp로 저장하고 PrvText·hwp5proc xml로 확정했다 — 별표 1은 급지 구분 없는 단일 요금표로 최초 30분 무료·무료적용시간 초과 최초 30분까지 500원 이내·30분초과 매 10분마다 100원 이내·1일주차권 5,000원 이내·월정기(주간) 50,000원 이내·연주차권(주간) 100,000원 이내·월정기(야간) 40,000원 이내이다. 비고 1은 법 제7조제1항 및 제12조제1항에 따라 설치된 노상·노외주차장에 적용한다고 정한다",
+   "유료 32곳은 등록값이 한 패턴이다 — 기본 30분 500원·추가 10분 100원·1일권 3,500원(적용시간 6시간)·월정기 10,000원·결제 현금이다. 등록값은 별표 1의 범위와 일치하나 최초 30분 무료만 등록에 표현되지 않는다 — 등록 부가정보가 불완전한 경우라 정선·횡성·삼척·철원·화천 선례대로 조례 기준 계산으로 표기했다(최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원, 2시간 1,100원). 무료 21곳은 등록값을 유지했다. 요금 미상은 0곳이다",
+   "좌표 결측은 0곳이다. 53곳 전부 등록 좌표가 있고 양구 범위(위도 38.0893~38.1092, 경도 127.9836~127.9980) 안에 있다. 좌표 보완 오버레이는 746행을 그대로 유지했다",
+   "운영요일은 53곳 전부 평일+토요일+공휴일이다. 운영시간은 유료 32곳이 평일 10:00~16:00이고 무료 21곳이 00:00~23:59(24시간)이며 토요일·공휴일은 53곳 전부 00:00~23:59이다. 부제시행구분은 5부제 1곳(양구읍사무소)·미시행 52곳이다. 결제방법은 유료 32곳 전부 현금이고 무료 21곳은 공란이고, 특기사항은 유료 32곳 전부 '경차 50프로 할인+저공해 차량 50프로 할인'이고 무료 21곳은 공란이고, 장애인전용주차구역 보유여부는 53곳 전부 공란이다",
+   "읍·면 판정은 지번주소 기준이고 53곳 전부 양구읍으로 판정됐다. 지번주소는 53곳 전부 있고 도로명주소는 0곳이다. 이름이 겹치는 등록은 0건이다. 같은 자리·같은 좌표에 이름만 다른 등록은 0건이다",
+   "관리기관명은 강원특별자치도 양구군청 53곳 전부이고, 전화번호는 53곳 전부 033-480-7443으로 등록돼 있다",
+   "확인 과제 — ① 유료 32곳의 실제 요금·징수 여부 — 등록 1일권(3,500원)·월정기(10,000원)가 별표 1 상한(5,000원·50,000원) 이내이나 규칙으로 정한 실제 요금인지, 최초 30분 무료가 현장에서 적용되는지 확인할 것 ② 무료 21곳의 실제 무료 개방 여부 ③ 월정기권(별표 1 주간 50,000원 이내·야간 40,000원 이내·연주차권 100,000원 이내) 실제 시행 여부 — 등록 월정기권은 32곳 10,000원으로 주·야간·연 단위 구분이 없어 실제 구분 요금을 확인할 것 ④ 유료 32곳 평일 운영시간 10:00~16:00과 토·공휴일 24시간 운영의 관계 — 평일 운영시간 외(16:00 이후·10:00 이전) 요금 징수 여부를 확인할 것 ⑤ 도로명주소 53곳 없음 보완 ⑥ 양구읍사무소 5부제 시행 내용 ⑦ 장애인전용주차구역 보유여부 53곳 전부 공란 보완"
+  ],
+  "무료개방_표기": [],
+  "거주자우선": [],
+  "무료_요금구분": 21,
+  "무료_구획수": 616,
+  "평균_기본요금": 500,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-05-12"
+  ],
+  "관리기관": {
+   "강원특별자치도 양구군청": 53
+  }
+ },
+ "fee_table": {
+  "style": "yanggu_grade",
+  "unit_min": 10,
+  "base_min": 30,
+  "applies": "「양구군 주차장 설치 및 관리조례」 제2746호(시행 2024-11-15, ordinSeq 1986065·ordinId 2088152) 제5조·별표 1",
+  "source_url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=1986065&gubun=ELIS",
+  "grade_system": "조례 별표 1은 급지 구분이 없는 단일 요금표이다. 표준데이터 등록 급지구분은 53곳 전부 ‘기타’이고 등록값을 std_grade로 남겼다",
+  "rows": [
+   {
+    "label": "공영주차장 (조례 별표 1 — 급지 구분 없음)",
+    "grade": null,
+    "unit_label": "최초 30분 무료 · 무료적용시간 초과 최초 30분까지 500원 이내 · 30분초과 매 10분마다 100원 이내 · 1일 5,000원 이내 · 월정기(주간) 50,000원 이내 · 월정기(야간) 40,000원 이내",
+    "hour": 500,
+    "two_hour": 1100,
+    "day": 3500,
+    "month_all": null,
+    "month": 10000,
+    "month_night": null,
+    "lots": 32
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 30,
+   "street_paid": 2,
+   "free": 21,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "적용 범위 (조례 별표 1 비고 1)",
+    "hours": "법 제7조제1항 및 제12조제1항에 따라 설치된 노상·노외주차장",
+    "free": "이 요금표는 노상주차장 및 노외주차장에 적용한다"
+   },
+   {
+    "group": "감면 (조례 제6조)",
+    "hours": "전액 감면·50% 범위 감면",
+    "free": "전액 — 긴급자동차·공무수행 관용차·성실/유공납세자·2시간 이내 국가유공자 등 / 50% — 장애인·경형자동차·장기·인체조직 기증자·환경친화적 자동차·저공해자동차·반비다복카드"
+   },
+   {
+    "group": "정기주차권 구매자 인센티브 (조례 제12조)",
+    "hours": "정기주차권(1년) 구매",
+    "free": "1만원에 상응하는 기념품 또는 문화상품권을 지급할 수 있다(경품 정기주차권 제외)"
+   },
+   {
+    "group": "가산금 (조례 제5조제2항)",
+    "hours": "요금 미납·법 제8조의2 위반",
+    "free": "별표 1 주차요금의 2배"
+   }
+  ],
+  "discounts": [
+   {
+    "label": "긴급자동차·공무수행 관용차·성실/유공납세자·2시간 이내 국가유공자 등·군수 인정 차량 전액 감면",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 제6조제1항 — 도로교통법 제2조제22호에 따른 긴급자동차로서 해당 업무를 수행하는 자동차, 공무수행 중인 관용자동차, 강원특별자치도지사 및 군수 또는 (지방)국세청장이 성실납세자 또는 유공납세자로 지정한 사람으로서 주차요금 감면 자동차로 등록되거나 성실(유공)납세증표시(스티커)를 부착한 자동차(지정일로부터 1년, 본인 명의 자동차가 없거나 자가 운행에 어려움이 있는 등 특별한 사정이 있는 경우 타명의 자동차 감면 가능), 2시간 이내 주차한 다음 각 목의 자동차(국가유공자 등 예우 및 지원에 관한 법률에 따른 국가유공자 소유의 자동차 중 본인이 탑승한 자동차, 양구군 홍보를 위해 개인차량에 홍보랩핑(양구군 광고홍보도우미)을 한 자동차, 공직선거법 제2조 및 지방교육자치에 관한 법률 제22조에 따른 선거에 있어서 투표에 참여한 사람으로 선거관리위원회가 발급한 투표확인증(해당 선거의 선거일 후 1개월까지 유효함)을 소지한 사람의 자동차, 모자보건법 제2조제1호에 따른 임산부가 양구군에서 발급한 임산부주차증을 부착한 자동차, 충전목적으로 충전시설에 충전하고 있는 전기자동차, 보훈보상대상자 지원에 관한 법률 시행령 제8조에 따른 상이 1급부터 7급까지의 보훈보상대상자로서 국가보훈처장이 발행한 보훈보상대상자 증서를 제시한 사람의 자동차), 그 밖에 군수가 특별한 사유가 있다고 인정하는 자동차는 공영주차장 주차요금을 전액 감면할 수 있다"
+   },
+   {
+    "label": "장애인·경형자동차·장기·인체조직 기증자·환경친화적 자동차·저공해자동차·반비다복카드 50% 범위 감면",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 제6조제2항 — 장애인복지법 제39조제2항 및 같은 법 시행규칙 제26조에 따라 장애인이 사용하는 자동차 등을 알아 볼 수 있는 표지를 발급받아 부착한 자동차 중 장애인 본인이 탑승한 자동차, 자동차관리법 제3조제3항 및 같은 법 시행규칙 제2조에 따른 경형자동차, 양구군 장기 및 인체조직 기증 장려에 관한 조례에 따른 기증자 및 기증자 유족이 승차한 자동차, 환경친화적 자동차의 개발 및 보급 촉진에 관한 법률 제11조제1항에 따른 환경친화적 자동차표지를 부착한 자동차, 대기환경보전법 제58조제12항에 따른 저공해자동차 표지를 부착한 자동차, 강원특별자치도 다태아·다자녀가정 우대 및 지원에 관한 조례 제7조에 따른 반비다복카드를 소지한 자동차는 공영주차장 주차요금 50퍼센트 범위에서 감면할 수 있다"
+   }
+  ],
+  "notes": "감면(조례 제6조)은 긴급자동차·공무수행 관용차·성실/유공납세자·2시간 이내 국가유공자 등·군수 인정 차량 전액 감면, 장애인·경형자동차·장기·인체조직 기증자·환경친화적 자동차·저공해자동차·반비다복카드 50% 범위 감면이다.",
+  "basis": "요금표는 「양구군 주차장 설치 및 관리조례」 제2746호(시행 2024-11-15) 제5조·별표 1과 표준데이터(기준일 2026-05-12)를 대조해 실었다. 별표 원본 HWP는 flSeq 163567583이다. 유료 32곳은 등록 기본 30분 500원·추가 10분 100원·1일권 3,500원(6시간)·월정기 10,000원이 별표 1의 범위와 일치하나 최초 30분 무료만 등록에 표현되지 않아 조례 기준 계산으로 표기했다(최초 30분 무료·이후 30분까지 500원·이후 10분마다 100원·1일 상한 3,500원(6시간 적용)·월정기 10,000원, 2시간 1,100원). 무료 21곳은 등록값을 유지했다. 요금 미상은 0곳이다. 별표 1은 급지 구분이 없는 단일 요금표이다. (조례 본문: data/raw/yanggu-ordinance.txt, 별표 원문 HWP: data/raw/yanggu-ordinance-b1.hwp)"
+ },
+ "slug": "yanggu",
+ "province": "강원특별자치도",
+ "province_slug": "gangwon",
+ "dong_page_min_lots": 3,
+ "city": "양구군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·공무수행 관용차·성실/유공납세자·2시간 이내 국가유공자 등·군수 인정 차량 전액 감면",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 제6조제1항 — 도로교통법 제2조제22호에 따른 긴급자동차로서 해당 업무를 수행하는 자동차, 공무수행 중인 관용자동차, 강원특별자치도지사 및 군수 또는 (지방)국세청장이 성실납세자 또는 유공납세자로 지정한 사람으로서 주차요금 감면 자동차로 등록되거나 성실(유공)납세증표시(스티커)를 부착한 자동차(지정일로부터 1년, 본인 명의 자동차가 없거나 자가 운행에 어려움이 있는 등 특별한 사정이 있는 경우 타명의 자동차 감면 가능), 2시간 이내 주차한 다음 각 목의 자동차(국가유공자 등 예우 및 지원에 관한 법률에 따른 국가유공자 소유의 자동차 중 본인이 탑승한 자동차, 양구군 홍보를 위해 개인차량에 홍보랩핑(양구군 광고홍보도우미)을 한 자동차, 공직선거법 제2조 및 지방교육자치에 관한 법률 제22조에 따른 선거에 있어서 투표에 참여한 사람으로 선거관리위원회가 발급한 투표확인증(해당 선거의 선거일 후 1개월까지 유효함)을 소지한 사람의 자동차, 모자보건법 제2조제1호에 따른 임산부가 양구군에서 발급한 임산부주차증을 부착한 자동차, 충전목적으로 충전시설에 충전하고 있는 전기자동차, 보훈보상대상자 지원에 관한 법률 시행령 제8조에 따른 상이 1급부터 7급까지의 보훈보상대상자로서 국가보훈처장이 발행한 보훈보상대상자 증서를 제시한 사람의 자동차), 그 밖에 군수가 특별한 사유가 있다고 인정하는 자동차는 공영주차장 주차요금을 전액 감면할 수 있다"
+  },
+  {
+   "label": "장애인·경형자동차·장기·인체조직 기증자·환경친화적 자동차·저공해자동차·반비다복카드 50% 범위 감면",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 제6조제2항 — 장애인복지법 제39조제2항 및 같은 법 시행규칙 제26조에 따라 장애인이 사용하는 자동차 등을 알아 볼 수 있는 표지를 발급받아 부착한 자동차 중 장애인 본인이 탑승한 자동차, 자동차관리법 제3조제3항 및 같은 법 시행규칙 제2조에 따른 경형자동차, 양구군 장기 및 인체조직 기증 장려에 관한 조례에 따른 기증자 및 기증자 유족이 승차한 자동차, 환경친화적 자동차의 개발 및 보급 촉진에 관한 법률 제11조제1항에 따른 환경친화적 자동차표지를 부착한 자동차, 대기환경보전법 제58조제12항에 따른 저공해자동차 표지를 부착한 자동차, 강원특별자치도 다태아·다자녀가정 우대 및 지원에 관한 조례 제7조에 따른 반비다복카드를 소지한 자동차는 공영주차장 주차요금 50퍼센트 범위에서 감면할 수 있다"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
