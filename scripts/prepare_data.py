@@ -101421,6 +101421,575 @@ def build_gangwon_goseong():
     return payload
 
 
+YANGYANG_ORD_URL = "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2069713&gubun=ELIS"
+YANGYANG_ORD_TXT = RAW / "양양-ordinance.txt"
+YANGYANG_ORD_B1_HWP = RAW / "양양-ordinance-b1.hwp"
+YANGYANG_ORD_NOTE = ("「양양군 주차장 설치 및 관리 조례」 제3095호(시행 2025-09-24, "
+                    "ordinSeq 2069713·ordinId 2089194) 제6조제1항·별표 1")
+YANGYANG_PROVINCE = "강원특별자치도"
+YANGYANG_PROVINCE_SLUG = "gangwon"
+YANGYANG_DISCOUNTS = [
+    {"label": "애국지사·국가유공자 상이 1~3급·심한 장애인 본인 차량·긴급자동차·국가·지자체 공사·업무 차량·모범납세자 1년·전기차 충전 2시간 이내 면제", "rate": 1.0, "exempt_min": 0,
+     "note": "조례 제7조제1항 — 독립유공자예우에 관한 법률 제4조제2호에 따른 애국지사가 승차한 차량, 국가유공자 등으로서 상이등급 1급부터 3급까지의 해당자가 승차한 차량 또는 장애인복지법에 따라 등록된 장애의 정도가 심한 장애인으로서 본인 또는 본인과 공동명의로 등록하여 보철용으로 사용하는 자동차로 장애인 본인이 승차한 차량, 도로교통법 제2조제22호에 따른 긴급자동차, 국가 또는 지방자치단체 소유의 자동차 중 공사 또는 업무수행 차량, 지정일로부터 1년간 혜택을 제공받는 모범납세자로서 강원특별자치도지사 및 군수 또는 국세청장이 교부한 성실납세표지를 부착한 차량, 전기자동차가 충전목적으로 충전시설에 2시간 이내 충전하는 경우 공영주차장의 주차요금을 전부 면제할 수 있다"},
+    {"label": "기타 보훈대상자·기타 장애인·면제 대상 2시간 초과·경형자동차·요일제·함께타기·임산부·병역명문가(양양 거주)·저공해자동차 50% 감면", "rate": 0.5, "exempt_min": 0,
+     "note": "조례 제7조제2항 — 국가보훈 기본법 및 국가보훈관계법령에서 정하고 있는 국가보훈대상자로서 관계법령의 적용대상자가 되어 예우 및 지원을 받는 대상자 중 제1항제2호 해당자를 제외한 국가보훈 대상자의 차량으로 본인이 승차한 차량, 장애인복지법에 따라 등록된 장애인 중 제1항2호 해당자를 제외한 장애인의 차량으로 본인이 운행하는 차량, 제1항제2호 및 제5호,제6호에 해당하는 차량 중 주차시간이 2시간을 초과한 차량, 자동차관리법 제3조 및 같은 법 시행규칙 제2조에 따른 경형자동차, 요일제 및 함께 타기 참여 자동차, 임산부가 탑승한 임산부 표시 부착 차량, 양양군 병역명문가 예우에 관한 조례에 따라 병무청장으로부터 병역명문가증을 발급받은 사람 중 양양군에 주소를 두고 거주하는 사람, 저공해자동차, 배출가스저감장치 부착 및 저공해 엔진 개조·교체한 자동차로 대기환경보전법 시행규칙 제79조의7에 따라 저공해 자동차 표지를 부착한 차량은 주차요금의 50퍼센트를 감면할 수 있다"},
+]
+
+YANGYANG_CONF = {
+    "city": "양양군",
+    "slug": "yangyang",
+    "manager": "강원특별자치도 양양군",
+    "manager_inquiry": "양양군청(033-670-2464)",
+    "ordinance": ("양양군 주차장 설치 및 관리 조례", YANGYANG_ORD_URL, YANGYANG_ORD_NOTE),
+    "notes": (
+        "표준데이터에 등록된 양양군 공영주차장 103곳(노외 54·부설 33·노상 16, 총 7,576면)입니다. "
+        "무료 99곳은 등록값을 유지했다. 유료 3곳(양양국민체육센터·양양종합운동장·양양전통시장 "
+        "공영주차장)은 등록 기본 0분 200원·추가 10분 200원·1일권 6,000원·월정기 75,000원이 조례 "
+        "별표 1(1회 주차요금 1구획당 10분마다 200원·월정기권 75,000원·1일 최대 상한 6,000원)과 "
+        "일치해 등록값을 유지했다(1시간 1,200원·2시간 2,400원). 오색공영타워주차장 1곳은 등록 "
+        "1일권 10,000원이 별표 1일 상한 6,000원과 달라 요금 미상으로 표기했다. "
+        "등록 급지구분은 103곳 전부 ‘기타’이다."),
+    "discounts": YANGYANG_DISCOUNTS,
+}
+
+YANGYANG_BBOX = (37.88, 38.20, 128.40, 128.85)
+YANGYANG_DONGS = {"양양읍", "서면", "손양면", "현북면", "현남면", "강현면"}
+
+
+def yangyang_dong_of(addr):
+    """양양군 법정 읍·면 판정 — 지번·도로명주소의 양양군 다음 토큰이 읍·면이다.
+    '양양 테니스장 주차장'은 지번주소가 '강원특별자치도 양양군 양양군 구교리 137-2'로
+    오기돼 읍·면 토큰이 없어 구교리(양양읍)로 폴백한다."""
+    if addr:
+        m = re.search(r"양양군\s*([가-힣0-9]+?(?:읍|면))", addr)
+        if m and m.group(1) in YANGYANG_DONGS:
+            return m.group(1)
+        if "구교리" in addr:
+            return "양양읍"
+    return None
+
+
+def yangyang_fee(r, std_name, note_bits, fee_diff):
+    """양양군 공영주차장 한 곳의 요금 — 무료 99곳은 무료 등록이라 무료를 유지한다.
+    유료 3곳(양양국민체육센터·양양종합운동장·양양전통시장 공영주차장)은 등록 기본
+    0분 200원·추가 10분 200원·1일권 6,000원·월정기 75,000원이 「양양군 주차장
+    설치 및 관리 조례」 별표 1(일반 공영주차장 1회 주차요금 1구획당 10분마다
+    200원·월정기권 75,000원·1일 최대 상한 6,000원)과 일치해 등록값을 유지한다
+    (1시간 1,200원·2시간 2,400원). 별표에 최초 무료 구간이 없어 free_min은 0이다.
+    별표 비고 2가는 '주차시간이 매 10분단위에서 5분이 경과시 적용한다'고 정하는데,
+    1시간·2시간·1일 값에는 영향을 주지 않아(60분·120분은 10분 단위의 정수배)
+    기본·추가 단위 모델로 표기하고 비고는 요금표에 적는다.
+    오색공영타워주차장 1곳은 등록 1일권 10,000원이 별표 1일 상한 6,000원과
+    달라 요금 미상이다. 등록 급지구분은 103곳 전부 ‘기타’이다.
+    등록 주차기본시간·추가단위시간은 분 단위 정수로 적혀 있다."""
+    fee_info = (r.get("요금정보") or "").strip()
+    ptype = (r.get("주차장유형") or "").strip()
+    base_min_raw = to_int(r.get("주차기본시간")) or 0
+    base_fee = to_int(r.get("주차기본요금")) or 0
+    unit_min_raw = to_int(r.get("추가단위시간")) or 0
+    unit_fee = to_int(r.get("추가단위요금")) or 0
+    daily = to_int(r.get("1일주차권요금")) or 0
+    daily_hours = to_int(r.get("1일주차권요금적용시간")) or 0
+    monthly = to_int(r.get("월정기권요금")) or 0
+    std_grade = (r.get("급지구분") or "").strip()
+    fee = {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None,
+           "daily_fee": None, "daily_hours": None, "cap_fee": None, "cap_src": None,
+           "monthly": None, "monthly_all": None, "monthly_label": None, "monthly_night": None,
+           "grade": None, "grade_label": None, "std_grade": std_grade or None,
+           "deduct_min": None, "free_min": None, "ticket_only": False, "flat_day": False,
+           "mixed": fee_info == "혼합", "progressive": False,
+           "steps": None, "steps_label": None, "bands": None, "category": None,
+           "pay": (r.get("결제방법") or "").strip(), "std": None}
+    # 등록값은 분 단위로 환산해 남긴다.
+    fee["std"] = {"base_min": base_min_raw,
+                  "base_fee": base_fee,
+                  "unit_min": unit_min_raw,
+                  "unit_fee": unit_fee, "day": daily, "monthly": monthly}
+    if fee_info == "무료" and not base_fee and not unit_fee and not daily:
+        fee.update({"type": "무료",
+                    "basis": "표준데이터 무료 등록 (조례 별표 1은 유료 요금표 — 실제 징수 여부는 확인 과제)"})
+        return fee
+    if fee_info == "유료" and base_min_raw == 0 and base_fee == 200 \
+            and unit_min_raw == 10 and unit_fee == 200 and daily == 6000 \
+            and monthly == 75000:
+        fee.update({"type": "유료", "free_min": 0, "base_min": 10, "base_fee": 200,
+                    "unit_min": 10, "unit_fee": 200,
+                    "daily_fee": 6000, "daily_hours": None,
+                    "monthly": 75000, "monthly_all": 75000,
+                    "basis": ("표준데이터 등록 기본 0분 200원·추가 10분 200원·1일권 6,000원·월정기 "
+                              "75,000원은 「양양군 주차장 설치 및 관리 조례」 별표 1(일반 공영주차장 1회 "
+                              "주차요금 1구획당 10분마다 200원·월정기권 75,000원·1일 최대 상한 6,000원)과 "
+                              "일치해 등록값을 유지한다 — 기본 0분 200원은 별표의 첫 10분 200원으로 본다. "
+                              "1시간 1,200원·2시간 2,400원·1일 6,000원·월정기 75,000원이다. 별표 비고 2가는 "
+                              "10분 단위에서 5분이 경과할 때 요금을 적용한다고 정한다. 실제 요금은 "
+                              "양양군청(033-670-2464) 확인이 필요하다")})
+        return fee
+    fee_diff.append({"name": std_name,
+                     "note": (f"등록 요금(요금정보 {fee_info or '공란'}, 기본 {base_min_raw}분 {base_fee}원·"
+                              f"추가 {unit_min_raw}분 {unit_fee}원·1일 {daily}원·월정기 {monthly}원)이 "
+                              f"「양양군 주차장 설치 및 관리 조례」 별표 1 공영주차장 요금표(1회 주차요금 "
+                              f"1구획당 10분마다 200원·월정기권 75,000원·1일 최대 상한 6,000원)와 맞지 않아 "
+                              f"요금 미상으로 표기한다 — 실제 요금은 양양군청(033-670-2464) 확인이 필요하다")})
+    fee.update({"type": "미상",
+                "basis": ("표준데이터 등록 요금이 「양양군 주차장 설치 및 관리 조례」 별표 1의 "
+                          "공영주차장 요금표와 맞지 않아 요금 미상으로 표기한다")})
+    return fee
+
+
+def yangyang_fee_table(conf, lots):
+    """요금표 — 조례 별표 1 공영주차장 요금표(일반 공영주차장 단일 요금표, 급지 구분 없음).
+    1회 주차요금 1구획당 10분마다 200원·월정기권 75,000원·1일 최대 상한 6,000원이라
+    1시간은 1,200원, 2시간은 2,400원이다. 무료 구간이 없어 base_min은 10분이다.
+    유료 3곳(양양국민체육센터·양양종합운동장·양양전통시장 공영주차장)은 등록값이 별표와
+    일치해 등록값을 유지했다. 오색공영타워주차장 1곳은 등록 1일권 10,000원이 별표 1일
+    상한 6,000원과 달라 요금 미상이다. 등록 급지구분은 103곳 전부 ‘기타’이다."""
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    street_paid = [l for l in paid if l["ptype"] == "노상"]
+    rows = [
+        {"label": "일반 공영주차장 (조례 별표 1 — 급지 구분 없음)", "grade": None,
+         "unit_label": "1회 주차요금 1구획당 10분마다 200원 · 월정기권 75,000원 · 1일 최대 상한 6,000원",
+         "hour": 1200, "two_hour": 2400, "day": 6000,
+         "month_all": None, "month": 75000, "month_night": None,
+         "lots": len(paid)},
+    ]
+    return {
+        "style": "yangyang_grade",
+        "unit_min": 10,
+        "base_min": 10,
+        "applies": conf["ordinance"][2],
+        "source_url": conf["ordinance"][1],
+        "grade_system": ("조례 별표 1은 일반 공영주차장 단일 요금표이고 급지 구분이 없다. 표준데이터 등록 "
+                         "급지구분은 103곳 전부 ‘기타’이고 등록값을 std_grade로 남겼다"),
+        "rows": rows,
+        "ord_rows": [],
+        "corp": {"paid": len([l for l in paid if l["ptype"] != "노상"]),
+                 "street_paid": len(street_paid),
+                 "free": len(free), "unknown": len(unknown)},
+        "windows": [
+            {"group": "적용 범위 (조례 제6조제1항)",
+             "hours": "군수가 설치한 노상·노외주차장",
+             "free": "이 요금표는 군수가 설치한 노상·노외주차장에 적용한다. 다만 「자연공원법」에서 지정한 국립공원과 「관광진흥법」 규정에 의한 주차장은 제외한다"},
+            {"group": "부과기준 (조례 별표 1 비고 2)",
+             "hours": "10분 단위 5분 경과 시 적용 · 대형버스·화물차 별도 구획 3배",
+             "free": "주차시간이 매 10분단위에서 5분이 경과시 적용한다. 대형버스 및 화물차를 위해 별도 설치한 주차구획은 본 요금의 3배를 징수할 수 있으며 주차시 주차구획을 점유한 수만큼 배로 징수할 수 있다"},
+            {"group": "이용시간·전통시장 (조례 별표 1 비고 3·4)",
+             "hours": "이용시간 군수 별도 고시 · 전통시장 운영시간 탄력 조정",
+             "free": "주차장 이용시간은 군수가 따로 정하여 당해 주차장에 게시한다. 「전통시장 및 상점가 육성을 위한 특별법」에 의하여 설치한 공영주차장은 전통시장 활성화를 위하여 운영시간을 탄력적으로 조정할 수 있다"},
+            {"group": "군수 재량·월정기 제한 (조례 별표 1 비고 6·7)",
+             "hours": "군수 별도 결정 가능 · 월정기 40% 초과 발행 불가",
+             "free": "군수는 인근 주차장과 형평을 유지하거나 지역여건 등을 감안하여 주차장의 효율적인 관리를 위해 특별히 필요하다고 인정하는 경우에는 지역실정에 따라 따로 정할 수 있다. 월정기권은 주차장 규모와 주차수요를 감안하여 40퍼센트를 초과하여 발행할 수 없다"},
+            {"group": "감면 (조례 제7조)",
+             "hours": "면제 6호 · 50% 감면 8호 · 전통시장 최초 30분 면제 가능",
+             "free": "면제 — 애국지사·국가유공자 상이 1~3급·심한 장애인 본인 차량·긴급자동차·국가·지자체 공사·업무 차량·모범납세자 1년·전기차 충전 2시간 이내 / 50% — 기타 보훈대상자·기타 장애인·면제 대상 2시간 초과·경형자동차·요일제·함께타기·임산부·병역명문가(양양 거주)·저공해자동차 / 전통시장 시설현대화사업 주차장은 최초 30분까지 면제할 수 있다(재량)"},
+            {"group": "가산금 (조례 제6조제2항)",
+             "hours": "법 제8조의2 위반·미납 시 별표 요금의 4배",
+             "free": "법 제8조의2 각 호를 위반한 경우 별표 1의 공영주차장 주차요금의 4배를 부과한다. 주차요금을 납부하지 아니한 경우 30분 단위로 별표 1의 구분에 따른 해당 주차요금에 그 주차요금의 4배 금액의 가산금을 합산하여 부과한다"},
+        ],
+        "discounts": conf["discounts"],
+        "notes": ("감면(조례 제7조)은 애국지사·국가유공자 상이 1~3급·심한 장애인 본인 차량·긴급자동차·"
+                  "국가·지자체 공사·업무 차량·모범납세자 1년·전기차 충전 2시간 이내 전액 면제, 기타 "
+                  "보훈대상자·기타 장애인·면제 대상 2시간 초과·경형자동차·요일제·함께타기·임산부·"
+                  "병역명문가(양양 거주)·저공해자동차 50% 범위 감면이다. 전통시장 시설현대화사업 주차장은 "
+                  "최초 30분까지 면제할 수 있다(재량)."),
+        "basis": ("요금표는 「양양군 주차장 설치 및 관리 조례」 제3095호(시행 2025-09-24) "
+                  "제6조제1항·별표 1과 표준데이터(기준일 2026-04-16)를 대조해 실었다. 별표 원본 HWP는 "
+                  "flSeq 160470919이다. 유료 3곳은 등록 기본 0분 200원·추가 10분 200원·1일권 6,000원"
+                  "·월정기 75,000원이 별표 1(1회 주차요금 1구획당 10분마다 200원·월정기권 75,000원·"
+                  "1일 최대 상한 6,000원)과 일치해 등록값을 유지했다(1시간 1,200원·2시간 2,400원). "
+                  "오색공영타워주차장 1곳은 등록 1일권 10,000원이 별표 1일 상한 6,000원과 달라 요금 "
+                  "미상으로 표기했다. 무료 99곳은 등록값을 유지했다. 별표 1은 급지 구분이 없는 단일 "
+                  "요금표이다. 별표 표제의 '(제5조제1항 관련)'은 개정 전 조문 번호 잔재이다. "
+                  "(조례 본문: data/raw/양양-ordinance.txt, "
+                  "별표 원문 HWP: data/raw/양양-ordinance-b1.hwp)"),
+    }
+
+
+def yangyang_quality(conf, std_all, rows_std, lots, excluded, merged, note_fixed, fee_diff,
+                   space_diff, dong_fixed, coord_fixed):
+    card = [l for l in lots if l["list_mode"] == "card"]
+    street = [l for l in lots if l["list_mode"] == "street"]
+    paid = [l for l in lots if l["fee"]["type"] == "유료"]
+    free = [l for l in lots if l["fee"]["type"] == "무료"]
+    unknown = [l for l in lots if l["fee"]["type"] == "미상"]
+    return {
+        "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "원자료_전국행수": len(std_all),
+        "원자료_행수": len(rows_std),
+        f"원자료_{conf['city']}행수": len(rows_std),
+        "원자료_받은행수": len(rows_std),
+        "구별": {conf["city"]: len(lots)},
+        "민영_제외": len([e for e in excluded if "민영" in e["reason"] or "법인" in e["reason"]]),
+        "제외_행수": len(excluded), "제외_행": excluded,
+        "중복제거_행수": len(merged), "중복제거_행": merged,
+        "총_주차장": len(card),
+        "노외_부설": dict(Counter(l["ptype"] for l in card)),
+        "노상_구간": len(street),
+        "총_구획수": sum(l["spaces"] or 0 for l in card),
+        "노상_구획수": sum(l["spaces"] or 0 for l in street),
+        "동별": dict(sorted(Counter(l["dong"] or "동·읍·면 미상" for l in lots).items(),
+                            key=lambda kv: (-kv[1], kv[0]))),
+        "동수": len({l["dong"] for l in lots if l["dong"]}),
+        "동_미상": [l["name"] for l in lots if not l["dong"]],
+        "동_보정": dong_fixed,
+        "동_근거": dict(Counter(l["dong_src"] for l in lots)),
+        "요금구분": dict(Counter(l["fee"]["type"] for l in lots)),
+        "요금_미상": [l["name"] for l in unknown],
+        "유료_노상": len([l for l in paid if l["ptype"] == "노상"]),
+        "유료_노외": len([l for l in paid if l["ptype"] == "노외"]),
+        "유료_부설": len([l for l in paid if l["ptype"] == "부설"]),
+        "운영시간_보정": [],
+        "등록값_차이": note_fixed,
+        "면수_차이": space_diff,
+        "급지_요금_차이": fee_diff,
+        "좌표_보정": coord_fixed,
+        "좌표_없음": [l["name"] for l in lots if l["lat"] is None or l["lng"] is None],
+        "도로명주소_없음": [l["name"] for l in lots if not l["addr_road"]],
+        "감면_출처": ("「양양군 주차장 설치 및 관리 조례」 제3095호 제7조 — 군수는 다음 각 호의 어느 하나에 "
+                      "해당하는 경우 공영주차장의 주차요금을 전부 면제할 수 있다: 애국지사가 승차한 차량, "
+                      "국가유공자 등으로서 상이등급 1급부터 3급까지의 해당자가 승차한 차량 또는 장애의 정도가 "
+                      "심한 장애인으로서 본인 또는 본인과 공동명의로 등록하여 보철용으로 사용하는 자동차로 "
+                      "장애인 본인이 승차한 차량, 도로교통법 제2조제22호에 따른 긴급자동차, 국가 또는 "
+                      "지방자치단체 소유의 자동차 중 공사 또는 업무수행 차량, 지정일로부터 1년간 혜택을 "
+                      "제공받는 모범납세자로서 강원특별자치도지사 및 군수 또는 국세청장이 교부한 성실납세표지를 "
+                      "부착한 차량, 전기자동차가 충전목적으로 충전시설에 2시간 이내 충전하는 경우. 50퍼센트 "
+                      "감면할 수 있다: 기타 보훈대상자, 기타 장애인, 면제 대상 2시간 초과, 경형자동차, "
+                      "요일제 및 함께 타기 참여 자동차, 임산부가 탑승한 임산부 표시 부착 차량, 양양군 "
+                      "병역명문가 예우에 관한 조례에 따라 병무청장으로부터 병역명문가증을 발급받은 사람 중 "
+                      "양양군에 주소를 두고 거주하는 사람, 저공해자동차. 전통시장 및 상점가 육성을 위한 "
+                      "특별법에 따른 시설현대화사업으로 설치한 주차장은 최초부터 30분까지 주차요금을 면제할 "
+                      "수 있다"),
+        "요금_출처": ("조례 제6조제1항·별표 1 — 군수가 설치한 노상주차장 및 노외주차장의 주차요금은 "
+                      "별표 1과 같다. 다만 자연공원법에서 지정한 국립공원과 관광진흥법 규정에 의한 주차장은 "
+                      "제외한다. 별표 1은 일반 공영주차장 1회 주차요금 1구획당 10분마다 200원·월정기권 "
+                      "75,000원·1일 최대 상한 6,000원이다. 별표 원본 HWP 5.0(flSeq 160470919)을 받아 표 "
+                      "구조까지 대조했다"),
+        "급지_출처": ("조례 별표 1은 일반 공영주차장 단일 요금표이고 급지 구분이 없다. 표준데이터 등록 급지구분은 103곳 "
+                      "전부 ‘기타’이고 등록값을 std_grade로 남겼다"),
+        "무료요일_출처": ("조례 별표 1에는 공휴일·야간 무료 규정이 없고, 표준데이터 운영요일은 103곳 전부 "
+                          "평일+토요일+공휴일이다. 무료 99곳은 요금정보 ‘무료’ 등록 근거다"),
+        "판정근거": [
+            "전국주차장정보표준데이터(data.go.kr 15012896) 양양 등록 103행 전부 공영(노외 54·부설 33·노상 16, 총 7,576면)으로 무료 99·유료 4, 기준일 2026-04-16, 제공기관명은 강원특별자치도 양양군 전부이다. 중복 판정(전체 이름·지번·좌표 200m 가드)에 걸리는 쌍은 없어 103곳·7,576면을 그대로 실었다. 관리번호 중복은 없다. 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건이다",
+            "「양양군 주차장 설치 및 관리 조례」 제3095호(시행 2025-09-24, ordinSeq 2069713·ordinId 2089194) 본문 원문(data/raw/양양-ordinance.txt) 대조 완료(2026-11-22) — 본문 제6조제1항이 군수가 설치한 공영주차장의 주차요금을 별표 1과 같다고 정하고(단, 자연공원법 국립공원과 관광진흥법 주차장은 제외), 제7조는 감면(면제 6호·50% 감면 8호·전통시장 최초 30분 면제 가능)을 정한다. 별표는 ELIS 첨부 원본(flSeq 160470919, HWP 5.0, 12,800바이트)을 data/raw/양양-ordinance-b1.hwp로 저장하고 표 구조까지 대조했다 — 별표 1은 일반 공영주차장 1회 주차요금 1구획당 10분마다 200원·월정기권 75,000원·1일 최대 상한 6,000원이다",
+            "유료 3곳(양양국민체육센터·양양종합운동장·양양전통시장 공영주차장)은 등록 기본 0분 200원·추가 10분 200원·1일권 6,000원·월정기 75,000원이 별표 1과 일치해 등록값을 유지했다(1시간 1,200원·2시간 2,400원). 오색공영타워주차장 1곳은 등록 1일권 10,000원이 별표 1일 상한 6,000원과 달라 요금 미상으로 표기했다. 무료 99곳은 등록값을 유지했다",
+            "좌표 결측은 0곳이다. 103곳 전부 등록 좌표가 있고 양양 범위(위도 37.922942~38.15725, 경도 128.445526~128.80193) 안에 있다. 좌표 보완 오버레이는 746행을 그대로 유지했다",
+            "운영요일은 103곳 전부 평일+토요일+공휴일이다. 운영시간은 103곳 전부 평일·토요일·공휴일 00:00~23:59이다. 부제시행구분은 미시행 103곳이다. 결제방법은 공란 99곳·카드 2곳·현금+카드 2곳이고, 특기사항은 103곳 전부 공란이고, 장애인전용주차구역 보유여부는 Y 59곳·N 44곳이다",
+            "읍·면 판정은 지번주소 기준이고 103곳 전부 판정됐다 — 양양읍 39곳·현남면 16곳·강현면 15곳·손양면 14곳·현북면 13곳·서면 6곳이다. 지번주소는 103곳 전부 있고 도로명주소는 103곳 전부 없다. 이름이 겹치는 등록은 2쌍(하조대해수욕장주차장(노외)·수산해변주차장 맞은편)으로 지번이 달라 번지로 구분했다. 같은 자리·같은 좌표에 이름만 다른 등록은 4그룹이다",
+            "관리기관명은 양양군청 각 부서(해양수산과·도시계획과·관광문화과 등)와 설악산국립공원사무소·양양공항 운영부이고, 전화번호는 103곳 전부 등록돼 있다",
+            "확인 과제 — ① 무료 99곳의 실제 무료 개방 여부 ② 유료 3곳의 별표 요금(10분마다 200원·1일 6,000원·월정기 75,000원) 실제 징수 여부와 전통시장 최초 30분 면제(조례 제7조제3항 재량) 시행 여부 ③ 오색공영타워주차장 등록 1일권 10,000원의 실제 징수 여부와 군수 별도 고시(조례 제6조제4항·별표 비고 6) 여부 ④ 월정기권 75,000원 실제 시행 여부 ⑤ 도로명주소 103곳 없음 보완 ⑥ 같은 자리·같은 좌표에 이름만 다른 등록 4그룹(양양국민체육센터·양양종합운동장 — 양양읍 구교리 224, 양양다목적체육관·양양생활체육센터 — 양양읍 구교리 225, 양양 남대천 제2주차장·양양 남대천 제1주차장 — 양양읍 남문리 226-2번지, 산림문화휴양관(아래)·산림문화휴양관(세미나실) — 손양면 상왕도리 729-4)이 같은 시설의 중복 등록인지 확인할 것 ⑦ '양양 테니스장 주차장' 지번주소 오기('강원특별자치도 양양군 양양군 구교리 137-2') 정정 — 동 판정은 구교리(양양읍)로 폴백했다 ⑧ 장애인전용주차구역 N 44곳 확인 ⑨ 용소폭포 주차장(서면 오색리 산1-25, 17면, 설악산국립공원사무소 관리)은 조례 제6조제1항 단서의 국립공원 제외 대상이나 무료 등록이라 요금 충돌은 없다 — 관리 주체·운영 방식을 확인할 것",
+        ],
+        "무료개방_표기": [l["name"] for l in lots
+                          if l["fee"]["type"] != "무료" and (l["free_days"]["sat"] or l["free_days"]["sun"])],
+        "거주자우선": [l["name"] for l in lots if "거주자우선" in l["name"]],
+        "무료_요금구분": len(free),
+        "무료_구획수": sum(l["spaces"] or 0 for l in free),
+        "평균_기본요금": round(sum(l["fee"]["base_fee"] or 0 for l in paid) / len(paid)) if paid else 0,
+        "토요일_미운영": len([l for l in lots if not l["oper"]["sat"]]),
+        "일공휴일_미운영": len([l for l in lots if not l["oper"]["sun"]]),
+        "주소_없음": [l["name"] for l in lots if not (l["addr_jibun"] or l["addr_road"])],
+        "이름중복": [k for k, v in Counter(l["name"] for l in lots).items() if v > 1],
+        "관리번호중복": [k for k, v in Counter(l.get("mgmt_no") for l in lots
+                                              if l.get("mgmt_no")).items() if v > 1],
+        "전화번호_없음": len([l["name"] for l in lots if not l["tel"]]),
+        "데이터기준일": sorted({l["base_date"] for l in lots if l["base_date"]}),
+        "관리기관": dict(Counter(l.get("manager") for l in lots)),
+    }
+
+
+def build_yangyang():
+    conf = YANGYANG_CONF
+    rows_all = read_csv_kr(STD_CSV)
+
+    def _owner(r):
+        return (r.get("소재지지번주소") or r.get("소재지도로명주소") or "").strip()
+
+    # 제공기관명(강원특별자치도 양양군)으로 필터한다 — '양양' 지명만으로 잡으면
+    #   다른 지역 행이 섞일 수 있다(고성 동명 도시 선례).
+    rows_std = [r for r in rows_all if (r.get("제공기관명") or "").strip() == "강원특별자치도 양양군"]
+
+    def _plot(r):
+        return re.sub(r"\s+", "", (r.get("소재지지번주소") or "").strip()
+                      or (r.get("소재지도로명주소") or "").strip())
+
+    def _rank(i):
+        r = rows_std[i]
+        return (r.get("데이터기준일자") or "",
+                1 if (r.get("요금정보") or "").strip() != "무료" else 0,
+                1 if "양양군" in (r.get("관리기관명") or "") else 0,
+                1 if (r.get("주차장유형") or "").strip() == "노외" else 0,
+                to_int(r.get("주차구획수")) or 0)
+
+    # 중복 판정 (청주에서 확정된 가드): 전체 이름(공백만 제거)이 같고 주소(자리)가
+    #   같고 좌표가 200m 이내일 때만 같은 주차장의 재등록으로 본다 — '주차장'
+    #   꼬리를 떼는 정규화는 이름이 다른 같은 자리 쌍까지 합칠 수 있어 쓰지
+    #   않는다(옥천·영동에서 확인). 관리번호로는 절대 합치지 않는다. 양양군은
+    #   이 가드에 걸리는 쌍이 없어 중복 제거 0건이다 — 하조대해수욕장주차장(노외)
+    #   2곳은 지번이 다르고 좌표가 206.1m 떨어져 있고, 수산해변주차장 맞은편 2곳은
+    #   지번이 다르다(89-1·89-8).
+    dropped, merged = set(), []
+    group = {}
+    for i, r in enumerate(rows_std):
+        group.setdefault((re.sub(r"\s+", "", (r.get("주차장명") or "").strip()),
+                          _plot(r)), []).append(i)
+    for key, idxs in group.items():
+        if len(idxs) < 2 or not key[0] or not key[1]:
+            continue
+        _coords = []
+        for i in idxs:
+            try:
+                _coords.append((float(rows_std[i].get("위도") or ""),
+                                float(rows_std[i].get("경도") or "")))
+            except (TypeError, ValueError):
+                pass
+        if len(_coords) == len(idxs) and len(_coords) > 1:
+            _far = max(111000 * math.sqrt((_a[0] - _b[0]) ** 2 + ((_a[1] - _b[1]) * 0.81) ** 2)
+                       for _a in _coords for _b in _coords)
+            if _far > 200:
+                continue
+        keep = max(idxs, key=_rank)
+        for i in idxs:
+            if i != keep:
+                dropped.add(i)
+        for i in idxs:
+            if i == keep:
+                continue
+            merged.append({"name": rows_std[i]["주차장명"], "addr": _owner(rows_std[i]),
+                           "spaces": to_int(rows_std[i].get("주차구획수")),
+                           "note": ("같은 이름·같은 자리·좌표 200m 이내의 재등록"
+                                    " — 노외 등록만 남김"),
+                           "base_date": rows_std[i].get("데이터기준일자"),
+                           "kept": rows_std[keep]["주차장명"]})
+    dedup_items = [(i, rows_std[i]) for i in range(len(rows_std)) if i not in dropped]
+
+    lots, excluded = [], []
+    note_fixed, fee_diff, space_diff, dong_fixed, coord_fixed = [], [], [], [], []
+    for _i, r in dedup_items:
+        std_name = (r.get("주차장명") or "").strip()
+        jibun = (r.get("소재지지번주소") or "").strip()
+        road = (r.get("소재지도로명주소") or "").strip()
+        ptype = (r.get("주차장유형") or "").strip() or "노외"
+        spaces = to_int(r.get("주차구획수"))
+        gubun = (r.get("주차장구분") or "").strip()
+        try:
+            lat = float(r["위도"]) if (r.get("위도") or "").strip() else None
+            lng = float(r["경도"]) if (r.get("경도") or "").strip() else None
+        except ValueError:
+            lat = lng = None
+        if lat is not None and lng is not None and not (YANGYANG_BBOX[0] < lat < YANGYANG_BBOX[1]
+                                                        and YANGYANG_BBOX[2] < lng < YANGYANG_BBOX[3]):
+            # 양양군 경계 상자 밖 좌표는 등록 오류로 보고 비운다 (좌표를 지어내지 않는다).
+            coord_fixed.append(f"{std_name}: 등록 좌표({lat}, {lng})가 양양군 범위 밖 — "
+                               "좌표 없음으로 표기하고 지오코딩 보완 대상으로 넘김")
+            lat = lng = None
+        if gubun and gubun != "공영":
+            excluded.append({"name": std_name or "(이름 없음)", "reason": f"{gubun} 주차장(공영 아님)"})
+            continue
+        reason = None
+        if not std_name:
+            reason = "주차장명 없음"
+        elif not spaces:
+            reason = "주차구획수 없음(0으로 등록)"
+        elif not (jibun or road):
+            reason = "주소 없음"
+        if reason:
+            excluded.append({"name": std_name or "(이름 없음)", "reason": reason})
+            continue
+        dong = yangyang_dong_of(jibun)
+        if dong:
+            dong_src = "지번주소"
+        elif yangyang_dong_of(road):
+            dong = yangyang_dong_of(road)
+            dong_src = "도로명주소"
+        else:
+            dong_src = "없음"
+        if std_name == "양양 테니스장 주차장":
+            dong_fixed.append("양양 테니스장 주차장: 지번주소가 '강원특별자치도 양양군 양양군 "
+                              "구교리 137-2'로 오기돼 있어(양양군 중복) 동 판정을 구교리(양양읍)로 "
+                              "폴백했다 — 주소 자체는 등록값 그대로 실었다")
+        # 이름 첫머리에 동·읍·면 이름이 들어 있고 지번주소 판정과 다르면
+        #   기록만 남긴다(보정은 하지 않는다).
+        _name_head = re.match(r"([가-힣]+?(?:동|읍|면))", std_name)
+        if _name_head and _name_head.group(1) in YANGYANG_DONGS and dong \
+                and _name_head.group(1) != dong:
+            dong_fixed.append(f"{std_name}: 이름의 동·읍·면({_name_head.group(1)})과 지번주소 기준 "
+                              f"동·읍·면({dong})이 달라 지번주소 기준으로 판정")
+        win, oper, _closed = parse_schedule(r, (r.get("특기사항") or ""))
+        note = r.get("특기사항") or ""
+        note_bits = []
+        fee = yangyang_fee(r, std_name, note_bits, fee_diff)
+        free_days = parse_free_days(note)
+        free_window = None
+        _buje = (r.get("부제시행구분") or "").strip()
+        if _buje and _buje != "미시행":
+            note_bits.append(f"승용차 {_buje}를 시행하는 곳입니다")
+        if lat is None:
+            note_bits.append("좌표가 등록되어 있지 않아 위치는 주소로 확인해 주세요")
+        road_name = sj_road_of(road) if ptype == "노상" else None
+        mgmt = (r.get("관리기관명") or "").strip()
+        lots.append({
+            "id": "", "mgmt_no": (r.get("주차장관리번호") or "").strip(),
+            "src": "표준데이터", "list_mode": "street" if ptype == "노상" else "card",
+            "name": std_name, "gu": "양양군", "dong": dong, "dong_src": dong_src,
+            "kind": gubun or "공영", "ptype": ptype,
+            "addr_jibun": jibun, "addr_road": road, "road": road_name,
+            "spaces": spaces, "tel": (r.get("전화번호") or "").strip(),
+            "lat": lat, "lng": lng,
+            "base_date": (r.get("데이터기준일자") or "").strip(),
+            "manager": mgmt or conf["manager"],
+            "note": note, "notice": " · ".join(b for b in note_bits if b) or None,
+            "fee": fee, "oper": oper, "hours": win, "free_days": free_days,
+            "free_window": free_window, "free_hour_note": None,
+            "closed_from_note": _closed,
+            "disabled_area": (r.get("장애인전용주차구역보유여부") or "").strip(),
+            "capa_detail": None, "portal_name": None, "realtime": None, "udc_id": None,
+            "price_key": fee["base_fee"] if fee["type"] == "유료" else None,
+            "city": conf["city"], "city_slug": conf["slug"],
+            "zone": None,
+        })
+
+    _name_dups = {k for k, v in Counter(l["name"] for l in lots).items() if v > 1}
+    if _name_dups:
+        _used = set()
+        _groups = {}
+        for x in lots:
+            _groups.setdefault(x["name"], []).append(x)
+        for _l in [x for x in lots if x["name"] in _name_dups]:
+            _parts = (_l.get("addr_jibun") or _l.get("addr_road") or "").split()
+            _bunji = ""
+            for _tok in reversed(_parts):
+                if re.match(r"^\d+(?:-\d+)?$", _tok or ""):
+                    _bunji = _tok
+                    break
+            if not _bunji:
+                _bunji = _parts[3].split("(")[0] if len(_parts) > 3 else \
+                    (_parts[2] if len(_parts) > 2 else "")
+            _sib = [x for x in _groups[_l["name"]] if x is not _l]
+            _same_place = any((x.get("addr_jibun") or x.get("addr_road")) ==
+                              (_l.get("addr_jibun") or _l.get("addr_road")) for x in _sib)
+            if _l["list_mode"] == "street":
+                _suffix = f"(노상 {_l['spaces']}면)"
+            elif _bunji and not _same_place:
+                _suffix = f"({_bunji})"
+            else:
+                _suffix = f"({_l['spaces']}면)"
+            _new = f"{_l['name']} {_suffix}"
+            _n = 2
+            while _new in _used or _new in _name_dups:
+                _new = f"{_l['name']} {_suffix} {_n}"
+                _n += 1
+            _used.add(_new)
+            _l["name"] = _new
+        dong_fixed.append("이름이 겹치는 주차장 " + ", ".join(sorted(_name_dups))
+                          + " — 전부 다른 자리라 지번 번지로 구분했다")
+
+    # 같은 지번·같은 좌표에 이름만 다르게 등록된 그룹 — 전부 다른 등록이라
+    #   합치지 않고 전부 싣는다(산청 선례).
+    _place_groups = {}
+    for l in lots:
+        if l["lat"] is None or l["lng"] is None:
+            continue
+        _place_groups.setdefault(((l.get("addr_jibun") or l.get("addr_road")),
+                                  l["lat"], l["lng"]), []).append(l)
+    for (_addr, _la, _ln), _grp in sorted(_place_groups.items(),
+                                          key=lambda kv: kv[1][0]["name"]):
+        if len(_grp) > 1 and len({x["name"] for x in _grp}) > 1:
+            _names = "·".join(x["name"] for x in _grp)
+            note_fixed.append(f"같은 자리·같은 좌표에 이름만 다른 등록: {_names} — "
+                              f"{_addr}에 좌표({_la}, {_ln})가 같게 등록돼 있다. "
+                              "이름이 다른 별개 등록이라 합치지 않고 전부 실었고, "
+                              "같은 시설의 중복 등록인지는 양양군청 확인이 필요하다")
+    note_fixed.append("표준데이터 양양 등록 103행 전부 공영으로 민영 제외 0건, 공영 103곳을 실었다. "
+                      "데이터기준일자는 2026-04-16 103행, 제공기관명은 강원특별자치도 양양군 "
+                      "103행이다")
+    note_fixed.append("등록 급지구분은 103곳 전부 ‘기타’이다. 조례 별표 1은 일반 공영주차장 단일 "
+                      "요금표이고 급지 구분이 없다 — 등록값은 std_grade로 남겼다")
+    note_fixed.append("좌표 결측은 0곳이다. 103곳 전부 등록 좌표가 있고 양양 범위(위도 37.922942~38.15725, "
+                      "경도 128.445526~128.80193) 안에 있다")
+    note_fixed.append("운영요일은 103곳 전부 평일+토요일+공휴일이다. 운영시간은 103곳 전부 평일·토요일·"
+                      "공휴일 00:00~23:59이다. 전화번호는 103곳 전부 등록돼 있고, 도로명주소는 103곳 전부 "
+                      "없고, 결제방법은 공란 99곳·카드 2곳·현금+카드 2곳이고, 특기사항은 103곳 전부 공란이고, "
+                      "장애인전용주차구역 보유여부는 Y 59곳·N 44곳이고, 부제시행구분은 미시행 103곳이다")
+    note_fixed.append("유료 3곳(양양국민체육센터·양양종합운동장·양양전통시장 공영주차장)은 등록 기본 0분 "
+                      "200원·추가 10분 200원·1일권 6,000원·월정기 75,000원이 조례 별표 1과 일치해 "
+                      "등록값을 유지했다(1시간 1,200원·2시간 2,400원). 오색공영타워주차장 1곳은 등록 "
+                      "1일권 10,000원이 별표 1일 상한 6,000원과 달라 요금 미상으로 표기했다. 무료 99곳은 "
+                      "등록값을 유지했다")
+
+    lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
+    n_card = n_street = 0
+    for l in lots:
+        if l["list_mode"] == "card":
+            n_card += 1
+            l["id"] = f"gw-yangyang-{n_card:03d}"
+        else:
+            n_street += 1
+            l["id"] = f"gw-yangyang-s{n_street:03d}"
+
+    # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
+    #   적용한다. 양양군은 좌표 결측이 없어 오버레이 적용 대상이 없다.
+    _cf = apply_coord_fix(lots)
+
+    fee_table = yangyang_fee_table(conf, lots)
+    quality = yangyang_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
+                             fee_diff, space_diff, dong_fixed, coord_fixed)
+    city_fee_src = {
+        "id": "std", "name": "전국주차장정보표준데이터",
+        "org": "행정안전부·지방자치단체",
+        "url": "https://www.data.go.kr/data/15012896/standard.do",
+        "file": STD_CSV.name, "sha256": sha256(STD_CSV),
+        "license": "이용허락범위 안내(공공누리 유형별 표기)", "base_date": "2026-04-16",
+        "rows_total": len(rows_all), "rows_city": len(rows_std),
+        "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+        "note": (f"양양군으로 등록된 행 {len(rows_std)}행을 읽어 중복 "
+                 f"제거 {len(merged)}건, 제외 {len(excluded)}건으로 {len(lots)}곳을 실었다. "
+                 f"유료 {len([l for l in lots if l['fee']['type'] == '유료'])}곳·무료 "
+                 f"{len([l for l in lots if l['fee']['type'] == '무료'])}곳·미상 "
+                 f"{len([l for l in lots if l['fee']['type'] == '미상'])}곳이다. "
+                 f"데이터기준일자는 2026-04-16이다. 좌표 결측은 0곳이다. "
+                 f"조례 대조 완료 — 「양양군 주차장 설치 및 관리 조례」 제3095호(시행 "
+                 f"2025-09-24, ordinSeq 2069713) 제6조제1항·별표 1 원문 대조 완료(2026-11-22)."),
+    }
+    sources = [
+        city_fee_src,
+        {
+            "id": "city_ordinance", "name": conf["ordinance"][0],
+            "org": conf["manager"], "url": conf["ordinance"][1],
+            "file": YANGYANG_ORD_TXT.name if YANGYANG_ORD_TXT.exists() else None,
+            "sha256": sha256(YANGYANG_ORD_TXT) if YANGYANG_ORD_TXT.exists() else None,
+            "license": "자치법규(공개)", "base_date": "2025-09-24",
+            "rows_total": None, "fetched_at": NOW.strftime("%Y-%m-%d %H:%M") + " (KST)",
+            "note": f"양양군이 설치·관리하는 공영주차장에 적용하는 조례다. {conf['notes']} "
+                    f"(조례 본문: data/raw/양양-ordinance.txt, 별표 원문 HWP: "
+                    f"data/raw/양양-ordinance-b1.hwp)",
+        },
+    ]
+    payload = {
+        "meta": {
+            "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "generated_at_iso": NOW.isoformat(timespec="seconds"),
+            "snapshot_at": NOW.strftime("%Y-%m-%d %H:%M"),
+            "region": {"province": YANGYANG_PROVINCE, "city": conf["city"]},
+            "sources": sources,
+        },
+        "districts": [{"name": "양양군", "slug": "yangyang"}],
+        "lots": lots,
+        "quality": quality,
+        "fee_table": fee_table,
+    }
+    payload.update({
+        "slug": conf["slug"], "province": YANGYANG_PROVINCE,
+        "province_slug": YANGYANG_PROVINCE_SLUG,
+        "dong_page_min_lots": 3, "city": conf["city"],
+        "weekend_free_pages": False,
+        "discounts": conf["discounts"],
+        "city_discounts": [],
+        "realtime": False,
+    })
+    (DATA / "yangyang_parking.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    return payload
+
+
 def main():
     ap = argparse.ArgumentParser(description="공영주차장 파인더 데이터 정제")
     ap.add_argument("--city", choices=["suwon", "seongnam", "yongin", "hwaseong", "anyang", "pyeongtaek", "bucheon", "goyang", "namyangju", "ansan", "siheung", "uijeongbu", "gimpo", "paju", "gwangju", "hanam", "gunpo", "gwangmyeong", "guri", "osan", "icheon", "anseong", "yangju", "pocheon", "uiwang", "yeoju", "dongducheon", "gwacheon", "gapyeong", "yangpyeong", "yeoncheon", "jongno", "jung", "yongsan", "gangnam", "seocho", "songpa", "gangdong", "mapo", "yeongdeungpo", "seodaemun", "yangcheon", "gangseo", "seongdong", "gwangjin", "dongdaemun", "jungnang", "seongbuk", "gangbuk", "dobong", "nowon", "eunpyeong", "guro", "geumcheon", "dongjak", "gwanak", "michuhol", "yeonsu", "namdong", "jemulpo", "yeongjong",
@@ -101433,7 +102002,7 @@ def main():
           "daejeondong", "daejeonjung", "daejeonseo", "daejeonyuseong", "daejeondaedeok",
           "gwangjudong", "gwangjuseo", "gwangjunam", "gwangjubuk", "gwangjangsan",
           "ulsanjung", "ulsannam", "ulsandong", "ulsanbuk", "ulsanulju",
-          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyeo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon", "uiryeong", "haman", "changnyeong", "pohang", "gyeongju", "gimcheon", "andong", "gumi", "yeongju", "yeongcheon", "sangju", "mungyeong", "gyeongsan", "cheongdo", "uisung", "cheongsong", "yeongyang", "yeongdeok", "goryeong", "seongju", "chilgok", "yecheon", "bonghwa", "uljin", "ulleung", "chuncheon", "wonju", "gangneung", "donghae", "taebaek", "sokcho", "samcheok", "hongcheon", "hoengseong", "yeongwol", "pyeongchang", "jeongseon", "cheorwon", "hwacheon", "yanggu", "inje", "gangwongoseong",
+          "sejongsi", "jejusi", "seogwiposi", "cheongju", "cheonan", "asan", "seosan", "dangjin", "gongju", "nonsan", "boryeong", "gyeryong", "buyeo", "seocheon", "cheongyang", "hongseong", "yesan", "taean", "chungju", "jecheon", "boeun", "okcheon", "yeongdong", "jeungpyeong", "jincheon", "goesan", "eumseong", "danyang", "jeonju", "gunsan", "iksan", "jeongeup", "namwon", "gimje", "wanju", "jinan", "muju", "jangsu", "imsil", "sunchang", "gochang", "buan", "mokpo", "yeosu", "suncheon", "naju", "gwangyang", "muan", "yeongam", "haenam", "goheung", "boseong", "hwasun", "jangheung", "gangjin", "hampyeong", "geumsan", "yeonggwang", "jangseong", "wando", "jindo", "sinan", "gurye", "gokseong", "damyang", "changwon", "jinju", "tongyeong", "sacheon", "gimhae", "miryang", "geoje", "yangsan", "goseong", "namhae", "hadong", "sancheong", "hamyang", "geochang", "hapcheon", "uiryeong", "haman", "changnyeong", "pohang", "gyeongju", "gimcheon", "andong", "gumi", "yeongju", "yeongcheon", "sangju", "mungyeong", "gyeongsan", "cheongdo", "uisung", "cheongsong", "yeongyang", "yeongdeok", "goryeong", "seongju", "chilgok", "yecheon", "bonghwa", "uljin", "ulleung", "chuncheon", "wonju", "gangneung", "donghae", "taebaek", "sokcho", "samcheok", "hongcheon", "hoengseong", "yeongwol", "pyeongchang", "jeongseon", "cheorwon", "hwacheon", "yanggu", "inje", "gangwongoseong", "yangyang",
           "all"], default="all")
     args = ap.parse_args()
 
@@ -101451,7 +102020,7 @@ def main():
                 "대전 동구", "대전 중구", "대전 서구", "대전 유성구", "대전 대덕구",
                 "광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구",
                 "울산 중구", "울산 남구", "울산 동구", "울산 북구", "울산 울주군",
-                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "포항시", "경주시", "김천시", "안동시", "구미시", "영주시", "영천시", "상주시", "문경시", "경산시", "청도군", "의성군", "청송군", "영양군", "영덕군", "고령군", "성주군", "칠곡군", "예천군", "봉화군", "울진군", "울릉군", "춘천시", "원주시", "강릉시", "동해시", "태백시", "속초시", "삼척시", "홍천군", "횡성군", "영월군", "평창군", "정선군", "철원군", "화천군", "양구군", "인제군", "강원 고성군"] if args.city == "all" else \
+                "세종특별자치시", "제주시", "서귀포시", "청주시", "천안시", "아산시", "서산시", "당진시", "공주시", "논산시", "보령시", "계룡시", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군", "충주시", "제천시", "보은군", "옥천군", "영동군", "증평군", "진천군", "괴산군", "음성군", "단양군", "전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군", "목포시", "여수시", "순천시", "나주시", "광양시", "무안군", "영암군", "해남군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "함평군", "금산군", "영광군", "장성군", "완도군", "진도군", "신안군", "구례군", "곡성군", "담양군", "창원시", "진주시", "통영시", "사천시", "김해시", "밀양시", "거제시", "양산시", "고성군", "남해군", "하동군", "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "포항시", "경주시", "김천시", "안동시", "구미시", "영주시", "영천시", "상주시", "문경시", "경산시", "청도군", "의성군", "청송군", "영양군", "영덕군", "고령군", "성주군", "칠곡군", "예천군", "봉화군", "울진군", "울릉군", "춘천시", "원주시", "강릉시", "동해시", "태백시", "속초시", "삼척시", "홍천군", "횡성군", "영월군", "평창군", "정선군", "철원군", "화천군", "양구군", "인제군", "강원 고성군", "양양군"] if args.city == "all" else \
             {"suwon": ["수원시"], "seongnam": ["성남시"], "yongin": ["용인시"],
              "hwaseong": ["화성시"], "anyang": ["안양시"], "pyeongtaek": ["평택시"],
              "bucheon": ["부천시"], "goyang": ["고양시"], "namyangju": ["남양주시"],
@@ -101509,7 +102078,7 @@ def main():
                                 "tongyeong": ["통영시"],
                                 "sacheon": ["사천시"],
                                 "gimhae": ["김해시"], "miryang": ["밀양시"],
-                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"], "hamyang": ["함양군"], "geochang": ["거창군"], "hapcheon": ["합천군"], "uiryeong": ["의령군"], "haman": ["함안군"], "changnyeong": ["창녕군"], "pohang": ["포항시"], "gyeongju": ["경주시"], "gimcheon": ["김천시"], "andong": ["안동시"], "gumi": ["구미시"], "yeongju": ["영주시"], "yeongcheon": ["영천시"], "sangju": ["상주시"], "mungyeong": ["문경시"], "gyeongsan": ["경산시"], "cheongdo": ["청도군"], "uisung": ["의성군"], "cheongsong": ["청송군"], "yeongyang": ["영양군"], "yeongdeok": ["영덕군"], "goryeong": ["고령군"], "seongju": ["성주군"], "chilgok": ["칠곡군"], "yecheon": ["예천군"], "bonghwa": ["봉화군"], "uljin": ["울진군"], "ulleung": ["울릉군"], "chuncheon": ["춘천시"], "wonju": ["원주시"], "gangneung": ["강릉시"], "donghae": ["동해시"], "taebaek": ["태백시"], "sokcho": ["속초시"], "samcheok": ["삼척시"], "hongcheon": ["홍천군"], "hoengseong": ["횡성군"], "yeongwol": ["영월군"], "pyeongchang": ["평창군"], "jeongseon": ["정선군"], "cheorwon": ["철원군"], "hwacheon": ["화천군"], "yanggu": ["양구군"], "inje": ["인제군"], "gangwongoseong": ["강원 고성군"]}[args.city])
+                                "geoje": ["거제시"], "yangsan": ["양산시"], "goseong": ["고성군"], "namhae": ["남해군"], "hadong": ["하동군"], "sancheong": ["산청군"], "hamyang": ["함양군"], "geochang": ["거창군"], "hapcheon": ["합천군"], "uiryeong": ["의령군"], "haman": ["함안군"], "changnyeong": ["창녕군"], "pohang": ["포항시"], "gyeongju": ["경주시"], "gimcheon": ["김천시"], "andong": ["안동시"], "gumi": ["구미시"], "yeongju": ["영주시"], "yeongcheon": ["영천시"], "sangju": ["상주시"], "mungyeong": ["문경시"], "gyeongsan": ["경산시"], "cheongdo": ["청도군"], "uisung": ["의성군"], "cheongsong": ["청송군"], "yeongyang": ["영양군"], "yeongdeok": ["영덕군"], "goryeong": ["고령군"], "seongju": ["성주군"], "chilgok": ["칠곡군"], "yecheon": ["예천군"], "bonghwa": ["봉화군"], "uljin": ["울진군"], "ulleung": ["울릉군"], "chuncheon": ["춘천시"], "wonju": ["원주시"], "gangneung": ["강릉시"], "donghae": ["동해시"], "taebaek": ["태백시"], "sokcho": ["속초시"], "samcheok": ["삼척시"], "hongcheon": ["홍천군"], "hoengseong": ["횡성군"], "yeongwol": ["영월군"], "pyeongchang": ["평창군"], "jeongseon": ["정선군"], "cheorwon": ["철원군"], "hwacheon": ["화천군"], "yanggu": ["양구군"], "inje": ["인제군"], "gangwongoseong": ["강원 고성군"], "yangyang": ["양양군"]}[args.city])
     cities = []
     if "수원시" in want:
         cities.append(build_suwon())
@@ -101852,6 +102421,9 @@ def main():
 
     if "강원 고성군" in want:
         cities.append(build_gangwon_goseong())
+
+    if "양양군" in want:
+        cities.append(build_yangyang())
 
     if args.city == "all":
         site = build_site_payload(cities)
