@@ -495,7 +495,7 @@ CITY_UI = {
         "street_count_note": ("의정부도시공사 공영주차장 현황(2026년 9월)의 노상(거리) 주차 구간은 {n}곳, "
                               "주차 구획은 총 {spaces:,}면입니다. {where}에 있고 모두 무료로 운영됩니다. "),
         "count_note": ("의정부도시공사 공영주차장 현황(2026년 9월)의 노외·부설 {n}곳과 노상 {street_n}구간을 합쳐 "
-                       "공영주차장 {total}곳, 주차 구획 {spaces:,}면(노상 {street_spaces}면 포함)입니다. "
+                       "공영주차장 {total:,}곳, 주차 구획 {spaces:,}면(노상 {street_spaces:,}면 포함)입니다. "
                        "이 가운데 도시공사 현황에 없는 표준데이터 등록 1곳(의정부동 제7공영)도 함께 실었습니다."),
     },
     "김포시": {
@@ -549,7 +549,7 @@ CITY_UI = {
                        "1시간까지는 0원·2시간 1,500원·1일 7,000원이 상한입니다. 00:00~09:00과 공휴일은 "
                        "요금이 발생하지 않습니다. 요일을 바꾸면 아래 목록이 그날 기준 예상요금 순으로 다시 정렬됩니다."),
         "street_count_note": "김포시 표준데이터에 등록된 노상(거리) 주차 구간은 {n}곳, 주차 구획은 총 {spaces:,}면입니다. {where}에 있고, 일요일·공휴일·야간은 무료입니다. ",
-        "count_note": ("노외 {n}곳(무료 2곳 포함)과 노상 {street_n}구간을 합쳐 공영주차장 {total}곳, "
+        "count_note": ("노외 {n}곳(무료 2곳 포함)과 노상 {street_n}구간을 합쳐 공영주차장 {total:,}곳, "
                        "주차 구획 {spaces:,}면(노상 {street_spaces:,}면 포함)입니다. 노외 {n}곳 가운데 3곳"
                        "(고촌1·운양2·하성공영주차장)은 표준데이터(기준일 2026-07-15)에 없어 김포시 보도자료로 채웠습니다."),
         # 자주 묻는 질문에 도시별 항목을 더한다(김포시: 최초 1시간 무료·00~09시 무료·공휴일 개방).
@@ -630,7 +630,7 @@ CITY_UI = {
                        "요일을 바꾸면 아래 목록이 그날 기준 예상요금 순으로 다시 정렬됩니다."),
         "street_count_note": ("파주시 표준데이터에 등록된 노상(거리) 주차 구간은 {n}곳, 주차 구획은 총 {spaces:,}면입니다. "
                               "{where}에 있고, 유료 구간은 평일·토요일·공휴일 09:00~18:00에 요금을 받습니다. "),
-        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total}곳, 주차 구획 {spaces:,}면"
+        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total:,}곳, 주차 구획 {spaces:,}면"
                        "(노상 {street_spaces:,}면 포함)입니다. 노외 {n}곳 가운데 6곳(시청·시의회·감악산 제3·5·"
                        "마장호수 제1·임진각)은 표준데이터(기준일 2026-10-15)에 없어 파주시 통합주차 포털로 채웠습니다."),
         "weekend_note": ("파주시 유료 노외 공영주차장은 토요일·일요일·공휴일에 무료로 개방합니다(파주시 통합주차 포털) — "
@@ -713,7 +713,7 @@ CITY_UI = {
                        "요일을 바꾸면 아래 목록이 그날 기준 예상요금 순으로 다시 정렬됩니다."),
         "street_count_note": ("광주시 표준데이터에 등록된 노상(거리) 주차 구간은 {n}곳, 주차 구획은 총 {spaces:,}면입니다. "
                               "{where}에 있고 모두 무료로 등록되어 있습니다. "),
-        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total}곳, 주차 구획 {spaces:,}면"
+        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total:,}곳, 주차 구획 {spaces:,}면"
                        "(노상 {street_spaces:,}면 포함)입니다. 노외 {n}곳 가운데 유료는 12곳(1급지 7·2급지 5)이고 "
                        "나머지 33곳과 노상 10구간은 무료입니다."),
         "weekend_note": ("광주시 유료 공영주차장은 토요일·일요일·공휴일에도 같은 요금입니다(조례 별표1에 주말 무료 규정이 없고, "
@@ -805,7 +805,7 @@ CITY_UI = {
         "street_count_note": ("하남시 표준데이터에 등록된 노상(거리) 주차 구간은 {n}곳, 주차 구획은 총 "
                               "{spaces:,}면입니다. {where}에 있고, 유료 시간제 1구간·전일 정액 1구간·"
                               "무료 4구간·주거지 전용 9구간·정기권 전용 2구간으로 나뉩니다. "),
-        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total}곳, 주차 구획 {spaces:,}면"
+        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total:,}곳, 주차 구획 {spaces:,}면"
                        "(노상 {street_spaces:,}면 포함)입니다. 노외 {n}곳 가운데 유료 14곳(1급지 6·"
                        "2급지 3·3급지 5), 무료 5곳(주거지 전용 4곳 포함), 정기권 전용 1곳입니다."),
         "weekend_note": ("하남시 유료 공영주차장은 토요일·일요일·공휴일에도 같은 요금입니다(조례 별표1에 "
@@ -910,7 +910,7 @@ CITY_UI = {
         "street_count_note": ("군포시 표준데이터에 등록된 노상(거리) 주차 구간은 {n}곳, 주차 구획은 총 "
                               "{spaces:,}면입니다. {where}에 있고, 유료 4구간(산본시장·금산로1·군포역1길·"
                               "군포고가교밑1)·무료 24구간·월 정기권 전용 1구간(동백길)으로 나뉩니다. "),
-        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total}곳, 주차 구획 {spaces:,}면"
+        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total:,}곳, 주차 구획 {spaces:,}면"
                        "(노상 {street_spaces:,}면 포함)입니다. 노외 {n}곳 가운데 유료 29곳(1급지 7·"
                        "2급지 14·3급지 1·특수관리대상 7), 무료 11곳, 월 정기권 전용 10곳입니다."),
         "weekend_note": ("군포시 유료 공영주차장은 토요일·일요일·공휴일에도 같은 요금입니다(조례 별표1에 "
@@ -1014,7 +1014,7 @@ CITY_UI = {
         "street_count_note": ("광명시 공영 노상(거리) 주차 구간은 {n}곳, 주차 구획은 총 {spaces:,}면입니다. "
                               "{where}에 있고, 유료 9구간(철산동 4·하안동 4·광명동 목감로 거주자우선 1)과 "
                               "무료 1구간(광명6동 소형)으로 나뉩니다. "),
-        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total}곳, 주차 구획 {spaces:,}면"
+        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total:,}곳, 주차 구획 {spaces:,}면"
                        "(노상 {street_spaces:,}면 포함)입니다. 노외 {n}곳 가운데 유료 17곳(모두 1급지)·"
                        "무료 2곳·월 정기권 전용 3곳이고, 광명시 공영주차장 현황에만 등록된 안현철골(192면)·"
                        "광명6동 노외(75면)·광명6동 소형(25면)과 도시공사에만 있는 새빛공원(52면)도 함께 "
@@ -1139,7 +1139,7 @@ CITY_UI = {
                               "총 {spaces:,}면입니다. {where}에 있고, 1급지 5구간(검배로·안골로·"
                               "장자대로86번길·수택천로·건원대로34번길)과 2급지 1구간(동구릉로85번길)으로 "
                               "나뉩니다. "),
-        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total}곳, 주차 구획 "
+        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total:,}곳, 주차 구획 "
                        "{spaces:,}면(노상 {street_spaces:,}면 포함)입니다. 표준데이터에 등록된 "
                        "구리시 공영주차장 15곳이 모두 유료이고, 노외 9곳 가운데 1급지 3곳·2급지 "
                        "5곳·3급지 1곳입니다. 시청·행정복지센터·체육관 같은 부설주차장과 공유주차장 "
@@ -1348,7 +1348,7 @@ CITY_UI = {
                        "사동리는 2급지 3,000원·1급지 3,850원(1일 최대 7,000원·5,000원이 "
                        "상한)입니다. 요일을 바꾸면 아래 목록이 그날 기준 예상요금 순으로 다시 "
                        "정렬됩니다."),
-        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total}곳, 주차 구획 "
+        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total:,}곳, 주차 구획 "
                        "{spaces:,}면(노상 {street_spaces:,}면 포함)입니다. 표준데이터에 등록된 "
                        "이천시 공영주차장 115행 가운데 같은 주차장 두 세트 등록 35행을 묶어 "
                        "유료 45곳(노외 11·노상 34)·무료 35곳으로 실었습니다. 시내권 노상 유료 "
@@ -1452,7 +1452,7 @@ CITY_UI = {
                        "500원(2급지·3급지 200원), 2시간을 넘으면 30분당 2,000원(2급지·3급지 1,000원)입니다. "
                        "평일 2시간이면 1급지 1,500원·2급지 600원이고, 1일 주차권(노외 1급지 10,000원)이 "
                        "상한입니다. 요일을 바꾸면 아래 목록이 그날 기준 예상요금 순으로 다시 정렬됩니다."),
-        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total}곳, 주차 구획 {spaces:,}면"
+        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total:,}곳, 주차 구획 {spaces:,}면"
                        "(노상 {street_spaces:,}면 포함)입니다. 표준데이터에 등록된 안성시 공영주차장 52행 "
                        "가운데 8행이 유료로 등록되어 있고, 안성시시설관리공단이 운영하는 13곳(노외 12·노상 1)과 "
                        "대조해 표준데이터가 ‘무료’로 잘못 등록한 2곳(아양지구 제2·안성맞춤2구간)을 유료로 "
@@ -1561,7 +1561,7 @@ CITY_UI = {
                        "1일 주차권(선납) 7,000원이 상한이고, 장흥관광지 주차장은 하루 2,000원 "
                        "정액입니다. 요일을 ‘토요일’이나 ‘일요일·공휴일’로 바꾸면 대부분의 유료 "
                        "주차장이 0원이 됩니다(조례 비고3)."),
-        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total}곳, 주차 구획 "
+        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total:,}곳, 주차 구획 "
                        "{spaces:,}면(노상 {street_spaces:,}면 포함)입니다. 표준데이터에 등록된 양주시 "
                        "주차장 89행 가운데 민영 40곳(상가·건물·코레일네트웍스 등)은 공영주차장 "
                        "파인더라 빼고, 공영 49행(노외 38·노상 11)을 실었습니다. 양주도시공사 "
@@ -1674,7 +1674,7 @@ CITY_UI = {
                        "30분 600원·1시간 1,200원·2시간 2,400원입니다. 1일 주차요금(선납) 7,000원이 상한이고, "
                        "요금은 <b>평일 09:00~18:00에만</b> 받습니다. 요일을 ‘토요일’이나 ‘일요일·공휴일’로 "
                        "바꾸면 유료 주차장도 모두 0원이 됩니다."),
-        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total}곳, 주차 구획 "
+        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total:,}곳, 주차 구획 "
                        "{spaces:,}면(노상 {street_spaces:,}면 포함)입니다. 표준데이터에 등록된 포천시 "
                        "82행 가운데 주차구획수가 비어 있는 8행(용정산업단지 제1쌈지·가채리 벚꽃길·구읍공원·"
                        "탄동리·도평리 쌈지·양문리·감암리 파라뷰·내촌면 내리)은 껍데기 행이라 빼고 74행을 "
@@ -1787,7 +1787,7 @@ CITY_UI = {
                        "2,400원(2급지 600원·10분당 200원), 3,200원(1급지 800원·10분당 300원)이거나 "
                        "행락지 구간 요금으로 <b>2시간 2,000원</b>입니다. 내손주차빌딩·의왕역·고천주민센터·"
                        "백운커뮤니티 주차타워는 야간과 주말·공휴일에, 청계산은 주말·공휴일에 0원이 됩니다."),
-        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total}곳, 주차 구획 "
+        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total:,}곳, 주차 구획 "
                        "{spaces:,}면(노상 {street_spaces:,}면 포함)입니다. 표준데이터에 등록된 의왕시 "
                        "55행을 모두 실었습니다(주차구획수가 비어 있는 껍데기 행은 없었습니다). "
                        "표준데이터가 ‘무료’로 등록한 고천문화공원(2026년 5월 유료 전환)과 백운호수공원 "
@@ -1907,7 +1907,7 @@ CITY_UI = {
                        "600원·2시간 1,200원이며 1일 주차요금 6,000원이 상한입니다. 시청부설주차장만 최초 40분 "
                        "무료 뒤 1시간 500원·10분당 300원입니다. 토요일·일요일·공휴일에는 하동·하동제일시장·"
                        "가남읍1·2와 노상 구간이 0원이 되고, 한글시장·창동타워·여흥동은 일요일·공휴일에 0원입니다."),
-        "count_note": ("노외·부설 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total}곳, 주차 구획 "
+        "count_note": ("노외·부설 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total:,}곳, 주차 구획 "
                        "{spaces:,}면(노상 {street_spaces:,}면 포함)입니다. 표준데이터에 등록된 여주시 40행 "
                        "가운데 같은 지번(경기도 여주시 상동 357)에 무료(보건소옆무료주차장)·유료(여흥동 "
                        "공영주차장)로 두 번 올라온 1행은 유료 행만 남겨 39행을 실었습니다. 표준데이터가 "
@@ -2026,7 +2026,7 @@ CITY_UI = {
                        "600원 뒤 10분마다 200원(1일 6,000원)이고, 상패동 대형자동차는 소형 30분 500원·"
                        "중형·대형 600원입니다. 노상 25구간과 무료 노외 26곳은 요금이 없고, 일요일·공휴일에는 "
                        "유료 주차장도 0원이 됩니다."),
-        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total}곳, 주차 구획 "
+        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total:,}곳, 주차 구획 "
                        "{spaces:,}면(노상 {street_spaces:,}면 포함)입니다. 표준데이터에 등록된 동두천시 64행은 "
                        "모두 공영이라 민영 주차장은 없고, 공단이 유료로 운영하는 송내3을 유료로 바로잡아 "
                        "유료 13곳·무료 51곳입니다. 동두천시청 부설주차장(199면)과 어울림센터 등 기타 부서 "
@@ -2148,7 +2148,7 @@ CITY_UI = {
                        "·1일 24,000원입니다. 죽바위2-2는 표준데이터에 관내주민 요금(5분당 70원·1일 7,000원)"
                        "으로 등록되어 가장 쌉니다. 노상 구간은 노상주차장 페이지에, 일요일·공휴일에는 유료 "
                        "주차장도 대부분 0원이 됩니다."),
-        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total}곳, 주차 구획 "
+        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total:,}곳, 주차 구획 "
                        "{spaces:,}면(노상 {street_spaces:,}면 포함)입니다. 표준데이터에 등록된 과천시 101행은 "
                        "모두 공영이라 민영 주차장은 없고, 요금 구분은 유료 46곳·무료 55곳입니다. 노외 80행 "
                        "가운데 31행은 개별 이름 없이 ‘공영노외주차장’으로만 등록되어 있어 주소의 지번을 붙여 "
@@ -2276,7 +2276,7 @@ CITY_UI = {
                        "청평면 1·2구역·조종면·조종면 임시·레일바이크 6곳은 <b>최초 2시간이 무료</b>이고, "
                        "운악산은 하루 2,000원 정액입니다. 요금 구분이 ‘무료’인 25곳은 요일과 관계없이 "
                        "무료입니다."),
-        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total}곳, 주차 구획 "
+        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total:,}곳, 주차 구획 "
                        "{spaces:,}면(노상 {street_spaces:,}면 포함)입니다. 표준데이터에 등록된 가평군 49행은 "
                        "모두 공영이라 민영 주차장은 없고, 요금 구분은 유료 24곳(노외 15·노상 9)·무료 "
                        "25곳입니다. 가평군청 안내에만 있는 문화로(한석봉체육관 맞은편) 공영주차장과 "
@@ -2397,7 +2397,7 @@ CITY_UI = {
                        "양근천제방·양평타워식노외)뿐이고 모두 1급 지역입니다 — 1시간 1,200원, 2시간 "
                        "2,400원, 3시간 4,200원이고 <b>일일주차권 7,000원</b>이 상한입니다. 야간과 일요일·"
                        "공휴일은 0원입니다. 나머지 45곳은 요금 구분이 ‘무료’라 요일과 관계없이 무료입니다."),
-        "count_note": ("노외·부설 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total}곳, 주차 구획 "
+        "count_note": ("노외·부설 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total:,}곳, 주차 구획 "
                        "{spaces:,}면(노상 {street_spaces:,}면 포함)입니다. 표준데이터에 등록된 양평군 51행은 "
                        "모두 공영이라 민영 주차장은 없고, 같은 이름·같은 지번으로 두 번 등록된 지평면사무소 "
                        "주차장 1행을 합쳤습니다. 요금 구분은 유료 5곳(노외 3·노상 2)·무료 45곳입니다."),
@@ -2500,7 +2500,7 @@ CITY_UI = {
         "cheap_lede": ("연천군에서 요금을 받는 공영주차장은 <b>2곳</b>(전곡 전통시장·전곡재래시장)뿐입니다 — "
                        "노외 요금으로 1시간 700원, 2시간 1,300원, 3시간 1,900원이고 <b>1일 4,000원</b>이 "
                        "상한입니다. 나머지 6곳과 노상 2구간은 요금 구분이 ‘무료’입니다."),
-        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total}곳, 주차 구획 "
+        "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total:,}곳, 주차 구획 "
                        "{spaces:,}면(노상 {street_spaces:,}면 포함)입니다. 표준데이터에 등록된 연천군 10행은 "
                        "모두 공영이라 민영 주차장은 없고, 요금 구분은 유료 2곳·무료 8곳입니다. 연천군청 "
                        "공영주차장 안내는 15개소를 적는데, 나머지 5곳(연천공영터미널 환승·연천역 남측·북측·"
@@ -6671,13 +6671,15 @@ SEOUL_GU_ORDINANCE = {
 
 def footer_sources(city, url) -> str:
     if not city:
-        links = " · ".join(f'<a href="{url(city_path(c))}">{esc(c["city"])}</a>' for c in SITE_CITIES)
+        # 도 허브·루트·무료 허브 등 시·군·구가 정해지지 않은 페이지 — 푸터 <details>
+        # '지역 전체 보기'에 시·군·구 링크가 이미 다 있으므로, 같은 목록을 평문 <p>로
+        # 한 벌 더 노출하던 중복을 없앤다(밀크 2026-11-22 지적: 390px 537px/약 18줄).
+        # 사이트맵 링크는 푸터 법정 문구(foot-legal)에 그대로 있다.
         return (f'    <p><strong>{SITE_NAME}</strong>는 공공데이터포털 '
                 f'<a href="https://www.data.go.kr/data/15012896/standard.do" rel="nofollow noopener" target="_blank">'
                 f'전국주차장정보표준데이터</a>를 결합해 만든 참고용 정보입니다. '
                 f'실제 요금·운영시간은 현장에서 확인하세요.</p>\n'
-                f'    <p>생성 시각 {esc(BUILD_TS)} · 페이지 내 잔여면수는 조회 시점 스냅샷입니다.</p>\n'
-                f'    <p>{links} · <a href="{url("/sitemap.xml")}">사이트맵</a></p>\n')
+                f'    <p>생성 시각 {esc(BUILD_TS)} · 페이지 내 잔여면수는 조회 시점 스냅샷입니다.</p>\n')
     if city["city"] == "성남시":
         std_rows = city.get("quality", {}).get("원자료_성남시행수", "")
         return (f'    <p><strong>{SITE_NAME}</strong>는 공공데이터포털 '
@@ -7283,6 +7285,7 @@ def layout(*, title, description, path, body, crumbs, jsonld, nav_active, city=N
     absolute_links=True 이면 링크를 사이트 절대경로(/parking/...)로 쓴다. 404.html 처럼
     요청 주소가 그대로 유지되는 페이지는 상대경로가 어긋나므로 반드시 절대경로여야 한다.
     """
+    body = _wrap_data_tables(body)
     canonical = SITE_BASE + path if canonical is None else canonical
     url = (lambda t: "/" + t.lstrip("/")) if absolute_links else (lambda t: rel(path, t))
     # canonical·og:url 은 색인하지 않는 페이지(404)에서는 비운다
@@ -7350,10 +7353,11 @@ def rel(path: str, target: str) -> str:
 
 # ------------------------------------------------------------------ pieces
 def ad_slot(kind="inline"):
-    """광고 자리 — ADSENSE enabled=false(11-24 신청 전)이면 지금처럼 자리표시자만 그린다.
+    """광고 자리 — ADSENSE enabled=false(11-24 신청 전)이면 빈 문자열을 돌려준다.
 
-    enabled=true 가 되면 <ins class="adsbygoogle"> 와 push({}) 를 넣는다. 자리표시자 문구도
-    ‘광고’로 바꿔 한국어 화면에서 광고임이 분명하게 한다.
+    자리표시자 문구가 이용자에게 그대로 노출되던 문제
+    (밀크 2026-11-22 지적 C) 수정 — 실제 광고가 없을 때는 블록 자체를 그리지 않는다.
+    enabled=true 가 되면 <ins class="adsbygoogle"> 와 push({}) 를 넣는다.
     """
     if ADSENSE.get("enabled") and ADSENSE.get("client"):
         slot = esc(ADSENSE.get("slot_top" if kind == "top" else "slot_inline"))
@@ -7364,11 +7368,7 @@ def ad_slot(kind="inline"):
                 f' data-ad-slot="{slot}" data-ad-format="auto" data-full-width-responsive="true"></ins>'
                 '<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>'
                 '</div>')
-    return ('<div class="ad-slot" role="complementary" aria-label="광고">'
-            '<span class="ad-label">Sponsored · 광고 영역(테스트)</span>'
-            '<div class="ad-box"><span>Google AdSense 광고 자리</span>'
-            '<span>모바일 320×100 / 데스크톱 728×90 · 실제 게재 시 이 자리표시자를 교체</span></div>'
-            '</div>')
+    return ""
 
 
 def affiliate_block(placement, path) -> str:
@@ -7809,7 +7809,11 @@ def street_rows(street_lots, *, with_price=True, with_daily=None, unit_label="�
     head = (f"<tr><th>구간</th><th>{unit_label}</th><th>도로</th><th class=\"num\">구획</th>"
             + ("<th class=\"num\">평일 2시간</th>" if with_price else "")
             + ("<th class=\"num\">1일권</th>" if with_daily else "") + "</tr>")
-    return f'<table class="data"><thead>{head}</thead><tbody>{"".join(rows)}</tbody></table>'
+    # 7열(1일권 포함) 표가 390px 모바일에서 페이지를 가로로 밀던 문제(밀크 2026-11-22
+    # 실측: 미추홀 444px 등 경기·인천 허브 21곳) 수정 — 요금표와 같은 .table-scroll
+    # 래퍼로 감싼다. 호출처 5곳(구·시 허브, 상세, 노상 페이지 3종) 모두 공유 적용된다.
+    return (f'<div class="table-scroll"><table class="data"><thead>{head}</thead>'
+            f'<tbody>{"".join(rows)}</tbody></table></div>')
 
 
 # ------------------------------------------------------------------ pages
@@ -17590,6 +17594,27 @@ def fee_table_block(city) -> str:
     return _wrap_first_fee_table(_fee_table_block_raw(city))
 
 
+def _wrap_data_tables(body: str) -> str:
+    """본문의 모든 <table class="data">를 가로 스크롤 래퍼로 감싼다.
+
+    노상 표만 감싸도(밀크 2026-11-22 지적 A·B) 같은 허브의 다른 표
+    (도시별 2차 급지 요금표, '평일 2시간 기준 가장 저렴한 곳' 표)가 390px에서
+    여전히 페이지를 밀던 문제 수정 — 래퍼가 없는 표를 layout()에서 한 번에 감싼다.
+    상주시 조례 요금표(table.fee, 8열)도 같은 래퍼로 감싼다.
+    이미 .table-scroll 안에 있는 표(요금표 첫 표·노상 표)는 건드리지 않는다.
+    """
+    wrap = '<div class="table-scroll">'
+    out, pos = [], 0
+    for m in re.finditer(r'<table class="(?:data|fee)">.*?</table>', body, re.DOTALL):
+        if body[max(0, m.start() - len(wrap)):m.start()] == wrap:
+            continue
+        out.append(body[pos:m.start()])
+        out.append(wrap + m.group(0) + '</div>')
+        pos = m.end()
+    out.append(body[pos:])
+    return ''.join(out)
+
+
 def _two_h_group_summary(paid, label, unit="곳"):
     """유료곳 목록의 2시간 요금 요약 — (본문, 미산정_곳수, 평일미운영_곳수)를 돌려준다.
 
@@ -18542,8 +18567,8 @@ def build_free_hub(site):
             href = city_free_path(city) if c["union"] >= 5 else city_path(city)
             card_links.append((f"{prov} {city['city']}", href))
             cards.append(f'''<a class="link-card" data-name="{esc(prov)} {esc(city['city'])}" href="{rel(path, href)}">
-  <span class="t">{city['city']}<span class="go">{c['union']}곳 →</span></span>
-  <span class="d">무료로 쓸 수 있는 곳 {c['union']}곳 — 요금 무료 {c['free']}곳({sf['spaces']:,}면) · 주말·공휴일 무료 {c['weekend']}곳 · 야간 무료 {c['night']}곳</span>
+  <span class="t">{city['city']}<span class="go">{c['union']:,}곳 →</span></span>
+  <span class="d">무료로 쓸 수 있는 곳 {c['union']:,}곳 — 요금 무료 {c['free']:,}곳({sf['spaces']:,}면) · 주말·공휴일 무료 {c['weekend']:,}곳 · 야간 무료 {c['night']:,}곳</span>
 </a>''')
         if cards:
             sections.append(
@@ -18554,7 +18579,7 @@ def build_free_hub(site):
     def tag_rows(items, label):
         rows = "".join(
             f'<tr><td>{esc(l["name"])}</td><td>{esc(l.get("city") or "")}</td>'
-            f'<td class="num">{l["spaces"] or "-"}</td>'
+            f'<td class="num">{f"{l['spaces']:,}" if l["spaces"] else "-"}</td>'
             f'<td class="num">{esc({"무료": "요금 무료", "주말": "토·일", "공휴일": "공휴일", "심야": "야간"}.get(label, label))}</td></tr>'
             for l in sorted(items, key=lambda x: -(x["spaces"] or 0))[:12])
         return rows
@@ -18585,18 +18610,18 @@ def build_free_hub(site):
 
     weekend_rows = "".join(
         f'<tr><td>{esc(l["name"])}</td><td>{esc(l.get("city") or "")}</td>'
-        f'<td>{esc(day_label(l))}</td><td class="num">{l["spaces"] or "-"}</td></tr>'
+        f'<td>{esc(day_label(l))}</td><td class="num">{f"{l['spaces']:,}" if l["spaces"] else "-"}</td></tr>'
         for l in weekend)
     night_rows = "".join(
         f'<tr><td>{esc(l["name"])}</td><td>{esc(l.get("city") or "")}</td>'
-        f'<td>{esc(window_label(l))}</td><td class="num">{l["spaces"] or "-"}</td></tr>'
+        f'<td>{esc(window_label(l))}</td><td class="num">{f"{l['spaces']:,}" if l["spaces"] else "-"}</td></tr>'
         for l in night)
 
     qa = [
         ("무료로 주차할 수 있는 공영주차장은 몇 곳인가요?",
-         f"요금이 무료이거나 토·일·공휴일·야간에 무료로 개방하는 공영주차장이 {total['union']}곳입니다. "
-         f"그 가운데 요금 구분이 ‘무료’인 곳 {total['free']}곳, 주말·공휴일 무료 개방 {total['weekend']}곳, "
-         f"야간 무료 개방 {total['night']}곳입니다(한 곳이 여러 항목에 들어갈 수 있습니다)."),
+         f"요금이 무료이거나 토·일·공휴일·야간에 무료로 개방하는 공영주차장이 {total['union']:,}곳입니다. "
+         f"그 가운데 요금 구분이 ‘무료’인 곳 {total['free']:,}곳, 주말·공휴일 무료 개방 {total['weekend']:,}곳, "
+         f"야간 무료 개방 {total['night']:,}곳입니다(한 곳이 여러 항목에 들어갈 수 있습니다)."),
         ("공휴일에도 무료인지 어떻게 확인하나요?",
          "주차장 카드의 ‘무료’ 표기와 이 페이지의 주말·공휴일 목록에 공휴일 개방이 적힌 곳은 공휴일에 무료입니다. "
          "목록 위의 ‘지금 무료·운영 중’을 누르면 오늘(공휴일이면 공휴일 기준) 실제로 무료이고 문을 연 곳만 남습니다. "
@@ -18606,38 +18631,38 @@ def build_free_hub(site):
          "카드의 ‘무료 시간’에 그 시간대를 적었습니다. 시간대를 벗어나면 요금이 붙습니다."),
     ]
     body = f"""
-<h1>무료 공영주차장 {total['union']}곳 — 주말·공휴일·야간 무료 개방</h1>
+<h1>무료 공영주차장 {total['union']:,}곳 — 주말·공휴일·야간 무료 개방</h1>
 <p class="lede">요금이 무료이거나 토요일·일요일·공휴일, 또는 야간에 무료로 개방하는 공영주차장만 모았습니다.
 공공데이터의 요금 구분·특기사항·운영시간을 그대로 옮겼고, 월정기·공무원·화물차 전용처럼 일반 차량이 쓸 수 없는 곳은 뺐습니다.</p>
 <p class="updated">자료 기준일 {esc((site.get('meta') or {}).get('generated_at') or BUILD_TS)}</p>
 <div class="stats">
-  <div class="stat free"><span class="k">무료로 쓸 수 있는 곳</span><span class="v">{total['union']}<small>곳</small></span></div>
-  <div class="stat"><span class="k">요금 구분 무료</span><span class="v">{total['free']}<small>곳</small></span></div>
-  <div class="stat"><span class="k">주말·공휴일 무료</span><span class="v">{total['weekend']}<small>곳</small></span></div>
+  <div class="stat free"><span class="k">무료로 쓸 수 있는 곳</span><span class="v">{total['union']:,}<small>곳</small></span></div>
+  <div class="stat"><span class="k">요금 구분 무료</span><span class="v">{total['free']:,}<small>곳</small></span></div>
+  <div class="stat"><span class="k">주말·공휴일 무료</span><span class="v">{total['weekend']:,}<small>곳</small></span></div>
 </div>
 <div class="note-box" style="margin-top:14px">
-  <p><b>야간 무료 개방</b> {total['night']}곳 · <b>공휴일에만 무료</b> {len([l for l in free_open_lots(all_lots) if '공휴일' in lot_free_tags(l)])}곳.
-  요금 구분이 ‘무료’인 곳은 {total['free']}곳 · 총 {sf_total['spaces']:,}면입니다(노상 구간 제외).
+  <p><b>야간 무료 개방</b> {total['night']:,}곳 · <b>공휴일에만 무료</b> {len([l for l in free_open_lots(all_lots) if '공휴일' in lot_free_tags(l)]):,}곳.
+  요금 구분이 ‘무료’인 곳은 {total['free']:,}곳 · 총 {sf_total['spaces']:,}면입니다(노상 구간 제외).
   주차장 카드의 ‘무료’ 표기와 무료 시간을 함께 보세요.</p>
-  <p>노상(거리) 주차구간은 카드로 세지 않았습니다 — 무료로 쓸 수 있는 노상 구간 {street_free_n}곳은 각 지역의
+  <p>노상(거리) 주차구간은 카드로 세지 않았습니다 — 무료로 쓸 수 있는 노상 구간 {street_free_n:,}곳은 각 지역의
   <a href="{rel(path, '/parking/regions/')}">지역 페이지</a> 안 노상주차장 요금 페이지와 무료 개방 페이지 표에 있습니다.</p>
 </div>
 {ad_slot()}
 <nav class="free-tabs" aria-label="무료 개방 유형">
-  <a href="#all">전체 무료 {total['union']}</a>
-  <a href="#weekend">주말·공휴일 {total['weekend']}</a>
-  <a href="#night">야간 {total['night']}</a>
+  <a href="#all">전체 무료 {total['union']:,}</a>
+  <a href="#weekend">주말·공휴일 {total['weekend']:,}</a>
+  <a href="#night">야간 {total['night']:,}</a>
 </nav>
 <h2 id="all">지역별 무료 주차장</h2>
 {region_filter_block()}
 {''.join(sections)}
-<h2 id="weekend">주말·공휴일 무료 주차장 {total['weekend']}곳</h2>
+<h2 id="weekend">주말·공휴일 무료 주차장 {total['weekend']:,}곳</h2>
 <p class="lede">토요일·일요일·공휴일에 요금을 받지 않는 주차장입니다(구획이 많은 순 40곳). 지역별 전체 목록은 위 지역 카드에서 볼 수 있습니다.</p>
 <table class="data">
   <thead><tr><th>주차장</th><th>지역</th><th>무료 요일</th><th class="num">구획</th></tr></thead>
   <tbody>{weekend_rows}</tbody>
 </table>
-<h2 id="night">야간 무료 주차장 {total['night']}곳</h2>
+<h2 id="night">야간 무료 주차장 {total['night']:,}곳</h2>
 <p class="lede">요금은 유료이지만 정해진 야간 시간대에만 요금을 받지 않는 주차장입니다(구획이 많은 순 40곳).</p>
 <table class="data">
   <thead><tr><th>주차장</th><th>지역</th><th>무료 시간대</th><th class="num">구획</th></tr></thead>
@@ -18645,9 +18670,9 @@ def build_free_hub(site):
 </table>
 <h2>무료 개방 유형</h2>
 <ul class="free-legend">
-  <li><b>요금 구분 무료</b> {total['free']}곳 — 요일과 관계없이 요금이 없습니다.</li>
-  <li><b>주말·공휴일 무료</b> {total['weekend']}곳 — 토요일·일요일·공휴일에 무료입니다(카드에 요일을 적었습니다).</li>
-  <li><b>야간 무료</b> {total['night']}곳 — 정해진 야간 시간대에만 요금을 받지 않습니다.</li>
+  <li><b>요금 구분 무료</b> {total['free']:,}곳 — 요일과 관계없이 요금이 없습니다.</li>
+  <li><b>주말·공휴일 무료</b> {total['weekend']:,}곳 — 토요일·일요일·공휴일에 무료입니다(카드에 요일을 적었습니다).</li>
+  <li><b>야간 무료</b> {total['night']:,}곳 — 정해진 야간 시간대에만 요금을 받지 않습니다.</li>
 </ul>
 {faq_block(qa)}
 <section class="note-box" style="margin-top:20px">
@@ -18662,9 +18687,9 @@ def build_free_hub(site):
 """
     crumbs = [("홈", "/"), ("무료 개방 주차장", "")]
     return path, layout(
-        title=f"무료 공영주차장 {total['union']}곳 — 주말·공휴일·야간 무료 개방 | {SITE_NAME}",
+        title=f"무료 공영주차장 {total['union']:,}곳 — 주말·공휴일·야간 무료 개방 | {SITE_NAME}",
         description=(f"전국 공영주차장 가운데 요금이 무료이거나 주말·공휴일·야간에 무료로 개방하는 "
-                     f"{total['union']}곳을 지역별로 정리했습니다. 공휴일 기준과 야간 무료 시간대도 함께 확인하세요."),
+                     f"{total['union']:,}곳을 지역별로 정리했습니다. 공휴일 기준과 야간 무료 시간대도 함께 확인하세요."),
         path=path, body=body, crumbs=crumbs, nav_active="free", city=None,
         jsonld=[jsonld_breadcrumb(crumbs, path),
                 jsonld_link_itemlist("지역별 무료 공영주차장", card_links),
@@ -18685,6 +18710,11 @@ def build_province_hub(prov, site):
     """
     cities = [c for c in site["cities"] if (c.get("province") or "지역") == prov]
     prov_slug = next((c.get("province_slug") for c in cities if c.get("province_slug")), "")
+    if prov_slug == "jeonnam":
+        # 전남광주통합특별시 — 광주광역시 5개 구도 이 허브에 함께 모은다(2026-11-22 결정,
+        # 인스팅트 대조 완료: 27개 시·군·구·카드 1,473곳). 광주 허브(/parking/gwangju/)는
+        # 별도 페이지로 유지하고 상호 링크한다. 무료 허브(build_province_free)도 같은 합산을 쓴다.
+        cities = cities + [c for c in site["cities"] if (c.get("province") or "지역") == "광주광역시"]
     path = province_path(prov_slug)
     card_lots = [l for c in cities for l in (c.get("_card_lots") or [])]
     street_lots = [l for c in cities for l in (c.get("_street_lots") or [])]
@@ -18701,8 +18731,8 @@ def build_province_hub(prov, site):
     rows.sort(key=lambda r: (-r[1], -r[2], r[0]["city"]))
     cards = []
     for city, n, spaces, free_n, street_n in rows:
-        go = f"{n}곳" if n else f"노상 {street_n}구간"
-        desc = (f"총 {spaces:,}면 · 무료로 쓸 수 있는 곳 {free_n}곳" if n
+        go = f"{n:,}곳" if n else f"노상 {street_n}구간"
+        desc = (f"총 {spaces:,}면 · 무료로 쓸 수 있는 곳 {free_n:,}곳" if n
                 else f"노상 구간 {street_n}곳")
         if n and street_n:
             desc += f" · 노상 구간 {street_n}곳"
@@ -18712,20 +18742,20 @@ def build_province_hub(prov, site):
 </a>''')
     top_rows = "".join(
         f'<tr><td>{esc(l["name"])}</td><td>{esc(l.get("city") or "")}</td>'
-        f'<td>{esc(l.get("dong") or "")}</td><td class="num">{l["spaces"] or "-"}</td></tr>'
+        f'<td>{esc(l.get("dong") or "")}</td><td class="num">{f"{l['spaces']:,}" if l["spaces"] else "-"}</td></tr>'
         for l in sorted(card_lots, key=lambda x: -(x["spaces"] or 0))[:20])
     street_note = (f" 요금이 무료인 노상(거리) 구간은 이 집계에 넣지 않고 각 지역의 "
                    "노상주차장 페이지에 적었습니다.") if street_lots else ""
     qa = [
         (f"{prov} 공영주차장은 몇 곳인가요?",
-         f"카드 기준 {st['n']}곳(총 {st['spaces']:,}면)입니다. 요금 무료 {sf['n']}곳·유료 {paid_n}곳·"
-         f"요금 미상 {st['unknown_fee']}곳입니다."
-         + (f" 노상(거리) 구간 {len(street_lots)}곳은 이 집계에 넣지 않았습니다." if street_lots else "")),
+         f"카드 기준 {st['n']:,}곳(총 {st['spaces']:,}면)입니다. 요금 무료 {sf['n']:,}곳·유료 {paid_n:,}곳·"
+         f"요금 미상 {st['unknown_fee']:,}곳입니다."
+         + (f" 노상(거리) 구간 {len(street_lots):,}곳은 이 집계에 넣지 않았습니다." if street_lots else "")),
         (f"{prov}에서 무료로 쓸 수 있는 공영주차장은 몇 곳인가요?",
-         f"{free_union}곳입니다. 요금 구분이 ‘무료’인 곳 {sf['n']}곳에 주말·공휴일·야간에 무료로 "
-         "개방하는 곳을 더한 숫자입니다. 무료 개방만 모은 목록은 아래 도별 무료 허브에서 볼 수 있습니다."),
+         f"{free_union:,}곳입니다. 요금 구분이 ‘무료’인 곳 {sf['n']:,}곳에 주말·공휴일·야간에 무료로 "
+         "개방하는 곳을 더한 숫자입니다. 무료 개방만 모은 목록은 위 도별 무료 허브에서 볼 수 있습니다."),
         ("각 지역의 주차요금은 어디서 확인하나요?",
-         "아래 지역 이름을 누르면 그 지역의 요금 계산기와 주차장 목록으로 이동합니다. "
+         "위 지역 이름을 누르면 그 지역의 요금 계산기와 주차장 목록으로 이동합니다. "
          "2시간·하루 주차비를 요일·감면 조건에 맞춰 계산할 수 있습니다."),
     ]
     # 2026-07-01 「전남광주통합특별시 설치를 위한 특별법」(법률 제21620호) 시행으로
@@ -18739,27 +18769,32 @@ def build_province_hub(prov, site):
                       f"<a href=\"{rel(path, '/parking/jeonnam/')}\">전남광주통합특별시 허브</a>에서 볼 수 있습니다.</p>")
     elif prov_slug == "jeonnam":
         merge_note = ("<p>2026-07-01 「전남광주통합특별시 설치를 위한 특별법」(법률 제21620호) 시행으로 "
-                      "광주광역시·전라남도는 폐지되고 전남광주통합특별시가 출범했습니다. 기존 광주광역시 5개 구는 "
-                      f"<a href=\"{rel(path, '/parking/gwangju/')}\">광주광역시 허브</a>에서 따로 볼 수 있습니다.</p>")
+                      "광주광역시·전라남도는 폐지되고 전남광주통합특별시가 출범했습니다. 기존 광주광역시 5개 구도 "
+                      "이 허브에 함께 모았습니다(총 27개 시·군·구). 광주광역시 5개 구만 따로 보려면 "
+                      f"<a href=\"{rel(path, '/parking/gwangju/')}\">광주광역시 허브</a>에서 볼 수 있습니다.</p>")
+    # 세종특별자치시처럼 지역이 1곳이면 '1개 시·군·구별로 모았습니다'가 어색해 한 페이지 문구로 바꾼다.
+    region_phrase = f"{len(cities)}개 시·군·구별로" if len(cities) > 1 else "한 페이지에"
     body = f"""
-<h1>{esc(prov)} 공영주차장 {st['n']}곳</h1>
-<p class="lede">{esc(prov)} 공영주차장 {st['n']}곳(총 {st['spaces']:,}면)을 {len(cities)}개 시·군·구별로 모았습니다.
+<h1>{esc(prov)} 공영주차장 {st['n']:,}곳</h1>
+<p class="lede">{esc(prov)} 공영주차장 {st['n']:,}곳(총 {st['spaces']:,}면)을 {region_phrase} 모았습니다.
 지역 이름을 누르면 그 지역의 요금 계산기와 주차장 목록으로 이동합니다.</p>
 <p class="updated">자료 기준일 {esc((site.get('meta') or {}).get('generated_at') or BUILD_TS)}</p>
 <div class="stats">
-  <div class="stat"><span class="k">등록 주차장</span><span class="v">{st['n']}<small>곳</small></span></div>
+  <div class="stat"><span class="k">등록 주차장</span><span class="v">{st['n']:,}<small>곳</small></span></div>
   <div class="stat"><span class="k">총 구획</span><span class="v">{st['spaces']:,}<small>면</small></span></div>
-  <div class="stat free"><span class="k">무료로 쓸 수 있는 곳</span><span class="v">{free_union}<small>곳</small></span></div>
+  <div class="stat free"><span class="k">무료로 쓸 수 있는 곳</span><span class="v">{free_union:,}<small>곳</small></span></div>
 </div>
 <div class="note-box" style="margin-top:14px">
-  <p><b>무료 개방 주차장 {free_union}곳</b> — 요금이 무료이거나 주말·공휴일·야간에 무료로 개방하는 곳을 따로 모았습니다.
-  <a class="btn" href="{rel(path, province_free_path(prov_slug))}">{esc(prov)} 무료 주차장 모아보기 →</a>
-  <a class="btn" href="{rel(path, '/parking/free/')}">전국 무료 개방 허브 →</a></p>
+  <p><b>주말·공휴일·야간 무료 개방 포함 {free_union:,}곳</b> — 요금 무료 {sf['n']:,}곳에 주말·공휴일·야간 무료 개방을 더한 수입니다(중복 제외). 도별 무료 허브 제목의 숫자는 요금 무료 {sf['n']:,}곳만 센 것입니다.</p>
+  <div class="actions" style="margin-top:10px">
+    <a class="btn" href="{rel(path, province_free_path(prov_slug))}">요금 무료 {sf['n']:,}곳 보기 →</a>
+    <a class="btn" href="{rel(path, '/parking/free/')}">전국 무료 개방 허브 →</a>
+  </div>
 </div>
 {merge_note}
 {region_filter_block()}
 <section data-group>
-<h2>시·군별 공영주차장</h2>
+<h2>시·군·구별 공영주차장</h2>
 <div class="grid-2">{''.join(cards)}</div>
 </section>
 <h2>구획이 가장 많은 주차장</h2>
@@ -18772,7 +18807,7 @@ def build_province_hub(prov, site):
 <section class="note-box" style="margin-top:18px">
   <h2>데이터 출처와 한계</h2>
   <ul>
-    <li>행정안전부 전국주차장정보표준데이터(기준일 2026-04-16)의 요금 구분을 기준으로, 카드(노외·부설) 주차장 {st['n']}곳을 집계했습니다.{street_note}</li>
+    <li>행정안전부 전국주차장정보표준데이터(기준일 2026-04-16)의 요금 구분을 기준으로, 카드(노외·부설) 주차장 {st['n']:,}곳을 집계했습니다.{street_note}</li>
     <li>‘무료로 쓸 수 있는 곳’은 요금 구분이 ‘무료’인 곳에 주말·공휴일·야간 무료 개방을 더한 수입니다(중복 제외).</li>
     <li>‘무료’는 원자료의 요금 구분 표기 기준입니다. 현장 운영이 다를 수 있으니 방문 전 관리기관에 확인하세요.</li>
   </ul>
@@ -18780,12 +18815,12 @@ def build_province_hub(prov, site):
 """
     crumbs = [("홈", "/"), (prov, "")]
     return path, layout(
-        title=f"{esc(prov)} 공영주차장 {st['n']}곳 — 시·군별 요금·무료 개방 | {SITE_NAME}",
-        description=(f"{prov} 공영주차장 {st['n']}곳(총 {st['spaces']:,}면)을 시·군별로 정리했습니다. "
+        title=f"{esc(prov)} 공영주차장 {st['n']:,}곳 — 시·군·구별 요금·무료 개방 | {SITE_NAME}",
+        description=(f"{prov} 공영주차장 {st['n']:,}곳(총 {st['spaces']:,}면)을 시·군·구별로 정리했습니다. "
                      "지역명으로 검색해 요금 계산기와 무료 개방 정보를 확인하세요."),
         path=path, body=body, crumbs=crumbs, nav_active="", city=None,
         jsonld=[jsonld_breadcrumb(crumbs, path),
-                jsonld_link_itemlist(f"{prov} 시·군별 공영주차장",
+                jsonld_link_itemlist(f"{prov} 시·군·구별 공영주차장",
                                      [(r[0]["city"], city_path(r[0])) for r in rows]),
                 jsonld_faq(qa, path)])
 
@@ -18794,12 +18829,15 @@ def build_province_free(prov, site):
     """ /parking/{province_slug}/free/ — 도별 무료 주차장 모아보기.
 
     전국 허브(/parking/free/)가 '무료 개방'(주말·공휴일·야간 포함) 기준이라면,
-    이 페이지는 요금 구분이 '무료'인 곳만 시·군별로 모은다(요금 미상 제외).
+    이 페이지는 요금 구분이 '무료'인 곳만 시·군·구별로 모은다(요금 미상 제외).
     집계는 사이트의 다른 페이지와 같은 카드(노외·부설) 기준이고, 무료인 노상
     구간은 개수만 아래에 따로 적는다.
     """
     cities = [c for c in site["cities"] if (c.get("province") or "지역") == prov]
     prov_slug = next((c.get("province_slug") for c in cities if c.get("province_slug")), "")
+    if prov_slug == "jeonnam":
+        # 도 허브와 같은 합산 — 광주광역시 5개 구의 무료 주차장도 이 페이지에 함께 모은다.
+        cities = cities + [c for c in site["cities"] if (c.get("province") or "지역") == "광주광역시"]
     path = province_free_path(prov_slug)
     rows = []
     all_free = []
@@ -18818,18 +18856,18 @@ def build_province_free(prov, site):
     total_spaces = sum(r[1]["spaces"] for r in rows)
     cards = "".join(
         f'''<a class="link-card" data-name="{esc(prov)} {esc(city['city'])}" href="{rel(path, href)}">
-  <span class="t">{esc(city['city'])}<span class="go">무료 {sf['n']}곳 →</span></span>
+  <span class="t">{esc(city['city'])}<span class="go">무료 {sf['n']:,}곳 →</span></span>
   <span class="d">총 {sf['spaces']:,}면 · 전체 {len(city.get('_card_lots') or [])}곳 중 무료 {sf['n']}곳</span>
 </a>''' for city, sf, href in rows)
-    top_names = " · ".join(f"{r[0]['city']} {r[1]['n']}곳" for r in rows[:3])
+    top_names = " · ".join(f"{r[0]['city']} {r[1]['n']:,}곳" for r in rows[:3])
     top_rows = "".join(
         f'<tr><td>{esc(l["name"])}</td><td>{esc(l.get("city") or "")}</td>'
-        f'<td>{esc(l.get("dong") or "")}</td><td class="num">{l["spaces"] or "-"}</td></tr>'
+        f'<td>{esc(l.get("dong") or "")}</td><td class="num">{f"{l['spaces']:,}" if l["spaces"] else "-"}</td></tr>'
         for l in sorted(all_free, key=lambda x: -(x["spaces"] or 0))[:20])
     qa = [
         (f"{prov}에서 요금이 무료인 공영주차장은 몇 곳인가요?",
-         f"{total_n}곳(총 {total_spaces:,}면)입니다. 지역별로는 {top_names} 순으로 많습니다."
-         + (f" 요금이 무료인 노상(거리) 구간 {street_free_n}곳은 이 집계에 넣지 않고 "
+         f"{total_n:,}곳(총 {total_spaces:,}면)입니다. 지역별로는 {top_names} 순으로 많습니다."
+         + (f" 요금이 무료인 노상(거리) 구간 {street_free_n:,}곳은 이 집계에 넣지 않고 "
             "각 지역의 노상주차장 페이지에 적었습니다." if street_free_n else "")),
         ("주말·공휴일이나 야간에 무료로 쓸 수 있는 곳도 있나요?",
          "있습니다. 요금은 유료여도 주말·공휴일·야간에 무료로 개방하는 곳은 각 지역의 무료 개방 페이지와 "
@@ -18838,22 +18876,32 @@ def build_province_free(prov, site):
          "네. 요금이 무료여도 운영시간이 정해진 곳이 많습니다. 각 주차장 카드에 평일·토요일·일요일(공휴일) "
          "운영시간이 적혀 있으니 방문 전에 확인하세요."),
     ]
-    street_note = (f"<li>요금이 무료인 노상(거리) 구간 {street_free_n}곳은 카드 집계에서 빼고, "
+    street_note = (f"<li>요금이 무료인 노상(거리) 구간 {street_free_n:,}곳은 카드 집계에서 빼고, "
                    "각 지역의 노상주차장 요금 페이지에 적었습니다.</li>") if street_free_n else ""
+    merge_note = ""
+    if prov_slug == "gwangju":
+        merge_note = ("<p>2026-07-01 「전남광주통합특별시 설치를 위한 특별법」 시행으로 광주광역시·전라남도는 "
+                      "폐지되고 전남광주통합특별시가 출범했습니다. 광주광역시 5개 구의 무료 주차장은 "
+                      f"<a href=\"{rel(path, '/parking/jeonnam/free/')}\">전남광주통합특별시 무료 허브</a>에도 함께 모았습니다.</p>")
+    elif prov_slug == "jeonnam":
+        merge_note = ("<p>2026-07-01 「전남광주통합특별시 설치를 위한 특별법」 시행으로 광주광역시·전라남도는 "
+                      "폐지되고 전남광주통합특별시가 출범했습니다. 기존 광주광역시 5개 구의 무료 주차장도 "
+                      "이 페이지에 함께 모았습니다.</p>")
     body = f"""
-<h1>{esc(prov)} 무료 공영주차장 {total_n}곳</h1>
-<p class="lede">{esc(prov)} 공영주차장 가운데 요금이 무료인 {total_n}곳(총 {total_spaces:,}면)을 시·군별로 모았습니다.
+<h1>{esc(prov)} 무료 공영주차장 {total_n:,}곳</h1>
+<p class="lede">{esc(prov)} 공영주차장 가운데 요금이 무료인 {total_n:,}곳(총 {total_spaces:,}면)을 시·군·구별로 모았습니다.
 지역 이름을 누르면 그 지역의 무료 개방 목록으로 이동합니다. 주말·공휴일·야간에 무료로 개방하는 곳까지 보려면
 <a href="{rel(path, '/parking/free/')}">전국 무료 개방 허브</a>를 보세요.</p>
 <p class="updated">자료 기준일 {esc((site.get('meta') or {}).get('generated_at') or BUILD_TS)}</p>
 <div class="stats">
-  <div class="stat free"><span class="k">요금 무료</span><span class="v">{total_n}<small>곳</small></span></div>
+  <div class="stat free"><span class="k">요금 무료</span><span class="v">{total_n:,}<small>곳</small></span></div>
   <div class="stat"><span class="k">총 구획</span><span class="v">{total_spaces:,}<small>면</small></span></div>
   <div class="stat"><span class="k">무료 있는 지역</span><span class="v">{len(rows)}<small>곳</small></span></div>
 </div>
+{merge_note}
 {region_filter_block()}
 <section data-group>
-<h2>시·군별 무료 주차장</h2>
+<h2>시·군·구별 무료 주차장</h2>
 <div class="grid-2">{cards}</div>
 </section>
 <h2>구획이 가장 많은 무료 주차장</h2>
@@ -18874,12 +18922,12 @@ def build_province_free(prov, site):
 """
     crumbs = [("홈", "/"), (prov, province_path(prov_slug)), ("무료 주차장", "")]
     return path, layout(
-        title=f"{esc(prov)} 무료 공영주차장 {total_n}곳 — 시·군별 모아보기 | {SITE_NAME}",
-        description=(f"{prov} 공영주차장 가운데 요금이 무료인 {total_n}곳(총 {total_spaces:,}면)을 "
-                     "시·군별로 정리했습니다. 지역명으로 검색해 무료 주차장을 찾으세요."),
+        title=f"{esc(prov)} 무료 공영주차장 {total_n:,}곳 — 시·군·구별 모아보기 | {SITE_NAME}",
+        description=(f"{prov} 공영주차장 가운데 요금이 무료인 {total_n:,}곳(총 {total_spaces:,}면)을 "
+                     "시·군·구별로 정리했습니다. 지역명으로 검색해 무료 주차장을 찾으세요."),
         path=path, body=body, crumbs=crumbs, nav_active="free", city=None,
         jsonld=[jsonld_breadcrumb(crumbs, path),
-                jsonld_link_itemlist(f"{prov} 시·군별 무료 주차장",
+                jsonld_link_itemlist(f"{prov} 시·군·구별 무료 주차장",
                                      [(r[0]["city"], r[2]) for r in rows]),
                 jsonld_faq(qa, path)])
 
@@ -18905,7 +18953,7 @@ def build_city_free(city, site):
     if street_free:
         rows = "".join(
             f'<tr><td>{esc(l["name"])}</td><td>{esc(l.get("dong") or "")}</td>'
-            f'<td class="num">{l["spaces"] or "-"}</td>'
+            f'<td class="num">{f"{l['spaces']:,}" if l["spaces"] else "-"}</td>'
             f'<td>{esc(" · ".join(lot_free_tags(l)))}</td></tr>' for l in street_free)
         street_block = ("<h2>무료인 노상(거리) 구간 " + str(len(street_free)) + "곳</h2>"
                         '<p class="lede">도로변 주차구간은 카드 대신 표로 적었습니다. 구간 위치와 요금은 '
@@ -19258,9 +19306,18 @@ def build_landing(site):
             lots = city["_card_lots"]
             st = stats_for(lots)
             free_n = city_free_count(city)
+            sl = city.get("_street_lots") or []
+            if st["n"]:
+                go = f"{st['n']:,}곳"
+                desc = (f"주차요금 계산 · {city_list_label(city)} 목록"
+                        + (f" · 무료 {free_n:,}곳" if free_n else ""))
+            else:
+                # 카드 주차장이 없고 노상 구간만 있는 곳(사천시, 노상 9구간) — '0곳' 대신 노상 구간 수를 적는다.
+                go = f"노상 {len(sl)}구간"
+                desc = f"주차요금 계산 · {city_list_label(city)} 목록 · 노상 구간 {len(sl)}곳"
             cards.append(f'''<a class="link-card" href="{city_path(city).lstrip("/")}">
-  <span class="t">{city['city']}<span class="go">{st['n']}곳 →</span></span>
-  <span class="d">주차요금 계산 · {city_list_label(city)} 목록{' · 무료 ' + str(free_n) + '곳' if free_n else ''}</span>
+  <span class="t">{city['city']}<span class="go">{go} →</span></span>
+  <span class="d">{desc}</span>
 </a>''')
             search_opts.append(f'<option value="{esc(city["city"])}" data-href="{city_path(city)}">{esc(prov)}</option>')
             for d in ([] if is_city_wide(city) else city["districts"]):
@@ -19317,7 +19374,7 @@ def build_landing(site):
     body = f"""
 <h1>공영주차장 파인더 — {city_names}</h1>
 <p class="lede">"여기 2시간 주차하면 얼마지?"를 바로 확인하는 페이지입니다.
-공공데이터로 등록된 공영주차장 {total}곳(구획 {total_spaces:,}면)의 요금·운영시간·무료 개방 정보를 요일과 시간에 맞춰 계산합니다.</p>
+공공데이터로 등록된 공영주차장 {total:,}곳(구획 {total_spaces:,}면)의 요금·운영시간·무료 개방 정보를 요일과 시간에 맞춰 계산합니다.</p>
 
 <form class="hero-search" role="search" action="{rel(path, '/parking/regions/')}" method="get">
   <label for="q">지역·주차장 빠른 검색</label>
@@ -19339,13 +19396,15 @@ def build_landing(site):
 </section>
 
 <div class="stats">
-  <div class="stat"><span class="k">등록 주차장</span><span class="v">{total}<small>곳</small></span></div>
+  <div class="stat"><span class="k">등록 주차장</span><span class="v">{total:,}<small>곳</small></span></div>
   <div class="stat"><span class="k">지원 지역</span><span class="v">{len(site['cities'])}<small>{region_unit}</small></span></div>
-  <div class="stat free"><span class="k">무료로 쓸 수 있는 곳</span><span class="v">{free_total}<small>곳</small></span></div>
+  <div class="stat free"><span class="k">무료로 쓸 수 있는 곳</span><span class="v">{free_total:,}<small>곳</small></span></div>
 </div>
 <div class="note-box" style="margin-top:14px">
-  <p><b>무료 개방 주차장 {free_total}곳</b> — 요금이 무료이거나 주말·공휴일·야간에 무료로 개방하는 곳을 따로 모았습니다.
-  <a class="btn" href="{rel(path, '/parking/free/')}">무료 개방 주차장 보기 →</a></p>
+  <p><b>무료 개방 주차장 {free_total:,}곳</b> — 요금이 무료이거나 주말·공휴일·야간에 무료로 개방하는 곳을 따로 모았습니다.</p>
+  <div class="actions" style="margin-top:10px">
+    <a class="btn" href="{rel(path, '/parking/free/')}">무료 개방 주차장 보기 →</a>
+  </div>
 </div>
 
 <h2>지역 선택</h2>
