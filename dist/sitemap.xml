@@ -1904,6 +1904,12 @@
   <url><loc>https://parking.9welfare.com/parking/gangwon/jeongseon/jeongseon-eup/</loc><lastmod>2026-11-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gangwon/jeongseon/hwaam-myeon/</loc><lastmod>2026-11-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gangwon/jeongseon/street-parking/</loc><lastmod>2026-11-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gangwon/cheorwon/free/</loc><lastmod>2026-11-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gangwon/cheorwon/</loc><lastmod>2026-11-22</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gangwon/cheorwon/galmal-eup/</loc><lastmod>2026-11-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gangwon/cheorwon/dongsong-eup/</loc><lastmod>2026-11-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gangwon/cheorwon/seo-myeon/</loc><lastmod>2026-11-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gangwon/cheorwon/cheolwon-eup/</loc><lastmod>2026-11-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gyeonggi/suwon/std-001/</loc><lastmod>2026-11-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gyeonggi/suwon/std-002/</loc><lastmod>2026-11-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gyeonggi/suwon/std-003/</loc><lastmod>2026-11-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -4509,4 +4515,6 @@
   <url><loc>https://parking.9welfare.com/parking/gangwon/jeongseon/gw-jeongseon-021/</loc><lastmod>2026-11-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gangwon/jeongseon/gw-jeongseon-s001/</loc><lastmod>2026-11-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://parking.9welfare.com/parking/gangwon/jeongseon/gw-jeongseon-s006/</loc><lastmod>2026-11-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gangwon/cheorwon/gw-cheorwon-010/</loc><lastmod>2026-11-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://parking.9welfare.com/parking/gangwon/cheorwon/gw-cheorwon-023/</loc><lastmod>2026-11-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>

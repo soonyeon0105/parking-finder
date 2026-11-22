@@ -1,0 +1,5210 @@
+{
+ "meta": {
+  "generated_at": "2026-11-22 12:05",
+  "generated_at_iso": "2026-11-22T12:05:46+09:00",
+  "snapshot_at": "2026-11-22 12:05",
+  "region": {
+   "province": "강원특별자치도",
+   "city": "철원군"
+  },
+  "sources": [
+   {
+    "id": "std",
+    "name": "전국주차장정보표준데이터",
+    "org": "행정안전부·지방자치단체",
+    "url": "https://www.data.go.kr/data/15012896/standard.do",
+    "file": "전국주차장정보표준데이터_data.go.kr_15012896.csv",
+    "sha256": "d98e5f82fe413d9f78508fa4e98254f535652e8078bd9ece39eea777365dd531",
+    "license": "이용허락범위 안내(공공누리 유형별 표기)",
+    "base_date": "2026-04-21",
+    "rows_total": 18994,
+    "rows_city": 42,
+    "fetched_at": "2026-11-22 12:05 (KST)",
+    "note": "철원군으로 등록된 행 42행을 읽어 중복 제거 0건, 제외 0건으로 42곳을 실었다. 유료 2곳·무료 40곳·미상 0곳이다. 데이터기준일자는 2026-04-21이다. 좌표 결측은 0곳이다. 조례 대조 완료 — 「철원군 주차장 설치 및 관리조례」 제2803호(시행 2025-04-02, ordinSeq 2026551) 제4조·별표 2 원문 대조 완료(2026-11-22)."
+   },
+   {
+    "id": "city_ordinance",
+    "name": "철원군 주차장 설치 및 관리조례",
+    "org": "강원특별자치도 철원군",
+    "url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2026551&gubun=ELIS",
+    "file": "cheorwon-ordinance.txt",
+    "sha256": "3e74612c45cee4da425ba917b3cd09f4f68e94a73d7977e100333eaa64d08da0",
+    "license": "자치법규(공개)",
+    "base_date": "2025-04-02",
+    "rows_total": null,
+    "fetched_at": "2026-11-22 12:05 (KST)",
+    "note": "철원군이 설치·관리하는 공영주차장에 적용하는 조례다. 표준데이터에 등록된 철원군 공영주차장 42곳(전부 노외, 총 1,851면)입니다. 무료 40곳은 등록값을 유지했고, 유료 2곳(하나로마트주차장 동송읍·갈말읍)은 등록 최초 1시간 무료와 기본 30분 500원이 별표 2 노외 2급지와 일치하지만 등록 추가단위(30분마다 500원)는 별표의 1시간 30분 이후 구간(10분마다 150원)을 담지 못하고 등록 1일권(7,000원)도 별표 2급지 1일 주차권(3,500원)과 달라 조례 기준 계산으로 표기했다(1시간 0원·1시간 30분 500원·2시간 950원·1일 상한 3,500원). 유료 2곳은 토·일·공휴일 무료로 등록돼 있고, 조례 별표 2 비고 5도 공영주차장은 토·일요일·공휴일과 야간에는 무료가 원칙이라고 정한다. (조례 본문: data/raw/cheorwon-ordinance.txt, 별표 원문 HWP: data/raw/cheorwon-ordinance-b2.hwp)"
+   }
+  ]
+ },
+ "districts": [
+  {
+   "name": "철원군",
+   "slug": "cheorwon"
+  }
+ ],
+ "lots": [
+  {
+   "id": "gw-cheorwon-001",
+   "mgmt_no": "262-2-000037",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "갈말유명아파트주차장",
+   "gu": "철원군",
+   "dong": "갈말읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 갈말읍 군탄리 1032",
+   "addr_road": "",
+   "road": null,
+   "spaces": 82,
+   "tel": "033-450-5366",
+   "lat": 38.14831906,
+   "lng": 127.3011995,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-002",
+   "mgmt_no": "262-2-000016",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "갈말파출소주차장",
+   "gu": "철원군",
+   "dong": "갈말읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 갈말읍 신철원리 563-62",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "033-450-5366",
+   "lat": 38.14834545,
+   "lng": 127.3134344,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-003",
+   "mgmt_no": "262-2-000013",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문혜리시장주차장",
+   "gu": "철원군",
+   "dong": "갈말읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 갈말읍 문혜리 1105-23",
+   "addr_road": "",
+   "road": null,
+   "spaces": 17,
+   "tel": "033-450-5366",
+   "lat": 38.1843936,
+   "lng": 127.3196908,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-004",
+   "mgmt_no": "262-2-000015",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문혜초교사거리주차장",
+   "gu": "철원군",
+   "dong": "갈말읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 갈말읍 문혜리 895-10",
+   "addr_road": "",
+   "road": null,
+   "spaces": 39,
+   "tel": "033-450-5366",
+   "lat": 38.18572879,
+   "lng": 127.3205873,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-005",
+   "mgmt_no": "262-2-000010",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문화원앞주차장",
+   "gu": "철원군",
+   "dong": "갈말읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 갈말읍 신철원리 648-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 52,
+   "tel": "033-450-5366",
+   "lat": 38.14586414,
+   "lng": 127.312637,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-006",
+   "mgmt_no": "262-2-000040",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "삼흥빌라옆주차장",
+   "gu": "철원군",
+   "dong": "갈말읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 갈말읍 신철원리 611-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 46,
+   "tel": "033-450-5366",
+   "lat": 38.14752166,
+   "lng": 127.3143374,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-007",
+   "mgmt_no": "262-2-000011",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신철원시장주차장",
+   "gu": "철원군",
+   "dong": "갈말읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 갈말읍 신철원리 718",
+   "addr_road": "",
+   "road": null,
+   "spaces": 109,
+   "tel": "033-450-5366",
+   "lat": 38.14396841,
+   "lng": 127.3100413,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-008",
+   "mgmt_no": "262-2-000041",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "지포리공영주차장",
+   "gu": "철원군",
+   "dong": "갈말읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 갈말읍 지포리 101",
+   "addr_road": "",
+   "road": null,
+   "spaces": 95,
+   "tel": "033-450-5366",
+   "lat": 38.1447067167,
+   "lng": 127.3070255,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-009",
+   "mgmt_no": "262-2-000014",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "지포리주차장",
+   "gu": "철원군",
+   "dong": "갈말읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 갈말읍 지포리 33",
+   "addr_road": "",
+   "road": null,
+   "spaces": 63,
+   "tel": "033-450-5366",
+   "lat": 38.147325,
+   "lng": 127.3064452,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-010",
+   "mgmt_no": "262-2-000012",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하나로마트주차장 (600-19)",
+   "gu": "철원군",
+   "dong": "갈말읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 갈말읍 신철원리 600-19",
+   "addr_road": "",
+   "road": null,
+   "spaces": 57,
+   "tel": "033-450-5366",
+   "lat": 38.14610892,
+   "lng": 127.310366,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "무료(토+일+공휴일)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 90,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 150,
+    "daily_fee": 3500,
+    "daily_hours": 12,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 30000,
+    "monthly_all": 30000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": 60,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 150
+     }
+    ],
+    "steps_label": "최초 1시간 무료 · 기본 30분 500원 · 1시간 30분 이후 10분마다 150원",
+    "bands": null,
+    "category": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 7000,
+     "monthly": 0
+    },
+    "basis": "표준데이터 등록 최초 1시간 0원·기본 30분 500원은 「철원군 주차장 설치 및 관리조례」 별표 2 노외주차장 2급지와 일치한다. 등록 추가단위(30분마다 500원)는 별표의 1시간 30분 이후 구간(10분마다 150원)을 담지 못하고 등록 1일권(7,000원)은 별표 2급지 1일 주차권(3,500원)과 달라 조례 기준 계산으로 표기한다 — 실제 요금은 철원군청(033-450-5366) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 480,
+     "end": 1200,
+     "24h": false,
+     "listed": true,
+     "raw": [
+      "08:00",
+      "20:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-011",
+   "mgmt_no": "262-2-000036",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "육단리주차장",
+   "gu": "철원군",
+   "dong": "근남면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 근남면 육단리 280-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "033-450-5366",
+   "lat": 38.23779489,
+   "lng": 127.4695784,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-012",
+   "mgmt_no": "262-2-000023",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "개나리아파트주차장",
+   "gu": "철원군",
+   "dong": "동송읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 동송읍 이평리 586",
+   "addr_road": "",
+   "road": null,
+   "spaces": 104,
+   "tel": "033-450-5366",
+   "lat": 38.20137606,
+   "lng": 127.2239736,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-013",
+   "mgmt_no": "262-2-000024",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "구.재건중학교 주차장",
+   "gu": "철원군",
+   "dong": "동송읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 동송읍 이평리 840-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 49,
+   "tel": "033-450-5366",
+   "lat": 38.20683404,
+   "lng": 127.2171969,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-014",
+   "mgmt_no": "262-2-000020",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동송공용주차장",
+   "gu": "철원군",
+   "dong": "동송읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 동송읍 이평리 675-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 114,
+   "tel": "033-450-5366",
+   "lat": 38.208027,
+   "lng": 127.2210697,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-015",
+   "mgmt_no": "262-2-000018",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동송시장주차장",
+   "gu": "철원군",
+   "dong": "동송읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 동송읍 이평리 684-22",
+   "addr_road": "",
+   "road": null,
+   "spaces": 60,
+   "tel": "033-450-5366",
+   "lat": 38.2072111591,
+   "lng": 127.2205488919,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-016",
+   "mgmt_no": "262-2-000022",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동송읍사무소 앞",
+   "gu": "철원군",
+   "dong": "동송읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 동송읍 이평리 860-15",
+   "addr_road": "",
+   "road": null,
+   "spaces": 22,
+   "tel": "033-450-5366",
+   "lat": 38.20676651,
+   "lng": 127.2097982,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-017",
+   "mgmt_no": "262-2-000038",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동송초교앞주차장",
+   "gu": "철원군",
+   "dong": "동송읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 동송읍 이평리 708-20",
+   "addr_road": "",
+   "road": null,
+   "spaces": 25,
+   "tel": "033-450-5366",
+   "lat": 38.20524092,
+   "lng": 127.2193638,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-018",
+   "mgmt_no": "262-2-000025",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동송초교입구주차장",
+   "gu": "철원군",
+   "dong": "동송읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 동송읍 이평리 838-49",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "033-450-5366",
+   "lat": 38.20400652,
+   "lng": 127.217124,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-019",
+   "mgmt_no": "262-2-000017",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "동송택시부주차장",
+   "gu": "철원군",
+   "dong": "동송읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 동송읍 이평리 680-2",
+   "addr_road": "",
+   "road": null,
+   "spaces": 20,
+   "tel": "033-450-5366",
+   "lat": 38.20750458,
+   "lng": 127.218245,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-020",
+   "mgmt_no": "262-2-000021",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "에너지공원주차장",
+   "gu": "철원군",
+   "dong": "동송읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 동송읍 이평리 848-34",
+   "addr_road": "",
+   "road": null,
+   "spaces": 66,
+   "tel": "033-450-5366",
+   "lat": 38.20691194,
+   "lng": 127.2150255,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-021",
+   "mgmt_no": "262-2-000042",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "이평13리공영주차장",
+   "gu": "철원군",
+   "dong": "동송읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 동송읍 이평리 847",
+   "addr_road": "",
+   "road": null,
+   "spaces": 31,
+   "tel": "033-450-5366",
+   "lat": 38.2069724049,
+   "lng": 127.2129952956,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-022",
+   "mgmt_no": "262-2-000039",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "이평로 철원한농 주차장",
+   "gu": "철원군",
+   "dong": "동송읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 동송읍 이평리 658-19",
+   "addr_road": "",
+   "road": null,
+   "spaces": 36,
+   "tel": "033-450-5366",
+   "lat": 38.2102178,
+   "lng": 127.2198747,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-023",
+   "mgmt_no": "262-2-000019",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "하나로마트주차장 (677-26)",
+   "gu": "철원군",
+   "dong": "동송읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 동송읍 이평리 677-26",
+   "addr_road": "",
+   "road": null,
+   "spaces": 86,
+   "tel": "033-450-5366",
+   "lat": 38.20899292,
+   "lng": 127.219913,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "무료(토+일+공휴일)",
+   "notice": null,
+   "fee": {
+    "type": "유료",
+    "base_min": 90,
+    "base_fee": 500,
+    "unit_min": 10,
+    "unit_fee": 150,
+    "daily_fee": 3500,
+    "daily_hours": 12,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": 30000,
+    "monthly_all": 30000,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": 60,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": [
+     {
+      "until": null,
+      "unit_min": 10,
+      "unit_fee": 150
+     }
+    ],
+    "steps_label": "최초 1시간 무료 · 기본 30분 500원 · 1시간 30분 이후 10분마다 150원",
+    "bands": null,
+    "category": null,
+    "pay": "카드",
+    "std": {
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "day": 7000,
+     "monthly": 0
+    },
+    "basis": "표준데이터 등록 최초 1시간 0원·기본 30분 500원은 「철원군 주차장 설치 및 관리조례」 별표 2 노외주차장 2급지와 일치한다. 등록 추가단위(30분마다 500원)는 별표의 1시간 30분 이후 구간(10분마다 150원)을 담지 못하고 등록 1일권(7,000원)은 별표 2급지 1일 주차권(3,500원)과 달라 조례 기준 계산으로 표기한다 — 실제 요금은 철원군청(033-450-5366) 확인이 필요하다"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": true,
+    "sun": true
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": 500,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-024",
+   "mgmt_no": "262-2-000029",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "무금천주차장",
+   "gu": "철원군",
+   "dong": "서면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 서면 와수리 915-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 11,
+   "tel": "033-450-5366",
+   "lat": 38.24161958,
+   "lng": 127.442247,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-025",
+   "mgmt_no": "262-2-000031",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "문화마을주차장",
+   "gu": "철원군",
+   "dong": "서면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 서면 와수리 2410-4",
+   "addr_road": "",
+   "road": null,
+   "spaces": 40,
+   "tel": "033-450-5366",
+   "lat": 38.243206,
+   "lng": 127.4375705,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-026",
+   "mgmt_no": "262-2-000035",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "신원아파트주차장",
+   "gu": "철원군",
+   "dong": "서면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 서면 와수리 871-13",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "033-450-5366",
+   "lat": 38.24411113,
+   "lng": 127.445038,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-027",
+   "mgmt_no": "262-2-000033",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "와수1리 주차장",
+   "gu": "철원군",
+   "dong": "서면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 서면 와수리 916-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 41,
+   "tel": "033-450-5366",
+   "lat": 38.24142453,
+   "lng": 127.4417407,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-028",
+   "mgmt_no": "262-2-000032",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "와수2리 주차장",
+   "gu": "철원군",
+   "dong": "서면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 서면 와수리 1216-108",
+   "addr_road": "",
+   "road": null,
+   "spaces": 43,
+   "tel": "033-450-5366",
+   "lat": 38.23947243,
+   "lng": 127.4371196,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-029",
+   "mgmt_no": "262-2-000026",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "와수삼거리주차장",
+   "gu": "철원군",
+   "dong": "서면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 서면 와수리 1139-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 26,
+   "tel": "033-450-5366",
+   "lat": 38.23755036,
+   "lng": 127.436828,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-030",
+   "mgmt_no": "262-2-000027",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "와수시장주차장",
+   "gu": "철원군",
+   "dong": "서면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 서면 와수리 1158-1",
+   "addr_road": "",
+   "road": null,
+   "spaces": 52,
+   "tel": "033-450-5366",
+   "lat": 38.23855842,
+   "lng": 127.4393168318,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-031",
+   "mgmt_no": "262-2-000030",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "와수출장소주차장",
+   "gu": "철원군",
+   "dong": "서면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 서면 와수리 1171-114",
+   "addr_road": "",
+   "road": null,
+   "spaces": 13,
+   "tel": "033-450-5366",
+   "lat": 38.23871247,
+   "lng": 127.4396574,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-032",
+   "mgmt_no": "262-2-000028",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "우성연립주차장",
+   "gu": "철원군",
+   "dong": "서면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 서면 와수리 1160-3",
+   "addr_road": "",
+   "road": null,
+   "spaces": 96,
+   "tel": "033-450-5366",
+   "lat": 38.23773384,
+   "lng": 127.4394857,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-033",
+   "mgmt_no": "262-2-000034",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "자등리(김화농협)주차장",
+   "gu": "철원군",
+   "dong": "서면",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 서면 자등리 1823-61",
+   "addr_road": "",
+   "road": null,
+   "spaces": 58,
+   "tel": "033-450-5366",
+   "lat": 38.16567256,
+   "lng": 127.4121891,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-034",
+   "mgmt_no": "262-2-000002",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "복개천주차장 1",
+   "gu": "철원군",
+   "dong": "철원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 철원읍 화지리 28-17",
+   "addr_road": "",
+   "road": null,
+   "spaces": 43,
+   "tel": "033-450-5366",
+   "lat": 38.210533,
+   "lng": 127.215048,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-035",
+   "mgmt_no": "262-2-000003",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "복개천주차장 2",
+   "gu": "철원군",
+   "dong": "철원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 철원읍 화지리 1023",
+   "addr_road": "",
+   "road": null,
+   "spaces": 23,
+   "tel": "033-450-5366",
+   "lat": 38.210948,
+   "lng": 127.217953,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-036",
+   "mgmt_no": "262-2-000004",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "복개천주차장 3",
+   "gu": "철원군",
+   "dong": "철원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 철원읍 화지리 525-7",
+   "addr_road": "",
+   "road": null,
+   "spaces": 29,
+   "tel": "033-450-5366",
+   "lat": 38.20812263,
+   "lng": 127.2093084,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-037",
+   "mgmt_no": "262-2-000007",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "산호아파트주차장",
+   "gu": "철원군",
+   "dong": "철원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 철원읍 화지리 69-9",
+   "addr_road": "",
+   "road": null,
+   "spaces": 43,
+   "tel": "033-450-5366",
+   "lat": 38.21310687,
+   "lng": 127.209874,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-038",
+   "mgmt_no": "262-2-000006",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "철원농협주차장",
+   "gu": "철원군",
+   "dong": "철원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 철원읍 화지리 30-21",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "033-450-5366",
+   "lat": 38.213263,
+   "lng": 127.214373,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-039",
+   "mgmt_no": "262-2-000008",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "철원중고주차장",
+   "gu": "철원군",
+   "dong": "철원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 철원읍 화지리 52",
+   "addr_road": "",
+   "road": null,
+   "spaces": 14,
+   "tel": "033-450-5366",
+   "lat": 38.209631,
+   "lng": 127.2100814,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-040",
+   "mgmt_no": "262-2-000005",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화인빌라 앞",
+   "gu": "철원군",
+   "dong": "철원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 철원읍 화지리 35-20",
+   "addr_road": "",
+   "road": null,
+   "spaces": 30,
+   "tel": "033-450-5366",
+   "lat": 38.215015,
+   "lng": 127.213469,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-041",
+   "mgmt_no": "262-2-000009",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화지2리주차장",
+   "gu": "철원군",
+   "dong": "철원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 철원읍 화지리 28-58",
+   "addr_road": "",
+   "road": null,
+   "spaces": 18,
+   "tel": "033-450-5366",
+   "lat": 38.211623,
+   "lng": 127.217122,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  },
+  {
+   "id": "gw-cheorwon-042",
+   "mgmt_no": "262-2-000001",
+   "src": "표준데이터",
+   "list_mode": "card",
+   "name": "화지리주차장",
+   "gu": "철원군",
+   "dong": "철원읍",
+   "dong_src": "지번주소",
+   "kind": "공영",
+   "ptype": "노외",
+   "addr_jibun": "강원특별자치도 철원군 철원읍 화지리 41-121",
+   "addr_road": "",
+   "road": null,
+   "spaces": 16,
+   "tel": "033-450-5366",
+   "lat": 38.21147723,
+   "lng": 127.214293,
+   "base_date": "2026-04-21",
+   "manager": "강원특별자치도 철원군",
+   "note": "",
+   "notice": null,
+   "fee": {
+    "type": "무료",
+    "base_min": null,
+    "base_fee": null,
+    "unit_min": null,
+    "unit_fee": null,
+    "daily_fee": null,
+    "daily_hours": null,
+    "cap_fee": null,
+    "cap_src": null,
+    "monthly": null,
+    "monthly_all": null,
+    "monthly_label": null,
+    "monthly_night": null,
+    "grade": null,
+    "grade_label": null,
+    "std_grade": "2",
+    "deduct_min": null,
+    "free_min": null,
+    "ticket_only": false,
+    "flat_day": false,
+    "mixed": false,
+    "progressive": false,
+    "steps": null,
+    "steps_label": null,
+    "bands": null,
+    "category": null,
+    "pay": "",
+    "std": {
+     "base_min": 0,
+     "base_fee": 0,
+     "unit_min": 0,
+     "unit_fee": 0,
+     "day": 0,
+     "monthly": 0
+    },
+    "basis": "표준데이터 무료 등록 (조례 별표 2는 유료 요금표 — 실제 징수 여부는 확인 과제)"
+   },
+   "oper": {
+    "weekday": true,
+    "sat": true,
+    "sun": true
+   },
+   "hours": {
+    "weekday": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sat": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    },
+    "sun": {
+     "open": true,
+     "start": 0,
+     "end": 1440,
+     "24h": true,
+     "listed": true,
+     "raw": [
+      "00:00",
+      "24:00"
+     ]
+    }
+   },
+   "free_days": {
+    "sat": false,
+    "sun": false
+   },
+   "free_window": null,
+   "free_hour_note": null,
+   "closed_from_note": false,
+   "disabled_area": "",
+   "capa_detail": null,
+   "portal_name": null,
+   "realtime": null,
+   "udc_id": null,
+   "price_key": null,
+   "city": "철원군",
+   "city_slug": "cheorwon",
+   "zone": null
+  }
+ ],
+ "quality": {
+  "generated_at": "2026-11-22 12:05",
+  "원자료_전국행수": 18994,
+  "원자료_행수": 42,
+  "원자료_철원군행수": 42,
+  "원자료_받은행수": 42,
+  "구별": {
+   "철원군": 42
+  },
+  "민영_제외": 0,
+  "제외_행수": 0,
+  "제외_행": [],
+  "중복제거_행수": 0,
+  "중복제거_행": [],
+  "총_주차장": 42,
+  "노외_부설": {
+   "노외": 42
+  },
+  "노상_구간": 0,
+  "총_구획수": 1851,
+  "노상_구획수": 0,
+  "동별": {
+   "동송읍": 12,
+   "갈말읍": 10,
+   "서면": 10,
+   "철원읍": 9,
+   "근남면": 1
+  },
+  "동수": 5,
+  "동_미상": [],
+  "동_보정": [
+   "이름이 겹치는 주차장 하나로마트주차장 — 전부 다른 자리라 지번 번지로 구분했다"
+  ],
+  "동_근거": {
+   "지번주소": 42
+  },
+  "요금구분": {
+   "무료": 40,
+   "유료": 2
+  },
+  "요금_미상": [],
+  "유료_노상": 0,
+  "유료_노외": 2,
+  "유료_부설": 0,
+  "운영시간_보정": [],
+  "등록값_차이": [
+   "표준데이터 철원 등록 42행 전부 공영으로 민영 제외 0건, 공영 42곳을 실었다. 데이터기준일자는 2026-04-21 42행, 제공기관명은 강원특별자치도 철원군 42행이다",
+   "등록 급지구분은 42곳 전부 ‘2’이다. 조례 별표 2 비고 3은 1급지를 도시계획 적용지역, 2급지를 그 이외의 군내 전 지역으로 정한다 — 등록값은 std_grade로 남겼고 유료 2곳의 요금은 등록 급지 2급지 기준으로 계산했다",
+   "좌표 결측은 0곳이다. 42곳 전부 등록 좌표가 있고 철원 범위(위도 38.1440~38.2441, 경도 127.2093~127.4696) 안에 있다",
+   "운영요일은 42곳 전부 평일+토요일+공휴일이다. 운영시간은 41곳이 00:00~23:59이고 하나로마트주차장(갈말읍 신철원리)만 평일 08:00~20:00이다. 전화번호는 42곳 전부 033-450-5366이고, 도로명주소는 42곳 전부 없고, 결제방법은 유료 2곳 카드이고 무료 40곳은 공란이고, 특기사항은 유료 2곳 ‘무료(토+일+공휴일)’뿐이고, 장애인전용주차구역 보유여부는 42곳 전부 공란이고, 부제시행구분은 미시행 42이다",
+   "무료 40곳은 무료 등록이라 등록값을 유지했고, 유료 2곳은 등록 최초 1시간 무료·기본 30분 500원이 별표 2 노외 2급지와 일치하나 등록 추가단위(30분마다 500원)가 별표의 구간 구조를 담지 못하고 등록 1일권(7,000원)이 별표 2급지(3,500원)와 달라 조례 기준 계산(최초 1시간 무료·기본 30분 500원·1시간 30분 이후 10분마다 150원·1일 상한 3,500원)으로 표기했다(2시간 950원). 요금 미상은 0곳이다"
+  ],
+  "면수_차이": [],
+  "급지_요금_차이": [],
+  "좌표_보정": [],
+  "좌표_없음": [],
+  "도로명주소_없음": [
+   "갈말유명아파트주차장",
+   "갈말파출소주차장",
+   "문혜리시장주차장",
+   "문혜초교사거리주차장",
+   "문화원앞주차장",
+   "삼흥빌라옆주차장",
+   "신철원시장주차장",
+   "지포리공영주차장",
+   "지포리주차장",
+   "하나로마트주차장 (600-19)",
+   "육단리주차장",
+   "개나리아파트주차장",
+   "구.재건중학교 주차장",
+   "동송공용주차장",
+   "동송시장주차장",
+   "동송읍사무소 앞",
+   "동송초교앞주차장",
+   "동송초교입구주차장",
+   "동송택시부주차장",
+   "에너지공원주차장",
+   "이평13리공영주차장",
+   "이평로 철원한농 주차장",
+   "하나로마트주차장 (677-26)",
+   "무금천주차장",
+   "문화마을주차장",
+   "신원아파트주차장",
+   "와수1리 주차장",
+   "와수2리 주차장",
+   "와수삼거리주차장",
+   "와수시장주차장",
+   "와수출장소주차장",
+   "우성연립주차장",
+   "자등리(김화농협)주차장",
+   "복개천주차장 1",
+   "복개천주차장 2",
+   "복개천주차장 3",
+   "산호아파트주차장",
+   "철원농협주차장",
+   "철원중고주차장",
+   "화인빌라 앞",
+   "화지2리주차장",
+   "화지리주차장"
+  ],
+  "감면_출처": "「철원군 주차장 설치 및 관리조례」 제2803호 제5조·별표 3 — 긴급자동차(업무 수행), 공무수행(관용) 자동차와 외교사절 수행 자동차, 군수·군의장 주관·지원 행사·회의·의정활동 참여 차량(소요 시간 한정), 성실납세증 표지(교부일로부터 1년), 자원봉사자증(마일리지 전액 차감 시), 명예군민증, 전기자동차, 다자녀 가정은 100퍼센트 감면하고, 관련증서를 소지한 국가유공자·장애인·고엽제후유의증환자·5·18민주유공자·의사상자·병역명문가(본인 소유 비사업용), 경형자동차, 저공해자동차 표지, 임산부 운전·동승, 65세 경로우대자 명의·본인 운전 차량은 100분의 50을 감경한다. 둘 이상의 감면 사유에 해당하면 감면율이 높은 하나만 적용한다",
+  "요금_출처": "조례 제4조제1항·별표 2 — 법 제9조제2항 및 제14조제2항에 따른 공영주차장 주차요금 기준은 별표 2와 같다. 별표 2 노외주차장은 1급지 최초 1시간 무료·기본 30분 500원·1시간 30분 이후 10분마다 300원·1일 주차권 7,000원·월정기권 60,000원, 2급지 최초 1시간 무료·기본 30분 500원·1시간 30분 이후 10분마다 150원·1일 주차권 3,500원·월정기권 30,000원이고, 노상주차장은 최초 30분 무료·30분 이후 10분마다 1급지 300원·2급지 150원·1일 1급지 7,000원·2급지 3,500원·월정기 1급지 70,000원·2급지 35,000원이다. 별표 원본 HWP(flSeq 170957923)를 받아 본문(BodyText) 추출로 표 구조까지 대조했다",
+  "급지_출처": "조례 별표 2 비고 3 — 1급지는 도시계획 적용지역, 2급지는 도시계획 적용지역 이외의 군내 전 지역이다. 표준데이터 등록 급지구분은 42곳 전부 ‘2’이고 등록값을 std_grade로 남겼다",
+  "무료요일_출처": "조례 별표 2 비고 5는 공영주차장은 토·일요일 및 공휴일과 야간에는 무료를 원칙으로 한다고 정한다(주차수요가 대폭 증가하는 지역은 유료 운영 가능). 유료 2곳의 표준데이터 특기사항도 ‘무료(토+일+공휴일)’로 등록돼 있어 토·일·공휴일 무료로 표기했다. 무료 40곳은 요금정보 ‘무료’ 등록 근거다",
+  "판정근거": [
+   "전국주차장정보표준데이터(data.go.kr 15012896) 철원 등록 42행 전부 공영·노외(총 1,851면)로 무료 40·유료 2, 기준일 2026-04-21, 제공기관명은 강원특별자치도 철원군 전부이다. 중복 판정(전체 이름·지번·좌표 200m 가드)에 걸리는 쌍은 없어 42곳·1,851면을 그대로 실었다. 관리번호 중복은 없다. 구획수 0 등록 0건, 주소 없음 0건, 이름 없음 0건이다",
+   "「철원군 주차장 설치 및 관리조례」 제2803호(시행 2025-04-02, ordinSeq 2026551·ordinId 2231490) 본문 원문(data/raw/cheorwon-ordinance.txt) 대조 완료(2026-11-22) — 본문 제4조제1항이 법 제9조제2항 및 제14조제2항에 따른 공영주차장 주차요금 기준을 별표 2로 정하고, 제4조제2항은 가산금을 해당 주차요금의 2배로, 제5조는 감면기준을 별표 3으로 정한다. 별표는 ELIS 첨부 원본(flSeq 170957923, HWP 5.0, 482,304바이트)을 data/raw/cheorwon-ordinance-b2.hwp로 저장하고 BodyText 레코드 추출로 확정했다 — 별표 2 노외주차장 1급지는 최초 1시간 무료·기본 30분 500원·1시간 30분 이후 10분마다 300원·1일 주차권 7,000원·월정기권 60,000원, 2급지는 최초 1시간 무료·기본 30분 500원(2급지 행의 병합 셀)·1시간 30분 이후 10분마다 150원·1일 주차권 3,500원·월정기권 30,000원이다. 비고 2는 주간 09:00~18:00 구분, 비고 3은 급지 구분(1급지 도시계획 적용지역·2급지 그 외 전 지역), 비고 5는 토·일요일·공휴일·야간 무료 원칙이다",
+   "유료 2곳(하나로마트주차장 동송읍 이평리 677-26 86면·갈말읍 신철원리 600-19 57면)은 등록값이 동일하다 — 기본 1시간 0원·추가 30분마다 500원·1일권 7,000원(적용시간 12시간)·월정기 없음·결제 카드·특기사항 ‘무료(토+일+공휴일)’. 최초 1시간 무료와 기본 30분 500원은 별표 2 노외 2급지와 일치하지만, 등록 추가단위(30분마다 500원)는 별표의 1시간 30분 이후 구간(10분마다 150원)을 담지 못하고 등록 1일권(7,000원)은 별표 2급지 1일 주차권(3,500원)과 다르다 — 등록 부가정보가 불완전한 경우라 정선·횡성·삼척 선례대로 조례 기준 계산으로 표기했다(최초 1시간 무료·기본 30분 500원·이후 10분마다 150원·1일 상한 3,500원, 2시간 950원). 무료 40곳은 등록값을 유지했다. 요금 미상은 0곳이다",
+   "좌표 결측은 0곳이다. 42곳 전부 등록 좌표가 있고 철원 범위(위도 38.1440~38.2441, 경도 127.2093~127.4696) 안에 있다. 좌표 보완 오버레이는 746행을 그대로 유지했다",
+   "운영요일은 42곳 전부 평일+토요일+공휴일이다. 운영시간은 41곳이 00:00~23:59(24시간)이고 하나로마트주차장(갈말읍)만 평일 08:00~20:00이다(토·공휴일은 00:00~23:59). 조례 별표 2 비고 5의 야간 무료 원칙과 등록 운영시간(24시간)의 관계는 확인 과제로 남겼다. 부제시행구분은 42곳 전부 미시행이고, 결제방법은 유료 2곳 카드이고, 특기사항은 유료 2곳 ‘무료(토+일+공휴일)’뿐이고, 장애인전용주차구역 보유여부는 42곳 전부 공란이다",
+   "읍·면 판정은 지번주소 기준이고 42곳 전부 판정됐다(동송읍 12·갈말읍 10·서면 10·철원읍 9·근남면 1). 지번주소는 42곳 전부 있고 도로명주소는 42곳 전부 없다. 이름이 겹치는 등록은 하나로마트주차장 2곳뿐이고 지번이 달라(동송읍 이평리 677-26 vs 갈말읍 신철원리 600-19) 별개 등록으로 유지하고 번지로 구분했다. 같은 자리·같은 좌표에 이름만 다른 등록은 0건이다",
+   "관리기관명은 강원특별자치도 철원군 42곳 전부이고, 전화번호는 42곳 전부 033-450-5366으로 등록돼 있다",
+   "확인 과제 — ① 유료 2곳의 실제 요금·징수 여부 — 등록 추가단위(30분마다 500원)와 별표 구간 구조(1시간 30분 이후 10분마다 150원)가 다르고 등록 1일권(7,000원)이 별표 2급지(3,500원)와 달라 실제 징수 기준을 확인할 것 ② 유료 2곳의 급지 — 등록 급지는 ‘2’이나 두 곳 모두 읍 시가지(동송읍 이평리·갈말읍 신철원리)라 별표 2 비고 3의 1급지(도시계획 적용지역)에 해당하는지 확인할 것 ③ 무료 40곳의 실제 무료 개방 여부 ④ 월정기권(별표 2 2급지 30,000원) 실제 시행 여부 — 등록 월정기권은 공란이다 ⑤ 별표 2 비고 5의 야간 무료 원칙과 24시간 운영 등록의 관계 ⑥ 도로명주소 42곳 전부 없음 보완 ⑦ 하나로마트주차장(갈말읍)의 평일 운영시간 08:00~20:00과 별표 2 비고 2의 주간 구분(09:00~18:00)의 차이"
+  ],
+  "무료개방_표기": [
+   "하나로마트주차장 (600-19)",
+   "하나로마트주차장 (677-26)"
+  ],
+  "거주자우선": [],
+  "무료_요금구분": 40,
+  "무료_구획수": 1708,
+  "평균_기본요금": 500,
+  "토요일_미운영": 0,
+  "일공휴일_미운영": 0,
+  "주소_없음": [],
+  "이름중복": [],
+  "관리번호중복": [],
+  "전화번호_없음": 0,
+  "데이터기준일": [
+   "2026-04-21"
+  ],
+  "관리기관": {
+   "강원특별자치도 철원군": 42
+  }
+ },
+ "fee_table": {
+  "style": "cheorwon_grade",
+  "unit_min": 10,
+  "base_min": 30,
+  "applies": "「철원군 주차장 설치 및 관리조례」 제2803호(시행 2025-04-02, ordinSeq 2026551·ordinId 2231490) 제4조·별표 2",
+  "source_url": "https://www.law.go.kr/LSW/ordinInfoR.do?ordinSeq=2026551&gubun=ELIS",
+  "grade_system": "조례 별표 2 비고 3 — 1급지는 도시계획 적용지역, 2급지는 도시계획 적용지역 이외의 군내 전 지역이다. 표준데이터 등록 급지구분은 42곳 전부 ‘2’이다. 이 사이트의 42곳은 전부 노외주차장이라 노상주차장 요금행은 싣지 않는다",
+  "rows": [
+   {
+    "label": "노외주차장 1급지 (도시계획 적용지역)",
+    "grade": "1",
+    "unit_label": "최초 1시간 무료 · 기본 30분 500원 · 1시간 30분 이후 10분마다 300원 · 1일 7,000원 · 월정기 60,000원",
+    "hour": 0,
+    "two_hour": 1400,
+    "day": 7000,
+    "month_all": null,
+    "month": 60000,
+    "month_night": null,
+    "lots": 0
+   },
+   {
+    "label": "노외주차장 2급지 (도시계획 적용지역 이외)",
+    "grade": "2",
+    "unit_label": "최초 1시간 무료 · 기본 30분 500원 · 1시간 30분 이후 10분마다 150원 · 1일 3,500원 · 월정기 30,000원",
+    "hour": 0,
+    "two_hour": 950,
+    "day": 3500,
+    "month_all": null,
+    "month": 30000,
+    "month_night": null,
+    "lots": 2
+   }
+  ],
+  "ord_rows": [],
+  "corp": {
+   "paid": 2,
+   "street_paid": 0,
+   "free": 40,
+   "unknown": 0
+  },
+  "windows": [
+   {
+    "group": "주간·야간 시간구분 (조례 별표 2 비고 2)",
+    "hours": "09:00 ~ 18:00를 주간으로 한다",
+    "free": "나머지 시간은 야간으로 본다"
+   },
+   {
+    "group": "주말·공휴일·야간 무료 원칙 (조례 별표 2 비고 5)",
+    "hours": "토·일요일 및 공휴일과 야간",
+    "free": "무료를 원칙으로 하되, 주차수요가 대폭 증가하는 지역의 주차장은 유료로 운영할 수 있다"
+   },
+   {
+    "group": "가산금 (조례 제4조제2항)",
+    "hours": "공영주차장 주차요금 미납 등",
+    "free": "해당 주차요금의 2배를 가산금으로 한다"
+   },
+   {
+    "group": "감면 (조례 제5조·별표 3)",
+    "hours": "100% 감면 대상·50% 감경 대상",
+    "free": "100% — 긴급자동차·공무수행·행사·회의·성실납세증·자원봉사자증·명예군민증·전기자동차·다자녀 가정 / 50% — 국가유공자·장애인·고엽제후유의증환자·5·18민주유공자·의사상자·병역명문가·경형자동차·저공해자동차·임산부·65세 경로우대자"
+   }
+  ],
+  "discounts": [
+   {
+    "label": "긴급자동차·공무수행 자동차·행사·회의 참여 차량·성실납세증·자원봉사자증·명예군민증·전기자동차·다자녀 가정 100% 감면",
+    "rate": 1.0,
+    "exempt_min": 0,
+    "note": "조례 별표 3 — 도로교통법 제2조제22호에 따른 긴급자동차로서 해당 업무를 수행하는 자동차, 국가 또는 지방자치단체의 공무수행(관용) 자동차와 외교사절 및 그 수행자의 공무수행(관용) 자동차, 군수 또는 군의회 의장이 주관하거나 지원하는 행사 및 회의·의정활동에 참여한 차량(회의 등에 소요되는 주차시간에 한정), 강원특별자치도지사 및 군수 또는 국세청장이 교부한 성실납세증 표지를 부착한 차량(교부일로부터 1년간), 철원군 자원봉사활동 지원조례 시행규칙 제8조에 따라 자원봉사자증을 소지한 차량(자원봉사자 마일리지로 전액 차감 시에만), 철원군 명예군민증 수여 조례 시행규칙 제3조에 따라 명예군민증을 제시한 차량, 환경친화적 자동차의 개발 및 보급 촉진에 관한 법률 제2조제2호의 전기자동차, 철원군 출산장려 지원에 관한 조례에 따른 다자녀 가정이 소지한 차량은 주차요금을 100퍼센트 감면한다"
+   },
+   {
+    "label": "국가유공자·장애인·고엽제후유의증환자·5·18민주유공자·의사상자·병역명문가·경형자동차·저공해자동차·임산부·65세 경로우대자 50% 감경",
+    "rate": 0.5,
+    "exempt_min": 0,
+    "note": "조례 별표 3 — 관련증서를 소지하고 본인 소유의 비사업용 자동차를 직접 운전하거나 장애 정도가 심하여 다른 사람으로 하여금 대리 운전하는 차량(국가유공자 등 예우 및 지원에 관한 법률 제4조에 따른 국가유공자, 장애인복지법 제2조에 따른 장애인, 고엽제후유의증 등 환자지원 및 단체설립에 관한 법률 제2조제3호에 따른 고엽제후유의증 환자, 5·18민주유공자예우 및 단체설립에 관한 법률 제4조에 따른 예우적용 대상자, 의사상자 등 예우 및 지원에 관한 법률 제2조에 따른 의사상자, 철원군 병역 명문가 예우에 관한 조례에 따른 예우 대상자), 자동차관리법 시행규칙 제2조에 따른 경형자동차, 대기환경보전법 제58조제12항에 따른 저공해자동차 표지를 부착한 차량, 모자보건법 제2조제1호에 따른 임산부가 운전하거나 동승한 차량, 노인복지법 제26조제1항에 따른 65세 이상의 경로우대자 명의로 등록되어 있고 본인이 운전하는 차량은 주차요금의 100분의 50을 감경한다. 둘 이상의 감면 사유에 해당하면 감면율이 높은 하나만 적용한다(별표 3 비고)"
+   }
+  ],
+  "notes": "감면(조례 별표 3)은 긴급자동차·공무수행 자동차·행사·회의 참여 차량·성실납세증·자원봉사자증·명예군민증·전기자동차·다자녀 가정 100% 감면, 국가유공자·장애인·고엽제후유의증환자·5·18민주유공자·의사상자·병역명문가·경형자동차·저공해자동차·임산부·65세 경로우대자 50% 감경이다. 둘 이상의 감면 사유에 해당하면 감면율이 높은 하나만 적용한다.",
+  "basis": "요금표는 「철원군 주차장 설치 및 관리조례」 제2803호(시행 2025-04-02) 제4조·별표 2와 표준데이터(기준일 2026-04-21)를 대조해 실었다. 별표 원본 HWP는 flSeq 170957923이다. 유료 2곳은 등록 최초 1시간 무료·기본 30분 500원이 별표 2 노외 2급지와 일치하나 등록 추가단위(30분마다 500원)가 별표의 구간 구조를 담지 못하고 등록 1일권(7,000원)이 별표 2급지(3,500원)와 달라 조례 기준 계산으로 표기했다(1시간 0원·1시간 30분 500원·2시간 950원). 무료 40곳은 등록값을 유지했다. 요금 미상은 0곳이다. (조례 본문: data/raw/cheorwon-ordinance.txt, 별표 원문 HWP: data/raw/cheorwon-ordinance-b2.hwp)"
+ },
+ "slug": "cheorwon",
+ "province": "강원특별자치도",
+ "province_slug": "gangwon",
+ "dong_page_min_lots": 3,
+ "city": "철원군",
+ "weekend_free_pages": false,
+ "discounts": [
+  {
+   "label": "긴급자동차·공무수행 자동차·행사·회의 참여 차량·성실납세증·자원봉사자증·명예군민증·전기자동차·다자녀 가정 100% 감면",
+   "rate": 1.0,
+   "exempt_min": 0,
+   "note": "조례 별표 3 — 도로교통법 제2조제22호에 따른 긴급자동차로서 해당 업무를 수행하는 자동차, 국가 또는 지방자치단체의 공무수행(관용) 자동차와 외교사절 및 그 수행자의 공무수행(관용) 자동차, 군수 또는 군의회 의장이 주관하거나 지원하는 행사 및 회의·의정활동에 참여한 차량(회의 등에 소요되는 주차시간에 한정), 강원특별자치도지사 및 군수 또는 국세청장이 교부한 성실납세증 표지를 부착한 차량(교부일로부터 1년간), 철원군 자원봉사활동 지원조례 시행규칙 제8조에 따라 자원봉사자증을 소지한 차량(자원봉사자 마일리지로 전액 차감 시에만), 철원군 명예군민증 수여 조례 시행규칙 제3조에 따라 명예군민증을 제시한 차량, 환경친화적 자동차의 개발 및 보급 촉진에 관한 법률 제2조제2호의 전기자동차, 철원군 출산장려 지원에 관한 조례에 따른 다자녀 가정이 소지한 차량은 주차요금을 100퍼센트 감면한다"
+  },
+  {
+   "label": "국가유공자·장애인·고엽제후유의증환자·5·18민주유공자·의사상자·병역명문가·경형자동차·저공해자동차·임산부·65세 경로우대자 50% 감경",
+   "rate": 0.5,
+   "exempt_min": 0,
+   "note": "조례 별표 3 — 관련증서를 소지하고 본인 소유의 비사업용 자동차를 직접 운전하거나 장애 정도가 심하여 다른 사람으로 하여금 대리 운전하는 차량(국가유공자 등 예우 및 지원에 관한 법률 제4조에 따른 국가유공자, 장애인복지법 제2조에 따른 장애인, 고엽제후유의증 등 환자지원 및 단체설립에 관한 법률 제2조제3호에 따른 고엽제후유의증 환자, 5·18민주유공자예우 및 단체설립에 관한 법률 제4조에 따른 예우적용 대상자, 의사상자 등 예우 및 지원에 관한 법률 제2조에 따른 의사상자, 철원군 병역 명문가 예우에 관한 조례에 따른 예우 대상자), 자동차관리법 시행규칙 제2조에 따른 경형자동차, 대기환경보전법 제58조제12항에 따른 저공해자동차 표지를 부착한 차량, 모자보건법 제2조제1호에 따른 임산부가 운전하거나 동승한 차량, 노인복지법 제26조제1항에 따른 65세 이상의 경로우대자 명의로 등록되어 있고 본인이 운전하는 차량은 주차요금의 100분의 50을 감경한다. 둘 이상의 감면 사유에 해당하면 감면율이 높은 하나만 적용한다(별표 3 비고)"
+  }
+ ],
+ "city_discounts": [],
+ "realtime": false
+}
