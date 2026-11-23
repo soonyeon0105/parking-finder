@@ -5904,10 +5904,46 @@ def hhmm(m):
     return f"{h:02d}:{mi:02d}"
 
 
-def price_for(lot, minutes=120, day="weekday", rate=0.0, exempt=0):
+def _overlap_minutes(a0, a1, b0, b1):
+    return max(0, min(a1, b1) - max(a0, b0))
+
+
+def _free_window_overlap(fw, o0, o1):
+    # 무료 시간대는 자정을 넘길 수 있어(wrap) 기준일을 -1일·당일·+1일로 옮겨 본다.
+    total = 0
+    for k in (-1, 0, 1):
+        f0 = fw["start"] + k * 1440
+        f1 = (fw["end"] + 1440 if fw.get("wrap") else fw["end"]) + k * 1440
+        total += _overlap_minutes(o0, o1, f0, f1)
+    return total
+
+
+def _chargeable_minutes(lot, minutes, day, entry):
+    # entry(자정부터 분)가 없으면 예전처럼 이용 시간 전부를 과금 대상으로 본다.
+    # chargeable = 운영시간과 겹치는 분 - 그 안에서 무료 시간대와 겹치는 분.
+    # 자정을 넘는 체류는 선택한 요일 안에서만 과금한다(다음 날 분은 계산하지 않음).
+    if entry is None:
+        return minutes, minutes
+    h = lot["hours"].get(day) or {}
+    op_start, op_end = 0, 1440
+    if not h.get("24h") and h.get("start") is not None and h.get("end") is not None:
+        op_start, op_end = h["start"], h["end"]
+    s0, s1 = entry, entry + minutes
+    op = _overlap_minutes(s0, s1, op_start, op_end)
+    free = 0
+    if lot.get("free_window_min"):
+        o0, o1 = max(s0, op_start), min(s1, op_end)
+        if o1 > o0:
+            free = _free_window_overlap(lot["free_window_min"], o0, o1)
+    return max(0, op - free), op
+
+
+def price_for(lot, minutes=120, day="weekday", rate=0.0, exempt=0, entry=None):
     """JS 계산기와 동일한 규칙 (서버 선계산용).
 
-    exempt 는 조례상 '면제 시간'(분). exempt 이내 이용이면 0원(면제),
+    entry 는 입차 시각(자정부터 분). None이면 예전처럼 이용 시간 전부를 과금 대상으로
+    본다(cheap_lede·표 등 입차 시각이 없는 호출은 이 기본값을 쓴다).
+    exempt 는 조례상 '면제 시간'(분). 과금 대상 시간이 exempt 이내면 0원(면제),
     넘으면 rate 만큼 감면한 금액을 낸다. 예: 성남 장애인 1시간 면제 후 50%.
     fee['steps'] 가 있으면 시간대별 누진 할증(안양시), fee['free_min'] 은 최초 무료 시간,
     fee['cap_fee'] 는 일일 최대요금(상한)이다.
@@ -5915,25 +5951,41 @@ def price_for(lot, minutes=120, day="weekday", rate=0.0, exempt=0):
     한 가지만’이라고 정한 도시에서는 그 시간을 뺀 요금과 감면율을 적용한 요금 가운데
     싼 쪽을 쓴다.
     """
+    if lot.get("bus_only"):
+        # 관광버스 전용 — 승용차 요금 계산에서 제외한다.
+        return {"state": "bus_only"}
     if not lot["oper"].get(day):
         return {"state": "closed"}
     fee = lot["fee"]
     if fee["type"] == "무료" or (day != "weekday" and lot["free_days"].get(day)):
         return {"state": "free"}
-    if exempt and minutes <= exempt:
+    chargeable, op_overlap = _chargeable_minutes(lot, minutes, day, entry)
+    if exempt and chargeable > 0 and chargeable <= exempt:
         return {"state": "free", "exempt": True, "exempt_min": exempt}
     if fee.get("flat_day"):
         # 종일 정액(금오산·단양 관광지 등) — 시간 요금 없이 어떤 이용 시간에도 정액이다.
+        # 입차 시각과 무관하므로 과금 구간 계산보다 먼저 본다. 감면은 정액에도 붙는다(P1-1).
         _flat = fee["base_fee"] if fee["base_fee"] is not None else fee["daily_fee"]
+        if rate > 0:
+            _disc = int(math.floor(_flat * (1 - rate) + 0.5))
+            if _disc < _flat:
+                return {"state": "paid", "amount": _disc, "before": _flat,
+                        "capped": False, "discounted": True, "deducted": False, "flat": True}
         return {"state": "paid", "amount": _flat, "before": _flat,
                 "capped": False, "discounted": False, "deducted": False, "flat": True}
+    # 과금 대상 시간이 0분이면 운영시간 밖이다. 노상은 그 시간에 무료, 그 밖은 휴무로 본다.
+    if chargeable == 0:
+        if op_overlap == 0:
+            return ({"state": "free", "outside_hours": True} if lot.get("ptype") == "노상"
+                    else {"state": "closed", "outside_hours": True})
+        return {"state": "free", "free_window": True}   # 과금 구간이 전부 무료 시간대(운영시간 안)
     if fee["type"] != "유료" or not fee["base_min"] or fee["base_fee"] is None:
         return {"state": "unknown"}
     free_min = fee.get("free_min") or 0
-    if free_min and minutes <= free_min:
+    if free_min and chargeable <= free_min:
         return {"state": "free", "free_min": free_min}
     # 최초 N분 무료 정책(김포시 1시간 무료) — 그 시간 이내는 0원이다.
-    if (fee.get("deduct_min") or 0) and minutes <= fee["deduct_min"]:
+    if (fee.get("deduct_min") or 0) and chargeable <= fee["deduct_min"]:
         return {"state": "free", "deducted": True, "deduct_min": fee["deduct_min"]}
 
     def raw_charge(mins):
@@ -5966,11 +6018,11 @@ def price_for(lot, minutes=120, day="weekday", rate=0.0, exempt=0):
 
     if not fee.get("bands") and (not fee["unit_min"] or fee["unit_fee"] is None):
         return {"state": "unknown"}
-    base_raw, base_capped = raw_charge(minutes)
+    base_raw, base_capped = raw_charge(chargeable)
     best_raw, best_capped, deducted = base_raw, base_capped, False
     deduct = fee.get("deduct_min") or 0
-    if deduct and minutes > deduct:
-        d_raw, d_capped = raw_charge(minutes - deduct)
+    if deduct and chargeable > deduct:
+        d_raw, d_capped = raw_charge(chargeable - deduct)
         if d_raw < best_raw:
             best_raw, best_capped, deducted = d_raw, d_capped, True
     discounted = False
@@ -6072,6 +6124,8 @@ def rate_text(fee) -> str:
 
 def fee_text(lot) -> str:
     f = lot["fee"]
+    if lot.get("bus_only"):
+        return "관광버스 전용 · 승용차 주차 불가"
     if f["type"] == "미상":
         return "요금 정보 없음 · 현장 확인"
     if f["type"] == "무료":
@@ -7554,7 +7608,7 @@ def default_discounts():
 
 
 def calculator(lots, default_day="weekday", default_minutes=120, path="", mode="district",
-               discounts=None, single=False):
+               discounts=None, single=False, default_entry=720):
     s = stats_for(lots)
     day_btn = "".join(
         f'<button type="button" class="seg-btn" data-day="{k}" aria-pressed="{"true" if k == default_day else "false"}">'
@@ -7584,7 +7638,7 @@ def calculator(lots, default_day="weekday", default_minutes=120, path="", mode="
     single_attr = ' data-single="1"' if single else ""
     return f"""<section class="calc" aria-labelledby="calc-title"{single_attr}>
   <h2 id="calc-title">내 주차 조건으로 바로 계산</h2>
-  <p class="hint">요일과 시간을 고르면 아래 목록의 예상 요금이 즉시 다시 계산되고 저렴한 순으로 정렬됩니다.</p>
+  <p class="hint">요일·입차 시각·시간을 고르면 아래 목록의 예상 요금이 즉시 다시 계산되고 저렴한 순으로 정렬됩니다.</p>
 
   <div class="field">
     <span class="label">이용 요일</span>
@@ -7609,6 +7663,15 @@ def calculator(lots, default_day="weekday", default_minutes=120, path="", mode="
   </div>
 
   <div class="field">
+    <span class="label">입차 시각</span>
+    <div class="entry-row">
+      <input type="time" id="entry-time" value="{hhmm(default_entry)}" aria-label="입차 시각">
+      <button type="button" class="chip" id="entry-now">지금</button>
+    </div>
+    <p class="hint">운영시간 밖(새벽 등)에 들어가면 그 시간은 요금에서 빠집니다. 기본값은 12:00입니다.</p>
+  </div>
+
+  <div class="field">
     <span class="label">차량 감면(가정)</span>
     <div class="seg {cols}" id="discount-group" role="group" aria-label="차량 감면">{disc_btn}</div>
   </div>
@@ -7617,16 +7680,27 @@ def calculator(lots, default_day="weekday", default_minutes=120, path="", mode="
 </section>"""
 
 
-def lot_card(lot, idx, default_day="weekday", default_minutes=120, link_detail=True):
-    res = price_for(lot, default_minutes, default_day)
-    if res["state"] == "free":
+def lot_card(lot, idx, default_day="weekday", default_minutes=120, link_detail=True, default_entry=720):
+    res = price_for(lot, default_minutes, default_day, entry=default_entry)
+    if res["state"] == "bus_only":
+        price_html = ('<span class="price bus-only">관광버스 전용</span>'
+                      '<span class="price-note">승용차 주차 불가</span>')
+    elif res["state"] == "free":
         # 요금 구분이 '무료'인 주차장은 요일과 관계없이 무료라 ‘선택한 요일’이라고 쓰지 않는다.
         _dm = res.get("deduct_min") or 0
-        free_note_text = ("요금 구분 ‘무료’" if lot["fee"]["type"] == "무료"
-                          else (f"최초 {_dm // 60}시간 무료 적용" if _dm and _dm % 60 == 0
-                                else f"최초 {_dm}분 무료 적용") if _dm
-                          else f"최초 {res['free_min']}분 무료" if res.get("free_min")
-                          else "무료 개방 (선택한 요일)")
+        if res.get("free_window"):
+            free_note_text = "무료 시간대 (입차 시각 기준)"
+        elif res.get("outside_hours"):
+            free_note_text = "운영시간 외 무료 (입차 시각 기준)"
+        elif lot["fee"]["type"] == "무료":
+            free_note_text = "요금 구분 ‘무료’"
+        elif _dm:
+            free_note_text = (f"최초 {_dm // 60}시간 무료 적용" if _dm % 60 == 0
+                              else f"최초 {_dm}분 무료 적용")
+        elif res.get("free_min"):
+            free_note_text = f"최초 {res['free_min']}분 무료"
+        else:
+            free_note_text = "무료 개방 (선택한 요일)"
         price_html = (f'<span class="price free">0원</span>'
                       f'<span class="price-note">{esc(free_note_text)}</span>')
     elif res["state"] == "paid":
@@ -7636,22 +7710,29 @@ def lot_card(lot, idx, default_day="weekday", default_minutes=120, link_detail=T
             extra.append(f"최초 {dm // 60}시간 무료 적용" if dm and dm % 60 == 0 else f"최초 {dm}분 무료 적용")
         if res["capped"]:
             extra.append("일일 최대요금 적용" if lot["fee"].get("cap_fee") else "1일권 상한 적용")
-        base_note = ("1회 정액(종일)" if lot["fee"].get("flat_day")
+        if res.get("discounted"):
+            extra.append(f"정상 {won(res['before'])}에서 감면")
+        base_note = (("1회 정액(종일)" if lot["fee"].get("flat_day")
                      else "누진 요금표 기준" if (lot["fee"].get("steps") and not lot["fee"].get("category"))
                      else "노상 3급지 요금 기준(2시간 초과 할증)" if lot["fee"].get("category") in ("transfer", "park")
                      else "입차 때 1구획 요금" if lot["fee"].get("category") == "haengju"
                      else (f"최초 {lot['fee']['free_min']}분 무료 기준"
                            if (not lot["fee"]["base_fee"] and lot["fee"].get("free_min"))
-                           else "기본요금·추가요금 기준"))
+                           else "기본요금·추가요금 기준")))
         price_html = (f'<span class="price paid">{won(res["amount"])}</span>'
                       f'<span class="price-note">{esc(" · ".join(extra) or base_note)}</span>')
     elif res["state"] == "unknown":
         price_html = '<span class="price unknown">요금 정보 미상</span><span class="price-note">현장 확인 필요</span>'
     else:
-        price_html = '<span class="price closed">휴무</span><span class="price-note">선택한 요일에 운영하지 않음</span>'
+        _closed_note = ("입차 시각 기준 운영시간 외" if res.get("outside_hours")
+                        else "선택한 요일에 운영하지 않음")
+        price_html = (f'<span class="price closed">휴무</span>'
+                      f'<span class="price-note">{_closed_note}</span>')
 
     badges = [f'<span class="badge kind">{esc(lot["kind"] or "공영")}</span>',
               f'<span class="badge">{esc(lot["ptype"] or "주차장")}</span>']
+    if lot.get("bus_only"):
+        badges.append('<span class="badge bus-only">관광버스 전용</span>')
     if is_free_lot(lot):
         badges.append(f'<span class="badge free">{"무료" if lot["fee"]["type"] == "무료" else "무료개방"}</span>')
     if is_permit(lot):
@@ -7675,6 +7756,8 @@ def lot_card(lot, idx, default_day="weekday", default_minutes=120, link_detail=T
         meta.append(f'<li><b>전화</b> <a href="tel:{esc(lot["tel"])}">{esc(lot["tel"])}</a>{rep}</li>')
 
     lines = [f'<p class="fee-line">요금: {esc(fee_text(lot))}</p>']
+    if lot.get("bus_only"):
+        lines.append('<p class="note-line"><b>관광버스 전용</b>: 승용차는 주차할 수 없습니다.</p>')
     if lot["fee"].get("pay"):
         lines.append(f'<p class="fee-line">결제: {esc(lot["fee"]["pay"])}</p>')
     if lot.get("realtime"):
@@ -7729,10 +7812,11 @@ def lot_card(lot, idx, default_day="weekday", default_minutes=120, link_detail=T
 
 
 def lot_list(lots, path, default_day="weekday", with_ad=True, default_minutes=120, chips=True,
-             link_detail=True):
+             link_detail=True, default_entry=720):
     cards = []
     for i, lot in enumerate(lots, 1):
-        cards.append(lot_card(lot, i, default_day, link_detail=link_detail))
+        cards.append(lot_card(lot, i, default_day, default_minutes, link_detail=link_detail,
+                              default_entry=default_entry))
         if with_ad and i == 5:
             cards.append(ad_slot().replace('<div class="ad-slot"', '<div style="order:5" class="ad-slot"', 1))
     data = json.dumps([{
@@ -7744,6 +7828,7 @@ def lot_list(lots, path, default_day="weekday", with_ad=True, default_minutes=12
         "free_holiday": bool(l.get("free_holiday")),
         "free_window": l.get("free_window_min"),
         "access": l.get("access") or "general",
+        "bus_only": bool(l.get("bus_only")),
         "hours": {k: {"open": l["hours"][k]["open"], "start": l["hours"][k]["start"],
                       "end": l["hours"][k]["end"]} for k in ("weekday", "sat", "sun")},
         # 누진(steps)·최초 무료(free_min)·일일 상한(cap_fee)은 값이 있는 도시만 싣는다(다른 도시 출력 불변)
@@ -7753,7 +7838,7 @@ def lot_list(lots, path, default_day="weekday", with_ad=True, default_minutes=12
                    if l["fee"].get(k)}},
     } for l in lots], ensure_ascii=False)
     return ((free_chips(lots) if chips else "")
-            + f'<div class="list" id="lot-list" data-day="{default_day}" data-minutes="{default_minutes}">{"".join(cards)}</div>'
+            + f'<div class="list" id="lot-list" data-day="{default_day}" data-minutes="{default_minutes}" data-entry="{default_entry}">{"".join(cards)}</div>'
             + f'<script type="application/json" id="lot-data">{data.replace("</", "<\\/")}</script>')
 
 
@@ -7777,6 +7862,8 @@ def price_cell(lot, minutes: int, day="weekday") -> str:
         return won(r["amount"])
     if r["state"] == "free":
         return "무료"
+    if r["state"] == "bus_only":
+        return "관광버스 전용"
     if r["state"] == "unknown":
         return "현장 확인"
     return "휴무"
@@ -9453,7 +9540,9 @@ def build_lot_detail(city, lot, site, existing_paths, dong_path=None):
     est_results = [(label, price_for(lot, mins, "weekday"))
                    for mins, label in ((30, "30분"), (60, "1시간"), (120, "2시간"),
                                        (240, "4시간"), (480, "8시간"), (1440, "24시간"))]
-    if all(r["state"] == "unknown" for _, r in est_results):
+    if all(r["state"] == "bus_only" for _, r in est_results):
+        est_block = '<p class="lede">관광버스 전용 주차장입니다 — 승용차는 주차할 수 없습니다.</p>'
+    elif all(r["state"] == "unknown" for _, r in est_results):
         est_note = ("시간요금 미등록(월정기 전용) — 현장 확인" if fee.get("monthly")
                     else "시간요금 미등록 — 현장 확인")
         est_block = f'<p class="lede">{est_note}</p>'
@@ -9466,6 +9555,8 @@ def build_lot_detail(city, lot, site, existing_paths, dong_path=None):
                 v = "무료"
             elif r["state"] == "closed":
                 v = "운영 안 함"
+            elif r["state"] == "bus_only":
+                v = "관광버스 전용"
             else:
                 v = "현장 확인"
             est_rows += f'<tr><td>{label}</td><td class="num">{v}</td></tr>'
@@ -9549,12 +9640,16 @@ def build_lot_detail(city, lot, site, existing_paths, dong_path=None):
     if lot.get("list_mode") == STREET_MODE:
         back_links.append(f'<a class="btn" href="{rel(path, street_path(city))}">노상 주차장 전체 보기</a>')
 
+    bus_note = ('<section class="note-box" style="margin-top:12px">\n'
+                '  <h2>관광버스 전용 주차장</h2>\n'
+                '  <p>이 주차장은 관광버스 전용입니다. <b>승용차는 주차할 수 없습니다.</b></p>\n'
+                '</section>\n') if lot.get("bus_only") else ""
     body = f"""
 <h1>{esc(lot_display_name(name))}</h1>
 <p class="lede">{esc(addr)}에 있는 {esc(lot['ptype'] or '공영')}주차장입니다. {lot['spaces']:,}면 규모이며,
 요금·월정기·운영시간·감면 정보를 공공데이터로 정리했습니다. {lede_tail}</p>
 <p class="updated">자료 기준일 {esc(lot['base_date'])} · 관리 {esc(lot.get('manager') or '-')}</p>
-{ad_slot()}
+{bus_note}{ad_slot()}
 {main_block}
 
 <h2>기본 정보</h2>
@@ -13924,15 +14019,17 @@ def _fee_table_block_raw(city) -> str:
 """
     if ft.get("style") == "andong_grade":
         # 안동시 — 공영 132곳(노외 82곳·노상 49구간·부설
-        #   1곳, 총 8,221면)이 무료 96곳·유료 33곳·요금
-        #   미상 3곳으로 등록돼 있다. 「안동시 주차장
+        #   1곳, 총 8,203면)이 무료 96곳·유료 35곳·요금
+        #   미상 1곳으로 등록돼 있다. 「안동시 주차장
         #   조례」 제2252호(시행 2025-07-04) 제5조제1항·
         #   별표 1은 급지별 요금표(1급지 기본 30분 500원·
         #   10분마다 200원, 2급지 200원·100원)를 두고,
         #   1일·월정기는 노외 한정이다. 노상은 비고 6의
         #   최초 15분 면제가 있다. 등록 단가가 별표 1
         #   1급지와 같은 곳만 계산하고, 단가가 어긋나는
-        #   3곳은 요금 미상으로 표기한다(김해·함안 선례).
+        #   1곳(도산서원)은 요금 미상으로 표기한다(김해·함안 선례).
+        #   옥동 주차타워·안동시청 부설주차장은 1차 출처로
+        #   확인해(2026-11-23) 별도 요율을 적용한다.
         def _month_cell(v):
             return won(v) if v else "—"
         rows_html = "".join(
@@ -13949,8 +14046,8 @@ def _fee_table_block_raw(city) -> str:
         corp = ft.get("corp") or {}
         return f"""
 <h2>{esc(city['city'])} 공영주차장 요금표 (조례 별표 1)</h2>
-<p class="lede">안동시 공영주차장 <b>132곳</b>(노외 82곳·노상 49구간·부설 1곳, 총 8,221면)은
-무료 <b>96곳</b>·유료 <b>33곳</b>·요금 미상 <b>3곳</b>입니다.
+<p class="lede">안동시 공영주차장 <b>132곳</b>(노외 82곳·노상 49구간·부설 1곳, 총 8,203면)은
+무료 <b>96곳</b>·유료 <b>35곳</b>·요금 미상 <b>1곳</b>입니다.
 「안동시 주차장 조례」 제2252호 별표 1은 <b>1급지</b> 기본(최초 30분) <b>500원</b>에
 10분마다 <b>200원</b>, <b>2급지</b> <b>200원·100원</b>으로 정하고, 1일 요금과 월정기는
 <b>노외주차장만</b> 적용합니다. 노상주차장은 1일 1회에 한해 <b>최초 15분</b>까지 요금이

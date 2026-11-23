@@ -1,8 +1,8 @@
 {
  "meta": {
-  "generated_at": "2026-11-23 13:26",
-  "generated_at_iso": "2026-11-23T13:26:05+09:00",
-  "snapshot_at": "2026-11-23 13:26",
+  "generated_at": "2026-11-23 17:43",
+  "generated_at_iso": "2026-11-23T17:43:00+09:00",
+  "snapshot_at": "2026-11-23 17:43",
   "region": {
    "province": "서울특별시",
    "city": "광진구"
@@ -131,7 +131,9 @@
     "portal_free_now": false,
     "flat_day": false,
     "ticket_only": false,
-    "basis": "표준데이터 등록요금(5분당)"
+    "basis": "표준데이터 등록요금(5분당)",
+    "cap_none": true,
+    "cap_none_src": "조례 원문"
    },
    "oper": {
     "weekday": true,
@@ -369,7 +371,9 @@
     "portal_free_now": false,
     "flat_day": false,
     "ticket_only": false,
-    "basis": "표준데이터 등록요금(5분당)"
+    "basis": "표준데이터 등록요금(5분당)",
+    "cap_none": true,
+    "cap_none_src": "조례 원문"
    },
    "oper": {
     "weekday": true,
@@ -488,7 +492,9 @@
     "portal_free_now": false,
     "flat_day": false,
     "ticket_only": false,
-    "basis": "표준데이터 등록요금(5분당)"
+    "basis": "표준데이터 등록요금(5분당)",
+    "cap_none": true,
+    "cap_none_src": "조례 원문"
    },
    "oper": {
     "weekday": true,
@@ -607,7 +613,9 @@
     "portal_free_now": false,
     "flat_day": false,
     "ticket_only": false,
-    "basis": "표준데이터 등록요금(5분당)"
+    "basis": "표준데이터 등록요금(5분당)",
+    "cap_none": true,
+    "cap_none_src": "조례 원문"
    },
    "oper": {
     "weekday": true,
@@ -726,7 +734,9 @@
     "portal_free_now": false,
     "flat_day": false,
     "ticket_only": false,
-    "basis": "표준데이터 등록요금(5분당)"
+    "basis": "표준데이터 등록요금(5분당)",
+    "cap_none": true,
+    "cap_none_src": "조례 원문"
    },
    "oper": {
     "weekday": true,
@@ -845,7 +855,9 @@
     "portal_free_now": false,
     "flat_day": false,
     "ticket_only": false,
-    "basis": "표준데이터 등록요금(5분당)"
+    "basis": "표준데이터 등록요금(5분당)",
+    "cap_none": true,
+    "cap_none_src": "조례 원문"
    },
    "oper": {
     "weekday": true,
@@ -964,7 +976,9 @@
     "portal_free_now": false,
     "flat_day": false,
     "ticket_only": false,
-    "basis": "표준데이터 등록요금(5분당)"
+    "basis": "표준데이터 등록요금(5분당)",
+    "cap_none": true,
+    "cap_none_src": "조례 원문"
    },
    "oper": {
     "weekday": true,
@@ -1083,7 +1097,9 @@
     "portal_free_now": false,
     "flat_day": false,
     "ticket_only": false,
-    "basis": "표준데이터 등록요금(5분당)"
+    "basis": "표준데이터 등록요금(5분당)",
+    "cap_none": true,
+    "cap_none_src": "조례 원문"
    },
    "oper": {
     "weekday": true,
@@ -1202,7 +1218,9 @@
     "portal_free_now": false,
     "flat_day": false,
     "ticket_only": false,
-    "basis": "표준데이터 등록요금(5분당)"
+    "basis": "표준데이터 등록요금(5분당)",
+    "cap_none": true,
+    "cap_none_src": "조례 원문"
    },
    "oper": {
     "weekday": true,
@@ -1321,7 +1339,9 @@
     "portal_free_now": false,
     "flat_day": false,
     "ticket_only": false,
-    "basis": "표준데이터 등록요금(5분당)"
+    "basis": "표준데이터 등록요금(5분당)",
+    "cap_none": true,
+    "cap_none_src": "조례 원문"
    },
    "oper": {
     "weekday": true,
@@ -1559,7 +1579,9 @@
     "portal_free_now": false,
     "flat_day": false,
     "ticket_only": false,
-    "basis": "표준데이터 등록요금(5분당)"
+    "basis": "표준데이터 등록요금(5분당)",
+    "cap_none": true,
+    "cap_none_src": "조례 원문"
    },
    "oper": {
     "weekday": true,
@@ -1678,7 +1700,9 @@
     "portal_free_now": false,
     "flat_day": false,
     "ticket_only": false,
-    "basis": "표준데이터 등록요금(5분당)"
+    "basis": "표준데이터 등록요금(5분당)",
+    "cap_none": true,
+    "cap_none_src": "조례 원문"
    },
    "oper": {
     "weekday": true,
@@ -1797,7 +1821,9 @@
     "portal_free_now": false,
     "flat_day": false,
     "ticket_only": false,
-    "basis": "표준데이터 등록요금(5분당)"
+    "basis": "표준데이터 등록요금(5분당)",
+    "cap_none": true,
+    "cap_none_src": "주간 상한 없음 — 야간 1일권 별도"
    },
    "oper": {
     "weekday": true,
@@ -1916,7 +1942,9 @@
     "portal_free_now": false,
     "flat_day": false,
     "ticket_only": false,
-    "basis": "표준데이터 등록요금(5분당)"
+    "basis": "표준데이터 등록요금(5분당)",
+    "cap_none": true,
+    "cap_none_src": "주간 상한 없음 — 야간 1일권 별도"
    },
    "oper": {
     "weekday": true,
@@ -2035,7 +2063,9 @@
     "portal_free_now": false,
     "flat_day": false,
     "ticket_only": false,
-    "basis": "표준데이터 등록요금(5분당)"
+    "basis": "표준데이터 등록요금(5분당)",
+    "cap_none": true,
+    "cap_none_src": "주간 상한 없음 — 야간 1일권 별도"
    },
    "oper": {
     "weekday": true,
@@ -2154,7 +2184,9 @@
     "portal_free_now": false,
     "flat_day": false,
     "ticket_only": false,
-    "basis": "표준데이터 등록요금(5분당)"
+    "basis": "표준데이터 등록요금(5분당)",
+    "cap_none": true,
+    "cap_none_src": "주간 상한 없음 — 야간 1일권 별도"
    },
    "oper": {
     "weekday": true,
@@ -2214,7 +2246,7 @@
   }
  ],
  "quality": {
-  "generated_at": "2026-11-23 13:26",
+  "generated_at": "2026-11-23 17:43",
   "원자료_전국행수": 18994,
   "원자료_행수": 18,
   "원자료_광진구행수": 18,

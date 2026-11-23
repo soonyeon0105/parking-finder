@@ -1,7 +1,7 @@
 {
  "meta": {
-  "generated_at": "2026-11-23 13:26",
-  "generated_at_iso": "2026-11-23T13:26:05+09:00",
+  "generated_at": "2026-11-23 17:43",
+  "generated_at_iso": "2026-11-23T17:43:00+09:00",
   "snapshot_at": "2026-11-17 12:57",
   "region": {
    "province": "경기도",
@@ -97,7 +97,7 @@
     "license": "지도 서비스 지오코딩 결과(참고용)",
     "base_date": "2026-11-17",
     "rows_total": 2,
-    "fetched_at": "2026-11-23 13:18 (KST)",
+    "fetched_at": "2026-11-23 15:04 (KST)",
     "note": "표준데이터에 없는 미사중앙 제1·2주차장의 좌표(망월동 1086·1090)."
    }
   ]
@@ -3515,11 +3515,11 @@
     "prepaid_day": null,
     "prepaid_weekend": null,
     "monthly": 120000,
-    "monthly_day": null,
-    "monthly_night": null,
-    "monthly_all": null,
+    "monthly_day": 90000,
+    "monthly_night": 60000,
+    "monthly_all": 120000,
     "pay": "신용카드",
-    "basis": "정기권 전용 — 노상 3급지",
+    "basis": "정기권 전용 — 노상 3급지 월 정기권 주간 90,000원·야간 60,000원·주야간 120,000원(대형 기준, 1차 출처 확인 2026-11-23).",
     "category": null,
     "portal_free_now": false,
     "flat_day": false,
@@ -4403,7 +4403,7 @@
   }
  ],
  "quality": {
-  "generated_at": "2026-11-23 13:26",
+  "generated_at": "2026-11-23 17:43",
   "원자료_전국행수": 18994,
   "원자료_행수": 35,
   "원자료_하남시행수": 35,

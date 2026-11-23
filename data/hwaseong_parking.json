@@ -1,7 +1,7 @@
 {
  "meta": {
-  "generated_at": "2026-11-23 13:26",
-  "generated_at_iso": "2026-11-23T13:26:05+09:00",
+  "generated_at": "2026-11-23 17:43",
+  "generated_at_iso": "2026-11-23T17:43:00+09:00",
   "snapshot_at": null,
   "region": {
    "province": "경기도",
@@ -441,7 +441,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": null,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -529,7 +530,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 60000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -617,7 +619,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 30000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -705,7 +708,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 100000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -1409,7 +1413,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 30000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -1585,7 +1590,9 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 60000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_fee": 3000,
+    "basis": "일일 최대 3,000원(24시간 기준, 1차 출처 확인 2026-11-23)."
    },
    "oper": {
     "weekday": true,
@@ -1673,7 +1680,9 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 60000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_fee": 3000,
+    "basis": "일일 최대 3,000원(24시간 기준, 1차 출처 확인 2026-11-23)."
    },
    "oper": {
     "weekday": true,
@@ -1761,7 +1770,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": null,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -2025,7 +2035,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 30000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -2113,7 +2124,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 60000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -2289,7 +2301,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 100000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -2377,7 +2390,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 100000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -2465,7 +2479,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": null,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -2553,7 +2568,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 100000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -2641,7 +2657,9 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 90000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_fee": 10000,
+    "basis": "일일 최대 10,000원(24시간 기준, 1차 출처 확인 2026-11-23)."
    },
    "oper": {
     "weekday": true,
@@ -3433,7 +3451,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": null,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -4049,7 +4068,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 100000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -4225,7 +4245,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 100000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -4313,7 +4334,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 100000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -4401,7 +4423,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 60000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -5369,7 +5392,9 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 90000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_fee": 10000,
+    "basis": "일일 최대 10,000원(24시간 기준, 1차 출처 확인 2026-11-23)."
    },
    "oper": {
     "weekday": true,
@@ -5809,7 +5834,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 100000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -6337,7 +6363,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 30000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -6513,7 +6540,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": null,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -6689,7 +6717,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 90000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -6777,7 +6806,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 100000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -6865,7 +6895,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": null,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -6953,7 +6984,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 60000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -7657,7 +7689,9 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 90000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_fee": 10000,
+    "basis": "일일 최대 10,000원(24시간 기준, 1차 출처 확인 2026-11-23)."
    },
    "oper": {
     "weekday": true,
@@ -7833,7 +7867,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 100000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -8009,7 +8044,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 90000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -8097,7 +8133,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 90000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -8625,7 +8662,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": 100000,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -8713,7 +8751,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": null,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -8889,7 +8928,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": null,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -8977,7 +9017,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": null,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -9065,7 +9106,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": null,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -9153,7 +9195,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": null,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -9417,7 +9460,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": null,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -9505,7 +9549,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": null,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -9769,7 +9814,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": null,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -10473,7 +10519,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": null,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -10649,7 +10696,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": null,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -10737,7 +10785,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": null,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -11177,7 +11226,8 @@
     "daily_hours": null,
     "daily_fee": null,
     "monthly": null,
-    "pay": "카드결제"
+    "pay": "카드결제",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -11234,7 +11284,7 @@
   }
  ],
  "quality": {
-  "generated_at": "2026-11-23 13:26",
+  "generated_at": "2026-11-23 17:43",
   "원자료_전국행수": 18994,
   "원자료_행수": 127,
   "원자료_화성시행수": 127,
