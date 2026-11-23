@@ -21,6 +21,21 @@ gtag('js', new Date());
 gtag('config', 'G-X99KL3RGWD');
 </script>
 
+<style>
+.prov-chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;margin:12px 0 10px;-webkit-overflow-scrolling:touch}
+.prov-chips .pchip{flex:0 0 auto;font-size:13.5px;font-weight:700;color:var(--ink-soft);background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px;text-decoration:none}
+.prov-chips .pchip small{font-weight:600;color:var(--muted);font-size:11px;margin-left:2px}
+details.prov-fold{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin-bottom:10px}
+details.prov-fold>summary{cursor:pointer;display:flex;align-items:baseline;gap:8px;list-style:none}
+details.prov-fold>summary::-webkit-details-marker{display:none}
+details.prov-fold>summary::after{content:"▾";margin-left:auto;color:var(--brand);font-weight:700}
+details.prov-fold[open]>summary::after{content:"▴"}
+details.prov-fold .pf-name{font-size:15px;font-weight:700;color:var(--ink)}
+details.prov-fold .pf-count{font-size:12px;font-weight:600;color:var(--muted)}
+details.prov-fold .grid-2{margin-top:10px}
+details.prov-fold .prov-all{margin:10px 0 0}
+</style>
+
 <link rel="preload" href="assets/fonts/PretendardVariable.subset.91.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/fonts/pretendardvariable-dynamic-subset.css?v=2026-11-23-17">
 <link rel="stylesheet" href="assets/style.css?v=2026-11-23-17">
@@ -40,9 +55,9 @@ gtag('config', 'G-X99KL3RGWD');
 </header>
 <main class="wrap">
 <nav aria-label="현재 위치"><ol class="crumbs"><li>홈</li></ol></nav>
-<h1>공영주차장 파인더 — 경기도 31개 시·군 · 서울특별시 25개 자치구 · 인천광역시 11개 구·군 · 부산광역시 16개 구·군 · 대구광역시 9개 구·군 · 대전광역시 5개 구 · 울산광역시 5개 구·군 · 세종특별자치시 1개 시·군 · 제주특별자치도 2개 시·군 · 충청북도 11개 시·군 · 충청남도 15개 시·군 · 전북특별자치도 14개 시·군 · 전남광주통합특별시 27개 시·군·구 · 경상남도 18개 시·군 · 경상북도 22개 시·군 · 강원특별자치도 18개 시·군</h1>
+<h1>전국 공영주차장 17,398곳</h1>
 <p class="lede">"여기 2시간 주차하면 얼마지?"를 바로 확인하는 페이지입니다.
-공공데이터로 등록된 공영주차장 12,556곳(구획 816,314면)의 요금·운영시간·무료 개방 정보를 요일과 시간에 맞춰 계산합니다.</p>
+공공데이터로 등록된 공영주차장 17,398곳(노상 구간 포함, 구획 1,000,338면)의 요금·운영시간·무료 개방 정보를 요일과 시간에 맞춰 계산합니다.</p>
 
 <form class="hero-search" role="search" action="parking/regions/" method="get">
   <label for="q">지역·주차장 빠른 검색</label>
@@ -64,7 +79,7 @@ gtag('config', 'G-X99KL3RGWD');
 </section>
 
 <div class="stats">
-  <div class="stat"><span class="k">등록 주차장</span><span class="v">12,556<small>곳</small></span></div>
+  <div class="stat"><span class="k">등록 주차장</span><span class="v">17,398<small>곳</small></span></div>
   <div class="stat"><span class="k">지원 지역</span><span class="v">230<small>개 시·군·구</small></span></div>
   <div class="stat free"><span class="k">무료로 쓸 수 있는 곳</span><span class="v">9,346<small>곳</small></span></div>
 </div>
@@ -76,9 +91,8 @@ gtag('config', 'G-X99KL3RGWD');
 </div>
 
 <h2>지역 선택</h2>
-<div class="prov-tabs" role="tablist" aria-label="시·도 선택"><button type="button" class="ptab" role="tab" data-panel="gyeonggi" aria-selected="true">경기도 <small>31</small></button><button type="button" class="ptab" role="tab" data-panel="seoul" aria-selected="false">서울특별시 <small>25</small></button><button type="button" class="ptab" role="tab" data-panel="incheon" aria-selected="false">인천광역시 <small>11</small></button><button type="button" class="ptab" role="tab" data-panel="busan" aria-selected="false">부산광역시 <small>16</small></button><button type="button" class="ptab" role="tab" data-panel="daegu" aria-selected="false">대구광역시 <small>9</small></button><button type="button" class="ptab" role="tab" data-panel="daejeon" aria-selected="false">대전광역시 <small>5</small></button><button type="button" class="ptab" role="tab" data-panel="gwangju" aria-selected="false">광주광역시 <small>5</small></button><button type="button" class="ptab" role="tab" data-panel="ulsan" aria-selected="false">울산광역시 <small>5</small></button><button type="button" class="ptab" role="tab" data-panel="sejong" aria-selected="false">세종특별자치시 <small>1</small></button><button type="button" class="ptab" role="tab" data-panel="jeju" aria-selected="false">제주특별자치도 <small>2</small></button><button type="button" class="ptab" role="tab" data-panel="chungbuk" aria-selected="false">충청북도 <small>11</small></button><button type="button" class="ptab" role="tab" data-panel="chungnam" aria-selected="false">충청남도 <small>15</small></button><button type="button" class="ptab" role="tab" data-panel="jeonbuk" aria-selected="false">전북특별자치도 <small>14</small></button><button type="button" class="ptab" role="tab" data-panel="jeonnam" aria-selected="false">전남광주통합특별시 <small>22</small></button><button type="button" class="ptab" role="tab" data-panel="gyeongnam" aria-selected="false">경상남도 <small>18</small></button><button type="button" class="ptab" role="tab" data-panel="gyeongbuk" aria-selected="false">경상북도 <small>22</small></button><button type="button" class="ptab" role="tab" data-panel="gangwon" aria-selected="false">강원특별자치도 <small>18</small></button></div>
-<section class="prov-panel" id="panel-gyeonggi" data-prov="gyeonggi"><h3 class="prov" id="gyeonggi">경기도</h3>
-<p class="prov-all"><a href="parking/gyeonggi/">경기도 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/gyeonggi/suwon/">
+<nav class="prov-chips" aria-label="시·도 바로가기"><a class="pchip" href="#gyeonggi">경기도 <small>31</small></a><a class="pchip" href="#seoul">서울특별시 <small>25</small></a><a class="pchip" href="#incheon">인천광역시 <small>11</small></a><a class="pchip" href="#busan">부산광역시 <small>16</small></a><a class="pchip" href="#daegu">대구광역시 <small>9</small></a><a class="pchip" href="#daejeon">대전광역시 <small>5</small></a><a class="pchip" href="#gwangju">광주광역시 <small>5</small></a><a class="pchip" href="#ulsan">울산광역시 <small>5</small></a><a class="pchip" href="#sejong">세종특별자치시 <small>1</small></a><a class="pchip" href="#jeju">제주특별자치도 <small>2</small></a><a class="pchip" href="#chungbuk">충청북도 <small>11</small></a><a class="pchip" href="#chungnam">충청남도 <small>15</small></a><a class="pchip" href="#jeonbuk">전북특별자치도 <small>14</small></a><a class="pchip" href="#jeonnam">전남광주통합특별시 <small>22</small></a><a class="pchip" href="#gyeongnam">경상남도 <small>18</small></a><a class="pchip" href="#gyeongbuk">경상북도 <small>22</small></a><a class="pchip" href="#gangwon">강원특별자치도 <small>18</small></a></nav>
+<details class="prov-fold" id="gyeonggi" data-prov="gyeonggi"><summary><span class="pf-name">경기도</span><span class="pf-count">31개 지역 · 1,945곳</span></summary><p class="prov-all"><a href="parking/gyeonggi/">경기도 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/gyeonggi/suwon/">
   <span class="t">수원시<span class="go">72곳 →</span></span>
   <span class="d">주차요금 계산 · 구별 목록 · 무료 2곳</span>
 </a><a class="link-card" href="parking/gyeonggi/suwon-yeongtong/">
@@ -243,8 +257,7 @@ gtag('config', 'G-X99KL3RGWD');
 </a><a class="link-card" href="parking/gyeonggi/yeoncheon/">
   <span class="t">연천군<span class="go">8곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록 · 무료 6곳</span>
-</a></div></section><section class="prov-panel" id="panel-seoul" data-prov="seoul" hidden><h3 class="prov" id="seoul">서울특별시</h3>
-<p class="prov-all"><a href="parking/seoul/">서울특별시 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/seoul/jongno/">
+</a></div></details><details class="prov-fold" id="seoul" data-prov="seoul"><summary><span class="pf-name">서울특별시</span><span class="pf-count">25개 지역 · 595곳</span></summary><p class="prov-all"><a href="parking/seoul/">서울특별시 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/seoul/jongno/">
   <span class="t">종로구<span class="go">8곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록 · 무료 2곳</span>
 </a><a class="link-card" href="parking/seoul/jung/">
@@ -319,8 +332,7 @@ gtag('config', 'G-X99KL3RGWD');
 </a><a class="link-card" href="parking/seoul/gwanak/">
   <span class="t">관악구<span class="go">42곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록 · 무료 1곳</span>
-</a></div></section><section class="prov-panel" id="panel-incheon" data-prov="incheon" hidden><h3 class="prov" id="incheon">인천광역시</h3>
-<p class="prov-all"><a href="parking/incheon/">인천광역시 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/incheon/michuhol/">
+</a></div></details><details class="prov-fold" id="incheon" data-prov="incheon"><summary><span class="pf-name">인천광역시</span><span class="pf-count">11개 지역 · 640곳</span></summary><p class="prov-all"><a href="parking/incheon/">인천광역시 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/incheon/michuhol/">
   <span class="t">미추홀구<span class="go">109곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록 · 무료 21곳</span>
 </a><a class="link-card" href="parking/incheon/yeonsu/">
@@ -353,8 +365,7 @@ gtag('config', 'G-X99KL3RGWD');
 </a><a class="link-card" href="parking/incheon/ongjin/">
   <span class="t">옹진군<span class="go">46곳 →</span></span>
   <span class="d">주차요금 계산 · 읍·면별 목록 · 무료 41곳</span>
-</a></div></section><section class="prov-panel" id="panel-busan" data-prov="busan" hidden><h3 class="prov" id="busan">부산광역시</h3>
-<p class="prov-all"><a href="parking/busan/">부산광역시 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/busan/jung-gu/">
+</a></div></details><details class="prov-fold" id="busan" data-prov="busan"><summary><span class="pf-name">부산광역시</span><span class="pf-count">16개 지역 · 293곳</span></summary><p class="prov-all"><a href="parking/busan/">부산광역시 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/busan/jung-gu/">
   <span class="t">부산 중구<span class="go">11곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록</span>
 </a><a class="link-card" href="parking/busan/seo-gu/">
@@ -402,8 +413,7 @@ gtag('config', 'G-X99KL3RGWD');
 </a><a class="link-card" href="parking/busan/gijang-gun/">
   <span class="t">부산 기장군<span class="go">31곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록 · 무료 18곳</span>
-</a></div></section><section class="prov-panel" id="panel-daegu" data-prov="daegu" hidden><h3 class="prov" id="daegu">대구광역시</h3>
-<p class="prov-all"><a href="parking/daegu/">대구광역시 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/daegu/jung-gu/">
+</a></div></details><details class="prov-fold" id="daegu" data-prov="daegu"><summary><span class="pf-name">대구광역시</span><span class="pf-count">9개 지역 · 395곳</span></summary><p class="prov-all"><a href="parking/daegu/">대구광역시 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/daegu/jung-gu/">
   <span class="t">대구 중구<span class="go">13곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록</span>
 </a><a class="link-card" href="parking/daegu/dong-gu/">
@@ -430,8 +440,7 @@ gtag('config', 'G-X99KL3RGWD');
 </a><a class="link-card" href="parking/daegu/gunwi-gun/">
   <span class="t">대구 군위군<span class="go">52곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록 · 무료 52곳</span>
-</a></div></section><section class="prov-panel" id="panel-daejeon" data-prov="daejeon" hidden><h3 class="prov" id="daejeon">대전광역시</h3>
-<p class="prov-all"><a href="parking/daejeon/">대전광역시 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/daejeon/dong-gu/">
+</a></div></details><details class="prov-fold" id="daejeon" data-prov="daejeon"><summary><span class="pf-name">대전광역시</span><span class="pf-count">5개 지역 · 279곳</span></summary><p class="prov-all"><a href="parking/daejeon/">대전광역시 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/daejeon/dong-gu/">
   <span class="t">대전 동구<span class="go">52곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록 · 무료 39곳</span>
 </a><a class="link-card" href="parking/daejeon/jung-gu/">
@@ -446,8 +455,7 @@ gtag('config', 'G-X99KL3RGWD');
 </a><a class="link-card" href="parking/daejeon/daedeok-gu/">
   <span class="t">대전 대덕구<span class="go">24곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록 · 무료 10곳</span>
-</a></div></section><section class="prov-panel" id="panel-gwangju" data-prov="gwangju" hidden><h3 class="prov" id="gwangju">광주광역시</h3>
-<p class="prov-all"><a href="parking/gwangju/">광주광역시 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/gwangju/dong-gu/">
+</a></div></details><details class="prov-fold" id="gwangju" data-prov="gwangju"><summary><span class="pf-name">광주광역시</span><span class="pf-count">5개 지역 · 303곳</span></summary><p class="prov-all"><a href="parking/gwangju/">광주광역시 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/gwangju/dong-gu/">
   <span class="t">광주 동구<span class="go">64곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록 · 무료 47곳</span>
 </a><a class="link-card" href="parking/gwangju/seo-gu/">
@@ -462,8 +470,7 @@ gtag('config', 'G-X99KL3RGWD');
 </a><a class="link-card" href="parking/gwangju/gwangsan-gu/">
   <span class="t">광주 광산구<span class="go">63곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록 · 무료 36곳</span>
-</a></div></section><section class="prov-panel" id="panel-ulsan" data-prov="ulsan" hidden><h3 class="prov" id="ulsan">울산광역시</h3>
-<p class="prov-all"><a href="parking/ulsan/">울산광역시 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/ulsan/jung-gu/">
+</a></div></details><details class="prov-fold" id="ulsan" data-prov="ulsan"><summary><span class="pf-name">울산광역시</span><span class="pf-count">5개 지역 · 303곳</span></summary><p class="prov-all"><a href="parking/ulsan/">울산광역시 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/ulsan/jung-gu/">
   <span class="t">울산 중구<span class="go">26곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록</span>
 </a><a class="link-card" href="parking/ulsan/nam-gu/">
@@ -478,19 +485,16 @@ gtag('config', 'G-X99KL3RGWD');
 </a><a class="link-card" href="parking/ulsan/ulju-gun/">
   <span class="t">울산 울주군<span class="go">58곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록 · 무료 39곳</span>
-</a></div></section><section class="prov-panel" id="panel-sejong" data-prov="sejong" hidden><h3 class="prov" id="sejong">세종특별자치시</h3>
-<p class="prov-all"><a href="parking/sejong/">세종특별자치시 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/sejong/sejong-si/">
+</a></div></details><details class="prov-fold" id="sejong" data-prov="sejong"><summary><span class="pf-name">세종특별자치시</span><span class="pf-count">1개 지역 · 77곳</span></summary><p class="prov-all"><a href="parking/sejong/">세종특별자치시 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/sejong/sejong-si/">
   <span class="t">세종특별자치시<span class="go">77곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록 · 무료 58곳</span>
-</a></div></section><section class="prov-panel" id="panel-jeju" data-prov="jeju" hidden><h3 class="prov" id="jeju">제주특별자치도</h3>
-<p class="prov-all"><a href="parking/jeju/">제주특별자치도 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/jeju/jeju-si/">
+</a></div></details><details class="prov-fold" id="jeju" data-prov="jeju"><summary><span class="pf-name">제주특별자치도</span><span class="pf-count">2개 지역 · 1,009곳</span></summary><p class="prov-all"><a href="parking/jeju/">제주특별자치도 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/jeju/jeju-si/">
   <span class="t">제주시<span class="go">896곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록 · 무료 785곳</span>
 </a><a class="link-card" href="parking/jeju/seogwipo-si/">
   <span class="t">서귀포시<span class="go">113곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록 · 무료 83곳</span>
-</a></div></section><section class="prov-panel" id="panel-chungbuk" data-prov="chungbuk" hidden><h3 class="prov" id="chungbuk">충청북도</h3>
-<p class="prov-all"><a href="parking/chungbuk/">충청북도 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/chungbuk/cheongju/">
+</a></div></details><details class="prov-fold" id="chungbuk" data-prov="chungbuk"><summary><span class="pf-name">충청북도</span><span class="pf-count">11개 지역 · 426곳</span></summary><p class="prov-all"><a href="parking/chungbuk/">충청북도 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/chungbuk/cheongju/">
   <span class="t">청주시<span class="go">200곳 →</span></span>
   <span class="d">주차요금 계산 · 구별 목록 · 무료 167곳</span>
 </a><a class="link-card" href="parking/chungbuk/cheongju-sangdang/">
@@ -535,8 +539,7 @@ gtag('config', 'G-X99KL3RGWD');
 </a><a class="link-card" href="parking/chungbuk/danyang/">
   <span class="t">단양군<span class="go">29곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록 · 무료 27곳</span>
-</a></div></section><section class="prov-panel" id="panel-chungnam" data-prov="chungnam" hidden><h3 class="prov" id="chungnam">충청남도</h3>
-<p class="prov-all"><a href="parking/chungnam/">충청남도 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/chungnam/cheonan/">
+</a></div></details><details class="prov-fold" id="chungnam" data-prov="chungnam"><summary><span class="pf-name">충청남도</span><span class="pf-count">15개 지역 · 1,028곳</span></summary><p class="prov-all"><a href="parking/chungnam/">충청남도 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/chungnam/cheonan/">
   <span class="t">천안시<span class="go">96곳 →</span></span>
   <span class="d">주차요금 계산 · 구별 목록 · 무료 76곳</span>
 </a><a class="link-card" href="parking/chungnam/cheonan-dongnam/">
@@ -587,8 +590,7 @@ gtag('config', 'G-X99KL3RGWD');
 </a><a class="link-card" href="parking/chungnam/geumsan/">
   <span class="t">금산군<span class="go">33곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록 · 무료 31곳</span>
-</a></div></section><section class="prov-panel" id="panel-jeonbuk" data-prov="jeonbuk" hidden><h3 class="prov" id="jeonbuk">전북특별자치도</h3>
-<p class="prov-all"><a href="parking/jeonbuk/">전북특별자치도 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/jeonbuk/jeonju/">
+</a></div></details><details class="prov-fold" id="jeonbuk" data-prov="jeonbuk"><summary><span class="pf-name">전북특별자치도</span><span class="pf-count">14개 지역 · 659곳</span></summary><p class="prov-all"><a href="parking/jeonbuk/">전북특별자치도 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/jeonbuk/jeonju/">
   <span class="t">전주시<span class="go">111곳 →</span></span>
   <span class="d">주차요금 계산 · 구별 목록 · 무료 71곳</span>
 </a><a class="link-card" href="parking/jeonbuk/jeonju-wansan/">
@@ -636,8 +638,7 @@ gtag('config', 'G-X99KL3RGWD');
 </a><a class="link-card" href="parking/jeonbuk/buan/">
   <span class="t">부안군<span class="go">35곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록 · 무료 32곳</span>
-</a></div></section><section class="prov-panel" id="panel-jeonnam" data-prov="jeonnam" hidden><h3 class="prov" id="jeonnam">전남광주통합특별시</h3>
-<p class="prov-all"><a href="parking/jeonnam/">전남광주통합특별시 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/jeonnam/mokpo/">
+</a></div></details><details class="prov-fold" id="jeonnam" data-prov="jeonnam"><summary><span class="pf-name">전남광주통합특별시</span><span class="pf-count">22개 지역 · 1,170곳</span></summary><p class="prov-all"><a href="parking/jeonnam/">전남광주통합특별시 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/jeonnam/mokpo/">
   <span class="t">목포시<span class="go">52곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록 · 무료 43곳</span>
 </a><a class="link-card" href="parking/jeonnam/yeosu/">
@@ -703,8 +704,7 @@ gtag('config', 'G-X99KL3RGWD');
 </a><a class="link-card" href="parking/jeonnam/damyang/">
   <span class="t">담양군<span class="go">52곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록 · 무료 52곳</span>
-</a></div></section><section class="prov-panel" id="panel-gyeongnam" data-prov="gyeongnam" hidden><h3 class="prov" id="gyeongnam">경상남도</h3>
-<p class="prov-all"><a href="parking/gyeongnam/">경상남도 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/gyeongnam/changwon/">
+</a></div></details><details class="prov-fold" id="gyeongnam" data-prov="gyeongnam"><summary><span class="pf-name">경상남도</span><span class="pf-count">18개 지역 · 1,097곳</span></summary><p class="prov-all"><a href="parking/gyeongnam/">경상남도 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/gyeongnam/changwon/">
   <span class="t">창원시<span class="go">71곳 →</span></span>
   <span class="d">주차요금 계산 · 구별 목록</span>
 </a><a class="link-card" href="parking/gyeongnam/changwon-uichang/">
@@ -773,8 +773,7 @@ gtag('config', 'G-X99KL3RGWD');
 </a><a class="link-card" href="parking/gyeongnam/changnyeong/">
   <span class="t">창녕군<span class="go">106곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록 · 무료 106곳</span>
-</a></div></section><section class="prov-panel" id="panel-gyeongbuk" data-prov="gyeongbuk" hidden><h3 class="prov" id="gyeongbuk">경상북도</h3>
-<p class="prov-all"><a href="parking/gyeongbuk/">경상북도 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/gyeongbuk/pohang/">
+</a></div></details><details class="prov-fold" id="gyeongbuk" data-prov="gyeongbuk"><summary><span class="pf-name">경상북도</span><span class="pf-count">22개 지역 · 1,265곳</span></summary><p class="prov-all"><a href="parking/gyeongbuk/">경상북도 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/gyeongbuk/pohang/">
   <span class="t">포항시<span class="go">128곳 →</span></span>
   <span class="d">주차요금 계산 · 구별 목록 · 무료 100곳</span>
 </a><a class="link-card" href="parking/gyeongbuk/pohang-nam/">
@@ -846,8 +845,7 @@ gtag('config', 'G-X99KL3RGWD');
 </a><a class="link-card" href="parking/gyeongbuk/ulleung/">
   <span class="t">울릉군<span class="go">4곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록 · 무료 1곳</span>
-</a></div></section><section class="prov-panel" id="panel-gangwon" data-prov="gangwon" hidden><h3 class="prov" id="gangwon">강원특별자치도</h3>
-<p class="prov-all"><a href="parking/gangwon/">강원특별자치도 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/gangwon/chuncheon/">
+</a></div></details><details class="prov-fold" id="gangwon" data-prov="gangwon"><summary><span class="pf-name">강원특별자치도</span><span class="pf-count">18개 지역 · 1,072곳</span></summary><p class="prov-all"><a href="parking/gangwon/">강원특별자치도 공영주차장 전체 보기 →</a></p><div class="grid-2"><a class="link-card" href="parking/gangwon/chuncheon/">
   <span class="t">춘천시<span class="go">63곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록 · 무료 54곳</span>
 </a><a class="link-card" href="parking/gangwon/wonju/">
@@ -901,7 +899,7 @@ gtag('config', 'G-X99KL3RGWD');
 </a><a class="link-card" href="parking/gangwon/yangyang/">
   <span class="t">양양군<span class="go">87곳 →</span></span>
   <span class="d">주차요금 계산 · 동·읍·면별 목록 · 무료 83곳</span>
-</a></div></section>
+</a></div></details>
 <p class="updated">지역 전체 목록(구·동 페이지까지)은 <a href="parking/regions/">지역 전체 목록</a>에 모아 두었습니다.</p>
 
 <h2>이런 걸 확인할 수 있어요</h2>
@@ -921,6 +919,19 @@ gtag('config', 'G-X99KL3RGWD');
 <p><a class="btn" href="about/">데이터 출처와 계산 기준</a>
 <a class="btn" href="contact/">문의·오류 제보</a></p>
 <script src="assets/nearby.js?v=2026-11-23-17" defer></script>
+
+<script>
+(function () {
+  function openFromHash() {
+    var h = (location.hash || '').replace('#', '');
+    if (!h) return;
+    var t = document.getElementById(h);
+    if (t && t.tagName === 'DETAILS') t.open = true;
+  }
+  openFromHash();
+  window.addEventListener('hashchange', openFromHash);
+})();
+</script>
 
 </main>
 <footer class="site-foot">
