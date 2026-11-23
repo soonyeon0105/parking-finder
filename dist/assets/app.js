@@ -115,6 +115,12 @@
     if (exempt && minutes <= exempt) {
       return { state: 'free', exempt: true, exempt_min: exempt };
     }
+    // 종일 정액(금오산·단양 관광지 등) — 시간 요금 없이 어떤 이용 시간에도 정액이다.
+    if (f.flat_day) {
+      var flat = (f.base_fee !== null && f.base_fee !== undefined) ? f.base_fee : f.daily_fee;
+      return { state: 'paid', amount: flat, before: flat,
+               capped: false, discounted: false, deducted: false, flat: true };
+    }
     if (f.type !== '유료') return { state: 'unknown' };
     if (!f.base_min || f.base_fee === null) {
       return { state: 'unknown' };
@@ -213,6 +219,7 @@
       priceEl.textContent = won(res.amount);
       if (noteEl) {
         var bits = [];
+        if (res.flat) bits.push('1회 정액(종일)');
         if (res.deducted && lot && lot.fee.deduct_min) {
           var dm = lot.fee.deduct_min;
           bits.push(dm % 60 === 0 ? '최초 ' + (dm / 60) + '시간 무료 적용' : '최초 ' + dm + '분 무료 적용');
