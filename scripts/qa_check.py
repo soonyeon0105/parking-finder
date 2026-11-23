@@ -5950,8 +5950,21 @@ for _slug, _needles in _gj_texts.items():
 
 print(f"광주광역시 구 검사 완료 ({len(GWANGJU_EXPECT)}개 구 · 페이지 {_gj_pages})")
 
-if 'id="gwangju"' not in (DIST / "index.html").read_text():
-    fails.append("랜딩에 광주광역시 지역 묶음(#gwangju) 없음")
+# 2026-11-24 밀크 검수 지적 — 광주광역시 5개 구는 전남광주통합특별시 접기에 합산되고
+# 독립 #gwangju 접기는 없다. 전남광주 접기 안에 광주 5개 구 카드가 있는지 확인한다.
+_landing_html = (DIST / "index.html").read_text()
+if 'id="gwangju"' in _landing_html:
+    fails.append("랜딩에 독립 광주광역시 접기(#gwangju)가 남아 있음(전남광주에 합산해야 함)")
+_jn_start = _landing_html.find('id="jeonnam"')
+_jn_end = _landing_html.find("</details>", _jn_start)
+_jn_fold = _landing_html[_jn_start:_jn_end] if _jn_start >= 0 else ""
+if "27개 지역 · 1,473곳" not in _jn_fold:
+    fails.append("랜딩 전남광주 접기가 27개 지역 · 1,473곳이 아님")
+for _gu in ("광주 동구", "광주 서구", "광주 남구", "광주 북구", "광주 광산구"):
+    if _gu not in _jn_fold:
+        fails.append(f"랜딩 전남광주 접기에 {_gu} 카드 없음")
+if "무료 1,342곳 · 25개 지역" not in (DIST / "parking" / "free" / "index.html").read_text():
+    fails.append("무료 허브 전남광주 접기가 무료 1,342곳 · 25개 지역이 아님")
 for _u in ("https://parking.9welfare.com/parking/gwangju/dong-gu/",
            "https://parking.9welfare.com/parking/gwangju/seo-gu/",
            "https://parking.9welfare.com/parking/gwangju/nam-gu/",
