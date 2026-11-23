@@ -55,7 +55,7 @@ gtag('config', 'G-X99KL3RGWD');
 <div class="hero-search">
   <label for="region-q">지역명으로 찾기</label>
   <div class="hs-row">
-    <input type="search" id="region-q" placeholder="시·군·구 이름을 입력하세요" autocomplete="off">
+    <input type="search" id="region-q" placeholder="시·군·구 이름 (경북 같은 약칭도 됩니다)" autocomplete="off">
   </div>
   <p class="ff-status" id="region-q-status" aria-live="polite"></p>
 </div>
@@ -67,11 +67,15 @@ document.addEventListener('DOMContentLoaded', function () {
   var groups = Array.prototype.slice.call(document.querySelectorAll('[data-group]'));
   var status = document.getElementById('region-q-status');
   function norm(s) { return (s || '').replace(/\s+/g, ''); }
+  var ALIAS = { '경북': '경상북도', '경남': '경상남도', '전북': '전라북도',
+                '전남': '전라남도', '충북': '충청북도', '충남': '충청남도' };
   function apply() {
     var q = norm(input.value);
     var shown = 0;
     items.forEach(function (el) {
-      var hit = !q || norm(el.getAttribute('data-name')).indexOf(q) !== -1;
+      var name = norm(el.getAttribute('data-name'));
+      var hit = !q || name.indexOf(q) !== -1
+        || (ALIAS[q] && name.indexOf(ALIAS[q]) !== -1);
       el.style.display = hit ? '' : 'none';
       if (hit) shown += 1;
     });
@@ -125,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <p class="lede">요금이 무료인 주차장 가운데 구획이 많은 순입니다. 위치와 운영시간은 지역 페이지에서 확인하세요.</p>
 <div class="table-scroll"><table class="data">
   <thead><tr><th>주차장</th><th>지역</th><th>동·읍·면</th><th class="num">구획</th></tr></thead>
-  <tbody><tr><td>공한지주차장(흥덕구 복대동 288-128)</td><td>청주시</td><td>복대동</td><td class="num">559</td></tr><tr><td>금왕읍 공영주차장(금왕읍 무극리 75-2)</td><td>음성군</td><td>금왕읍</td><td class="num">498</td></tr><tr><td>영동천주차장</td><td>영동군</td><td>영동읍</td><td class="num">423</td></tr><tr><td>문암생태공원 주차장</td><td>청주시</td><td>문암동</td><td class="num">392</td></tr><tr><td>온달관광지 주차장</td><td>단양군</td><td>영춘면</td><td class="num">380</td></tr><tr><td>공한지주차장(흥덕구 복대동 288-8)</td><td>청주시</td><td>복대동</td><td class="num">340</td></tr><tr><td>별곡리 하상주차장</td><td>단양군</td><td>단양읍</td><td class="num">330</td></tr><tr><td>음성읍 공영주차장(음성읍 읍내리 817-229)</td><td>음성군</td><td>음성읍</td><td class="num">244</td></tr><tr><td>덕진리마을공영주차장</td><td>영동군</td><td>용산면</td><td class="num">240</td></tr><tr><td>금왕읍 공영주차장(금왕읍 무극리 515)</td><td>음성군</td><td>금왕읍</td><td class="num">224</td></tr><tr><td>물한계곡주차장</td><td>영동군</td><td>상촌면</td><td class="num">223</td></tr><tr><td>말티재1주차장(관문주차장)</td><td>보은군</td><td>속리산면</td><td class="num">212</td></tr><tr><td>천태산주차장</td><td>영동군</td><td>양산면</td><td class="num">208</td></tr><tr><td>동진천둔치주차장</td><td>괴산군</td><td>괴산읍</td><td class="num">207</td></tr><tr><td>견인차보관소</td><td>청주시</td><td>각리</td><td class="num">193</td></tr><tr><td>삼성면 공영주차장(삼성면 덕정리 520-5)</td><td>음성군</td><td>삼성면</td><td class="num">189</td></tr><tr><td>영동역환승주차장</td><td>영동군</td><td>영동읍</td><td class="num">169</td></tr><tr><td>송호주차장</td><td>영동군</td><td>양산면</td><td class="num">165</td></tr><tr><td>오창호수공원</td><td>청주시</td><td>양청리</td><td class="num">150</td></tr><tr><td>조천하상주차장</td><td>청주시</td><td>정중리</td><td class="num">150</td></tr></tbody>
+  <tbody><tr><td><a href="../../../parking/chungbuk/cheongju/free/">공한지주차장(흥덕구 복대동 288-128)</a></td><td>청주시</td><td>복대동</td><td class="num">559</td></tr><tr><td><a href="../../../parking/chungbuk/eumseong/free/">금왕읍 공영주차장(금왕읍 무극리 75-2)</a></td><td>음성군</td><td>금왕읍</td><td class="num">498</td></tr><tr><td><a href="../../../parking/chungbuk/yeongdong/free/">영동천주차장</a></td><td>영동군</td><td>영동읍</td><td class="num">423</td></tr><tr><td><a href="../../../parking/chungbuk/cheongju/free/">문암생태공원 주차장</a></td><td>청주시</td><td>문암동</td><td class="num">392</td></tr><tr><td><a href="../../../parking/chungbuk/danyang/free/">온달관광지 주차장</a></td><td>단양군</td><td>영춘면</td><td class="num">380</td></tr><tr><td><a href="../../../parking/chungbuk/cheongju/free/">공한지주차장(흥덕구 복대동 288-8)</a></td><td>청주시</td><td>복대동</td><td class="num">340</td></tr><tr><td><a href="../../../parking/chungbuk/danyang/free/">별곡리 하상주차장</a></td><td>단양군</td><td>단양읍</td><td class="num">330</td></tr><tr><td><a href="../../../parking/chungbuk/eumseong/free/">음성읍 공영주차장(음성읍 읍내리 817-229)</a></td><td>음성군</td><td>음성읍</td><td class="num">244</td></tr><tr><td><a href="../../../parking/chungbuk/yeongdong/free/">덕진리마을공영주차장</a></td><td>영동군</td><td>용산면</td><td class="num">240</td></tr><tr><td><a href="../../../parking/chungbuk/eumseong/free/">금왕읍 공영주차장(금왕읍 무극리 515)</a></td><td>음성군</td><td>금왕읍</td><td class="num">224</td></tr><tr><td><a href="../../../parking/chungbuk/yeongdong/free/">물한계곡주차장</a></td><td>영동군</td><td>상촌면</td><td class="num">223</td></tr><tr><td><a href="../../../parking/chungbuk/boeun/free/">말티재1주차장(관문주차장)</a></td><td>보은군</td><td>속리산면</td><td class="num">212</td></tr><tr><td><a href="../../../parking/chungbuk/yeongdong/free/">천태산주차장</a></td><td>영동군</td><td>양산면</td><td class="num">208</td></tr><tr><td><a href="../../../parking/chungbuk/goesan/free/">동진천둔치주차장</a></td><td>괴산군</td><td>괴산읍</td><td class="num">207</td></tr><tr><td><a href="../../../parking/chungbuk/cheongju/free/">견인차보관소</a></td><td>청주시</td><td>각리</td><td class="num">193</td></tr><tr><td><a href="../../../parking/chungbuk/eumseong/free/">삼성면 공영주차장(삼성면 덕정리 520-5)</a></td><td>음성군</td><td>삼성면</td><td class="num">189</td></tr><tr><td><a href="../../../parking/chungbuk/yeongdong/free/">영동역환승주차장</a></td><td>영동군</td><td>영동읍</td><td class="num">169</td></tr><tr><td><a href="../../../parking/chungbuk/yeongdong/free/">송호주차장</a></td><td>영동군</td><td>양산면</td><td class="num">165</td></tr><tr><td><a href="../../../parking/chungbuk/cheongju/free/">오창호수공원</a></td><td>청주시</td><td>양청리</td><td class="num">150</td></tr><tr><td><a href="../../../parking/chungbuk/cheongju/free/">조천하상주차장</a></td><td>청주시</td><td>정중리</td><td class="num">150</td></tr></tbody>
 </table></div>
 <h2>자주 묻는 질문</h2><details class="faq" open><summary>충청북도에서 요금이 무료인 공영주차장은 몇 곳인가요?</summary><p>369곳(총 17,105면)입니다. 지역별로는 청주시 167곳 · 영동군 72곳 · 단양군 27곳 순으로 많습니다. 요금이 무료인 노상(거리) 구간 270곳은 이 집계에 넣지 않고 각 지역의 노상주차장 페이지에 적었습니다.</p></details><details class="faq"><summary>주말·공휴일이나 야간에 무료로 쓸 수 있는 곳도 있나요?</summary><p>있습니다. 요금은 유료여도 주말·공휴일·야간에 무료로 개방하는 곳은 각 지역의 무료 개방 페이지와 전국 무료 개방 허브에서 볼 수 있습니다. 이 페이지는 요금 구분이 ‘무료’인 곳만 모았습니다.</p></details><details class="faq"><summary>무료 주차장도 운영시간이 정해져 있나요?</summary><p>네. 요금이 무료여도 운영시간이 정해진 곳이 많습니다. 각 주차장 카드에 평일·토요일·일요일(공휴일) 운영시간이 적혀 있으니 방문 전에 확인하세요.</p></details>
 <section class="note-box" style="margin-top:18px">
