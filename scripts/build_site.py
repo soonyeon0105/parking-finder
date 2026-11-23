@@ -6399,7 +6399,7 @@ def stats_for(lots):
 # ------------------------------------------------------------------ jsonld
 # 랜딩 페이지의 시·도 묶음 앵커 — BreadcrumbList 중간 항목의 주소로 쓴다.
 PROVINCE_ANCHOR = {"경기도": "/#gyeonggi", "서울특별시": "/#seoul", "인천광역시": "/#incheon", "부산광역시": "/#busan",
-                   "대구광역시": "/#daegu", "대전광역시": "/#daejeon", "광주광역시": "/#gwangju",
+                   "대구광역시": "/#daegu", "대전광역시": "/#daejeon", "광주광역시": "/#jeonnam",
                    "울산광역시": "/#ulsan", "세종특별자치시": "/#sejong", "제주특별자치도": "/#jeju"}
 
 
@@ -6493,6 +6493,8 @@ def nav_html(city, url, nav_active) -> str:
     """
     prov_links = []
     for prov in PROVINCE_ORDER:
+        if prov == "광주광역시":
+            continue  # 전남광주통합특별시 칩에 합산 — 별도 칩을 두지 않는다.
         cities = [c for c in SITE_CITIES if (c.get("province") or "지역") == prov]
         if not cities:
             continue
@@ -18540,6 +18542,25 @@ def province_order(site) -> list:
     return order
 
 
+def province_cities(prov, site):
+    """시·도별 소속 시·군·구 — 전남광주통합특별시에는 광주광역시 5개 구도 합산한다.
+
+    2026-07-01 「전남광주통합특별시 설치를 위한 특별법」 시행으로 광주광역시·전라남도는
+    폐지되고 전남광주통합특별시가 출범했다. 도 허브(build_province_hub)·도별 무료 허브
+    (build_province_free)·헤더 패널(nav_html)은 이미 같은 합산을 쓰므로, 홈 접기·무료 허브
+    접기도 같은 기준으로 묶는다. 독립 광주 그룹은 만들지 않는다 (2026-11-24 밀크 검수 지적).
+    """
+    cities = [c for c in site["cities"] if (c.get("province") or "지역") == prov]
+    if prov == "전남광주통합특별시":
+        cities = cities + [c for c in site["cities"] if (c.get("province") or "지역") == "광주광역시"]
+    return cities
+
+
+def fold_provinces(site):
+    """접기 그룹·칩에 쓰는 시·도 목록 — 폐지된 광주광역시는 별도 항목으로 두지 않는다."""
+    return [p for p in province_order(site) if p != "광주광역시"]
+
+
 def is_permit(lot) -> bool:
     """월정기·공무원·화물·버스 전용처럼 일반 이용이 제한된 주차장."""
     return (lot.get("access") or "general") == "permit"
@@ -18673,7 +18694,7 @@ document.addEventListener('DOMContentLoaded', function () {
 # 값은 DESIGN.md 토큰과 기존 .ptab·details.faq 의 결을 그대로 따른다(새 색·크기 만들지 않음).
 FOLD_STYLE = """
 <style>
-.prov-chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;margin:12px 0 10px;-webkit-overflow-scrolling:touch}
+.prov-chips{display:flex;flex-wrap:wrap;gap:6px;padding-bottom:2px;margin:12px 0 10px}
 .prov-chips .pchip{flex:0 0 auto;font-size:13.5px;font-weight:700;color:var(--ink-soft);background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px;text-decoration:none}
 .prov-chips .pchip small{font-weight:600;color:var(--muted);font-size:11px;margin-left:2px}
 details.prov-fold{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin-bottom:10px}
@@ -18780,11 +18801,12 @@ def build_free_hub(site):
 
     sections = []
     card_links = []
-    for prov in province_order(site):
+    for prov in fold_provinces(site):
         cards = []
         prov_slug = ""
         prov_union = 0
-        for city in [c for c in site["cities"] if (c.get("province") or "지역") == prov]:
+        # 전남광주통합특별시 접기에는 광주광역시 5개 구도 함께 모은다(도 허브와 같은 기준).
+        for city in province_cities(prov, site):
             prov_slug = city.get("province_slug") or prov_slug
             c = free_counts(city.get("_card_lots") or [])
             if not c["union"]:
@@ -18889,19 +18911,19 @@ def build_free_hub(site):
 {''.join(sections)}
 <details class="prov-fold" id="weekend">
 <summary><span class="pf-name">주말·공휴일 무료 주차장</span><span class="pf-count">{total['weekend']:,}곳</span></summary>
-<p class="lede">토요일·일요일·공휴일에 요금을 받지 않는 주차장입니다(구획이 많은 순 40곳). 지역별 전체 목록은 위 지역 카드에서 볼 수 있습니다.</p>
-<table class="data">
+<p class="lede">토요일·일요일·공휴일에 요금을 받지 않는 주차장입니다(구획이 많은 순 40곳). 지역별 전체 목록은 위 지역 카드에서 볼 수 있습니다. 표가 화면보다 넓으면 옆으로 밀어 볼 수 있습니다.</p>
+<div class="table-scroll"><table class="data">
   <thead><tr><th>주차장</th><th>지역</th><th>무료 요일</th><th class="num">구획</th></tr></thead>
   <tbody>{weekend_rows}</tbody>
-</table>
+</table></div>
 </details>
 <details class="prov-fold" id="night">
 <summary><span class="pf-name">야간 무료 주차장</span><span class="pf-count">{total['night']:,}곳</span></summary>
-<p class="lede">요금은 유료이지만 정해진 야간 시간대에만 요금을 받지 않는 주차장입니다(구획이 많은 순 40곳).</p>
-<table class="data">
+<p class="lede">요금은 유료이지만 정해진 야간 시간대에만 요금을 받지 않는 주차장입니다(구획이 많은 순 40곳). 표가 화면보다 넓으면 옆으로 밀어 볼 수 있습니다.</p>
+<div class="table-scroll"><table class="data">
   <thead><tr><th>주차장</th><th>지역</th><th>무료 시간대</th><th class="num">구획</th></tr></thead>
   <tbody>{night_rows}</tbody>
-</table>
+</table></div>
 </details>
 <h2>무료 개방 유형</h2>
 <ul class="free-legend">
@@ -19587,6 +19609,12 @@ def build_landing(site):
             groups[prov] = []
             order.append(prov)
         groups[prov].append(city)
+    # 전남광주통합특별시 출범 — 광주광역시 5개 구를 전남광주 접기 그룹에 합산한다
+    # (도 허브·헤더 패널과 같은 기준). 독립 광주 그룹은 만들지 않는다
+    # (2026-11-24 밀크 검수 지적: 접기 1,170곳 vs 허브 1,473곳 오표기).
+    if "광주광역시" in groups and "전남광주통합특별시" in groups:
+        groups["전남광주통합특별시"] += groups.pop("광주광역시")
+        order.remove("광주광역시")
     multi = len(order) > 1
     tabs, panels, sections, search_opts = [], [], [], []
     for prov in order:
@@ -19708,6 +19736,7 @@ def build_landing(site):
 <h2>지역 선택</h2>
 <nav class="prov-chips" aria-label="시·도 바로가기">{''.join(tabs)}</nav>
 {''.join(panels)}
+<p class="updated">도별 숫자는 노외·부설 주차장 기준입니다 — 노상(거리) 구간은 포함하지 않았습니다. 전체 17,398곳에는 노상 구간이 들어 있습니다.</p>
 <p class="updated">지역 전체 목록(구·동 페이지까지)은 <a href="{rel(path, '/parking/regions/')}">지역 전체 목록</a>에 모아 두었습니다.</p>
 
 <h2>이런 걸 확인할 수 있어요</h2>
