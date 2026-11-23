@@ -6546,7 +6546,9 @@ def footer_directory(url) -> str:
         _slug = next((c.get("province_slug") for c in cities if c.get("province_slug")), "")
         links = " · ".join(f'<a href="{url(city_path(c))}">{esc(c["city"])}</a>' for c in cities)
         blocks.append(f'<p><b><a href="{url(province_path(_slug))}">{esc(prov)}</a></b> {links}</p>')
-    total = sum(len(c.get("_card_lots") or []) for c in SITE_CITIES)
+    # 푸터 곳수도 홈 히어로와 같은 전체 lots 기준(노상 구간 포함) — 카드 대상만 세면
+    # 본문 숫자(17,398곳)와 어긋난다 (2026-11-24 정정).
+    total = sum(len(c.get("_lots") or []) for c in SITE_CITIES)
     return ('<details class="foot-dir">'
             f'<summary>지역 전체 보기 — {len(SITE_CITIES)}개 시·군·구 · {total:,}곳</summary>'
             f'{"".join(blocks)}'
