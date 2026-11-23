@@ -1,8 +1,8 @@
 {
  "meta": {
-  "generated_at": "2026-11-23 13:26",
-  "generated_at_iso": "2026-11-23T13:26:05+09:00",
-  "snapshot_at": "2026-11-23 13:26",
+  "generated_at": "2026-11-23 16:25",
+  "generated_at_iso": "2026-11-23T16:25:51+09:00",
+  "snapshot_at": "2026-11-23 16:25",
   "region": {
    "province": "부산광역시",
    "city": "부산진구"
@@ -348,8 +348,8 @@
     "unit_fee": 700,
     "daily_fee": null,
     "daily_hours": null,
-    "cap_fee": null,
-    "cap_src": null,
+    "cap_fee": 21000,
+    "cap_src": "부산시 조례 별표1 기준",
     "monthly": null,
     "monthly_all": null,
     "monthly_label": null,
@@ -371,7 +371,7 @@
      "day": null,
      "monthly": null
     },
-    "basis": "표준데이터 등록요금(10분 단위)"
+    "basis": "표준데이터 등록요금(10분 단위) 일일 최대 21,000원(24시간 기준, 부산시 조례 별표1 기준 — 공단 직영 표 대조는 아직 안 됨, 1차 출처 확인 2026-11-23)."
    },
    "oper": {
     "weekday": true,
@@ -459,8 +459,8 @@
     "unit_fee": 700,
     "daily_fee": null,
     "daily_hours": null,
-    "cap_fee": null,
-    "cap_src": null,
+    "cap_fee": 21000,
+    "cap_src": "부산시 조례 별표1 기준",
     "monthly": null,
     "monthly_all": null,
     "monthly_label": null,
@@ -482,7 +482,7 @@
      "day": null,
      "monthly": null
     },
-    "basis": "표준데이터 등록요금(10분 단위)"
+    "basis": "표준데이터 등록요금(10분 단위) 일일 최대 21,000원(24시간 기준, 부산시 조례 별표1 기준 — 공단 직영 표 대조는 아직 안 됨, 1차 출처 확인 2026-11-23)."
    },
    "oper": {
     "weekday": true,
@@ -1148,7 +1148,8 @@
      "day": 15000,
      "monthly": 160000
     },
-    "basis": "표준데이터 등록요금(10분 단위)"
+    "basis": "표준데이터 등록요금(10분 단위)",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -1430,7 +1431,7 @@
   }
  ],
  "quality": {
-  "generated_at": "2026-11-23 13:26",
+  "generated_at": "2026-11-23 16:25",
   "원자료_전국행수": 18994,
   "원자료_행수": 9,
   "원자료_부산진구행수": 9,

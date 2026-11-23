@@ -1,7 +1,7 @@
 {
  "meta": {
-  "generated_at": "2026-11-23 13:26",
-  "generated_at_iso": "2026-11-23T13:26:05+09:00",
+  "generated_at": "2026-11-23 16:25",
+  "generated_at_iso": "2026-11-23T16:25:51+09:00",
   "snapshot_at": "2026-11-17 09:10",
   "region": {
    "province": "경기도",
@@ -9580,14 +9580,14 @@
     "cap_fee": null,
     "cap_src": "조례 1일 주차요금",
     "daily_hours": null,
-    "daily_fee": null,
+    "daily_fee": 8000,
     "prepaid_day": null,
     "prepaid_weekend": null,
     "monthly": 10000,
     "monthly_night": null,
     "monthly_all": null,
     "pay": "카드",
-    "basis": "안산도시공사 부설주차장 안내(시청) — 30분당 500원",
+    "basis": "안산도시공사 부설주차장 안내(시청) — 30분당 500원 1일 주차권 8,000원 (1차 출처 확인 2026-11-23). 민원방문 확인 날인 시 60분 무료는 별도 조건이라 기본 20분 무료만 계산에 반영했다.",
     "category": "facility",
     "std": {
      "base_min": 30,
@@ -20588,7 +20588,7 @@
   }
  ],
  "quality": {
-  "generated_at": "2026-11-23 13:26",
+  "generated_at": "2026-11-23 16:25",
   "원자료_전국행수": 18994,
   "원자료_행수": 228,
   "원자료_안산시행수": 153,

@@ -1959,6 +1959,9 @@ def build_hwaseong():
     order = {g: i for i, (g, _) in enumerate(HWASEONG_DISTRICTS)}
     lots.sort(key=lambda l: (order[l["gu"]], l["list_mode"] != "card", l["name"]))
 
+    # 2026-11-23 요금 정정 (캡 5곳 + 상한 없음 26곳 + 노상 상한 없음 14곳).
+    apply_fee_fix_20261123(lots)
+
     quality = check_quality_hwaseong(rows_all, rows, lots, excluded)
     payload = {
         "meta": {
@@ -5141,6 +5144,9 @@ def build_ansan():
     for i, l in enumerate(lots, 1):
         l["id"] = f"as-{i:03d}" if l["list_mode"] == "card" else f"as-s{i:03d}"
 
+    # 2026-11-23 요금 정정 (안산시청 부설 1일 주차권 8,000원).
+    apply_fee_fix_20261123(lots)
+
     quality = check_quality_ansan(rows_all, rows_city, rows_corp, lots, excluded, portal, corp_list, dropped)
     payload = {
         "meta": {
@@ -7758,6 +7764,403 @@ def apply_hours_fix(lots):
     return fixed
 
 
+# ---------------------------------------------------------------- 2026-11-23 요금 정정 (Instinct 1차 출처 확인분)
+# 부설 lot의 base_fee 0 일괄 처리는 금지 — 아래 목록의 확인된 lot만 개별 반영한다.
+# fee 패치는 절대값이라 다시 적용해도 같은 결과가 된다(멱등). basis 문구는
+# 덧붙일 문장 자체가 없을 때만 붙인다.
+# cap_fee: 24시간 기준 일일 상한. cap_none: 상한이 '없다'고 확인된 곳(미확인과 구분).
+FEE_FIX_20261123 = {
+    # 문경시 — 1일 요금만 1차 출처 확인, 시간당 요율은 조례·표준데이터 불일치로 미상 유지
+    "gb-mungyeong-005": {
+        "fee": {"daily_fee": 7300},
+        "basis": ("append", "1일 요금 7,300원은 1차 출처로 확인됨(2026-11-23). "
+                            "기본·추가 요율은 표준데이터와 조례 별표1이 달라 요금 미상 유지."),
+    },
+    "gb-mungyeong-014": {
+        "fee": {"daily_fee": 6000},
+        "basis": ("append", "1일 요금 6,000원은 1차 출처로 확인됨(2026-11-23). "
+                            "기본·추가 요율은 표준데이터와 조례 별표1이 달라 요금 미상 유지."),
+    },
+    # 안동시 — 옥동 주차타워·안동시청 부설 확인 요율 적용
+    "gb-andong-035": {
+        "fee": {"type": "유료", "deduct_min": 60, "base_min": 30, "base_fee": 500,
+                "unit_min": 10, "unit_fee": 200, "cap_fee": 10000},
+        "hours": {"weekday": {"start": 540, "end": 1080, "raw": ["09:00", "18:00"]}},
+        "basis": ("set", "옥동 주차타워 — 평일 09:00~18:00 유료·최초 1시간 무료·30분까지 500원·"
+                         "이후 10분당 200원·1일 최대 10,000원 (1차 출처 확인 2026-11-23)"),
+    },
+    "gb-andong-013": {
+        "fee": {"type": "유료", "deduct_min": 60, "base_min": 30, "base_fee": 500,
+                "unit_min": 30, "unit_fee": 500},
+        "spaces": 534,
+        "basis": ("set", "안동시청 부설 — 08:00~19:00·토·일·공휴일 무료·최초 1시간 무료 후 "
+                         "30분마다 500원·면수 534 (1차 출처 확인 2026-11-23)"),
+    },
+    # 하남시 미사리 대형차전용 — 월 정기권 주간·야간·주야간 분리 (repo 120,000원은 주야간 값)
+    "hn-s030": {
+        "fee": {"monthly_day": 90000, "monthly_night": 60000, "monthly_all": 120000},
+        "basis": ("append", "월 정기권 주간 90,000원·야간 60,000원·주야간 120,000원(대형 기준, "
+                            "1차 출처 확인 2026-11-23)."),
+    },
+    # 화성 캡 5곳 (24시간 기준)
+    "hs-020": {"fee": {"cap_fee": 10000},
+               "basis": ("append", "일일 최대 10,000원(24시간 기준, 1차 출처 확인 2026-11-23).")},
+    "hs-047": {"fee": {"cap_fee": 10000},
+               "basis": ("append", "일일 최대 10,000원(24시간 기준, 1차 출처 확인 2026-11-23).")},
+    "hs-049": {"fee": {"cap_fee": 10000},
+               "basis": ("append", "일일 최대 10,000원(24시간 기준, 1차 출처 확인 2026-11-23).")},
+    "hs-016": {"fee": {"cap_fee": 3000},
+               "basis": ("append", "일일 최대 3,000원(24시간 기준, 1차 출처 확인 2026-11-23).")},
+    "hs-015": {"fee": {"cap_fee": 3000},
+               "basis": ("append", "일일 최대 3,000원(24시간 기준, 1차 출처 확인 2026-11-23).")},
+    # 강남·중구 캡 4곳 (24시간 기준)
+    "gangnam-014": {"fee": {"cap_fee": 26600},
+                    "basis": ("append", "일일 최대 26,600원(24시간 기준, 1차 출처 확인 2026-11-23).")},
+    "gangnam-023": {"fee": {"cap_fee": 23000},
+                    "basis": ("append", "일일 최대 23,000원(24시간 기준, 1차 출처 확인 2026-11-23).")},
+    "jung-007": {"fee": {"cap_fee": 25900},
+                 "basis": ("append", "일일 최대 25,900원(24시간 기준, 1차 출처 확인 2026-11-23).")},
+    "jung-018": {"fee": {"cap_fee": 39600},
+                 "basis": ("append", "일일 최대 39,600원(24시간 기준, 1차 출처 확인 2026-11-23).")},
+    # 중구 남산예장 — 관광버스 전용 (승용차 주차 불가)
+    "jung-023": {
+        "bus_only": True,
+        "basis": ("append", "관광버스 전용 — 승용차 주차 불가 (1차 출처 확인 2026-11-23)."),
+    },
+    # 구미시청 부설 — 1시간 무료·일일 최대 5,000원·주말·공휴일 무료
+    "gb-gumi-138": {
+        "fee": {"deduct_min": 60, "cap_fee": 5000},
+        "free_days": {"sat": True, "sun": True},
+        "free_holiday": True,
+        "basis": ("append", "최초 1시간 무료·일일 최대 5,000원·주말·공휴일 무료 "
+                            "(1차 출처 확인 2026-11-23)."),
+    },
+    # 구미시청 주차장 — 일 5,000원 추가. 무료시간은 138과 같은 1시간으로 두되
+    # 대상 범위(민원인 한정 여부)는 미확인이라 표기하지 않는다.
+    "gb-gumi-131": {
+        "fee": {"daily_fee": 5000, "deduct_min": 60},
+        "basis": ("append", "1일 5,000원·최초 1시간 무료 적용 (1차 출처 확인 2026-11-23). "
+                            "무료시간 대상 범위(민원인 한정 여부)는 미확인이라 표기하지 않았다."),
+    },
+    # 영천시청 부설 — 1시간 무료·토·공휴일 무료 (일요일은 유료)
+    "gb-yeongcheon-044": {
+        "fee": {"deduct_min": 60},
+        "free_days": {"sat": True},
+        "free_holiday": True,
+        "basis": ("append", "최초 1시간 무료·토·공휴일 무료 (1차 출처 확인 2026-11-23)."),
+    },
+    # 안산시청 부설 — 기본 20분 무료는 이미 반영됨. 1일 주차권 8,000원 추가.
+    # 민원방문 확인 날인 시 60분 무료는 별도 조건이라 계산에는 넣지 않고 비고에만 적는다.
+    "as-083": {
+        "fee": {"daily_fee": 8000},
+        "basis": ("append", "1일 주차권 8,000원 (1차 출처 확인 2026-11-23). "
+                            "민원방문 확인 날인 시 60분 무료는 별도 조건이라 기본 20분 무료만 "
+                            "계산에 반영했다."),
+    },
+    # 아산시청 부설 — 요금값은 이미 맞고 표현만 정리한다.
+    "ca-asan-040": {
+        "basis": ("set", "아산시 공공청사 부설주차장 요금징수 조례 시행규칙 별표 — 최초 120분 무료·"
+                         "초과 후 10분 이내 1,000원·이후 10분당 200원·일 7,000원 "
+                         "(1차 출처 확인 2026-11-23)"),
+    },
+    # 중구 노상 캡 2곳 (24시간 기준)
+    "jung-s009": {"fee": {"cap_fee": 50400},
+                  "basis": ("append", "일일 최대 50,400원(24시간 기준, 1차 출처 확인 2026-11-23).")},
+    "jung-s030": {"fee": {"cap_fee": 36000},
+                  "basis": ("append", "일일 최대 36,000원(24시간 기준, 1차 출처 확인 2026-11-23).")},
+    # 부산진구 노외 부전복개도로 1·2 — 출처는 부산시 조례 별표1 기준(공단 직영 표 대조는 아직 안 됨)
+    "busanjin-gu-003": {
+        "fee": {"cap_fee": 21000, "cap_src": "부산시 조례 별표1 기준"},
+        "basis": ("append", "일일 최대 21,000원(24시간 기준, 부산시 조례 별표1 기준 — "
+                            "공단 직영 표 대조는 아직 안 됨, 1차 출처 확인 2026-11-23)."),
+    },
+    "busanjin-gu-004": {
+        "fee": {"cap_fee": 21000, "cap_src": "부산시 조례 별표1 기준"},
+        "basis": ("append", "일일 최대 21,000원(24시간 기준, 부산시 조례 별표1 기준 — "
+                            "공단 직영 표 대조는 아직 안 됨, 1차 출처 확인 2026-11-23)."),
+    },
+    # 도봉구 A 27곳 — 월 50,000원 지정구획 전용, 시간제 안내 없음.
+    #   repo 시간제 요금을 "시간제 없음"으로 교정: 시간제 필드를 비우고 monthly_only로 표기
+    #   (아산·천안 캠핑카 전용 선례). 캡은 "해당 없음"(cap_na)으로 기록 — cap_none(캡 없음 확인됨)과
+    #   구분한다. ※ 지시문은 "A 28곳"이나 목록에는 27개 ID만 있음 — 나머지 1곳(dobong-010)은
+    #   요금 구분 '무료'라 A가 아니므로 미반영하고 보고에 적는다.
+    "dobong-001": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-002": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-008": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-009": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-015": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-017": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-018": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-019": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-020": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-021": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-022": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-023": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-024": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-025": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-026": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-027": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-028": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-029": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-030": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-031": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-032": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-034": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-035": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-036": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-037": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-038": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    "dobong-039": {"fee": {"base_min": None, "base_fee": None, "unit_min": None, "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "monthly_label": "지정구획 전용", "cap_na": True},
+              "basis": ("set", "월 50,000원 지정구획 전용 — 시간제 없음·캡 해당 없음 "
+                              "(1차 출처 확인 2026-11-23).")},
+    # 도봉구 B 4곳 — 월 50,000원 + 5분 100원 시간제, 일 최대 항목 없음. 기본요금을 공식 5분 100원으로 교정.
+    #   (016·033은 이미 5분 100원이라 교정 없음 — 캡 없음만 CAP_NONE에 기록.)
+    "dobong-004": {"fee": {"base_min": 5, "base_fee": 100, "unit_min": 5, "unit_fee": 100},
+              "basis": ("append", "기본·추가 5분당 100원 공식 (repo 5분 50원 → 교정, "
+                                  "1차 출처 확인 2026-11-23).")},
+    "dobong-005": {"fee": {"base_min": 5, "base_fee": 100, "unit_min": 5, "unit_fee": 100},
+              "basis": ("append", "기본·추가 5분당 100원 공식 (repo 5분 50원 → 교정, "
+                                  "1차 출처 확인 2026-11-23).")},
+    "dobong-006": {"fee": {"base_min": 5, "base_fee": 100, "unit_min": 5, "unit_fee": 100},
+              "basis": ("append", "기본·추가 5분당 100원 공식 (repo 5분 50원 → 교정, "
+                                  "1차 출처 확인 2026-11-23).")},
+    "dobong-007": {"fee": {"base_min": 5, "base_fee": 100, "unit_min": 5, "unit_fee": 100},
+              "basis": ("append", "기본·추가 5분당 100원 공식 (repo 5분 150원 → 교정, "
+                                  "1차 출처 확인 2026-11-23).")},
+    # ※ 대구 북구 노상 캡 7건(s008·064·092·136·141·171·163)은 2026-11-23 16:00 긴급 정정으로
+    #   되돌림 — 인스팅트 8·9차 확인 결과 7차 매칭이 이름 유사성 기준이라 "잠정"이라,
+    #   캡 채움은 적용하지 않는다. 기본요금 교정도 계속 보류.
+}
+
+# 상한이 '없다'고 확인된 곳 — '캡 미확인'과 구분한다. fee['cap_none']=True 로 기록한다.
+CAP_NONE_20261123 = set([
+    # 화성 상한 없음 26곳
+    "hs-027", "hs-001", "hs-002", "hs-026", "hs-004", "hs-003", "hs-024", "hs-022",
+    "hs-021", "hs-055", "hs-025", "hs-019", "hs-018", "hs-017", "hs-023", "hs-048",
+    "hs-061", "hs-011", "hs-010", "hs-059", "hs-060", "hs-009", "hs-008", "hs-013",
+    "hs-012", "hs-014",
+    # 강남 구영 노외 29곳
+    "gangnam-001", "gangnam-002", "gangnam-003", "gangnam-004", "gangnam-005",
+    "gangnam-006", "gangnam-008", "gangnam-009", "gangnam-010", "gangnam-011",
+    "gangnam-012", "gangnam-015", "gangnam-017", "gangnam-018", "gangnam-020",
+    "gangnam-022", "gangnam-024", "gangnam-025", "gangnam-026", "gangnam-027",
+    "gangnam-028", "gangnam-029", "gangnam-030", "gangnam-032", "gangnam-033",
+    "gangnam-034", "gangnam-038", "gangnam-039", "gangnam-040",
+    # 진주 노외 10곳
+    "gn-jinju-001", "gn-jinju-002", "gn-jinju-003", "gn-jinju-004", "gn-jinju-005",
+    "gn-jinju-006", "gn-jinju-007", "gn-jinju-008", "gn-jinju-009", "gn-jinju-010",
+    # 중구 구영 노외 19곳
+    "jung-001", "jung-002", "jung-003", "jung-004", "jung-005", "jung-006",
+    "jung-008", "jung-009", "jung-011", "jung-012", "jung-013", "jung-014",
+    "jung-015", "jung-016", "jung-019", "jung-020", "jung-021", "jung-022",
+    "jung-024",
+    # 중구 구영 노상 14곳
+    "jung-s002", "jung-s003", "jung-s007", "jung-s008", "jung-s010", "jung-s011",
+    "jung-s012", "jung-s013", "jung-s014", "jung-s015", "jung-s024", "jung-s028",
+    "jung-s029", "jung-s036",
+    # 화성 노상 14곳
+    "hs-street-033", "hs-street-034", "hs-street-035", "hs-street-036", "hs-street-037",
+    "hs-street-044", "hs-street-046", "hs-street-043", "hs-street-042", "hs-street-015",
+    "hs-street-026", "hs-street-038", "hs-street-040", "hs-street-049",
+    # 중구 시영 노상 14곳
+    "jung-s001", "jung-s016", "jung-s017", "jung-s018", "jung-s019", "jung-s020",
+    "jung-s021", "jung-s022", "jung-s023", "jung-s025", "jung-s027", "jung-s032",
+    "jung-s033", "jung-s035",
+    # 부산 중구 노상 — jung-gu-s001~s016 범위 중 데이터에 존재하는 곳(16곳 전부 존재)
+    "jung-gu-s001", "jung-gu-s002", "jung-gu-s003", "jung-gu-s004", "jung-gu-s005",
+    "jung-gu-s006", "jung-gu-s007", "jung-gu-s008", "jung-gu-s009", "jung-gu-s010",
+    "jung-gu-s011", "jung-gu-s012", "jung-gu-s013", "jung-gu-s014", "jung-gu-s015",
+    "jung-gu-s016",
+    # 부산진구 노상 s005 (s003은 미확인이라 제외)
+    "busanjin-gu-s005",
+    # 대구 북구 노상 2곳 — 번호·주소로 확인됨(확정). s149·s153·s155·s157·s025는
+    #   2026-11-23 16:00 긴급 정정으로 되돌림(이름 유사성 매칭이라 잠정).
+    "dg-buk-gu-s145", "dg-buk-gu-s147",
+    # 부산 동구 노상 25곳 (조례 기준, lot별 급지 미확인)
+    "dong-gu-s001", "dong-gu-s002", "dong-gu-s003", "dong-gu-s004", "dong-gu-s005",
+    "dong-gu-s007", "dong-gu-s008", "dong-gu-s009", "dong-gu-s010", "dong-gu-s011",
+    "dong-gu-s012", "dong-gu-s013", "dong-gu-s021", "dong-gu-s022", "dong-gu-s023",
+    "dong-gu-s024", "dong-gu-s025", "dong-gu-s026", "dong-gu-s027", "dong-gu-s028",
+    "dong-gu-s029", "dong-gu-s030", "dong-gu-s031", "dong-gu-s032", "dong-gu-s033",
+    # 도봉구 B 6곳 중 기본요금 교정 대상 4곳은 캡 없음 확인됨 (016·033은 이미 5분 100원이라 교정 없음)
+    "dobong-004", "dobong-005", "dobong-006", "dobong-007", "dobong-016", "dobong-033",
+] + [f"gn-jinju-s{i:03d}" for i in range(1, 53)])  # 진주 노상 52곳 — 공단 표 기준
+
+# cap_none 확인 근거가 따로 있는 곳 (없으면 표기하지 않는다).
+# 서울 23개 구 상한 없음 대상 구 (2026-11-23 추가 지시 5). 노원·양천·도봉·강남·중구·성북·강북은
+# 별도 지시로 다루거나 이번 대상이 아니라 목록에 넣지 않는다.
+SEOUL_CAP_NONE_DISTRICTS = ("영등포구", "강서구", "서초구", "마포구", "종로구", "금천구", "서대문구",
+                            "관악구", "성동구", "송파구", "중랑구", "구로구", "용산구", "은평구",
+                            "동작구", "동대문구", "광진구", "강동구")
+CAP_NONE_SRC_20261123 = {f"gn-jinju-s{i:03d}": "공단 표 기준" for i in range(1, 53)}
+# 부산 동구 노상 25곳 — 조례 기준, lot별 급지 미확인 (2026-11-23 16:00 추가 지시 3 확정분)
+CAP_NONE_SRC_20261123.update({
+    f"dong-gu-s{n:03d}": "조례 기준 (lot별 급지 미확인)"
+    for n in (1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33)
+})
+
+
+def apply_fee_fix_20261123(lots):
+    """2026-11-23 Instinct 1차 출처 확인분 요금 정정 (P1-2·부설 표본 포함).
+
+    도시 빌더와 build_site_payload 양쪽에서 부른다 — 도시 파일과 site.json이
+    어긋나지 않게 같은 오버레이를 여기서도 적용한다(청주 선례).
+    build_site_payload에서는 derive_free_fields 뒤에 불러야 한다 — free_holiday
+    정정은 derive가 특기사항에서 다시 계산해 덮어쓰기 때문이다.
+    """
+    fixed = []
+    for lot in lots:
+        spec = FEE_FIX_20261123.get(lot["id"])
+        if spec is None and lot["id"] not in CAP_NONE_20261123:
+            continue
+        if spec:
+            for key, val in spec.get("fee", {}).items():
+                lot["fee"][key] = val
+            for day, h in spec.get("hours", {}).items():
+                lot["hours"][day].update(h)
+            if "spaces" in spec:
+                lot["spaces"] = spec["spaces"]
+            for day, on in spec.get("free_days", {}).items():
+                lot["free_days"][day] = on
+            if spec.get("free_holiday"):
+                lot["free_holiday"] = True
+                tags = lot.get("free_tags") or []
+                if "공휴일" not in tags:
+                    tags.append("공휴일")
+                lot["free_tags"] = tags
+            if spec.get("bus_only"):
+                lot["bus_only"] = True
+            basis = spec.get("basis")
+            if basis:
+                mode, text = basis
+                if mode == "set":
+                    lot["fee"]["basis"] = text
+                else:
+                    # 덧붙일 문장 자체가 이미 있으면 다시 붙이지 않는다(멱등).
+                    cur = lot["fee"].get("basis") or ""
+                    if text not in cur:
+                        lot["fee"]["basis"] = (cur + " " + text).strip()
+            if spec.get("fee", {}).get("monthly_only"):
+                # 월정기 전용 lot의 안내문에서 빌더가 붙인 조례 급지 요금 대체 문장을 뺀다.
+                # (인천 빌더의 del note_bits[_n0:] 선례 — 급지 요금으로 계산했다는 안내는
+                #  정기권 전용에는 맞지 않는다.) notice는 빌더가 note_bits를 ' · '로 이은 문자열이다.
+                notice = lot.get("notice")
+                if notice:
+                    kept = [p for p in notice.split(" · ")
+                            if "표준데이터에 시간 요금이 등록되어 있지 않아" not in p]
+                    lot["notice"] = " · ".join(kept) or None
+        if lot["id"] in CAP_NONE_20261123:
+            lot["fee"]["cap_none"] = True
+            src = CAP_NONE_SRC_20261123.get(lot["id"])
+            if src:
+                lot["fee"]["cap_none_src"] = src
+        fixed.append(lot["id"])
+    # 서울 23개 구 노외·노상 상한 없음 (2026-11-23 추가 지시 5 — 서울 조례 원문 확인).
+    #   노외: 일 상한도 1일권도 없음(5분당 + 월정기만) → cap_none, src "조례 원문".
+    #   노상: 주간 상한 없음(야간 1일권 별도) → cap_none, src "주간 상한 없음 — 야간 1일권 별도".
+    #   제외: 영등포 노상 s001~s008(급지 미확인), 금천 노상(1일주차할인권 — 사실상 주간 일 한도),
+    #   노원 노외(1일 주차권 있음 — 이 구는 대상 목록에 없음). 양천 16건은 lot 특정이 안 돼 보류.
+    #   규칙 기반이라 도시 빌더·build_site_payload 양쪽에서 같은 결과가 나온다(멱등).
+    for lot in lots:
+        if lot["city"] not in SEOUL_CAP_NONE_DISTRICTS:
+            continue
+        f = lot["fee"]
+        if f["type"] != "유료" or f.get("cap_fee") is not None or f.get("cap_none"):
+            continue
+        if lot["list_mode"] == "card" and lot.get("ptype") == "노외":
+            f["cap_none"] = True
+            f["cap_none_src"] = "조례 원문"
+            if lot["id"] not in fixed:
+                fixed.append(lot["id"])
+        elif lot["list_mode"] == "street":
+            if lot["city"] in ("영등포구", "금천구"):
+                continue
+            f["cap_none"] = True
+            f["cap_none_src"] = "주간 상한 없음 — 야간 1일권 별도"
+            if lot["id"] not in fixed:
+                fixed.append(lot["id"])
+    return fixed
+
+
 def apply_coord_fix(lots):
     """T-06: 표준데이터에 좌표가 비어 있는 주차장을 검증된 지오코딩 결과로 채운다.
 
@@ -7817,6 +8220,8 @@ def build_site_payload(cities):
             # 같은 도시명이 두 도에 있는 경우(경남·강원 고성군) 빌드 단계에서
             #   lot을 도시명으로만 매칭하면 두 도시 lot이 합쳐지므로 도 슬러그를 찍는다.
             l["province_slug"] = c["province_slug"]
+        # 2026-11-23 요금 정정 — derive 뒤에 불러야 free_holiday 정정이 유지된다.
+        apply_fee_fix_20261123(c["lots"])
         lots.extend(c["lots"])
     coord_fix = apply_coord_fix(lots)
     hours_fixed = apply_hours_fix(lots)
@@ -8709,6 +9114,9 @@ def build_hanam():
     lots.sort(key=lambda l: (l["list_mode"] != "card", l["dong"] or "힣", l["name"]))
     for i, l in enumerate(lots, 1):
         l["id"] = f"hn-{i:03d}" if l["list_mode"] == "card" else f"hn-s{i:03d}"
+
+    # 2026-11-23 요금 정정 (미사리 대형차전용 월 정기권 주간·야간·주야간 분리).
+    apply_fee_fix_20261123(lots)
 
     quality = check_quality_hanam(rows_all, rows_city, lots, excluded, merged, hour_fixed,
                                   grade_fixed, fee_diff, space_diff, corp_missing)
@@ -20353,6 +20761,9 @@ def build_seoul_district(gu: str):
             n_street += 1
             l["id"] = f"{conf['slug']}-s{n_street:03d}"
 
+    # 2026-11-23 요금 정정 (강남·중구 캡 4곳 + 상한 없음 + 남산예장 관광버스 전용).
+    apply_fee_fix_20261123(lots)
+
     fee_table = seoul_fee_table(gu, conf, lots)
     quality = check_quality_seoul(gu, rows_all, rows_std, lots, excluded, merged,
                                   note_fixed, grade_fixed, space_diff, dong_fixed, hour_fixed)
@@ -20474,10 +20885,14 @@ def seoul_fee_table(gu, conf, lots):
     rows = []
     for grade in sorted(g for g in by_grade if g):
         gl = by_grade[grade]
-        fees = [l["fee"]["base_fee"] for l in gl]
+        # 월정기 전용(monthly_only — 시간제 없음) 주차장은 5분당 요금이 없어
+        # 급지 요금표의 대표 요금 계산에서 뺀다. 급지 전체가 월정기 전용이면
+        # 1시간·2시간 칸은 '—', 5분당 칸은 '월정기 전용'으로 적는다.
+        rated = [l for l in gl if l["fee"].get("base_min") and l["fee"].get("base_fee") is not None]
+        fees = [l["fee"]["base_fee"] for l in rated]
         # 1시간·2시간 예상요금은 노외(카드) 주차장의 대표 요금으로 계산한다 — 노상은 30분 단위 등
         # 요금 단위가 다른 구간이 섞여 있어 표의 기준으로 삼기에 적합하지 않다.
-        pool = [l for l in gl if l["list_mode"] == "card"] or gl
+        pool = [l for l in rated if l["list_mode"] == "card"] or rated or gl
         key = Counter((l["fee"]["base_min"], l["fee"]["base_fee"], l["fee"]["unit_min"], l["fee"]["unit_fee"])
                       for l in pool).most_common(1)[0][0]
         sample = next(l for l in pool if (l["fee"]["base_min"], l["fee"]["base_fee"],
@@ -20492,7 +20907,10 @@ def seoul_fee_table(gu, conf, lots):
         else:
             ref = table_ref.get(grade) if isinstance(table_ref, dict) else None
         _sample_fee = sample["fee"]
-        if _sample_fee.get("base_min") and _sample_fee["base_min"] != 5:
+        if not fees:
+            # 급지 전체가 월정기 전용 — 5분당 요금이 없다.
+            _unit_label = "월정기 전용"
+        elif _sample_fee.get("base_min") and _sample_fee["base_min"] != 5:
             # 기본시간이 5분이 아닌 주차장(예: 성북구청 부설 30분 1,000원)만 있는 급지는
             # ‘5분당’ 칸에 그 금액을 그대로 적으면 오해하므로 기본시간을 함께 적는다.
             _unit_label = f"{_sample_fee['base_fee']:,}원({_sample_fee['base_min']}분 기준)"
@@ -20501,7 +20919,7 @@ def seoul_fee_table(gu, conf, lots):
         rows.append({
             "grade": grade,
             "lots": len(gl),
-            "fee_min": min(fees), "fee_max": max(fees),
+            "fee_min": min(fees) if fees else None, "fee_max": max(fees) if fees else None,
             "unit_label": _unit_label,
             "hour": h1, "two_hour": h2,
             "month_min": min(months) if months else None,
@@ -23143,6 +23561,9 @@ def build_busan_district(name: str):
             n_street += 1
             l["id"] = f"{conf['slug']}-s{n_street:03d}"
 
+    # 2026-11-23 요금 정정 (부산진구 캡·부산 중구/부산진구 상한 없음).
+    apply_fee_fix_20261123(lots)
+
     fee_table = busan_fee_table(name, conf, lots)
     quality = check_quality_busan(name, rows_all, rows_std, rows_city, lots, excluded, merged,
                                   note_fixed, grade_fixed, space_diff, dong_fixed, hour_fixed)
@@ -24521,6 +24942,9 @@ def build_daegu_district(name: str):
         else:
             n_street += 1
             l["id"] = f"dg-{conf['slug']}-s{n_street:03d}"
+
+    # 2026-11-23 요금 정정 (대구 북구 노상 캡 7곳 + 상한 없음 7곳 — 기본요금은 건드리지 않음).
+    apply_fee_fix_20261123(lots)
 
     fee_table = daegu_fee_table(name, conf, lots)
     quality = check_quality_daegu(name, rows_all, rows_std, rows_city, lots, excluded, merged,
@@ -29615,6 +30039,9 @@ def build_asan():
         else:
             n_street += 1
             l["id"] = f"ca-asan-s{n_street:03d}"
+
+    # 2026-11-23 요금 정정 (아산시청 부설 표현 정리).
+    apply_fee_fix_20261123(lots)
 
     fee_table = asan_fee_table(conf, lots)
     quality = asan_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
@@ -67064,6 +67491,9 @@ def build_jinju():
     #   적용한다. 진주시는 좌표 결측이 없어 오버레이로 채워지는 곳이 없다.
     apply_coord_fix(lots)
 
+    # 2026-11-23 요금 정정 (상한 없음 노외 10곳 + 노상 52곳).
+    apply_fee_fix_20261123(lots)
+
     fee_table = jinju_fee_table(conf, lots)
     quality = jinju_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
                             fee_diff, space_diff, dong_fixed, coord_fixed)
@@ -79337,7 +79767,10 @@ def build_gimcheon():
 #   전부 등록돼 있고 안동시 범위 안이라 보완 0건이다.
 # 요금 판단은 패키지 판단안을 따른다. 등록 단가가 별표 1
 #   1급지와 정확히 같은 주류 그룹(기본 30분 500원+추가
-#   10분 200원) 33곳은 계산에 쓴다 — 노상 26곳은 비고 6의
+#   10분 200원) 34곳은 계산에 쓴다 — 옥동 주차타워 확인분
+#   포함(1차 출처 확인 2026-11-23). 안동시청 부설주차장은
+#   별도 확인 요율(최초 1시간 무료 후 30분마다 500원)로
+#   계산한다. 노상 26곳은 비고 6의
 #   최초 15분 면제를 free_min으로 분리하고(base_min은
 #   무료 15분+최초 30분=45분, 남해 선례), 노외는 별표 1의
 #   1일 10,000원·월정기 주간 80,000원이 확정이라 일·월이
@@ -79347,11 +79780,11 @@ def build_gimcheon():
 #   100,000원이 조례(1일 10,000원·월 주간 80,000원)와
 #   어긋나, 단가만 계산에 쓰고 일·월은 확정하지 않는다
 #   (등록값도 별표값도 넣지 않는다). 단가 자체가 별표와
-#   어긋나는 3곳 — 옥동 주차타워(기본 30분 200원+추가
-#   10분 200원), 도산서원(1,440분 2,000원 정액·특기
-#   '대형4000원'), 안동시청 부설주차장(60분 500원+30분
-#   500원, 부설) — 은 별도 근거 확인 전이라 별표 금액을
-#   대입하지 않고 요금 미상으로 표기한다(김해·함안 선례).
+#   어긋나는 곳 중 도산서원(1,440분 2,000원 정액·특기
+#   '대형4000원')만 별도 근거 확인 전이라 요금 미상으로
+#   표기한다(김해·함안 선례). 옥동 주차타워·안동시청
+#   부설주차장은 1차 출처로 확인해(2026-11-23) 별도
+#   요율을 적용한다.
 #   혼합 등록은 혼합으로 표기만 하고 전일 유료로 계산하지
 #   않는다. 주말·공휴일 무료는 특기사항에 적힌 행만 근거
 #   범위대로 표기한다 — 일요일 무료 27곳(노상 26·노외 1),
@@ -79392,12 +79825,15 @@ ANDONG_CONF = {
     "manager_inquiry": "안동시청 교통행정과(054-840-5424, 조례 담당부서)",
     "ordinance": ("안동시 주차장 조례", ANDONG_ORD_URL, ANDONG_ORD_NOTE),
     "notes": (
-        "표준데이터에 등록된 안동시 공영주차장 132곳(노외 82곳·노상 49구간·부설 1곳, 총 8,221면)입니다. "
+        "표준데이터에 등록된 안동시 공영주차장 132곳(노외 82곳·노상 49구간·부설 1곳, 총 8,203면)입니다. "
         "「안동시 주차장 조례」 제2252호 별표 1은 급지별 요금표를 두고(1급지 기본 30분 500원·10분마다 "
-        "200원, 2급지 200원·100원), 등록 단가가 별표 1 1급지와 같은 33곳은 등록값으로 계산하고 노상은 "
+        "200원, 2급지 200원·100원), 등록 단가가 별표 1 1급지와 같은 34곳은 등록값으로 계산하고 노상은 "
         "최초 15분 면제를 반영했습니다. 노외의 1일·월정기(주간)는 조례 확정값(10,000원·80,000원)을 "
         "적용했고, 등록 일·월이 조례와 어긋나는 터미널공영주차장은 일·월을 확정하지 않았습니다. 단가가 "
-        "별표와 어긋나는 3곳(옥동 주차타워·도산서원·안동시청 부설주차장)은 요금 미상으로 표기했습니다."),
+        "별표와 어긋나는 도산서원 1곳은 요금 미상으로 표기했습니다. 옥동 주차타워·안동시청 부설주차장은 "
+        "1차 출처로 확인해 별도 요율을 적용했습니다(옥동: 최초 1시간 무료·30분 500원·이후 10분당 200원·"
+        "1일 최대 10,000원·평일 09:00~18:00 유료, 시청 부설: 최초 1시간 무료 후 30분마다 500원·"
+        "08:00~19:00·토·일·공휴일 무료)."),
     "discounts": ANDONG_DISCOUNTS,
 }
 
@@ -79528,8 +79964,8 @@ def andong_fee_table(conf, lots):
     500원+30분 600원=1,100원). 노상은 비고 6의 최초 15분
     면제가 있어 같은 시간이라도 부과액이 다르므로 windows에
     따로 적는다. 계산에 쓰는 곳은 등록 단가가 별표 1
-    1급지와 같은 33곳뿐이고 나머지는 등록 기준(무료·미상)
-    으로 표기한다."""
+    1급지와 같은 34곳(옥동 주차타워 확인분 포함)과 안동시청 부설 별도 확인 요율 1곳이고
+    나머지는 등록 기준(무료·미상)으로 표기한다."""
     paid = [l for l in lots if l["fee"]["type"] == "유료"]
     free = [l for l in lots if l["fee"]["type"] == "무료"]
     unknown = [l for l in lots if l["fee"]["type"] == "미상"]
@@ -79842,6 +80278,9 @@ def build_andong():
     # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
     #   적용한다. 안동시는 보완된 좌표가 없어 적용 대상이 없다.
     _cf = apply_coord_fix(lots)
+
+    # 2026-11-23 요금 정정 (옥동 주차타워·안동시청 부설 확인 요율).
+    apply_fee_fix_20261123(lots)
 
     fee_table = andong_fee_table(conf, lots)
     quality = andong_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
@@ -80535,6 +80974,9 @@ def build_gumi():
     #   적용한다. 구미시는 좌표 결측이 금오천 3주차장 1곳이고 오버레이에
     #   구미시 행이 없어 적용 대상이 없다.
     _cf = apply_coord_fix(lots)
+
+    # 2026-11-23 요금 정정 (구미시청 부설 2곳).
+    apply_fee_fix_20261123(lots)
 
     fee_table = gumi_fee_table(conf, lots)
     quality = gumi_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
@@ -81898,6 +82340,9 @@ def build_yeongcheon():
     #   적용한다. 영천시는 좌표 결측이 0곳이라 적용 대상이 없다.
     _cf = apply_coord_fix(lots)
 
+    # 2026-11-23 요금 정정 (영천시청 부설).
+    apply_fee_fix_20261123(lots)
+
     fee_table = yeongcheon_fee_table(conf, lots)
     quality = yeongcheon_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
                                  fee_diff, space_diff, dong_fixed, coord_fixed)
@@ -83242,6 +83687,9 @@ def build_mungyeong():
     # 청주 선례: 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도
     #   적용한다. 문경시는 좌표 결측이 0곳이라 적용 대상이 없다.
     _cf = apply_coord_fix(lots)
+
+    # 2026-11-23 요금 정정 (문경시청·보건소 1일 요금).
+    apply_fee_fix_20261123(lots)
 
     fee_table = mungyeong_fee_table(conf, lots)
     quality = mungyeong_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,

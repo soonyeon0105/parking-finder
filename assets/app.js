@@ -78,11 +78,17 @@
   var list = document.getElementById('lot-list');
   var cards = list ? Array.prototype.slice.call(list.querySelectorAll('.lot')) : [];
 
+  var entryAttr = list && list.getAttribute('data-entry');
+  var entryVal = (entryAttr === null || entryAttr === '') ? 720 : parseInt(entryAttr, 10);
+  if (isNaN(entryVal) || entryVal < 0 || entryVal >= 1440) entryVal = 720;
+
   var state = {
     day: (list && list.getAttribute('data-day')) || 'weekday',
     minutes: 120,
     discount: 0,
-    exempt: 0
+    exempt: 0,
+    // 입차 시각(자정부터 분). 기본 12:00 — 정오 기준이라 기본 화면의 가격 변동이 가장 적다.
+    entry: entryVal
   };
 
   var won = function (n) { return n.toLocaleString('ko-KR') + '원'; };
@@ -100,37 +106,97 @@
       calculator_action: action,
       day: state.day,
       minutes: state.minutes,
+      entry: state.entry,
       discount: discountLabel(),
       page_path: location.pathname
     });
   }
 
-  function priceFor(lot, minutes, day, rate, exempt) {
+  // 두 구간 [a0,a1) 과 [b0,b1) 가 겹치는 분 수.
+  function overlapMinutes(a0, a1, b0, b1) {
+    return Math.max(0, Math.min(a1, b1) - Math.max(a0, b0));
+  }
+
+  // 무료 시간대(free_window)가 주어진 구간 [o0,o1) 과 겹치는 분 수.
+  // 무료 시간대는 자정을 넘길 수 있어(wrap) 기준일을 -1일·당일·+1일로 옮겨 본다.
+  function freeWindowOverlap(fw, o0, o1) {
+    var total = 0;
+    for (var k = -1; k <= 1; k++) {
+      var f0 = fw.start + k * 1440;
+      var f1 = (fw.wrap ? fw.end + 1440 : fw.end) + k * 1440;
+      total += overlapMinutes(o0, o1, f0, f1);
+    }
+    return total;
+  }
+
+  // 입차 시각(entry, 자정부터 분)이 주어지면 과금 대상 분을 구한다.
+  // entry 가 없으면(null/undefined) 예전처럼 이용 시간 전부를 과금 대상으로 본다.
+  // chargeable = 운영시간과 겹치는 분 - 그 안에서 무료 시간대와 겹치는 분.
+  // 자정을 넘는 체류는 선택한 요일 안에서만 과금한다(다음 날 분은 계산하지 않음).
+  function chargeableMinutes(lot, minutes, day, entry) {
+    if (entry === null || entry === undefined) return { chargeable: minutes, opOverlap: minutes };
+    var h = lot.hours && lot.hours[day];
+    var opStart = 0, opEnd = 1440;
+    if (h && !h['24h'] && h.start !== null && h.start !== undefined
+        && h.end !== null && h.end !== undefined) {
+      opStart = h.start; opEnd = h.end;
+    }
+    var s0 = entry, s1 = entry + minutes;
+    var op = overlapMinutes(s0, s1, opStart, opEnd);
+    var free = 0;
+    if (lot.free_window) {
+      var o0 = Math.max(s0, opStart), o1 = Math.min(s1, opEnd);
+      if (o1 > o0) free = freeWindowOverlap(lot.free_window, o0, o1);
+    }
+    return { chargeable: Math.max(0, op - free), opOverlap: op };
+  }
+
+  function priceFor(lot, minutes, day, rate, exempt, entry) {
+    if (lot.bus_only) return { state: 'bus_only' };   // 관광버스 전용 — 승용차 요금 계산에서 제외
     if (!lot.oper[day]) return { state: 'closed' };
     var f = lot.fee;
     if (f.type === '무료' || (day !== 'weekday' && lot.free_days[day])) {
       return { state: 'free' };
     }
-    // 조례상 면제 시간(분): 이 시간 이내 이용은 0원, 넘으면 감면율 적용 (예: 성남 장애인 1시간 면제 후 50%)
-    if (exempt && minutes <= exempt) {
+    var cm = chargeableMinutes(lot, minutes, day, entry);
+    var chargeable = cm.chargeable;
+    // 조례상 면제 시간(분): 과금 대상 시간이 이 시간 이내면 0원, 넘으면 감면율 적용
+    // (예: 성남 장애인 1시간 면제 후 50%). 정액형보다 먼저 본다 — 기존 동작 유지.
+    if (exempt && chargeable > 0 && chargeable <= exempt) {
       return { state: 'free', exempt: true, exempt_min: exempt };
     }
     // 종일 정액(금오산·단양 관광지 등) — 시간 요금 없이 어떤 이용 시간에도 정액이다.
+    // 입차 시각과 무관하므로 과금 구간 계산보다 먼저 본다. 감면은 정액에도 붙는다(P1-1).
     if (f.flat_day) {
       var flat = (f.base_fee !== null && f.base_fee !== undefined) ? f.base_fee : f.daily_fee;
+      if (rate > 0) {
+        var disc = Math.round(flat * (1 - rate));
+        if (disc < flat) {
+          return { state: 'paid', amount: disc, before: flat,
+                   capped: false, discounted: true, deducted: false, flat: true };
+        }
+      }
       return { state: 'paid', amount: flat, before: flat,
                capped: false, discounted: false, deducted: false, flat: true };
+    }
+    // 과금 대상 시간이 0분이면 운영시간 밖이다. 노상은 그 시간에 무료, 그 밖은 휴무로 본다.
+    if (chargeable === 0) {
+      if (cm.opOverlap === 0) {
+        return lot.ptype === '노상' ? { state: 'free', outside_hours: true }
+                                    : { state: 'closed', outside_hours: true };
+      }
+      return { state: 'free', free_window: true };   // 과금 구간이 전부 무료 시간대(운영시간 안)
     }
     if (f.type !== '유료') return { state: 'unknown' };
     if (!f.base_min || f.base_fee === null) {
       return { state: 'unknown' };
     }
-    // 최초 무료 시간(분): 이 시간 이내 이용은 0원 (예: 안양시 최초 15분 무료)
-    if (f.free_min && minutes <= f.free_min) {
+    // 최초 무료 시간(분): 과금 대상 시간이 이 시간 이내면 0원 (예: 안양시 최초 15분 무료)
+    if (f.free_min && chargeable <= f.free_min) {
       return { state: 'free', free_min: f.free_min };
     }
     // 최초 N분 무료 정책(김포시 1시간 무료) — 그 시간 이내는 0원이다.
-    if (f.deduct_min && minutes <= f.deduct_min) {
+    if (f.deduct_min && chargeable <= f.deduct_min) {
       return { state: 'free', deducted: true, deduct_min: f.deduct_min };
     }
     if (!(f.bands && f.bands.length) && (!f.unit_min || f.unit_fee === null)) {
@@ -172,11 +238,11 @@
       else if (daily && daily > 0 && raw > daily) { raw = daily; capped = true; }
       return { raw: raw, capped: capped };
     }
-    var baseCharge = rawCharge(minutes);
+    var baseCharge = rawCharge(chargeable);
     var best = baseCharge.raw, capped = baseCharge.capped, deducted = false, discounted = false;
     // 최초 N분 무료 정책(김포시 1시간 무료) — 그 시간을 뺀 요금으로 계산한다.
-    if (f.deduct_min && minutes > f.deduct_min) {
-      var d = rawCharge(minutes - f.deduct_min);
+    if (f.deduct_min && chargeable > f.deduct_min) {
+      var d = rawCharge(chargeable - f.deduct_min);
       if (d.raw < best) { best = d.raw; capped = d.capped; deducted = true; }
     }
     // 조례가 ‘감면은 한 가지만’이라고 정한 도시는 감면율을 적용한 요금과 비교해 싼 쪽을 쓴다.
@@ -192,6 +258,7 @@
     if (r.state === 'free') return [0, 0];
     if (r.state === 'paid') return [1, r.amount];
     if (r.state === 'unknown') return [2, 0];
+    if (r.state === 'bus_only') return [2, 0];
     return [3, 0];
   }
 
@@ -207,7 +274,11 @@
       priceEl.textContent = '0원';
       if (noteEl) {
         var dmFree = res.deduct_min || (lot && lot.fee.deduct_min) || 0;
-        noteEl.textContent = res.exempt
+        noteEl.textContent = res.free_window
+          ? '무료 시간대 (입차 시각 기준)'
+          : res.outside_hours
+          ? '운영시간 외 무료 (입차 시각 기준)'
+          : res.exempt
           ? '면제 시간 이내 (' + fmtTime(res.exempt_min) + ' 면제)'
           : (lot && lot.fee.type === '무료' ? '요금 구분 ‘무료’'
             : (res.deducted || dmFree
@@ -234,9 +305,12 @@
     } else if (res.state === 'unknown') {
       priceEl.textContent = '요금 정보 미상';
       if (noteEl) noteEl.textContent = '현장 확인 필요';
+    } else if (res.state === 'bus_only') {
+      priceEl.textContent = '관광버스 전용';
+      if (noteEl) noteEl.textContent = '승용차 주차 불가';
     } else {
       priceEl.textContent = '휴무';
-      if (noteEl) noteEl.textContent = '선택한 요일에 운영하지 않음';
+      if (noteEl) noteEl.textContent = res.outside_hours ? '입차 시각 기준 운영시간 외' : '선택한 요일에 운영하지 않음';
     }
     if (freeBadge) freeBadge.style.display = res.state === 'free' ? '' : 'none';
   }
@@ -249,12 +323,14 @@
     var calcSection = document.querySelector('section.calc');
     if (calcSection && calcSection.getAttribute('data-single') === '1' && results.length === 1) {
       var dayName1 = { weekday: '평일', sat: '토요일', sun: '일요일·공휴일' }[state.day];
-      var head1 = '<strong>' + dayName1 + ' · ' + fmtTime(state.minutes) + '</strong> 기준';
+      var head1 = '<strong>' + dayName1 + ' · ' + fmtClock(state.entry) + ' 입차 · ' + fmtTime(state.minutes) + '</strong> 기준';
       var st = results[0].res.state;
       if (st === 'paid') {
         box.innerHTML = head1 + ' 예상 요금 <strong>' + won(results[0].res.amount) + '</strong>';
       } else if (st === 'free') {
         box.innerHTML = head1 + ' 예상 요금 <strong>0원</strong> (무료)';
+      } else if (st === 'bus_only') {
+        box.innerHTML = head1 + ' <strong>관광버스 전용</strong> — 승용차는 주차할 수 없습니다';
       } else if (st === 'unknown') {
         box.innerHTML = head1 + ' 요금 미상 — 현장 확인이 필요합니다';
       } else {
@@ -266,13 +342,15 @@
     var paid = results.filter(function (r) { return r.res.state === 'paid'; });
     var unknown = results.filter(function (r) { return r.res.state === 'unknown'; }).length;
     var closed = results.filter(function (r) { return r.res.state === 'closed'; }).length;
+    var busOnly = results.filter(function (r) { return r.res.state === 'bus_only'; }).length;
     paid.sort(function (a, b) { return a.res.amount - b.res.amount; });
     var dayName = { weekday: '평일', sat: '토요일', sun: '일요일·공휴일' }[state.day];
     var parts = [];
-    parts.push('<strong>' + dayName + ' · ' + fmtTime(state.minutes) + '</strong> 기준');
+    parts.push('<strong>' + dayName + ' · ' + fmtClock(state.entry) + ' 입차 · ' + fmtTime(state.minutes) + '</strong> 기준');
     parts.push('무료 <strong>' + free + '곳</strong>');
     if (paid.length) parts.push('가장 저렴 <strong>' + won(paid[0].res.amount) + '</strong>');
     if (unknown) parts.push('요금 미상 ' + unknown + '곳');
+    if (busOnly) parts.push('관광버스 전용 ' + busOnly + '곳');
     if (closed) parts.push('휴무 ' + closed + '곳');
     box.innerHTML = parts.join(' · ');
   }
@@ -284,11 +362,17 @@
     return h + '시간 ' + mi + '분';
   }
 
+  // 자정부터 분 → 'HH:MM' (입차 시각 표시용).
+  function fmtClock(m) {
+    var h = Math.floor(m / 60), mi = m % 60;
+    return (h < 10 ? '0' : '') + h + ':' + (mi < 10 ? '0' : '') + mi;
+  }
+
   function refresh() {
     var results = cards.map(function (card) {
       var lot = byId[card.getAttribute('data-lot')];
       if (!lot) return null;
-      return { card: card, lot: lot, res: priceFor(lot, state.minutes, state.day, state.discount, state.exempt) };
+      return { card: card, lot: lot, res: priceFor(lot, state.minutes, state.day, state.discount, state.exempt, state.entry) };
     }).filter(Boolean);
 
     results.forEach(function (r) { paintCard(r.card, r.res, r.lot); });
@@ -379,6 +463,29 @@
       fireCalc('quick_time');
     });
   });
+
+  // 입차 시각 (P0-1) — 기본 12:00. 바꾸면 다시 계산한다.
+  var entryInput = document.getElementById('entry-time');
+  function paintEntry() { if (entryInput) entryInput.value = fmtClock(state.entry); }
+  if (entryInput) {
+    entryInput.addEventListener('change', function () {
+      var parts = (entryInput.value || '').split(':');
+      var v = parseInt(parts[0], 10) * 60 + parseInt(parts[1], 10);
+      if (!isNaN(v) && v >= 0 && v < 1440) { state.entry = v; refresh(); fireCalc('entry_time'); }
+      paintEntry();
+    });
+  }
+  var nowBtn = document.getElementById('entry-now');
+  if (nowBtn) {
+    nowBtn.addEventListener('click', function () {
+      var d = new Date(Date.now() + 9 * 3600 * 1000); // KST
+      state.entry = d.getUTCHours() * 60 + d.getUTCMinutes();
+      paintEntry();
+      refresh();
+      fireCalc('entry_now');
+    });
+  }
+  paintEntry();
 
   paintTime();
   refresh();
@@ -477,21 +584,24 @@
     var h = lot.hours && lot.hours[hk];
     if (h && h.open === false) return false;   // 그날 문을 닫음
     if (lot.fee && lot.fee.type === '무료') return true;
+    // 무료 시간대보다 요일 무료를 먼저 본다 — 토·일 종일 무료인데 야간 무료 시간대가
+    // 적힌 곳(군포·예천·괴산 등 33곳)이 낮에 빠지는 것을 막는다(P0-2).
+    if (day === 'sat' && lot.free_days && lot.free_days.sat) return true;
+    if (day === 'sun' && lot.free_days && lot.free_days.sun) return true;
+    if (isHol && (lot.free_holiday || (lot.free_days && lot.free_days.sun))) return true;
     var fw = lot.free_window;
     if (fw) {
       var inWin = fw.wrap ? (t.minutes >= fw.start || t.minutes < fw.end)
                           : (t.minutes >= fw.start && t.minutes < fw.end);
       return inWin;                            // 무료 시간대가 정해진 곳은 그 시간대에만 무료
     }
-    if (day === 'sat' && lot.free_days && lot.free_days.sat) return true;
-    if (day === 'sun' && lot.free_days && lot.free_days.sun) return true;
-    if (isHol && (lot.free_holiday || (lot.free_days && lot.free_days.sun))) return true;
     return false;
   }
 
   function matches(lot) {
     if (!state.f && !state.now) return true;
     if (lot.access === 'permit') return false;  // 월정기·공무원·화물 전용은 무료 목록에서 뺀다
+    if (lot.bus_only) return false;              // 관광버스 전용도 승용차 무료 목록에서 뺀다
     var tags = lot.free_tags || [];
     if (state.f === 'free' && tags.indexOf('무료') < 0) return false;
     if (state.f === 'weekend' && tags.indexOf('주말') < 0 && tags.indexOf('공휴일') < 0) return false;

@@ -67,13 +67,16 @@ with sync_playwright() as p:
                         for g in got:
                             total += 1
                             lot = by_id[g["id"]]
-                            want = price_for(lot, minutes, day, rate, exempt)
+                            # 브라우저 계산기는 기본 입차 시각 12:00(720)으로 계산한다.
+                            want = price_for(lot, minutes, day, rate, exempt, 720)
                             if want["state"] == "paid":
                                 exp = f"{want['amount']:,}원"
                             elif want["state"] == "free":
                                 exp = "0원"
                             elif want["state"] == "unknown":
                                 exp = "요금 정보 미상"
+                            elif want["state"] == "bus_only":
+                                exp = "관광버스 전용"
                             else:
                                 exp = "휴무"
                             if g["price"] != exp:

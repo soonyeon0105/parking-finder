@@ -1,8 +1,8 @@
 {
  "meta": {
-  "generated_at": "2026-11-23 13:26",
-  "generated_at_iso": "2026-11-23T13:26:05+09:00",
-  "snapshot_at": "2026-11-23 13:26",
+  "generated_at": "2026-11-23 16:25",
+  "generated_at_iso": "2026-11-23T16:25:51+09:00",
+  "snapshot_at": "2026-11-23 16:25",
   "region": {
    "province": "대구광역시",
    "city": "북구"
@@ -20808,7 +20808,8 @@
      "day": null,
      "monthly": null
     },
-    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -21030,7 +21031,8 @@
      "day": null,
      "monthly": null
     },
-    "basis": "표준데이터 등록요금(대구 30분·10분 단위)"
+    "basis": "표준데이터 등록요금(대구 30분·10분 단위)",
+    "cap_none": true
    },
    "oper": {
     "weekday": true,
@@ -25965,7 +25967,7 @@
   }
  ],
  "quality": {
-  "generated_at": "2026-11-23 13:26",
+  "generated_at": "2026-11-23 16:25",
   "원자료_전국행수": 18994,
   "원자료_행수": 295,
   "원자료_북구행수": 295,
