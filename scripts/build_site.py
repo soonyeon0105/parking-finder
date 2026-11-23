@@ -19317,6 +19317,7 @@ def build_about(site):
     """ /about/ — 서비스 소개·공공데이터 출처·계산 기준(애드센스 심사·정책 대응)."""
     path = "/about/"
     rows = []
+    chips = []
     for prov in province_order(site):
         body_rows = []
         for city in [c for c in site["cities"] if (c.get("province") or "지역") == prov]:
@@ -19331,8 +19332,16 @@ def build_about(site):
                 continue
             body_rows.append(f'<tr><td><a href="{city_path(city)}">{esc(city["city"])}</a></td><td>{links}</td></tr>')
         if body_rows:
-            rows.append(f'<h3>{esc(prov)}</h3><table class="data"><thead><tr><th>지역</th><th>참고한 자료</th></tr></thead>'
-                        f'<tbody>{"".join(body_rows)}</tbody></table>')
+            # 시·도별 표를 전부 펼쳐 두면 페이지가 너무 길어져, 홈·무료 허브와 같은
+            # 접기 그룹 + 칩 바로가기로 접는다 (2026-11-24 운영자 지시). 링크·표는 HTML에 그대로 남는다.
+            _slug = next((c.get("province_slug") for c in site["cities"]
+                          if (c.get("province") or "지역") == prov and c.get("province_slug")), "")
+            rows.append(f'<details class="prov-fold" id="src-{esc(_slug)}">'
+                        f'<summary><span class="pf-name">{esc(prov)}</span>'
+                        f'<span class="pf-count">{len(body_rows)}개 지역</span></summary>'
+                        f'<table class="data"><thead><tr><th>지역</th><th>참고한 자료</th></tr></thead>'
+                        f'<tbody>{"".join(body_rows)}</tbody></table></details>')
+            chips.append(f'<a class="pchip" href="#src-{esc(_slug)}">{esc(prov)} <small>{len(body_rows)}</small></a>')
     total = sum(len(c.get("_lots") or []) for c in site["cities"])
     body = f"""
 <div class="prose">
@@ -19353,7 +19362,8 @@ def build_about(site):
 <h2>2. 데이터 출처</h2>
 <p>기본은 행정안전부 <a href="https://www.data.go.kr/data/15012896/standard.do" rel="nofollow noopener" target="_blank">전국주차장정보표준데이터</a>(기준일 2026-04-16, 공공데이터포털)입니다.
 표준데이터의 요금·운영시간이 오래됐거나 비어 있는 지역은, 아래처럼 각 시·군·구 조례 별표와 도시공사·통합주차포털의 최신 안내로 바꿔 넣었습니다.
-표의 지역 이름을 누르면 그 지역의 계산기·목록 페이지로 이동합니다.</p>
+표의 지역 이름을 누르면 그 지역의 계산기·목록 페이지로 이동합니다. 지역이 많아 시·도별로 접어 두었으니, 도 이름을 누르면 펼쳐집니다.</p>
+<nav class="prov-chips" aria-label="시·도 바로가기">{''.join(chips)}</nav>
 {''.join(rows)}
 
 <h2>3. 요금 계산 방식</h2>
@@ -19386,7 +19396,7 @@ def build_about(site):
 <p>본 사이트는 공공데이터를 정리한 참고용 정보이며, 요금 징수·주차장 운영 주체가 아닙니다.
 요금·운영시간의 최종 기준은 지자체·도시공사 안내입니다. 이 정보를 이용해 생긴 주차 요금·과태료 등에 대해 사이트는 책임지지 않습니다.</p>
 </div>
-"""
+""" + FOLD_SCRIPT
     crumbs = [("홈", "/"), ("사이트 소개", "")]
     about_ld = {"@context": "https://schema.org", "@type": "AboutPage",
                 "name": f"사이트 소개 — {SITE_NAME}", "url": SITE_BASE + path,
@@ -19398,6 +19408,7 @@ def build_about(site):
         description=(f"{SITE_NAME}가 무엇을 하는 사이트인지, 어떤 공공데이터를 어떻게 결합했는지, "
                      "요금·감면·무료 개방을 어떤 순서로 계산하는지와 갱신 주기·한계를 안내합니다."),
         path=path, body=body, crumbs=crumbs, nav_active="about", city=None,
+        extra_head=FOLD_STYLE,
         jsonld=[jsonld_breadcrumb(crumbs, path), about_ld])
 
 
