@@ -18702,21 +18702,37 @@ details.prov-fold .pf-name{font-size:15px;font-weight:700;color:var(--ink)}
 details.prov-fold .pf-count{font-size:12px;font-weight:600;color:var(--muted)}
 details.prov-fold .grid-2{margin-top:10px}
 details.prov-fold .prov-all{margin:10px 0 0}
+details.prov-fold{scroll-margin-top:12px}
 </style>
 """
 
 # 앵커(#seoul·#night 등)로 들어오면 해당 접기 그룹을 펼쳐 보여 주는 작은 스크립트.
+# 칩 탭은 hashchange 에만 맡기지 않고 클릭 핸들러가 직접 펼치고 스크롤한다 —
+# 같은 해시 재탭(해시가 이미 그 값이면 hashchange 가 안 일어남)·브라우저별
+# 프래그먼트 스크롤 편차에도 같은 동작을 보장하기 위해서다 (2026-11-24 운영자 실기기 신고).
 FOLD_SCRIPT = """
 <script>
 (function () {
+  function target(id) {
+    var t = id && document.getElementById(id);
+    return (t && t.tagName === 'DETAILS') ? t : null;
+  }
   function openFromHash() {
-    var h = (location.hash || '').replace('#', '');
-    if (!h) return;
-    var t = document.getElementById(h);
-    if (t && t.tagName === 'DETAILS') t.open = true;
+    var t = target((location.hash || '').replace('#', ''));
+    if (t) t.open = true;
   }
   openFromHash();
   window.addEventListener('hashchange', openFromHash);
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('.prov-chips a[href^="#"], .free-tabs a[href^="#"]') : null;
+    if (!a) return;
+    var t = target((a.getAttribute('href') || '').slice(1));
+    if (!t) return;
+    e.preventDefault();
+    t.open = true;
+    if (history.pushState) history.pushState(null, '', a.getAttribute('href'));
+    t.scrollIntoView({ block: 'start' });
+  });
 })();
 </script>
 """
@@ -19303,8 +19319,41 @@ def build_regions(site):
 <h1>지역 전체 목록 — 시·도·시·군·구·동</h1>
 <p class="lede">공영주차장 파인더가 다루는 모든 지역 페이지를 한 곳에 모았습니다. 지역 이름을 누르면 요금 계산기와 주차장 목록으로 이동합니다.
 지역 수 {len(site['cities'])}곳, 등록 주차장 {sum(stats_for(c.get('_lots') or [])['n'] for c in site['cities']):,}곳입니다.</p>
+<p class="ff-status" id="region-q-status" hidden><span id="region-q-text"></span> <a href="/parking/regions/">전체 목록 보기 →</a></p>
 {''.join(blocks)}
 <p><a class="btn" href="/parking/free/">무료 개방 주차장 전체 보기 →</a></p>
+"""
+    # 홈 검색 폼이 ?q= 로 넘긴 검색어를 실제로 거른다 — 전에는 받는 쪽이 없어
+    # 검색어를 넣어도 전체 목록이 처음부터 그대로 나왔다 (2026-11-24 운영자 실기기 신고).
+    body += """
+<script>
+(function () {
+  var q = new URLSearchParams(location.search || '').get('q');
+  var box = document.getElementById('region-q-status');
+  var text = document.getElementById('region-q-text');
+  if (!q || !box || !text) return;
+  function norm(s) { return (s || '').replace(/\\s+/g, ''); }
+  var needle = norm(q);
+  if (!needle) return;
+  var shown = 0;
+  Array.prototype.forEach.call(document.querySelectorAll('table.data'), function (table) {
+    var h = table.previousElementSibling;
+    var provHit = h && norm(h.textContent).indexOf(needle) !== -1;
+    var any = false;
+    Array.prototype.forEach.call(table.querySelectorAll('tbody tr'), function (tr) {
+      var hit = provHit || norm(tr.textContent).indexOf(needle) !== -1;
+      tr.style.display = hit ? '' : 'none';
+      if (hit) { any = true; shown += 1; }
+    });
+    if (h) h.style.display = any ? '' : 'none';
+    table.style.display = any ? '' : 'none';
+  });
+  text.textContent = shown
+    ? "'" + q + "' 검색 — " + shown + "개 지역을 찾았습니다."
+    : "'" + q + "' 검색 결과가 없습니다. 시·군·구 이름으로 다시 찾아 주세요.";
+  box.hidden = false;
+})();
+</script>
 """
     crumbs = [("홈", "/"), ("지역 전체 목록", "")]
     return path, layout(
