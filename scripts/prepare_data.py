@@ -7794,7 +7794,7 @@ FEE_FIX_20261123 = {
                 "unit_min": 30, "unit_fee": 500},
         "spaces": 534,
         "basis": ("set", "안동시청 부설 — 08:00~19:00·토·일·공휴일 무료·최초 1시간 무료 후 "
-                         "30분마다 500원·면수 534 (1차 출처 확인 2026-11-23)"),
+                         "30분마다 500원·면수 534·50% 감면 적용 (1차 출처 확인 2026-11-23)"),
     },
     # 하남시 미사리 대형차전용 — 월 정기권 주간·야간·주야간 분리 (repo 120,000원은 주야간 값)
     "hn-s030": {
@@ -8006,9 +8006,262 @@ FEE_FIX_20261123 = {
     "dobong-007": {"fee": {"base_min": 5, "base_fee": 100, "unit_min": 5, "unit_fee": 100},
               "basis": ("append", "기본·추가 5분당 100원 공식 (repo 5분 150원 → 교정, "
                                   "1차 출처 확인 2026-11-23).")},
-    # ※ 대구 북구 노상 캡 7건(s008·064·092·136·141·171·163)은 2026-11-23 16:00 긴급 정정으로
+    # 대구 북구 s136 — 주소(칠성동2가 409-6)가 포털 113 신천둔치공영주차장과 번지까지 일치.
+    #   두 후보(113 노외 / 225 신천교고가도로밑) 모두 500/250/일 5,000이라 값은 확실.
+    #   (지시 7 — 행 정체·유형은 잠정이므로 메모를 단다.)
+    "dg-buk-gu-s136": {"fee": {"cap_fee": 5000},
+        "basis": ("append", "일일 최대 5,000원(24시간 기준, 1차 출처 확인 2026-11-23). "
+                            "행 정체 잠정 (113 vs 225), 유형(노외/노상) 미확인.")},
+    # 대구 북구 s025 — 유료/무료 충돌. 요금은 미확인 유지하고 충돌 상태 메모만 단다.
+    #   (지시 7 — 포털 요금표 3급지 '한시적 무료' vs 소개 페이지 '24시간 유료운영'.)
+    "dg-buk-gu-s025": {"fee": {},
+        "basis": ("append", "유료/무료 충돌 — 포털 요금표 3급지 '한시적 무료' vs 소개 페이지 "
+                            "'24시간 유료운영' (주소 북구 구암로 158 = 포털 217 확정) — "
+                            "요금 미확인 유지 (1차 출처 확인 2026-11-23).")},
+    # 포항 — 요금 채움 (지시 6 P1-3). 500/200은 포항 표준(20분 500원·10분 200원).
+    "gb-pohang-023": {"fee": {"type": "유료", "base_min": 20, "base_fee": 500,
+                             "unit_min": 10, "unit_fee": 200, "daily_fee": 7000},
+        "basis": ("set", "동빈부두 — 20분 500원·10분 200원·1일 7,000원·월정기 없음·"
+                        "월요일 10~19시 무료개방 (1차 출처 확인 2026-11-23). "
+                        "※ 월요일 무료는 요일(월) 단위 무료 필드가 없어 본문에만 기록 — 계산기는 월요일도 과금한다.")},
+    "gb-pohang-106": {"fee": {"type": "유료", "base_min": 20, "base_fee": 500,
+                             "unit_min": 10, "unit_fee": 200, "daily_fee": 5000,
+                             "monthly": 50000},
+        "free_days": {"sun": True},
+        "basis": ("set", "큰동해시장 — 20분 500원·10분 200원·1일 5,000원·월 50,000원·"
+                        "일요일 11~20시 무료 (1차 출처 확인 2026-11-23).")},
+    # 노원구 — 공단 대조 확인분 (지시 6)
+    "nowon-005": {"fee": {"base_min": 5, "base_fee": 260, "unit_min": 5, "unit_fee": 260},
+        "basis": ("append", "석계역 — 1급지 5분 260원 (공단 표 기준; CSV 280원 미확인, "
+                            "1차 출처 확인 2026-11-23).")},
+    "nowon-009": {"fee": {"type": "유료", "base_min": 5, "base_fee": 150,
+                         "unit_min": 5, "unit_fee": 150, "monthly": 100000},
+        "hours": {"weekday": {"open": True, "start": 0, "end": 1440, "24h": True, "raw": ["00:00", "24:00"]},
+                  "sat": {"open": True, "start": 0, "end": 1440, "24h": True, "raw": ["00:00", "24:00"]},
+                  "sun": {"open": True, "start": 0, "end": 1440, "24h": True, "raw": ["00:00", "24:00"]}},
+        "basis": ("set", "한글비공영 — 일반 5분 150원·대형 300원·월 100,000원/대형 200,000원 "
+                        "(1차 출처 확인 2026-11-23). 표준데이터 운영시간 '24:00~24:00'은 "
+                        "24시간 운영으로 해석해 교정.")},
+    "nowon-s008": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                          "unit_fee": None, "steps": None, "bands": None,
+                          "monthly_only": True, "cap_na": True},
+        "hours": {"weekday": {"open": True, "start": 0, "end": 1440, "24h": True, "raw": ["00:00", "24:00"]},
+                  "sat": {"open": True, "start": 0, "end": 1440, "24h": True, "raw": ["00:00", "24:00"]},
+                  "sun": {"open": True, "start": 0, "end": 1440, "24h": True, "raw": ["00:00", "24:00"]}},
+        "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23). "
+                            "표준데이터 운영시간 '24:00~24:00'은 24시간 운영으로 해석해 교정.")},
+    # 강남구 일원터널 — 3급지 5분 130원·1일권 없음 (지시 6 P1-3)
+    "gangnam-035": {"fee": {"type": "유료", "base_min": 5, "base_fee": 130,
+                           "unit_min": 5, "unit_fee": 130},
+        "basis": ("set", "일원터널 — 3급지 5분 130원·1일권 없음 (1차 출처 확인 2026-11-23).")},
+    # 동대문구 청량리시장 노상 — 최초 10분 무료 (지시 6 공단 대조, 1급지 10분 1,000원)
+    "dongdaemun-s008": {"fee": {"free_min": 10},
+        "basis": ("append", "청량리시장제1공영 — 최초 10분 무료 (1급지 10분 1,000원, "
+                            "1차 출처 확인 2026-11-23).")},
+    "dongdaemun-s009": {"fee": {"free_min": 10},
+        "basis": ("append", "청량리시장제2공영 — 최초 10분 무료 (1급지 10분 1,000원, "
+                            "1차 출처 확인 2026-11-23).")},
+    "dongdaemun-s010": {"fee": {"free_min": 10},
+        "basis": ("append", "청량리시장제3공영 — 최초 10분 무료 (1급지 10분 1,000원, "
+                            "1차 출처 확인 2026-11-23).")},
+    # 부평구 — 직영 무인 무료 노외 (지시 6 P1-3). 028은 임시.
+    "bupyeong-027": {"fee": {"type": "무료", "monthly": None, "monthly_all": None},
+        "basis": ("set", "직영 무인 무료 노외 (1차 출처 확인 2026-11-23).")},
+    "bupyeong-028": {"fee": {"type": "무료", "monthly": None, "monthly_all": None},
+        "basis": ("set", "직영 무인 무료 노외 — 임시 무료 (1차 출처 확인 2026-11-23).")},
+    # 군포시 특수관리대상 월정기 전용 (지시 6 P1-3)
+    "gpo-042": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                       "unit_fee": None, "steps": None, "bands": None,
+                       "monthly_only": True, "cap_na": True},
+              "basis": ("append", "특수관리대상 월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 "
+                                  "(1차 출처 확인 2026-11-23).")},
+    # 계양구 2급지 월정기 전용 (지시 6 P1-3 — 시간제 없음)
+    "gyeyang-006": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "gyeyang-007": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "gyeyang-008": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "gyeyang-011": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "gyeyang-017": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "gyeyang-018": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "gyeyang-032": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+
+    # 계양구 3급지 월정기 전용 (지시 6 P1-3 — 시간제 없음)
+    "gyeyang-021": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "gyeyang-031": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "gyeyang-037": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "gyeyang-038": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "gyeyang-041": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "gyeyang-043": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+
+    # 부평구 3급지 월정기 전용 (지시 6 P1-3 — 시간제 없음)
+    "bupyeong-002": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "bupyeong-004": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "bupyeong-015": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "bupyeong-017": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "bupyeong-030": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "bupyeong-034": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "bupyeong-039": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "bupyeong-048": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "bupyeong-076": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+
+    # 부평구 4급지 월정기 전용 (지시 6 P1-3 — 시간제 없음)
+    "bupyeong-003": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "bupyeong-014": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "bupyeong-037": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+
+    # 군포시 2급지 월정기 전용 (지시 6 P1-3 — 시간제 없음)
+    "gpo-007": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None, "grade": 2,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "gpo-018": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None, "grade": 2,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "gpo-019": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None, "grade": 2,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "gpo-020": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None, "grade": 2,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "gpo-024": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None, "grade": 2,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "gpo-027": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None, "grade": 2,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "gpo-028": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None, "grade": 2,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "gpo-029": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None, "grade": 2,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    "gpo-030": {"fee": {"type": "유료", "base_min": None, "base_fee": None, "unit_min": None,
+                    "unit_fee": None, "steps": None, "bands": None, "grade": 2,
+                    "monthly_only": True, "cap_na": True},
+              "basis": ("append", "월정기 전용 확인됨 — 시간제 없음·캡 해당 없음 (1차 출처 확인 2026-11-23).")},
+    # 울릉 — 조례 현행판(2026.4.20 시행) 1급지 값 (지시 9). 표준데이터 값(30분 300/10분 100/
+    #   1일 5,000)은 개편 전 요금일 가능성이 커서 쓰지 않는다.
+    "gb-ulleung-001": {"fee": {"type": "유료", "base_min": 30, "base_fee": 500,
+                             "unit_min": 10, "unit_fee": 300, "cap_fee": 7000,
+                             "monthly": 60000, "monthly_day": 50000,
+                             "monthly_night": 40000, "monthly_all": 60000},
+        "basis": ("set", "도동공영주차장 — 조례 현행판(2026.4.20 시행) 1급지 — 최초 30분 500원·"
+                        "초과 10분마다 300원·1일 7,000원·월 주간 50,000·야간 40,000·주야간 60,000원 "
+                        "(1차 출처 확인 2026-11-23). 조례 기준 현행, 실제 징수 미확인.")},
+    "gb-ulleung-003": {"fee": {"type": "유료", "base_min": 30, "base_fee": 500,
+                             "unit_min": 10, "unit_fee": 300, "cap_fee": 7000,
+                             "monthly": 60000, "monthly_day": 50000,
+                             "monthly_night": 40000, "monthly_all": 60000},
+        "basis": ("set", "울릉군공영주차장 — 조례 현행판(2026.4.20 시행) 1급지 — 최초 30분 500원·"
+                        "초과 10분마다 300원·1일 7,000원·월 주간 50,000·야간 40,000·주야간 60,000원 "
+                        "(1차 출처 확인 2026-11-23). 조례 기준 현행, 실제 징수 미확인.")},
+    # 칠곡 — 왜관시장 후문 무료, 왜관 남부·북부 1시간 무료 (지시 9, 군청 공식 현황 페이지·주소 일치)
+    "gb-chilgok-050": {"fee": {"type": "무료"},
+        "basis": ("set", "왜관시장 후문 — 군청 공식 현황 페이지 기준 무료 (주소 일치, "
+                        "1차 출처 확인 2026-11-23).")},
+    "gb-chilgok-046": {"fee": {"deduct_min": 60},
+        "basis": ("append", "1시간 무료 확인됨 (군청 공식 현황 페이지, 주소 일치, "
+                            "1차 출처 확인 2026-11-23). 1시간 초과 요금·1일 상한은 미확인 유지.")},
+    "gb-chilgok-047": {"fee": {"deduct_min": 60},
+        "basis": ("append", "1시간 무료 확인됨 (군청 공식 현황 페이지, 주소 일치, "
+                            "1차 출처 확인 2026-11-23). 1시간 초과 요금·1일 상한은 미확인 유지.")},
+    # 양양 오색공영타워 — 1차 출처 확인 요금 (지시 9). 1일 최대 10,000원은 lot별 확인값으로
+    #   조례 별표1 일반 상한(6,000원)보다 우선한다.
+    "gw-yangyang-015": {"fee": {"type": "유료", "base_min": 10, "base_fee": 200,
+                               "unit_min": 10, "unit_fee": 200, "cap_fee": 10000,
+                               "monthly": 75000},
+        "basis": ("set", "오색공영타워주차장 — 최초 10분 200원·이후 10분마다 200원·1일 최대 10,000원·"
+                        "월정기 75,000원·연중무휴·무료시간 없음 (1차 출처 확인 2026-11-23).")},
+    # 울산 남구 신정3동(쌈지) — 남구청 현황표 연번 40, 무료 (지시 8)
+    "us-nam-gu-021": {"fee": {"type": "무료"},
+        "basis": ("set", "신정3동(쌈지) — 남구청 공영주차장 현황표 연번 40 — 유/무료 '무료', "
+                        "1시간·1일 요금 '-' (1차 출처 확인 2026-11-23). 운영시간 칸 '오전 무료, 개방' "
+                        "문구는 시간대별 무료 해석이 모호해 전일 무료로 단정하지 않음.")},
+    # ※ 대구 북구 노상 캡 6건(s008·064·092·141·171·163)은 2026-11-23 16:00 긴급 정정으로
     #   되돌림 — 인스팅트 8·9차 확인 결과 7차 매칭이 이름 유사성 기준이라 "잠정"이라,
-    #   캡 채움은 적용하지 않는다. 기본요금 교정도 계속 보류.
+    #   캡 채움은 적용하지 않는다. 기본요금 교정도 계속 보류. s136은 지시 7에서 값 확정돼 위에서 반영.
+    #   s025는 유료/무료 충돌이라 요금 미확인 유지하고 메모만 단다. dg-buk-gu-008·025(노외)도 보류.
 }
 
 # 상한이 '없다'고 확인된 곳 — '캡 미확인'과 구분한다. fee['cap_none']=True 로 기록한다.
@@ -8052,9 +8305,14 @@ CAP_NONE_20261123 = set([
     "jung-gu-s016",
     # 부산진구 노상 s005 (s003은 미확인이라 제외)
     "busanjin-gu-s005",
-    # 대구 북구 노상 2곳 — 번호·주소로 확인됨(확정). s149·s153·s155·s157·s025는
-    #   2026-11-23 16:00 긴급 정정으로 되돌림(이름 유사성 매칭이라 잠정).
-    "dg-buk-gu-s145", "dg-buk-gu-s147",
+    # 대구 북구 노상 2곳 — 번호·주소로 확인됨(확정). s149·s153·s155는 전통시장 50%·
+    #   500/250·일 한도 없음으로 2026-11-23 추가 지시 6에서 캡 없음 확인됨.
+    #   s157·s025는 계속 보류(이름 유사성 매칭이라 잠정; s025는 유료/무료 충돌 메모만 FEE_FIX에 기록).
+    "dg-buk-gu-s145", "dg-buk-gu-s147", "dg-buk-gu-s149", "dg-buk-gu-s153", "dg-buk-gu-s155",
+    # 노원구 7곳 — 공단 대조 확인분 (2026-11-23 추가 지시 6). 노원 1일권 후보는 미확인이라 미반영.
+    "nowon-005", "nowon-006", "nowon-008", "nowon-s010", "nowon-s005", "nowon-s003", "nowon-s012",
+    # 강남구 일원터널 — 3급지 5분 130원·1일권 없음 (2026-11-23 추가 지시 6 P1-3).
+    "gangnam-035",
     # 부산 동구 노상 25곳 (조례 기준, lot별 급지 미확인)
     "dong-gu-s001", "dong-gu-s002", "dong-gu-s003", "dong-gu-s004", "dong-gu-s005",
     "dong-gu-s007", "dong-gu-s008", "dong-gu-s009", "dong-gu-s010", "dong-gu-s011",
@@ -8071,12 +8329,32 @@ CAP_NONE_20261123 = set([
 SEOUL_CAP_NONE_DISTRICTS = ("영등포구", "강서구", "서초구", "마포구", "종로구", "금천구", "서대문구",
                             "관악구", "성동구", "송파구", "중랑구", "구로구", "용산구", "은평구",
                             "동작구", "동대문구", "광진구", "강동구")
+# 지시 6 공단 대조에서 미확인으로 지정돼 상한 없음 표기를 거두는 곳 — 지시 5 규칙이
+# 이미 붙였을 수 있어 명시적으로 끈다. (광진 s005는 데이터에 없음 — 보고에 적는다.)
+SEOUL_CAP_NONE_EXCLUDE_20261123 = {
+    "seongdong-027", "seongdong-s001", "gwangjin-002", "gwangjin-012",
+    "jungnang-020", "jungnang-005", "dongjak-005", "dongjak-008", "dongjak-014",
+}
 CAP_NONE_SRC_20261123 = {f"gn-jinju-s{i:03d}": "공단 표 기준" for i in range(1, 53)}
 # 부산 동구 노상 25곳 — 조례 기준, lot별 급지 미확인 (2026-11-23 16:00 추가 지시 3 확정분)
 CAP_NONE_SRC_20261123.update({
     f"dong-gu-s{n:03d}": "조례 기준 (lot별 급지 미확인)"
     for n in (1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33)
 })
+# 대구 북구 전통시장 3곳 — 북구 조례 별표1 기준 (전통시장 50%·500/250·일 한도 없음, 지시 6)
+CAP_NONE_SRC_20261123.update({
+    "dg-buk-gu-s149": "북구 조례 별표1 기준",
+    "dg-buk-gu-s153": "북구 조례 별표1 기준",
+    "dg-buk-gu-s155": "북구 조례 별표1 기준",
+})
+# 노원구 7곳 — 공단 대조 확인분 (지시 6)
+CAP_NONE_SRC_20261123.update({
+    "nowon-005": "공단 대조", "nowon-006": "공단 대조", "nowon-008": "공단 대조",
+    "nowon-s010": "공단 대조", "nowon-s005": "공단 대조", "nowon-s003": "공단 대조",
+    "nowon-s012": "공단 대조",
+})
+# 강남구 일원터널 — 서울 조례 원문 (지시 6 P1-3)
+CAP_NONE_SRC_20261123["gangnam-035"] = "조례 원문"
 
 
 def apply_fee_fix_20261123(lots):
@@ -8141,6 +8419,12 @@ def apply_fee_fix_20261123(lots):
     #   노원 노외(1일 주차권 있음 — 이 구는 대상 목록에 없음). 양천 16건은 lot 특정이 안 돼 보류.
     #   규칙 기반이라 도시 빌더·build_site_payload 양쪽에서 같은 결과가 나온다(멱등).
     for lot in lots:
+        if lot["id"] in SEOUL_CAP_NONE_EXCLUDE_20261123:
+            # 지시 6 미확인분 — 상한 없음 표기를 거둔다(지시 5 규칙이 붙였을 수 있어 명시적으로 끈다).
+            if lot["fee"].get("cap_none"):
+                lot["fee"]["cap_none"] = False
+                lot["fee"]["cap_none_src"] = None
+            continue
         if lot["city"] not in SEOUL_CAP_NONE_DISTRICTS:
             continue
         f = lot["fee"]
@@ -24184,7 +24468,7 @@ DAEGU_CONF = {
         "manager_inquiry": "대구광역시 북구청 교통행정과(053-665-3391) · 시영은 대구공공시설관리공단(1577-6446)",
         "ordinance": ("「대구광역시 북구 주차장 설치 및 관리 조례」 제2조 주차요금·감면(별표1)",
                       "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1920431",
-                      "시행 2024-04-11 · 대구광역시북구조례 제1706호(일부개정)"),
+                      "시행 2025-12-31 · 대구광역시북구조례 제1860호(일부개정)"),
         "notes": ("북구 조례 별표1은 1~3급지 30분 기본요금 체계(1급지 1,000원·2급지 600원·3급지 "
                   "400원, 30분 초과 10분마다 500·300·200원, 1일 10,000·6,000·4,000원, 월 주간 "
                   "100,000·80,000·40,000원·야간 75,000·60,000·30,000원)이고, 제2조④가 2시간 면제·"

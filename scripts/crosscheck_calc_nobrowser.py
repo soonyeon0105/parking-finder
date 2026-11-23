@@ -154,8 +154,11 @@ street_paid = [l for l in street if l["fee"]["type"] == "유료"]
 #   평일 계산이 ‘휴무’로 나오는 것이 맞으므로 대조에서 뺀다.
 # 최초 무료시간이 대조 시간(120분) 이상인 구간(가평군 가평읍 10구간 — 최초 2시간 무료)은
 #   120분 계산이 ‘무료’로 나오는 것이 맞으므로 뺀다(데이터 오류 아님 — 검사 전제).
+# 월정기 전용 노상(노원 은빛1-2단지 — 거주민 월 정기권 전용)은 시간제 요금이 없어
+#   120분 계산이 ‘요금 정보 미상’으로 나오는 것이 맞으므로 뺀다(2026-11-23, 1차 출처 확인).
 street_paid_wk = [l for l in street_paid if l["oper"].get("weekday")
-                  and (l["fee"].get("free_min") or 0) < 120]
+                  and (l["fee"].get("free_min") or 0) < 120
+                  and not l["fee"].get("monthly_only")]
 street_bad = [l["name"] for l in street_paid_wk
               if price_for(l, 120, "weekday", 0.5)["state"] != "paid"]
 street_free_bad = [l["name"] for l in street_free

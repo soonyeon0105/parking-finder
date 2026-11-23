@@ -1,8 +1,8 @@
 {
  "meta": {
-  "generated_at": "2026-11-23 16:25",
-  "generated_at_iso": "2026-11-23T16:25:51+09:00",
-  "snapshot_at": "2026-11-23 16:25",
+  "generated_at": "2026-11-23 17:43",
+  "generated_at_iso": "2026-11-23T17:43:00+09:00",
+  "snapshot_at": "2026-11-23 17:43",
   "region": {
    "province": "서울특별시",
    "city": "강남구"
@@ -4168,10 +4168,10 @@
     "grade": 3,
     "grade_label": "3급지",
     "std_grade": 3,
-    "base_min": null,
-    "base_fee": null,
-    "unit_min": null,
-    "unit_fee": null,
+    "base_min": 5,
+    "base_fee": 130,
+    "unit_min": 5,
+    "unit_fee": 130,
     "steps": null,
     "steps_label": null,
     "free_min": null,
@@ -4189,14 +4189,16 @@
     "monthly_label": null,
     "category": null,
     "std": null,
-    "type": "미상",
+    "type": "유료",
     "raw_type": "유료",
     "mixed": false,
     "pay": "카드",
     "portal_free_now": false,
     "flat_day": false,
     "ticket_only": false,
-    "basis": "요금 칸이 비어 있음"
+    "basis": "일원터널 — 3급지 5분 130원·1일권 없음 (1차 출처 확인 2026-11-23).",
+    "cap_none": true,
+    "cap_none_src": "조례 원문"
    },
    "oper": {
     "weekday": true,
@@ -8186,7 +8188,7 @@
   }
  ],
  "quality": {
-  "generated_at": "2026-11-23 16:25",
+  "generated_at": "2026-11-23 17:43",
   "원자료_전국행수": 18994,
   "원자료_행수": 68,
   "원자료_강남구행수": 68,
@@ -8298,14 +8300,11 @@
    "보정(공단 지번(포이동 273))": 1
   },
   "요금구분": {
-   "유료": 67,
-   "미상": 1
+   "유료": 68
   },
-  "요금_미상": [
-   "일원터널"
-  ],
+  "요금_미상": [],
   "유료_노상": 28,
-  "유료_노외": 34,
+  "유료_노외": 35,
   "유료_부설": 5,
   "운영시간_보정": [
    "선릉로146길: 운영요일 ‘평일’ → 토요일은 요금 미징수(무료 개방)로 두고 요금을 받지 않음",
@@ -8444,7 +8443,7 @@
   ],
   "무료_요금구분": 0,
   "무료_구획수": 0,
-  "평균_기본요금": 316,
+  "평균_기본요금": 313,
   "토요일_미운영": 0,
   "일공휴일_미운영": 0,
   "주소_없음": [],
@@ -8503,10 +8502,10 @@
    },
    {
     "grade": 3,
-    "lots": 11,
-    "fee_min": 200,
+    "lots": 12,
+    "fee_min": 130,
     "fee_max": 300,
-    "unit_label": "200~300원",
+    "unit_label": "130~300원",
     "hour": 2400,
     "two_hour": 4800,
     "month_min": 60000,
@@ -8533,7 +8532,7 @@
   "windows": [
    {
     "group": "24시간",
-    "count": 31
+    "count": 32
    },
    {
     "group": "09:00~19:00",
@@ -8578,9 +8577,9 @@
    "세곡체육공원(세곡동 산1-7, 58면, 3급지 5분당 200원, 24시간 연중무휴)"
   ],
   "corp": {
-   "paid": 67,
+   "paid": 68,
    "free": 0,
-   "unknown": 1,
+   "unknown": 0,
    "street_paid": 28
   },
   "city_fees": {
