@@ -55,7 +55,7 @@ gtag('config', 'G-X99KL3RGWD');
 <div class="hero-search">
   <label for="region-q">지역명으로 찾기</label>
   <div class="hs-row">
-    <input type="search" id="region-q" placeholder="시·군·구 이름을 입력하세요" autocomplete="off">
+    <input type="search" id="region-q" placeholder="시·군·구 이름 (경북 같은 약칭도 됩니다)" autocomplete="off">
   </div>
   <p class="ff-status" id="region-q-status" aria-live="polite"></p>
 </div>
@@ -67,11 +67,15 @@ document.addEventListener('DOMContentLoaded', function () {
   var groups = Array.prototype.slice.call(document.querySelectorAll('[data-group]'));
   var status = document.getElementById('region-q-status');
   function norm(s) { return (s || '').replace(/\s+/g, ''); }
+  var ALIAS = { '경북': '경상북도', '경남': '경상남도', '전북': '전라북도',
+                '전남': '전라남도', '충북': '충청북도', '충남': '충청남도' };
   function apply() {
     var q = norm(input.value);
     var shown = 0;
     items.forEach(function (el) {
-      var hit = !q || norm(el.getAttribute('data-name')).indexOf(q) !== -1;
+      var name = norm(el.getAttribute('data-name'));
+      var hit = !q || name.indexOf(q) !== -1
+        || (ALIAS[q] && name.indexOf(ALIAS[q]) !== -1);
       el.style.display = hit ? '' : 'none';
       if (hit) shown += 1;
     });
@@ -164,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <p class="lede">요금이 무료인 주차장 가운데 구획이 많은 순입니다. 위치와 운영시간은 지역 페이지에서 확인하세요.</p>
 <div class="table-scroll"><table class="data">
   <thead><tr><th>주차장</th><th>지역</th><th>동·읍·면</th><th class="num">구획</th></tr></thead>
-  <tbody><tr><td>박정희체육관</td><td>구미시</td><td>광평동</td><td class="num">1,202</td></tr><tr><td>낙동강둔치주차장-수상동</td><td>안동시</td><td>수상동</td><td class="num">1,000</td></tr><tr><td>제4주차장</td><td>문경시</td><td>문경읍</td><td class="num">915</td></tr><tr><td>황리단길 공영주차장</td><td>경주시</td><td>사정동</td><td class="num">894</td></tr><tr><td>직지</td><td>김천시</td><td>대항면</td><td class="num">789</td></tr><tr><td>한천주차장</td><td>예천군</td><td>예천읍</td><td class="num">720</td></tr><tr><td>주왕산공영주차장</td><td>청송군</td><td>주왕산면</td><td class="num">700</td></tr><tr><td>신경주역 공영주차장</td><td>경주시</td><td>건천읍</td><td class="num">670</td></tr><tr><td>문화관광단지 주차장</td><td>안동시</td><td>성곡동</td><td class="num">639</td></tr><tr><td>캠프리피 공영주차장</td><td>포항시</td><td>장성동</td><td class="num">638</td></tr><tr><td>동락공원</td><td>구미시</td><td>진평동</td><td class="num">573</td></tr><tr><td>칠포해수욕장 공영주차장</td><td>포항시</td><td>흥해읍</td><td class="num">570</td></tr><tr><td>성류굴종합운동장 공영주차장</td><td>울진군</td><td>근남면</td><td class="num">563</td></tr><tr><td>갓바위 주차장(하단)</td><td>경산시</td><td>와촌면</td><td class="num">547</td></tr><tr><td>서천둔치 주차장</td><td>경주시</td><td>서악동</td><td class="num">500</td></tr><tr><td>단계천주차장(무료)</td><td>구미시</td><td>선산읍</td><td class="num">459</td></tr><tr><td>남대천변 공영주차장</td><td>울진군</td><td>울진읍</td><td class="num">454</td></tr><tr><td>낙동강둔치주차장-옥야동</td><td>안동시</td><td>옥야동</td><td class="num">446</td></tr><tr><td>보조경기장 지하주차장</td><td>구미시</td><td>광평동</td><td class="num">440</td></tr><tr><td>제3주차장</td><td>문경시</td><td>문경읍</td><td class="num">438</td></tr></tbody>
+  <tbody><tr><td><a href="../../../parking/gyeongbuk/gumi/free/">박정희체육관</a></td><td>구미시</td><td>광평동</td><td class="num">1,202</td></tr><tr><td><a href="../../../parking/gyeongbuk/andong/free/">낙동강둔치주차장-수상동</a></td><td>안동시</td><td>수상동</td><td class="num">1,000</td></tr><tr><td><a href="../../../parking/gyeongbuk/mungyeong/free/">제4주차장</a></td><td>문경시</td><td>문경읍</td><td class="num">915</td></tr><tr><td><a href="../../../parking/gyeongbuk/gyeongju/free/">황리단길 공영주차장</a></td><td>경주시</td><td>사정동</td><td class="num">894</td></tr><tr><td><a href="../../../parking/gyeongbuk/gimcheon/free/">직지</a></td><td>김천시</td><td>대항면</td><td class="num">789</td></tr><tr><td><a href="../../../parking/gyeongbuk/yecheon/free/">한천주차장</a></td><td>예천군</td><td>예천읍</td><td class="num">720</td></tr><tr><td><a href="../../../parking/gyeongbuk/cheongsong/free/">주왕산공영주차장</a></td><td>청송군</td><td>주왕산면</td><td class="num">700</td></tr><tr><td><a href="../../../parking/gyeongbuk/gyeongju/free/">신경주역 공영주차장</a></td><td>경주시</td><td>건천읍</td><td class="num">670</td></tr><tr><td><a href="../../../parking/gyeongbuk/andong/free/">문화관광단지 주차장</a></td><td>안동시</td><td>성곡동</td><td class="num">639</td></tr><tr><td><a href="../../../parking/gyeongbuk/pohang/free/">캠프리피 공영주차장</a></td><td>포항시</td><td>장성동</td><td class="num">638</td></tr><tr><td><a href="../../../parking/gyeongbuk/gumi/free/">동락공원</a></td><td>구미시</td><td>진평동</td><td class="num">573</td></tr><tr><td><a href="../../../parking/gyeongbuk/pohang/free/">칠포해수욕장 공영주차장</a></td><td>포항시</td><td>흥해읍</td><td class="num">570</td></tr><tr><td><a href="../../../parking/gyeongbuk/uljin/free/">성류굴종합운동장 공영주차장</a></td><td>울진군</td><td>근남면</td><td class="num">563</td></tr><tr><td><a href="../../../parking/gyeongbuk/gyeongsan/free/">갓바위 주차장(하단)</a></td><td>경산시</td><td>와촌면</td><td class="num">547</td></tr><tr><td><a href="../../../parking/gyeongbuk/gyeongju/free/">서천둔치 주차장</a></td><td>경주시</td><td>서악동</td><td class="num">500</td></tr><tr><td><a href="../../../parking/gyeongbuk/gumi/free/">단계천주차장(무료)</a></td><td>구미시</td><td>선산읍</td><td class="num">459</td></tr><tr><td><a href="../../../parking/gyeongbuk/uljin/free/">남대천변 공영주차장</a></td><td>울진군</td><td>울진읍</td><td class="num">454</td></tr><tr><td><a href="../../../parking/gyeongbuk/andong/free/">낙동강둔치주차장-옥야동</a></td><td>안동시</td><td>옥야동</td><td class="num">446</td></tr><tr><td><a href="../../../parking/gyeongbuk/gumi/free/">보조경기장 지하주차장</a></td><td>구미시</td><td>광평동</td><td class="num">440</td></tr><tr><td><a href="../../../parking/gyeongbuk/mungyeong/free/">제3주차장</a></td><td>문경시</td><td>문경읍</td><td class="num">438</td></tr></tbody>
 </table></div>
 <h2>자주 묻는 질문</h2><details class="faq" open><summary>경상북도에서 요금이 무료인 공영주차장은 몇 곳인가요?</summary><p>1,083곳(총 65,869면)입니다. 지역별로는 구미시 177곳 · 경주시 99곳 · 영천시 98곳 순으로 많습니다. 요금이 무료인 노상(거리) 구간 470곳은 이 집계에 넣지 않고 각 지역의 노상주차장 페이지에 적었습니다.</p></details><details class="faq"><summary>주말·공휴일이나 야간에 무료로 쓸 수 있는 곳도 있나요?</summary><p>있습니다. 요금은 유료여도 주말·공휴일·야간에 무료로 개방하는 곳은 각 지역의 무료 개방 페이지와 전국 무료 개방 허브에서 볼 수 있습니다. 이 페이지는 요금 구분이 ‘무료’인 곳만 모았습니다.</p></details><details class="faq"><summary>무료 주차장도 운영시간이 정해져 있나요?</summary><p>네. 요금이 무료여도 운영시간이 정해진 곳이 많습니다. 각 주차장 카드에 평일·토요일·일요일(공휴일) 운영시간이 적혀 있으니 방문 전에 확인하세요.</p></details>
 <section class="note-box" style="margin-top:18px">

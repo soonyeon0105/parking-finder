@@ -61,7 +61,7 @@ gtag('config', 'G-X99KL3RGWD');
 <div class="hero-search">
   <label for="region-q">지역명으로 찾기</label>
   <div class="hs-row">
-    <input type="search" id="region-q" placeholder="시·군·구 이름을 입력하세요" autocomplete="off">
+    <input type="search" id="region-q" placeholder="시·군·구 이름 (경북 같은 약칭도 됩니다)" autocomplete="off">
   </div>
   <p class="ff-status" id="region-q-status" aria-live="polite"></p>
 </div>
@@ -73,11 +73,15 @@ document.addEventListener('DOMContentLoaded', function () {
   var groups = Array.prototype.slice.call(document.querySelectorAll('[data-group]'));
   var status = document.getElementById('region-q-status');
   function norm(s) { return (s || '').replace(/\s+/g, ''); }
+  var ALIAS = { '경북': '경상북도', '경남': '경상남도', '전북': '전라북도',
+                '전남': '전라남도', '충북': '충청북도', '충남': '충청남도' };
   function apply() {
     var q = norm(input.value);
     var shown = 0;
     items.forEach(function (el) {
-      var hit = !q || norm(el.getAttribute('data-name')).indexOf(q) !== -1;
+      var name = norm(el.getAttribute('data-name'));
+      var hit = !q || name.indexOf(q) !== -1
+        || (ALIAS[q] && name.indexOf(ALIAS[q]) !== -1);
       el.style.display = hit ? '' : 'none';
       if (hit) shown += 1;
     });

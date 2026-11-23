@@ -55,7 +55,7 @@ gtag('config', 'G-X99KL3RGWD');
 <div class="hero-search">
   <label for="region-q">지역명으로 찾기</label>
   <div class="hs-row">
-    <input type="search" id="region-q" placeholder="시·군·구 이름을 입력하세요" autocomplete="off">
+    <input type="search" id="region-q" placeholder="시·군·구 이름 (경북 같은 약칭도 됩니다)" autocomplete="off">
   </div>
   <p class="ff-status" id="region-q-status" aria-live="polite"></p>
 </div>
@@ -67,11 +67,15 @@ document.addEventListener('DOMContentLoaded', function () {
   var groups = Array.prototype.slice.call(document.querySelectorAll('[data-group]'));
   var status = document.getElementById('region-q-status');
   function norm(s) { return (s || '').replace(/\s+/g, ''); }
+  var ALIAS = { '경북': '경상북도', '경남': '경상남도', '전북': '전라북도',
+                '전남': '전라남도', '충북': '충청북도', '충남': '충청남도' };
   function apply() {
     var q = norm(input.value);
     var shown = 0;
     items.forEach(function (el) {
-      var hit = !q || norm(el.getAttribute('data-name')).indexOf(q) !== -1;
+      var name = norm(el.getAttribute('data-name'));
+      var hit = !q || name.indexOf(q) !== -1
+        || (ALIAS[q] && name.indexOf(ALIAS[q]) !== -1);
       el.style.display = hit ? '' : 'none';
       if (hit) shown += 1;
     });
@@ -140,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <p class="lede">요금이 무료인 주차장 가운데 구획이 많은 순입니다. 위치와 운영시간은 지역 페이지에서 확인하세요.</p>
 <div class="table-scroll"><table class="data">
   <thead><tr><th>주차장</th><th>지역</th><th>동·읍·면</th><th class="num">구획</th></tr></thead>
-  <tbody><tr><td>선운산도립공원주차장</td><td>고창군</td><td>아산면</td><td class="num">1,156</td></tr><tr><td>부안스포츠파트주차장</td><td>부안군</td><td>행안면</td><td class="num">1,092</td></tr><tr><td>변산해수욕장주차장</td><td>부안군</td><td>변산면</td><td class="num">875</td></tr><tr><td>한옥마을4 공영주차장(대성동)</td><td>전주시</td><td>대성동</td><td class="num">636</td></tr><tr><td>모악산주차장</td><td>완주군</td><td>구이면</td><td class="num">500</td></tr><tr><td>성산면1</td><td>군산시</td><td>성산면</td><td class="num">480</td></tr><tr><td>곰소다용도부지공영주차장 (진서면 곰소리 911)</td><td>부안군</td><td>진서면</td><td class="num">400</td></tr><tr><td>임실군청사 주차장</td><td>임실군</td><td>임실읍</td><td class="num">392</td></tr><tr><td>임실종합경기장</td><td>임실군</td><td>임실읍</td><td class="num">362</td></tr><tr><td>임실치즈테마파크 주차장</td><td>임실군</td><td>성수면</td><td class="num">350</td></tr><tr><td>수생정원 주차장</td><td>부안군</td><td>부안읍</td><td class="num">345</td></tr><tr><td>월명동 12</td><td>군산시</td><td>장미동</td><td class="num">337</td></tr><tr><td>격포 공영주차장</td><td>부안군</td><td>변산면</td><td class="num">270</td></tr><tr><td>모항해수욕장주차장</td><td>부안군</td><td>변산면</td><td class="num">266</td></tr><tr><td>삼례공영주차장1</td><td>완주군</td><td>삼례읍</td><td class="num">260</td></tr><tr><td>화물전용 군산시 임시주차장</td><td>군산시</td><td>경암동</td><td class="num">255</td></tr><tr><td>부안군청 주차장</td><td>부안군</td><td>부안읍</td><td class="num">250</td></tr><tr><td>나운8</td><td>군산시</td><td>나운동</td><td class="num">240</td></tr><tr><td>줄포시내 공영주차장</td><td>부안군</td><td>줄포면</td><td class="num">236</td></tr><tr><td>익산시청 제2주차장</td><td>익산시</td><td>남중동</td><td class="num">233</td></tr></tbody>
+  <tbody><tr><td><a href="../../../parking/jeonbuk/gochang/free/">선운산도립공원주차장</a></td><td>고창군</td><td>아산면</td><td class="num">1,156</td></tr><tr><td><a href="../../../parking/jeonbuk/buan/free/">부안스포츠파트주차장</a></td><td>부안군</td><td>행안면</td><td class="num">1,092</td></tr><tr><td><a href="../../../parking/jeonbuk/buan/free/">변산해수욕장주차장</a></td><td>부안군</td><td>변산면</td><td class="num">875</td></tr><tr><td><a href="../../../parking/jeonbuk/jeonju/free/">한옥마을4 공영주차장(대성동)</a></td><td>전주시</td><td>대성동</td><td class="num">636</td></tr><tr><td><a href="../../../parking/jeonbuk/wanju/free/">모악산주차장</a></td><td>완주군</td><td>구이면</td><td class="num">500</td></tr><tr><td><a href="../../../parking/jeonbuk/gunsan/free/">성산면1</a></td><td>군산시</td><td>성산면</td><td class="num">480</td></tr><tr><td><a href="../../../parking/jeonbuk/buan/free/">곰소다용도부지공영주차장 (진서면 곰소리 911)</a></td><td>부안군</td><td>진서면</td><td class="num">400</td></tr><tr><td><a href="../../../parking/jeonbuk/imsil/free/">임실군청사 주차장</a></td><td>임실군</td><td>임실읍</td><td class="num">392</td></tr><tr><td><a href="../../../parking/jeonbuk/imsil/free/">임실종합경기장</a></td><td>임실군</td><td>임실읍</td><td class="num">362</td></tr><tr><td><a href="../../../parking/jeonbuk/imsil/free/">임실치즈테마파크 주차장</a></td><td>임실군</td><td>성수면</td><td class="num">350</td></tr><tr><td><a href="../../../parking/jeonbuk/buan/free/">수생정원 주차장</a></td><td>부안군</td><td>부안읍</td><td class="num">345</td></tr><tr><td><a href="../../../parking/jeonbuk/gunsan/free/">월명동 12</a></td><td>군산시</td><td>장미동</td><td class="num">337</td></tr><tr><td><a href="../../../parking/jeonbuk/buan/free/">격포 공영주차장</a></td><td>부안군</td><td>변산면</td><td class="num">270</td></tr><tr><td><a href="../../../parking/jeonbuk/buan/free/">모항해수욕장주차장</a></td><td>부안군</td><td>변산면</td><td class="num">266</td></tr><tr><td><a href="../../../parking/jeonbuk/wanju/free/">삼례공영주차장1</a></td><td>완주군</td><td>삼례읍</td><td class="num">260</td></tr><tr><td><a href="../../../parking/jeonbuk/gunsan/free/">화물전용 군산시 임시주차장</a></td><td>군산시</td><td>경암동</td><td class="num">255</td></tr><tr><td><a href="../../../parking/jeonbuk/buan/free/">부안군청 주차장</a></td><td>부안군</td><td>부안읍</td><td class="num">250</td></tr><tr><td><a href="../../../parking/jeonbuk/gunsan/free/">나운8</a></td><td>군산시</td><td>나운동</td><td class="num">240</td></tr><tr><td><a href="../../../parking/jeonbuk/buan/free/">줄포시내 공영주차장</a></td><td>부안군</td><td>줄포면</td><td class="num">236</td></tr><tr><td><a href="../../../parking/jeonbuk/iksan/free/">익산시청 제2주차장</a></td><td>익산시</td><td>남중동</td><td class="num">233</td></tr></tbody>
 </table></div>
 <h2>자주 묻는 질문</h2><details class="faq" open><summary>전북특별자치도에서 요금이 무료인 공영주차장은 몇 곳인가요?</summary><p>579곳(총 33,903면)입니다. 지역별로는 군산시 134곳 · 전주시 71곳 · 임실군 46곳 순으로 많습니다. 요금이 무료인 노상(거리) 구간 137곳은 이 집계에 넣지 않고 각 지역의 노상주차장 페이지에 적었습니다.</p></details><details class="faq"><summary>주말·공휴일이나 야간에 무료로 쓸 수 있는 곳도 있나요?</summary><p>있습니다. 요금은 유료여도 주말·공휴일·야간에 무료로 개방하는 곳은 각 지역의 무료 개방 페이지와 전국 무료 개방 허브에서 볼 수 있습니다. 이 페이지는 요금 구분이 ‘무료’인 곳만 모았습니다.</p></details><details class="faq"><summary>무료 주차장도 운영시간이 정해져 있나요?</summary><p>네. 요금이 무료여도 운영시간이 정해진 곳이 많습니다. 각 주차장 카드에 평일·토요일·일요일(공휴일) 운영시간이 적혀 있으니 방문 전에 확인하세요.</p></details>
 <section class="note-box" style="margin-top:18px">

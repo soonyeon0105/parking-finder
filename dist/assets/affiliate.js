@@ -1,10 +1,28 @@
 /* 제휴 안내 블록 — 링크·문구는 data/affiliate.json(배포본 /affiliate.json)에만 있다.
    이 파일을 고치지 않고 JSON만 교체하면 링크 교체·OFF(enabled=false)가 재빌드 없이 된다.
-   고지 문구는 접지 않고 항상 표시한다(공정위 추천·보증 심사지침). */
+   고지 문구는 접지 않고 항상 표시한다(공정위 추천·보증 심사지침).
+   클릭 측정: 링크 클릭 시 GA4 이벤트 affiliate_click 를 보낸다(app.js 통계 훅과
+   같은 방식 — gtag 가 함수일 때만 보내고, 측정 ID 자체는 페이지 head 의
+   gtag('config', 'G-X99KL3RGWD') 가 담당한다). */
 (function () {
   var slots = document.querySelectorAll('[data-affiliate-slot]');
   if (!slots.length) return;
   var url = slots[0].getAttribute('data-affiliate-url') || '/affiliate.json';
+
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[data-affiliate-item]') : null;
+    if (!a) return;
+    if (typeof window.gtag !== 'function') return;
+    try {
+      window.gtag('event', 'affiliate_click', {
+        affiliate_partner: a.getAttribute('data-affiliate-partner') || '',
+        affiliate_item: a.getAttribute('data-affiliate-item') || '',
+        affiliate_placement: a.getAttribute('data-affiliate-placement') || ''
+      });
+    } catch (err) {
+      /* 통계 전송 실패가 링크 이동을 막지 않도록 무시한다. */
+    }
+  });
 
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
@@ -12,19 +30,22 @@
     });
   }
 
-  function card(item) {
+  function card(item, placement) {
+    var track = ' data-affiliate-item="' + esc(item.id || '') + '"'
+      + ' data-affiliate-partner="' + esc(item.network || '') + '"'
+      + ' data-affiliate-placement="' + esc(placement || '') + '"';
     var html = '<article class="affiliate-card">';
     if (item.label) {
       html += '<span class="affiliate-label">' + esc(item.label) + '</span>';
     }
     html += '<a class="affiliate-name" href="' + esc(item.url) + '" target="_blank"'
-      + ' rel="sponsored nofollow">' + esc(item.title) + '</a>';
+      + ' rel="sponsored nofollow"' + track + '>' + esc(item.title) + '</a>';
     if (item.desc) {
       html += '<p class="affiliate-desc">' + esc(item.desc) + '</p>';
     }
     if (item.cta) {
       html += '<a class="affiliate-cta" href="' + esc(item.url) + '" target="_blank"'
-        + ' rel="sponsored nofollow">' + esc(item.cta) + ' →</a>';
+        + ' rel="sponsored nofollow"' + track + '>' + esc(item.cta) + ' →</a>';
     }
     if (item.notice) {
       html += '<p class="affiliate-card-notice">' + esc(item.notice) + '</p>';
@@ -51,7 +72,7 @@
       }
       html += '<div class="affiliate-cards">';
       for (var k = 0; k < mine.length; k++) {
-        html += card(mine[k]);
+        html += card(mine[k], placement);
       }
       html += '</div></section>';
       slots[i].innerHTML = html;

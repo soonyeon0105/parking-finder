@@ -55,7 +55,7 @@ gtag('config', 'G-X99KL3RGWD');
 <div class="hero-search">
   <label for="region-q">지역명으로 찾기</label>
   <div class="hs-row">
-    <input type="search" id="region-q" placeholder="시·군·구 이름을 입력하세요" autocomplete="off">
+    <input type="search" id="region-q" placeholder="시·군·구 이름 (경북 같은 약칭도 됩니다)" autocomplete="off">
   </div>
   <p class="ff-status" id="region-q-status" aria-live="polite"></p>
 </div>
@@ -67,11 +67,15 @@ document.addEventListener('DOMContentLoaded', function () {
   var groups = Array.prototype.slice.call(document.querySelectorAll('[data-group]'));
   var status = document.getElementById('region-q-status');
   function norm(s) { return (s || '').replace(/\s+/g, ''); }
+  var ALIAS = { '경북': '경상북도', '경남': '경상남도', '전북': '전라북도',
+                '전남': '전라남도', '충북': '충청북도', '충남': '충청남도' };
   function apply() {
     var q = norm(input.value);
     var shown = 0;
     items.forEach(function (el) {
-      var hit = !q || norm(el.getAttribute('data-name')).indexOf(q) !== -1;
+      var name = norm(el.getAttribute('data-name'));
+      var hit = !q || name.indexOf(q) !== -1
+        || (ALIAS[q] && name.indexOf(ALIAS[q]) !== -1);
       el.style.display = hit ? '' : 'none';
       if (hit) shown += 1;
     });
@@ -113,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <p class="lede">요금이 무료인 주차장 가운데 구획이 많은 순입니다. 위치와 운영시간은 지역 페이지에서 확인하세요.</p>
 <div class="table-scroll"><table class="data">
   <thead><tr><th>주차장</th><th>지역</th><th>동·읍·면</th><th class="num">구획</th></tr></thead>
-  <tbody><tr><td>상무시민공원 공영주차장</td><td>광주 서구</td><td>치평동</td><td class="num">219</td></tr><tr><td>서구청주차장(지하)</td><td>광주 서구</td><td>농성동</td><td class="num">197</td></tr><tr><td>풍암호수공원</td><td>광주 서구</td><td>풍암동</td><td class="num">182</td></tr><tr><td>농성동 공영주차장</td><td>광주 서구</td><td>농성동</td><td class="num">171</td></tr><tr><td>서구청주차장(타워)</td><td>광주 서구</td><td>농성동</td><td class="num">143</td></tr><tr><td>서구청주차장(지상)</td><td>광주 서구</td><td>농성동</td><td class="num">118</td></tr><tr><td>(구)보훈병원 주차장</td><td>광주 남구</td><td>주월동</td><td class="num">113</td></tr><tr><td>유안근린공원 공영주차장</td><td>광주 남구</td><td>봉선동</td><td class="num">101</td></tr><tr><td>중흥3구역 주차장</td><td>광주 북구</td><td>중흥동</td><td class="num">79</td></tr><tr><td>북구문화센터 공영주차장</td><td>광주 북구</td><td>양산동</td><td class="num">72</td></tr><tr><td>증심사상가지구 주차장</td><td>광주 동구</td><td>운림동</td><td class="num">66</td></tr><tr><td>풍암생활체육공원 공영주차장</td><td>광주 서구</td><td>풍암동</td><td class="num">65</td></tr><tr><td>진곡일반산업단지 주차장12</td><td>광주 광산구</td><td>오선동</td><td class="num">65</td></tr><tr><td>어린이생태학습도서관 옥외주차장</td><td>광주 서구</td><td>풍암동</td><td class="num">62</td></tr><tr><td>수자타 앞 공영주차장</td><td>광주 동구</td><td>운림동</td><td class="num">59</td></tr><tr><td>주월동 공영주차장</td><td>광주 남구</td><td>주월동</td><td class="num">59</td></tr><tr><td>하남산단근로자주차장</td><td>광주 광산구</td><td>장덕동</td><td class="num">56</td></tr><tr><td>쌍촌 공영주차장</td><td>광주 서구</td><td>쌍촌동</td><td class="num">48</td></tr><tr><td>광주공원 앞 공영주차장</td><td>광주 남구</td><td>구동</td><td class="num">48</td></tr><tr><td>삼각동 일곡엘리체 공영주차장</td><td>광주 북구</td><td>삼각동</td><td class="num">44</td></tr></tbody>
+  <tbody><tr><td><a href="../../../parking/gwangju/seo-gu/free/">상무시민공원 공영주차장</a></td><td>광주 서구</td><td>치평동</td><td class="num">219</td></tr><tr><td><a href="../../../parking/gwangju/seo-gu/free/">서구청주차장(지하)</a></td><td>광주 서구</td><td>농성동</td><td class="num">197</td></tr><tr><td><a href="../../../parking/gwangju/seo-gu/free/">풍암호수공원</a></td><td>광주 서구</td><td>풍암동</td><td class="num">182</td></tr><tr><td><a href="../../../parking/gwangju/seo-gu/free/">농성동 공영주차장</a></td><td>광주 서구</td><td>농성동</td><td class="num">171</td></tr><tr><td><a href="../../../parking/gwangju/seo-gu/free/">서구청주차장(타워)</a></td><td>광주 서구</td><td>농성동</td><td class="num">143</td></tr><tr><td><a href="../../../parking/gwangju/seo-gu/free/">서구청주차장(지상)</a></td><td>광주 서구</td><td>농성동</td><td class="num">118</td></tr><tr><td><a href="../../../parking/gwangju/nam-gu/free/">(구)보훈병원 주차장</a></td><td>광주 남구</td><td>주월동</td><td class="num">113</td></tr><tr><td><a href="../../../parking/gwangju/nam-gu/free/">유안근린공원 공영주차장</a></td><td>광주 남구</td><td>봉선동</td><td class="num">101</td></tr><tr><td><a href="../../../parking/gwangju/buk-gu/free/">중흥3구역 주차장</a></td><td>광주 북구</td><td>중흥동</td><td class="num">79</td></tr><tr><td><a href="../../../parking/gwangju/buk-gu/free/">북구문화센터 공영주차장</a></td><td>광주 북구</td><td>양산동</td><td class="num">72</td></tr><tr><td><a href="../../../parking/gwangju/dong-gu/free/">증심사상가지구 주차장</a></td><td>광주 동구</td><td>운림동</td><td class="num">66</td></tr><tr><td><a href="../../../parking/gwangju/seo-gu/free/">풍암생활체육공원 공영주차장</a></td><td>광주 서구</td><td>풍암동</td><td class="num">65</td></tr><tr><td><a href="../../../parking/gwangju/gwangsan-gu/free/">진곡일반산업단지 주차장12</a></td><td>광주 광산구</td><td>오선동</td><td class="num">65</td></tr><tr><td><a href="../../../parking/gwangju/seo-gu/free/">어린이생태학습도서관 옥외주차장</a></td><td>광주 서구</td><td>풍암동</td><td class="num">62</td></tr><tr><td><a href="../../../parking/gwangju/dong-gu/free/">수자타 앞 공영주차장</a></td><td>광주 동구</td><td>운림동</td><td class="num">59</td></tr><tr><td><a href="../../../parking/gwangju/nam-gu/free/">주월동 공영주차장</a></td><td>광주 남구</td><td>주월동</td><td class="num">59</td></tr><tr><td><a href="../../../parking/gwangju/gwangsan-gu/free/">하남산단근로자주차장</a></td><td>광주 광산구</td><td>장덕동</td><td class="num">56</td></tr><tr><td><a href="../../../parking/gwangju/seo-gu/free/">쌍촌 공영주차장</a></td><td>광주 서구</td><td>쌍촌동</td><td class="num">48</td></tr><tr><td><a href="../../../parking/gwangju/nam-gu/free/">광주공원 앞 공영주차장</a></td><td>광주 남구</td><td>구동</td><td class="num">48</td></tr><tr><td><a href="../../../parking/gwangju/buk-gu/free/">삼각동 일곡엘리체 공영주차장</a></td><td>광주 북구</td><td>삼각동</td><td class="num">44</td></tr></tbody>
 </table></div>
 <h2>자주 묻는 질문</h2><details class="faq" open><summary>광주광역시에서 요금이 무료인 공영주차장은 몇 곳인가요?</summary><p>228곳(총 5,112면)입니다. 지역별로는 광주 북구 64곳 · 광주 서구 58곳 · 광주 동구 47곳 순으로 많습니다. 요금이 무료인 노상(거리) 구간 38곳은 이 집계에 넣지 않고 각 지역의 노상주차장 페이지에 적었습니다.</p></details><details class="faq"><summary>주말·공휴일이나 야간에 무료로 쓸 수 있는 곳도 있나요?</summary><p>있습니다. 요금은 유료여도 주말·공휴일·야간에 무료로 개방하는 곳은 각 지역의 무료 개방 페이지와 전국 무료 개방 허브에서 볼 수 있습니다. 이 페이지는 요금 구분이 ‘무료’인 곳만 모았습니다.</p></details><details class="faq"><summary>무료 주차장도 운영시간이 정해져 있나요?</summary><p>네. 요금이 무료여도 운영시간이 정해진 곳이 많습니다. 각 주차장 카드에 평일·토요일·일요일(공휴일) 운영시간이 적혀 있으니 방문 전에 확인하세요.</p></details>
 <section class="note-box" style="margin-top:18px">

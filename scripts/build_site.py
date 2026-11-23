@@ -18639,7 +18639,7 @@ def region_filter_block() -> str:
 <div class="hero-search">
   <label for="region-q">지역명으로 찾기</label>
   <div class="hs-row">
-    <input type="search" id="region-q" placeholder="시·군·구 이름을 입력하세요" autocomplete="off">
+    <input type="search" id="region-q" placeholder="시·군·구 이름 (경북 같은 약칭도 됩니다)" autocomplete="off">
   </div>
   <p class="ff-status" id="region-q-status" aria-live="polite"></p>
 </div>
@@ -18651,11 +18651,15 @@ document.addEventListener('DOMContentLoaded', function () {
   var groups = Array.prototype.slice.call(document.querySelectorAll('[data-group]'));
   var status = document.getElementById('region-q-status');
   function norm(s) { return (s || '').replace(/\\s+/g, ''); }
+  var ALIAS = { '경북': '경상북도', '경남': '경상남도', '전북': '전라북도',
+                '전남': '전라남도', '충북': '충청북도', '충남': '충청남도' };
   function apply() {
     var q = norm(input.value);
     var shown = 0;
     items.forEach(function (el) {
-      var hit = !q || norm(el.getAttribute('data-name')).indexOf(q) !== -1;
+      var name = norm(el.getAttribute('data-name'));
+      var hit = !q || name.indexOf(q) !== -1
+        || (ALIAS[q] && name.indexOf(ALIAS[q]) !== -1);
       el.style.display = hit ? '' : 'none';
       if (hit) shown += 1;
     });
@@ -18719,6 +18723,20 @@ def build_free_hub(site):
                    key=lambda l: (-(l["spaces"] or 0)))[:40]
     free_type = [l for l in free_open_lots(all_lots) if "무료" in lot_free_tags(l)]
 
+    def lot_link(l):
+        """표의 주차장 이름 링크 — 상세페이지가 있으면 상세로, 없으면 그 지역의
+        무료 개방 허브(5곳 이상인 지역만 있다)·지역 페이지로 건다."""
+        c = city_of(l)
+        if c is None:
+            return esc(l["name"])
+        if is_detail_target(l):
+            href = detail_path(c, l)
+        elif city_free_count(c) >= 5:
+            href = city_free_path(c)
+        else:
+            href = city_path(c)
+        return f'<a href="{rel(path, href)}">{esc(l["name"])}</a>'
+
     sections = []
     card_links = []
     for prov in province_order(site):
@@ -18775,11 +18793,11 @@ def build_free_hub(site):
         return f'{hhmm(fw.get("start"))}~{"다음날 " if fw.get("wrap") else ""}{hhmm(fw.get("end"))}'
 
     weekend_rows = "".join(
-        f'<tr><td>{esc(l["name"])}</td><td>{esc(l.get("city") or "")}</td>'
+        f'<tr><td>{lot_link(l)}</td><td>{esc(l.get("city") or "")}</td>'
         f'<td>{esc(day_label(l))}</td><td class="num">{f"{l['spaces']:,}" if l["spaces"] else "-"}</td></tr>'
         for l in weekend)
     night_rows = "".join(
-        f'<tr><td>{esc(l["name"])}</td><td>{esc(l.get("city") or "")}</td>'
+        f'<tr><td>{lot_link(l)}</td><td>{esc(l.get("city") or "")}</td>'
         f'<td>{esc(window_label(l))}</td><td class="num">{f"{l['spaces']:,}" if l["spaces"] else "-"}</td></tr>'
         for l in night)
 
@@ -19026,8 +19044,18 @@ def build_province_free(prov, site):
   <span class="d">총 {sf['spaces']:,}면 · 전체 {len(city.get('_card_lots') or [])}곳 중 무료 {sf['n']}곳</span>
 </a>''' for city, sf, href in rows)
     top_names = " · ".join(f"{r[0]['city']} {r[1]['n']:,}곳" for r in rows[:3])
+
+    def top_link(l):
+        """표의 주차장 이름 링크 — 무료인 곳은 상세페이지가 없어 그 지역의
+        무료 개방 허브(5곳 이상인 지역만 있다)·지역 페이지로 건다."""
+        c = city_of(l)
+        if c is None:
+            return esc(l["name"])
+        href = city_free_path(c) if city_free_count(c) >= 5 else city_path(c)
+        return f'<a href="{rel(path, href)}">{esc(l["name"])}</a>'
+
     top_rows = "".join(
-        f'<tr><td>{esc(l["name"])}</td><td>{esc(l.get("city") or "")}</td>'
+        f'<tr><td>{top_link(l)}</td><td>{esc(l.get("city") or "")}</td>'
         f'<td>{esc(l.get("dong") or "")}</td><td class="num">{f"{l['spaces']:,}" if l["spaces"] else "-"}</td></tr>'
         for l in sorted(all_free, key=lambda x: -(x["spaces"] or 0))[:20])
     qa = [
@@ -19155,24 +19183,24 @@ def build_city_free(city, site):
                 + (f"{', '.join(l['name'] for l in weekend[:8])} 등입니다. " if weekend else ""))
                if "주말·공휴일에 무료인" in q else (q, a)) for q, a in qa]
     body = f"""
-<h1>{esc(city['city'])} 무료 공영주차장 {c['union']}곳 — 주말·공휴일·야간 무료</h1>
-<p class="lede">{esc(city['city'])} 공영주차장 가운데 요금이 무료이거나 주말·공휴일·야간에 무료로 개방하는 {c['union']}곳만 모았습니다.
+<h1>{esc(city['city'])} 무료 공영주차장 {c['union']:,}곳 — 주말·공휴일·야간 무료</h1>
+<p class="lede">{esc(city['city'])} 공영주차장 가운데 요금이 무료이거나 주말·공휴일·야간에 무료로 개방하는 {c['union']:,}곳만 모았습니다.
 월정기·공무원·화물 전용처럼 일반 차량이 쓸 수 없는 곳은 뺐습니다.</p>
 <div class="stats">
-  <div class="stat free"><span class="k">무료로 쓸 수 있는 곳</span><span class="v">{c['union']}<small>곳</small></span></div>
-  <div class="stat"><span class="k">요금 구분 무료</span><span class="v">{c['free']}<small>곳</small></span></div>
-  <div class="stat"><span class="k">주말·공휴일 무료</span><span class="v">{c['weekend']}<small>곳</small></span></div>
+  <div class="stat free"><span class="k">무료로 쓸 수 있는 곳</span><span class="v">{c['union']:,}<small>곳</small></span></div>
+  <div class="stat"><span class="k">요금 구분 무료</span><span class="v">{c['free']:,}<small>곳</small></span></div>
+  <div class="stat"><span class="k">주말·공휴일 무료</span><span class="v">{c['weekend']:,}<small>곳</small></span></div>
 </div>
 {ad_slot()}
 <div class="note-box" style="margin-top:14px">
-  <p><b>야간 무료</b> {len(night)}곳 · <b>공휴일 무료</b> {len([l for l in usable if '공휴일' in lot_free_tags(l)])}곳 ·
-  <b>요금 구분 무료</b> {len(free_type)}곳{' · 이 밖에 무료인 노상 구간 ' + str(len(street_free)) + '곳' if street_free else ''}.
+  <p><b>야간 무료</b> {len(night):,}곳 · <b>공휴일 무료</b> {len([l for l in usable if '공휴일' in lot_free_tags(l)])}곳 ·
+  <b>요금 구분 무료</b> {len(free_type):,}곳{' · 이 밖에 무료인 노상 구간 ' + str(len(street_free)) + '곳' if street_free else ''}.
   같은 주차장이 여러 항목에 들어갈 수 있습니다.
   전체 목록·요금 계산기는 <a href="{rel(path, city_path(city))}">{esc(city['city'])} 공영주차장 전체</a>에서 볼 수 있습니다.</p>
 </div>
 <div class="toolbar">
-  <h2>무료 개방 주차장 {len(ordered)}곳</h2>
-  <span class="count">이름 순 · 무료로 쓸 수 있는 곳 총 {c['union']}곳</span>
+  <h2>무료 개방 주차장 {len(ordered):,}곳</h2>
+  <span class="count">이름 순 · 무료로 쓸 수 있는 곳 총 {c['union']:,}곳</span>
 </div>
 {lot_list(ordered, path, with_ad=True)}
 {street_block}
@@ -19189,9 +19217,9 @@ def build_city_free(city, site):
     crumbs = [("홈", "/"), (city.get("province") or "경기도", province_path(city["province_slug"])),
               (city["city"], city_path(city)), ("무료 개방", "")]
     return path, layout(
-        title=f"{esc(city['city'])} 무료 공영주차장 {c['union']}곳 — 주말·공휴일·야간 무료 | {SITE_NAME}",
+        title=f"{esc(city['city'])} 무료 공영주차장 {c['union']:,}곳 — 주말·공휴일·야간 무료 | {SITE_NAME}",
         description=(f"{city['city']} 공영주차장 가운데 요금이 무료이거나 주말·공휴일·야간에 무료로 개방하는 "
-                     f"{c['union']}곳의 위치·무료 시간대·요금을 정리했습니다."),
+                     f"{c['union']:,}곳의 위치·무료 시간대·요금을 정리했습니다."),
         path=path, body=body, crumbs=crumbs, nav_active="free", city=city,
         jsonld=[jsonld_breadcrumb(crumbs, path), jsonld_itemlist(ordered, path), jsonld_faq(qa, path)])
 
