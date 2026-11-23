@@ -5922,6 +5922,11 @@ def price_for(lot, minutes=120, day="weekday", rate=0.0, exempt=0):
         return {"state": "free"}
     if exempt and minutes <= exempt:
         return {"state": "free", "exempt": True, "exempt_min": exempt}
+    if fee.get("flat_day"):
+        # 종일 정액(금오산·단양 관광지 등) — 시간 요금 없이 어떤 이용 시간에도 정액이다.
+        _flat = fee["base_fee"] if fee["base_fee"] is not None else fee["daily_fee"]
+        return {"state": "paid", "amount": _flat, "before": _flat,
+                "capped": False, "discounted": False, "deducted": False, "flat": True}
     if fee["type"] != "유료" or not fee["base_min"] or fee["base_fee"] is None:
         return {"state": "unknown"}
     free_min = fee.get("free_min") or 0
@@ -7631,7 +7636,8 @@ def lot_card(lot, idx, default_day="weekday", default_minutes=120, link_detail=T
             extra.append(f"최초 {dm // 60}시간 무료 적용" if dm and dm % 60 == 0 else f"최초 {dm}분 무료 적용")
         if res["capped"]:
             extra.append("일일 최대요금 적용" if lot["fee"].get("cap_fee") else "1일권 상한 적용")
-        base_note = ("누진 요금표 기준" if (lot["fee"].get("steps") and not lot["fee"].get("category"))
+        base_note = ("1회 정액(종일)" if lot["fee"].get("flat_day")
+                     else "누진 요금표 기준" if (lot["fee"].get("steps") and not lot["fee"].get("category"))
                      else "노상 3급지 요금 기준(2시간 초과 할증)" if lot["fee"].get("category") in ("transfer", "park")
                      else "입차 때 1구획 요금" if lot["fee"].get("category") == "haengju"
                      else (f"최초 {lot['fee']['free_min']}분 무료 기준"
@@ -7743,7 +7749,7 @@ def lot_list(lots, path, default_day="weekday", with_ad=True, default_minutes=12
         # 누진(steps)·최초 무료(free_min)·일일 상한(cap_fee)은 값이 있는 도시만 싣는다(다른 도시 출력 불변)
         "fee": {**{k: l["fee"][k] for k in ("type", "base_min", "base_fee", "unit_min", "unit_fee",
                                             "daily_hours", "daily_fee")},
-                **{k: l["fee"][k] for k in ("steps", "bands", "free_min", "cap_fee", "deduct_min")
+                **{k: l["fee"][k] for k in ("steps", "bands", "free_min", "cap_fee", "deduct_min", "flat_day")
                    if l["fee"].get(k)}},
     } for l in lots], ensure_ascii=False)
     return ((free_chips(lots) if chips else "")
@@ -14025,7 +14031,7 @@ def _fee_table_block_raw(city) -> str:
 <p class="updated">이 사이트에 실은 공영 주차장 중 요금 구분이 ‘유료’인 곳은 {corp.get('paid', 0) + corp.get('street_paid', 0)}곳(노외·부설 {corp.get('paid', 0)}곳, 노상 {corp.get('street_paid', 0)}구간),
 요금 구분이 ‘무료’인 곳은 {corp.get('free', 0)}곳{_free_detail}, 요금 미상인 곳은 {corp.get('unknown', 0)}곳입니다.
 금오산 공영주차장 10곳은 1회 정액(승용 1,500원, 대주차장 2,000원)이라 시간 요금을 계산하지 않으므로,
-주차장 목록에서는 ‘요금 정보 미상’으로 표시합니다.</p>
+주차장 목록에서는 1회 정액으로 표시합니다.</p>
 <p class="updated">{esc(ft['basis'])}</p>
 """
     if ft.get("style") == "yeongju_grade":
