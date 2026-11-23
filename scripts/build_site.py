@@ -18669,6 +18669,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (el.style.display !== 'none') any = true;
       });
       g.style.display = any ? '' : 'none';
+      // 접기 그룹(details)이면 검색 중에는 결과가 보이게 펼치고, 검색을 비우면 다시 접는다.
+      if (g.tagName === 'DETAILS') g.open = !!q && any;
     });
     if (status) {
       status.textContent = !q ? '' : (shown ? shown + '개 지역을 찾았습니다.' : '검색 결과가 없습니다. 지역명을 확인해 주세요.');
@@ -18676,6 +18678,44 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   input.addEventListener('input', apply);
 });
+</script>
+"""
+
+
+# 시·도 접기 그룹(details.prov-fold)·바로가기 칩(.prov-chips) 공용 조각 (2026-11-24 운영자 지시 —
+# 시·군 나열이 길어 스크롤이 과하다는 지적). assets/style.css 는 ?v= 가 데이터 기준일에 고정돼
+# 장기 캐시(immutable)가 걸려 있어, 이 두 페이지(홈·무료 허브)에는 인라인으로 싣는다.
+# 값은 DESIGN.md 토큰과 기존 .ptab·details.faq 의 결을 그대로 따른다(새 색·크기 만들지 않음).
+FOLD_STYLE = """
+<style>
+.prov-chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;margin:12px 0 10px;-webkit-overflow-scrolling:touch}
+.prov-chips .pchip{flex:0 0 auto;font-size:13.5px;font-weight:700;color:var(--ink-soft);background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px;text-decoration:none}
+.prov-chips .pchip small{font-weight:600;color:var(--muted);font-size:11px;margin-left:2px}
+details.prov-fold{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin-bottom:10px}
+details.prov-fold>summary{cursor:pointer;display:flex;align-items:baseline;gap:8px;list-style:none}
+details.prov-fold>summary::-webkit-details-marker{display:none}
+details.prov-fold>summary::after{content:"▾";margin-left:auto;color:var(--brand);font-weight:700}
+details.prov-fold[open]>summary::after{content:"▴"}
+details.prov-fold .pf-name{font-size:15px;font-weight:700;color:var(--ink)}
+details.prov-fold .pf-count{font-size:12px;font-weight:600;color:var(--muted)}
+details.prov-fold .grid-2{margin-top:10px}
+details.prov-fold .prov-all{margin:10px 0 0}
+</style>
+"""
+
+# 앵커(#seoul·#night 등)로 들어오면 해당 접기 그룹을 펼쳐 보여 주는 작은 스크립트.
+FOLD_SCRIPT = """
+<script>
+(function () {
+  function openFromHash() {
+    var h = (location.hash || '').replace('#', '');
+    if (!h) return;
+    var t = document.getElementById(h);
+    if (t && t.tagName === 'DETAILS') t.open = true;
+  }
+  openFromHash();
+  window.addEventListener('hashchange', openFromHash);
+})();
 </script>
 """
 
@@ -18742,11 +18782,13 @@ def build_free_hub(site):
     for prov in province_order(site):
         cards = []
         prov_slug = ""
+        prov_union = 0
         for city in [c for c in site["cities"] if (c.get("province") or "지역") == prov]:
             prov_slug = city.get("province_slug") or prov_slug
             c = free_counts(city.get("_card_lots") or [])
             if not c["union"]:
                 continue
+            prov_union += c["union"]
             sf = strict_free_stats(city.get("_card_lots") or [])
             href = city_free_path(city) if c["union"] >= 5 else city_path(city)
             card_links.append((f"{prov} {city['city']}", href))
@@ -18755,10 +18797,14 @@ def build_free_hub(site):
   <span class="d">무료로 쓸 수 있는 곳 {c['union']:,}곳 — 요금 무료 {c['free']:,}곳({sf['spaces']:,}면) · 주말·공휴일 무료 {c['weekend']:,}곳 · 야간 무료 {c['night']:,}곳</span>
 </a>''')
         if cards:
+            # 시·도 단위 접기 그룹 (2026-11-24) — 카드는 HTML 에 그대로 남고, 지역명 필터가
+            # 검색 중에는 그룹을 펼쳐 보여 준다(region_filter_block).
             sections.append(
-                f'<section data-group><h3 class="prov">{esc(prov)} · '
-                f'<a href="{rel(path, province_free_path(prov_slug))}">{esc(prov)} 무료 주차장 모아보기 →</a></h3>'
-                f'<div class="grid-2">{"".join(cards)}</div></section>')
+                f'<details class="prov-fold" data-group>'
+                f'<summary><span class="pf-name">{esc(prov)}</span>'
+                f'<span class="pf-count">무료 {prov_union:,}곳 · {len(cards)}개 지역</span></summary>'
+                f'<p class="prov-all"><a href="{rel(path, province_free_path(prov_slug))}">{esc(prov)} 무료 주차장 모아보기 →</a></p>'
+                f'<div class="grid-2">{"".join(cards)}</div></details>')
 
     def tag_rows(items, label):
         rows = "".join(
@@ -18840,18 +18886,22 @@ def build_free_hub(site):
 <h2 id="all">지역별 무료 주차장</h2>
 {region_filter_block()}
 {''.join(sections)}
-<h2 id="weekend">주말·공휴일 무료 주차장 {total['weekend']:,}곳</h2>
+<details class="prov-fold" id="weekend">
+<summary><span class="pf-name">주말·공휴일 무료 주차장</span><span class="pf-count">{total['weekend']:,}곳</span></summary>
 <p class="lede">토요일·일요일·공휴일에 요금을 받지 않는 주차장입니다(구획이 많은 순 40곳). 지역별 전체 목록은 위 지역 카드에서 볼 수 있습니다.</p>
 <table class="data">
   <thead><tr><th>주차장</th><th>지역</th><th>무료 요일</th><th class="num">구획</th></tr></thead>
   <tbody>{weekend_rows}</tbody>
 </table>
-<h2 id="night">야간 무료 주차장 {total['night']:,}곳</h2>
+</details>
+<details class="prov-fold" id="night">
+<summary><span class="pf-name">야간 무료 주차장</span><span class="pf-count">{total['night']:,}곳</span></summary>
 <p class="lede">요금은 유료이지만 정해진 야간 시간대에만 요금을 받지 않는 주차장입니다(구획이 많은 순 40곳).</p>
 <table class="data">
   <thead><tr><th>주차장</th><th>지역</th><th>무료 시간대</th><th class="num">구획</th></tr></thead>
   <tbody>{night_rows}</tbody>
 </table>
+</details>
 <h2>무료 개방 유형</h2>
 <ul class="free-legend">
   <li><b>요금 구분 무료</b> {total['free']:,}곳 — 요일과 관계없이 요금이 없습니다.</li>
@@ -18868,7 +18918,7 @@ def build_free_hub(site):
     <li>월정기 전용·공무원 전용·화물차·버스 전용처럼 일반 차량이 쓸 수 없는 주차장은 목록에서 뺐습니다(각 지역 목록에는 배지로 표시).</li>
   </ul>
 </section>
-"""
+""" + FOLD_SCRIPT
     crumbs = [("홈", "/"), ("무료 개방 주차장", "")]
     return path, layout(
         title=f"무료 공영주차장 {total['union']:,}곳 — 주말·공휴일·야간 무료 개방 | {SITE_NAME}",
@@ -18877,7 +18927,7 @@ def build_free_hub(site):
         path=path, body=body, crumbs=crumbs, nav_active="free", city=None,
         jsonld=[jsonld_breadcrumb(crumbs, path),
                 jsonld_link_itemlist("지역별 무료 공영주차장", card_links),
-                jsonld_faq(qa, path)])
+                jsonld_faq(qa, path)], extra_head=FOLD_STYLE)
 
 
 def province_path(prov_slug: str) -> str:
@@ -19527,15 +19577,24 @@ def build_landing(site):
                 if multi and _prov_slug else
                 (f'<h3 class="prov">{esc(prov)}</h3>\n' if multi else ''))
         sections.append(f'{head}<div class="grid-2">{"".join(cards)}</div>')
-        # 한 시·도만 보이게 탭으로 나눈다(첫 시·도만 열림). 나머지 지역 링크도 HTML 에는 그대로 남는다.
-        hidden = "" if not tabs else " hidden"
-        panels.append(f'<section class="prov-panel" id="panel-{esc(_prov_slug)}" data-prov="{esc(_prov_slug)}"'
-                      f'{hidden}>{head}<p class="prov-all"><a href="parking/{esc(_prov_slug)}/">{esc(prov)} 공영주차장 전체 보기 →</a></p><div class="grid-2">{"".join(cards)}</div></section>')
-        tabs.append(f'<button type="button" class="ptab" role="tab" data-panel="{esc(_prov_slug)}"'
-                    f' aria-selected="{"true" if len(tabs) == 0 else "false"}">{esc(prov)}'
-                    f' <small>{len(groups[prov])}</small></button>')
+        # 시·도 단위 접기 그룹(details)으로 묶는다 (2026-11-24 운영자 지시 — 탭 방식은 첫 시·도가
+        # 통째로 펼쳐져 스크롤이 길었다). 링크·내용은 HTML 에 그대로 남고, 위쪽 칩이 앵커로 바로 이동,
+        # 앵커로 들어오면 FOLD_SCRIPT 가 해당 그룹을 펼친다.
+        prov_n = sum(stats_for(c["_card_lots"])["n"] for c in groups[prov])
+        panels.append(f'<details class="prov-fold" id="{esc(_prov_slug)}" data-prov="{esc(_prov_slug)}">'
+                      f'<summary><span class="pf-name">{esc(prov)}</span>'
+                      f'<span class="pf-count">{len(groups[prov])}개 지역 · {prov_n:,}곳</span></summary>'
+                      f'<p class="prov-all"><a href="parking/{esc(_prov_slug)}/">{esc(prov)} 공영주차장 전체 보기 →</a></p>'
+                      f'<div class="grid-2">{"".join(cards)}</div></details>')
+        tabs.append(f'<a class="pchip" href="#{esc(_prov_slug)}">{esc(prov)}'
+                    f' <small>{len(groups[prov])}</small></a>')
     total = sum(stats_for(c["_card_lots"])["n"] for c in site["cities"])
     total_spaces = sum(stats_for(c["_card_lots"])["spaces"] for c in site["cities"])
+    # 홈 대표 숫자는 카드 대상(노외·부설)만이 아니라 노상 구간까지 포함한 전체 lots 기준
+    # (2026-11-24 운영자 지시 — 기존 lede 의 12,556곳은 카드 대상만 센 부분 집계였다).
+    total_all = sum(len(c.get("_lots") or []) for c in site["cities"])
+    total_all_spaces = sum((l.get("spaces") or 0)
+                            for c in site["cities"] for l in (c.get("_lots") or []))
     free_total = sum(city_free_count(c) for c in site["cities"])
     if multi:
         # 34개 지역 이름을 제목에 다 적으면 너무 길어져, 시·도별 개수로 줄인다.
@@ -19566,9 +19625,9 @@ def build_landing(site):
         region_unit = "개 시·군"
         province_names = order[0] if order else ""
     body = f"""
-<h1>공영주차장 파인더 — {city_names}</h1>
+<h1>전국 공영주차장 {total_all:,}곳</h1>
 <p class="lede">"여기 2시간 주차하면 얼마지?"를 바로 확인하는 페이지입니다.
-공공데이터로 등록된 공영주차장 {total:,}곳(구획 {total_spaces:,}면)의 요금·운영시간·무료 개방 정보를 요일과 시간에 맞춰 계산합니다.</p>
+공공데이터로 등록된 공영주차장 {total_all:,}곳(노상 구간 포함, 구획 {total_all_spaces:,}면)의 요금·운영시간·무료 개방 정보를 요일과 시간에 맞춰 계산합니다.</p>
 
 <form class="hero-search" role="search" action="{rel(path, '/parking/regions/')}" method="get">
   <label for="q">지역·주차장 빠른 검색</label>
@@ -19590,7 +19649,7 @@ def build_landing(site):
 </section>
 
 <div class="stats">
-  <div class="stat"><span class="k">등록 주차장</span><span class="v">{total:,}<small>곳</small></span></div>
+  <div class="stat"><span class="k">등록 주차장</span><span class="v">{total_all:,}<small>곳</small></span></div>
   <div class="stat"><span class="k">지원 지역</span><span class="v">{len(site['cities'])}<small>{region_unit}</small></span></div>
   <div class="stat free"><span class="k">무료로 쓸 수 있는 곳</span><span class="v">{free_total:,}<small>곳</small></span></div>
 </div>
@@ -19602,7 +19661,7 @@ def build_landing(site):
 </div>
 
 <h2>지역 선택</h2>
-<div class="prov-tabs" role="tablist" aria-label="시·도 선택">{''.join(tabs)}</div>
+<nav class="prov-chips" aria-label="시·도 바로가기">{''.join(tabs)}</nav>
 {''.join(panels)}
 <p class="updated">지역 전체 목록(구·동 페이지까지)은 <a href="{rel(path, '/parking/regions/')}">지역 전체 목록</a>에 모아 두었습니다.</p>
 
@@ -19623,7 +19682,7 @@ def build_landing(site):
 <p><a class="btn" href="{rel(path, '/about/')}">데이터 출처와 계산 기준</a>
 <a class="btn" href="{rel(path, '/contact/')}">문의·오류 제보</a></p>
 <script src="{rel(path, '/assets/nearby.js')}?v={asset_ver()}" defer></script>
-"""
+""" + FOLD_SCRIPT
     home_ld = [
         {"@context": "https://schema.org", "@type": "WebSite", "name": SITE_NAME,
          "url": SITE_BASE + "/", "inLanguage": "ko",
@@ -19643,7 +19702,7 @@ def build_landing(site):
         description=f"{city_names} 공영주차장 요금을 요일·시간·감면 조건으로 바로 계산하고, "
                     "주말·공휴일 무료 개방 주차장과 실시간 잔여면수를 확인하세요.",
         path=path, body=body, crumbs=[("홈", "")], nav_active="", city=None, jsonld=home_ld,
-        body_attrs=' data-page="home"')
+        body_attrs=' data-page="home"', extra_head=FOLD_STYLE)
 
 
 # ------------------------------------------------------------------ 개인정보처리방침

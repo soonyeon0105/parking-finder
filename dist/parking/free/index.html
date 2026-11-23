@@ -21,6 +21,21 @@ gtag('js', new Date());
 gtag('config', 'G-X99KL3RGWD');
 </script>
 
+<style>
+.prov-chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;margin:12px 0 10px;-webkit-overflow-scrolling:touch}
+.prov-chips .pchip{flex:0 0 auto;font-size:13.5px;font-weight:700;color:var(--ink-soft);background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px;text-decoration:none}
+.prov-chips .pchip small{font-weight:600;color:var(--muted);font-size:11px;margin-left:2px}
+details.prov-fold{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin-bottom:10px}
+details.prov-fold>summary{cursor:pointer;display:flex;align-items:baseline;gap:8px;list-style:none}
+details.prov-fold>summary::-webkit-details-marker{display:none}
+details.prov-fold>summary::after{content:"▾";margin-left:auto;color:var(--brand);font-weight:700}
+details.prov-fold[open]>summary::after{content:"▴"}
+details.prov-fold .pf-name{font-size:15px;font-weight:700;color:var(--ink)}
+details.prov-fold .pf-count{font-size:12px;font-weight:600;color:var(--muted)}
+details.prov-fold .grid-2{margin-top:10px}
+details.prov-fold .prov-all{margin:10px 0 0}
+</style>
+
 <link rel="preload" href="../../assets/fonts/PretendardVariable.subset.91.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../../assets/fonts/pretendardvariable-dynamic-subset.css?v=2026-11-23-17">
 <link rel="stylesheet" href="../../assets/style.css?v=2026-11-23-17">
@@ -97,6 +112,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (el.style.display !== 'none') any = true;
       });
       g.style.display = any ? '' : 'none';
+      // 접기 그룹(details)이면 검색 중에는 결과가 보이게 펼치고, 검색을 비우면 다시 접는다.
+      if (g.tagName === 'DETAILS') g.open = !!q && any;
     });
     if (status) {
       status.textContent = !q ? '' : (shown ? shown + '개 지역을 찾았습니다.' : '검색 결과가 없습니다. 지역명을 확인해 주세요.');
@@ -106,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
-<section data-group><h3 class="prov">경기도 · <a href="../../parking/gyeonggi/free/">경기도 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="경기도 수원시" href="../../parking/gyeonggi/suwon/">
+<details class="prov-fold" data-group><summary><span class="pf-name">경기도</span><span class="pf-count">무료 1,137곳 · 30개 지역</span></summary><p class="prov-all"><a href="../../parking/gyeonggi/free/">경기도 무료 주차장 모아보기 →</a></p><div class="grid-2"><a class="link-card" data-name="경기도 수원시" href="../../parking/gyeonggi/suwon/">
   <span class="t">수원시<span class="go">2곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 2곳 — 요금 무료 0곳(0면) · 주말·공휴일 무료 1곳 · 야간 무료 1곳</span>
 </a><a class="link-card" data-name="경기도 용인시" href="../../parking/gyeonggi/yongin/free/">
@@ -196,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </a><a class="link-card" data-name="경기도 연천군" href="../../parking/gyeonggi/yeoncheon/free/">
   <span class="t">연천군<span class="go">6곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 6곳 — 요금 무료 6곳(331면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
-</a></div></section><section data-group><h3 class="prov">서울특별시 · <a href="../../parking/seoul/free/">서울특별시 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="서울특별시 종로구" href="../../parking/seoul/jongno/">
+</a></div></details><details class="prov-fold" data-group><summary><span class="pf-name">서울특별시</span><span class="pf-count">무료 54곳 · 13개 지역</span></summary><p class="prov-all"><a href="../../parking/seoul/free/">서울특별시 무료 주차장 모아보기 →</a></p><div class="grid-2"><a class="link-card" data-name="서울특별시 종로구" href="../../parking/seoul/jongno/">
   <span class="t">종로구<span class="go">2곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 2곳 — 요금 무료 0곳(0면) · 주말·공휴일 무료 2곳 · 야간 무료 0곳</span>
 </a><a class="link-card" data-name="서울특별시 중구" href="../../parking/seoul/jung/">
@@ -235,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </a><a class="link-card" data-name="서울특별시 관악구" href="../../parking/seoul/gwanak/">
   <span class="t">관악구<span class="go">1곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 1곳 — 요금 무료 0곳(0면) · 주말·공휴일 무료 1곳 · 야간 무료 0곳</span>
-</a></div></section><section data-group><h3 class="prov">인천광역시 · <a href="../../parking/incheon/free/">인천광역시 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="인천광역시 미추홀구" href="../../parking/incheon/michuhol/free/">
+</a></div></details><details class="prov-fold" data-group><summary><span class="pf-name">인천광역시</span><span class="pf-count">무료 283곳 · 10개 지역</span></summary><p class="prov-all"><a href="../../parking/incheon/free/">인천광역시 무료 주차장 모아보기 →</a></p><div class="grid-2"><a class="link-card" data-name="인천광역시 미추홀구" href="../../parking/incheon/michuhol/free/">
   <span class="t">미추홀구<span class="go">21곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 21곳 — 요금 무료 21곳(222면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
 </a><a class="link-card" data-name="인천광역시 연수구" href="../../parking/incheon/yeonsu/free/">
@@ -265,7 +282,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </a><a class="link-card" data-name="인천광역시 옹진군" href="../../parking/incheon/ongjin/free/">
   <span class="t">옹진군<span class="go">41곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 41곳 — 요금 무료 41곳(1,866면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
-</a></div></section><section data-group><h3 class="prov">부산광역시 · <a href="../../parking/busan/free/">부산광역시 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="부산광역시 부산 영도구" href="../../parking/busan/yeongdo-gu/">
+</a></div></details><details class="prov-fold" data-group><summary><span class="pf-name">부산광역시</span><span class="pf-count">무료 36곳 · 8개 지역</span></summary><p class="prov-all"><a href="../../parking/busan/free/">부산광역시 무료 주차장 모아보기 →</a></p><div class="grid-2"><a class="link-card" data-name="부산광역시 부산 영도구" href="../../parking/busan/yeongdo-gu/">
   <span class="t">부산 영도구<span class="go">1곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 1곳 — 요금 무료 1곳(61면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
 </a><a class="link-card" data-name="부산광역시 부산 부산진구" href="../../parking/busan/busanjin-gu/">
@@ -289,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </a><a class="link-card" data-name="부산광역시 부산 기장군" href="../../parking/busan/gijang-gun/free/">
   <span class="t">부산 기장군<span class="go">18곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 18곳 — 요금 무료 18곳(652면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
-</a></div></section><section data-group><h3 class="prov">대구광역시 · <a href="../../parking/daegu/free/">대구광역시 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="대구광역시 대구 동구" href="../../parking/daegu/dong-gu/free/">
+</a></div></details><details class="prov-fold" data-group><summary><span class="pf-name">대구광역시</span><span class="pf-count">무료 265곳 · 8개 지역</span></summary><p class="prov-all"><a href="../../parking/daegu/free/">대구광역시 무료 주차장 모아보기 →</a></p><div class="grid-2"><a class="link-card" data-name="대구광역시 대구 동구" href="../../parking/daegu/dong-gu/free/">
   <span class="t">대구 동구<span class="go">7곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 7곳 — 요금 무료 7곳(277면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
 </a><a class="link-card" data-name="대구광역시 대구 서구" href="../../parking/daegu/seo-gu/">
@@ -313,7 +330,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </a><a class="link-card" data-name="대구광역시 대구 군위군" href="../../parking/daegu/gunwi-gun/free/">
   <span class="t">대구 군위군<span class="go">52곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 52곳 — 요금 무료 52곳(2,009면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
-</a></div></section><section data-group><h3 class="prov">대전광역시 · <a href="../../parking/daejeon/free/">대전광역시 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="대전광역시 대전 동구" href="../../parking/daejeon/dong-gu/free/">
+</a></div></details><details class="prov-fold" data-group><summary><span class="pf-name">대전광역시</span><span class="pf-count">무료 214곳 · 5개 지역</span></summary><p class="prov-all"><a href="../../parking/daejeon/free/">대전광역시 무료 주차장 모아보기 →</a></p><div class="grid-2"><a class="link-card" data-name="대전광역시 대전 동구" href="../../parking/daejeon/dong-gu/free/">
   <span class="t">대전 동구<span class="go">39곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 39곳 — 요금 무료 39곳(1,160면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
 </a><a class="link-card" data-name="대전광역시 대전 중구" href="../../parking/daejeon/jung-gu/free/">
@@ -328,7 +345,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </a><a class="link-card" data-name="대전광역시 대전 대덕구" href="../../parking/daejeon/daedeok-gu/free/">
   <span class="t">대전 대덕구<span class="go">10곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 10곳 — 요금 무료 10곳(536면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
-</a></div></section><section data-group><h3 class="prov">광주광역시 · <a href="../../parking/gwangju/free/">광주광역시 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="광주광역시 광주 동구" href="../../parking/gwangju/dong-gu/free/">
+</a></div></details><details class="prov-fold" data-group><summary><span class="pf-name">광주광역시</span><span class="pf-count">무료 228곳 · 5개 지역</span></summary><p class="prov-all"><a href="../../parking/gwangju/free/">광주광역시 무료 주차장 모아보기 →</a></p><div class="grid-2"><a class="link-card" data-name="광주광역시 광주 동구" href="../../parking/gwangju/dong-gu/free/">
   <span class="t">광주 동구<span class="go">47곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 47곳 — 요금 무료 47곳(770면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
 </a><a class="link-card" data-name="광주광역시 광주 서구" href="../../parking/gwangju/seo-gu/free/">
@@ -343,7 +360,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </a><a class="link-card" data-name="광주광역시 광주 광산구" href="../../parking/gwangju/gwangsan-gu/free/">
   <span class="t">광주 광산구<span class="go">36곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 36곳 — 요금 무료 36곳(753면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
-</a></div></section><section data-group><h3 class="prov">울산광역시 · <a href="../../parking/ulsan/free/">울산광역시 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="울산광역시 울산 남구" href="../../parking/ulsan/nam-gu/free/">
+</a></div></details><details class="prov-fold" data-group><summary><span class="pf-name">울산광역시</span><span class="pf-count">무료 212곳 · 4개 지역</span></summary><p class="prov-all"><a href="../../parking/ulsan/free/">울산광역시 무료 주차장 모아보기 →</a></p><div class="grid-2"><a class="link-card" data-name="울산광역시 울산 남구" href="../../parking/ulsan/nam-gu/free/">
   <span class="t">울산 남구<span class="go">11곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 11곳 — 요금 무료 11곳(899면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
 </a><a class="link-card" data-name="울산광역시 울산 동구" href="../../parking/ulsan/dong-gu/free/">
@@ -355,16 +372,16 @@ document.addEventListener('DOMContentLoaded', function () {
 </a><a class="link-card" data-name="울산광역시 울산 울주군" href="../../parking/ulsan/ulju-gun/free/">
   <span class="t">울산 울주군<span class="go">39곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 39곳 — 요금 무료 39곳(2,814면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
-</a></div></section><section data-group><h3 class="prov">세종특별자치시 · <a href="../../parking/sejong/free/">세종특별자치시 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="세종특별자치시 세종특별자치시" href="../../parking/sejong/sejong-si/free/">
+</a></div></details><details class="prov-fold" data-group><summary><span class="pf-name">세종특별자치시</span><span class="pf-count">무료 58곳 · 1개 지역</span></summary><p class="prov-all"><a href="../../parking/sejong/free/">세종특별자치시 무료 주차장 모아보기 →</a></p><div class="grid-2"><a class="link-card" data-name="세종특별자치시 세종특별자치시" href="../../parking/sejong/sejong-si/free/">
   <span class="t">세종특별자치시<span class="go">58곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 58곳 — 요금 무료 58곳(2,469면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
-</a></div></section><section data-group><h3 class="prov">제주특별자치도 · <a href="../../parking/jeju/free/">제주특별자치도 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="제주특별자치도 제주시" href="../../parking/jeju/jeju-si/free/">
+</a></div></details><details class="prov-fold" data-group><summary><span class="pf-name">제주특별자치도</span><span class="pf-count">무료 868곳 · 2개 지역</span></summary><p class="prov-all"><a href="../../parking/jeju/free/">제주특별자치도 무료 주차장 모아보기 →</a></p><div class="grid-2"><a class="link-card" data-name="제주특별자치도 제주시" href="../../parking/jeju/jeju-si/free/">
   <span class="t">제주시<span class="go">785곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 785곳 — 요금 무료 785곳(15,543면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
 </a><a class="link-card" data-name="제주특별자치도 서귀포시" href="../../parking/jeju/seogwipo-si/free/">
   <span class="t">서귀포시<span class="go">83곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 83곳 — 요금 무료 83곳(4,877면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
-</a></div></section><section data-group><h3 class="prov">충청북도 · <a href="../../parking/chungbuk/free/">충청북도 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="충청북도 청주시" href="../../parking/chungbuk/cheongju/free/">
+</a></div></details><details class="prov-fold" data-group><summary><span class="pf-name">충청북도</span><span class="pf-count">무료 375곳 · 11개 지역</span></summary><p class="prov-all"><a href="../../parking/chungbuk/free/">충청북도 무료 주차장 모아보기 →</a></p><div class="grid-2"><a class="link-card" data-name="충청북도 청주시" href="../../parking/chungbuk/cheongju/free/">
   <span class="t">청주시<span class="go">167곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 167곳 — 요금 무료 167곳(6,732면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
 </a><a class="link-card" data-name="충청북도 충주시" href="../../parking/chungbuk/chungju/free/">
@@ -397,7 +414,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </a><a class="link-card" data-name="충청북도 단양군" href="../../parking/chungbuk/danyang/free/">
   <span class="t">단양군<span class="go">27곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 27곳 — 요금 무료 27곳(1,270면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
-</a></div></section><section data-group><h3 class="prov">충청남도 · <a href="../../parking/chungnam/free/">충청남도 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="충청남도 천안시" href="../../parking/chungnam/cheonan/free/">
+</a></div></details><details class="prov-fold" data-group><summary><span class="pf-name">충청남도</span><span class="pf-count">무료 924곳 · 14개 지역</span></summary><p class="prov-all"><a href="../../parking/chungnam/free/">충청남도 무료 주차장 모아보기 →</a></p><div class="grid-2"><a class="link-card" data-name="충청남도 천안시" href="../../parking/chungnam/cheonan/free/">
   <span class="t">천안시<span class="go">76곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 76곳 — 요금 무료 76곳(4,135면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
 </a><a class="link-card" data-name="충청남도 아산시" href="../../parking/chungnam/asan/free/">
@@ -439,7 +456,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </a><a class="link-card" data-name="충청남도 금산군" href="../../parking/chungnam/geumsan/free/">
   <span class="t">금산군<span class="go">31곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 31곳 — 요금 무료 30곳(2,082면) · 주말·공휴일 무료 1곳 · 야간 무료 1곳</span>
-</a></div></section><section data-group><h3 class="prov">전북특별자치도 · <a href="../../parking/jeonbuk/free/">전북특별자치도 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="전북특별자치도 전주시" href="../../parking/jeonbuk/jeonju/free/">
+</a></div></details><details class="prov-fold" data-group><summary><span class="pf-name">전북특별자치도</span><span class="pf-count">무료 581곳 · 14개 지역</span></summary><p class="prov-all"><a href="../../parking/jeonbuk/free/">전북특별자치도 무료 주차장 모아보기 →</a></p><div class="grid-2"><a class="link-card" data-name="전북특별자치도 전주시" href="../../parking/jeonbuk/jeonju/free/">
   <span class="t">전주시<span class="go">71곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 71곳 — 요금 무료 71곳(3,235면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
 </a><a class="link-card" data-name="전북특별자치도 군산시" href="../../parking/jeonbuk/gunsan/free/">
@@ -481,7 +498,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </a><a class="link-card" data-name="전북특별자치도 부안군" href="../../parking/jeonbuk/buan/free/">
   <span class="t">부안군<span class="go">32곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 32곳 — 요금 무료 31곳(5,730면) · 주말·공휴일 무료 1곳 · 야간 무료 0곳</span>
-</a></div></section><section data-group><h3 class="prov">전남광주통합특별시 · <a href="../../parking/jeonnam/free/">전남광주통합특별시 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="전남광주통합특별시 목포시" href="../../parking/jeonnam/mokpo/free/">
+</a></div></details><details class="prov-fold" data-group><summary><span class="pf-name">전남광주통합특별시</span><span class="pf-count">무료 1,114곳 · 20개 지역</span></summary><p class="prov-all"><a href="../../parking/jeonnam/free/">전남광주통합특별시 무료 주차장 모아보기 →</a></p><div class="grid-2"><a class="link-card" data-name="전남광주통합특별시 목포시" href="../../parking/jeonnam/mokpo/free/">
   <span class="t">목포시<span class="go">43곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 43곳 — 요금 무료 43곳(2,418면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
 </a><a class="link-card" data-name="전남광주통합특별시 나주시" href="../../parking/jeonnam/naju/free/">
@@ -541,7 +558,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </a><a class="link-card" data-name="전남광주통합특별시 담양군" href="../../parking/jeonnam/damyang/free/">
   <span class="t">담양군<span class="go">52곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 52곳 — 요금 무료 52곳(1,848면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
-</a></div></section><section data-group><h3 class="prov">경상남도 · <a href="../../parking/gyeongnam/free/">경상남도 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="경상남도 통영시" href="../../parking/gyeongnam/tongyeong/free/">
+</a></div></details><details class="prov-fold" data-group><summary><span class="pf-name">경상남도</span><span class="pf-count">무료 918곳 · 15개 지역</span></summary><p class="prov-all"><a href="../../parking/gyeongnam/free/">경상남도 무료 주차장 모아보기 →</a></p><div class="grid-2"><a class="link-card" data-name="경상남도 통영시" href="../../parking/gyeongnam/tongyeong/free/">
   <span class="t">통영시<span class="go">18곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 18곳 — 요금 무료 16곳(1,411면) · 주말·공휴일 무료 2곳 · 야간 무료 0곳</span>
 </a><a class="link-card" data-name="경상남도 김해시" href="../../parking/gyeongnam/gimhae/free/">
@@ -586,7 +603,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </a><a class="link-card" data-name="경상남도 창녕군" href="../../parking/gyeongnam/changnyeong/free/">
   <span class="t">창녕군<span class="go">106곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 106곳 — 요금 무료 106곳(5,599면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
-</a></div></section><section data-group><h3 class="prov">경상북도 · <a href="../../parking/gyeongbuk/free/">경상북도 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="경상북도 포항시" href="../../parking/gyeongbuk/pohang/free/">
+</a></div></details><details class="prov-fold" data-group><summary><span class="pf-name">경상북도</span><span class="pf-count">무료 1,120곳 · 22개 지역</span></summary><p class="prov-all"><a href="../../parking/gyeongbuk/free/">경상북도 무료 주차장 모아보기 →</a></p><div class="grid-2"><a class="link-card" data-name="경상북도 포항시" href="../../parking/gyeongbuk/pohang/free/">
   <span class="t">포항시<span class="go">100곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 100곳 — 요금 무료 93곳(8,133면) · 주말·공휴일 무료 7곳 · 야간 무료 0곳</span>
 </a><a class="link-card" data-name="경상북도 경주시" href="../../parking/gyeongbuk/gyeongju/free/">
@@ -652,7 +669,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </a><a class="link-card" data-name="경상북도 울릉군" href="../../parking/gyeongbuk/ulleung/">
   <span class="t">울릉군<span class="go">1곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 1곳 — 요금 무료 1곳(41면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
-</a></div></section><section data-group><h3 class="prov">강원특별자치도 · <a href="../../parking/gangwon/free/">강원특별자치도 무료 주차장 모아보기 →</a></h3><div class="grid-2"><a class="link-card" data-name="강원특별자치도 춘천시" href="../../parking/gangwon/chuncheon/free/">
+</a></div></details><details class="prov-fold" data-group><summary><span class="pf-name">강원특별자치도</span><span class="pf-count">무료 959곳 · 17개 지역</span></summary><p class="prov-all"><a href="../../parking/gangwon/free/">강원특별자치도 무료 주차장 모아보기 →</a></p><div class="grid-2"><a class="link-card" data-name="강원특별자치도 춘천시" href="../../parking/gangwon/chuncheon/free/">
   <span class="t">춘천시<span class="go">54곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 54곳 — 요금 무료 54곳(2,852면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
 </a><a class="link-card" data-name="강원특별자치도 원주시" href="../../parking/gangwon/wonju/free/">
@@ -703,19 +720,23 @@ document.addEventListener('DOMContentLoaded', function () {
 </a><a class="link-card" data-name="강원특별자치도 양양군" href="../../parking/gangwon/yangyang/free/">
   <span class="t">양양군<span class="go">83곳 →</span></span>
   <span class="d">무료로 쓸 수 있는 곳 83곳 — 요금 무료 83곳(5,464면) · 주말·공휴일 무료 0곳 · 야간 무료 0곳</span>
-</a></div></section>
-<h2 id="weekend">주말·공휴일 무료 주차장 787곳</h2>
+</a></div></details>
+<details class="prov-fold" id="weekend">
+<summary><span class="pf-name">주말·공휴일 무료 주차장</span><span class="pf-count">787곳</span></summary>
 <p class="lede">토요일·일요일·공휴일에 요금을 받지 않는 주차장입니다(구획이 많은 순 40곳). 지역별 전체 목록은 위 지역 카드에서 볼 수 있습니다.</p>
 <div class="table-scroll"><table class="data">
   <thead><tr><th>주차장</th><th>지역</th><th>무료 요일</th><th class="num">구획</th></tr></thead>
   <tbody><tr><td><a href="../../parking/gyeonggi/yongin/free/">미르스타디움</a></td><td>용인시</td><td>요일 무관</td><td class="num">972</td></tr><tr><td><a href="../../parking/gyeonggi/paju/pj-064/">스타필드</a></td><td>파주시</td><td>토 · 일·공휴일</td><td class="num">864</td></tr><tr><td><a href="../../parking/gyeonggi/siheung/sh-117/">군서초교</a></td><td>시흥시</td><td>일·공휴일</td><td class="num">612</td></tr><tr><td><a href="../../parking/gyeonggi/siheung/sh-061/">배곧광장</a></td><td>시흥시</td><td>일·공휴일</td><td class="num">588</td></tr><tr><td><a href="../../parking/gyeonggi/siheung/free/">시청 부설주차장</a></td><td>시흥시</td><td>요일 무관</td><td class="num">548</td></tr><tr><td><a href="../../parking/gyeongbuk/andong/gb-andong-013/">안동시청 부설주차장</a></td><td>안동시</td><td>토 · 일·공휴일</td><td class="num">534</td></tr><tr><td><a href="../../parking/gyeongbuk/gumi/gb-gumi-138/">시청주차장</a></td><td>구미시</td><td>토 · 일·공휴일</td><td class="num">529</td></tr><tr><td><a href="../../parking/gyeonggi/paju/pj-022/">GTX-A 운정중앙역 1</a></td><td>파주시</td><td>토 · 일·공휴일</td><td class="num">525</td></tr><tr><td><a href="../../parking/gyeonggi/bucheon/bc-015/">시청부설</a></td><td>부천시</td><td>토 · 일·공휴일</td><td class="num">503</td></tr><tr><td><a href="../../parking/gyeonggi/hwaseong/hs-071/">석우동 제3(주46)</a></td><td>화성시</td><td>토 · 일·공휴일</td><td class="num">502</td></tr><tr><td><a href="../../parking/gyeonggi/siheung/sh-115/">경기 스마트고</a></td><td>시흥시</td><td>일·공휴일</td><td class="num">484</td></tr><tr><td><a href="../../parking/gyeonggi/paju/pj-023/">GTX-A 운정중앙역 2</a></td><td>파주시</td><td>토 · 일·공휴일</td><td class="num">482</td></tr><tr><td><a href="../../parking/gyeonggi/yongin/free/">농서동 임시공영</a></td><td>용인시</td><td>요일 무관</td><td class="num">426</td></tr><tr><td><a href="../../parking/gyeonggi/yeoju/yju-007/">여흥동 공영주차장</a></td><td>여주시</td><td>일·공휴일</td><td class="num">423</td></tr><tr><td><a href="../../parking/gyeonggi/ansan/free/">상록구청부설주차장</a></td><td>안산시</td><td>요일 무관</td><td class="num">400</td></tr><tr><td><a href="../../parking/gyeonggi/paju/pj-066/">운정역환승주차장</a></td><td>파주시</td><td>토 · 일·공휴일</td><td class="num">384</td></tr><tr><td><a href="../../parking/gyeonggi/paju/pj-059/">시청주차장</a></td><td>파주시</td><td>토 · 일·공휴일</td><td class="num">340</td></tr><tr><td><a href="../../parking/gyeongbuk/andong/gb-andong-035/">옥동 주차타워</a></td><td>안동시</td><td>토 · 일·공휴일</td><td class="num">316</td></tr><tr><td><a href="../../parking/gyeonggi/paju/pj-028/">산내마을2</a></td><td>파주시</td><td>토 · 일·공휴일</td><td class="num">305</td></tr><tr><td><a href="../../parking/gyeonggi/paju/pj-008/">금촌2</a></td><td>파주시</td><td>토 · 일·공휴일</td><td class="num">303</td></tr><tr><td><a href="../../parking/gyeongbuk/andong/gb-andong-021/">터미널공영주차장</a></td><td>안동시</td><td>토 · 일·공휴일</td><td class="num">303</td></tr><tr><td><a href="../../parking/gyeonggi/paju/pj-061/">야당역 환승</a></td><td>파주시</td><td>토 · 일·공휴일</td><td class="num">302</td></tr><tr><td><a href="../../parking/gyeongbuk/andong/gb-andong-008/">웅부공원공영주차장</a></td><td>안동시</td><td>토 · 일·공휴일</td><td class="num">300</td></tr><tr><td><a href="../../parking/gyeonggi/guri/gri-008/">제6공영노외주차장</a></td><td>구리시</td><td>일·공휴일</td><td class="num">297</td></tr><tr><td><a href="../../parking/gyeonggi/suwon/std-002/">영통구청</a></td><td>수원시</td><td>일·공휴일</td><td class="num">292</td></tr><tr><td><a href="../../parking/chungbuk/chungju/cj-chungju-002/">충주역 서측(하방) 공영주차장</a></td><td>충주시</td><td>토 · 일·공휴일</td><td class="num">284</td></tr><tr><td><a href="../../parking/gyeonggi/siheung/free/">MTV 나눔2호</a></td><td>시흥시</td><td>요일 무관</td><td class="num">278</td></tr><tr><td><a href="../../parking/gyeongbuk/yeongcheon/gb-yeongcheon-044/">영천시청 부설주차장(의회포함)</a></td><td>영천시</td><td>토 · 공휴일</td><td class="num">276</td></tr><tr><td><a href="../../parking/gyeonggi/yangpyeong/yp-026/">양평시장공영주차장</a></td><td>양평군</td><td>일·공휴일</td><td class="num">273</td></tr><tr><td><a href="../../parking/gyeonggi/ansan/free/">대부도노외주차장(1)</a></td><td>안산시</td><td>요일 무관</td><td class="num">268</td></tr><tr><td><a href="../../parking/jeonbuk/gochang/jb-gochang-002/">고창읍 공영주차타워</a></td><td>고창군</td><td>토 · 일·공휴일</td><td class="num">258</td></tr><tr><td><a href="../../parking/gyeonggi/ansan/free/">대부북동51호노외주차장</a></td><td>안산시</td><td>요일 무관</td><td class="num">257</td></tr><tr><td><a href="../../parking/gyeonggi/siheung/free/">MTV 나눔3호</a></td><td>시흥시</td><td>요일 무관</td><td class="num">254</td></tr><tr><td><a href="../../parking/gyeonggi/paju/pj-067/">운정호수공원 공영주차장</a></td><td>파주시</td><td>토 · 일·공휴일</td><td class="num">253</td></tr><tr><td><a href="../../parking/gyeonggi/guri/gri-006/">제5공영노외주차장</a></td><td>구리시</td><td>일·공휴일</td><td class="num">249</td></tr><tr><td><a href="../../parking/gyeonggi/yongin/free/">보정2공영</a></td><td>용인시</td><td>요일 무관</td><td class="num">245</td></tr><tr><td><a href="../../parking/gyeonggi/siheung/sh-141/">정왕동 체육공원 복개천</a></td><td>시흥시</td><td>일·공휴일</td><td class="num">242</td></tr><tr><td><a href="../../parking/chungnam/gongju/ca-gongju-063/">산성시장 공영주차장</a></td><td>공주시</td><td>일·공휴일</td><td class="num">241</td></tr><tr><td><a href="../../parking/gyeonggi/bucheon/bc-020/">부천아트센터</a></td><td>부천시</td><td>토 · 일·공휴일</td><td class="num">240</td></tr><tr><td><a href="../../parking/gyeonggi/bucheon/bc-019/">소사구청</a></td><td>부천시</td><td>토 · 일·공휴일</td><td class="num">239</td></tr></tbody>
 </table></div>
-<h2 id="night">야간 무료 주차장 80곳</h2>
+</details>
+<details class="prov-fold" id="night">
+<summary><span class="pf-name">야간 무료 주차장</span><span class="pf-count">80곳</span></summary>
 <p class="lede">요금은 유료이지만 정해진 야간 시간대에만 요금을 받지 않는 주차장입니다(구획이 많은 순 40곳).</p>
 <div class="table-scroll"><table class="data">
   <thead><tr><th>주차장</th><th>지역</th><th>무료 시간대</th><th class="num">구획</th></tr></thead>
   <tbody><tr><td><a href="../../parking/gyeonggi/suwon/std-033/">농수산시장</a></td><td>수원시</td><td>04:00~07:00</td><td class="num">779</td></tr><tr><td><a href="../../parking/gyeonggi/gimpo/gp-030/">운양역환승센터 공영주차장</a></td><td>김포시</td><td>00:00~09:00</td><td class="num">424</td></tr><tr><td><a href="../../parking/gyeonggi/gimpo/gp-036/">장기7 공영주차장</a></td><td>김포시</td><td>00:00~09:00</td><td class="num">309</td></tr><tr><td><a href="../../parking/gyeonggi/gunpo/gpo-049/">철쭉공원공영주차장</a></td><td>군포시</td><td>00:01~07:59</td><td class="num">258</td></tr><tr><td><a href="../../parking/gyeonggi/gunpo/gpo-023/">당정2공영주차장</a></td><td>군포시</td><td>00:01~07:59</td><td class="num">237</td></tr><tr><td><a href="../../parking/gyeonggi/gunpo/gpo-005/">송죽공영주차장</a></td><td>군포시</td><td>23:01~다음날 06:59</td><td class="num">232</td></tr><tr><td><a href="../../parking/gyeonggi/gunpo/gpo-010/">당동2공영주차장</a></td><td>군포시</td><td>00:01~07:59</td><td class="num">206</td></tr><tr><td><a href="../../parking/gyeonggi/gimpo/gp-037/">한강중앙공원 공영주차장</a></td><td>김포시</td><td>00:00~09:00</td><td class="num">205</td></tr><tr><td><a href="../../parking/gyeonggi/gimpo/gp-039/">통진공영주차장</a></td><td>김포시</td><td>00:00~09:00</td><td class="num">196</td></tr><tr><td><a href="../../parking/gyeonggi/gimpo/gp-024/">사우중앙 공영주차장</a></td><td>김포시</td><td>00:00~09:00</td><td class="num">177</td></tr><tr><td><a href="../../parking/chungnam/geumsan/ca-geumsan-004/">금산다락원·청산회관주차장</a></td><td>금산군</td><td>18:00~다음날 09:00</td><td class="num">177</td></tr><tr><td><a href="../../parking/gyeonggi/gunpo/gpo-040/">고랑치기공영주차장</a></td><td>군포시</td><td>00:01~07:59</td><td class="num">166</td></tr><tr><td><a href="../../parking/gyeonggi/gimpo/gp-004/">고촌노을 공영주차장</a></td><td>김포시</td><td>00:00~09:00</td><td class="num">165</td></tr><tr><td><a href="../../parking/gyeonggi/gimpo/gp-023/">사우자주 공영주차장</a></td><td>김포시</td><td>00:00~09:00</td><td class="num">163</td></tr><tr><td><a href="../../parking/jeonnam/gwangyang/jn-gwangyang-054/">인서리 237-1</a></td><td>광양시</td><td>19:00~다음날 09:00</td><td class="num">161</td></tr><tr><td><a href="../../parking/gyeonggi/gimpo/gp-013/">북변 공영주차장</a></td><td>김포시</td><td>00:00~09:00</td><td class="num">157</td></tr><tr><td><a href="../../parking/gyeonggi/gunpo/gpo-002/">금정제일공영주차장</a></td><td>군포시</td><td>00:01~07:59</td><td class="num">115</td></tr><tr><td><a href="../../parking/jeonnam/muan/jn-muan-002/">무안 1공영주차장</a></td><td>무안군</td><td>20:00~다음날 08:00</td><td class="num">115</td></tr><tr><td><a href="../../parking/gyeonggi/gimpo/gp-005/">고촌보름 공영주차장</a></td><td>김포시</td><td>00:00~09:00</td><td class="num">108</td></tr><tr><td><a href="../../parking/jeonnam/gangjin/jn-gangjin-001/">제6공영주차장(강진아트홀)</a></td><td>강진군</td><td>19:00~다음날 08:00</td><td class="num">108</td></tr><tr><td><a href="../../parking/gyeonggi/gimpo/gp-008/">구래상업지역 공영주차장</a></td><td>김포시</td><td>00:00~09:00</td><td class="num">105</td></tr><tr><td><a href="../../parking/gyeonggi/gimpo/gp-034/">장기5 자주식</a></td><td>김포시</td><td>00:00~09:00</td><td class="num">104</td></tr><tr><td><a href="../../parking/gyeonggi/gimpo/gp-016/">사우2 공영주차장</a></td><td>김포시</td><td>00:00~09:00</td><td class="num">94</td></tr><tr><td><a href="../../parking/gyeonggi/gimpo/gp-027/">학운1 공영주차장</a></td><td>김포시</td><td>00:00~09:00</td><td class="num">91</td></tr><tr><td><a href="../../parking/jeonnam/gwangyang/jn-gwangyang-041/">읍내리 227-1</a></td><td>광양시</td><td>19:00~다음날 09:00</td><td class="num">89</td></tr><tr><td><a href="../../parking/gyeonggi/gimpo/gp-009/">대곶 공영주차장</a></td><td>김포시</td><td>00:00~09:00</td><td class="num">86</td></tr><tr><td><a href="../../parking/gyeonggi/gimpo/gp-033/">장기3 공영주차장</a></td><td>김포시</td><td>00:00~09:00</td><td class="num">82</td></tr><tr><td><a href="../../parking/gyeonggi/gunpo/gpo-009/">당동1공영주차장</a></td><td>군포시</td><td>00:01~07:59</td><td class="num">82</td></tr><tr><td><a href="../../parking/gyeonggi/gunpo/gpo-011/">당동3공영주차장</a></td><td>군포시</td><td>00:01~07:59</td><td class="num">80</td></tr><tr><td><a href="../../parking/gyeonggi/gimpo/gp-031/">장기1 공영주차장</a></td><td>김포시</td><td>00:00~09:00</td><td class="num">76</td></tr><tr><td><a href="../../parking/gyeonggi/gunpo/gpo-022/">당정1공영주차장</a></td><td>군포시</td><td>00:01~07:59</td><td class="num">76</td></tr><tr><td><a href="../../parking/gyeonggi/gunpo/gpo-044/">산본천공영주차장</a></td><td>군포시</td><td>00:01~07:59</td><td class="num">76</td></tr><tr><td><a href="../../parking/jeonnam/muan/jn-muan-001/">낙지타워공용주차장</a></td><td>무안군</td><td>20:00~다음날 08:00</td><td class="num">75</td></tr><tr><td><a href="../../parking/gyeonggi/gunpo/gpo-008/">군포역환승공영주차장</a></td><td>군포시</td><td>00:01~07:59</td><td class="num">74</td></tr><tr><td><a href="../../parking/gyeonggi/gunpo/gpo-015/">문화공영주차장</a></td><td>군포시</td><td>00:01~07:59</td><td class="num">74</td></tr><tr><td><a href="../../parking/gyeonggi/gimpo/gp-014/">북변자주식 공영주차장</a></td><td>김포시</td><td>00:00~09:00</td><td class="num">70</td></tr><tr><td><a href="../../parking/gyeonggi/gunpo/gpo-050/">행복공영주차장</a></td><td>군포시</td><td>19:01~다음날 09:59</td><td class="num">59</td></tr><tr><td><a href="../../parking/gyeonggi/gimpo/gp-003/">고촌공영주차장</a></td><td>김포시</td><td>00:00~09:00</td><td class="num">58</td></tr><tr><td><a href="../../parking/gyeonggi/gimpo/gp-017/">사우노외1 공영주차장</a></td><td>김포시</td><td>00:00~09:00</td><td class="num">57</td></tr><tr><td><a href="../../parking/jeonnam/muan/jn-muan-003/">무안 도시재생 주차장</a></td><td>무안군</td><td>20:00~다음날 08:00</td><td class="num">56</td></tr></tbody>
 </table></div>
+</details>
 <h2>무료 개방 유형</h2>
 <ul class="free-legend">
   <li><b>요금 구분 무료</b> 8,930곳 — 요일과 관계없이 요금이 없습니다.</li>
@@ -732,6 +753,19 @@ document.addEventListener('DOMContentLoaded', function () {
     <li>월정기 전용·공무원 전용·화물차·버스 전용처럼 일반 차량이 쓸 수 없는 주차장은 목록에서 뺐습니다(각 지역 목록에는 배지로 표시).</li>
   </ul>
 </section>
+
+<script>
+(function () {
+  function openFromHash() {
+    var h = (location.hash || '').replace('#', '');
+    if (!h) return;
+    var t = document.getElementById(h);
+    if (t && t.tagName === 'DETAILS') t.open = true;
+  }
+  openFromHash();
+  window.addEventListener('hashchange', openFromHash);
+})();
+</script>
 
 </main>
 <footer class="site-foot">
