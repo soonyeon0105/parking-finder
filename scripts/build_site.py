@@ -8770,18 +8770,34 @@ def build_district(city, d, lots, site, path=None, hub=False):
 {ui.get("weekend_note") or ""}계산기의 요일을 ‘토요일’이나 ‘일요일·공휴일’로 바꾸면 그날 기준 예상요금으로 다시 정렬됩니다.</p>
 """)
     else:
-        weekend_link = (
-        f"""
+        if free_all_gu:
+            weekend_link = f"""
 <h2>{esc(gu)} 주말·공휴일 운영</h2>
 <p class="lede">이 {area} 주차장 가운데 공공데이터에서 요금 구분이 <b>‘무료’</b>인 {free_all_label}{free_nuance}
 {weekend_extra}{weekend_rest}은 주말에도 요금이 부과되고, 토요일 미운영 {s['closed_sat']}곳, 일요일·공휴일 미운영 {s['closed_sun']}곳입니다.
 {ui.get("weekend_note") or ""}계산기의 요일을 ‘토요일’이나 ‘일요일·공휴일’로 바꾸면 그날 기준 예상요금으로 다시 정렬됩니다.</p>
-""" if free_all_gu else f"""
+"""
+        elif free_weekend_in_gu:
+            # 요금 구분이 ‘무료’인 곳은 없지만 유료 가운데 주말 무료 개방이 있는 도시(무안군) —
+            # ‘표기가 없습니다’로 적으면 같은 페이지의 요일 버튼·카드 배지와 모순된다.
+            _wk_paid_rest = _paid_gu - free_weekend_in_gu
+            _wk_rest = (f" 나머지 {_wk_paid_rest}곳은 주말에도 요금이 부과됩니다."
+                        if _wk_paid_rest else "")
+            _wk_unk = (f" 요금 미상 {_unknown_gu}곳은 주말 무료 개방 정보가 없어 현장 확인이 필요합니다."
+                       if _unknown_gu else "")
+            weekend_link = f"""
+<h2>{esc(gu)} 주말·공휴일 운영</h2>
+<p class="lede">이 {area} 주차장은 요금 구분이 ‘무료’인 곳이 없지만, 유료로 등록됐지만 특기사항에 ‘주말 및 공휴일 무료’가 적힌 곳이 {free_weekend_in_gu}곳 있습니다.{_wk_rest}{_wk_unk}
+토요일 미운영 {s['closed_sat']}곳, 일요일·공휴일 미운영 {s['closed_sun']}곳입니다.
+{ui.get("weekend_note") or ""}계산기의 요일을 ‘토요일’이나 ‘일요일·공휴일’로 바꾸면 그날 기준 예상요금으로 다시 정렬됩니다.</p>
+"""
+        else:
+            weekend_link = f"""
 <h2>{esc(gu)} 주말·공휴일 운영</h2>
 <p class="lede">이 {area} 주차장은 공공데이터에 주말 무료 개방 표기가 없습니다.
 토요일 미운영 {s['closed_sat']}곳, 일요일·공휴일 미운영 {s['closed_sun']}곳이며 나머지는 주말에도 요금이 부과됩니다.
 {ui.get("weekend_note") or ""}계산기의 요일을 ‘토요일’이나 ‘일요일·공휴일’로 바꾸면 그날 기준 예상요금으로 다시 정렬됩니다.</p>
-""")
+"""
 
     # 2시간 요금 FAQ 답 — 유료 곳이 하나도 없으면 '모두 무료'와 '요금 미상'을 나눠 적는다(문경시).
     # 유료가 노상에만 있는 도시(횡성군)는 카드 유료가 0곳이라 prices가 비어 이 폴백이 쓰인다.
@@ -11039,7 +11055,7 @@ def _fee_table_block_raw(city) -> str:
                        if corp.get("street_paid") else "이 지역에는 유료 노상 구간이 없습니다.")
         return f"""
 <h2>{esc(city['city'])} 공영주차장 요금표</h2>
-<p class="lede">전주 공영주차장 117곳 가운데 <b>71곳은 무료</b>이고, 요금을 받는 46곳의
+<p class="lede">전주 공영주차장 117곳 가운데 <b>71곳은 무료</b>이고, 요금을 받는 46곳 가운데 45곳의
 등록요금은 「전주시 주차장 조례」 제4399호 별표 1(개정 2026-06-30)의 급지별 요금과
 일치합니다. 별표 1은 <b>1급지</b>(상업지역) 최초 30분 <b>900원</b>·30분 초과 후 15분마다
 <b>450원</b>·1일 <b>9,000원</b>, <b>2급지</b>(주거·공업지역) <b>700원</b>·<b>350원</b>·
