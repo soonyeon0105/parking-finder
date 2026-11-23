@@ -493,18 +493,35 @@
 
 
 /* ---------------------------------------------------------------- 지역 UI (2026-11-18)
- * ① 상단 헤더의 ‘지역 빠른 이동’ 선택 → 그 지역 페이지로 이동
+ * ① 상단 헤더의 ‘지역 이동’ 버튼 → 시·도 칩 패널을 열고, 도를 누르면 그 지역 페이지로 이동
+ *    (2026-11-24: 기본 select 콤보박스 모양이 디자인과 안 맞아 버튼형으로 교체)
  * ② 홈의 시·도 탭 → 한 번에 한 시·도만 보여 준다(다른 시·도의 링크는 HTML 에 그대로 남는다)
  * ③ 목록의 무료 필터 칩(?f=weekend · ?now=1) → 카드를 숨겨 걸러 낸다(정렬 order 와 별개)
  */
 (function () {
   'use strict';
 
-  // ① 지역 빠른 이동
-  var jump = document.getElementById('region-jump');
-  if (jump) {
-    jump.addEventListener('change', function () {
-      if (jump.value) location.href = jump.value;
+  // ① 지역 이동 버튼·패널
+  var jumpBtn = document.getElementById('region-jump-btn');
+  var jumpPanel = document.getElementById('region-jump-panel');
+  if (jumpBtn && jumpPanel) {
+    function closeJump() {
+      jumpPanel.hidden = true;
+      jumpBtn.setAttribute('aria-expanded', 'false');
+    }
+    jumpBtn.addEventListener('click', function () {
+      var open = jumpPanel.hidden;
+      jumpPanel.hidden = !open;
+      jumpBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function (e) {
+      if (jumpPanel.hidden) return;
+      var t = e.target;
+      if (t.closest && (t.closest('.nav-jump') || t.closest('.jump-panel'))) return;
+      closeJump();
+    });
+    document.addEventListener('keydown', function (e) {
+      if ((e.key === 'Escape' || e.keyCode === 27) && !jumpPanel.hidden) closeJump();
     });
   }
 

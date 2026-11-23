@@ -6482,58 +6482,41 @@ def script_jsonld(objs):
 
 # ------------------------------------------------------------------ layout
 def nav_html(city, url, nav_active) -> str:
-    """상단 메뉴 — 한 줄 유지: 지역 빠른 이동(선택) + 무료 개방 + 소개 + 문의.
+    """상단 메뉴 — 한 줄 유지: 지역 이동 버튼 + 무료 개방 + 소개 + 문의.
 
-    83개 지역 칩을 그리던 예전 메뉴는 모바일에서 여러 줄로 늘어나 헤더가 화면을 덮었다.
-    지역 링크는 <select> 안에 시·도별로 묶고, 모든 시·군·구 페이지 링크는
-    푸터의 지역 디렉터리와 /parking/regions/ 에 그대로 남겨 색인 경로를 유지한다.
+    83개 지역 칩을 그리던 예전 메뉴는 모바일에서 여러 줄로 늘어나 헤더가 화면을 덮었고,
+    그 다음의 <select> 콤보박스는 기본 모양이 디자인과 안 맞는다는 운영자 지적이 있었다
+    (2026-11-24). '지역 이동' pill 버튼을 누르면 시·도 칩 패널이 헤더 아래에 열리고,
+    도를 누르면 그 도 허브로 이동한다 — 깊은 지역 페이지에서도 한 번에 돌아갈 수 있다.
+    모든 시·군·구 페이지 링크는 푸터의 지역 디렉터리와 /parking/regions/ 에
+    그대로 남겨 색인 경로를 유지한다.
     """
-    opts = []
+    prov_links = []
     for prov in PROVINCE_ORDER:
         cities = [c for c in SITE_CITIES if (c.get("province") or "지역") == prov]
         if not cities:
             continue
-        opts.append(f'<optgroup label="{esc(prov)}">')
         _pslug = next((c.get("province_slug") for c in cities if c.get("province_slug")), "")
         _pn = sum(len(c.get("_card_lots") or []) for c in cities)
         if _pslug == "jeonnam":
             # 전남광주통합특별시 허브는 광주광역시 5개 구도 합산한다(build_province_hub와
-            # 같은 기준) — 빠른 이동 라벨 숫자도 허브 제목(1,473곳)과 맞춘다.
+            # 같은 기준) — 패널 숫자도 허브 제목(1,473곳)과 맞춘다.
             _pn += sum(len(c.get("_card_lots") or []) for c in SITE_CITIES
                        if (c.get("province") or "지역") == "광주광역시")
-        opts.append(f'<option value="{url(province_path(_pslug))}">▸ {esc(prov)} 전체 ({_pn:,}곳)</option>')
-        for c in cities:
-            sel = " selected" if city and c["city"] == city["city"] else ""
-            n = len(c.get("_card_lots") or [])
-            if n:
-                _cnt = f"{n:,}곳"
-            else:
-                # 카드가 없는 노상 전용 지역(사천)은 도별 허브 카드와 같은
-                # '노상 N구간' 기준으로 적는다 — '0곳'으로 두지 않는다.
-                _sn = len(c.get("_street_lots") or [])
-                _cnt = f"노상 {_sn}구간" if _sn else "0곳"
-            opts.append(f'<option value="{url(city_path(c))}"{sel}>{esc(c["city"])} ({_cnt})</option>')
-        opts.append('</optgroup>')
-    if city and not is_city_wide(city):
-        here = [d for d in city["districts"]]
-        if here:
-            opts.append(f'<optgroup label="{esc(city["city"])} 구·동">')
-            cur = next((d for d in here if d["name"] == nav_active), None)
-            for d in here:
-                sel = " selected" if cur and d["name"] == cur["name"] else ""
-                opts.append(f'<option value="{url(district_path(city, d))}"{sel}>└ {esc(d["name"])}</option>')
-            opts.append('</optgroup>')
+        prov_links.append(f'<a href="{url(province_path(_pslug))}">{esc(prov)} <small>{_pn:,}곳</small></a>')
 
     def cls(key):
         return ' class="on"' if nav_active == key else ""
 
     return (f'<nav class="site-nav" aria-label="주요 메뉴">'
-            f'<span class="nav-jump"><label for="region-jump">지역 빠른 이동</label>'
-            f'<select id="region-jump" aria-label="지역 빠른 이동">{"".join(opts)}</select></span>'
+            f'<span class="nav-jump"><button type="button" class="nav-jump-btn" id="region-jump-btn" '
+            f'aria-expanded="false" aria-controls="region-jump-panel">지역 이동</button></span>'
             f'<a href="{url("/parking/free/")}"{cls("free")}>무료 개방</a>'
             f'<a href="{url("/about/")}"{cls("about")}>소개</a>'
             f'<a href="{url("/contact/")}"{cls("contact")}>문의</a>'
-            f'</nav>')
+            f'</nav>'
+            f'<div class="jump-panel" id="region-jump-panel" hidden>'
+            f'<p class="jump-panel-t">다른 지역으로 이동</p>{"".join(prov_links)}</div>')
 
 
 def footer_directory(url) -> str:
