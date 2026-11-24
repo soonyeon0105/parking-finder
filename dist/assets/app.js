@@ -3,18 +3,23 @@
  */
 
 /* ---------------------------------------------------------------- 통계 훅 (T-05)
- * data/site.json 의 ga_measurement_id 가 비어 있으면 gtag.js 를 넣지 않으므로 window.gtag 가
- * 없다. 아래 훅은 gtag 가 함수일 때만 이벤트를 보내고, 없으면 아무 것도 하지 않는다(무동작).
- * 이벤트 4종: calc_use · map_outbound_click · free_filter_click · 404_hit
+ * 2026-11-24부터 GTM 방식: 이벤트를 dataLayer.push 로 보내면 GTM 컨테이너
+ * (GTM-THM2WBPJ)의 GA4 이벤트 태그가 받아 전송한다. data/site.json 의
+ * ga_measurement_id 가 비어 있으면 페이지에 GTM 스니펫이 없어 이벤트가 쌓이기만
+ * 하고 전송되지 않는다(사실상 무동작).
+ * 이벤트: calc_use · map_outbound_click · free_filter_click · 404_hit · region_tab_click
  * 계산기 코드와 분리해 두어 #lot-data 가 없는 404·개인정보처리방침 페이지에서도 돈다.
  */
 (function () {
   'use strict';
 
   function track(name, params) {
-    if (typeof window.gtag !== 'function') return;
     try {
-      window.gtag('event', name, params || {});
+      window.dataLayer = window.dataLayer || [];
+      var payload = { event: name };
+      var p = params || {};
+      for (var k in p) { payload[k] = p[k]; }
+      window.dataLayer.push(payload);
     } catch (err) {
       /* 통계 전송 실패가 화면 동작을 막지 않도록 무시한다. */
     }

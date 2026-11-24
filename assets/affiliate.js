@@ -1,9 +1,9 @@
 /* 제휴 안내 블록 — 링크·문구는 data/affiliate.json(배포본 /affiliate.json)에만 있다.
    이 파일을 고치지 않고 JSON만 교체하면 링크 교체·OFF(enabled=false)가 재빌드 없이 된다.
    고지 문구는 접지 않고 항상 표시한다(공정위 추천·보증 심사지침).
-   클릭 측정: 링크 클릭 시 GA4 이벤트 affiliate_click 를 보낸다(app.js 통계 훅과
-   같은 방식 — gtag 가 함수일 때만 보내고, 측정 ID 자체는 페이지 head 의
-   gtag('config', 'G-X99KL3RGWD') 가 담당한다). */
+   클릭 측정: 링크 클릭 시 dataLayer.push 로 affiliate_click 이벤트를 보내고,
+   GTM 컨테이너(GTM-THM2WBPJ)의 GA4 이벤트 태그가 GA4로 전송한다(app.js 통계
+   훅과 같은 방식). */
 (function () {
   var slots = document.querySelectorAll('[data-affiliate-slot]');
   if (!slots.length) return;
@@ -12,9 +12,10 @@
   document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest ? e.target.closest('a[data-affiliate-item]') : null;
     if (!a) return;
-    if (typeof window.gtag !== 'function') return;
     try {
-      window.gtag('event', 'affiliate_click', {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'affiliate_click',
         affiliate_partner: a.getAttribute('data-affiliate-partner') || '',
         affiliate_item: a.getAttribute('data-affiliate-item') || '',
         affiliate_placement: a.getAttribute('data-affiliate-placement') || ''

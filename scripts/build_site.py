@@ -7319,22 +7319,18 @@ def verification_head() -> str:
 
 
 def ga_head() -> str:
-    """GA4 삽입 조각.
+    """측정 삽입 조각 (2026-11-24부터 GTM).
 
-    data/site.json 의 ga_measurement_id 가 비어 있으면 빈 문자열을 돌려주고, gtag.js 스크립트도
-    gtag('config') 도 HTML 에 넣지 않는다(통계 훅은 app.js 에서 window.gtag 유무를 보고 무동작).
-    값이 들어오면 표준 GA4 스니펫을 <head> 에 넣는다.
+    data/site.json 의 ga_measurement_id 가 비어 있으면 빈 문자열을 돌려준다(측정 OFF 스위치).
+    값이 들어오면 GTM 컨테이너(GTM-THM2WBPJ) 스니펫을 <head> 에 넣는다 — GA4 페이지뷰와
+    이벤트 전송은 GTM 태그가 담당하고, 앱 이벤트는 app.js 가 dataLayer.push 로 보낸다.
     """
     if not GA_MEASUREMENT_ID:
         return ""
-    gid = esc(GA_MEASUREMENT_ID)
-    return (f'<script async src="https://www.googletagmanager.com/gtag/js?id={gid}"></script>\n'
-            '<script>\n'
-            'window.dataLayer = window.dataLayer || [];\n'
-            'function gtag(){dataLayer.push(arguments);}\n'
-            "gtag('js', new Date());\n"
-            f"gtag('config', '{gid}');\n"
-            '</script>\n')
+    return ('<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({\'gtm.start\':new Date().getTime(),event:\'gtm.js\'});'
+            'var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;'
+            'j.src=\'https://www.googletagmanager.com/gtm.js?id=\'+i+dl;f.parentNode.insertBefore(j,f);'
+            '})(window,document,\'script\',\'dataLayer\',\'GTM-THM2WBPJ\');</script>\n')
 
 
 def asset_ver() -> str:

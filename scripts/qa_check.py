@@ -276,24 +276,24 @@ GA_ID = (DATA.get("ga_measurement_id") or "").strip()
 all_pages_html = {pg.relative_to(DIST).as_posix(): pg.read_text() for pg in foot_pages}
 if GA_ID:
     missing = [rel for rel, h in all_pages_html.items()
-               if f"googletagmanager.com/gtag/js?id={GA_ID}" not in h
-               or f"gtag('config', '{GA_ID}')" not in h]
+               if "GTM-THM2WBPJ" not in h or "googletagmanager.com/gtm.js" not in h
+               or "gtag/js" in h]
     if missing:
-        fails.append(f"GA4 측정 ID({GA_ID})가 설정됐는데 태그 없는 페이지: {missing[:5]}")
-    print(f"GA4 삽입 확인: {GA_ID} · {len(all_pages_html)}페이지")
+        fails.append(f"측정 스위치({GA_ID})가 켜졌는데 GTM 스니펫이 없거나 옛 gtag가 남은 페이지: {missing[:5]}")
+    print(f"GTM 삽입 확인: GTM-THM2WBPJ (GA4 {GA_ID}) · {len(all_pages_html)}페이지")
 else:
     leaked = [rel for rel, h in all_pages_html.items()
               if "googletagmanager" in h or "gtag(" in h or "dataLayer" in h]
     if leaked:
-        fails.append(f"ga_measurement_id 가 비었는데 GA4 코드가 들어간 페이지: {leaked[:5]}")
-    print(f"GA4 미삽입 확인 (ga_measurement_id 비어 있음 · {len(all_pages_html)}페이지)")
+        fails.append(f"ga_measurement_id 가 비었는데 측정 코드가 들어간 페이지: {leaked[:5]}")
+    print(f"측정 미삽입 확인 (ga_measurement_id 비어 있음 · {len(all_pages_html)}페이지)")
 
 app_js = (DIST / "assets" / "app.js").read_text()
 for ev in ("calc_use", "map_outbound_click", "free_filter_click", "404_hit"):
     if ev not in app_js:
         fails.append(f"app.js: '{ev}' 이벤트 훅 없음")
-if "typeof window.gtag" not in app_js:
-    fails.append("app.js: gtag 존재를 확인하지 않고 이벤트를 보냄(무동작 안전 처리 없음)")
+if "window.dataLayer" not in app_js or "dataLayer.push" not in app_js:
+    fails.append("app.js: GTM 방식(dataLayer.push)으로 이벤트를 보내지 않음")
 if "weekend-free" not in app_js:
     fails.append("app.js: free_filter_click 을 걸 대상(주말·공휴일 무료 개방 링크) 선택자 없음")
 if "data-page" not in app_js or 'data-page="404"' not in (p404.read_text() if p404.exists() else ""):
