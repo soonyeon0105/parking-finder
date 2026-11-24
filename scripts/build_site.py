@@ -7371,6 +7371,10 @@ def layout(*, title, description, path, body, crumbs, jsonld, nav_active, city=N
 {canonical_tag}<meta property="og:type" content="website">
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(description)}">
+<meta property="og:site_name" content="{SITE_NAME}">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 {og_url_tag}<meta name="robots" content="{robots}">
 <meta name="generator" content="parking-finder static builder">
 {verification_head()}{ga_head()}{adsense_head()}{extra_head}
@@ -20109,6 +20113,11 @@ def main():
     # 링크 교체·OFF는 이 파일만 교체하면 재빌드 없이 반영된다.
     if AFFILIATE_FILE.exists():
         shutil.copy(AFFILIATE_FILE, DIST / "affiliate.json")
+    # 파비콘 — 브라우저 탭·검색 결과에 뜨는 작은 로고. 표준 경로(/favicon.ico 등)라 루트에 둔다.
+    for f in ("favicon.svg", "favicon.ico", "apple-touch-icon.png"):
+        fav_src = ASSETS / f
+        if fav_src.exists():
+            shutil.copy(fav_src, DIST / f)
 
     pages = [build_landing(site), build_privacy(site),
              build_free_hub(site), build_regions(site),
