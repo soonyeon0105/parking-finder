@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-공영주차장 파인더 — 정적 사이트 생성기 (수원시 + 성남시 + 용인시 + 화성시 + 안양시 + 평택시)
+공영주차장 요금계산기 — 정적 사이트 생성기 (수원시 + 성남시 + 용인시 + 화성시 + 안양시 + 평택시)
 
 data/site.json 을 읽어 dist/ 아래에 도시별로
   · 랜딩(도시 선택)
@@ -35,7 +35,7 @@ LEGACY_DATA_FILE = BASE / "data" / "suwon_parking.json"
 DIST = BASE / "dist"
 ASSETS = BASE / "assets"
 
-SITE_NAME = "공영주차장 파인더"
+SITE_NAME = "공영주차장 요금계산기"
 SITE_BASE = "https://parking.9welfare.com"   # 배포 시 실제 도메인으로 바꾼다
 BUILD_TS = ""
 SNAPSHOT_TS = ""
@@ -1564,7 +1564,7 @@ CITY_UI = {
         "count_note": ("노외 {n}곳과 노상 {street_n}구간을 합쳐 공영주차장 {total:,}곳, 주차 구획 "
                        "{spaces:,}면(노상 {street_spaces:,}면 포함)입니다. 표준데이터에 등록된 양주시 "
                        "주차장 89행 가운데 민영 40곳(상가·건물·코레일네트웍스 등)은 공영주차장 "
-                       "파인더라 빼고, 공영 49행(노외 38·노상 11)을 실었습니다. 양주도시공사 "
+                       "요금계산기라 빼고, 공영 49행(노외 38·노상 11)을 실었습니다. 양주도시공사 "
                        "통합주차포털로 운영시간과 주차장별 요금을 대조해 표준데이터가 ‘무료’로 "
                        "등록한 덕정역 공영주차장을 유료로 바로잡았습니다(2026-05-04 전환)."),
         "weekend_note": "",
@@ -3325,7 +3325,7 @@ CITY_UI.update({
             "시영(서울시설공단) 천왕역 280원·구로디지털단지역 320원·동구로 320원은 공시지가 변수를 "
             "곱한 요금이고, 노상 온수역(남) 290원·대림역2 400원·가마산고가밑 120원은 평일 09:00~19:00·"
             "토요일 09:00~15:00에만 요금을 받습니다.",
-            "표준데이터에 민영으로 등록된 39행은 공영주차장 파인더라 제외했습니다.",
+            "표준데이터에 민영으로 등록된 39행은 공영주차장 요금계산기라 제외했습니다.",
         ],
         "std_note": ("요금·운영시간·급지·면수는 표준데이터 등록값을 그대로 썼고, 구로구시설관리공단 "
                      "공영주차장 요금·정기권 안내(2026-11-18 확인)와 대조했습니다. "),
@@ -3362,7 +3362,7 @@ CITY_UI.update({
             "<b>1일 주차 할인권(운영시간 내)</b>은 1급지 30,000원·2급지 15,000원·3급지 9,000원·"
             "4급지 6,000원이고, 월 정기권은 2급지 노상 130,000원·노외 180,000원, 5급지 노외 "
             "35,000원(전일 40,000~50,000원)입니다.",
-            "공영주차장과 함께 표준데이터에 등록된 민영 주차장 6행은 공영주차장 파인더라 제외했습니다.",
+            "공영주차장과 함께 표준데이터에 등록된 민영 주차장 6행은 공영주차장 요금계산기라 제외했습니다.",
         ],
         "std_note": ("요금·운영시간·급지·면수는 표준데이터 등록값을 그대로 썼고, 금천구시설관리공단 "
                      "이용요금·감면 안내(2026-11-18 조회)와 대조했습니다. "),
@@ -8203,7 +8203,7 @@ def district_dataset_lines(city, ui, gap_line) -> str:
     <li>실시간 잔여면수는 연동하지 않았습니다(공단은 실시간 주차정보를 제공하지 않습니다). 카드의 구획수는 표준데이터 <b>등록면수</b>(노외 {q['총_구획수']:,}면 + 노상 {q['노상_구획수']:,}면)입니다.</li>
     <li>{city.get("dong_page_min_lots", DONG_PAGE_MIN_LOTS)}곳 미만인 동(지행동·광암동·동두천동)은 이 페이지 표에만 싣고 별도 페이지를 만들지 않았습니다(빈 페이지 방지).</li>"""
     if city["city"] == "양주시":
-        return f"""    <li><b>요금·운영시간·구획수</b>: 공공데이터포털 전국주차장정보표준데이터(경기도 양주시가 등록한 {q['원자료_행수']}행 가운데 공영 {q['원자료_양주시행수']}행{std_date_suffix(ui)}) — 노외 {q['총_주차장']}곳과 노상 {q['노상_구간']}구간을 실었습니다. 민영 주차장 {q.get('민영_제외', 0)}곳(상가·건물·코레일네트웍스 등)은 공영주차장 파인더라 빼고, 요금 구분은 유료 {q['요금구분'].get('유료', 0)}곳·무료 {q['요금구분'].get('무료', 0)}곳입니다.</li>
+        return f"""    <li><b>요금·운영시간·구획수</b>: 공공데이터포털 전국주차장정보표준데이터(경기도 양주시가 등록한 {q['원자료_행수']}행 가운데 공영 {q['원자료_양주시행수']}행{std_date_suffix(ui)}) — 노외 {q['총_주차장']}곳과 노상 {q['노상_구간']}구간을 실었습니다. 민영 주차장 {q.get('민영_제외', 0)}곳(상가·건물·코레일네트웍스 등)은 공영주차장 요금계산기라 빼고, 요금 구분은 유료 {q['요금구분'].get('유료', 0)}곳·무료 {q['요금구분'].get('무료', 0)}곳입니다.</li>
     <li><b>요금표</b>: 「양주시 주차장 조례」 [별표 1] 공영주차장 주차요금표({esc(ORDINANCE_NOTE_YJ)}) — 1급지 <b>최초 30분 이내 600원·10분당 200원·1일 주차권(선납) 7,000원·월 정기권(선납) 60,000원</b>, 2급지 300·100·3,000·40,000원, 거주자 전용 주차구획 주간·야간 20,000원·전일 30,000원입니다. 별표1은 ‘최초 30분 미만은 기본요금, 다만 입차 후 <b>최초 10분까지는 무료</b>’로 정하고 있습니다.</li>
     <li><b>운영시간·무료 개방</b>: 표준데이터는 모든 행을 09:00~23:59로만 등록해 두어, <a href="https://parking.yjuc.or.kr/parking/list.do" rel="nofollow noopener" target="_blank">양주도시공사 통합주차포털</a>의 주차장별 평일·토요일·공휴일 운영시간으로 바로잡았습니다. 조례 별표1 비고2는 운영시간을 주간 08:00~20:00·야간 20:00~익일 08:00으로, 비고3은 <b>야간·주말·공휴일 주차요금을 무료</b>로 정합니다. 포털이 요금을 받지 않는 요일(00:00~00:00)은 무료 개방으로 표시했습니다.</li>
     <li><b>덕정역 공영주차장</b>: 2025년 10월부터 무료 시범 운영하다 2026-05-04부터 양주도시공사를 통해 평일 08:00~20:00만 유료로 전환했습니다(양주도시공사 공지 2026-04-29·신아일보 2026-05-07 · <code>data/raw/shinailbo.co.kr_양주덕정역공영주차장_유료전환_20261117.txt</code>). 표준데이터는 아직 ‘무료’로 등록되어 있어 유료로 바로잡았습니다(요금구분 보정 1건).</li>
@@ -19325,7 +19325,7 @@ def build_regions(site):
                       f'<tbody>{"".join(rows)}</tbody></table>')
     body = f"""
 <h1>지역 전체 목록 — 시·도·시·군·구·동</h1>
-<p class="lede">공영주차장 파인더가 다루는 모든 지역 페이지를 한 곳에 모았습니다. 지역 이름을 누르면 요금 계산기와 주차장 목록으로 이동합니다.
+<p class="lede">공영주차장 요금계산기가 다루는 모든 지역 페이지를 한 곳에 모았습니다. 지역 이름을 누르면 요금 계산기와 주차장 목록으로 이동합니다.
 지역 수 {len(site['cities'])}곳, 등록 주차장 {sum(stats_for(c.get('_lots') or [])['n'] for c in site['cities']):,}곳입니다.</p>
 <p class="ff-status" id="region-q-status" hidden><span id="region-q-text"></span> <a href="/parking/regions/">전체 목록 보기 →</a></p>
 {''.join(blocks)}
@@ -19366,7 +19366,7 @@ def build_regions(site):
     crumbs = [("홈", "/"), ("지역 전체 목록", "")]
     return path, layout(
         title=f"지역 전체 목록 — 시·도·시·군·구별 공영주차장 | {SITE_NAME}",
-        description="공영주차장 파인더의 전국 지역 페이지 목록입니다. 시·도별 시·군·구와 동·읍·면 페이지, 무료 개방 주차장 페이지를 한 곳에 모았습니다.",
+        description="공영주차장 요금계산기의 전국 지역 페이지 목록입니다. 시·도별 시·군·구와 동·읍·면 페이지, 무료 개방 주차장 페이지를 한 곳에 모았습니다.",
         path=path, body=body, crumbs=crumbs, nav_active="regions", city=None,
         jsonld=[jsonld_breadcrumb(crumbs, path)])
 
@@ -19520,7 +19520,7 @@ def build_contact(site):
                   "mainEntity": {"@type": "Organization", "name": SITE_NAME, "url": SITE_BASE + "/"}}
     return path, layout(
         title=f"문의·오류 제보 | {SITE_NAME}",
-        description=("공영주차장 파인더 문의 창구입니다. 요금·운영시간 정정은 관리기관에, "
+        description=("공영주차장 요금계산기 문의 창구입니다. 요금·운영시간 정정은 관리기관에, "
                      "사이트 오류는 익명 오류 제보 폼으로 알려 주세요. 답변은 영업일 기준 3일 이내입니다."),
         path=path, body=body, crumbs=crumbs, nav_active="contact", city=None,
         jsonld=[jsonld_breadcrumb(crumbs, path), contact_ld])
@@ -19554,7 +19554,7 @@ def build_terms(site):
     crumbs = [("홈", "/"), ("이용약관", "")]
     return path, layout(
         title=f"이용약관 | {SITE_NAME}",
-        description="공영주차장 파인더 이용약관 — 참고용 정보의 성격, 데이터 출처와 라이선스, 금지행위, 책임의 한계를 안내합니다.",
+        description="공영주차장 요금계산기 이용약관 — 참고용 정보의 성격, 데이터 출처와 라이선스, 금지행위, 책임의 한계를 안내합니다.",
         path=path, body=body, crumbs=crumbs, nav_active="", city=None,
         jsonld=[jsonld_breadcrumb(crumbs, path)])
 
@@ -19775,7 +19775,7 @@ def build_landing(site):
                               "url": SITE_BASE + city_path(c)} for i, c in enumerate(site["cities"])]},
     ]
     return path, layout(
-        title=f"{SITE_NAME} — {city_names} 공영주차장 요금·무료 개방 계산",
+        title=f"{SITE_NAME} — 전국 {total_all:,}곳 요금·무료 개방·월정기",
         description=f"{city_names} 공영주차장 요금을 요일·시간·감면 조건으로 바로 계산하고, "
                     "주말·공휴일 무료 개방 주차장과 실시간 잔여면수를 확인하세요.",
         path=path, body=body, crumbs=[("홈", "")], nav_active="", city=None, jsonld=home_ld,
@@ -19882,7 +19882,7 @@ Google Analytics 데이터 보관 설정(2개월·14개월 중 선택)을 따릅
     crumbs = [("홈", "/"), ("개인정보처리방침", "")]
     return path, layout(
         title=f"개인정보처리방침 | {SITE_NAME}",
-        description="공영주차장 파인더의 개인정보처리방침입니다. 회원가입 없이 개인정보를 수집하지 않으며, "
+        description="공영주차장 요금계산기의 개인정보처리방침입니다. 회원가입 없이 개인정보를 수집하지 않으며, "
                     "접속 로그·쿠키, Cloudflare Web Analytics와 GA4 통계 사용 범위, 거부 방법, 오류 제보 방법을 안내합니다.",
         path=path, body=body, crumbs=crumbs, nav_active="", city=None, jsonld=[])
 
@@ -19941,7 +19941,7 @@ def build_404(site):
 """
     return layout(
         title=f"페이지를 찾을 수 없습니다 (404) | {SITE_NAME}",
-        description="요청한 주소의 페이지가 없습니다. 공영주차장 파인더에서 공영주차장 요금과 무료 개방 정보를 확인하세요.",
+        description="요청한 주소의 페이지가 없습니다. 공영주차장 요금계산기에서 공영주차장 요금과 무료 개방 정보를 확인하세요.",
         path="/404.html", body=body, crumbs=[("홈", "/")], nav_active="", city=None, jsonld=[],
         absolute_links=True, robots="noindex,follow", canonical="", body_attrs=' data-page="404"')
 
