@@ -18803,11 +18803,14 @@ def build_free_hub(site):
     card_links = []
     for prov in fold_provinces(site):
         cards = []
-        prov_slug = ""
         prov_union = 0
         # 전남광주통합특별시 접기에는 광주광역시 5개 구도 함께 모은다(도 허브와 같은 기준).
-        for city in province_cities(prov, site):
-            prov_slug = city.get("province_slug") or prov_slug
+        prov_cities = province_cities(prov, site)
+        # 접기의 slug는 첫 도시의 province_slug로 정한다(도 허브·도별 무료 허브와 같은 기준).
+        # 도시 순회 중 마지막 도시로 덮어쓰면 광주 5개 구 때문에 'gwangju'가 돼 [모아보기]가
+        # 광주 무료 페이지로 오지정된다(연희 재검수 지적 2026-11-24).
+        prov_slug = next((c.get("province_slug") for c in prov_cities if c.get("province_slug")), "")
+        for city in prov_cities:
             c = free_counts(city.get("_card_lots") or [])
             if not c["union"]:
                 continue
