@@ -392,3 +392,53 @@ footer.site-foot .foot-note { margin: 8px 0 0; font-size: 11.5px; color: var(--m
 @media (min-width: 720px) {
   .affiliate-cards { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
 }
+
+/* ── 다크모드 (2026-11-24): 기기·브라우저의 prefers-color-scheme 설정을 따라 자동 전환한다(토글 없음).
+   방식: 토큰 값만 어둡게 재정의하고, 토큰으로 못 덮는 하드코딩 표면만 아래에서 보정한다.
+   라이트모드 규칙은 이 블록 밖에 있어 기존 화면은 달라지지 않는다. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --ink: #e8edf5;
+    --ink-soft: #c3cede;
+    --muted: #94a3b8;
+    --line: #2b3648;
+    --bg: #0d1322;
+    --card: #151d31;
+    --brand: #7aa5ff;
+    --brand-dark: #8fb0ff;
+    --brand-soft: #1b2a4d;
+    --free: #4ade80;
+    --free-soft: #0f2c1e;
+    --warn: #f2b04e;
+    --warn-soft: #2e2410;
+    --panel: #1a2438;
+    --panel-soft: #182136;
+    --focus: #60a5fa;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -16px rgba(0, 0, 0, .7);
+  }
+  /* 채움 버튼·선택 상태는 다크에서도 흰 글씨가 읽히는 진한 파랑을 유지한다 */
+  .site-nav .nav-jump-btn[aria-expanded="true"],
+  .site-nav a.on,
+  button.seg-btn[aria-pressed="true"],
+  .btn.solid,
+  .hero-search button,
+  .prov-tabs .ptab[aria-selected="true"],
+  .ff-chip[aria-pressed="true"] { background: #2f5fd0; border-color: #2f5fd0; }
+  .badge.free { background: #065f46; border-color: #065f46; }
+  .ff-chip.ff-now[aria-pressed="true"] { background: #065f46; border-color: #065f46; }
+  .ff-chip.ff-now { border-color: #205048; }
+  /* 하드코딩된 밝은 표면 보정 */
+  .site-head, .site-nav .nav-jump-btn, .jump-panel a, .site-nav a,
+  .stat, .calc, button.seg-btn, .chip, .btn, .link-card, .tag,
+  table.data, details.faq, .note-box, footer.site-foot,
+  .hero-search, .prov-tabs .ptab, .ff-chip { background: var(--card); }
+  .entry-row input[type="time"], .hero-search input { background: var(--card); color: var(--ink); }
+  .btn { border-color: var(--line); }
+  .card.free { border-color: #205048; background: linear-gradient(180deg, #123128, var(--card) 60%); }
+  .badge.live { background: #0c2e3a; color: #67e8f9; border-color: #155e75; }
+  .badge.permit { background: #232550; color: #a5b4fc; border-color: #3b3f7a; }
+  .badge.bus-only { background: #33270d; color: #fcd34d; border-color: #6e5318; }
+  .badge.kind { border-color: #2e4476; }
+  .badge.unknown { border-color: #6e5318; }
+}

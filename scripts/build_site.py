@@ -18711,6 +18711,10 @@ details.prov-fold .pf-count{font-size:12px;font-weight:600;color:var(--muted)}
 details.prov-fold .grid-2{margin-top:10px}
 details.prov-fold .prov-all{margin:10px 0 0}
 details.prov-fold{scroll-margin-top:12px}
+@media (prefers-color-scheme: dark){
+.prov-chips .pchip{background:var(--card)}
+details.prov-fold{background:var(--card)}
+}
 </style>
 """
 
