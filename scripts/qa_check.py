@@ -2023,11 +2023,15 @@ for l in gp_paid:
                       f'일 {f.get("daily_fee")}·최초 {f.get("free_min")}분)')
 if gp_bad:
     fails.append(f"김포시 유료 주차장 요금이 조례 별표1과 다름 {len(gp_bad)}곳 {gp_bad[:3]}")
-# 계산 결과: 최초 1시간은 0원, 2시간 1,500원, 4시간 5,100원, 24시간은 1일 주차요금 7,000원(상한).
+# 계산 결과(급지별): 최초 1시간은 0원. 1급지 2시간 1,500원·4시간 5,100원·24시간
+# 1일 7,000원(상한), 2급지 2시간 600원·4시간 1,800원·24시간 1일 3,500원(상한).
+# 2급지 유료 노외는 42차 판정(2026-11-24) 하성공영주차장 유료 전환으로 처음 생겼다.
 from build_site import price_for as _pf  # noqa: E402
+GP_PRICE_WANT = {1: ((120, 1500), (240, 5100), (1440, 7000)),
+                 2: ((120, 600), (240, 1800), (1440, 3500))}
 gp_price_bad = []
 for l in gp_paid:
-    for mins, want in ((60, "free"), (120, 1500), (240, 5100), (1440, 7000)):
+    for mins, want in ((60, "free"),) + GP_PRICE_WANT.get(l["fee"]["grade"], ()):
         r = _pf(l, mins, "weekday")
         if want == "free":
             if r.get("state") != "free":
@@ -2042,8 +2046,9 @@ if gp_no_free_hour:
 gp_free_hour_on_street = [l["name"] for l in gp_street if l["fee"].get("deduct_min")]
 if gp_free_hour_on_street:
     fails.append(f"김포시 노상에 1시간 무료가 잘못 적용됨: {gp_free_hour_on_street[:3]}")
-if any(l["name"] == "하성공영주차장" and l["fee"]["type"] != "미상" for l in gp_cards):
-    fails.append("김포 하성공영주차장은 요금표 미공개라 ‘요금 정보 미상’이어야 함")
+# 하성공영주차장: 42차 판정(2026-11-24)으로 2026년 11월 유료 전환(2급지) — 종전의
+# ‘요금표 미공개 → 미상’ 규칙은 폐기. 유료 전환 이후에는 조례 별표1·최초 1시간
+# 무료·급지별 계산 규칙이 위의 일반 규칙으로 검증된다.
 gp_street_paid = [l for l in gp_street if l["fee"]["type"] == "유료"]
 if len(gp_street_paid) != len(gp_street):
     fails.append(f"김포시 노상 {len(gp_street)}구간이 모두 유료가 아님")

@@ -8445,6 +8445,364 @@ def apply_fee_fix_20261123(lots):
     return fixed
 
 
+# ---------------------------------------------------------------- 2026-11-24 요금 정정 (40~45차 판정분)
+# 40차(10:56)~45차(12:06) 판정에서 '반영'으로 정해진 항목만 적용한다.
+# '보류/잠정 유지/반영 없음' 항목은 건드리지 않는다. 값·출처가 없는 항목
+# (울진 025·함안 002/006 — 판정문에 금액 없음)은 반영하지 않고 보고에 남긴다.
+# fee 패치는 절대값이라 다시 적용해도 같은 결과가 된다(멱등). basis 문구는
+# 덧붙일 문장 자체가 없을 때만 붙인다.
+# daily_fee: 1일 요금(1일권·1일 상한 — 계산기는 cap_fee가 없을 때 daily_fee로 상한을 잡는다).
+FEE_FIX_20261124 = {
+    # 40차 — 포항 동빈부두: 월요일 무료는 11-23 정정에 이미 있음. 주소만 정정.
+    "gb-pohang-023": {
+        "set": {"addr_road": "경상북도 포항시 남구 해동로 205",
+                "name": "동빈부두 공영주차장 (남구 해동로 205)"},
+        "basis": ("append", "주소 정정: 남구 해동로 205(40차 판정, 2026-11-24) — "
+                             "repo '북구 동빈2가 148-4'는 오기."),
+    },
+    # 40차 — 청량리시장 제2·제3공영: free_min 10은 11-23 정정에 이미 있음. 잠정 표기만 추가.
+    "dongdaemun-s009": {
+        "basis": ("append", "잠정: 제1공영과 같은 요금 그룹으로 추정(40차 판정, 2026-11-24)."),
+    },
+    "dongdaemun-s010": {
+        "basis": ("append", "잠정: 제1공영과 같은 요금 그룹으로 추정(40차 판정, 2026-11-24)."),
+    },
+    # 40차 — 안동시청 부설: 50% 감면 근거 조례 조항 기록. 요금 변동 없음.
+    "gb-andong-013": {
+        "basis": ("append", "50% 감면 근거: 「안동시 주차장 조례」 제2252호 제6조"
+                             "(40차 판정, 2026-11-24)."),
+    },
+    # 40차 — 자정 넘김: 중구 청계6 s018/s019 토·일 시간 정정.
+    "jung-s018": {
+        "hours": {"sat": {"start": 540, "end": 900, "raw": ["09:00", "15:00"]},
+                  "sun": {"start": 1140, "end": 1440, "raw": ["19:00", "01:00"]}},
+        "basis": ("append", "토·일 시간 정정: 토 09:00~15:00·일 19:00~익일01:00"
+                             "(40차 판정, 2026-11-24)."),
+    },
+    "jung-s019": {
+        "hours": {"sat": {"start": 540, "end": 900, "raw": ["09:00", "15:00"]},
+                  "sun": {"start": 1140, "end": 1440, "raw": ["19:00", "01:00"]}},
+        "basis": ("append", "토·일 시간 정정: 토 09:00~15:00·일 19:00~익일01:00"
+                             "(40차 판정, 2026-11-24)."),
+    },
+    # 40차 — 부천 구소사경찰서별관: 24시간 운영 정정(월정기 50,000원은 이미 있음).
+    "bc-033": {
+        "hours": {"weekday": {"start": 0, "end": 1440, "24h": True, "raw": ["00:00", "24:00"]},
+                  "sat": {"start": 0, "end": 1440, "24h": True, "raw": ["00:00", "24:00"]},
+                  "sun": {"start": 0, "end": 1440, "24h": True, "raw": ["00:00", "24:00"]}},
+        "set": {"note": "월정기 전용"},
+        "basis": ("append", "24시간 운영 정정(40차 판정, 2026-11-24) — 월정기 50,000원."),
+    },
+    # 40차 — 부천 오정동2호: 월정기 40,000원 → 50,000원(06:00~19:00은 이미 있음).
+    "bc-051": {
+        "fee": {"monthly": 50000},
+        "basis": ("append", "월정기 50,000원(40차 판정, 부천주차포털 확인 2026-11-24)."),
+    },
+    # 40차 — 대구 북구 확인 4건: 공단 주차포털 주차장별 요금표 기준.
+    #   기본 30분 값은 판정문에 없어 등록값을 유지한다(대구 선례: 기본·10분 단위 별도 등록).
+    "dg-buk-gu-s092": {
+        "fee": {"unit_min": 10, "unit_fee": 350, "daily_fee": 8000},
+        "hours": {"weekday": {"start": 0, "end": 1440, "24h": True, "raw": ["00:00", "24:00"]},
+                  "sat": {"start": 0, "end": 1440, "24h": True, "raw": ["00:00", "24:00"]},
+                  "sun": {"start": 0, "end": 1440, "24h": True, "raw": ["00:00", "24:00"]}},
+        "set": {"notice": "공단 주차포털 주차장별 요금표 — 2급지 10분 350원·1일 8,000원·24시간 · 민간위탁 주차장"},
+        "basis": ("append", "2급지 10분 350원·1일 8,000원·24시간·민간위탁"
+                             "(40차 판정, 공단 주차포털 확인 2026-11-24)."),
+    },
+    "dg-buk-gu-s064": {
+        "fee": {"unit_min": 10, "unit_fee": 200, "daily_fee": 4000},
+        "hours": {"weekday": {"start": 0, "end": 1440, "24h": True, "raw": ["00:00", "24:00"]},
+                  "sat": {"start": 0, "end": 1440, "24h": True, "raw": ["00:00", "24:00"]},
+                  "sun": {"start": 0, "end": 1440, "24h": True, "raw": ["00:00", "24:00"]}},
+        "set": {"notice": "공단 주차포털 주차장별 요금표 — 3급지 10분 200원·1일 4,000원·24시간 · 민간위탁 주차장"},
+        "basis": ("append", "3급지 10분 200원·1일 4,000원·24시간·민간위탁"
+                             "(40차 판정, 공단 주차포털 확인 2026-11-24)."),
+    },
+    "dg-buk-gu-s171": {
+        "fee": {"grade": "2", "grade_label": "2급지",
+                "unit_min": 10, "unit_fee": 350, "daily_fee": 8000},
+        "hours": {"weekday": {"start": 420, "end": 1020, "raw": ["07:00", "17:00"]},
+                  "sat": {"start": 420, "end": 1020, "raw": ["07:00", "17:00"]},
+                  "sun": {"start": 420, "end": 1020, "raw": ["07:00", "17:00"]}},
+        "free_days": {"sat": True, "sun": True},
+        "set": {"notice": "공단 주차포털 주차장별 요금표 — 2급지 10분 350원·1일 8,000원·07:00~17:00·토·일 무료 · 시영(대구공공시설관리공단) 주차장"},
+        "basis": ("append", "2급지 10분 350원·1일 8,000원·07:00~17:00·토·일 무료"
+                             "(40차 판정, 공단 주차포털 확인 2026-11-24)."),
+    },
+    "dg-buk-gu-s141": {
+        "fee": {"unit_min": 10, "unit_fee": 600, "daily_fee": 14000},
+        "hours": {"weekday": {"start": 420, "end": 1020, "raw": ["07:00", "17:00"]},
+                  "sat": {"start": 420, "end": 1020, "raw": ["07:00", "17:00"]},
+                  "sun": {"start": 420, "end": 1020, "raw": ["07:00", "17:00"]}},
+        "free_days": {"sat": True, "sun": True},
+        "set": {"notice": "공단 주차포털 주차장별 요금표 — 1급지 10분 600원·1일 14,000원·07:00~17:00·토·일 무료 · 시영(대구공공시설관리공단) 주차장"},
+        "basis": ("append", "1급지 10분 600원·1일 14,000원·07:00~17:00·토·일 무료"
+                             "(40차 판정, 공단 주차포털 확인 2026-11-24)."),
+    },
+    # 40차 — 성주 003·004·016: 1급지 요금표 적용(조례 제2610호 별표 1).
+    #   1일 4,000원은 회수권(쿠폰)이라 daily_fee에 둔다(자동 1일 상한이 아니다).
+    "gb-seongju-003": {
+        "fee": {"type": "유료", "base_min": 30, "base_fee": 500,
+                "unit_min": 10, "unit_fee": 200, "daily_fee": 4000,
+                "monthly_day": 60000, "monthly_night": 40000},
+        "basis": ("set", "1급지 요금표 적용(40차 판정, 2026-11-24) — 최초 30분 500원·초과 10분당 200원·"
+                         "1일 회수권 4,000원·월 주간 60,000원·야간 40,000원. "
+                         "근거: 「성주군 주차장 조례」 제2610호(시행 2025-10-30) 별표 1."),
+    },
+    "gb-seongju-004": {
+        "fee": {"type": "유료", "base_min": 30, "base_fee": 500,
+                "unit_min": 10, "unit_fee": 200, "daily_fee": 4000,
+                "monthly_day": 60000, "monthly_night": 40000},
+        "basis": ("set", "1급지 요금표 적용(40차 판정, 2026-11-24) — 최초 30분 500원·초과 10분당 200원·"
+                         "1일 회수권 4,000원·월 주간 60,000원·야간 40,000원. "
+                         "근거: 「성주군 주차장 조례」 제2610호(시행 2025-10-30) 별표 1."),
+    },
+    "gb-seongju-016": {
+        "fee": {"type": "유료", "base_min": 30, "base_fee": 500,
+                "unit_min": 10, "unit_fee": 200, "daily_fee": 4000,
+                "monthly_day": 60000, "monthly_night": 40000},
+        "basis": ("set", "1급지 요금표 적용(40차 판정, 2026-11-24) — 최초 30분 500원·초과 10분당 200원·"
+                         "1일 회수권 4,000원·월 주간 60,000원·야간 40,000원. "
+                         "근거: 「성주군 주차장 조례」 제2610호(시행 2025-10-30) 별표 1."),
+    },
+    # 42차 — 경주 s023/s024/s046: 1급지 요금 반영. 경주 선례대로 base_min은
+    #   최초 30분 + 최초 무료 10분 = 40, 1일 상한은 cap_fee(조례 별표 1).
+    "gb-gyeongju-s023": {
+        "fee": {"type": "유료", "base_min": 40, "base_fee": 500,
+                "unit_min": 10, "unit_fee": 200, "cap_fee": 10000,
+                "cap_src": "조례 별표 1", "monthly": 76000, "free_min": 10},
+        "basis": ("set", "1급지 요금 적용(42·45차 판정, 2026-11-24) — 최초 30분 500원·초과 10분당 200원·"
+                         "1일 상한 10,000원·월 76,000원·최초 10분 무료(조례 별표 1 비고 4). 20분 무료 적용 안 함."),
+    },
+    "gb-gyeongju-s024": {
+        "fee": {"type": "유료", "base_min": 40, "base_fee": 500,
+                "unit_min": 10, "unit_fee": 200, "cap_fee": 10000,
+                "cap_src": "조례 별표 1", "monthly": 76000, "free_min": 10},
+        "basis": ("set", "1급지 요금 적용(42·45차 판정, 2026-11-24) — 최초 30분 500원·초과 10분당 200원·"
+                         "1일 상한 10,000원·월 76,000원·최초 10분 무료(조례 별표 1 비고 4). 20분 무료 적용 안 함."),
+    },
+    "gb-gyeongju-s046": {
+        "fee": {"type": "유료", "base_min": 40, "base_fee": 500,
+                "unit_min": 10, "unit_fee": 200, "cap_fee": 10000,
+                "cap_src": "조례 별표 1", "monthly": 76000, "free_min": 10},
+        "basis": ("set", "1급지 요금 적용(42·45차 판정, 2026-11-24) — 최초 30분 500원·초과 10분당 200원·"
+                         "1일 상한 10,000원·월 76,000원·최초 10분 무료(조례 별표 1 비고 4). 20분 무료 적용 안 함."),
+    },
+    # 42·45차 — 상주 중앙시장주차타워: 기본 60분 500원·30분당 500원·1일 6,000원.
+    #   월정기 주간·야간은 조례 근거 잠정 표기(타워 적용 미확인).
+    "gb-sangju-007": {
+        "fee": {"type": "유료", "base_min": 60, "base_fee": 500,
+                "unit_min": 30, "unit_fee": 500, "daily_fee": 6000,
+                "monthly_day": 75000, "monthly_night": 56000},
+        "basis": ("set", "중앙시장주차타워 — 기본 60분 500원·추가 30분당 500원·1일 6,000원"
+                         "(42·45차 판정, 2026-11-24). 월정기 주간 75,000원·야간 56,000원은 "
+                         "조례 근거 잠정 표기 — 타워 적용 미확인."),
+    },
+    # 42차 — 김포 하성공영주차장: 11월 유료 전환. 금액은 잠정 표기.
+    "gp-042": {
+        "fee": {"type": "유료", "base_min": 30, "base_fee": 300,
+                "unit_min": 10, "unit_fee": 100, "daily_fee": 3500, "monthly": 50000,
+                # 김포시 유료 노외 공영주차장 공통 정책(2027-04-30까지): 최초 1시간 무료.
+                # 42차 판정문에 1시간 무료 언급은 없으나, 조례 별표1 2급지 요금과 같은
+                # 판정문의 금액은 무료 1시간 차감 뒤 적용되는 요금 체계이며, 김포시
+                # 유료 노외 38곳이 모두 deduct_min 60을 갖는 사이트 데이터 모델과
+                # qa_check.py 김포 규칙이 이를 요구한다.
+                "deduct_min": 60},
+        "set": {"notice": None},
+        "basis": ("set", "2026년 11월 유료 전환 — 하성면 2급지 30분 300원·10분당 100원·"
+                         "1일 3,500원·월 50,000원(42차 판정, 2026-11-24). 금액은 잠정 표기. "
+                         "「김포시 주차장 조례」 별표1 노외 2급지 · 최초 1시간 무료"
+                         "(김포시 정책, 2027-04-30까지)."),
+    },
+    # 42차 — 하남 덕풍스포츠센터: 월정기 야간·주간·주야간 분리(월 40,000원은 이미 있음).
+    "hn-011": {
+        "fee": {"monthly_day": 30000, "monthly_night": 20000, "monthly_all": 40000},
+        "basis": ("append", "월정기 야간 20,000원·주간 30,000원·주야간 40,000원"
+                             "(42차 판정, 2026-11-24). 시간제 없음."),
+    },
+    # 42차 — 남원 광한루원 서문·광장: 무료로 잠정 표기.
+    "jb-namwon-001": {
+        "fee": {"type": "무료"},
+        "basis": ("set", "무료로 잠정 표기(42차 판정, 2026-11-24) — 표준데이터 등록 금액이 전부 0원이라 "
+                         "무료로 보나, 조례 별표 1 노외 동지역 요금표와 대조가 필요해 잠정 표기한다."),
+    },
+    "jb-namwon-048": {
+        "fee": {"type": "무료"},
+        "basis": ("set", "무료로 잠정 표기(42차 판정, 2026-11-24) — 표준데이터 등록 금액이 전부 0원이라 "
+                         "무료로 보나, 조례 별표 1 노외 동지역 요금표와 대조가 필요해 잠정 표기한다."),
+    },
+    # 42차 — 영등포 노상 s001·s002(1급지): 일 상한 36,000원.
+    "yeongdeungpo-s001": {
+        "fee": {"cap_fee": 36000},
+        "basis": ("append", "노상 1급지 일 상한 36,000원(42차 판정, 2026-11-24)."),
+    },
+    "yeongdeungpo-s002": {
+        "fee": {"cap_fee": 36000},
+        "basis": ("append", "노상 1급지 일 상한 36,000원(42차 판정, 2026-11-24)."),
+    },
+    # 42차 — 구로 고척동 삼덕마을·소규모: 월정기 전용 50,000원 + 시간요금 없음.
+    "guro-008": {
+        "fee": {"monthly": 50000, "ticket_only": True},
+        "basis": ("set", "월정기 전용 — 시간 주차요금 없음(42차 판정, 2026-11-24). 월정기 50,000원."),
+    },
+    "guro-009": {
+        "fee": {"monthly": 50000, "ticket_only": True},
+        "set": {"addr_jibun": "서울특별시 구로구 고척동 241-348"},
+        "basis": ("set", "월정기 전용 — 시간 주차요금 없음(42차 판정, 2026-11-24). 월정기 50,000원. "
+                         "지번 정정: 241-50 → 241-348."),
+    },
+    # 43·45차 — 칠곡 왜관 남부·북부: 1시간 무료 + 기본·초과·월정기. 1일 상한 4,000원은 잠정.
+    #   free_min 60은 43차 판정문 표기대로 둔다(deduct_min 60은 11-23 정정에서 이미 있음).
+    "gb-chilgok-046": {
+        "fee": {"type": "유료", "base_min": 30, "base_fee": 500,
+                "unit_min": 30, "unit_fee": 500, "daily_fee": 4000, "free_min": 60,
+                "monthly_day": 40000, "monthly_night": 30000,
+                "monthly_all": 50000, "monthly": 50000},
+        "basis": ("set", "군청 공식 현황 페이지 기준 1시간 무료·기본 30분 500원·초과 30분당 500원·"
+                         "월정기 주간 40,000원·야간 30,000원·주야간 50,000원(43차 판정, 2026-11-24). "
+                         "1일 상한 4,000원은 잠정 표기."),
+    },
+    "gb-chilgok-047": {
+        "fee": {"type": "유료", "base_min": 30, "base_fee": 500,
+                "unit_min": 30, "unit_fee": 500, "daily_fee": 4000, "free_min": 60,
+                "monthly_day": 40000, "monthly_night": 30000,
+                "monthly_all": 50000, "monthly": 50000},
+        "basis": ("set", "군청 공식 현황 페이지 기준 1시간 무료·기본 30분 500원·초과 30분당 500원·"
+                         "월정기 주간 40,000원·야간 30,000원·주야간 50,000원(43차 판정, 2026-11-24). "
+                         "1일 상한 4,000원은 잠정 표기."),
+    },
+    # 43·45차 — 군산 옥도면 선유2·장자1: 미상 → 유료. 소형 요금을 기본 요금으로 두고
+    #   대형 요금은 본문에 기록한다(차종별 요금 칸이 없어 소형·대형 분리는 본문 표기 선례를 따른다).
+    "jb-gunsan-096": {
+        "fee": {"type": "유료", "base_min": 30, "base_fee": 1000,
+                "unit_min": 30, "unit_fee": 1500, "daily_fee": 12000,
+                "free_min": 60, "deduct_min": 60},
+        "hours": {"weekday": {"start": 540, "end": 1080, "raw": ["09:00", "18:00"]},
+                  "sat": {"start": 540, "end": 1080, "raw": ["09:00", "18:00"]},
+                  "sun": {"start": 540, "end": 1080, "raw": ["09:00", "18:00"]}},
+        "set": {"notice": None},
+        "basis": ("set", "소형 기본 30분 1,000원·초과 30분당 1,500원·최초 1시간 면제·1일 12,000원, "
+                         "대형 기본 2,000원·초과 30분당 2,500원·1일 20,000원"
+                         "(43·45차 판정, 2026-11-24). 유료 운영 09~18시. "
+                         "감면: 상가 2시간 무료·숙박 익일 14시·도서 거주민 50%."),
+    },
+    "jb-gunsan-098": {
+        "fee": {"type": "유료", "base_min": 30, "base_fee": 1000,
+                "unit_min": 30, "unit_fee": 1500, "daily_fee": 12000,
+                "free_min": 60, "deduct_min": 60},
+        "hours": {"weekday": {"start": 540, "end": 1080, "raw": ["09:00", "18:00"]},
+                  "sat": {"start": 540, "end": 1080, "raw": ["09:00", "18:00"]},
+                  "sun": {"start": 540, "end": 1080, "raw": ["09:00", "18:00"]}},
+        "set": {"notice": None},
+        "basis": ("set", "소형 기본 30분 1,000원·초과 30분당 1,500원·최초 1시간 면제·1일 12,000원, "
+                         "대형 기본 2,000원·초과 30분당 2,500원·1일 20,000원"
+                         "(43·45차 판정, 2026-11-24). 유료 운영 09~18시. "
+                         "감면: 상가 2시간 무료·숙박 익일 14시·도서 거주민 50%."),
+    },
+    # 45차 — 군산 옥도면 장자2: 무료 → 유료(소형 기준, 대형은 본문 기록).
+    "jb-gunsan-099": {
+        "fee": {"type": "유료", "base_min": 30, "base_fee": 1000,
+                "unit_min": 30, "unit_fee": 1500, "daily_fee": 12000,
+                "free_min": 60, "deduct_min": 60},
+        "hours": {"weekday": {"start": 540, "end": 1080, "raw": ["09:00", "18:00"]},
+                  "sat": {"start": 540, "end": 1080, "raw": ["09:00", "18:00"]},
+                  "sun": {"start": 540, "end": 1080, "raw": ["09:00", "18:00"]}},
+        "set": {"notice": None},
+        "basis": ("set", "소형 기본 30분 1,000원·초과 30분당 1,500원·최초 1시간 면제·1일 12,000원, "
+                         "대형 기본 2,000원·초과 30분당 2,500원·1일 20,000원"
+                         "(45차 판정, 2026-11-24). 유료 운영 09~18시. "
+                         "감면: 상가 2시간 무료·숙박 익일 14시. 도서 거주민 50% 감면은 장자도 미포함."),
+    },
+    # 45차 — 경주 국립경주박물관: free_min 20 반영(44차 보류 해제).
+    #   경주 선례대로 base_min은 최초 30분 + 최초 무료 20분 = 50.
+    "gb-gyeongju-037": {
+        "fee": {"free_min": 20, "base_min": 50},
+        "hours": {"weekday": {"start": 540, "end": 1260, "raw": ["09:00", "21:00"]},
+                  "sat": {"start": 540, "end": 1260, "raw": ["09:00", "21:00"]},
+                  "sun": {"start": 540, "end": 1260, "raw": ["09:00", "21:00"]}},
+        "basis": ("append", "free_min 20 적용(45차 판정, 2026-11-24) — 최초 30분 500원(20분 포함)·"
+                             "초과 10분당 200원·1일 10,000원·유료 운영 09~21시."),
+    },
+}
+
+# 41차 — 영등포 노상 s003~s008(2·3급지): 주간 상한 없음.
+# (11-23 규칙은 영등포구 노상을 통째로 빼 두었는데, 41차에서 2·3급지를 확인해 반영한다.
+#  s001·s002(1급지)는 42차에서 일 상한 36,000원을 적용하므로 여기에는 넣지 않는다.)
+CAP_NONE_20261124 = {
+    "yeongdeungpo-s003", "yeongdeungpo-s004", "yeongdeungpo-s005",
+    "yeongdeungpo-s006", "yeongdeungpo-s007", "yeongdeungpo-s008",
+}
+CAP_NONE_SRC_20261124 = {
+    i: "41차 판정(2026-11-24) — 노상 2·3급지 주간 상한 없음"
+    for i in CAP_NONE_20261124
+}
+
+# derive_free_fields의 공휴일 태그 제외 도시 목록과 같다 — sun 무료여도 공휴일 태그를 붙이지 않는다.
+FREE_HOLIDAY_EXCLUDE_CITIES_20261124 = (
+    "공주시", "보령시", "제천시", "김해시", "거제시", "양산시", "남해군", "하동군",
+    "산청군", "함양군", "거창군", "합천군", "의령군", "함안군", "창녕군", "경주시",
+    "김천시", "안동시", "구미시", "영주시", "영천시", "상주시",
+)
+
+
+def apply_fee_fix_20261124(lots):
+    """2026-11-24 40~45차 판정분 요금 정정.
+
+    apply_fee_fix_20261123 뒤에 부른다 — 뒤 차수 판정이 앞 차수를 덮는 항목은
+    이 dict가 최종값이다. 도시 빌더와 build_site_payload 양쪽에서 부른다 —
+    도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 여기서도 적용한다(청주 선례).
+    build_site_payload에서는 derive_free_fields 뒤에 불러야 한다 — free_holiday
+    정정은 derive가 특기사항에서 다시 계산해 덮어쓰기 때문이다.
+    """
+    fixed = []
+    for lot in lots:
+        spec = FEE_FIX_20261124.get(lot["id"])
+        if spec is None and lot["id"] not in CAP_NONE_20261124:
+            continue
+        if spec:
+            for key, val in spec.get("fee", {}).items():
+                lot["fee"][key] = val
+            for day, h in spec.get("hours", {}).items():
+                lot["hours"][day].update(h)
+            if "spaces" in spec:
+                lot["spaces"] = spec["spaces"]
+            for day, on in spec.get("free_days", {}).items():
+                lot["free_days"][day] = on
+            for key, val in spec.get("set", {}).items():
+                lot[key] = val
+            basis = spec.get("basis")
+            if basis:
+                mode, text = basis
+                if mode == "set":
+                    lot["fee"]["basis"] = text
+                else:
+                    # 덧붙일 문장 자체가 이미 있으면 다시 붙이지 않는다(멱등).
+                    cur = lot["fee"].get("basis") or ""
+                    if text not in cur:
+                        lot["fee"]["basis"] = (cur + " " + text).strip()
+            # 요금 구분·주말 무료가 바뀌면 derive가 이미 계산해 둔 free_tags를 맞춘다.
+            # (derive_free_fields와 같은 규칙: sun 무료면 공휴일 태그도 붙는다.)
+            tags = lot.get("free_tags") or []
+            if lot["fee"]["type"] == "무료" and "무료" not in tags:
+                tags.append("무료")
+            if lot["fee"]["type"] != "무료" and "무료" in tags:
+                tags.remove("무료")
+            fd = lot.get("free_days") or {}
+            if (fd.get("sat") or fd.get("sun")) and "주말" not in tags:
+                tags.append("주말")
+            if (fd.get("sun") and lot.get("city") not in FREE_HOLIDAY_EXCLUDE_CITIES_20261124
+                    and "공휴일" not in tags):
+                tags.append("공휴일")
+            lot["free_tags"] = tags
+        if lot["id"] in CAP_NONE_20261124:
+            lot["fee"]["cap_none"] = True
+            src = CAP_NONE_SRC_20261124.get(lot["id"])
+            if src:
+                lot["fee"]["cap_none_src"] = src
+        fixed.append(lot["id"])
+    return fixed
+
+
 def apply_coord_fix(lots):
     """T-06: 표준데이터에 좌표가 비어 있는 주차장을 검증된 지오코딩 결과로 채운다.
 
@@ -8506,6 +8864,8 @@ def build_site_payload(cities):
             l["province_slug"] = c["province_slug"]
         # 2026-11-23 요금 정정 — derive 뒤에 불러야 free_holiday 정정이 유지된다.
         apply_fee_fix_20261123(c["lots"])
+        # 2026-11-24 요금 정정(40~45차 판정분) — 11-23 정정 뒤에 불러야 최종값이 이긴다.
+        apply_fee_fix_20261124(c["lots"])
         lots.extend(c["lots"])
     coord_fix = apply_coord_fix(lots)
     hours_fixed = apply_hours_fix(lots)
@@ -9401,6 +9761,8 @@ def build_hanam():
 
     # 2026-11-23 요금 정정 (미사리 대형차전용 월 정기권 주간·야간·주야간 분리).
     apply_fee_fix_20261123(lots)
+    # 2026-11-24 요금 정정 (40~45차 판정분).
+    apply_fee_fix_20261124(lots)
 
     quality = check_quality_hanam(rows_all, rows_city, lots, excluded, merged, hour_fixed,
                                   grade_fixed, fee_diff, space_diff, corp_missing)
@@ -21047,6 +21409,8 @@ def build_seoul_district(gu: str):
 
     # 2026-11-23 요금 정정 (강남·중구 캡 4곳 + 상한 없음 + 남산예장 관광버스 전용).
     apply_fee_fix_20261123(lots)
+    # 2026-11-24 요금 정정 (40~45차 판정분).
+    apply_fee_fix_20261124(lots)
 
     fee_table = seoul_fee_table(gu, conf, lots)
     quality = check_quality_seoul(gu, rows_all, rows_std, lots, excluded, merged,
@@ -25229,6 +25593,8 @@ def build_daegu_district(name: str):
 
     # 2026-11-23 요금 정정 (대구 북구 노상 캡 7곳 + 상한 없음 7곳 — 기본요금은 건드리지 않음).
     apply_fee_fix_20261123(lots)
+    # 2026-11-24 요금 정정 (40~45차 판정분).
+    apply_fee_fix_20261124(lots)
 
     fee_table = daegu_fee_table(name, conf, lots)
     quality = check_quality_daegu(name, rows_all, rows_std, rows_city, lots, excluded, merged,
@@ -80565,6 +80931,8 @@ def build_andong():
 
     # 2026-11-23 요금 정정 (옥동 주차타워·안동시청 부설 확인 요율).
     apply_fee_fix_20261123(lots)
+    # 2026-11-24 요금 정정 (40~45차 판정분).
+    apply_fee_fix_20261124(lots)
 
     fee_table = andong_fee_table(conf, lots)
     quality = andong_quality(conf, rows_all, rows_std, lots, excluded, merged, note_fixed,
