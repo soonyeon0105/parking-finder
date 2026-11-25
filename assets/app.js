@@ -331,9 +331,9 @@
       var head1 = '<strong>' + dayName1 + ' · ' + fmtClock(state.entry) + ' 입차 · ' + fmtTime(state.minutes) + '</strong> 기준';
       var st = results[0].res.state;
       if (st === 'paid') {
-        box.innerHTML = head1 + ' 예상 요금 <strong>' + won(results[0].res.amount) + '</strong>';
+        box.innerHTML = head1 + ' 예상 요금 <strong class="sum-amt">' + won(results[0].res.amount) + '</strong>';
       } else if (st === 'free') {
-        box.innerHTML = head1 + ' 예상 요금 <strong>0원</strong> (무료)';
+        box.innerHTML = head1 + ' 예상 요금 <strong class="sum-amt">0원</strong> (무료)';
       } else if (st === 'bus_only') {
         box.innerHTML = head1 + ' <strong>관광버스 전용</strong> — 승용차는 주차할 수 없습니다';
       } else if (st === 'unknown') {
@@ -353,7 +353,7 @@
     var parts = [];
     parts.push('<strong>' + dayName + ' · ' + fmtClock(state.entry) + ' 입차 · ' + fmtTime(state.minutes) + '</strong> 기준');
     parts.push('무료 <strong>' + free + '곳</strong>');
-    if (paid.length) parts.push('가장 저렴 <strong>' + won(paid[0].res.amount) + '</strong>');
+    if (paid.length) parts.push('가장 저렴 <strong class="sum-amt">' + won(paid[0].res.amount) + '</strong>');
     if (unknown) parts.push('요금 미상 ' + unknown + '곳');
     if (busOnly) parts.push('관광버스 전용 ' + busOnly + '곳');
     if (closed) parts.push('휴무 ' + closed + '곳');
@@ -442,8 +442,11 @@
     if (timeLabel) {
       var h = Math.floor(state.minutes / 60), mi = state.minutes % 60;
       var html = '';
-      if (h) html += '<span class="w">' + h + '</span>시간 ';
-      if (mi || !h) html += (mi ? '<span class="w">' + mi + '</span>분' : '0분');
+      // 숫자는 그대로, 단위만 .w 로 감싼다 — 서버 렌더링(2<span class="w">시간</span>)과
+      // 같은 구조여야 숫자와 단위의 크기·굵기가 어긋나지 않는다 (2026-11-25 운영자 지적).
+      if (h) html += h + '<span class="w">시간</span> ';
+      if (mi) html += mi + '<span class="w">분</span>';
+      else if (!h) html += '0<span class="w">분</span>';
       timeLabel.innerHTML = html;
     }
   }

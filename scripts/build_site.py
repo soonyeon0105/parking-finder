@@ -7333,9 +7333,17 @@ def ga_head() -> str:
             '})(window,document,\'script\',\'dataLayer\',\'GTM-THM2WBPJ\');</script>\n')
 
 
+# 자산 수동 리비전 — ?v= 의 앞부분은 데이터 생성 시각(BUILD_TS)이라, 데이터가
+# 그대로인 채 CSS·JS만 바꾸면 버전이 안 바뀌어 재방문 브라우저가 옛 파일을 계속
+# 쓴다(2026-11-25 운영자 실기기 신고). 디자인·스크립트만 바꿀 때는 이 값을 올려
+# 새 주소를 강제한다. 데이터 기준일 표기에는 쓰지 않는다(BUILD_TS 원본 유지).
+ASSET_REV = "r1"
+
+
 def asset_ver() -> str:
     """css·js 주소에 붙이는 빌드 표식 — _headers 의 장기 캐시(immutable)와 함께 쓴다."""
-    return BUILD_TS.replace(" ", "-").replace(":", "")[:13] or "dev"
+    base = BUILD_TS.replace(" ", "-").replace(":", "")[:13] or "dev"
+    return f"{base}-{ASSET_REV}"
 
 
 def layout(*, title, description, path, body, crumbs, jsonld, nav_active, city=None,
@@ -18689,28 +18697,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 # 시·도 접기 그룹(details.prov-fold)·바로가기 칩(.prov-chips) 공용 조각 (2026-11-24 운영자 지시 —
-# 시·군 나열이 길어 스크롤이 과하다는 지적). assets/style.css 는 ?v= 가 데이터 기준일에 고정돼
+# 시·군 나열이 길어 스크롤이 과하다는 지적). assets/style.css 는 ?v= 가 데이터 기준일 기반이라
 # 장기 캐시(immutable)가 걸려 있어, 이 두 페이지(홈·무료 허브)에는 인라인으로 싣는다.
+# (?v= 에는 ASSET_REV 수동 리비전이 붙어 디자인 변경 시 강제로 새 주소를 만들 수 있다.)
 # 값은 DESIGN.md 토큰과 기존 .ptab·details.faq 의 결을 그대로 따른다(새 색·크기 만들지 않음).
 FOLD_STYLE = """
 <style>
 .prov-chips{display:flex;flex-wrap:wrap;gap:6px;padding-bottom:2px;margin:12px 0 10px}
-.prov-chips .pchip{flex:0 0 auto;font-size:13.5px;font-weight:700;color:var(--ink-soft);background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px;text-decoration:none}
+.prov-chips .pchip{flex:0 0 auto;font-size:13.5px;font-weight:700;color:var(--ink-soft);background:var(--card);border:2px solid var(--line);border-radius:999px;padding:7px 14px;text-decoration:none}
 .prov-chips .pchip small{font-weight:600;color:var(--muted);font-size:11px;margin-left:2px}
-details.prov-fold{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin-bottom:10px}
+details.prov-fold{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin-bottom:10px}
 details.prov-fold>summary{cursor:pointer;display:flex;align-items:baseline;gap:8px;list-style:none}
 details.prov-fold>summary::-webkit-details-marker{display:none}
-details.prov-fold>summary::after{content:"▾";margin-left:auto;color:var(--brand);font-weight:700}
+details.prov-fold>summary::after{content:"▾";margin-left:auto;color:var(--yellow-dark);font-weight:700}
 details.prov-fold[open]>summary::after{content:"▴"}
-details.prov-fold .pf-name{font-size:15px;font-weight:700;color:var(--ink)}
+details.prov-fold .pf-name{font-size:15px;font-weight:800;color:var(--ink)}
 details.prov-fold .pf-count{font-size:12px;font-weight:600;color:var(--muted)}
 details.prov-fold .grid-2{margin-top:10px}
 details.prov-fold .prov-all{margin:10px 0 0}
 details.prov-fold{scroll-margin-top:12px}
-@media (prefers-color-scheme: dark){
-.prov-chips .pchip{background:var(--card)}
-details.prov-fold{background:var(--card)}
-}
 </style>
 """
 
