@@ -7337,7 +7337,7 @@ def ga_head() -> str:
 # 그대로인 채 CSS·JS만 바꾸면 버전이 안 바뀌어 재방문 브라우저가 옛 파일을 계속
 # 쓴다(2026-11-25 운영자 실기기 신고). 디자인·스크립트만 바꿀 때는 이 값을 올려
 # 새 주소를 강제한다. 데이터 기준일 표기에는 쓰지 않는다(BUILD_TS 원본 유지).
-ASSET_REV = "r2"  # r1(2026-11-25 Flexi 전 페이지) → r2: 지역 이동 버튼·접기 화살표 ▾/▴를 CSS 삼각형으로 교체
+ASSET_REV = "r3"  # r1(2026-11-25 Flexi 전 페이지) → r2: 지역 이동 버튼·접기 화살표 ▾/▴를 CSS 삼각형으로 교체 → r3: 카드 전체 탭(stretched-link)
 
 
 def asset_ver() -> str:
@@ -7789,7 +7789,8 @@ def lot_card(lot, idx, default_day="weekday", default_minutes=120, link_detail=T
         _city = city_of(lot)
         if _city:
             # 큰 유료 주차장은 이름이 곧 상세페이지 링크다(개별 상세페이지로 연결).
-            name_html = f'<a href="{detail_path(_city, lot)}">{name_html}</a>'
+            # .lot-link 는 CSS stretched-link 로 카드 전체를 탭 영역으로 넓힌다.
+            name_html = f'<a class="lot-link" href="{detail_path(_city, lot)}">{name_html}</a>'
     return f"""<article class="card lot{' free' if res['state'] == 'free' else ''}" data-lot="{esc(lot['id'])}" id="lot-{idx}">
   <div class="lot-head">
     <h3>{name_html}</h3>
