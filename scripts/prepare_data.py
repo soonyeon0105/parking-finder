@@ -649,6 +649,14 @@ T06_SUWON_FEE_UNIT_FIX = {
     30400: (200, "도시공사 표의 간격요금 300원 ↔ 수원시 요금표 10분 200원, 요금표 적용"),
 }
 
+# 표준데이터 지번주소의 동·번지 붙임 3건 — 원자료 값 그대로 들어오면 카드에 '하동1000'처럼
+# 보인다 (2026-11-25 뮤즈3 화면검수). lot id 기준 교정이라 다음 재생성에도 유지된다.
+T06_SUWON_ADDR_SPACE_FIX = {
+    "std-005": "경기도 수원시 영통구 하동 1000",      # 행복한들
+    "std-008": "경기도 수원시 영통구 영통동 995-3",   # 영통공영
+    "std-009": "경기도 수원시 영통구 하동 1008",      # 신대호수
+}
+
 
 def t06_tel(v: str) -> str:
     """‘0316950900’ → ‘031-695-0900’. ‘현장문의’ 같은 글자는 전화번호가 아니므로 비운다."""
@@ -718,6 +726,11 @@ def t06_apply_suwon(lots):
     by_nm = {norm_name(r.get("PARKING_NM") or ""): r for r in rows}
     fixed = {"addr": [], "tel": [], "fee": [], "gu_dong": []}
     for lot in lots:
+        # 표준데이터 지번주소 동·번지 붙임 교정(뮤즈3 화면검수 2026-11-25) — 원자료 값 그대로
+        # 들어오므로 lot id 기준으로 바로잡는다. 도시공사 매칭 여부와 무관하게 적용한다.
+        if lot.get("id") in T06_SUWON_ADDR_SPACE_FIX:
+            lot["addr_jibun"] = T06_SUWON_ADDR_SPACE_FIX[lot["id"]]
+            fixed["addr"].append(lot["name"] + " (지번주소 띄어쓰기)")
         rec = by_id.get(lot.get("udc_id")) or by_nm.get(norm_name(lot["name"]))
         if not rec:
             continue

@@ -87,9 +87,11 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   border: 1px solid #3a3a36; background: #1d1d1b; border-radius: 999px;
   padding: 5px 10px; cursor: pointer; white-space: nowrap;
 }
-.site-nav .nav-jump-btn::after { content: " ▾"; color: var(--flexi); font-weight: 700; }
+/* 지역 이동 버튼의 펼침 화살표는 CSS 삼각형으로 그린다 — ▾/▴ 문자는 Pretendard
+   서브셋에 없어 환경에 따라 깨진 상자로 보인다 (2026-11-25 뮤즈3 화면검수). */
+.site-nav .nav-jump-btn::after { content: ""; display: inline-block; width: 0; height: 0; border-left: 4.5px solid transparent; border-right: 4.5px solid transparent; border-top: 5.5px solid var(--flexi); margin-left: 6px; vertical-align: middle; }
 .site-nav .nav-jump-btn[aria-expanded="true"] { background: var(--flexi); color: #111; border-color: var(--flexi); }
-.site-nav .nav-jump-btn[aria-expanded="true"]::after { content: " ▴"; color: #111; }
+.site-nav .nav-jump-btn[aria-expanded="true"]::after { border-top: 0; border-bottom: 5.5px solid #111; }
 .jump-panel {
   flex-basis: 100%; display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
   border-top: 1px solid #2b2b28; padding-top: 10px; margin-top: 2px;
