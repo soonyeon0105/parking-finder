@@ -131,7 +131,10 @@ for u in naver_urls:
     for key in ("lat=", "lng=", "dlevel=12", "title="):
         if key not in q:
             fails.append(f"네이버 링크에 {key} 파라미터가 없음(핀·이름이 뜨지 않음): {u}")
-    if "주차" not in unquote(q) and "차고지" not in unquote(q):
+    # 핀 이름에 시설 종류(주차장·차고지·충전소)가 있어야 한다 — 2026-11-26 전기차
+    # 충전소 페이지를 붙이며 '충전소'를 허용 종류에 더했다(T-04 규칙의 취지는
+    # '핀이 무엇인지 이름에서 알 수 있게'이며, 충전소 핀은 '전기차충전소'로 찍힌다).
+    if not any(t in unquote(q) for t in ("주차", "차고지", "충전소")):
         fails.append(f"네이버 핀 이름에 '주차장' 표기 없음: {unquote(q)}")
 if any("map.naver.com/p?c=" in h or "/p/search/" in h for h in (all_html,)):
     fails.append("구형 네이버 지도 링크(/p?c= 또는 /p/search/)가 남아 있음")
@@ -142,7 +145,7 @@ for u in kakao_urls:
         continue
     if not re.fullmatch(r"3[0-9.]+|1[0-9.]+", parts[1]) or not re.fullmatch(r"1[0-9.]+", parts[2]):
         fails.append(f"카카오 링크 좌표 형식 오류: {u}")
-    if "주차" not in unquote(parts[0]) and "차고지" not in unquote(parts[0]):
+    if not any(t in unquote(parts[0]) for t in ("주차", "차고지", "충전소")):
         fails.append(f"카카오 핀 이름에 '주차장' 표기 없음: {unquote(parts[0])}")
 for lot in LOTS:
     kakao, naver = map_links(lot)
@@ -406,7 +409,13 @@ _suwon_detail = sum(1 for l in LOTS if l.get("city") == "수원시"
                     and l["fee"]["type"] != "무료" and (l.get("spaces") or 0) >= 50)
 _suwon_expect = (1 + len(_suwon["districts"]) + len(_suwon["districts"]) + _suwon_dong_ok
                  + _suwon_free + _suwon_detail)
-suwon_pages = [p for p in pages if "/suwon" in p.as_posix()]
+# 주차장 페이지(parking/ 아래)만 센다 — 2026-11-26 전기차 충전소 페이지
+# (ev/gyeonggi/suwon/…)가 '/suwon' 부분 일치로 함께 세지던 것을 막는다.
+# 경로는 dist 기준 상대경로로 본다(작업 폴더 이름에 'parking'이 들어 있어
+# 절대경로로 보면 충전소 페이지까지 세진다).
+suwon_pages = [p for p in pages
+               if p.relative_to(DIST).as_posix().startswith("parking/")
+               and "/suwon" in p.relative_to(DIST).as_posix()]
 if len(suwon_pages) != _suwon_expect:
     fails.append(f"수원시 페이지 수 변경: {len(suwon_pages)} "
                  f"(기대 {_suwon_expect} = 허브 1 + 구 {len(_suwon['districts'])} + 주말 "
@@ -1046,6 +1055,44 @@ _MIX_NAMES = {k: sorted({n for n in _ALL_NAMES if any(b in n for b in v)}, key=l
 _MIX_ADDRS = {k: [a for a in _ALL_ADDRS if len(a) > 4 and any(b in a for b in v)]
               for k, v in MIX.items()}
 
+# 전기차 충전소(2026-11-26 추가): 충전소 이름·주소도 주차장 이름·주소와 같은 '자료'다.
+# 다른 도시 이름이 든 충전소 이름(예: 화성시의 '수원대학교' 충전소)이 주차장 상세의
+# 근처 충전소 블록과 충전소 목록 페이지에 그대로 나오므로, 혼입으로 보지 않게
+# '그 페이지에 실제로 그려진 충전소'만 아래 페이지 루프에서 본문에서 지우고 본다.
+# (전국의 충전소 이름을 키별 제외 목록에 합치면 목록이 수만 건으로 불어 검사가
+#  끝나지 않으므로, 페이지 단위로만 지운다.)
+_ev_stations_file = BASE / "data" / "ev_stations.json"
+_ev_nearby_file = BASE / "data" / "ev_nearby.json"
+_EV_REGION_STRIP = {}
+_EV_NEARBY_NAMES = {}
+if _ev_stations_file.exists():
+    _ev_data = json.loads(_ev_stations_file.read_text())
+    _tok_union = set()
+    for _v in MIX.values():
+        _tok_union.update(_v)
+    _tok_re = re.compile("|".join(re.escape(t) for t in _tok_union))
+    for _r in _ev_data["regions"]:
+        _strip = []
+        for _s in _r["stations"]:
+            _a = _s["addr"] + (f' {_s["ad"]}' if _s.get("ad") else "")
+            if _tok_re.search(_s["nm"]) or _tok_re.search(_a):
+                _strip += [_s["nm"], _a]
+                _strip += [x for x in (_s.get("op"), _s.get("lim"), _s.get("note"))
+                           if x and _tok_re.search(x)]
+        # 키는 시·도/시·군·구 — '북구'처럼 여러 시·도가 같은 슬러그를 쓴다.
+        # 지우는 순서는 긴 문자열부터다(주차장 이름 제외와 같은 원리 — 짧은 문자열을
+        # 먼저 지우면 겹친 긴 이름·주소가 잘려 토큰이 남는다).
+        _EV_REGION_STRIP[f'{_r["pslug"]}/{_r["slug"]}'] = sorted(
+            {t for t in _strip if t}, key=len, reverse=True)
+if _ev_nearby_file.exists():
+    _ev_nb = json.loads(_ev_nearby_file.read_text())
+    # 주차장 상세의 근처 충전소 블록은 이름과 주소를 함께 그리므로 둘 다 지운다
+    # (시 경계 너머 충전소는 주소에 다른 도시 이름이 그대로 들어 있다).
+    _EV_NEARBY_NAMES = {lid: sorted({t for s in e.get("st", [])
+                                     for t in (s["nm"], s.get("addr") or "") if t},
+                                    key=len, reverse=True)
+                        for lid, e in _ev_nb["lots"].items() if e.get("st")}
+
 for p in pages:
     rel = p.relative_to(DIST).as_posix()
     _hits = [k for k in MIX if f"/{k}/" in f"/{rel}"]
@@ -1064,15 +1111,24 @@ for p in pages:
         continue
     html = p.read_text()
     main = html.split('<main class="wrap">', 1)[-1].split("</main>", 1)[0]
+    probe = main
     # 주차장 이름 자체가 다른 도시 이름을 담은 경우(예: 용인 영덕동의 노상 구간 '수원교회 인근')는
     # 자료 혼입이 아니므로, 이름을 지운 나머지 본문에서만 다른 도시 이름을 찾는다.
-    probe = main
-    for n in _MIX_NAMES[city_key]:
-        probe = probe.replace(n, "")
     # 주소에 든 상호·건물 이름(예: 시흥 배곧동 ‘안양축산농협’)도 자료 혼입이 아니므로 함께 지운다.
     #   다른 시·도 이름이 든 주소만 지우면 되므로, 주소 전체(8,800건)를 페이지마다 replace 하지 않는다.
-    for a in _MIX_ADDRS[city_key]:
-        probe = probe.replace(a, "")
+    # 전기차 충전소 이름·주소도 자료다(2026-11-26): 이 페이지에 그려진 충전소만 지운다.
+    #   충전소 목록 페이지 = 그 지역의 충전소, 주차장 상세 = 근처 충전소 블록의 충전소.
+    # 지우는 순서는 세 목록을 합쳐 긴 문자열부터다 — 제외 문자열끼리 겹치면(충전소
+    #   주소 '평택시흥고속도로' ↔ 주차장 이름 '시흥고', 충전소 주소가 주차장 주소의
+    #   앞부분인 경우) 짧은 쪽이 긴 쪽을 잘라 토큰이 남기 때문이다.
+    if rel.startswith("ev/"):
+        _seg = rel.split("/")
+        _ev_texts = _EV_REGION_STRIP.get(f"{_seg[1]}/{_seg[2]}", ())
+    else:
+        _ev_texts = _EV_NEARBY_NAMES.get(p.parent.name, ())
+    for _t in sorted([*_MIX_NAMES[city_key], *_MIX_ADDRS[city_key], *_ev_texts],
+                     key=len, reverse=True):
+        probe = probe.replace(_t, "")
     # 법정동·도로 이름이 다른 도시 이름으로 시작하는 경우(금천구 시흥동·시흥대로 ↔ 경기도 시흥시)는
     # 자료 혼입이 아니므로 그 낱말을 지우고 본다.
     for bad in MIX[city_key]:
