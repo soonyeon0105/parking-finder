@@ -58,26 +58,22 @@
     };
   }
 
-  /* 행 배열: [이름, 위도, 경도, 급속, 완속, 충전가능, 상태확인시각, 주소, 지역인덱스, 상세페이지경로(없으면 "")] */
+  /* 행 배열: [이름, 위도, 경도, 급속, 완속, 충전가능, 상태확인시각, 주소, 지역인덱스] */
   function render(scored, regions) {
     var html = '';
     for (var i = 0; i < scored.length; i++) {
       var row = scored[i][1], d = scored[i][0];
       var links = stationLinks(row[0], row[1], row[2]);
       var rp = regions[row[8]] || '/ev/';
-      /* 상세 페이지는 공영주차장 1km 안에 있는 충전소만 있다 — 없으면 버튼을 빼고
-         지역 목록으로 안내한다. */
-      var detail = row[9] ? '<a class="btn" href="' + esc(row[9]) + '">충전소 상세 보기</a>' : '';
       html += '<article class="card ev-card">' +
         '<div class="lot-head"><h3>' + esc(row[0]) + '</h3>' +
         '<div class="badges"><span class="badge ev">' + fmtDist(d) + '</span></div></div>' +
         '<p class="addr">' + esc(row[7]) + '</p>' +
         '<p class="fee-line">급속 ' + row[3] + '기 · 완속 ' + row[4] + '기 · 지금 충전 가능 ' + row[5] + '대 ' +
-        '<span class="ev-upd">(' + (row[6] ? '상태 확인 ' + esc(row[6]) : '상태 확인 시각 미확인') + ')</span></p>' +
+        '<span class="ev-upd">(상태 확인 ' + esc(row[6]) + ')</span></p>' +
         '<div class="actions">' +
         '<a class="btn solid" href="' + esc(links.kakao) + '" target="_blank" rel="nofollow noopener">카카오맵</a>' +
         '<a class="btn" href="' + esc(links.naver) + '" target="_blank" rel="nofollow noopener">네이버지도</a>' +
-        detail +
         '<a class="btn" href="' + esc(rp) + '">이 지역 충전소 전체 보기</a>' +
         '</div></article>';
     }

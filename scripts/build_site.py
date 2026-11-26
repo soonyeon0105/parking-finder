@@ -6352,9 +6352,6 @@ def ev_block(lot, path) -> str:
     rows = []
     for s in ev["st"]:
         kakao, naver = ev_station_links(s["nm"], s.get("lat"), s.get("lng"), s.get("addr"))
-        # 근처 충전소는 공영주차장 1km 안에 있으므로 상세 페이지가 있다
-        # (build_ev.py — /ev/{도}/{구}/{충전소 id}/).
-        detail = f"{s['rp']}{s['id']}/"
         rows.append(f"""<article class="card ev-station">
   <div class="lot-head">
     <h3>{esc(s['nm'])}</h3>
@@ -6362,11 +6359,10 @@ def ev_block(lot, path) -> str:
   </div>
   <p class="addr">{esc(s['addr'])}</p>
   <p class="fee-line">급속 {s['f']}기 · 완속 {s['s']}기 · 지금 충전 가능 {s['a']}대
-  <span class="ev-upd">({f"상태 확인 {esc(s['upd'])}" if s.get('upd') else "상태 확인 시각 미확인"})</span></p>
+  <span class="ev-upd">(상태 확인 {esc(s['upd'])})</span></p>
   <div class="actions">
     <a class="btn solid" href="{esc(kakao)}" target="_blank" rel="nofollow noopener">카카오맵</a>
     <a class="btn" href="{esc(naver)}" target="_blank" rel="nofollow noopener">네이버지도</a>
-    <a class="btn" href="{rel(path, detail)}">충전소 상세 보기</a>
     <a class="btn" href="{rel(path, s['rp'])}">이 지역 충전소 전체 보기</a>
   </div>
 </article>""")
@@ -7408,7 +7404,7 @@ def ga_head() -> str:
 # 그대로인 채 CSS·JS만 바꾸면 버전이 안 바뀌어 재방문 브라우저가 옛 파일을 계속
 # 쓴다(2026-11-25 운영자 실기기 신고). 디자인·스크립트만 바꿀 때는 이 값을 올려
 # 새 주소를 강제한다. 데이터 기준일 표기에는 쓰지 않는다(BUILD_TS 원본 유지).
-ASSET_REV = "r5"  # r1(2026-11-25 Flexi 전 페이지) → r2: 지역 이동 버튼·접기 화살표 ▾/▴를 CSS 삼각형으로 교체 → r3: 카드 전체 탭(stretched-link) → r4: 전기차 충전(배지·필터·상세 블록·충전소 페이지) → r5: 충전소 상세 페이지(목록 카드·내 주변·주차장 상세에서 상세 링크)
+ASSET_REV = "r4"  # r1(2026-11-25 Flexi 전 페이지) → r2: 지역 이동 버튼·접기 화살표 ▾/▴를 CSS 삼각형으로 교체 → r3: 카드 전체 탭(stretched-link) → r4: 전기차 충전(배지·필터·상세 블록·충전소 페이지)
 
 
 def asset_ver() -> str:
