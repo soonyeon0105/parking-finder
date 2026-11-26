@@ -46,6 +46,8 @@ GA_MEASUREMENT_ID = ""                        # data/site.json 의 ga_measuremen
 # 애드센스 게이팅 — 11-24 신청 전에는 enabled=false 라서 스크립트·<ins> 를 절대 넣지 않는다.
 # 값은 data/site.json 의 adsense {client, slot_top, slot_inline, enabled} 에서 읽는다.
 ADSENSE = {"client": "", "slot_top": "", "slot_inline": "", "enabled": False}
+EV_NEARBY: dict = {}        # data/ev_nearby.json 의 lots — 주차장 id → 근처 충전소(prepare_ev.py 산출)
+EV_META: dict = {}          # data/ev_nearby.json 의 meta — 수집 시각·기준 거리·집계
 ERROR_REPORT_FORM_URL = (                     # 오류 제보 구글 폼 (이메일 자동 수집 꺼짐 · 지역/주차장명·오류 유형·상세 내용 3개 항목)
     "https://docs.google.com/forms/d/e/"
     "1FAIpQLSfRQ0lo_FnZ9PqQ25CU6e43cfrc5_QHDEITMn8lUG9VNgirCw/viewform"
@@ -6314,6 +6316,70 @@ def map_links(lot):
     return kakao, naver
 
 
+def ev_station_links(name, lat, lng, addr=""):
+    """충전소 지도 링크 — 주차장 map_links 와 같은 형식(QA 지도 링크 규칙을 그대로 따른다).
+
+    핀 이름에는 시설 종류를 밝힌다(QA T-04 규칙의 취지) — 충전소는 이름 뒤에
+    '전기차충전소'를 붙여, 지도에서 충전소로 찍히게 한다.
+    """
+    label = (name or "전기차 충전소").strip().replace(",", "·")
+    if "충전소" not in label:
+        label = f"{label} 전기차충전소"
+    if lat and lng:
+        kakao = f"https://map.kakao.com/link/map/{quote(label)},{lat},{lng}"
+        naver = f"https://map.naver.com/?lat={lat}&lng={lng}&dlevel=12&title={quote(label)}"
+    else:
+        query = " ".join(x for x in (label, addr) if x)
+        kakao = f"https://m.map.kakao.com/?q={quote(query)}"
+        naver = f"https://map.naver.com/?query={quote(query)}&menu=location"
+    return kakao, naver
+
+
+def ev_dist_text(m) -> str:
+    return f"{m}m" if m < 1000 else f"{m / 1000:.1f}km"
+
+
+def ev_block(lot, path) -> str:
+    """주차장 상세의 전기차 충전소 블록 — 근처 충전소(1km 안 최대 3곳, 거리순).
+
+    네비·충전 앱이 알려 주는 것은 충전소 위치뿐이고, '이 주차장에 세우고 충전할 수
+    있는가'는 주차장 페이지에서만 확인할 수 있다 — 그래서 상세의 핵심 블록으로 둔다.
+    근처에 충전소가 없는 주차장에는 블록 자체를 넣지 않는다.
+    """
+    ev = lot.get("ev")
+    if not ev or not ev.get("st"):
+        return ""
+    rows = []
+    for s in ev["st"]:
+        kakao, naver = ev_station_links(s["nm"], s.get("lat"), s.get("lng"), s.get("addr"))
+        rows.append(f"""<article class="card ev-station">
+  <div class="lot-head">
+    <h3>{esc(s['nm'])}</h3>
+    <div class="badges"><span class="badge ev">{ev_dist_text(s['d'])}</span></div>
+  </div>
+  <p class="addr">{esc(s['addr'])}</p>
+  <p class="fee-line">급속 {s['f']}기 · 완속 {s['s']}기 · 지금 충전 가능 {s['a']}대
+  <span class="ev-upd">(상태 확인 {esc(s['upd'])})</span></p>
+  <div class="actions">
+    <a class="btn solid" href="{esc(kakao)}" target="_blank" rel="nofollow noopener">카카오맵</a>
+    <a class="btn" href="{esc(naver)}" target="_blank" rel="nofollow noopener">네이버지도</a>
+    <a class="btn" href="{rel(path, s['rp'])}">이 지역 충전소 전체 보기</a>
+  </div>
+</article>""")
+    if ev.get("on"):
+        lede = (f"이 주차장 {EV_META.get('onsite_m', 100)}m 안에 전기차 충전소가 있어 "
+                "주차하면서 충전할 수 있습니다.")
+    else:
+        lede = "이 주차장 안에는 충전소가 없지만, 가까운 곳에 충전소가 있습니다."
+    return f"""
+<h2>전기차 충전소</h2>
+<p class="lede">{lede}</p>
+{''.join(rows)}
+<p class="updated">충전소 정보: 한국환경공단 전기자동차 충전소 정보({esc(EV_META.get('inv_at', ''))} 수집) ·
+'지금 충전 가능'은 마지막으로 확인된 상태 기준이라 실제와 다를 수 있습니다.</p>
+"""
+
+
 def free_note(lot):
     """무료 개방 관련 표기 문장."""
     if lot["fee"].get("category") == "resident":
@@ -6514,6 +6580,7 @@ def nav_html(city, url, nav_active) -> str:
             f'<span class="nav-jump"><button type="button" class="nav-jump-btn" id="region-jump-btn" '
             f'aria-expanded="false" aria-controls="region-jump-panel">지역 이동</button></span>'
             f'<a href="{url("/parking/free/")}"{cls("free")}>무료 개방</a>'
+            f'<a href="{url("/ev/")}"{cls("ev")}>전기차 충전소</a>'
             f'<a href="{url("/about/")}"{cls("about")}>소개</a>'
             f'<a href="{url("/contact/")}"{cls("contact")}>문의</a>'
             f'</nav>'
@@ -7337,7 +7404,7 @@ def ga_head() -> str:
 # 그대로인 채 CSS·JS만 바꾸면 버전이 안 바뀌어 재방문 브라우저가 옛 파일을 계속
 # 쓴다(2026-11-25 운영자 실기기 신고). 디자인·스크립트만 바꿀 때는 이 값을 올려
 # 새 주소를 강제한다. 데이터 기준일 표기에는 쓰지 않는다(BUILD_TS 원본 유지).
-ASSET_REV = "r3"  # r1(2026-11-25 Flexi 전 페이지) → r2: 지역 이동 버튼·접기 화살표 ▾/▴를 CSS 삼각형으로 교체 → r3: 카드 전체 탭(stretched-link)
+ASSET_REV = "r4"  # r1(2026-11-25 Flexi 전 페이지) → r2: 지역 이동 버튼·접기 화살표 ▾/▴를 CSS 삼각형으로 교체 → r3: 카드 전체 탭(stretched-link) → r4: 전기차 충전(배지·필터·상세 블록·충전소 페이지)
 
 
 def asset_ver() -> str:
@@ -7736,6 +7803,9 @@ def lot_card(lot, idx, default_day="weekday", default_minutes=120, link_detail=T
     if lot.get("realtime"):
         rt = lot["realtime"]
         badges.append(f'<span class="badge live">실시간 {rt["free"]}면</span>')
+    if lot.get("ev") and lot["ev"].get("on"):
+        # 주차장 100m 안에 충전소가 있는 곳만 '충전 가능'으로 표시한다(prepare_ev.py 기준).
+        badges.append('<span class="badge ev">전기차 충전 가능</span>')
     if lot["fee"]["type"] == "미상":
         badges.append('<span class="badge unknown">요금 미확인</span>')
 
@@ -7760,6 +7830,10 @@ def lot_card(lot, idx, default_day="weekday", default_minutes=120, link_detail=T
         gap = capa_note(lot)
         lines.append(f'<p class="fee-line">실시간 잔여 {rt["free"]}면 / {rt["total"]}면 · '
                      f'{esc(rt.get("ts") or SNAPSHOT_TS)} 조회' + (f' · {esc(gap)}' if gap else '') + '</p>')
+    if lot.get("ev") and lot["ev"].get("on"):
+        _ev = lot["ev"]
+        lines.append(f'<p class="fee-line">전기차 충전소: {EV_META.get("onsite_m", 100)}m 안에 '
+                     f'급속 {_ev.get("f", 0)}기 · 완속 {_ev.get("s", 0)}기</p>')
     fn = free_note(lot)
     if fn:
         lines.append(f'<p class="note-line">무료: {esc(fn)}</p>')
@@ -7825,6 +7899,8 @@ def lot_list(lots, path, default_day="weekday", with_ad=True, default_minutes=12
         "free_window": l.get("free_window_min"),
         "access": l.get("access") or "general",
         "bus_only": bool(l.get("bus_only")),
+        # 전기차 필터 칩 — 주차장 100m 안에 충전소가 있는 곳(prepare_ev.py 판정).
+        "ev": bool(l.get("ev") and l["ev"].get("on")),
         "hours": {k: {"open": l["hours"][k]["open"], "start": l["hours"][k]["start"],
                       "end": l["hours"][k]["end"]} for k in ("weekday", "sat", "sun")},
         # 누진(steps)·최초 무료(free_min)·일일 상한(cap_fee)은 값이 있는 도시만 싣는다(다른 도시 출력 불변)
@@ -9606,6 +9682,18 @@ def build_lot_detail(city, lot, site, existing_paths, dong_path=None):
                                         ("일요일", lot["free_days"].get("sun"))) if on)
         qa.append((f"{name}은(는) 주말에 무료인가요?",
                    f"네. {name}은(는) {days}에 무료로 개방됩니다."))
+    if lot.get("ev") and lot["ev"].get("st"):
+        _ev = lot["ev"]
+        _s0 = _ev["st"][0]
+        if _ev.get("on"):
+            qa.append((f"{name}에서 전기차 충전이 가능한가요?",
+                       f"네. {name}에서 {ev_dist_text(_s0['d'])} 거리에 {_s0['nm']} 충전소가 있어 "
+                       f"주차하면서 충전할 수 있습니다. 급속 {_s0['f']}기 · 완속 {_s0['s']}기가 있고, "
+                       f"상태 확인 시각({_s0['upd']}) 기준 지금 충전 가능한 충전기는 {_s0['a']}대입니다."))
+        else:
+            qa.append((f"{name} 근처에 전기차 충전소가 있나요?",
+                       f"이 주차장 안에는 충전소가 없지만, {ev_dist_text(_s0['d'])} 거리에 "
+                       f"{_s0['nm']} 충전소(급속 {_s0['f']}기 · 완속 {_s0['s']}기)가 있습니다."))
 
     if lot.get("list_mode") == STREET_MODE:
         # 노상 구간은 사이트 관례(노상 페이지)대로 계산기·카드 없이 표로 보여 준다.
@@ -9666,7 +9754,7 @@ def build_lot_detail(city, lot, site, existing_paths, dong_path=None):
 
 <h2>시간별 예상 요금 (평일·일반 차량)</h2>
 {est_block}
-{free_block}
+{free_block}{ev_block(lot, path)}
 <h2>감면 안내 — {esc(city['city'])} 공통</h2>
 <ul>{disc_items}</ul>
 <p class="updated">감면은 {esc(city['city'])} 조례 기준의 공통 안내입니다. 이 주차장에서 실제로 적용되는
@@ -18615,10 +18703,16 @@ def free_chips(lots) -> str:
         f'<button type="button" class="ff-chip" data-f="{key}" aria-pressed="{"true" if key == "" else "false"}">'
         f'{label} <b>{labels[key]}</b></button>' for key, label in FREE_FILTERS)
     holidays = json.dumps(HOLIDAYS, ensure_ascii=False)
+    ev_chip = ""
+    if EV_NEARBY:
+        # 전기차 충전 가능 필터 — 무료 칩과 독립 토글(?ev=1). 충전 데이터가 없으면 칩 자체를 만들지 않는다.
+        ev_n = sum(1 for l in lots if l.get("ev") and l["ev"].get("on"))
+        ev_chip = (f'<button type="button" class="ff-chip ff-ev" id="ff-ev" aria-pressed="false">'
+                   f'전기차 충전 가능 <b>{ev_n}</b></button>')
     return (f'<div class="free-filter" id="free-filter">\n'
             f'  <div class="ff-row" role="group" aria-label="무료 개방 필터">{chips}'
             f'<button type="button" class="ff-chip ff-now" id="ff-now" aria-pressed="false">'
-            f'지금 무료·운영 중</button></div>\n'
+            f'지금 무료·운영 중</button>{ev_chip}</div>\n'
             f'  <p class="ff-status" id="ff-status" aria-live="polite">{c["all"]}곳 표시 중 · '
             f'이 중 무료로 쓸 수 있는 곳 {c["union"]}곳</p>\n'
             f'</div>\n'
@@ -19712,6 +19806,18 @@ def build_landing(site):
         city_names = "·".join(c["city"] for c in site["cities"])
         region_unit = "개 시·군"
         province_names = order[0] if order else ""
+    ev_box = ""
+    if EV_META:
+        # 주차+충전 결합 안내 — 충전 데이터가 있을 때만 홈에 노출한다.
+        ev_box = f"""
+<div class="note-box" style="margin-top:14px">
+  <p><b>전기차 충전이 가능한 주차장 {EV_META.get('n_lots_onsite', 0):,}곳</b> — 주차장 {EV_META.get('onsite_m', 100)}m 안에
+  충전소가 있어 주차하면서 충전할 수 있는 곳을 주차장 목록에서 바로 걸러 볼 수 있습니다. 지역별 충전소 목록도 함께 확인하세요.</p>
+  <div class="actions" style="margin-top:10px">
+    <a class="btn" href="{rel(path, '/ev/')}">전기차 충전소 보기 →</a>
+  </div>
+</div>
+"""
     body = f"""
 <h1>전국 공영주차장 {total_all:,}곳</h1>
 <p class="lede">"여기 2시간 주차하면 얼마지?"를 바로 확인하는 페이지입니다.
@@ -19747,7 +19853,7 @@ def build_landing(site):
     <a class="btn" href="{rel(path, '/parking/free/')}">무료 개방 주차장 보기 →</a>
   </div>
 </div>
-
+{ev_box}
 <h2>지역 선택</h2>
 <nav class="prov-chips" aria-label="시·도 바로가기">{''.join(tabs)}</nav>
 {''.join(panels)}
@@ -20021,6 +20127,22 @@ def load_realtime() -> dict:
     return out
 
 
+def load_ev() -> tuple[dict, dict]:
+    """data/ev_nearby.json — prepare_ev.py 가 한국환경공단 충전소 스냅샷으로 만든
+    주차장별 근처 충전소(1km 안 최대 3곳 + 100m 안 '충전 가능' 판정).
+
+    파일이 없으면 전기차 표시 전체(배지·필터·상세 블록·홈 안내)를 끈다.
+    """
+    path = BASE / "data" / "ev_nearby.json"
+    if not path.exists():
+        return {}, {}
+    try:
+        data = json.loads(path.read_text())
+    except (json.JSONDecodeError, OSError):
+        return {}, {}
+    return data.get("lots") or {}, data.get("meta") or {}
+
+
 def legacy_dong_redirects(site) -> list:
     """수원시에서 2026-11-18 이전에 만들었던 1~2곳짜리 동 페이지 18개 → 구 허브로 301.
 
@@ -20068,7 +20190,7 @@ def buyeo_redirects(pages) -> list:
 
 def main():
     global BUILD_TS, SITE_BASE, SNAPSHOT_TS, SITE_CITIES, GA_MEASUREMENT_ID
-    global PROVINCE_ORDER, HOLIDAYS, ADSENSE
+    global PROVINCE_ORDER, HOLIDAYS, ADSENSE, EV_NEARBY, EV_META
     ap = argparse.ArgumentParser()
     ap.add_argument("--base", default=SITE_BASE)
     args = ap.parse_args()
@@ -20083,6 +20205,13 @@ def main():
     ADSENSE = {"client": "", "slot_top": "", "slot_inline": "", "enabled": False,
                **(site.get("adsense") or {})}
     PROVINCE_ORDER = province_order(site)
+    EV_NEARBY, EV_META = load_ev()
+    if EV_META:
+        print(f"전기차 충전소 연결: 근처 충전소가 있는 주차장 {EV_META.get('n_lots_near', 0)}곳 · "
+              f"충전 가능(100m 안) {EV_META.get('n_lots_onsite', 0)}곳")
+    for l in site["lots"]:
+        if l["id"] in EV_NEARBY:
+            l["ev"] = EV_NEARBY[l["id"]]
     realtime = load_realtime()
     for l in site["lots"]:
         # 수집 스크립트(data/realtime/*.json)의 실시간 잔여면수 — 30분 넘은 스냅숏은 싣지 않는다.

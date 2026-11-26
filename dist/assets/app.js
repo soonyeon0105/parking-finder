@@ -584,11 +584,12 @@
   var cards = Array.prototype.slice.call(list.querySelectorAll('.lot'));
   var chips = Array.prototype.slice.call(box.querySelectorAll('.ff-chip'));
   var status = document.getElementById('ff-status');
-  var state = { f: '', now: false };
+  var state = { f: '', now: false, ev: false };
 
   var q = new URLSearchParams(location.search || '');
   state.f = ['free', 'weekend', 'night'].indexOf(q.get('f')) >= 0 ? q.get('f') : '';
   state.now = q.get('now') === '1';
+  state.ev = q.get('ev') === '1';
 
   function pad(n) { return (n < 10 ? '0' : '') + n; }
 
@@ -624,6 +625,7 @@
   }
 
   function matches(lot) {
+    if (state.ev && !lot.ev) return false;      // 전기차 충전 가능(100m 안 충전소)만
     if (!state.f && !state.now) return true;
     if (lot.access === 'permit') return false;  // 월정기·공무원·화물 전용은 무료 목록에서 뺀다
     if (lot.bus_only) return false;              // 관광버스 전용도 승용차 무료 목록에서 뺀다
@@ -639,6 +641,7 @@
     var params = new URLSearchParams();
     if (state.f) params.set('f', state.f);
     if (state.now) params.set('now', '1');
+    if (state.ev) params.set('ev', '1');
     var qs = params.toString();
     if (location.protocol === 'file:') return;
     try {
@@ -662,10 +665,13 @@
         chip.setAttribute('aria-pressed', chip.getAttribute('data-f') === state.f ? 'true' : 'false');
       } else if (chip.id === 'ff-now') {
         chip.setAttribute('aria-pressed', state.now ? 'true' : 'false');
+      } else if (chip.id === 'ff-ev') {
+        chip.setAttribute('aria-pressed', state.ev ? 'true' : 'false');
       }
     });
     if (status) {
-      status.textContent = shown + '곳 표시 중' + (state.now ? ' · 지금 무료·운영 중 ' + nowFree + '곳' : '');
+      status.textContent = shown + '곳 표시 중' + (state.now ? ' · 지금 무료·운영 중 ' + nowFree + '곳' : '')
+        + (state.ev ? ' · 전기차 충전 가능만' : '');
     }
     syncUrl();
     if (track && window.pfTrack) {
@@ -684,6 +690,8 @@
       state.f = chip.getAttribute('data-f');
     } else if (chip.id === 'ff-now') {
       state.now = !state.now;
+    } else if (chip.id === 'ff-ev') {
+      state.ev = !state.ev;
     }
     apply(chip);
   });
