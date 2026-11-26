@@ -80,6 +80,52 @@ def station_card(s, path) -> str:
 </article>"""
 
 
+def build_ev_nearby_index(ev, meta):
+    """'내 주변 충전소'(/ev/nearby/)용 브라우저 경량 인덱스 — dist/assets/ 에 쓴다.
+
+    충전소가 10만 곳이 넘어 한 파일로 만들면 10MB를 훌쩍 넘으므로(주차장
+    nearby.json 은 1.7만 곳에 2.5MB), 시·도(pslug)별 파일로 나누고 위치가 든
+    파일만 받게 한다. 어느 파일이 필요한지는 경계 상자(bbox)를 담은 매니페스트로
+    고른다 — assets/ev-nearby.js 가 상자를 0.15도 넓혀 대조해 시·도 경계 너머
+    10km 안 충전소도 놓치지 않는다.
+    행 배열: [이름, 위도(5자리), 경도(5자리), 급속, 완속, 지금 충전 가능,
+              상태 확인 시각, 주소(상세 포함), 지역 인덱스]. 지역 경로는 파일별
+    'r' 배열에 한 번만 싣는다. 거리 계산은 전부 브라우저에서 하고 방문자 위치는
+    서버로 보내지도 저장하지도 않는다 — 주차장 nearby.json 과 같은 원칙.
+    """
+    by_prov = {}
+    for r in ev["regions"]:
+        pack = by_prov.setdefault(r["pslug"], {"r": [], "rows": [], "bbox": None})
+        ridx = len(pack["r"])
+        pack["r"].append(f"/ev/{r['pslug']}/{r['slug']}/")
+        for s in r["stations"]:
+            lat, lng = round(s["lat"], 5), round(s["lng"], 5)
+            addr = s["addr"] + (f' {s["ad"]}' if s.get("ad") else "")
+            pack["rows"].append([s["nm"], lat, lng, s["f"], s["s"], s["a"],
+                                 s["upd"], addr, ridx])
+            b = pack["bbox"]
+            pack["bbox"] = ([min(b[0], lat), min(b[1], lng), max(b[2], lat), max(b[3], lng)]
+                            if b else [lat, lng, lat, lng])
+    assets = bs.DIST / "assets"
+    assets.mkdir(parents=True, exist_ok=True)
+    files = {}
+    total_bytes = 0
+    for pslug, pack in sorted(by_prov.items()):
+        name = f"ev-nearby-{pslug}.json"
+        text = json.dumps(pack, ensure_ascii=False, separators=(",", ":"))
+        (assets / name).write_text(text, encoding="utf-8")
+        total_bytes += len(text.encode("utf-8"))
+        files[pslug] = {"file": name, "bbox": pack["bbox"], "n": len(pack["rows"])}
+    manifest = {"inv_at": meta.get("inv_at", ""),
+                "st_at": (meta.get("st_collected") or "")[:16].replace("T", " "),
+                "files": files}
+    mtext = json.dumps(manifest, ensure_ascii=False, separators=(",", ":"))
+    (assets / "ev-nearby-manifest.json").write_text(mtext, encoding="utf-8")
+    biggest = max(files.items(), key=lambda kv: kv[1]["n"])
+    print(f"내 주변 충전소 인덱스: {len(files)}개 파일 · 합계 {total_bytes / 1e6:.1f}MB "
+          f"(최대 {biggest[0]} {biggest[1]['n']:,}곳) + 매니페스트 {len(mtext.encode('utf-8'))}B")
+
+
 def pager(base_path, page, n_pages, cur_path) -> str:
     if n_pages <= 1:
         return ""
@@ -160,6 +206,14 @@ def main():
 <b>주차하면서 충전할 수 있는 공영주차장</b>을 함께 확인할 수 있습니다 — 공영주차장
 {meta['n_lots_onsite']:,}곳은 주차장 {meta['onsite_m']}m 안에 충전소가 있습니다.</p>
 
+<div class="note-box" style="margin-bottom:14px">
+  <p><b>지금 있는 곳에서 가까운 충전소</b> — 위치를 허용하면 주변 10km 안의 충전소를
+  거리순으로 보여 드립니다. 위치는 이 기기에서만 계산하고 서버로 보내지 않습니다.</p>
+  <div class="actions" style="margin-top:10px">
+    <a class="btn solid" href="{bs.rel('/ev/', '/ev/nearby/')}">내 주변 충전소 찾기 →</a>
+  </div>
+</div>
+
 <h2>지역 선택</h2>
 <div class="grid-2">{''.join(prov_cards)}</div>
 
@@ -191,6 +245,45 @@ def main():
                      for i, (prov, regs) in enumerate(
                          [(p, next(v for (pp, _), v in prov_rows.items() if pp == p))
                           for p in bs.PROVINCE_ORDER if any(pp == p for (pp, _) in prov_rows)])]}])))
+
+    # ---------------- 내 주변 /ev/nearby/
+    nearby_path = "/ev/nearby/"
+    manifest_url = f"{bs.rel(nearby_path, '/assets/ev-nearby-manifest.json')}?v={bs.asset_ver()}"
+    nearby_body = f"""
+<h1>내 주변 전기차 충전소</h1>
+<p class="lede">지금 계신 곳에서 가까운 전기차 충전소를 거리순으로 보여 드립니다.
+버튼을 누르면 10km 안에서 가까운 충전소 {20}곳을 찾고, 10km 안에 없으면
+가장 가까운 충전소부터 보여 드립니다.</p>
+
+<section class="nearby" id="ev-nearby" data-manifest-url="{bs.esc(manifest_url)}">
+  <button type="button" class="btn solid nearby-btn" id="ev-nearby-btn">내 주변 충전소 찾기</button>
+  <p class="nearby-note">위치는 이 기기(브라우저)에서만 계산하고 서버로 보내거나 저장하지 않아요.
+  '지금 충전 가능' 대수는 충전소마다 적힌 상태 확인 시각 기준이라 실제와 다를 수 있습니다.</p>
+  <p class="nearby-status" id="ev-nearby-status" role="status" aria-live="polite"></p>
+  <div class="nearby-results" id="ev-nearby-results"></div>
+</section>
+
+<div class="note-box">
+  <p><b>위치를 쓸 수 없을 때</b> — 지역별 목록에서 시·도 → 시·군·구 순으로 찾을 수 있어요.</p>
+  <div class="actions" style="margin-top:10px">
+    <a class="btn" href="{bs.rel(nearby_path, '/ev/')}">지역별 전기차 충전소 목록 →</a>
+  </div>
+</div>
+
+<h2>데이터</h2>
+<p class="lede">한국환경공단 전기자동차 충전소 정보(공공데이터포털)를 {bs.esc(meta['inv_at'])}에 수집해 정리했습니다.
+충전소 상태는 마지막으로 확인된 시각을 함께 적었고, 실제와 다를 수 있으니
+급할 때는 충전소 운영기관 앱이나 내비를 확인하세요.</p>
+<script src="{bs.rel(nearby_path, '/assets/ev-nearby.js')}?v={bs.asset_ver()}" defer></script>
+"""
+    pages.append((nearby_path, bs.layout(
+        title="내 주변 전기차 충전소 — 현재 위치에서 가까운 충전소 찾기 | " + bs.SITE_NAME,
+        description="현재 위치에서 가까운 전기차 충전소를 거리순으로 찾으세요. 급속·완속 대수와 지금 충전 가능한 대수를 확인할 수 있습니다.",
+        path=nearby_path, body=nearby_body,
+        crumbs=[("홈", "/"), ("전기차 충전소", "/ev/"), ("내 주변 충전소", "")],
+        nav_active="ev", city=None,
+        jsonld=[bs.jsonld_breadcrumb([("홈", "/"), ("전기차 충전소", "/ev/"), ("내 주변 충전소", "")],
+                                     nearby_path)])))
 
     # ---------------- 시·도 /ev/{pslug}/
     for (prov, pslug), regs in sorted(prov_rows.items()):
@@ -289,6 +382,8 @@ def main():
                              {"@type": "ListItem", "position": i + 1, "name": s["nm"],
                               "url": bs.SITE_BASE + path + f"#st-{s['id']}"}
                              for i, s in enumerate(chunk)]}])))
+
+    build_ev_nearby_index(ev, meta)
 
     dist = bs.DIST
     for path, html_text in pages:

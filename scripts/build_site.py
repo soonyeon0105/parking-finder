@@ -20238,7 +20238,7 @@ def main():
     if DIST.exists():
         shutil.rmtree(DIST)
     (DIST / "assets").mkdir(parents=True)
-    for f in ("style.css", "app.js", "nearby.js", "affiliate.js"):
+    for f in ("style.css", "app.js", "nearby.js", "affiliate.js", "ev-nearby.js"):
         shutil.copy(ASSETS / f, DIST / "assets" / f)
     # 폰트 표준화(2026-11-21): Pretendard 자체 호스팅 — assets/fonts/ 를 dist 로 통째로 복사.
     fonts_src = ASSETS / "fonts"
