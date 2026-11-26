@@ -7,6 +7,13 @@
 간소하게 만든다. build_site.py 를 먼저 실행해 dist/ 가 만들어진 뒤에 실행하고,
 만든 주소는 dist/sitemap.xml 에 덧붙인다.
 
+충전소 단독 상세 페이지(/ev/{도}/{구}/{충전소 id}/)는 정적 파일로 만들지 않는다
+(PR #154: 23,456개 정적 생성 → Pages 배포 파일 상한 20,000개 초과로 배포 실패).
+대신 지역별 JSON(dist/assets/ev-detail/{pslug}-{slug}.json, 충전소 전량)과
+템플릿 1개(dist/assets/ev-detail-template.html)를 만들고, Pages Function
+(functions/ev/[pslug]/[slug]/[id].js)이 요청 시점에 서버에서 완성된 HTML을
+내보낸다(안 A — 설계 #948 §4). URL·서버 HTML·OG·사이트맵은 정적 때와 같다.
+
 입력: data/ev_stations.json (prepare_ev.py 산출)
 실행: python3 scripts/build_site.py --base https://parking.9welfare.com
       python3 scripts/prepare_ev.py
@@ -27,10 +34,29 @@ import build_site as bs
 
 PER_PAGE = 60
 
+# 상세 페이지 템플릿 토큰 — functions/ev/[pslug]/[slug]/[id].js 가 같은
+# 목록으로 채운다. 토큰을 추가·삭제·이름 변경하면 함수도 함께 고칠 것.
+DETAIL_TOKENS = ("{{PSLUG}}", "{{SLUG}}", "{{ID}}", "{{STATION_NAME}}",
+                 "{{PROV}}", "{{REGION_NAME}}", "{{ADDR}}", "{{F}}", "{{S}}",
+                 "{{A}}", "{{UPD_SUFFIX}}", "{{BADGES}}", "{{META_ITEMS}}",
+                 "{{FEE_LINE}}", "{{KAKAO}}", "{{NAVER}}",
+                 "{{CHARGER_BLOCK}}", "{{LOTS_BLOCK}}",
+                 "{{JSONLD_BREADCRUMB}}")
 
-def station_card(s, path) -> str:
+
+def upd_span(s) -> str:
+    """상태 확인 시각 표기 — 없으면 빈 괄호가 되지 않게 '미확인'으로 둔다."""
+    if s.get("upd"):
+        return f'<span class="ev-upd">(상태 확인 {bs.esc(s["upd"])})</span>'
+    return '<span class="ev-upd">(상태 확인 시각 미확인)</span>'
+
+
+def station_card(s, path, detail_url=None) -> str:
     kakao, naver = bs.ev_station_links(s["nm"], s.get("lat"), s.get("lng"), s.get("addr"))
     total = s["f"] + s["s"]
+    name_html = bs.esc(s['nm'])
+    if detail_url:
+        name_html = f'<a href="{bs.rel(path, detail_url)}">{name_html}</a>'
     badges = [f'<span class="badge kind">충전소</span>']
     if s["f"]:
         badges.append(f'<span class="badge">급속 {s["f"]}기</span>')
@@ -65,22 +91,297 @@ def station_card(s, path) -> str:
     addr = s["addr"] + (f' {s["ad"]}' if s.get("ad") else "")
     return f"""<article class="card ev-card" id="st-{bs.esc(s['id'])}">
   <div class="lot-head">
-    <h3>{bs.esc(s['nm'])}</h3>
+    <h3>{name_html}</h3>
     <div class="badges">{''.join(badges)}</div>
   </div>
   <p class="addr">{bs.esc(addr)}</p>
   <ul class="meta">{''.join(meta)}</ul>
   <p class="fee-line">지금 충전 가능 {s['a']}대 · 충전 중 {s['c']}대 · 점검·운영중지 {s['dn']}대 · 상태 미확인 {s['un']}대
-  <span class="ev-upd">(상태 확인 {bs.esc(s['upd'])})</span></p>
+  {upd_span(s)}</p>
   {detail}{extra}
   <div class="actions">
     <a class="btn solid" href="{bs.esc(kakao)}" target="_blank" rel="nofollow noopener">카카오맵</a>
     <a class="btn" href="{bs.esc(naver)}" target="_blank" rel="nofollow noopener">네이버지도</a>
+    {f'<a class="btn" href="{bs.rel(path, detail_url)}">충전소 상세 보기</a>' if detail_url else ""}
   </div>
 </article>"""
 
 
-def build_ev_nearby_index(ev, meta):
+def lot_link(city, lot, path) -> str:
+    """가까운 주차장 링크 — 상세페이지 대상이면 상세페이지, 아니면 구·시 목록 페이지.
+
+    구 페이지는 lot['gu']와 city['districts']의 이름으로 찾는다. 못 찾으면 시 페이지.
+    """
+    if city is None:
+        return None
+    if bs.is_detail_target(lot):
+        return bs.detail_path(city, lot)
+    for d in city.get("districts") or []:
+        if d.get("name") == lot.get("gu"):
+            return bs.district_path(city, d)
+    return bs.city_path(city)
+
+
+# ------------------------------------------------------------------ 충전소 상세
+# 상세 페이지는 Functions 가 내보내지만, 본문 조각은 여기서 한 번만 만든다.
+# 파이썬 기준본(station_detail_page)과 템플릿(station_detail_template)이 같은
+# 조각 함수를 써서, 두 렌더링이 어긋나지 않게 한다.
+
+def detail_badges(s) -> str:
+    badges = ['<span class="badge kind">충전소</span>']
+    if s["f"]:
+        badges.append(f'<span class="badge">급속 {s["f"]}기</span>')
+    if s["s"]:
+        badges.append(f'<span class="badge">완속 {s["s"]}기</span>')
+    if s["a"]:
+        badges.append(f'<span class="badge ev">지금 충전 가능 {s["a"]}대</span>')
+    return "".join(badges)
+
+
+def detail_meta_items(s) -> str:
+    items = []
+    if s.get("op"):
+        items.append(f'<li><b>운영</b> {bs.esc(s["op"])}</li>')
+    if s.get("ut"):
+        items.append(f'<li><b>이용시간</b> {bs.esc(s["ut"])}</li>')
+    if s.get("pf") == "Y":
+        items.append('<li><b>주차</b> 무료</li>')
+    elif s.get("pf") == "N":
+        items.append('<li><b>주차</b> 유료·확인 필요</li>')
+    if s.get("call"):
+        items.append(f'<li><b>문의</b> <a href="tel:{bs.esc(s["call"])}">{bs.esc(s["call"])}</a></li>')
+    if s.get("lim"):
+        items.append(f'<li><b>이용 제한</b> {bs.esc(s["lim"])}</li>')
+    if s.get("note"):
+        items.append(f'<li><b>안내</b> {bs.esc(s["note"])}</li>')
+    return "".join(items)
+
+
+def detail_fee_line(s) -> str:
+    return (f"지금 충전 가능 {s['a']}대 · 충전 중 {s['c']}대 · 점검·운영중지 {s['dn']}대 · 상태 미확인 {s['un']}대\n"
+            f"  {upd_span(s)}")
+
+
+def detail_charger_block(s) -> str:
+    rows = "".join(
+        f'<tr><td>{bs.esc(c[0])}번</td><td>{bs.esc(c[1])}</td>'
+        f'<td class="num">{bs.esc(c[2] + "kW") if c[2] else "-"}</td><td>{bs.esc(c[3])}</td></tr>'
+        for c in s["ch"])
+    if not rows:
+        return ""
+    total = s["f"] + s["s"]
+    # table-scroll 래퍼를 조각에 넣어 둔다 — layout() 의 _wrap_data_tables 가
+    # 이미 감싼 표는 건드리지 않으므로 파이썬 기준본과 Functions 출력이 같다.
+    return (f'<h2>충전기 {total}기</h2>'
+            f'<div class="table-scroll"><table class="data">\n<thead><tr><th>번호</th><th>종류</th>'
+            f'<th class="num">출력</th><th>상태</th></tr></thead>\n'
+            f'<tbody>{rows}</tbody>\n</table></div>')
+
+
+def detail_lots_block(r, path, nearby_lots, meta) -> str:
+    """가까운 공영주차장 블록. nearby_lots: (주차장 dict, 거리m, 100m 안 여부), 거리순, 최대 5곳."""
+    onsite_m = meta.get("onsite_m", 100)
+    lot_rows = []
+    for lot, d, onsite in nearby_lots:
+        city = bs.city_of(lot)
+        href = lot_link(city, lot, path)
+        lot_addr = lot.get("addr_road") or lot.get("addr_jibun") or ""
+        lot_badges = [f'<span class="badge ev">{bs.ev_dist_text(d)}</span>']
+        if onsite:
+            lot_badges.append('<span class="badge">주차하면서 충전 가능</span>')
+        fee = lot["fee"]["type"]
+        lot_rows.append(f"""<article class="card">
+  <div class="lot-head">
+    <h3>{f'<a href="{bs.rel(path, href)}">{bs.esc(lot["name"])}</a>' if href else bs.esc(lot["name"])}</h3>
+    <div class="badges">{''.join(lot_badges)}</div>
+  </div>
+  <p class="addr">{bs.esc(lot_addr)}</p>
+  <p class="fee-line">요금 구분 {bs.esc(fee)}</p>
+</article>""")
+    if lot_rows:
+        return (f'<h2>가까운 공영주차장</h2>'
+                f'<p class="lede">이 충전소 {meta["nearby_m"]}m 안에 있는 공영주차장입니다. '
+                f'주차하면서 충전할 수 있는 곳은 {onsite_m}m 안에 있는 곳입니다.</p>'
+                f'<div class="list">{"".join(lot_rows)}</div>')
+    if r.get("pk"):
+        return (f'<h2>가까운 공영주차장</h2>'
+                f'<p class="lede">이 충전소 근처 공영주차장은 '
+                f'<a href="{bs.rel(path, r["pk"])}">{bs.esc(r["name"])} 공영주차장 목록</a>에서 확인하세요.</p>')
+    return ""
+
+
+def station_detail_body(slots) -> str:
+    """상세 페이지 본문 뼈대 — slots 는 조각 HTML(파이썬 기준본은 완성된 조각,
+    템플릿은 {{토큰}})을 받는다. 뼈대는 한 곳에서만 관리한다."""
+    return f"""
+<h1>{slots['h1']}</h1>
+<p class="lede">{slots['lede']}</p>
+<article class="card ev-card">
+  <div class="lot-head">
+    <div class="badges">{slots['badges']}</div>
+  </div>
+  <p class="addr">{slots['addr']}</p>
+  <ul class="meta">{slots['meta_items']}</ul>
+  <p class="fee-line">{slots['fee_line']}</p>
+  <div class="actions">
+    <a class="btn solid" href="{slots['kakao']}" target="_blank" rel="nofollow noopener">카카오맵</a>
+    <a class="btn" href="{slots['naver']}" target="_blank" rel="nofollow noopener">네이버지도</a>
+  </div>
+</article>
+{slots['charger_block']}
+{slots['lots_block']}
+<p style="margin-top:16px">
+  <a class="btn" href="{slots['region_url']}">← {slots['region_name']} 충전소 목록으로 돌아가기</a>
+  <a class="btn" href="{slots['ev_home_url']}">전기차 충전소 찾기</a>
+</p>
+<p class="updated">'지금 충전 가능'은 마지막으로 확인된 충전기 상태(상태 확인 시각 표기) 기준이라
+실제와 다를 수 있습니다. 출처: 한국환경공단 전기자동차 충전소 정보.</p>
+"""
+
+
+def station_detail_page(s, r, path, nearby_lots, meta) -> str:
+    """충전소 단독 상세 페이지(/ev/{pslug}/{slug}/{id}/) — 파이썬 기준본.
+
+    빌드에서는 이 함수를 쓰지 않는다(Functions 가 템플릿을 채워 내보낸다).
+    Functions 렌더링과 같은 HTML을 내는지 대조하는 검수용으로 둔다.
+    없는 값은 표시하지 않거나 '미확인'으로 둔다 — 데이터를 지어내지 않는다.
+    """
+    kakao, naver = bs.ev_station_links(s["nm"], s.get("lat"), s.get("lng"), s.get("addr"))
+    slots = {
+        "h1": bs.esc(s["nm"]),
+        "lede": (f"{bs.esc(r['prov'])} {bs.esc(r['name'])}의 전기차 충전소입니다.\n"
+                 f"충전소 정보는 {bs.esc(meta['inv_at'])} 수집 기준입니다."),
+        "badges": detail_badges(s),
+        "addr": bs.esc(s["addr"] + (f' {s["ad"]}' if s.get("ad") else "")),
+        "meta_items": detail_meta_items(s),
+        "fee_line": detail_fee_line(s),
+        "kakao": bs.esc(kakao),
+        "naver": bs.esc(naver),
+        "charger_block": detail_charger_block(s),
+        "lots_block": detail_lots_block(r, path, nearby_lots, meta),
+        "region_url": bs.rel(path, f"/ev/{r['pslug']}/{r['slug']}/"),
+        "region_name": bs.esc(r["name"]),
+        "ev_home_url": bs.rel(path, "/ev/"),
+    }
+    body = station_detail_body(slots)
+    addr = s["addr"] + (f' {s["ad"]}' if s.get("ad") else "")
+    crumbs = [("홈", "/"), ("전기차 충전소", "/ev/"),
+              (r["prov"], f"/ev/{r['pslug']}/"), (r["name"], f"/ev/{r['pslug']}/{r['slug']}/"),
+              (s["nm"], "")]
+    return bs.layout(
+        title=f"{s['nm']} 전기차 충전소 — {r['prov']} {r['name']} | {bs.SITE_NAME}",
+        description=(f"{r['prov']} {r['name']} {s['nm']} — {addr}. "
+                     f"급속 {s['f']}기 · 완속 {s['s']}기 · 지금 충전 가능 {s['a']}대"
+                     + (f" (상태 확인 {s['upd']})." if s.get("upd")
+                        else " (상태 확인 시각 미확인).")),
+        path=path, body=body, crumbs=crumbs, nav_active="ev", city=None,
+        jsonld=[bs.jsonld_breadcrumb(crumbs, path)])
+
+
+def station_detail_template(meta) -> str:
+    """상세 페이지 템플릿 — dist/assets/ev-detail-template.html 로 쓴다.
+
+    Functions 가 토큰을 채워 반환한다. 제목·설명·본문의 충전소별 값은 토큰으로
+    두고, 껍데기(내비·푸터·폰트·측정 코드)는 빌드 시점에 그대로 박는다.
+    JSON-LD는 이름에 따옴표가 들어갈 수 있어 토큰 치환이 아니라 통째로
+    교체한다 — 템플릿에는 "{{JSONLD_BREADCRUMB}}" 문자열 하나만 두고,
+    Functions 가 JSON.stringify 한 breadcrumb 객체로 바꾼다.
+    """
+    token_path = "/ev/{{PSLUG}}/{{SLUG}}/{{ID}}/"
+    slots = {
+        "h1": "{{STATION_NAME}}",
+        "lede": ("{{PROV}} {{REGION_NAME}}의 전기차 충전소입니다.\n"
+                 f"충전소 정보는 {bs.esc(meta['inv_at'])} 수집 기준입니다."),
+        "badges": "{{BADGES}}",
+        "addr": "{{ADDR}}",
+        "meta_items": "{{META_ITEMS}}",
+        "fee_line": "{{FEE_LINE}}",
+        "kakao": "{{KAKAO}}",
+        "naver": "{{NAVER}}",
+        "charger_block": "{{CHARGER_BLOCK}}",
+        "lots_block": "{{LOTS_BLOCK}}",
+        "region_url": bs.rel(token_path, "/ev/{{PSLUG}}/{{SLUG}}/"),
+        "region_name": "{{REGION_NAME}}",
+        "ev_home_url": bs.rel(token_path, "/ev/"),
+    }
+    body = station_detail_body(slots)
+    crumbs = [("홈", "/"), ("전기차 충전소", "/ev/"),
+              ("{{PROV}}", "/ev/{{PSLUG}}/"), ("{{REGION_NAME}}", "/ev/{{PSLUG}}/{{SLUG}}/"),
+              ("{{STATION_NAME}}", "")]
+    return bs.layout(
+        title="{{STATION_NAME}} 전기차 충전소 — {{PROV}} {{REGION_NAME}} | " + bs.SITE_NAME,
+        description=("{{PROV}} {{REGION_NAME}} {{STATION_NAME}} — {{ADDR}}. "
+                     "급속 {{F}}기 · 완속 {{S}}기 · 지금 충전 가능 {{A}}대{{UPD_SUFFIX}}."),
+        path=token_path, body=body, crumbs=crumbs, nav_active="ev", city=None,
+        jsonld=["{{JSONLD_BREADCRUMB}}"])
+
+
+def build_ev_detail_data(ev, meta, regions, nearby_lots_by_station, detail_url_by_id):
+    """지역별 상세 JSON + 템플릿 1개 — dist/assets/ev-detail/ 에 쓴다.
+
+    충전소는 지역 전량을 싣는다(설계 §4 A안 — 합계 약 57MB). 상세 대상(d=1)인
+    곳만 Functions 가 페이지를 내보내고, 그 밖의 id 는 404 다. 근처 주차장
+    (lots)은 상세 대상에만 싣는다(최대 5곳, 거리순). 카카오맵·네이버지도 링크는
+    빌드 시점에 계산해 넣어 Functions 가 URL 인코딩을 다시 하지 않게 한다.
+    """
+    out_dir = bs.DIST / "assets" / "ev-detail"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    for old in out_dir.glob("*.json"):  # 지역이 줄면 옛 파일이 남지 않게 한다
+        old.unlink()
+    total_bytes = 0
+    biggest = ("", 0)
+    n_detail = 0
+    onsite_m = meta.get("onsite_m", 100)
+    for r in regions:
+        stations = []
+        for s in r["stations"]:
+            kakao, naver = bs.ev_station_links(s["nm"], s.get("lat"), s.get("lng"), s.get("addr"))
+            rec = {"id": s["id"], "nm": s["nm"], "addr": s["addr"], "ad": s.get("ad") or "",
+                   "lat": s.get("lat"), "lng": s.get("lng"),
+                   "f": s["f"], "s": s["s"], "a": s["a"], "c": s["c"],
+                   "dn": s["dn"], "un": s["un"],
+                   "upd": s.get("upd") or "", "op": s.get("op") or "",
+                   "ut": s.get("ut") or "", "pf": s.get("pf") or "",
+                   "call": s.get("call") or "", "lim": s.get("lim") or "",
+                   "note": s.get("note") or "", "ch": s.get("ch") or [],
+                   "kakao": kakao, "naver": naver,
+                   "d": 1 if s["id"] in detail_url_by_id else 0}
+            if rec["d"]:
+                n_detail += 1
+                lots = []
+                for lot, d, onsite in nearby_lots_by_station.get(s["id"], [])[:5]:
+                    city = bs.city_of(lot)
+                    href = lot_link(city, lot, f"/ev/{r['pslug']}/{r['slug']}/{s['id']}/")
+                    lots.append({"nm": lot["name"],
+                                 "addr": lot.get("addr_road") or lot.get("addr_jibun") or "",
+                                 "fee": lot["fee"]["type"],
+                                 "dist": bs.ev_dist_text(d),
+                                 "on": 1 if onsite else 0,
+                                 "href": href or ""})
+                rec["lots"] = lots
+            stations.append(rec)
+        pack = {"prov": r["prov"], "pslug": r["pslug"], "name": r["name"], "slug": r["slug"],
+                "pk": r.get("pk") or "", "inv_at": meta["inv_at"],
+                "nearby_m": meta["nearby_m"], "onsite_m": onsite_m,
+                "base": bs.SITE_BASE, "stations": stations}
+        name = f"{r['pslug']}-{r['slug']}.json"
+        text = json.dumps(pack, ensure_ascii=False, separators=(",", ":"))
+        (out_dir / name).write_text(text, encoding="utf-8")
+        n_bytes = len(text.encode("utf-8"))
+        total_bytes += n_bytes
+        if n_bytes > biggest[1]:
+            biggest = (name, n_bytes)
+    template = station_detail_template(meta)
+    for tok in DETAIL_TOKENS:
+        assert tok in template, f"템플릿에 토큰 없음: {tok}"
+    (bs.DIST / "assets" / "ev-detail-template.html").write_text(template, encoding="utf-8")
+    print(f"충전소 상세 JSON: {len(regions)}개 파일 · 합계 {total_bytes / 1e6:.1f}MB "
+          f"(최대 {biggest[0]} {biggest[1] / 1e6:.2f}MB · 상세 대상 {n_detail:,}곳) + 템플릿 1개")
+    return {"n_files": len(regions), "total_bytes": total_bytes,
+            "biggest": biggest, "n_detail": n_detail}
+
+
+def build_ev_nearby_index(ev, meta, detail_url_by_id=None):
     """'내 주변 충전소'(/ev/nearby/)용 브라우저 경량 인덱스 — dist/assets/ 에 쓴다.
 
     충전소가 10만 곳이 넘어 한 파일로 만들면 10MB를 훌쩍 넘으므로(주차장
@@ -89,10 +390,11 @@ def build_ev_nearby_index(ev, meta):
     고른다 — assets/ev-nearby.js 가 상자를 0.15도 넓혀 대조해 시·도 경계 너머
     10km 안 충전소도 놓치지 않는다.
     행 배열: [이름, 위도(5자리), 경도(5자리), 급속, 완속, 지금 충전 가능,
-              상태 확인 시각, 주소(상세 포함), 지역 인덱스]. 지역 경로는 파일별
-    'r' 배열에 한 번만 싣는다. 거리 계산은 전부 브라우저에서 하고 방문자 위치는
+              상태 확인 시각, 주소(상세 포함), 지역 인덱스, 상세 페이지 경로(없으면 "")].
+    지역 경로는 파일별 'r' 배열에 한 번만 싣는다. 거리 계산은 전부 브라우저에서 하고 방문자 위치는
     서버로 보내지도 저장하지도 않는다 — 주차장 nearby.json 과 같은 원칙.
     """
+    detail_url_by_id = detail_url_by_id or {}
     by_prov = {}
     for r in ev["regions"]:
         pack = by_prov.setdefault(r["pslug"], {"r": [], "rows": [], "bbox": None})
@@ -102,7 +404,8 @@ def build_ev_nearby_index(ev, meta):
             lat, lng = round(s["lat"], 5), round(s["lng"], 5)
             addr = s["addr"] + (f' {s["ad"]}' if s.get("ad") else "")
             pack["rows"].append([s["nm"], lat, lng, s["f"], s["s"], s["a"],
-                                 s["upd"], addr, ridx])
+                                 s["upd"], addr, ridx,
+                                 detail_url_by_id.get(s["id"], "")])
             b = pack["bbox"]
             pack["bbox"] = ([min(b[0], lat), min(b[1], lng), max(b[2], lat), max(b[3], lng)]
                             if b else [lat, lng, lat, lng])
@@ -171,6 +474,10 @@ def main():
 
     # 지역별 '충전 가능한 공영주차장' 수 — 주차 페이지와 서로 잇는 핵심 숫자.
     onsite_by_city = {}
+    # 역방향: 충전소 id → [(주차장 dict, 거리m, 100m 안 여부)] (거리순, 상세 페이지용).
+    # 상세 페이지 범위는 '공영주차장 1km 안에 있는 충전소' — ev_nearby.json에 드는 곳.
+    lots_by_id = {l["id"]: l for l in site["lots"]}
+    nearby_lots_by_station = {}
     try:
         nearby = json.loads((BASE / "data" / "ev_nearby.json").read_text(encoding="utf-8"))
         lot_city = {l["id"]: l.get("city") for l in site["lots"]}
@@ -179,8 +486,24 @@ def main():
             if e.get("on"):
                 key = (lot_prov.get(lot_id), lot_city.get(lot_id))
                 onsite_by_city[key] = onsite_by_city.get(key, 0) + 1
+            lot = lots_by_id.get(lot_id)
+            if not lot:
+                continue
+            for st in e.get("st") or []:
+                nearby_lots_by_station.setdefault(st["id"], []).append(
+                    (lot, st["d"], st["d"] <= nearby["meta"].get("onsite_m", 100)))
+        for lst in nearby_lots_by_station.values():
+            lst.sort(key=lambda t: t[1])
     except (OSError, json.JSONDecodeError):
         onsite_by_city = {}
+        nearby_lots_by_station = {}
+    detail_url_by_id = {}
+    for r0 in regions:
+        for s0 in r0["stations"]:
+            if s0["id"] in nearby_lots_by_station:
+                detail_url_by_id[s0["id"]] = f"/ev/{r0['pslug']}/{r0['slug']}/{s0['id']}/"
+    print(f"충전소 상세 페이지 범위: {len(detail_url_by_id):,}곳 "
+          f"(공영주차장 {meta['nearby_m']}m 안 · 전체 {meta['n_stations']:,}곳 중)")
 
     pages = []  # (path, html)
 
@@ -361,7 +684,8 @@ def main():
 {onsite_line}충전소 정보는 {bs.esc(meta['inv_at'])} 수집 기준입니다.</p>
 {park_link}
 """
-            cards = "".join(station_card(s, path) for s in chunk)
+            cards = "".join(station_card(s, path, detail_url_by_id.get(s["id"]))
+                            for s in chunk)
             body = (head + f'<div class="list">{"".join(cards)}</div>'
                     + pager(base_path, page, n_pages, path)
                     + (park_link if page == n_pages and page != 1 else "")
@@ -380,10 +704,19 @@ def main():
                          "numberOfItems": len(chunk),
                          "itemListElement": [
                              {"@type": "ListItem", "position": i + 1, "name": s["nm"],
-                              "url": bs.SITE_BASE + path + f"#st-{s['id']}"}
+                              "url": bs.SITE_BASE + (detail_url_by_id.get(s["id"])
+                                                     or path + f"#st-{s['id']}")}
                              for i, s in enumerate(chunk)]}])))
 
-    build_ev_nearby_index(ev, meta)
+    # ---------------- 충전소 상세 — 정적 생성 없음(안 A)
+    # 상세 페이지는 Functions 가 지역별 JSON + 템플릿으로 내보낸다. 정적 생성은
+    # PR #154에서 배포 파일 상한(20,000개)을 초과해 실패했다. 상세 URL은
+    # 사이트맵에만 싣고, 카드·목록의 상세 링크(detail_url_by_id)는 그대로 둔다.
+    detail_paths = sorted(detail_url_by_id.values())
+    print(f"충전소 상세 페이지: {len(detail_paths):,}개 (Functions 동적 렌더링 — 정적 파일 없음)")
+
+    build_ev_nearby_index(ev, meta, detail_url_by_id)
+    build_ev_detail_data(ev, meta, regions, nearby_lots_by_station, detail_url_by_id)
 
     dist = bs.DIST
     for path, html_text in pages:
@@ -392,15 +725,21 @@ def main():
         out.write_text(html_text, encoding="utf-8")
 
     # 사이트맵에 EV 주소 덧붙이기 (build_site.py 가 만든 sitemap.xml 의 </urlset> 앞).
+    # 상세 페이지는 우선순위 0.6 — 목록·허브(0.7~0.9)보다 낮게 둔다.
+    # 합계 6,396 + 상세 23,456 ≈ 29,852개로 50,000개 상한 안에 든다.
     sm_path = dist / "sitemap.xml"
     sm = sm_path.read_text(encoding="utf-8")
     lastmod = (meta.get("inv_collected") or "")[:10]
     lastmod_tag = f"<lastmod>{lastmod}</lastmod>" if lastmod else ""
+    detail_set = set(detail_paths)
+    all_ev_paths = [p for p, _ in pages] + detail_paths
     urls = "\n".join(
         f"  <url><loc>{bs.SITE_BASE}{p}</loc>{lastmod_tag}<changefreq>weekly</changefreq>"
-        f"<priority>{'0.9' if p == '/ev/' else '0.7'}</priority></url>" for p, _ in pages)
+        f"<priority>{'0.9' if p == '/ev/' else '0.6' if p in detail_set else '0.7'}</priority></url>"
+        for p in all_ev_paths)
     sm_path.write_text(sm.replace("</urlset>", urls + "\n</urlset>"), encoding="utf-8")
-    print(f"전기차 충전소 페이지 생성 완료: {len(pages)}페이지 (충전소 {meta['n_stations']:,}곳)")
+    print(f"전기차 충전소 페이지 생성 완료: {len(pages)}페이지 "
+          f"(충전소 {meta['n_stations']:,}곳 · 상세 {len(detail_paths):,}개 Functions)")
 
 
 if __name__ == "__main__":

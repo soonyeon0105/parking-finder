@@ -5,6 +5,7 @@
 연결 키 규칙: 원자료 관리번호(mgmt_no)는 비유일하므로 어떤 코드도 연결·조인 키로 쓰지 않는다. 유일 키는 내부 id뿐이다.
 """
 import json
+import os
 import re
 import sys
 
@@ -75,6 +76,18 @@ print("JSON-LD 유형:", types_seen)
 
 # ---------------------------------------------------------------- 내부 링크
 link_re = re.compile(r'href="([^"#:]+)(?:#[^"]*)?"')
+# EV 충전소 상세 페이지는 정적 파일이 아니라 Functions 가 내보낸다(안 A).
+# 지역별 JSON에 상세 대상(d=1)으로 든 충전소만 유효한 상세 링크다.
+_ev_detail_urls = set()
+for _jf in (DIST / "assets" / "ev-detail").glob("*.json"):
+    try:
+        _pack = json.loads(_jf.read_text())
+    except (OSError, json.JSONDecodeError):
+        continue
+    for _st in _pack.get("stations", []):
+        if _st.get("d"):
+            _ev_detail_urls.add(f"/ev/{_pack['pslug']}/{_pack['slug']}/{_st['id']}/")
+print(f"EV 상세 Functions 경로: {len(_ev_detail_urls):,}개")
 checked = set()
 for pg in pages:
     html = pg.read_text()
@@ -93,6 +106,12 @@ for pg in pages:
         if target.is_dir():
             target = target / "index.html"
         if not target.exists():
+            try:
+                _rel = "/" + target.relative_to(DIST).as_posix().rstrip("/") + "/"
+            except ValueError:
+                _rel = ""
+            if _rel in _ev_detail_urls:
+                continue  # Functions 가 내보내는 상세 페이지 — 정적 파일 없음이 정상
             fails.append(f"{pg.relative_to(DIST)} → 깨진 링크 {href}")
 
 print("검사한 내부 링크:", len(checked))
@@ -1173,15 +1192,80 @@ for p in pages:
     if rel == "index.html":
         rel = ""
     want_urls.add(SITE_BASE + "/" + rel)
+# EV 상세 URL은 정적 파일이 없어 pages 에 없지만 사이트맵에는 싣는다(안 A).
+for _u in _ev_detail_urls:
+    want_urls.add(SITE_BASE + _u)
 if set(locs) != want_urls:
     fails.append(f"사이트맵 불일치: 누락 {sorted(want_urls - set(locs))[:5]} / 초과 {sorted(set(locs) - want_urls)[:5]}")
 if len(locs) != len(set(locs)):
     fails.append("사이트맵 URL 중복")
+# 사이트맵 프로토콜 상한 50,000개 — 넘으면 사이트맵 인덱스로 나눠야 한다
+# (충전소 상세 전수 생성 시 107,384개가 되어 범위를 주차장 연결 23,456곳으로 잡았다).
+if len(locs) >= 50000:
+    fails.append(f"사이트맵 50,000개 상한 초과: {len(locs):,}개")
 # 부분 문자열로 보면 내부 id 에 404 가 든 상세페이지(예: udc-40400)가 걸린다 —
 # 검사 의도인 404 오류 페이지 자체가 사이트맵에 있는지만 본다.
 if SITE_BASE + "/404.html" in locs:
     fails.append("사이트맵에 404 포함")
 print(f"도시별 확장 규칙 검사 완료 (페이지 {len(pages)} · 사이트맵 {len(locs)})")
+
+# ---------------------------------------------------------------- EV 상세 Functions 생성물 (안 A)
+# 정적 검사는 Functions 경로를 직접 실행하지 못하므로, 생성물을 검사한다:
+# 지역별 JSON(충전소 전량·상세 대상 표시·근처 주차장), 템플릿(토큰 완비),
+# 함수 파일(라우팅). 실제 렌더링은 QA_EV_DETAIL_BASE 지정 시 아래 실측 검사에서 본다.
+_ev_detail_dir = DIST / "assets" / "ev-detail"
+_ev_detail_files = sorted(_ev_detail_dir.glob("*.json")) if _ev_detail_dir.exists() else []
+_ev_template = DIST / "assets" / "ev-detail-template.html"
+_ev_function = BASE / "functions" / "ev" / "[pslug]" / "[slug]" / "[id].js"
+_ev_total_stations = 0
+_ev_biggest = ("", 0)
+for _jf in _ev_detail_files:
+    _pack = json.loads(_jf.read_text())
+    _n = len(_pack.get("stations", []))
+    _ev_total_stations += _n
+    _b = len(_jf.read_bytes())
+    if _b > _ev_biggest[1]:
+        _ev_biggest = (_jf.name, _b)
+    if _b >= 25 * 1024 * 1024:
+        fails.append(f"EV 상세 JSON 단일 파일 상한(25MB) 초과: {_jf.name} {_b / 1e6:.1f}MB")
+print(f"EV 상세 JSON: {len(_ev_detail_files)}개 파일 · 충전소 {_ev_total_stations:,}곳 "
+      f"· 상세 대상 {len(_ev_detail_urls):,}곳 (최대 {_ev_biggest[0]} {_ev_biggest[1] / 1e6:.2f}MB)")
+_ev_src = globals().get("_ev_data")
+if _ev_src is not None:
+    if _ev_total_stations != _ev_src["meta"]["n_stations"]:
+        fails.append(f"EV 상세 JSON 충전소 수 불일치: {_ev_total_stations:,} ≠ 원본 {_ev_src['meta']['n_stations']:,}")
+    if len(_ev_detail_files) != len(_ev_src["regions"]):
+        fails.append(f"EV 상세 JSON 파일 수 불일치: {len(_ev_detail_files)} ≠ 지역 {len(_ev_src['regions'])}")
+    # 상세 대상 = ev_nearby.json 의 주차장 근처 충전소 목록에 드는 충전소
+    # (build_ev.py 의 nearby_lots_by_station 과 같은 기준).
+    _ev_nb = globals().get("_ev_nb")
+    if _ev_nb is not None:
+        _src_detail = {_s["id"] for _e in _ev_nb.get("lots", {}).values()
+                       for _s in _e.get("st", [])}
+        if len(_ev_detail_urls) != len(_src_detail):
+            fails.append(f"EV 상세 대상 수 불일치: JSON {len(_ev_detail_urls):,} ≠ 원본 기준 {len(_src_detail):,}")
+if not _ev_template.exists():
+    fails.append("EV 상세 템플릿 없음: dist/assets/ev-detail-template.html")
+else:
+    _tpl = _ev_template.read_text()
+    for _tok in ("{{PSLUG}}", "{{SLUG}}", "{{ID}}", "{{STATION_NAME}}", "{{PROV}}",
+                 "{{REGION_NAME}}", "{{ADDR}}", "{{F}}", "{{S}}", "{{A}}",
+                 "{{UPD_SUFFIX}}", "{{BADGES}}", "{{META_ITEMS}}", "{{FEE_LINE}}",
+                 "{{KAKAO}}", "{{NAVER}}", "{{CHARGER_BLOCK}}", "{{LOTS_BLOCK}}",
+                 "{{JSONLD_BREADCRUMB}}"):
+        if _tok not in _tpl:
+            fails.append(f"EV 상세 템플릿 토큰 누락: {_tok}")
+    if "{{" in _tpl.replace("{{JSONLD_BREADCRUMB}}", "") and re.search(
+            r"\{\{(?!PSLUG|SLUG|ID|STATION_NAME|PROV|REGION_NAME|ADDR|F|S|A|UPD_SUFFIX|BADGES|META_ITEMS|FEE_LINE|KAKAO|NAVER|CHARGER_BLOCK|LOTS_BLOCK|JSONLD_BREADCRUMB)[A-Z_]+\}\}", _tpl):
+        fails.append("EV 상세 템플릿에 알 수 없는 토큰 있음")
+if not _ev_function.exists():
+    fails.append("EV 상세 Function 없음: functions/ev/[pslug]/[slug]/[id].js")
+_sm_detail = [u for u in locs if re.match(r"https://parking\.9welfare\.com/ev/[^/]+/[^/]+/[^/]+/$", u)
+              and not u.rsplit("/", 2)[-2].isdigit()]
+if len(_sm_detail) != len(_ev_detail_urls):
+    fails.append(f"사이트맵 상세 URL 수 불일치: {len(_sm_detail):,} ≠ 상세 대상 {len(_ev_detail_urls):,}")
+print(f"EV 상세 Functions 생성물 검사 완료 (템플릿 {'있음' if _ev_template.exists() else '없음'} · "
+      f"함수 {'있음' if _ev_function.exists() else '없음'} · 사이트맵 상세 {len(_sm_detail):,}개)")
 
 # ---------------------------------------------------------------- 계산 규칙
 from build_site import price_for, hours_text, fee_text  # noqa: E402
@@ -6324,9 +6408,78 @@ if _maps_hard:
                  if ln.startswith("  - ") and "https://" in ln)
 print(f"지도 QA(좌표·링크) 완료: 하드 오류 {_maps_hard}건 · 상세는 python3 scripts/qa_maps.py --write")
 
+# ---------------------------------------------------------------- EV 상세 Functions 실측 (안 A)
+# 정적 검사만으로는 Functions 렌더링을 확인할 수 없다. 미리보기 배포 URL을
+# QA_EV_DETAIL_BASE 환경 변수로 주면 상세 페이지 샘플을 직접 조회한다.
+# 예: QA_EV_DETAIL_BASE=https://<브랜치>--parking-finder.pages.dev python3 scripts/qa_check.py
+# 로컬 검증: wrangler pages dev 로 띄운 뒤 QA_EV_DETAIL_BASE=http://localhost:8788
+_ev_live_base = os.environ.get("QA_EV_DETAIL_BASE", "").rstrip("/")
+if _ev_live_base:
+    import http.client  # noqa: E402
+    from urllib.parse import urlparse  # noqa: E402
+
+    def _live_get(path):
+        _u = urlparse(_ev_live_base)
+        _cls = http.client.HTTPSConnection if _u.scheme == "https" else http.client.HTTPConnection
+        _conn = _cls(_u.hostname, _u.port or (443 if _u.scheme == "https" else 80), timeout=20)
+        try:
+            _conn.request("GET", path)
+            _r = _conn.getresponse()
+            return _r.status, {k.lower(): v for k, v in _r.getheaders()}, _r.read()
+        finally:
+            _conn.close()
+
+    _samples = sorted(_ev_detail_urls)
+    _picked = [_samples[0], _samples[len(_samples) // 2], _samples[-1]] if _samples else []
+    _live_ok = 0
+    for _u in _picked:
+        _st, _h, _b = _live_get(_u)
+        _t = _b.decode("utf-8", "replace")
+        if _st != 200:
+            fails.append(f"EV 상세 실측({_u}): 상태 {_st} (200이어야 함)")
+            continue
+        if "max-age=3600" not in _h.get("cache-control", ""):
+            fails.append(f"EV 상세 실측({_u}): Cache-Control에 max-age=3600 없음 ({_h.get('cache-control')})")
+        for _mark in ("전기차 충전소", "충전기"):
+            if _mark not in _t:
+                fails.append(f"EV 상세 실측({_u}): 본문에 '{_mark}' 없음")
+        if "{{" in _t:
+            fails.append(f"EV 상세 실측({_u}): 템플릿 토큰이 그대로 남음")
+        else:
+            _live_ok += 1
+    # 숫자 페이지네이션 — 정적 목록이 그대로 나는지
+    _pg2 = next((p for p in pages
+                 if re.search(r"/ev/[^/]+/[^/]+/2/index\.html$", p.relative_to(DIST).as_posix())),
+                None)
+    if _pg2 is not None:
+        _pp = "/" + _pg2.relative_to(DIST).as_posix()[: -len("index.html")]
+        _st, _h, _b = _live_get(_pp)
+        _t = _b.decode("utf-8", "replace")
+        if _st != 200 or "ev-pager" not in _t:
+            fails.append(f"EV 상세 실측(페이지네이션 {_pp}): 상태 {_st} · 목록 페이지가 아님")
+        else:
+            _live_ok += 1
+    # 없는 id → 404, 슬래시 없음 → 301
+    if _picked:
+        _seg = _picked[0].split("/")
+        _st, _h, _b = _live_get(f"/ev/{_seg[2]}/{_seg[3]}/EV_NO_SUCH_ID/")
+        if _st != 404:
+            fails.append(f"EV 상세 실측(없는 id): 상태 {_st} (404여야 함)")
+        else:
+            _live_ok += 1
+        _st, _h, _b = _live_get(_picked[0].rstrip("/"))
+        if _st != 301 or not _h.get("location", "").endswith("/"):
+            fails.append(f"EV 상세 실측(슬래시 없음): 상태 {_st} · Location {_h.get('location')} "
+                         "(301 + 슬래시 URL이어야 함)")
+        else:
+            _live_ok += 1
+    print(f"EV 상세 Functions 실측 완료 ({_ev_live_base}): {_live_ok}건 확인")
+else:
+    print("EV 상세 Functions 실측 검사 생략 (QA_EV_DETAIL_BASE 미지정 — 미리보기 배포 URL을 주면 실측한다)")
+
 if fails:
     print(f"실패 {len(fails)}건")
     for f in fails[:20]:
         print(" -", f)
     sys.exit(1)
-print("모두 통과: JSON-LD, 내부 링크, 404, 슬러그/canonical, 도시별 확장 규칙, 계산 규칙, 데이터 완전성, 지도 QA")
+print("모두 통과: JSON-LD, 내부 링크, 404, 슬러그/canonical, 도시별 확장 규칙, 계산 규칙, 데이터 완전성, 지도 QA, EV 상세 Functions 생성물")
