@@ -75,9 +75,13 @@ print("JSON-LD 유형:", types_seen)
 
 # ---------------------------------------------------------------- 내부 링크
 link_re = re.compile(r'href="([^"#:]+)(?:#[^"]*)?"')
-checked = set()
+# 메모리: 전역 checked 집합은 (페이지, 대상) 쌍을 40,000페이지분 쌓아 수 GB가 된다
+# (2026-11-26 EV 상세 추가 후 OOM). 키에 페이지가 포함되므로 전역 중복 제거는
+# 페이지 내 중복 제거와 동일하다 — 페이지별 집합으로 스트리밍한다.
+checked_total = 0
 for pg in pages:
     html = pg.read_text()
+    checked = set()
     for href in link_re.findall(html):
         if href.startswith(("http", "mailto", "tel", "/assets", "#")):
             continue
@@ -94,8 +98,9 @@ for pg in pages:
             target = target / "index.html"
         if not target.exists():
             fails.append(f"{pg.relative_to(DIST)} → 깨진 링크 {href}")
+    checked_total += len(checked)
 
-print("검사한 내부 링크:", len(checked))
+print("검사한 내부 링크:", checked_total)
 
 # ---------------------------------------------------------------- 지도 링크 (T-04, T-04b)
 # 2026-11-16 버그: ① 네이버 링크가 c=lng,lat,16(3칸)이라 모바일에서 좌표가 버려지고
@@ -111,9 +116,24 @@ import html as html_lib  # noqa: E402
 from urllib.parse import unquote, quote  # noqa: E402
 from build_site import map_links, map_coords, map_label  # noqa: E402
 
-all_html = html_lib.unescape("\n".join(pg.read_text() for pg in pages))
-naver_urls = set(re.findall(r'https://map\.naver\.com/\?[^"<>]+', all_html))
-kakao_urls = set(re.findall(r'https://map\.kakao\.com/link/map/[^"<>]+', all_html))
+# 메모리: 전 페이지 합본(all_html)은 40,000페이지에서 수 GB가 되어 OOM을 일으킨다
+# (2026-11-26 EV 상세 23,456페이지 추가 후 qa_check OOM exit 137).
+# 페이지별로 스트리밍하며 지도 URL 집합만 누적한다 — 검사 결과는 동일하다
+# (주차장 지도 링크는 map_links() 출력이 href에 그대로 들어가므로 정규식으로 잡힌다).
+naver_urls, kakao_urls, street_links, _mobile_kakao = set(), set(), set(), set()
+_has_legacy_naver = False
+_has_legacy_kakao = False
+for pg in pages:
+    _h = html_lib.unescape(pg.read_text())
+    naver_urls.update(re.findall(r'https://map\.naver\.com/\?[^"<>]+', _h))
+    kakao_urls.update(re.findall(r'https://map\.kakao\.com/link/map/[^"<>]+', _h))
+    street_links.update(re.findall(r'https://map\.kakao\.com/link/search/[^"<>]+', _h))
+    _mobile_kakao.update(re.findall(r'https://m\.map\.kakao\.com/\?q=[^"<>]+', _h))
+    if "map.naver.com/p?c=" in _h or "/p/search/" in _h:
+        _has_legacy_naver = True
+    if "https://map.kakao.com/?q=" in _h:
+        _has_legacy_kakao = True
+all_map_urls = naver_urls | kakao_urls | street_links | _mobile_kakao
 print(f"지도 링크: 네이버 {len(naver_urls)}종 · 카카오 {len(kakao_urls)}종")
 if not naver_urls or not kakao_urls:
     fails.append("지도 링크가 생성물에 없음")
@@ -136,7 +156,7 @@ for u in naver_urls:
     # '핀이 무엇인지 이름에서 알 수 있게'이며, 충전소 핀은 '전기차충전소'로 찍힌다).
     if not any(t in unquote(q) for t in ("주차", "차고지", "충전소")):
         fails.append(f"네이버 핀 이름에 '주차장' 표기 없음: {unquote(q)}")
-if any("map.naver.com/p?c=" in h or "/p/search/" in h for h in (all_html,)):
+if _has_legacy_naver:
     fails.append("구형 네이버 지도 링크(/p?c= 또는 /p/search/)가 남아 있음")
 for u in kakao_urls:
     parts = u.split("/link/map/", 1)[1].split(",")
@@ -152,7 +172,7 @@ for lot in LOTS:
     if lot.get("list_mode") == "street":
         continue      # 노상은 카드 대신 표(주소 링크)로 나간다
     for u in (kakao, naver):
-        if u not in all_html:
+        if u not in all_map_urls:
             fails.append(f"{lot['name']} 카드에 지도 링크 누락: {u}")
     if lot.get("lat") and lot.get("lng"):
         lat, lng = map_coords(lot)
@@ -164,12 +184,10 @@ for lot in LOTS:
         fails.append(f"{lot['name']}(좌표 없음) 네이버 링크가 검색 형식이 아님: {naver}")
     if not map_label(lot).strip():
         fails.append(f"{lot['name']} 지도 라벨 비었음")
-street_links = set(re.findall(r'https://map\.kakao\.com/link/search/[^"<>]+', all_html))
 print(f"노상 구간 지도 링크(주소 검색): {len(street_links)}종")
 # 좌표 없는 주차장은 m.map.kakao.com/?q= (모바일 접속에서 앱 설치 안내로 넘어가지 않는 주소)를 쓴다.
-if re.search(r"https://map\.kakao\.com/\?q=", all_html):
+if _has_legacy_kakao:
     fails.append("구형 카카오 지도 링크(map.kakao.com/?q=)가 남아 있음")
-_mobile_kakao = set(re.findall(r'https://m\.map\.kakao\.com/\?q=[^"<>]+', all_html))
 print(f"좌표 없는 주차장 지도 링크(m.map.kakao.com): {len(_mobile_kakao)}종")
 for lot in LOTS:
     if lot.get("lat") and lot.get("lng"):
@@ -276,20 +294,25 @@ for pg in foot_pages:
 print(f"개인정보처리방침 검사 완료 (푸터 링크 {len(foot_pages)}페이지 · 오류 제보 폼 링크 포함)")
 
 GA_ID = (DATA.get("ga_measurement_id") or "").strip()
-all_pages_html = {pg.relative_to(DIST).as_posix(): pg.read_text() for pg in foot_pages}
+# 메모리: 전 페이지 합본 dict(all_pages_html)는 40,000페이지에서 수 GB가 된다 —
+# 페이지별 스트리밍으로 동일 검사(누락·유출 페이지 목록은 같다).
+missing, leaked = [], []
+for pg in foot_pages:
+    _rel = pg.relative_to(DIST).as_posix()
+    _h = pg.read_text()
+    if GA_ID:
+        if "GTM-THM2WBPJ" not in _h or "googletagmanager.com/gtm.js" not in _h or "gtag/js" in _h:
+            missing.append(_rel)
+    elif "googletagmanager" in _h or "gtag(" in _h or "dataLayer" in _h:
+        leaked.append(_rel)
 if GA_ID:
-    missing = [rel for rel, h in all_pages_html.items()
-               if "GTM-THM2WBPJ" not in h or "googletagmanager.com/gtm.js" not in h
-               or "gtag/js" in h]
     if missing:
         fails.append(f"측정 스위치({GA_ID})가 켜졌는데 GTM 스니펫이 없거나 옛 gtag가 남은 페이지: {missing[:5]}")
-    print(f"GTM 삽입 확인: GTM-THM2WBPJ (GA4 {GA_ID}) · {len(all_pages_html)}페이지")
+    print(f"GTM 삽입 확인: GTM-THM2WBPJ (GA4 {GA_ID}) · {len(foot_pages)}페이지")
 else:
-    leaked = [rel for rel, h in all_pages_html.items()
-              if "googletagmanager" in h or "gtag(" in h or "dataLayer" in h]
     if leaked:
         fails.append(f"ga_measurement_id 가 비었는데 측정 코드가 들어간 페이지: {leaked[:5]}")
-    print(f"측정 미삽입 확인 (ga_measurement_id 비어 있음 · {len(all_pages_html)}페이지)")
+    print(f"측정 미삽입 확인 (ga_measurement_id 비어 있음 · {len(foot_pages)}페이지)")
 
 app_js = (DIST / "assets" / "app.js").read_text()
 for ev in ("calc_use", "map_outbound_click", "free_filter_click", "404_hit"):
@@ -312,7 +335,10 @@ from build_site import (NAVER_VERIFICATION_CONTENT, NAVER_VERIFICATION_FILE,  # 
                         NAVER_VERIFICATION_FILE_BODY)
 
 naver_meta = f'<meta name="naver-site-verification" content="{NAVER_VERIFICATION_CONTENT}">'
-missing_meta = [rel for rel, h in all_pages_html.items() if naver_meta not in h]
+missing_meta = []
+for pg in foot_pages:
+    if naver_meta not in pg.read_text():
+        missing_meta.append(pg.relative_to(DIST).as_posix())
 if missing_meta:
     fails.append(f"네이버 소유확인 meta 태그 없는 페이지: {missing_meta[:5]}")
 nv_file = DIST / NAVER_VERIFICATION_FILE
@@ -324,7 +350,7 @@ else:
         fails.append(f"네이버 소유확인 파일 내용 이상: {body!r}")
     if "<" in body or "\n" in body.strip():
         fails.append("네이버 소유확인 파일이 한 줄 텍스트가 아님(HTML 태그·여러 줄)")
-print(f"네이버 소유확인 검사 완료 (meta {len(all_pages_html)}페이지 · {NAVER_VERIFICATION_FILE})")
+print(f"네이버 소유확인 검사 완료 (meta {len(foot_pages)}페이지 · {NAVER_VERIFICATION_FILE})")
 
 # ---------------------------------------------------------------- 슬러그(전국 확장)
 from build_site import (DONG_SLUG, GU_SLUG, UNKNOWN_DONG, base_slug,  # noqa: E402
@@ -1065,6 +1091,7 @@ _ev_stations_file = BASE / "data" / "ev_stations.json"
 _ev_nearby_file = BASE / "data" / "ev_nearby.json"
 _EV_REGION_STRIP = {}
 _EV_NEARBY_NAMES = {}
+_EV_DETAIL_LOTS = {}
 if _ev_stations_file.exists():
     _ev_data = json.loads(_ev_stations_file.read_text())
     _tok_union = set()
@@ -1092,6 +1119,20 @@ if _ev_nearby_file.exists():
                                      for t in (s["nm"], s.get("addr") or "") if t},
                                     key=len, reverse=True)
                         for lid, e in _ev_nb["lots"].items() if e.get("st")}
+    # 충전소 상세의 '가까운 공영주차장' 블록도 이름과 주소를 함께 그린다 — 역방향으로
+    # 충전소 id → 그 충전소 1km 안 주차장들의 이름·주소(시 경계 너머 주차장 포함).
+    _LOT_BY_ID = {l["id"]: l for l in LOTS}
+    _EV_DETAIL_LOTS = {}
+    for _lid, _e in _ev_nb["lots"].items():
+        _lot = _LOT_BY_ID.get(_lid)
+        if not _lot:
+            continue
+        _texts = {t for t in (_lot["name"], _lot.get("addr_road") or "",
+                              _lot.get("addr_jibun") or "") if t}
+        for _s in _e.get("st", []):
+            _EV_DETAIL_LOTS.setdefault(_s["id"], set()).update(_texts)
+    _EV_DETAIL_LOTS = {k: sorted(v, key=len, reverse=True)
+                       for k, v in _EV_DETAIL_LOTS.items()}
 
 for p in pages:
     rel = p.relative_to(DIST).as_posix()
@@ -1124,6 +1165,8 @@ for p in pages:
     if rel.startswith("ev/"):
         _seg = rel.split("/")
         _ev_texts = _EV_REGION_STRIP.get(f"{_seg[1]}/{_seg[2]}", ())
+        if len(_seg) >= 4:  # 충전소 상세(/ev/{도}/{구}/{id}/) — 가까운 주차장 블록의 주차장도 지운다
+            _ev_texts = (*_ev_texts, *_EV_DETAIL_LOTS.get(_seg[3], ()))
     else:
         _ev_texts = _EV_NEARBY_NAMES.get(p.parent.name, ())
     for _t in sorted([*_MIX_NAMES[city_key], *_MIX_ADDRS[city_key], *_ev_texts],
@@ -1177,6 +1220,10 @@ if set(locs) != want_urls:
     fails.append(f"사이트맵 불일치: 누락 {sorted(want_urls - set(locs))[:5]} / 초과 {sorted(set(locs) - want_urls)[:5]}")
 if len(locs) != len(set(locs)):
     fails.append("사이트맵 URL 중복")
+# 사이트맵 프로토콜 상한 50,000개 — 넘으면 사이트맵 인덱스로 나눠야 한다
+# (충전소 상세 전수 생성 시 107,384개가 되어 범위를 주차장 연결 23,456곳으로 잡았다).
+if len(locs) >= 50000:
+    fails.append(f"사이트맵 50,000개 상한 초과: {len(locs):,}개")
 # 부분 문자열로 보면 내부 id 에 404 가 든 상세페이지(예: udc-40400)가 걸린다 —
 # 검사 의도인 404 오류 페이지 자체가 사이트맵에 있는지만 본다.
 if SITE_BASE + "/404.html" in locs:
