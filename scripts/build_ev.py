@@ -156,18 +156,30 @@ def station_card(s, path, detail_url=None) -> str:
 
 
 def lot_link(city, lot, path) -> str:
-    """가까운 주차장 링크 — 상세페이지 대상이면 상세페이지, 아니면 구·시 목록 페이지.
+    """가까운 주차장 링크 — 상세페이지 대상이면 상세페이지, 아니면 목록 페이지의
+    그 주차장 카드 앵커(#lot-N). 목록 맨 위로만 보내면 사용자가 그 주차장을
+    목록에서 또 찾아야 한다(운영자 발견 결함 2026-11-27 — nearby.json과 같은 원칙).
 
     구 페이지는 lot['gu']와 city['districts']의 이름으로 찾는다. 못 찾으면 시 페이지.
+    앵커 번호는 build_site.build_nearby_data와 같은 district_sorted 순서 기준.
     """
     if city is None:
         return None
     if bs.is_detail_target(lot):
         return bs.detail_path(city, lot)
-    for d in city.get("districts") or []:
-        if d.get("name") == lot.get("gu"):
-            return bs.district_path(city, d)
-    return bs.city_path(city)
+    if bs.is_city_wide(city):
+        group, base = city.get("_card_lots") or [], bs.city_path(city)
+    else:
+        d = next((d for d in city.get("districts") or []
+                  if d.get("name") == lot.get("gu")), None)
+        if d is None:
+            return bs.city_path(city)
+        group = [l for l in (city.get("_card_lots") or []) if l.get("gu") == d["name"]]
+        base = bs.district_path(city, d)
+    for i, l in enumerate(bs.district_sorted(group), 1):
+        if l.get("id") == lot.get("id"):
+            return f"{base}#lot-{i}"
+    return base
 
 
 # ------------------------------------------------------------------ 충전소 상세

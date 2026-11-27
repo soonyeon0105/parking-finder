@@ -9215,7 +9215,9 @@ def build_district(city, d, lots, site, path=None, hub=False):
                      else (l["fee"].get("grade_label")
                            or ("관광 종일" if l["fee"].get("category") == "tourist"
                                else "부설" if l["ptype"] == "부설" else "—")))
-            cheap_rows += (f'<tr><td><a href="#lot-{idx}">{esc(l["name"])}</a></td>'
+            # 상세페이지가 있는 곳은 표에서도 상세로 바로 보낸다(nearby와 같은 원칙).
+            href = rel(path, detail_path(city, l)) if is_detail_target(l) else f"#lot-{idx}"
+            cheap_rows += (f'<tr><td><a href="{href}">{esc(l["name"])}</a></td>'
                            f'<td>{esc(l["dong"] or "—")}</td><td class="num">{grade}</td>'
                            f'<td class="num">{price_cell(l, 120)}</td>'
                            f'<td class="num">{l["spaces"] or "—"}</td></tr>')
@@ -9362,11 +9364,21 @@ def build_weekend(city, d, lots, site):
         list_html = ('<div class="note-box">현재 자료에는 이 구에서 주말·공휴일 무료 개방으로 표기된 주차장이 없습니다. '
                      '아래는 주말 기준 예상요금이 낮은 대안 목록입니다.</div>')
 
+    # 대안 표의 앵커 번호는 구 페이지 카드 순서(district_sorted) 기준이어야 한다 —
+    # 예전 코드는 대안 목록 자체의 순번을 써서 엉뚱한 카드를 가리켰다(2026-11-28 정정).
+    # 상세페이지가 있는 곳은 표에서도 상세로 바로 보낸다(nearby와 같은 원칙).
+    _gu_sorted = district_sorted(lots)
+
+    def _alt_href(l):
+        if is_detail_target(l):
+            return rel(path, detail_path(city, l))
+        return f"../#lot-{_gu_sorted.index(l) + 1}"
+
     alt_rows = "".join(
-        f'<tr><td><a href="../#lot-{i+1}">{esc(l["name"])}</a></td>'
+        f'<tr><td><a href="{_alt_href(l)}">{esc(l["name"])}</a></td>'
         f'<td class="num">{won(price_for(l, 120, "sun")["amount"])}</td>'
         f'<td class="num">{l["spaces"] or "-"}</td></tr>'
-        for i, l in enumerate(alt))
+        for l in alt)
 
     body = f"""
 <h1>{esc(gu)} 주말·공휴일 무료 개방 공영주차장</h1>
@@ -18007,10 +18019,17 @@ def build_city(city, lots, site):
                                   key=lambda t: (t[1].get("state") != "paid", t[1].get("amount") or 0))
              if r.get("state") == "paid"][:8]
     # 링크의 #lot-N 은 구 페이지 카드 번호(정렬 순서)와 같아야 한다 — 저렴한 순위가 아니다.
+    # 상세페이지가 있는 곳은 표에서도 상세로 바로 보낸다(nearby와 같은 원칙).
     gu_order = {d["name"]: district_sorted([l for l in lots if l["gu"] == d["name"]])
                 for d in city["districts"]}
+
+    def _cheap_href(l):
+        if is_detail_target(l):
+            return rel(path, detail_path(city, l))
+        return f'../{gu_slug(l["gu"], city["city"])}/#lot-{gu_order[l["gu"]].index(l) + 1}'
+
     cheap_rows = "".join(
-        f'<tr><td><a href="../{gu_slug(l["gu"], city["city"])}/#lot-{gu_order[l["gu"]].index(l) + 1}">'
+        f'<tr><td><a href="{_cheap_href(l)}">'
         f'{esc(l["name"])}</a></td>'
         f'<td>{esc(l["gu"] or "-")}</td><td class="num">{won(price_for(l, 120)["amount"])}</td>'
         f'<td class="num">{l["spaces"] or "-"}</td></tr>' for l in cheap)
@@ -18885,9 +18904,12 @@ FOLD_SCRIPT = """
 
 
 def free_hub_link(city, path, lots=None) -> str:
-    """목록 페이지 머리에서 무료 개방 허브로 가는 짧은 안내(5곳 이상일 때만)."""
+    """목록 페이지 머리에서 무료 개방 허브로 가는 짧은 안내(무료로 쓸 수 있는
+    곳이 1곳이라도 있을 때). 예전의 '5곳 이상' 기준은 무료 페이지 생성 기준과
+    함께 폐지했다 — 페이지가 있는데 목록에서 들어갈 길이 없으면 안 된다
+    (운영자 발견 결함, 2026-11-28)."""
     c = free_counts(lots if lots is not None else (city.get("_card_lots") or []))
-    if c["union"] < 5:
+    if c["union"] < 1:
         return ""
     note = city_ui(city).get("free_link_note") or ""
     return (f'<p class="updated"><b>무료 개방 주차장</b> — 요금 구분 무료 {c["free"]}곳 · '
@@ -18913,8 +18935,9 @@ def adsense_head() -> str:
 def build_free_hub(site):
     """ /parking/free/ — 전체 무료 개방 허브(전체·주말·공휴일·야간).
 
-    시·군·구 카드를 지역별로 묶고, 무료로 쓸 수 있는 주차장이 5곳 이상인 지역은
-    지역 허브(/parking/{prov}/{city}/free/)로 바로 연결한다.
+    시·군·구 카드를 지역별로 묶고, 무료로 쓸 수 있는 주차장이 1곳이라도 있는 지역은
+    지역 허브(/parking/{prov}/{city}/free/)로 바로 연결한다 — 무료 메뉴 안에서
+    도시를 눌렀는데 일반 페이지가 나오면 안 된다(운영자 발견 결함, 2026-11-28).
     """
     path = "/parking/free/"
     all_lots = [l for c in site["cities"] for l in (c.get("_card_lots") or [])]
@@ -18929,16 +18952,14 @@ def build_free_hub(site):
 
     def lot_link(l):
         """표의 주차장 이름 링크 — 상세페이지가 있으면 상세로, 없으면 그 지역의
-        무료 개방 허브(5곳 이상인 지역만 있다)·지역 페이지로 건다."""
+        무료 개방 허브로 건다(무료로 쓸 수 있는 곳이 있는 지역은 전부 허브가 있다)."""
         c = city_of(l)
         if c is None:
             return esc(l["name"])
         if is_detail_target(l):
             href = detail_path(c, l)
-        elif city_free_count(c) >= 5:
-            href = city_free_path(c)
         else:
-            href = city_path(c)
+            href = city_free_path(c)
         return f'<a href="{rel(path, href)}">{esc(l["name"])}</a>'
 
     sections = []
@@ -18958,7 +18979,7 @@ def build_free_hub(site):
                 continue
             prov_union += c["union"]
             sf = strict_free_stats(city.get("_card_lots") or [])
-            href = city_free_path(city) if c["union"] >= 5 else city_path(city)
+            href = city_free_path(city)
             card_links.append((f"{prov} {city['city']}", href))
             cards.append(f'''<a class="link-card" data-name="{esc(prov)} {esc(city['city'])}" href="{rel(path, href)}">
   <span class="t">{city['city']}<span class="go">{c['union']:,}곳 →</span></span>
@@ -19251,7 +19272,7 @@ def build_province_free(prov, site):
         if not sf["n"]:
             continue
         all_free.extend(strict_free_lots(card_lots))
-        href = city_free_path(city) if city_free_count(city) >= 5 else city_path(city)
+        href = city_free_path(city)
         rows.append((city, sf, href))
     rows.sort(key=lambda r: (-r[1]["n"], -r[1]["spaces"], r[0]["city"]))
     total_n = sum(r[1]["n"] for r in rows)
@@ -19265,11 +19286,11 @@ def build_province_free(prov, site):
 
     def top_link(l):
         """표의 주차장 이름 링크 — 무료인 곳은 상세페이지가 없어 그 지역의
-        무료 개방 허브(5곳 이상인 지역만 있다)·지역 페이지로 건다."""
+        무료 개방 허브로 건다(무료인 곳이 있는 지역은 전부 허브가 있다)."""
         c = city_of(l)
         if c is None:
             return esc(l["name"])
-        href = city_free_path(c) if city_free_count(c) >= 5 else city_path(c)
+        href = city_free_path(c)
         return f'<a href="{rel(path, href)}">{esc(l["name"])}</a>'
 
     top_rows = "".join(
@@ -19345,7 +19366,7 @@ def build_province_free(prov, site):
 
 
 def build_city_free(city, site):
-    """ /parking/{city}/free/ — 시·군·구 무료 개방 허브(무료 5곳 이상인 지역만).
+    """ /parking/{city}/free/ — 시·군·구 무료 개방 허브(무료로 쓸 수 있는 곳이 1곳이라도 있는 지역 전부).
 
     노상(거리) 구간은 카드가 아니라 표로 적는다 — 구간 이름이 도로·번지라 카드(주차장)로
     그리면 위치·면수를 오해하기 쉽다(다른 페이지와 같은 규칙).
@@ -19455,7 +19476,7 @@ def build_regions(site):
                 dl = [l for l in (city.get("_card_lots") or []) if l["gu"] == d["name"]]
                 sub.append(f'<a href="{district_path(city, d)}">{esc(d["name"])}</a> <small>{len(dl)}</small>')
             free_n = city_free_count(city)
-            free_link = (f' · <a href="{city_free_path(city)}">무료 {free_n}곳</a>' if free_n >= 5 else "")
+            free_link = (f' · <a href="{city_free_path(city)}">무료 {free_n}곳</a>' if free_n >= 1 else "")
             rows.append(f'<tr><td><a href="{city_path(city)}">{esc(city["city"])}</a>{free_link}</td>'
                         f'<td class="num">{n}</td><td class="sub-links">{" · ".join(sub) or "—"}</td></tr>')
         _pslug = next((c.get("province_slug") for c in site["cities"]
@@ -19548,7 +19569,8 @@ def build_about(site):
 <div class="prose">
 <h1>사이트 소개</h1>
 <p class="lede">{SITE_NAME}(parking.9welfare.com)는 <b>전국 공영주차장의 요금과 무료 개방 시간을 미리 계산해 보는 정보 사이트</b>입니다.
-“여기 2시간 주차하면 얼마지?”를 지도 앱을 열기 전에 확인하도록, 공공데이터를 요일·시간·감면 조건으로 계산해 보여 줍니다.</p>
+“여기 2시간 주차하면 얼마지?”를 지도 앱을 열기 전에 확인하도록, 공공데이터를 요일·시간·감면 조건으로 계산해 보여 줍니다.
+전기차 충전소의 위치와 충전 가능 여부도 주차장 정보와 함께 보여 줍니다.</p>
 <p class="updated">자료 기준일 {esc((site.get('meta') or {}).get('generated_at') or BUILD_TS)} · 등록 주차장 {total:,}곳</p>
 
 <h2>1. 무엇을 하는 사이트인가</h2>
@@ -19558,16 +19580,27 @@ def build_about(site):
   <li><b>무료 개방</b> — 요금 구분이 무료인 곳, 토·일·공휴일 무료 개방, 야간 무료 시간대를 따로 모아 보여 줍니다.</li>
   <li><b>운영 여부</b> — 평일·토요일·일요일(공휴일) 운영시간과 휴무일을 카드에 적습니다.</li>
   <li><b>지도 연결</b> — 카카오맵·네이버지도로 주차장 위치를 바로 엽니다.</li>
+  <li><b>전기차 충전소</b> — 주차장 상세에서 가까운 충전소를 확인하고, 지역별 모아보기와 내 주변 찾기로 충전소를 찾습니다(아래 2번).</li>
 </ul>
 
-<h2>2. 데이터 출처</h2>
+<h2>2. 전기차 충전소 안내</h2>
+<p>충전소 자료는 한국환경공단 전기자동차 충전소 정보(공공데이터포털)를 수집해 정리합니다.
+현재 등록 충전소 {EV_META.get('n_stations', 0):,}곳·충전기 {EV_META.get('n_chargers', 0):,}기를 다룹니다.</p>
+<ul>
+  <li><b>주차장 상세에서 확인</b> — 주차장 상세 페이지에 그 주차장 {EV_META.get('nearby_m', 1000)}m 안의 가까운 충전소를 함께 보여 줍니다. {EV_META.get('onsite_m', 100)}m 안에 충전소가 있으면 ‘주차하면서 충전 가능’으로 표시합니다.</li>
+  <li><b>지역별 모아보기</b> — <a href="{rel(path, '/ev/')}">전기차 충전소</a> 페이지에서 시·도·시·군·구별로 충전소를 모아 볼 수 있습니다.</li>
+  <li><b>내 주변 충전소 찾기</b> — <a href="{rel(path, '/ev/nearby/')}">내 주변 충전소</a>에서 위치를 허용하면 가까운 충전소부터 거리순으로 보여 줍니다. 위치는 이 기기(브라우저) 안에서만 계산하고 서버로 보내거나 저장하지 않습니다.</li>
+  <li><b>상태 표기 원칙</b> — 충전 가능 대수는 자료를 수집한 시각 기준의 마지막 확인값이라 ‘실시간’이라고 쓰지 않습니다. 상태 확인 시각을 함께 적고, 확인한 지 24시간이 지난 값은 ‘상태 확인 중’으로 표시합니다.</li>
+</ul>
+
+<h2>3. 데이터 출처</h2>
 <p>기본은 행정안전부 <a href="https://www.data.go.kr/data/15012896/standard.do" rel="nofollow noopener" target="_blank">전국주차장정보표준데이터</a>(기준일 2026-04-16, 공공데이터포털)입니다.
 표준데이터의 요금·운영시간이 오래됐거나 비어 있는 지역은, 아래처럼 각 시·군·구 조례 별표와 도시공사·통합주차포털의 최신 안내로 바꿔 넣었습니다.
 표의 지역 이름을 누르면 그 지역의 계산기·목록 페이지로 이동합니다. 지역이 많아 시·도별로 접어 두었으니, 도 이름을 누르면 펼쳐집니다.</p>
 <nav class="prov-chips" aria-label="시·도 바로가기">{''.join(chips)}</nav>
 {''.join(rows)}
 
-<h2>3. 요금 계산 방식</h2>
+<h2>4. 요금 계산 방식</h2>
 <ol>
   <li>고른 요일에 문을 닫으면 <b>휴무</b>로 표시합니다(요금을 계산하지 않습니다).</li>
   <li>요금 구분이 ‘무료’이거나 그 요일이 무료 개방일이면 <b>0원</b>입니다.</li>
@@ -19580,20 +19613,21 @@ def build_about(site):
 <p>요금 필드가 비어 있는 주차장은 0원으로 표시하지 않고 <b>‘요금 정보 미상(현장 확인)’</b>으로 구분합니다.
 계산은 모두 방문자의 브라우저 안에서 이루어지며, 입력한 조건을 서버로 보내지 않습니다.</p>
 
-<h2>4. 갱신 주기와 한계</h2>
+<h2>5. 갱신 주기와 한계</h2>
 <ul>
   <li>표준데이터는 월 단위로 갱신되며, 이 사이트의 자료 기준일은 페이지 위에 적었습니다.</li>
+  <li>충전소 목록은 매일 다시 수집하고, 충전 상태는 짧은 간격으로 다시 확인합니다. 그래도 수집 시점의 값이라 현장 상태와 다를 수 있습니다.</li>
   <li>실시간 잔여면수는 수원도시공사·평택도시공사 공개 목록을 조회한 시점의 스냅숏입니다(30분이 지난 값은 표시하지 않습니다).</li>
   <li>요금·운영시간·무료 개방은 현장 안내와 다를 수 있습니다. <b>최종 기준은 지자체·도시공사의 안내</b>입니다.</li>
   <li>‘무료 개방’은 원자료에 표기가 있는 곳만 넣었습니다. 표기가 없다고 반드시 유료라는 뜻은 아닙니다.</li>
 </ul>
 
-<h2>5. 운영과 문의</h2>
+<h2>6. 운영과 문의</h2>
 <p>이 사이트는 공공데이터를 정리해 보여 주는 <b>참고용 정보 사이트</b>이며, 주차장을 운영하거나 요금을 받는 주체가 아닙니다.
 사이트의 오류(깨진 링크·계산 오류·잘못된 위치)는 <a href="{rel(path, '/contact/')}">문의</a> 페이지의 오류 제보 폼으로 알려 주세요.
 개별 주차장의 요금·운영시간 정정은 카드에 적힌 관리기관(지자체·도시공사)에 문의하시면 됩니다.</p>
 
-<h2>6. 면책</h2>
+<h2>7. 면책</h2>
 <p>본 사이트는 공공데이터를 정리한 참고용 정보이며, 요금 징수·주차장 운영 주체가 아닙니다.
 요금·운영시간의 최종 기준은 지자체·도시공사 안내입니다. 이 정보를 이용해 생긴 주차 요금·과태료 등에 대해 사이트는 책임지지 않습니다.</p>
 </div>
@@ -19603,11 +19637,11 @@ def build_about(site):
                 "name": f"사이트 소개 — {SITE_NAME}", "url": SITE_BASE + path,
                 "mainEntity": {"@type": "Organization", "name": SITE_NAME,
                                "url": SITE_BASE + "/",
-                               "description": "공공데이터로 공영주차장 요금과 무료 개방 시간을 계산해 보여 주는 정보 사이트"}}
+                               "description": "공공데이터로 공영주차장 요금과 무료 개방 시간을 계산해 보여 주고, 전기차 충전소의 위치·상태도 함께 안내하는 정보 사이트"}}
     return path, layout(
         title=f"사이트 소개 — 서비스·데이터 출처·계산 기준 | {SITE_NAME}",
         description=(f"{SITE_NAME}가 무엇을 하는 사이트인지, 어떤 공공데이터를 어떻게 결합했는지, "
-                     "요금·감면·무료 개방을 어떤 순서로 계산하는지와 갱신 주기·한계를 안내합니다."),
+                     "요금·감면·무료 개방을 어떤 순서로 계산하는지와 전기차 충전소 안내, 갱신 주기·한계를 안내합니다."),
         path=path, body=body, crumbs=crumbs, nav_active="about", city=None,
         extra_head=FOLD_STYLE,
         jsonld=[jsonld_breadcrumb(crumbs, path), about_ld])
@@ -19629,7 +19663,8 @@ def build_contact(site):
 </ul>
 
 <h2>2. 사이트 오류 제보</h2>
-<p>깨진 링크, 계산이 이상한 경우, 위치(지도) 오류, 잘못된 무료 개방 표기는 아래 <b>오류 제보 폼</b>으로 알려 주세요.</p>
+<p>깨진 링크, 계산이 이상한 경우, 위치(지도) 오류, 잘못된 무료 개방 표기는 아래 <b>오류 제보 폼</b>으로 알려 주세요.
+전기차 충전소의 위치·충전 상태가 실제와 다른 경우도 같은 폼으로 알려 주세요.</p>
 <p><a class="btn solid" href="{ERROR_REPORT_FORM_URL}" target="_blank" rel="noopener noreferrer">오류 제보 폼 열기</a></p>
 <ul>
   <li>폼에는 <b>지역·주차장명</b>, <b>오류 유형</b>, <b>상세 내용</b>만 적으면 됩니다.</li>
@@ -19651,7 +19686,7 @@ def build_contact(site):
     <tr><th>사이트</th><td>{SITE_NAME} · parking.9welfare.com</td></tr>
     <tr><th>성격</th><td>공공데이터 기반 참고용 정보 사이트(비영리 개인 운영)</td></tr>
     <tr><th>문의 창구</th><td><a href="{ERROR_REPORT_FORM_URL}" target="_blank" rel="noopener noreferrer">익명 오류 제보·문의 폼</a></td></tr>
-    <tr><th>자료 출처</th><td>행정안전부 전국주차장정보표준데이터, 각 시·군·구 조례·도시공사 안내 — 자세한 목록은 <a href="{rel(path, '/about/')}">사이트 소개</a></td></tr>
+    <tr><th>자료 출처</th><td>행정안전부 전국주차장정보표준데이터, 각 시·군·구 조례·도시공사 안내, 한국환경공단 전기자동차 충전소 정보 — 자세한 목록은 <a href="{rel(path, '/about/')}">사이트 소개</a></td></tr>
   </tbody>
 </table>
 </div>
@@ -19676,10 +19711,10 @@ def build_terms(site):
 <h1>이용약관</h1>
 <p class="updated">시행일 2026-11-18</p>
 <h2>1. 목적과 성격</h2>
-<p>이 약관은 {SITE_NAME}(이하 ‘사이트’)의 이용 조건을 정합니다. 사이트는 공공데이터를 정리해 공영주차장 요금·운영시간·무료 개방 정보를
-<b>참고용으로</b> 제공하며, 주차장 운영·요금 징수 주체가 아닙니다. 표시된 요금은 조례·공개 자료를 계산한 예상값으로, 실제 부과 요금과 다를 수 있습니다.</p>
+<p>이 약관은 {SITE_NAME}(이하 ‘사이트’)의 이용 조건을 정합니다. 사이트는 공공데이터를 정리해 공영주차장 요금·운영시간·무료 개방 정보와
+전기차 충전소의 위치·상태 정보를 <b>참고용으로</b> 제공하며, 주차장 운영·요금 징수 주체가 아닙니다. 표시된 요금은 조례·공개 자료를 계산한 예상값으로, 실제 부과 요금과 다를 수 있습니다.</p>
 <h2>2. 데이터 출처와 라이선스</h2>
-<p>자료는 행정안전부 전국주차장정보표준데이터(공공데이터포털)와 각 지자체·도시공사의 공개 자료, 자치법규(조례)를 바탕으로 합니다.
+<p>자료는 행정안전부 전국주차장정보표준데이터(공공데이터포털)와 각 지자체·도시공사의 공개 자료, 자치법규(조례), 한국환경공단 전기자동차 충전소 정보를 바탕으로 합니다.
 공공데이터는 제공기관의 이용허락범위(공공누리 유형)에 따라 이용하며, 사이트가 계산·정리해 덧붙인 설명과 화면 구성에 대한 권리는 사이트 운영자에게 있습니다.</p>
 <h2>3. 금지행위</h2>
 <ul>
@@ -19716,7 +19751,16 @@ def build_nearby_data(site):
     """T-08: 랜딩 '내 주변 주차장'용 경량 좌표 데이터셋 (dist/assets/nearby.json).
 
     카드 표시용 최소 필드만 순서 배열로 싣는다:
-    [이름, 위도, 경도, 상세 URL(#lot-N 앵커), 요금 요약, 운영시간, 주소, (실시간이면 1)].
+    [이름, 위도, 경도, 상세 URL, 요금 요약, 운영시간, 주소, 실시간 여부(0/1),
+     조회 시각(없으면 ""), EV 표시(없으면 0, 있으면 [같이 여부, 충전기 수])].
+    상세 URL은 개별 상세페이지가 있는 곳(is_detail_target)은 상세페이지 경로,
+    없는 곳만 목록 페이지의 #lot-N 앵커다 — 카드를 누르면 상세로 바로 가야지
+    필터된 목록을 한 번 더 거치면 안 된다(운영자 발견 결함, 2026-11-27).
+    EV 표시는 근처 충전소가 있는 곳만 싣는다 — 충전소가 같이 있는 주차장인데
+    결과 카드에 아무 표시가 없으면 안 된다(운영자 발견 결함, 2026-11-28).
+    '같이 여부'는 100m 안(주차하면서 충전 가능) 기준이고, 충전기 수는 그
+    충전소들의 급속+완속 합계다. 100m 밖이면 충전기 수는 가까운 충전소
+    최대 3곳 합계라 배지에는 개수를 적지 않는다(nearby.js).
     좌표가 없는 곳은 제외한다. 거리 계산은 전부 브라우저에서 하며 방문자 위치는
     서버로 보내지도 저장하지도 않는다 — 이 파일은 정적 자산일 뿐이다.
     앵커 번호는 build_district·build_city와 같은 district_sorted 순서를 써서 맞춘다.
@@ -19734,13 +19778,26 @@ def build_nearby_data(site):
                 lat, lng = map_coords(lot)
                 if not lat or not lng:
                     continue
+                url = detail_path(city, lot) if is_detail_target(lot) else f"{path}#lot-{i}"
                 row = [lot["name"], round(lat, 5), round(lng, 5),
-                       f"{path}#lot-{i}", fee_text(lot), hours_text(lot), addr_text(lot)]
+                       url, fee_text(lot), hours_text(lot), addr_text(lot)]
+                # T-08 후속 (2026-11-19, Instinct 확인 1건): 주변 카드 배지에도
+                # 상세 카드와 같은 조회 시간을 병기한다 — row[8].
+                # 자리(인덱스)를 고정하려고 실시간이 아닌 곳도 0·""를 채운다.
                 if lot.get("realtime"):
                     row.append(1)
-                    # T-08 후속 (2026-11-19, Instinct 확인 1건): 주변 카드 배지에도
-                    # 상세 카드와 같은 조회 시간을 병기한다 — row[8].
                     row.append(lot["realtime"].get("ts") or SNAPSHOT_TS)
+                else:
+                    row.append(0)
+                    row.append("")
+                ev = lot.get("ev")
+                if ev and ev.get("st"):
+                    if ev.get("on"):
+                        row.append([1, (ev.get("f") or 0) + (ev.get("s") or 0)])
+                    else:
+                        row.append([0, sum(s.get("t") or 0 for s in ev["st"])])
+                else:
+                    row.append(0)
                 rows.append(row)
     return json.dumps(rows, ensure_ascii=False, separators=(",", ":"))
 
@@ -19966,6 +20023,7 @@ def build_privacy(site):
 <ul>
   <li>회원가입·로그인 기능이 없고, 이름·전화번호·이메일·주소 등을 입력받는 칸이 없습니다.</li>
   <li>요금 계산기는 브라우저 안에서만 계산하며, 고른 요일·시간·감면 조건을 서버로 보내지 않습니다.</li>
+  <li>‘내 주변 주차장 찾기’와 ‘내 주변 충전소 찾기’에서 위치 사용을 허용해도, 위치는 브라우저 안에서 거리 계산에만 쓰이고 서버로 보내거나 저장하지 않습니다.</li>
   <li>예약·결제 기능이 없어 카드번호 같은 결제 정보를 받지 않습니다. 주차 요금은 현장에서 지자체·도시공사에 냅니다.</li>
   <li>만 14세 미만 아동의 개인정보도 수집하지 않습니다.</li>
 </ul>
@@ -20081,6 +20139,8 @@ def build_404(site):
 <p class="lede">주소가 바뀌었거나 없는 경로입니다. 아래에서 원하는 주차장을 다시 찾아보세요.</p>
 <p>
   <a class="btn solid" href="/">홈으로</a>
+  <a class="btn" href="/ev/">전기차 충전소</a>
+  <a class="btn" href="/ev/nearby/">내 주변 충전소</a>
   {''.join(f'<a class="btn" href="{city_path(c)}">{esc(c["city"])} 주차장 목록</a>' for c in site["cities"])}
 </p>
 {''.join(body_parts)}
@@ -20299,8 +20359,10 @@ def main():
     pages += [build_province_free(prov, site) for prov in province_order(site)]
     for city in site["cities"]:
         card_lots = city["_card_lots"]
-        if city_free_count(city) >= 5:
-            # 무료로 쓸 수 있는 주차장이 5곳 이상인 지역만 허브를 만든다(thin page 방지).
+        if city_free_count(city) >= 1:
+            # 무료로 쓸 수 있는 곳이 1곳이라도 있으면 허브를 만든다 — 무료 메뉴에서
+            # 도시를 눌렀는데 일반 페이지로 가면 안 된다(운영자 발견 결함, 2026-11-28).
+            # 예전의 '5곳 이상' 임계값은 폐지했다.
             pages.append(build_city_free(city, site))
         if is_city_wide(city):
             # 자치구가 없는 시(평택시) — 시 페이지가 계산기·목록 페이지를 겸하고,

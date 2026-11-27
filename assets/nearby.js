@@ -51,8 +51,12 @@
           esc(row[0]) + '</a>' +
           '<span class="nearby-dist">' + fmtDist(d) + '</span></div>' +
         (row[7] ? '<p class="nearby-rt"><span class="badge live">실시간 잔여면수</span> ' +
-          '<a href="' + esc(row[3]) + '">상세 카드에서 확인</a>' +
+          '<a href="' + esc(row[3]) + '">상세에서 확인</a>' +
           (row[8] ? ' <span class="nearby-rt-time">' + esc(row[8]) + ' 조회</span>' : '') + '</p>' : '') +
+        /* row[9]: EV 표시 — [같이 여부(100m 안), 충전기 수]. 같이 있는 곳만
+           개수를 적는다(밖이면 가까운 3곳 합계라 오해할 수 있어 배지만). */
+        (row[9] ? '<p class="nearby-ev"><span class="badge ev">⚡ 전기차 충전소 ' +
+          (row[9][0] ? '있음</span> 충전기 ' + row[9][1] + '대' : '근처에 있음</span>') + '</p>' : '') +
         '<p class="nearby-meta">' + esc(row[4]) + '</p>' +
         '<p class="nearby-meta">' + esc(row[5]) + '</p>' +
         '<p class="nearby-addr">' + esc(row[6]) + '</p>' +
