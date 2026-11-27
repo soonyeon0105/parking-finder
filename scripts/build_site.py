@@ -6379,10 +6379,11 @@ def ev_block(lot, path) -> str:
         detail = f"{s['rp']}{s['id']}/"
         # P0-3: 확인이 24시간을 넘은 충전소는 '지금 충전 가능'을 쓰지 않는다.
         avail = "상태 확인 중" if ev_cf_stale(s.get("upd")) else f"지금 충전 가능 {s['a']}대"
+        fc_badge = '<span class="badge ev">이 주차장 안</span>' if s.get("fc") else ""
         rows.append(f"""<article class="card ev-station">
   <div class="lot-head">
     <h3>{esc(s['nm'])}</h3>
-    <div class="badges"><span class="badge ev">{ev_dist_text(s['d'])}</span></div>
+    <div class="badges">{fc_badge}<span class="badge ev">{ev_dist_text(s['d'])}</span></div>
   </div>
   <p class="addr">{esc(s['addr'])}</p>
   <p class="fee-line">급속 {s['f']}기 · 완속 {s['s']}기 · {avail}
@@ -6395,7 +6396,7 @@ def ev_block(lot, path) -> str:
   </div>
 </article>""")
     if ev.get("on"):
-        lede = (f"이 주차장 {EV_META.get('onsite_m', 100)}m 안에 전기차 충전소가 있어 "
+        lede = ("이 주차장 안에 전기차 충전소가 있어 "
                 "주차하면서 충전할 수 있습니다.")
     else:
         lede = "이 주차장 안에는 충전소가 없지만, 가까운 곳에 충전소가 있습니다."
@@ -7832,7 +7833,7 @@ def lot_card(lot, idx, default_day="weekday", default_minutes=120, link_detail=T
         rt = lot["realtime"]
         badges.append(f'<span class="badge live">실시간 {rt["free"]}면</span>')
     if lot.get("ev") and lot["ev"].get("on"):
-        # 주차장 100m 안에 충전소가 있는 곳만 '충전 가능'으로 표시한다(prepare_ev.py 기준).
+        # 그 주차장 안에 충전소가 있는 곳만 '충전 가능'으로 표시한다(prepare_ev.py 시설 일치 기준).
         badges.append('<span class="badge ev">전기차 충전 가능</span>')
     if lot["fee"]["type"] == "미상":
         badges.append('<span class="badge unknown">요금 미확인</span>')
@@ -7860,7 +7861,7 @@ def lot_card(lot, idx, default_day="weekday", default_minutes=120, link_detail=T
                      f'{esc(rt.get("ts") or SNAPSHOT_TS)} 조회' + (f' · {esc(gap)}' if gap else '') + '</p>')
     if lot.get("ev") and lot["ev"].get("on"):
         _ev = lot["ev"]
-        lines.append(f'<p class="fee-line">전기차 충전소: {EV_META.get("onsite_m", 100)}m 안에 '
+        lines.append(f'<p class="fee-line">전기차 충전소: 이 주차장 안에 '
                      f'급속 {_ev.get("f", 0)}기 · 완속 {_ev.get("s", 0)}기</p>')
     fn = free_note(lot)
     if fn:
@@ -7927,7 +7928,7 @@ def lot_list(lots, path, default_day="weekday", with_ad=True, default_minutes=12
         "free_window": l.get("free_window_min"),
         "access": l.get("access") or "general",
         "bus_only": bool(l.get("bus_only")),
-        # 전기차 필터 칩 — 주차장 100m 안에 충전소가 있는 곳(prepare_ev.py 판정).
+        # 전기차 필터 칩 — 그 주차장 안에 충전소가 있는 곳(prepare_ev.py 시설 일치 판정).
         "ev": bool(l.get("ev") and l["ev"].get("on")),
         "hours": {k: {"open": l["hours"][k]["open"], "start": l["hours"][k]["start"],
                       "end": l["hours"][k]["end"]} for k in ("weekday", "sat", "sun")},
@@ -9726,18 +9727,21 @@ def build_lot_detail(city, lot, site, existing_paths, dong_path=None):
         _ev = lot["ev"]
         _s0 = _ev["st"][0]
         if _ev.get("on"):
+            # '안에 있음' 답변은 가장 가까운 충전소가 아니라 시설 일치(fc) 충전소를
+            # 가리켜야 상세 블록·목록 표시와 어긋나지 않는다(2026-11-28).
+            _fc = next((s for s in _ev["st"] if s.get("fc")), _s0)
             # P0-3: 확인이 24시간을 넘은 충전소는 충전 가능 대수를 단정하지 않는다.
-            if ev_cf_stale(_s0.get("upd")):
+            if ev_cf_stale(_fc.get("upd")):
                 qa.append((f"{name}에서 전기차 충전이 가능한가요?",
-                           f"{name}에서 {ev_dist_text(_s0['d'])} 거리에 {_s0['nm']} 충전소가 있어 "
-                           f"주차하면서 충전할 수 있습니다. 급속 {_s0['f']}기 · 완속 {_s0['s']}기가 있고, "
-                           f"상태 확인이 오래돼(마지막 확인 {_s0['upd']}) 지금 충전 가능한지는 알 수 없습니다. "
+                           f"{name} 안에 {_fc['nm']} 충전소가 있어 "
+                           f"주차하면서 충전할 수 있습니다. 급속 {_fc['f']}기 · 완속 {_fc['s']}기가 있고, "
+                           f"상태 확인이 오래돼(마지막 확인 {_fc['upd']}) 지금 충전 가능한지는 알 수 없습니다. "
                            f"현장에서 직접 확인하세요."))
             else:
                 qa.append((f"{name}에서 전기차 충전이 가능한가요?",
-                           f"네. {name}에서 {ev_dist_text(_s0['d'])} 거리에 {_s0['nm']} 충전소가 있어 "
-                           f"주차하면서 충전할 수 있습니다. 급속 {_s0['f']}기 · 완속 {_s0['s']}기가 있고, "
-                           f"상태 확인 시각({_s0['upd']}) 기준 지금 충전 가능한 충전기는 {_s0['a']}대입니다."))
+                           f"네. {name} 안에 {_fc['nm']} 충전소가 있어 "
+                           f"주차하면서 충전할 수 있습니다. 급속 {_fc['f']}기 · 완속 {_fc['s']}기가 있고, "
+                           f"상태 확인 시각({_fc['upd']}) 기준 지금 충전 가능한 충전기는 {_fc['a']}대입니다."))
         else:
             qa.append((f"{name} 근처에 전기차 충전소가 있나요?",
                        f"이 주차장 안에는 충전소가 없지만, {ev_dist_text(_s0['d'])} 거리에 "
@@ -19587,7 +19591,7 @@ def build_about(site):
 <p>충전소 자료는 한국환경공단 전기자동차 충전소 정보(공공데이터포털)를 수집해 정리합니다.
 현재 등록 충전소 {EV_META.get('n_stations', 0):,}곳·충전기 {EV_META.get('n_chargers', 0):,}기를 다룹니다.</p>
 <ul>
-  <li><b>주차장 상세에서 확인</b> — 주차장 상세 페이지에 그 주차장 {EV_META.get('nearby_m', 1000)}m 안의 가까운 충전소를 함께 보여 줍니다. {EV_META.get('onsite_m', 100)}m 안에 충전소가 있으면 ‘주차하면서 충전 가능’으로 표시합니다.</li>
+  <li><b>주차장 상세에서 확인</b> — 주차장 상세 페이지에 그 주차장 {EV_META.get('nearby_m', 1000)}m 안의 가까운 충전소를 함께 보여 줍니다. 그 주차장 안에 충전소가 있는 곳은 ‘주차하면서 충전 가능’으로 표시합니다.</li>
   <li><b>지역별 모아보기</b> — <a href="{rel(path, '/ev/')}">전기차 충전소</a> 페이지에서 시·도·시·군·구별로 충전소를 모아 볼 수 있습니다.</li>
   <li><b>내 주변 충전소 찾기</b> — <a href="{rel(path, '/ev/nearby/')}">내 주변 충전소</a>에서 위치를 허용하면 가까운 충전소부터 거리순으로 보여 줍니다. 위치는 이 기기(브라우저) 안에서만 계산하고 서버로 보내거나 저장하지 않습니다.</li>
   <li><b>상태 표기 원칙</b> — 충전 가능 대수는 자료를 수집한 시각 기준의 마지막 확인값이라 ‘실시간’이라고 쓰지 않습니다. 상태 확인 시각을 함께 적고, 확인한 지 24시간이 지난 값은 ‘상태 확인 중’으로 표시합니다.</li>
@@ -19752,15 +19756,15 @@ def build_nearby_data(site):
 
     카드 표시용 최소 필드만 순서 배열로 싣는다:
     [이름, 위도, 경도, 상세 URL, 요금 요약, 운영시간, 주소, 실시간 여부(0/1),
-     조회 시각(없으면 ""), EV 표시(없으면 0, 있으면 [같이 여부, 충전기 수])].
+     조회 시각(없으면 ""), EV 표시(없으면 0, 있으면 [1, 충전기 수])].
     상세 URL은 개별 상세페이지가 있는 곳(is_detail_target)은 상세페이지 경로,
     없는 곳만 목록 페이지의 #lot-N 앵커다 — 카드를 누르면 상세로 바로 가야지
     필터된 목록을 한 번 더 거치면 안 된다(운영자 발견 결함, 2026-11-27).
-    EV 표시는 근처 충전소가 있는 곳만 싣는다 — 충전소가 같이 있는 주차장인데
-    결과 카드에 아무 표시가 없으면 안 된다(운영자 발견 결함, 2026-11-28).
-    '같이 여부'는 100m 안(주차하면서 충전 가능) 기준이고, 충전기 수는 그
-    충전소들의 급속+완속 합계다. 100m 밖이면 충전기 수는 가까운 충전소
-    최대 3곳 합계라 배지에는 개수를 적지 않는다(nearby.js).
+    EV 표시는 **그 주차장 안에 충전소가 있는 곳만** 싣는다 — 거리만 가까운
+    남의 시설에는 표시하지 않는다(운영자 확정, 2026-11-28). 판정은
+    prepare_ev.py의 시설 일치(이름·주소·좌표)가 정한 ev['on']이고, 충전기
+    수는 안에 있는 충전소들의 급속+완속 합계다. nearby.js는 이름 바로 옆에
+    ⚡ 아이콘으로 그린다(카드 아래 배지로 따로 두지 않는다).
     좌표가 없는 곳은 제외한다. 거리 계산은 전부 브라우저에서 하며 방문자 위치는
     서버로 보내지도 저장하지도 않는다 — 이 파일은 정적 자산일 뿐이다.
     앵커 번호는 build_district·build_city와 같은 district_sorted 순서를 써서 맞춘다.
@@ -19791,11 +19795,9 @@ def build_nearby_data(site):
                     row.append(0)
                     row.append("")
                 ev = lot.get("ev")
-                if ev and ev.get("st"):
-                    if ev.get("on"):
-                        row.append([1, (ev.get("f") or 0) + (ev.get("s") or 0)])
-                    else:
-                        row.append([0, sum(s.get("t") or 0 for s in ev["st"])])
+                if ev and ev.get("on"):
+                    # 안에 충전소가 있는 곳만 — 충전기 수는 시설 일치 충전소 합계.
+                    row.append([1, (ev.get("f") or 0) + (ev.get("s") or 0)])
                 else:
                     row.append(0)
                 rows.append(row)
@@ -19904,7 +19906,7 @@ def build_landing(site):
         # 주차+충전 결합 안내 — 충전 데이터가 있을 때만 홈에 노출한다.
         ev_box = f"""
 <div class="note-box" style="margin-top:14px">
-  <p><b>전기차 충전이 가능한 주차장 {EV_META.get('n_lots_onsite', 0):,}곳</b> — 주차장 {EV_META.get('onsite_m', 100)}m 안에
+  <p><b>전기차 충전이 가능한 주차장 {EV_META.get('n_lots_onsite', 0):,}곳</b> — 주차장 안에
   충전소가 있어 주차하면서 충전할 수 있는 곳을 주차장 목록에서 바로 걸러 볼 수 있습니다. 지역별 충전소 목록도 함께 확인하세요.</p>
   <div class="actions" style="margin-top:10px">
     <a class="btn" href="{rel(path, '/ev/')}">전기차 충전소 보기 →</a>
@@ -19931,6 +19933,7 @@ def build_landing(site):
   <p class="nearby-lede">위치를 허용하면 지금 계신 곳에서 가까운 공영주차장부터 거리순으로 보여 드립니다.</p>
   <button type="button" class="btn solid nearby-btn" id="nearby-btn">내 주변 주차장 찾기</button>
   <p class="nearby-note">위치는 이 기기(브라우저)에서만 계산하고 서버로 보내거나 저장하지 않아요.</p>
+  <p class="nearby-note">⚡ 표시는 그 주차장 안에 전기차 충전소가 있다는 뜻입니다.</p>
   <p class="nearby-status" id="nearby-status" role="status" aria-live="polite"></p>
   <div class="nearby-results" id="nearby-results"></div>
 </section>
@@ -20225,7 +20228,7 @@ def load_realtime() -> dict:
 
 def load_ev() -> tuple[dict, dict]:
     """data/ev_nearby.json — prepare_ev.py 가 한국환경공단 충전소 스냅샷으로 만든
-    주차장별 근처 충전소(1km 안 최대 3곳 + 100m 안 '충전 가능' 판정).
+    주차장별 근처 충전소(1km 안 최대 3곳 + 시설 일치 '안에 있음' 판정).
 
     파일이 없으면 전기차 표시 전체(배지·필터·상세 블록·홈 안내)를 끈다.
     """
@@ -20304,7 +20307,7 @@ def main():
     EV_NEARBY, EV_META = load_ev()
     if EV_META:
         print(f"전기차 충전소 연결: 근처 충전소가 있는 주차장 {EV_META.get('n_lots_near', 0)}곳 · "
-              f"충전 가능(100m 안) {EV_META.get('n_lots_onsite', 0)}곳")
+              f"충전 가능(안에 있음) {EV_META.get('n_lots_onsite', 0)}곳")
     for l in site["lots"]:
         if l["id"] in EV_NEARBY:
             l["ev"] = EV_NEARBY[l["id"]]

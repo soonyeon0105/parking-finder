@@ -30,8 +30,9 @@ prepare_ev.py 가 하루 1회 전수 재구축(지역·근처 주차장까지 �
 갱신 대상(충전소 집합·지역 배치는 기존 데이터를 그대로 둔다 — 신규·삭제
 충전소는 세서 보고만 한다):
   data/ev_stations.json   충전소별 f/s/a/c/dn/un/upd/ch + 'cf' 추가, meta 갱신
-  data/ev_nearby.json     prepare_ev.py 와 같은 방식(1km 안 최대 3곳·100m 안 합계)
-                          으로 다시 계산하되 'upd' 자리에는 확인 시각(cf)을 넣는다
+  data/ev_nearby.json     prepare_ev.py 와 같은 방식(1km 안 최대 3곳·'안에 있음'
+                          합계는 시설 일치 판정 station_onsite 기준)으로 다시
+                          계산하되 'upd' 자리에는 확인 시각(cf)을 넣는다
                           (build_site.py 가 '상태 확인'으로 표시하는 값과 일치).
   dist/                   build_ev.py 를 다시 실행해 /ev/ 목록·상세 JSON·내 주변
                           인덱스·템플릿을 재생성한다. build_ev.py 는 사이트맵에
@@ -55,10 +56,10 @@ BASE = Path(__file__).resolve().parent.parent
 DEFAULT_SNAP_DIR = Path.home() / "workspace/goals/ai/hidden_files/datahunt/ev-charging/snapshots"
 
 sys.path.insert(0, str(BASE / "scripts"))
-from prepare_ev import STAT_LABEL, TYPE_LABEL, SLOW_TYPES, fmt_ts, haversine  # noqa: E402
+from prepare_ev import STAT_LABEL, TYPE_LABEL, SLOW_TYPES, fmt_ts, haversine, station_onsite  # noqa: E402
 
 KST = ZoneInfo("Asia/Seoul")
-ONSITE_M = 100
+ONSITE_M = 100  # (구 거리 기준 — 'on' 판정은 prepare_ev.station_onsite 시설 일치로 대체됨)
 NEARBY_M = 1000
 NEARBY_MAX = 3
 
@@ -234,6 +235,7 @@ def main():
     latest_dt = collected_dt(status_snaps[-1][1]) if status_snaps else inv_dt
     meta = dict(old_meta)
     meta.update({
+        "onsite_rule": "facility",
         "inv_at": fmt_collected(inv),
         "inv_collected": inv["collected_at_kst"],
         "st_collected": status_snaps[-1][1]["collected_at_kst"] if status_snaps else inv["collected_at_kst"],
@@ -285,11 +287,13 @@ def main():
         if not found:
             continue
         found.sort(key=lambda x: x[0])
+        fc_of = {s["id"]: station_onsite(lot, s["nm"], s["addr"], d) for d, s in found}
         top = [{"id": s["id"], "nm": s["nm"], "d": round(d), "addr": s["addr"],
                 "f": s["f"], "s": s["s"], "a": s["a"], "t": s["f"] + s["s"],
                 "upd": s.get("cf") or "", "lat": s["lat"], "lng": s["lng"],
-                "rp": region_path.get(s["id"], "/ev/")} for d, s in found[:NEARBY_MAX]]
-        onsite = [s for d, s in found if d <= ONSITE_M]
+                "rp": region_path.get(s["id"], "/ev/"),
+                "fc": 1 if fc_of[s["id"]] else 0} for d, s in found[:NEARBY_MAX]]
+        onsite = [s for d, s in found if fc_of[s["id"]]]
         entry = {"d": round(found[0][0]), "on": 1 if onsite else 0, "st": top}
         if onsite:
             n_onsite += 1
@@ -308,7 +312,7 @@ def main():
         meta["n_lots_near"] = len(nearby)
         meta["n_lots_onsite"] = n_onsite
         ev_path.write_text(json.dumps(ev, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-    print(f"근처 충전소 재계산: 주차장 {len(nearby):,}곳 · 100m 안 {n_onsite:,}곳")
+    print(f"근처 충전소 재계산: 주차장 {len(nearby):,}곳 · 안에 충전소가 있는 곳 {n_onsite:,}곳")
 
     if args.no_build:
         print("--no-build: dist 재생성을 건너뜁니다.")

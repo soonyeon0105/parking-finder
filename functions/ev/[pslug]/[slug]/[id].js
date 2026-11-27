@@ -139,7 +139,7 @@ function lotsBlock(region, st, path) {
     }).join('');
     return '<h2>가까운 공영주차장</h2>' +
       `<p class="lede">이 충전소 ${region.nearby_m}m 안에 있는 공영주차장입니다. ` +
-      `주차하면서 충전할 수 있는 곳은 ${region.onsite_m}m 안에 있는 곳입니다.</p>` +
+      `주차하면서 충전할 수 있는 곳은 '주차하면서 충전 가능'으로 표시한 곳입니다.</p>` +
       `<div class="list">${rows}</div>`;
   }
   if (region.pk) {

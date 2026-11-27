@@ -243,14 +243,13 @@ def detail_charger_block(s) -> str:
 
 
 def detail_lots_block(r, path, nearby_lots, meta, station_id=None) -> str:
-    """가까운 공영주차장 블록. nearby_lots: (주차장 dict, 거리m, 100m 안 여부), 거리순, 최대 5곳.
+    """가까운 공영주차장 블록. nearby_lots: (주차장 dict, 거리m, 안에 있음 여부), 거리순, 최대 5곳.
 
     P0-3: 좌표-주소 불일치 47곳(MISMATCH_47)은 블록을 표시하지 않는다 — 잘못된
     주차장을 안내하는 것보다 안 보여주는 것이 낫다. 본문(주소·충전기 정보)은 그대로 둔다.
     """
     if station_id in MISMATCH_47:
         return ""
-    onsite_m = meta.get("onsite_m", 100)
     lot_rows = []
     for lot, d, onsite in nearby_lots:
         city = bs.city_of(lot)
@@ -271,7 +270,7 @@ def detail_lots_block(r, path, nearby_lots, meta, station_id=None) -> str:
     if lot_rows:
         return (f'<h2>가까운 공영주차장</h2>'
                 f'<p class="lede">이 충전소 {meta["nearby_m"]}m 안에 있는 공영주차장입니다. '
-                f'주차하면서 충전할 수 있는 곳은 {onsite_m}m 안에 있는 곳입니다.</p>'
+                f'주차하면서 충전할 수 있는 곳은 \'주차하면서 충전 가능\'으로 표시한 곳입니다.</p>'
                 f'<div class="list">{"".join(lot_rows)}</div>')
     if r.get("pk"):
         return (f'<h2>가까운 공영주차장</h2>'
@@ -557,7 +556,9 @@ def main():
 
     # 지역별 '충전 가능한 공영주차장' 수 — 주차 페이지와 서로 잇는 핵심 숫자.
     onsite_by_city = {}
-    # 역방향: 충전소 id → [(주차장 dict, 거리m, 100m 안 여부)] (거리순, 상세 페이지용).
+    # 역방향: 충전소 id → [(주차장 dict, 거리m, 안에 있음 여부)] (거리순, 상세 페이지용).
+    # '안에 있음'은 거리 기준이 아니라 ev_nearby.json의 시설 일치 판정(fc)이다 —
+    # 이 충전소가 그 주차장 안에 있는 경우만 '주차하면서 충전 가능'으로 표시한다.
     # 상세 페이지 범위는 '공영주차장 1km 안에 있는 충전소' — ev_nearby.json에 드는 곳.
     lots_by_id = {l["id"]: l for l in site["lots"]}
     nearby_lots_by_station = {}
@@ -574,7 +575,7 @@ def main():
                 continue
             for st in e.get("st") or []:
                 nearby_lots_by_station.setdefault(st["id"], []).append(
-                    (lot, st["d"], st["d"] <= nearby["meta"].get("onsite_m", 100)))
+                    (lot, st["d"], bool(st.get("fc"))))
         for lst in nearby_lots_by_station.values():
             lst.sort(key=lambda t: t[1])
     except (OSError, json.JSONDecodeError):
@@ -610,7 +611,7 @@ def main():
 <p class="lede">전국 전기차 충전소 {meta['n_stations']:,}곳 · 충전기 {meta['n_chargers']:,}기를 지역별로 정리했습니다.
 충전소 위치와 지금 충전할 수 있는지는 내비·충전 앱이 더 빠릅니다. 이 사이트에서는
 <b>주차하면서 충전할 수 있는 공영주차장</b>을 함께 확인할 수 있습니다 — 공영주차장
-{meta['n_lots_onsite']:,}곳은 주차장 {meta['onsite_m']}m 안에 충전소가 있습니다.</p>
+{meta['n_lots_onsite']:,}곳은 주차장 안에 충전소가 있습니다.</p>
 
 <div class="note-box" style="margin-bottom:14px">
   <p><b>지금 있는 곳에서 가까운 충전소</b> — 위치를 허용하면 주변 10km 안의 충전소를
@@ -625,7 +626,7 @@ def main():
 
 <div class="note-box" style="margin-top:14px">
   <p><b>주차+충전 한 번에 확인하기</b> — 공영주차장 목록에서 '전기차 충전 가능' 필터를 켜면
-  {meta['onsite_m']}m 안에 충전소가 있는 주차장만 골라 볼 수 있고, 주차장 상세 페이지에서는
+  안에 충전소가 있는 주차장만 골라 볼 수 있고, 주차장 상세 페이지에서는
   가까운 충전소와 거리·충전 가능 대수를 함께 보여 줍니다.</p>
   <div class="actions" style="margin-top:10px">
     <a class="btn" href="{bs.rel('/ev/', '/')}">공영주차장 요금계산기로 가기 →</a>
@@ -758,7 +759,7 @@ def main():
 <p class="lede">{bs.esc(r['prov'])} {bs.esc(r['name'])}의 전기차 충전소 {total:,}곳 중 {_from}~{min(page * PER_PAGE, total)}번째 충전소입니다. 충전소 정보는 {bs.esc(meta['inv_at'])} 수집 기준입니다.</p>
 """
             if page == 1:
-                onsite_line = (f"이 지역 공영주차장 중 {onsite_n}곳은 {meta['onsite_m']}m 안에 충전소가 있어 "
+                onsite_line = (f"이 지역 공영주차장 중 {onsite_n}곳은 안에 충전소가 있어 "
                                "주차하면서 충전할 수 있습니다. ") if onsite_n else ""
                 head = f"""
 <h1>{bs.esc(r['name'])} 전기차 충전소</h1>

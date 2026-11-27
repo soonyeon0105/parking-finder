@@ -47,16 +47,19 @@
     for (var i = 0; i < scored.length; i++) {
       var row = scored[i][1], d = scored[i][0];
       html += '<article class="nearby-card">' +
-        '<div class="nearby-top"><a class="nearby-name" href="' + esc(row[3]) + '">' +
+        '<div class="nearby-top"><span class="nearby-name-wrap"><a class="nearby-name" href="' + esc(row[3]) + '">' +
           esc(row[0]) + '</a>' +
+          /* row[9]: EV 표시 — [1, 충전기 수]. 그 주차장 안에 충전소가 있는
+             곳만 실린다(거리만 가까운 남의 시설은 없음). 이름 바로 옆에 ⚡를
+             붙인다 — 카드 아래 배지로 따로 두지 않는다(운영자 확정 2026-11-28).
+             뜻은 섹션 설명란 하단 범례에 적어 둔다. */
+          (row[9] ? ' <span class="ev-inline" role="img" aria-label="전기차 충전소 있음">⚡</span>' +
+            '<span class="ev-count">충전기 ' + row[9][1] + '대</span>' : '') +
+          '</span>' +
           '<span class="nearby-dist">' + fmtDist(d) + '</span></div>' +
         (row[7] ? '<p class="nearby-rt"><span class="badge live">실시간 잔여면수</span> ' +
           '<a href="' + esc(row[3]) + '">상세에서 확인</a>' +
           (row[8] ? ' <span class="nearby-rt-time">' + esc(row[8]) + ' 조회</span>' : '') + '</p>' : '') +
-        /* row[9]: EV 표시 — [같이 여부(100m 안), 충전기 수]. 같이 있는 곳만
-           개수를 적는다(밖이면 가까운 3곳 합계라 오해할 수 있어 배지만). */
-        (row[9] ? '<p class="nearby-ev"><span class="badge ev">⚡ 전기차 충전소 ' +
-          (row[9][0] ? '있음</span> 충전기 ' + row[9][1] + '대' : '근처에 있음</span>') + '</p>' : '') +
         '<p class="nearby-meta">' + esc(row[4]) + '</p>' +
         '<p class="nearby-meta">' + esc(row[5]) + '</p>' +
         '<p class="nearby-addr">' + esc(row[6]) + '</p>' +
