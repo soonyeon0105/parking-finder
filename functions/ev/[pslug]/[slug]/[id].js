@@ -43,27 +43,17 @@ function rel(path, target) {
 }
 
 function updSpan(st) {
-  return st.upd
-    ? `<span class="ev-upd">(상태 확인 ${esc(st.upd)})</span>`
+  return st.cf
+    ? `<span class="ev-upd">(상태 확인 ${esc(st.cf)})</span>`
     : '<span class="ev-upd">(상태 확인 시각 미확인)</span>';
 }
 
-/* build_ev.py 의 is_stale/avail_text/avail_desc/stale_span 과 같은 규칙.
+/* build_ev.py 의 avail_text/avail_desc 와 같은 규칙.
  * 한쪽을 고치면 다른 쪽도 함께 고칠 것 — 파이썬 기준본과 Functions 출력이
- * 어긋나지 않게 한다. */
-const STALE_DAYS = 30; // 상태 확인이 수집 기준보다 이 일수 넘게 오래되면 '오래됨' 안내(검수 #992)
-
-function parseDay(s) {
-  const m = String(s || '').slice(0, 10).match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  return m ? Date.UTC(+m[1], +m[2] - 1, +m[3]) : null;
-}
-
-function isStale(st, invAt) {
-  const upd = parseDay(st.upd);
-  const inv = parseDay(invAt);
-  return upd !== null && inv !== null && (inv - upd) / 86400000 > STALE_DAYS;
-}
-
+ * 어긋나지 않게 한다.
+ * '상태 확인'은 statUpdDt(상태 변경 시각)가 아니라 확인 시각(cf — 상태를
+ * 확인한 스냅샷 시각) 기준이다. statUpdDt 가 오래됐다는 이유만으로
+ * '오래됐습니다' 안내를 붙이지 않는다(상태가 안 바뀐 것뿐일 수 있다). */
 function availUnknown(st) {
   const total = st.f + st.s;
   return total > 0 && st.a === 0 && st.un === total;
@@ -77,10 +67,8 @@ function availDesc(st) {
   return availUnknown(st) ? '충전 가능 여부 미확인' : `지금 충전 가능 ${st.a}대`;
 }
 
-function staleSpan(st, invAt) {
-  return invAt && isStale(st, invAt)
-    ? ' <span class="ev-stale">상태 확인이 오래됐습니다 — 현장에서 직접 확인하세요</span>'
-    : '';
+function feeLine(st) {
+  return `${availText(st)} · 충전 중 ${st.c}대 · 점검·운영중지 ${st.dn}대 · 상태 미확인 ${st.un}대\n  ${updSpan(st)}`;
 }
 
 function badges(st) {
@@ -102,10 +90,6 @@ function metaItems(st) {
   if (st.lim) out += `<li><b>이용 제한</b> ${esc(st.lim)}</li>`;
   if (st.note) out += `<li><b>안내</b> ${esc(st.note)}</li>`;
   return out;
-}
-
-function feeLine(st, invAt) {
-  return `${availText(st)} · 충전 중 ${st.c}대 · 점검·운영중지 ${st.dn}대 · 상태 미확인 ${st.un}대\n  ${updSpan(st)}${staleSpan(st, invAt)}`;
 }
 
 function chargerBlock(st) {
@@ -171,7 +155,7 @@ function breadcrumbJsonld(region, st, path) {
 
 function renderDetail(template, region, st, path) {
   const addr = st.addr + (st.ad ? ` ${st.ad}` : '');
-  const updSuffix = st.upd ? ` (상태 확인 ${st.upd})` : ' (상태 확인 시각 미확인)';
+  const updSuffix = st.cf ? ` (상태 확인 ${st.cf})` : ' (상태 확인 시각 미확인)';
   return template
     .replaceAll('{{PSLUG}}', region.pslug)
     .replaceAll('{{SLUG}}', region.slug)
@@ -186,7 +170,7 @@ function renderDetail(template, region, st, path) {
     .replaceAll('{{UPD_SUFFIX}}', esc(updSuffix))
     .replaceAll('{{BADGES}}', badges(st))
     .replaceAll('{{META_ITEMS}}', metaItems(st))
-    .replaceAll('{{FEE_LINE}}', feeLine(st, region.inv_at))
+    .replaceAll('{{FEE_LINE}}', feeLine(st))
     .replaceAll('{{KAKAO}}', esc(st.kakao))
     .replaceAll('{{NAVER}}', esc(st.naver))
     .replaceAll('{{CHARGER_BLOCK}}', chargerBlock(st))

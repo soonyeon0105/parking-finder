@@ -152,9 +152,11 @@ def main():
             s["a"] += 1
         elif stat == "3":
             s["c"] += 1
-        elif stat in ("1", "4", "5"):
+        elif stat in ("4", "5"):
             s["dn"] += 1
         else:
+            # 통신이상(1)·상태미확인(9)은 상태를 모르는 것이므로 미확인으로 센다
+            # (2026-11-27 규칙 — refresh_ev_status.py 와 동일).
             s["un"] += 1
         upd = it.get("statUpdDt") or ""
         if upd > s["upd"]:
