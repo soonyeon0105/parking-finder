@@ -1249,14 +1249,14 @@ if not _ev_template.exists():
 else:
     _tpl = _ev_template.read_text()
     for _tok in ("{{PSLUG}}", "{{SLUG}}", "{{ID}}", "{{STATION_NAME}}", "{{PROV}}",
-                 "{{REGION_NAME}}", "{{ADDR}}", "{{F}}", "{{S}}", "{{A}}",
+                 "{{REGION_NAME}}", "{{ADDR}}", "{{F}}", "{{S}}", "{{A_TEXT}}",
                  "{{UPD_SUFFIX}}", "{{BADGES}}", "{{META_ITEMS}}", "{{FEE_LINE}}",
                  "{{KAKAO}}", "{{NAVER}}", "{{CHARGER_BLOCK}}", "{{LOTS_BLOCK}}",
                  "{{JSONLD_BREADCRUMB}}"):
         if _tok not in _tpl:
             fails.append(f"EV 상세 템플릿 토큰 누락: {_tok}")
     if "{{" in _tpl.replace("{{JSONLD_BREADCRUMB}}", "") and re.search(
-            r"\{\{(?!PSLUG|SLUG|ID|STATION_NAME|PROV|REGION_NAME|ADDR|F|S|A|UPD_SUFFIX|BADGES|META_ITEMS|FEE_LINE|KAKAO|NAVER|CHARGER_BLOCK|LOTS_BLOCK|JSONLD_BREADCRUMB)[A-Z_]+\}\}", _tpl):
+            r"\{\{(?!PSLUG|SLUG|ID|STATION_NAME|PROV|REGION_NAME|ADDR|F|S|A_TEXT|UPD_SUFFIX|BADGES|META_ITEMS|FEE_LINE|KAKAO|NAVER|CHARGER_BLOCK|LOTS_BLOCK|JSONLD_BREADCRUMB)[A-Z_]+\}\}", _tpl):
         fails.append("EV 상세 템플릿에 알 수 없는 토큰 있음")
 if not _ev_function.exists():
     fails.append("EV 상세 Function 없음: functions/ev/[pslug]/[slug]/[id].js")

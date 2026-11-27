@@ -23,6 +23,7 @@
 from __future__ import annotations
 
 import argparse
+import datetime
 import json
 import math
 import sys
@@ -38,7 +39,7 @@ PER_PAGE = 60
 # 목록으로 채운다. 토큰을 추가·삭제·이름 변경하면 함수도 함께 고칠 것.
 DETAIL_TOKENS = ("{{PSLUG}}", "{{SLUG}}", "{{ID}}", "{{STATION_NAME}}",
                  "{{PROV}}", "{{REGION_NAME}}", "{{ADDR}}", "{{F}}", "{{S}}",
-                 "{{A}}", "{{UPD_SUFFIX}}", "{{BADGES}}", "{{META_ITEMS}}",
+                 "{{A_TEXT}}", "{{UPD_SUFFIX}}", "{{BADGES}}", "{{META_ITEMS}}",
                  "{{FEE_LINE}}", "{{KAKAO}}", "{{NAVER}}",
                  "{{CHARGER_BLOCK}}", "{{LOTS_BLOCK}}",
                  "{{JSONLD_BREADCRUMB}}")
@@ -51,7 +52,47 @@ def upd_span(s) -> str:
     return '<span class="ev-upd">(상태 확인 시각 미확인)</span>'
 
 
-def station_card(s, path, detail_url=None) -> str:
+STALE_DAYS = 30  # 상태 확인이 수집 기준보다 이 일수 넘게 오래되면 '오래됨' 안내를 붙인다(검수 #992).
+
+
+def _day(s):
+    """'2026-06-01 11:33' → date. 파싱이 안 되면 None."""
+    try:
+        return datetime.date.fromisoformat((s or "")[:10])
+    except ValueError:
+        return None
+
+
+def is_stale(s, inv_at) -> bool:
+    """상태 확인 시각이 수집 기준보다 STALE_DAYS 넘게 오래됐는지."""
+    upd = _day(s.get("upd"))
+    inv = _day(inv_at)
+    return bool(upd and inv and (inv - upd).days > STALE_DAYS)
+
+
+def avail_unknown(s) -> bool:
+    """충전 가능 대수가 0인데 충전기 전부가 '상태 미확인' — 0대가 아니라 모르는 상태."""
+    total = s["f"] + s["s"]
+    return total > 0 and s["a"] == 0 and s["un"] == total
+
+
+def avail_text(s) -> str:
+    """fee-line 첫머리 — 모르면 '상태 모름'으로 적는다(검수 #992: 0대로 보이면 고장으로 오해)."""
+    return "상태 모름" if avail_unknown(s) else f"지금 충전 가능 {s['a']}대"
+
+
+def avail_desc(s) -> str:
+    """meta 설명용 — 모르면 '충전 가능 여부 미확인'."""
+    return "충전 가능 여부 미확인" if avail_unknown(s) else f"지금 충전 가능 {s['a']}대"
+
+
+def stale_span(s, inv_at) -> str:
+    if inv_at and is_stale(s, inv_at):
+        return ' <span class="ev-stale">상태 확인이 오래됐습니다 — 현장에서 직접 확인하세요</span>'
+    return ""
+
+
+def station_card(s, path, detail_url=None, inv_at=None) -> str:
     kakao, naver = bs.ev_station_links(s["nm"], s.get("lat"), s.get("lng"), s.get("addr"))
     total = s["f"] + s["s"]
     name_html = bs.esc(s['nm'])
@@ -64,6 +105,8 @@ def station_card(s, path, detail_url=None) -> str:
         badges.append(f'<span class="badge">완속 {s["s"]}기</span>')
     if s["a"]:
         badges.append(f'<span class="badge ev">지금 충전 가능 {s["a"]}대</span>')
+    elif avail_unknown(s):
+        badges.append('<span class="badge unknown">상태 모름</span>')
     meta = []
     if s.get("op"):
         meta.append(f'<li><b>운영</b> {bs.esc(s["op"])}</li>')
@@ -96,8 +139,8 @@ def station_card(s, path, detail_url=None) -> str:
   </div>
   <p class="addr">{bs.esc(addr)}</p>
   <ul class="meta">{''.join(meta)}</ul>
-  <p class="fee-line">지금 충전 가능 {s['a']}대 · 충전 중 {s['c']}대 · 점검·운영중지 {s['dn']}대 · 상태 미확인 {s['un']}대
-  {upd_span(s)}</p>
+  <p class="fee-line">{avail_text(s)} · 충전 중 {s['c']}대 · 점검·운영중지 {s['dn']}대 · 상태 미확인 {s['un']}대
+  {upd_span(s)}{stale_span(s, inv_at)}</p>
   {detail}{extra}
   <div class="actions">
     <a class="btn solid" href="{bs.esc(kakao)}" target="_blank" rel="nofollow noopener">카카오맵</a>
@@ -135,6 +178,8 @@ def detail_badges(s) -> str:
         badges.append(f'<span class="badge">완속 {s["s"]}기</span>')
     if s["a"]:
         badges.append(f'<span class="badge ev">지금 충전 가능 {s["a"]}대</span>')
+    elif avail_unknown(s):
+        badges.append('<span class="badge unknown">상태 모름</span>')
     return "".join(badges)
 
 
@@ -157,9 +202,9 @@ def detail_meta_items(s) -> str:
     return "".join(items)
 
 
-def detail_fee_line(s) -> str:
-    return (f"지금 충전 가능 {s['a']}대 · 충전 중 {s['c']}대 · 점검·운영중지 {s['dn']}대 · 상태 미확인 {s['un']}대\n"
-            f"  {upd_span(s)}")
+def detail_fee_line(s, inv_at=None) -> str:
+    return (f"{avail_text(s)} · 충전 중 {s['c']}대 · 점검·운영중지 {s['dn']}대 · 상태 미확인 {s['un']}대\n"
+            f"  {upd_span(s)}{stale_span(s, inv_at)}")
 
 
 def detail_charger_block(s) -> str:
@@ -250,11 +295,11 @@ def station_detail_page(s, r, path, nearby_lots, meta) -> str:
     slots = {
         "h1": bs.esc(s["nm"]),
         "lede": (f"{bs.esc(r['prov'])} {bs.esc(r['name'])}의 전기차 충전소입니다.\n"
-                 f"충전소 정보는 {bs.esc(meta['inv_at'])} 수집 기준입니다."),
+                 f"충전소 정보는 {bs.esc(meta['inv_at'][:10])} 수집 기준입니다."),
         "badges": detail_badges(s),
         "addr": bs.esc(s["addr"] + (f' {s["ad"]}' if s.get("ad") else "")),
         "meta_items": detail_meta_items(s),
-        "fee_line": detail_fee_line(s),
+        "fee_line": detail_fee_line(s, meta["inv_at"]),
         "kakao": bs.esc(kakao),
         "naver": bs.esc(naver),
         "charger_block": detail_charger_block(s),
@@ -271,7 +316,7 @@ def station_detail_page(s, r, path, nearby_lots, meta) -> str:
     return bs.layout(
         title=f"{s['nm']} 전기차 충전소 — {r['prov']} {r['name']} | {bs.SITE_NAME}",
         description=(f"{r['prov']} {r['name']} {s['nm']} — {addr}. "
-                     f"급속 {s['f']}기 · 완속 {s['s']}기 · 지금 충전 가능 {s['a']}대"
+                     f"급속 {s['f']}기 · 완속 {s['s']}기 · {avail_desc(s)}"
                      + (f" (상태 확인 {s['upd']})." if s.get("upd")
                         else " (상태 확인 시각 미확인).")),
         path=path, body=body, crumbs=crumbs, nav_active="ev", city=None,
@@ -291,7 +336,7 @@ def station_detail_template(meta) -> str:
     slots = {
         "h1": "{{STATION_NAME}}",
         "lede": ("{{PROV}} {{REGION_NAME}}의 전기차 충전소입니다.\n"
-                 f"충전소 정보는 {bs.esc(meta['inv_at'])} 수집 기준입니다."),
+                 f"충전소 정보는 {bs.esc(meta['inv_at'][:10])} 수집 기준입니다."),
         "badges": "{{BADGES}}",
         "addr": "{{ADDR}}",
         "meta_items": "{{META_ITEMS}}",
@@ -311,7 +356,7 @@ def station_detail_template(meta) -> str:
     return bs.layout(
         title="{{STATION_NAME}} 전기차 충전소 — {{PROV}} {{REGION_NAME}} | " + bs.SITE_NAME,
         description=("{{PROV}} {{REGION_NAME}} {{STATION_NAME}} — {{ADDR}}. "
-                     "급속 {{F}}기 · 완속 {{S}}기 · 지금 충전 가능 {{A}}대{{UPD_SUFFIX}}."),
+                     "급속 {{F}}기 · 완속 {{S}}기 · {{A_TEXT}}{{UPD_SUFFIX}}."),
         path=token_path, body=body, crumbs=crumbs, nav_active="ev", city=None,
         jsonld=["{{JSONLD_BREADCRUMB}}"])
 
@@ -460,6 +505,15 @@ def main():
 
     site = bs.load_site()
     bs.SITE_CITIES = site["cities"]
+    # build_site.main()과 같은 도시별 주차장 묶음 — nav_html 지역 이동 메뉴의
+    # 곳수와 푸터 지역 디렉터리의 합계가 EV 페이지에서도 주차 페이지와 같게 한다.
+    # 채우지 않으면 EV 페이지는 전부 "0곳"으로 보인다(검수 #991·#995).
+    for c in site["cities"]:
+        city_lots = [l for l in site["lots"] if l.get("city") == c["city"]
+                     and l.get("province_slug", c.get("province_slug")) == c.get("province_slug")]
+        c["_lots"] = city_lots
+        c["_card_lots"] = [l for l in city_lots if l.get("list_mode", "card") != bs.STREET_MODE]
+        c["_street_lots"] = [l for l in city_lots if l.get("list_mode") == bs.STREET_MODE]
     bs.PROVINCE_ORDER = bs.province_order(site)
     bs.HOLIDAYS = bs.load_holidays()
     bs.GA_MEASUREMENT_ID = (site.get("ga_measurement_id") or "").strip()
@@ -684,7 +738,7 @@ def main():
 {onsite_line}충전소 정보는 {bs.esc(meta['inv_at'])} 수집 기준입니다.</p>
 {park_link}
 """
-            cards = "".join(station_card(s, path, detail_url_by_id.get(s["id"]))
+            cards = "".join(station_card(s, path, detail_url_by_id.get(s["id"]), meta["inv_at"])
                             for s in chunk)
             body = (head + f'<div class="list">{"".join(cards)}</div>'
                     + pager(base_path, page, n_pages, path)
