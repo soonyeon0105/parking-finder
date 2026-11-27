@@ -35,6 +35,16 @@ import build_site as bs
 
 PER_PAGE = 60
 
+# P0-3 데이터 품질 가드 — 좌표-주소 불일치 47곳 (검수 #840·#845 후속 점검).
+# 이 충전소의 상세 페이지에서는 '가까운 공영주차장' 블록을 숨긴다 (본문·충전기
+# 정보는 그대로). 원본 수정이 끝나면 data/ev_coord_mismatch_47.json 에서
+# 제거해 블록을 복원한다. Functions JS는 JSON rec의 "mm" 플래그로 본다.
+_MISMATCH_FILE = BASE / "data" / "ev_coord_mismatch_47.json"
+try:
+    MISMATCH_47 = frozenset(json.loads(_MISMATCH_FILE.read_text(encoding="utf-8"))["ids"])
+except (OSError, ValueError, KeyError):
+    MISMATCH_47 = frozenset()
+
 # 상세 페이지 템플릿 토큰 — functions/ev/[pslug]/[slug]/[id].js 가 같은
 # 목록으로 채운다. 토큰을 추가·삭제·이름 변경하면 함수도 함께 고칠 것.
 DETAIL_TOKENS = ("{{PSLUG}}", "{{SLUG}}", "{{ID}}", "{{STATION_NAME}}",
@@ -64,13 +74,24 @@ def avail_unknown(s) -> bool:
     return total > 0 and s["a"] == 0 and s["un"] == total
 
 
+def avail_stale(s) -> bool:
+    """P0-3: 상태 확인 시각(cf)이 24시간을 넘었는지 — build_site.ev_cf_stale과 같은 기준."""
+    return bs.ev_cf_stale(s.get("cf"))
+
+
 def avail_text(s) -> str:
-    """fee-line 첫머리 — 모르면 '상태 모름'으로 적는다(검수 #992: 0대로 보이면 고장으로 오해)."""
+    """fee-line 첫머리 — 모르면 '상태 모름'으로 적는다(검수 #992: 0대로 보이면 고장으로 오해).
+    P0-3: 확인이 24시간을 넘었으면 '지금 충전 가능'을 쓰지 않고 '상태 확인 중'으로 적는다
+    (upd_span에 이미 '(상태 확인 …)'이 있어 시각을 두 번 적지 않는다)."""
+    if avail_stale(s):
+        return "상태 확인 중"
     return "상태 모름" if avail_unknown(s) else f"지금 충전 가능 {s['a']}대"
 
 
 def avail_desc(s) -> str:
-    """meta 설명용 — 모르면 '충전 가능 여부 미확인'."""
+    """meta 설명용 — 모르면 '충전 가능 여부 미확인', 오래됐으면 '상태 확인 중'."""
+    if avail_stale(s):
+        return "상태 확인 중"
     return "충전 가능 여부 미확인" if avail_unknown(s) else f"지금 충전 가능 {s['a']}대"
 
 
@@ -85,7 +106,9 @@ def station_card(s, path, detail_url=None) -> str:
         badges.append(f'<span class="badge">급속 {s["f"]}기</span>')
     if s["s"]:
         badges.append(f'<span class="badge">완속 {s["s"]}기</span>')
-    if s["a"]:
+    if avail_stale(s):
+        badges.append('<span class="badge unknown">상태 확인 중</span>')
+    elif s["a"]:
         badges.append(f'<span class="badge ev">지금 충전 가능 {s["a"]}대</span>')
     elif avail_unknown(s):
         badges.append('<span class="badge unknown">상태 모름</span>')
@@ -158,7 +181,9 @@ def detail_badges(s) -> str:
         badges.append(f'<span class="badge">급속 {s["f"]}기</span>')
     if s["s"]:
         badges.append(f'<span class="badge">완속 {s["s"]}기</span>')
-    if s["a"]:
+    if avail_stale(s):
+        badges.append('<span class="badge unknown">상태 확인 중</span>')
+    elif s["a"]:
         badges.append(f'<span class="badge ev">지금 충전 가능 {s["a"]}대</span>')
     elif avail_unknown(s):
         badges.append('<span class="badge unknown">상태 모름</span>')
@@ -205,8 +230,14 @@ def detail_charger_block(s) -> str:
             f'<tbody>{rows}</tbody>\n</table></div>')
 
 
-def detail_lots_block(r, path, nearby_lots, meta) -> str:
-    """가까운 공영주차장 블록. nearby_lots: (주차장 dict, 거리m, 100m 안 여부), 거리순, 최대 5곳."""
+def detail_lots_block(r, path, nearby_lots, meta, station_id=None) -> str:
+    """가까운 공영주차장 블록. nearby_lots: (주차장 dict, 거리m, 100m 안 여부), 거리순, 최대 5곳.
+
+    P0-3: 좌표-주소 불일치 47곳(MISMATCH_47)은 블록을 표시하지 않는다 — 잘못된
+    주차장을 안내하는 것보다 안 보여주는 것이 낫다. 본문(주소·충전기 정보)은 그대로 둔다.
+    """
+    if station_id in MISMATCH_47:
+        return ""
     onsite_m = meta.get("onsite_m", 100)
     lot_rows = []
     for lot, d, onsite in nearby_lots:
@@ -285,7 +316,7 @@ def station_detail_page(s, r, path, nearby_lots, meta) -> str:
         "kakao": bs.esc(kakao),
         "naver": bs.esc(naver),
         "charger_block": detail_charger_block(s),
-        "lots_block": detail_lots_block(r, path, nearby_lots, meta),
+        "lots_block": detail_lots_block(r, path, nearby_lots, meta, station_id=s["id"]),
         "region_url": bs.rel(path, f"/ev/{r['pslug']}/{r['slug']}/"),
         "region_name": bs.esc(r["name"]),
         "ev_home_url": bs.rel(path, "/ev/"),
@@ -374,6 +405,9 @@ def build_ev_detail_data(ev, meta, regions, nearby_lots_by_station, detail_url_b
                    "note": s.get("note") or "", "ch": s.get("ch") or [],
                    "kakao": kakao, "naver": naver,
                    "d": 1 if s["id"] in detail_url_by_id else 0}
+            if s["id"] in MISMATCH_47:
+                # P0-3: Functions JS가 lots 블록을 숨기게 하는 플래그 (상세 대상만 의미 있음).
+                rec["mm"] = 1
             if rec["d"]:
                 n_detail += 1
                 lots = []

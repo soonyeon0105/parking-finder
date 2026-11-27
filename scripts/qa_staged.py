@@ -78,7 +78,12 @@ SETUP_FOR_PART = {
     # B: 단계 8·9가 build_site 이름(UNKNOWN_DONG 등)을 쓴다. 원래 파트 B 실행
     # 때는 단계 8 코드가 먼저 실행돼 이름이 생겼지만, 단계 9 단독 재실행 때는
     # 없어 NameError가 난다 — setup에 SLUG를 넣어 단독 실행도 되게 한다.
-    "B": SETUP_COMMON + SETUP_SLUG,
+    # 단계 10은 단계 9가 계산한 locs(사이트맵 URL 목록)를 쓴다 — 단계 10 단독
+    # 재실행 때도 NameError가 나므로 setup에서 sitemap.xml을 직접 읽어 둔다.
+    "B": SETUP_COMMON + SETUP_SLUG + '''
+_sm = (DIST / "sitemap.xml").read_text()
+locs = re.findall(r"<loc>([^<]+)</loc>", _sm)
+''',
     "C": SETUP_COMMON + SETUP_SLUG,
     "D": SETUP_COMMON + SETUP_SLUG + SETUP_CALC,
     "E": SETUP_COMMON + SETUP_SLUG + SETUP_CALC,

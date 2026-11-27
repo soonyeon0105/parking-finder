@@ -48,22 +48,36 @@ function updSpan(st) {
     : '<span class="ev-upd">(상태 확인 시각 미확인)</span>';
 }
 
+/* build_site.py 의 ev_cf_stale() 과 같은 기준 — 상태 확인 시각(cf)이
+ * 24시간을 넘었는지. cf는 'YYYY-MM-DD HH:MM' (KST)이라 +09:00을 붙여 파싱한다.
+ * statUpdDt 가 오래됐다는 이유만으로 '오래됐습니다' 안내를 붙이지 않는다
+ * (상태가 안 바뀐 것뿐일 수 있다). 기획안 v1.2 P0-3. */
+function isStaleCf(cf) {
+  if (!cf) return false;
+  var t = Date.parse(String(cf).slice(0, 16).replace(' ', 'T') + ':00+09:00');
+  if (Number.isNaN(t)) return false;
+  return Date.now() - t > 24 * 3600 * 1000;
+}
+
 /* build_ev.py 의 avail_text/avail_desc 와 같은 규칙.
  * 한쪽을 고치면 다른 쪽도 함께 고칠 것 — 파이썬 기준본과 Functions 출력이
  * 어긋나지 않게 한다.
  * '상태 확인'은 statUpdDt(상태 변경 시각)가 아니라 확인 시각(cf — 상태를
  * 확인한 스냅샷 시각) 기준이다. statUpdDt 가 오래됐다는 이유만으로
- * '오래됐습니다' 안내를 붙이지 않는다(상태가 안 바뀐 것뿐일 수 있다). */
+ * '오래됐습니다' 안내를 붙이지 않는다(상태가 안 바뀐 것뿐일 수 있다).
+ * P0-3: cf가 24시간을 넘었으면 '지금 충전 가능'을 쓰지 않고 '상태 확인 중'으로 적는다. */
 function availUnknown(st) {
   const total = st.f + st.s;
   return total > 0 && st.a === 0 && st.un === total;
 }
 
 function availText(st) {
+  if (isStaleCf(st.cf)) return '상태 확인 중';
   return availUnknown(st) ? '상태 모름' : `지금 충전 가능 ${st.a}대`;
 }
 
 function availDesc(st) {
+  if (isStaleCf(st.cf)) return '상태 확인 중';
   return availUnknown(st) ? '충전 가능 여부 미확인' : `지금 충전 가능 ${st.a}대`;
 }
 
@@ -75,7 +89,8 @@ function badges(st) {
   let out = '<span class="badge kind">충전소</span>';
   if (st.f) out += `<span class="badge">급속 ${st.f}기</span>`;
   if (st.s) out += `<span class="badge">완속 ${st.s}기</span>`;
-  if (st.a) out += `<span class="badge ev">지금 충전 가능 ${st.a}대</span>`;
+  if (isStaleCf(st.cf)) out += '<span class="badge unknown">상태 확인 중</span>';
+  else if (st.a) out += `<span class="badge ev">지금 충전 가능 ${st.a}대</span>`;
   else if (availUnknown(st)) out += '<span class="badge unknown">상태 모름</span>';
   return out;
 }
@@ -106,6 +121,9 @@ function chargerBlock(st) {
 }
 
 function lotsBlock(region, st, path) {
+  /* P0-3: 좌표-주소 불일치 47곳(st.mm=1)은 블록을 표시하지 않는다 — 잘못된
+     주차장을 안내하는 것보다 안 보여주는 것이 낫다. 본문은 그대로 둔다. */
+  if (st.mm) return '';
   const lots = st.lots || [];
   if (lots.length) {
     const rows = lots.map((lot) => {

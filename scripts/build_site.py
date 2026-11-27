@@ -6339,6 +6339,28 @@ def ev_dist_text(m) -> str:
     return f"{m}m" if m < 1000 else f"{m / 1000:.1f}km"
 
 
+KST = timezone(timedelta(hours=9))
+EV_STALE_HOURS = 24
+
+
+def ev_cf_stale(cf, now=None) -> bool:
+    """상태 확인 시각(cf, 'YYYY-MM-DD HH:MM')이 24시간을 넘었는지 — 기획안 v1.2 P0-3.
+
+    기준은 cf(상태를 확인한 스냅샷 시각). statUpdDt가 오래됐다는 이유만으로는
+    오래됐다고 보지 않는다(상태가 안 바뀐 것뿐일 수 있다 — #1073 규칙과 동일).
+    cf가 없으면 '상태 확인 시각 미확인' 표기만 두므로 오래된 것으로 보지 않는다.
+    build_ev.py·Functions JS도 같은 기준·같은 24시간을 쓴다.
+    """
+    if not cf:
+        return False
+    try:
+        dt = datetime.strptime(str(cf).strip()[:16], "%Y-%m-%d %H:%M").replace(tzinfo=KST)
+    except ValueError:
+        return False
+    now = now or datetime.now(KST)
+    return (now - dt) > timedelta(hours=EV_STALE_HOURS)
+
+
 def ev_block(lot, path) -> str:
     """주차장 상세의 전기차 충전소 블록 — 근처 충전소(1km 안 최대 3곳, 거리순).
 
@@ -6355,13 +6377,15 @@ def ev_block(lot, path) -> str:
         # 근처 충전소는 공영주차장 1km 안에 있으므로 상세 페이지가 있다
         # (build_ev.py — /ev/{도}/{구}/{충전소 id}/, Functions 동적 렌더링).
         detail = f"{s['rp']}{s['id']}/"
+        # P0-3: 확인이 24시간을 넘은 충전소는 '지금 충전 가능'을 쓰지 않는다.
+        avail = "상태 확인 중" if ev_cf_stale(s.get("upd")) else f"지금 충전 가능 {s['a']}대"
         rows.append(f"""<article class="card ev-station">
   <div class="lot-head">
     <h3>{esc(s['nm'])}</h3>
     <div class="badges"><span class="badge ev">{ev_dist_text(s['d'])}</span></div>
   </div>
   <p class="addr">{esc(s['addr'])}</p>
-  <p class="fee-line">급속 {s['f']}기 · 완속 {s['s']}기 · 지금 충전 가능 {s['a']}대
+  <p class="fee-line">급속 {s['f']}기 · 완속 {s['s']}기 · {avail}
   <span class="ev-upd">({f"상태 확인 {esc(s['upd'])}" if s.get('upd') else "상태 확인 시각 미확인"})</span></p>
   <div class="actions">
     <a class="btn solid" href="{esc(kakao)}" target="_blank" rel="nofollow noopener">카카오맵</a>
@@ -9690,10 +9714,18 @@ def build_lot_detail(city, lot, site, existing_paths, dong_path=None):
         _ev = lot["ev"]
         _s0 = _ev["st"][0]
         if _ev.get("on"):
-            qa.append((f"{name}에서 전기차 충전이 가능한가요?",
-                       f"네. {name}에서 {ev_dist_text(_s0['d'])} 거리에 {_s0['nm']} 충전소가 있어 "
-                       f"주차하면서 충전할 수 있습니다. 급속 {_s0['f']}기 · 완속 {_s0['s']}기가 있고, "
-                       f"상태 확인 시각({_s0['upd']}) 기준 지금 충전 가능한 충전기는 {_s0['a']}대입니다."))
+            # P0-3: 확인이 24시간을 넘은 충전소는 충전 가능 대수를 단정하지 않는다.
+            if ev_cf_stale(_s0.get("upd")):
+                qa.append((f"{name}에서 전기차 충전이 가능한가요?",
+                           f"{name}에서 {ev_dist_text(_s0['d'])} 거리에 {_s0['nm']} 충전소가 있어 "
+                           f"주차하면서 충전할 수 있습니다. 급속 {_s0['f']}기 · 완속 {_s0['s']}기가 있고, "
+                           f"상태 확인이 오래돼(마지막 확인 {_s0['upd']}) 지금 충전 가능한지는 알 수 없습니다. "
+                           f"현장에서 직접 확인하세요."))
+            else:
+                qa.append((f"{name}에서 전기차 충전이 가능한가요?",
+                           f"네. {name}에서 {ev_dist_text(_s0['d'])} 거리에 {_s0['nm']} 충전소가 있어 "
+                           f"주차하면서 충전할 수 있습니다. 급속 {_s0['f']}기 · 완속 {_s0['s']}기가 있고, "
+                           f"상태 확인 시각({_s0['upd']}) 기준 지금 충전 가능한 충전기는 {_s0['a']}대입니다."))
         else:
             qa.append((f"{name} 근처에 전기차 충전소가 있나요?",
                        f"이 주차장 안에는 충전소가 없지만, {ev_dist_text(_s0['d'])} 거리에 "

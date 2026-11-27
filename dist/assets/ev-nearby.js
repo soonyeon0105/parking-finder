@@ -58,6 +58,14 @@
     };
   }
 
+  /* P0-3: 상태 확인 시각(cf)이 24시간을 넘었으면 '지금 충전 가능'을 쓰지 않는다.
+     build_site.py 의 ev_cf_stale() 과 같은 기준. */
+  function isStaleCf(cf) {
+    if (!cf) return false;
+    var t = Date.parse(String(cf).slice(0, 16).replace(' ', 'T') + ':00+09:00');
+    return !isNaN(t) && Date.now() - t > 24 * 3600 * 1000;
+  }
+
   /* 행 배열: [이름, 위도, 경도, 급속, 완속, 충전가능, 상태확인시각, 주소, 지역인덱스, 상세페이지경로(없으면 "")] */
   function render(scored, regions) {
     var html = '';
@@ -68,11 +76,12 @@
       /* 상세 페이지는 공영주차장 1km 안에 있는 충전소만 있다 — 없으면 버튼을 빼고
          지역 목록으로 안내한다. */
       var detail = row[9] ? '<a class="btn" href="' + esc(row[9]) + '">충전소 상세 보기</a>' : '';
+      var avail = isStaleCf(row[6]) ? '상태 확인 중' : '지금 충전 가능 ' + row[5] + '대';
       html += '<article class="card ev-card">' +
         '<div class="lot-head"><h3>' + esc(row[0]) + '</h3>' +
         '<div class="badges"><span class="badge ev">' + fmtDist(d) + '</span></div></div>' +
         '<p class="addr">' + esc(row[7]) + '</p>' +
-        '<p class="fee-line">급속 ' + row[3] + '기 · 완속 ' + row[4] + '기 · 지금 충전 가능 ' + row[5] + '대 ' +
+        '<p class="fee-line">급속 ' + row[3] + '기 · 완속 ' + row[4] + '기 · ' + avail + ' ' +
         '<span class="ev-upd">(' + (row[6] ? '상태 확인 ' + esc(row[6]) : '상태 확인 시각 미확인') + ')</span></p>' +
         '<div class="actions">' +
         '<a class="btn solid" href="' + esc(links.kakao) + '" target="_blank" rel="nofollow noopener">카카오맵</a>' +
