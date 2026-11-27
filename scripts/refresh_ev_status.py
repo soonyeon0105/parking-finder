@@ -22,6 +22,10 @@ prepare_ev.py 가 하루 1회 전수 재구축(지역·근처 주차장까지 �
   · 셈 규칙: 2 충전대기→가능(a), 3→충전 중(c), 4·5→점검·운영중지(dn),
     1 통신이상·9 상태미확인→미확인(un). 통신이상은 상태를 모르는 것이므로
     점검·운영중지에 넣지 않는다(prepare_ev.py 와 동일 규칙).
+  · 새 인벤토리에 없는 미갱신 충전소도 예외가 아니다: 옛 집계는 구 규칙
+    (1→dn)으로 계산된 것일 수 있어, 저장된 ch 행 라벨에서 a/c/dn/un을
+    다시 유도한다(counts_from_ch_labels). f/s·upd·ch 행·cf(cf는 옛 수집
+    시각)는 그대로 둔다.
 
 갱신 대상(충전소 집합·지역 배치는 기존 데이터를 그대로 둔다 — 신규·삭제
 충전소는 세서 보고만 한다):
@@ -57,6 +61,28 @@ KST = ZoneInfo("Asia/Seoul")
 ONSITE_M = 100
 NEARBY_M = 1000
 NEARBY_MAX = 3
+
+# 저장된 ch 행 라벨 → 상태 코드 (STAT_LABEL 역매핑). 미갱신 충전소의 집계
+# 재유도용 — 라벨은 refresh 전 데이터가 가진 마지막 확인 상태 그대로이다.
+LABEL_TO_STAT = {v: k for k, v in STAT_LABEL.items()}
+
+
+def counts_from_ch_labels(ch_rows):
+    """저장된 ch 행 라벨([chgerId, 타입라벨, 출력, 상태라벨])에서 a/c/dn/un
+    집계를 다시 유도한다. 규칙은 prepare_ev.py와 동일: 2→a, 3→c, 4·5→dn,
+    1(통신이상)·9(상태 미확인)→un. f/s는 타입이 바뀌지 않으므로 건드리지 않는다."""
+    a = c = dn = un = 0
+    for row in ch_rows:
+        stat = LABEL_TO_STAT.get(row[3] if len(row) > 3 else "", "9")
+        if stat == "2":
+            a += 1
+        elif stat == "3":
+            c += 1
+        elif stat in ("4", "5"):
+            dn += 1
+        else:
+            un += 1
+    return a, c, dn, un
 
 
 def load_gz(path: Path) -> dict:
@@ -145,7 +171,7 @@ def main():
     ev = json.loads(ev_path.read_text(encoding="utf-8"))
     old_meta = ev["meta"]
     old_inv_at = old_meta.get("inv_at", "")
-    n_changed = n_unrefreshed = 0
+    n_changed = n_unrefreshed = n_rederived = 0
     changed_ids = []
     total_chargers_in_data = 0
     for region in ev["regions"]:
@@ -153,6 +179,13 @@ def main():
             rows = by_station.get(s["id"])
             if not rows:
                 # 새 인벤토리에 없는 충전소 — 옛 상태 유지, 확인 시각은 옛 수집 기준.
+                # 단, 집계(a/c/dn/un)는 저장된 ch 행 라벨에서 다시 유도한다. 옛 집계는
+                # 구 규칙(통신이상 1→dn)으로 계산된 것이라, 그대로 두면 통신이상이
+                # 점검·운영중지로 잡히는 7곳 예외가 남는다. f/s·upd·ch 행·cf는 그대로.
+                a2, c2, dn2, un2 = counts_from_ch_labels(s.get("ch", []))
+                if (s.get("a"), s.get("c"), s.get("dn"), s.get("un")) != (a2, c2, dn2, un2):
+                    s.update({"a": a2, "c": c2, "dn": dn2, "un": un2})
+                    n_rederived += 1
                 s["cf"] = old_inv_at
                 n_unrefreshed += 1
                 continue
@@ -219,7 +252,8 @@ def main():
     ev["meta"] = meta
     ev_path.write_text(json.dumps(ev, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     print(f"충전소 갱신: 전체 {len(known_ids):,}곳 · 상태 바뀐 곳 {n_changed:,}곳 · "
-          f"새 인벤토리에 없는 곳 {n_unrefreshed:,}곳 · 신규 충전소 {n_new_stations:,}곳(미반영, 보고만)")
+          f"새 인벤토리에 없는 곳 {n_unrefreshed:,}곳 · 미갱신 중 ch 라벨에서 집계 재유도 {n_rederived:,}곳 · "
+          f"신규 충전소 {n_new_stations:,}곳(미반영, 보고만)")
     print(f"바뀐 충전소 예시: {', '.join(changed_ids[:10])}")
 
     # ---- 4) data/ev_nearby.json 재계산 (prepare_ev.py 와 같은 방식, 'upd' 자리 = cf)
