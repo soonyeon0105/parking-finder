@@ -76,7 +76,10 @@ def publish(payloads: dict, dry_run: bool = False) -> dict:
     existing = {row["path"]: row["hash"]
                 for row in _query("SELECT path, hash FROM files")}
     changed = [k for k in payloads if existing.get(k) != hashes[k]]
-    deleted = [k for k in existing if k not in payloads]
+    # files 표는 공용 창구다 — 항공권 키('flights-' 접두사)는 kmedicheck 쪽
+    # 발행 스크립트 소유라, EV 발행이 지우면 안 된다 (2026-11-28 항공권 편입).
+    deleted = [k for k in existing
+               if k not in payloads and not k.startswith("flights-")]
     total_bytes = sum(len(payloads[k].encode("utf-8")) for k in changed)
     if dry_run:
         return {"changed": len(changed), "unchanged": len(payloads) - len(changed),
