@@ -1,0 +1,46 @@
+# 공영주차장 요금계산기
+
+> 전국 공영주차장 17,398곳의 요금·운영시간·무료 개방·월정기 정보를 공공데이터로 정리한 사이트입니다. 지역과 주차 시간을 고르면 요일·감면 조건까지 반영한 주차요금을 바로 계산할 수 있습니다.
+
+## 핵심 페이지
+
+- [홈 — 지역별 공영주차장 요금계산기](https://parking.9welfare.com/)
+- [지역 전체 목록 — 시·도·시·군·구·동](https://parking.9welfare.com/parking/regions/)
+- [무료 개방 주차장 모아보기](https://parking.9welfare.com/parking/free/)
+- [전기차 충전소 찾기](https://parking.9welfare.com/ev/)
+- [내 주변 전기차 충전소](https://parking.9welfare.com/ev/nearby/)
+- [데이터 출처와 계산 기준](https://parking.9welfare.com/about/)
+- [문의·오류 제보](https://parking.9welfare.com/contact/)
+
+## 시·도별 허브
+
+- [경기도 공영주차장](https://parking.9welfare.com/parking/gyeonggi/)
+- [서울특별시 공영주차장](https://parking.9welfare.com/parking/seoul/)
+- [인천광역시 공영주차장](https://parking.9welfare.com/parking/incheon/)
+- [부산광역시 공영주차장](https://parking.9welfare.com/parking/busan/)
+- [대구광역시 공영주차장](https://parking.9welfare.com/parking/daegu/)
+- [대전광역시 공영주차장](https://parking.9welfare.com/parking/daejeon/)
+- [광주광역시 공영주차장](https://parking.9welfare.com/parking/gwangju/)
+- [울산광역시 공영주차장](https://parking.9welfare.com/parking/ulsan/)
+- [세종특별자치시 공영주차장](https://parking.9welfare.com/parking/sejong/)
+- [제주특별자치도 공영주차장](https://parking.9welfare.com/parking/jeju/)
+- [충청북도 공영주차장](https://parking.9welfare.com/parking/chungbuk/)
+- [충청남도 공영주차장](https://parking.9welfare.com/parking/chungnam/)
+- [전북특별자치도 공영주차장](https://parking.9welfare.com/parking/jeonbuk/)
+- [전남광주통합특별시 공영주차장](https://parking.9welfare.com/parking/jeonnam/)
+- [경상남도 공영주차장](https://parking.9welfare.com/parking/gyeongnam/)
+- [경상북도 공영주차장](https://parking.9welfare.com/parking/gyeongbuk/)
+- [강원특별자치도 공영주차장](https://parking.9welfare.com/parking/gangwon/)
+
+## 페이지 유형
+
+- 시·군·구 페이지: /parking/{시·도}/{시·군·구}/ — 그 지역의 공영주차장 목록과 요금 계산기
+- 주차장 상세 페이지: 주차장 1곳의 주소·운영시간·요금표(기본/추가/1일/월정기)·감면 정보 — 예: https://parking.9welfare.com/parking/busan/buk-gu/buk-gu-001/
+- 지역별 무료 주차장: /parking/{시·도}/free/ 와 시·군·구별 무료 페이지 — 주말·공휴일 무료 개방 포함
+- 전기차 충전소 목록: /ev/{시·도}/{시·군·구}/ — 충전소 위치·급속/완속 대수와 충전 가능한 공영주차장
+
+## 데이터
+
+- 주차장: 공공데이터포털 전국주차장정보표준데이터와 각 지자체 조례를 대조해 정리
+- 전기차 충전소: 한국환경공단 전기자동차 충전소 정보(공공데이터포털)
+- 요금과 운영시간은 현장과 다를 수 있어, 페이지마다 자료 기준일을 함께 표시합니다

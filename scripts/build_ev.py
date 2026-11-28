@@ -52,7 +52,7 @@ DETAIL_TOKENS = ("{{PSLUG}}", "{{SLUG}}", "{{ID}}", "{{STATION_NAME}}",
                  "{{A_TEXT}}", "{{UPD_SUFFIX}}", "{{BADGES}}", "{{META_ITEMS}}",
                  "{{FEE_LINE}}", "{{KAKAO}}", "{{NAVER}}",
                  "{{CHARGER_BLOCK}}", "{{LOTS_BLOCK}}",
-                 "{{JSONLD_BREADCRUMB}}")
+                 "{{JSONLD_BREADCRUMB}}", "{{JSONLD_STATION}}")
 
 
 def upd_span(s) -> str:
@@ -308,6 +308,27 @@ def station_detail_body(slots) -> str:
 """
 
 
+def jsonld_station(s, r, path):
+    """충전소 상세페이지용 EVChargingStation 구조화 데이터 — 값이 있는 항목만 싣는다."""
+    addr = s["addr"] + (f' {s["ad"]}' if s.get("ad") else "")
+    obj = {"@context": "https://schema.org", "@type": "EVChargingStation",
+           "name": s["nm"], "url": bs.SITE_BASE + path,
+           "address": {"@type": "PostalAddress", "streetAddress": addr,
+                       "addressLocality": r["name"],
+                       "addressRegion": r["prov"], "addressCountry": "KR"},
+           "additionalProperty": [
+               {"@type": "PropertyValue", "name": "급속 충전기", "value": s["f"], "unitText": "기"},
+               {"@type": "PropertyValue", "name": "완속 충전기", "value": s["s"], "unitText": "기"}]}
+    if s.get("lat") and s.get("lng"):
+        obj["geo"] = {"@type": "GeoCoordinates",
+                      "latitude": s["lat"], "longitude": s["lng"]}
+    if s.get("call"):
+        obj["telephone"] = s["call"]
+    if s.get("op"):
+        obj["operator"] = {"@type": "Organization", "name": s["op"]}
+    return obj
+
+
 def station_detail_page(s, r, path, nearby_lots, meta) -> str:
     """충전소 단독 상세 페이지(/ev/{pslug}/{slug}/{id}/) — 파이썬 기준본.
 
@@ -344,7 +365,8 @@ def station_detail_page(s, r, path, nearby_lots, meta) -> str:
                      + (f" (상태 확인 {s['cf']})." if s.get("cf")
                         else " (상태 확인 시각 미확인).")),
         path=path, body=body, crumbs=crumbs, nav_active="ev", city=None,
-        jsonld=[bs.jsonld_breadcrumb(crumbs, path)])
+        jsonld=[bs.jsonld_breadcrumb(crumbs, path),
+                jsonld_station(s, r, path)])
 
 
 def station_detail_template(meta) -> str:
@@ -382,7 +404,7 @@ def station_detail_template(meta) -> str:
         description=("{{PROV}} {{REGION_NAME}} {{STATION_NAME}} — {{ADDR}}. "
                      "급속 {{F}}기 · 완속 {{S}}기 · {{A_TEXT}}{{UPD_SUFFIX}}."),
         path=token_path, body=body, crumbs=crumbs, nav_active="ev", city=None,
-        jsonld=["{{JSONLD_BREADCRUMB}}"])
+        jsonld=["{{JSONLD_BREADCRUMB}}", "{{JSONLD_STATION}}"])
 
 
 def build_ev_detail_data(ev, meta, regions, nearby_lots_by_station, detail_url_by_id):
@@ -727,7 +749,14 @@ def main():
             path=path, body=body,
             crumbs=[("홈", "/"), ("전기차 충전소", "/ev/"), (prov, "")],
             nav_active="ev", city=None,
-            jsonld=[bs.jsonld_breadcrumb([("홈", "/"), ("전기차 충전소", "/ev/"), (prov, "")], path)])))
+            jsonld=[bs.jsonld_breadcrumb([("홈", "/"), ("전기차 충전소", "/ev/"), (prov, "")], path),
+                    {"@context": "https://schema.org", "@type": "ItemList",
+                     "name": f"{prov} 시·군·구별 전기차 충전소",
+                     "numberOfItems": len(regs),
+                     "itemListElement": [
+                         {"@type": "ListItem", "position": i + 1, "name": r["name"],
+                          "url": bs.SITE_BASE + f"/ev/{pslug}/{r['slug']}/"}
+                         for i, r in enumerate(sorted(regs, key=lambda x: x["name"]))]}])))
 
     # ---------------- 시·군·구 /ev/{pslug}/{slug}/(+페이지)
     for r in regions:

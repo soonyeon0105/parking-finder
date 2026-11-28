@@ -171,6 +171,34 @@ function breadcrumbJsonld(region, st, path) {
   };
 }
 
+/* 충전소 상세용 EVChargingStation 구조화 데이터 — 값이 있는 항목만 싣는다. */
+function stationJsonld(region, st, path) {
+  const addr = st.addr + (st.ad ? ` ${st.ad}` : '');
+  const obj = {
+    '@context': 'https://schema.org',
+    '@type': 'EVChargingStation',
+    name: st.nm,
+    url: region.base + path,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: addr,
+      addressLocality: region.name,
+      addressRegion: region.prov,
+      addressCountry: 'KR',
+    },
+    additionalProperty: [
+      { '@type': 'PropertyValue', name: '급속 충전기', value: st.f, unitText: '기' },
+      { '@type': 'PropertyValue', name: '완속 충전기', value: st.s, unitText: '기' },
+    ],
+  };
+  if (st.lat && st.lng) {
+    obj.geo = { '@type': 'GeoCoordinates', latitude: st.lat, longitude: st.lng };
+  }
+  if (st.call) obj.telephone = st.call;
+  if (st.op) obj.operator = { '@type': 'Organization', name: st.op };
+  return obj;
+}
+
 function renderDetail(template, region, st, path) {
   const addr = st.addr + (st.ad ? ` ${st.ad}` : '');
   const updSuffix = st.cf ? ` (상태 확인 ${st.cf})` : ' (상태 확인 시각 미확인)';
@@ -193,7 +221,8 @@ function renderDetail(template, region, st, path) {
     .replaceAll('{{NAVER}}', esc(st.naver))
     .replaceAll('{{CHARGER_BLOCK}}', chargerBlock(st))
     .replaceAll('{{LOTS_BLOCK}}', lotsBlock(region, st, path))
-    .replace('"{{JSONLD_BREADCRUMB}}"', JSON.stringify(breadcrumbJsonld(region, st, path)));
+    .replace('"{{JSONLD_BREADCRUMB}}"', JSON.stringify(breadcrumbJsonld(region, st, path)))
+    .replace('"{{JSONLD_STATION}}"', JSON.stringify(stationJsonld(region, st, path)));
 }
 
 async function notFound(env, url) {

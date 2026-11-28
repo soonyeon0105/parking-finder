@@ -9587,6 +9587,49 @@ def jsonld_lot(lot, city, path):
                       "latitude": lot["lat"], "longitude": lot["lng"]}
     if lot.get("tel"):
         obj["telephone"] = lot["tel"]
+    # 운영시간 — 등록된 요일만 싣는다(없는 요일을 지어내지 않는다).
+    day_map = (("weekday", ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]),
+               ("sat", ["Saturday"]), ("sun", ["Sunday"]))
+    specs = []
+    for key, days in day_map:
+        h = (lot.get("hours") or {}).get(key) or {}
+        if not h.get("open"):
+            continue
+        if h.get("24h"):
+            opens, closes = "00:00", "23:59"
+        elif h.get("start") is not None and h.get("end") is not None:
+            opens, closes = hhmm(h["start"]), hhmm(h["end"])
+        else:
+            continue
+        specs.append({"@type": "OpeningHoursSpecification",
+                      "dayOfWeek": [f"https://schema.org/{d}" for d in days],
+                      "opens": opens, "closes": closes})
+    if specs:
+        obj["openingHoursSpecification"] = specs
+    # 요금·규모 — 상세페이지 요금표에 실제로 싣는 값만 PropertyValue 로 옮긴다.
+    fee = lot.get("fee") or {}
+    props = []
+    if lot.get("spaces"):
+        props.append({"@type": "PropertyValue", "name": "주차 구획수",
+                      "value": lot["spaces"], "unitText": "면"})
+    if fee.get("base_min") and fee.get("base_fee") is not None:
+        props.append({"@type": "PropertyValue", "name": "기본요금",
+                      "value": f"최초 {fee['base_min']}분 {won(fee['base_fee'])}"})
+    if fee.get("unit_min") and fee.get("unit_fee") is not None:
+        props.append({"@type": "PropertyValue", "name": "추가요금",
+                      "value": f"{fee['unit_min']}분당 {won(fee['unit_fee'])}"})
+    if fee.get("daily_fee"):
+        props.append({"@type": "PropertyValue", "name": "1일 요금",
+                      "value": won(fee["daily_fee"])})
+    if fee.get("monthly"):
+        props.append({"@type": "PropertyValue", "name": "월정기 요금",
+                      "value": f"월 {won(fee['monthly'])}"})
+    if props:
+        obj["additionalProperty"] = props
+    if fee.get("type") == "무료":
+        obj["isAccessibleForFree"] = True
+    elif fee.get("type") == "유료":
+        obj["isAccessibleForFree"] = False
     return obj
 
 
@@ -19549,7 +19592,12 @@ def build_regions(site):
         title=f"지역 전체 목록 — 시·도·시·군·구별 공영주차장 | {SITE_NAME}",
         description="공영주차장 요금계산기의 전국 지역 페이지 목록입니다. 시·도별 시·군·구와 동·읍·면 페이지, 무료 개방 주차장 페이지를 한 곳에 모았습니다.",
         path=path, body=body, crumbs=crumbs, nav_active="regions", city=None,
-        jsonld=[jsonld_breadcrumb(crumbs, path)])
+        jsonld=[jsonld_breadcrumb(crumbs, path),
+                jsonld_link_itemlist("시·도별 공영주차장", [
+                    (prov, province_path(next(
+                        (c.get("province_slug") for c in site["cities"]
+                         if (c.get("province") or "지역") == prov and c.get("province_slug")), "")))
+                    for prov in province_order(site)])])
 
 
 # ------------------------------------------------------------------ 소개·문의·이용약관
@@ -19991,11 +20039,15 @@ def build_landing(site):
     home_ld = [
         {"@context": "https://schema.org", "@type": "WebSite", "name": SITE_NAME,
          "url": SITE_BASE + "/", "inLanguage": "ko",
+         "description": "전국 공영주차장의 요금·운영시간·무료 개방·월정기 정보를 공공데이터로 정리하고, "
+                        "요일·시간·감면 조건별 주차요금을 바로 계산해 보여 주는 사이트",
+         "publisher": {"@type": "Organization", "name": SITE_NAME, "url": SITE_BASE + "/"},
          "potentialAction": {"@type": "SearchAction",
                              "target": SITE_BASE + "/parking/regions/?q={search_term_string}",
                              "query-input": "required name=search_term_string"}},
         {"@context": "https://schema.org", "@type": "Organization", "name": SITE_NAME,
          "url": SITE_BASE + "/",
+         "logo": SITE_BASE + "/apple-touch-icon.png",
          "description": "공공데이터로 공영주차장 요금과 무료 개방 시간을 계산해 보여 주는 정보 사이트"},
         {"@context": "https://schema.org", "@type": "ItemList", "name": "지역별 공영주차장",
          "numberOfItems": len(site["cities"]),
@@ -20507,8 +20559,62 @@ def main():
         f"  <sitemap><loc>{SITE_BASE}/sitemap-core.xml</loc>{lastmod_tag}</sitemap>\n"
         f"  <sitemap><loc>{SITE_BASE}/sitemap-lots.xml</loc>{lastmod_tag}</sitemap>\n"
         "</sitemapindex>\n")
-    (DIST / "robots.txt").write_text(
-        f"User-agent: *\nAllow: /\nSitemap: {SITE_BASE}/sitemap.xml\nSitemap: {SITE_BASE}/sitemap-core.xml\n")
+    # robots.txt — AI 검색 크롤러 허용을 명시한다(2026-11-28 AI 검색 대응).
+    # 기존 전체 허용·사이트맵 줄은 그대로 유지하고, 크롤러별 허용 그룹만 덧붙인다.
+    ai_bots = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-User",
+               "PerplexityBot", "Perplexity-User", "Google-Extended", "Applebot-Extended",
+               "CCBot", "Meta-ExternalAgent", "Bytespider", "cohere-ai"]
+    robots = "".join(f"User-agent: {b}\nAllow: /\n\n" for b in ai_bots)
+    robots += (f"User-agent: *\nAllow: /\nSitemap: {SITE_BASE}/sitemap.xml\n"
+               f"Sitemap: {SITE_BASE}/sitemap-core.xml\n")
+    (DIST / "robots.txt").write_text(robots)
+    # llms.txt — AI 검색이 사이트 구조를 한 번에 파악하도록 핵심 페이지만 적는다.
+    # 상세 페이지(수천 개)는 전부 적지 않고 유형 + 대표 예시 1개로 대신한다.
+    total_lots_llms = sum(stats_for(c.get("_lots") or [])["n"] for c in site["cities"])
+    prov_links_llms = []
+    for prov in province_order(site):
+        pslug = next((c.get("province_slug") for c in site["cities"]
+                      if (c.get("province") or "지역") == prov and c.get("province_slug")), "")
+        if pslug:
+            prov_links_llms.append(f"- [{prov} 공영주차장]({SITE_BASE}{province_path(pslug)})")
+    example_detail = sorted(detail_paths)[0] if detail_paths else ""
+    llms_lines = [
+        f"# {SITE_NAME}",
+        "",
+        f"> 전국 공영주차장 {total_lots_llms:,}곳의 요금·운영시간·무료 개방·월정기 정보를 "
+        "공공데이터로 정리한 사이트입니다. 지역과 주차 시간을 고르면 요일·감면 조건까지 반영한 "
+        "주차요금을 바로 계산할 수 있습니다.",
+        "",
+        "## 핵심 페이지",
+        "",
+        f"- [홈 — 지역별 공영주차장 요금계산기]({SITE_BASE}/)",
+        f"- [지역 전체 목록 — 시·도·시·군·구·동]({SITE_BASE}/parking/regions/)",
+        f"- [무료 개방 주차장 모아보기]({SITE_BASE}/parking/free/)",
+        f"- [전기차 충전소 찾기]({SITE_BASE}/ev/)",
+        f"- [내 주변 전기차 충전소]({SITE_BASE}/ev/nearby/)",
+        f"- [데이터 출처와 계산 기준]({SITE_BASE}/about/)",
+        f"- [문의·오류 제보]({SITE_BASE}/contact/)",
+        "",
+        "## 시·도별 허브",
+        "",
+        *prov_links_llms,
+        "",
+        "## 페이지 유형",
+        "",
+        "- 시·군·구 페이지: /parking/{시·도}/{시·군·구}/ — 그 지역의 공영주차장 목록과 요금 계산기",
+        "- 주차장 상세 페이지: 주차장 1곳의 주소·운영시간·요금표(기본/추가/1일/월정기)·감면 정보"
+        + (f" — 예: {SITE_BASE}{example_detail}" if example_detail else ""),
+        "- 지역별 무료 주차장: /parking/{시·도}/free/ 와 시·군·구별 무료 페이지 — 주말·공휴일 무료 개방 포함",
+        "- 전기차 충전소 목록: /ev/{시·도}/{시·군·구}/ — 충전소 위치·급속/완속 대수와 충전 가능한 공영주차장",
+        "",
+        "## 데이터",
+        "",
+        "- 주차장: 공공데이터포털 전국주차장정보표준데이터와 각 지자체 조례를 대조해 정리",
+        "- 전기차 충전소: 한국환경공단 전기자동차 충전소 정보(공공데이터포털)",
+        "- 요금과 운영시간은 현장과 다를 수 있어, 페이지마다 자료 기준일을 함께 표시합니다",
+        "",
+    ]
+    (DIST / "llms.txt").write_text("\n".join(llms_lines))
     print(f"사이트맵: 핵심 {len(core_urls)}개 + 상세 {len(lot_urls)}개 (인덱스 분리)")
 
     print(f"생성 완료: {len(pages)}페이지 + 404.html + {NAVER_VERIFICATION_FILE} · dist/")
