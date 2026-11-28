@@ -112394,6 +112394,339 @@
    },
    "value_kind": "조사값",
    "basis": "안양시 통합주차포털(안양도시공사) 무정차 시스템 안내(결제카드 등록 후 자동결제)·주차요금 사전결제 안내(웹 PC/모바일 결제), parking.auc.or.kr/nonstopinfo·/prepaymentinfo. 현장 현금 수납 여부는 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-001",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-002",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-003",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-004",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-005",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-006",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-007",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-008",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-009",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-010",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-011",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-012",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-013",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-014",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-015",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-016",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-017",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-018",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-019",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-020",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-021",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-022",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-023",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-024",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-025",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-026",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-027",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-028",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-029",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-030",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-031",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-032",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-s001",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-s002",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-s003",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-s004",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "jn-yeosu-s005",
+   "file": "yeosu",
+   "set": {
+    "pay": "웹 사전결제(카드) — 현장 수단 공식 미명시"
+   },
+   "value_kind": "조사값",
+   "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
   }
  ],
  "vehicle_restriction_fills": [
@@ -112487,11 +112820,6 @@
   },
   {
    "city": "taean",
-   "count": 37,
-   "reason": "유료 주차장, 결제수단 공식 확인 필요(운영 주체별 조사 대상)"
-  },
-  {
-   "city": "yeosu",
    "count": 37,
    "reason": "유료 주차장, 결제수단 공식 확인 필요(운영 주체별 조사 대상)"
   },
