@@ -16,6 +16,11 @@
  *
  * 응답 헤더: Cache-Control: public, max-age=3600, stale-while-revalidate=86400
  * (반복 조회는 엣지 캐시가 받아 Functions 호출을 줄인다).
+ *
+ * 상태(가능/충전 중/점검·운영중지/미확인 대수와 확인 시각)는 지역 JSON의
+ * 빌드 시점 값 위에 상태 응답 Worker(parking-ev-status, D1)의 최신 값을
+ * 덮어써서 내보낸다 — 상태만 바뀌면 재배포 없이 시간 단위로 따라간다.
+ * 상태 응답이 실패하면 빌드 시점 값을 그대로 쓴다.
  */
 
 const CACHE = 'public, max-age=3600, stale-while-revalidate=86400';
@@ -262,6 +267,24 @@ export async function onRequest(context) {
   const st = region.stations.find((s) => s.id === id);
   // ② 상세 대상(d=1)이 아니면 상세 페이지가 없으므로 404.
   if (!st || !st.d) return notFound(env, url);
+
+  // 상태 최신값 덮어쓰기 — scripts/ev_status.py 가 만드는 본문과 같은 형식.
+  try {
+    const statusRes = await fetch(
+      `https://parking-ev-status.tearsstream3.workers.dev/ev-status/${pslug}-${slug}.json`,
+    );
+    if (statusRes.ok) {
+      const status = await statusRes.json();
+      const rec = status.st && status.st[st.id];
+      if (rec) {
+        st.a = rec[0];
+        st.c = rec[1];
+        st.dn = rec[2];
+        st.un = rec[3];
+        if (status.cfs && status.cfs[rec[4]]) st.cf = status.cfs[rec[4]];
+      }
+    }
+  } catch (e) { /* 상태 응답 실패 — 빌드 시점 값 유지 */ }
 
   const tplRes = await env.ASSETS.fetch(
     new Request(new URL('/assets/ev-detail-template.html', url)),

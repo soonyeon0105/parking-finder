@@ -34,11 +34,19 @@ prepare_ev.py 가 하루 1회 전수 재구축(지역·근처 주차장까지 �
                           합계는 시설 일치 판정 station_onsite 기준)으로 다시
                           계산하되 'upd' 자리에는 확인 시각(cf)을 넣는다
                           (build_site.py 가 '상태 확인'으로 표시하는 값과 일치).
-  dist/                   build_ev.py 를 다시 실행해 /ev/ 목록·상세 JSON·내 주변
-                          인덱스·템플릿을 재생성한다. build_ev.py 는 사이트맵에
-                          EV 주소를 덧붙이므로, 실행 전에 기존 EV 항목을 걷어낸다.
 
-사용법: python3 scripts/refresh_ev_status.py [--snapshot-dir 경로] [--no-build]
+상태 반영 경로 (2026-11-28 상태 JSON 분리):
+  시간당 경로는 --no-build --publish 다. 병합한 상태에서 상태 전용 본문
+  (ev_status.build_payloads)만 만들어 D1(parking-ev-status)에 발행하고,
+  Worker(parking-ev-status)가 그걸 읽어 EV 페이지에 내보낸다. 정적 HTML은
+  재생성하지 않고 git 커밋·Pages 배포도 일어나지 않는다(시간당 push 는
+  Pages 무료 월 빌드 500회를 넘기고, 재생성분 커밋은 1회 약 38.6MB 씩
+  저장소를 불어낸다).
+  --no-build 없이 실행하면 종전처럼 build_ev.py 까지 다시 실행하는 수동
+  전체 갱신이다(사이트맵의 기존 EV 항목을 걷어낸 뒤 실행).
+
+사용법: python3 scripts/refresh_ev_status.py [--snapshot-dir 경로]
+         [--no-build] [--publish]
 """
 from __future__ import annotations
 
@@ -57,6 +65,7 @@ DEFAULT_SNAP_DIR = Path.home() / "workspace/goals/ai/hidden_files/datahunt/ev-ch
 
 sys.path.insert(0, str(BASE / "scripts"))
 from prepare_ev import STAT_LABEL, TYPE_LABEL, SLOW_TYPES, fmt_ts, haversine, station_onsite  # noqa: E402
+import ev_status  # noqa: E402
 
 KST = ZoneInfo("Asia/Seoul")
 ONSITE_M = 100  # (구 거리 기준 — 'on' 판정은 prepare_ev.station_onsite 시설 일치로 대체됨)
@@ -109,6 +118,8 @@ def main():
     ap.add_argument("--snapshot-dir", default=str(DEFAULT_SNAP_DIR))
     ap.add_argument("--base", default="https://parking.9welfare.com")
     ap.add_argument("--no-build", action="store_true", help="build_ev.py 재실행 생략")
+    ap.add_argument("--publish", action="store_true",
+                    help="상태 전용 본문을 D1(parking-ev-status)에 발행")
     args = ap.parse_args()
     snap_dir = Path(args.snapshot_dir)
 
@@ -313,6 +324,18 @@ def main():
         meta["n_lots_onsite"] = n_onsite
         ev_path.write_text(json.dumps(ev, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     print(f"근처 충전소 재계산: 주차장 {len(nearby):,}곳 · 안에 충전소가 있는 곳 {n_onsite:,}곳")
+
+    # ---- 4.5) 상태 전용 본문 → D1 발행 (정적 HTML은 다시 만들지 않는다)
+    payloads = ev_status.build_payloads(ev)
+    total_kb = sum(len(v.encode("utf-8")) for v in payloads.values()) / 1e3
+    if args.publish:
+        import publish_ev_status
+        stats = publish_ev_status.publish(payloads)
+        print(f"상태 발행: 본문 {len(payloads)}개 {total_kb:.0f}KB 중 "
+              f"바뀐 {stats['changed']}개({stats['bytes'] / 1e3:.0f}KB)를 D1에 반영 · "
+              f"삭제 {stats['deleted']}개")
+    else:
+        print(f"상태 본문: {len(payloads)}개 {total_kb:.0f}KB (--publish 없음, 발행 생략)")
 
     if args.no_build:
         print("--no-build: dist 재생성을 건너뜁니다.")

@@ -1,6 +1,9 @@
 /* 전기차 충전소 '내 주변' — 위치는 이 브라우저 안에서만 쓰고 서버로 보내지 않는다.
    데이터 파일(ev-nearby-*.json)은 정적 자산이라 불러올 때 위치가 실리지 않는다.
-   충전소 상태는 수집 시점의 마지막 확인값이라 '실시간'으로 표기하지 않는다. */
+   충전소 상태는 수집 시점의 마지막 확인값이라 '실시간'으로 표기하지 않는다.
+   상태(충전 가능 대수·확인 시각)는 보여 줄 충전소가 속한 지역의 상태 본문을
+   상태 응답 Worker에서 읽어 행에 덮어쓴다(상태 JSON 분리, 2026-11-28).
+   읽기에 실패하면 인덱스에 든 빌드 시점 값을 그대로 쓴다. */
 (function () {
   var section = document.getElementById('ev-nearby');
   var btn = document.getElementById('ev-nearby-btn');
@@ -8,6 +11,7 @@
   var status = document.getElementById('ev-nearby-status');
   var box = document.getElementById('ev-nearby-results');
   var manifestUrl = section.getAttribute('data-manifest-url') || '/assets/ev-nearby-manifest.json';
+  var STATUS_BASE = 'https://parking-ev-status.tearsstream3.workers.dev';
   var RADIUS_M = 10000;   /* 기본 반경 10km */
   var MAX_SHOW = 20;
   var manifestPromise = null;
@@ -66,7 +70,41 @@
     return !isNaN(t) && Date.now() - t > 24 * 3600 * 1000;
   }
 
-  /* 행 배열: [이름, 위도, 경도, 급속, 완속, 충전가능, 상태확인시각, 주소, 지역인덱스, 상세페이지경로(없으면 "")] */
+  /* 행 배열: [이름, 위도, 경도, 급속, 완속, 충전가능, 상태확인시각, 주소, 지역인덱스,
+     상세페이지경로(없으면 ""), 충전소id] */
+
+  /* 보여 줄 충전소들의 최신 상태를 지역 상태 본문에서 읽어 행[5]·행[6]을
+     갈아끼운다. 지역 파일은 지역 경로('/ev/{도}/{구}/')에서 파일명을 만든다. */
+  function patchStatus(list, regions) {
+    var files = {};
+    for (var i = 0; i < list.length; i++) {
+      var rp = regions[list[i][1][8]] || '';
+      var m = rp.match(/^\/ev\/([^/]+)\/([^/]+)\/$/);
+      if (m) files[m[1] + '-' + m[2]] = true;
+    }
+    var names = Object.keys(files);
+    if (!names.length) return Promise.resolve();
+    return Promise.all(names.map(function (name) {
+      return fetch(STATUS_BASE + '/ev-status/' + name + '.json', { cache: 'no-cache' })
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function (data) { files[name] = data; })
+        .catch(function () { files[name] = null; });
+    })).then(function () {
+      for (var i = 0; i < list.length; i++) {
+        var row = list[i][1];
+        var rp2 = regions[row[8]] || '';
+        var m2 = rp2.match(/^\/ev\/([^/]+)\/([^/]+)\/$/);
+        if (!m2) continue;
+        var data = files[m2[1] + '-' + m2[2]];
+        if (!data || !data.st) continue;
+        var rec = data.st[row[10]];
+        if (!rec) continue;
+        row[5] = rec[0];
+        if (data.cfs && data.cfs[rec[4]]) row[6] = data.cfs[rec[4]];
+      }
+    });
+  }
+
   function render(scored, regions) {
     var html = '';
     for (var i = 0; i < scored.length; i++) {
@@ -146,14 +184,18 @@
         }
         scored.sort(function (a, b) { return a[0] - b[0]; });
         var within = scored.filter(function (s) { return s[0] <= RADIUS_M; });
+        function show(list, msg) {
+          patchStatus(list, regions).then(function () {
+            render(list, regions);
+            status.textContent = msg;
+          });
+        }
         if (within.length) {
-          render(within.slice(0, MAX_SHOW), regions);
-          status.textContent = '10km 안에서 가까운 순으로 ' +
-            Math.min(within.length, MAX_SHOW) + '곳을 찾았어요. 거리는 직선거리 기준이에요.';
+          show(within.slice(0, MAX_SHOW), '10km 안에서 가까운 순으로 ' +
+            Math.min(within.length, MAX_SHOW) + '곳을 찾았어요. 거리는 직선거리 기준이에요.');
         } else if (scored.length) {
-          render(scored.slice(0, MAX_SHOW), regions);
-          status.textContent = '10km 안에는 충전소가 없어, 가장 가까운 충전소부터 보여 드립니다. ' +
-            '거리는 직선거리 기준이에요.';
+          show(scored.slice(0, MAX_SHOW), '10km 안에는 충전소가 없어, 가장 가까운 충전소부터 보여 드립니다. ' +
+            '거리는 직선거리 기준이에요.');
         } else {
           fallback('현재 위치 주변에서 충전소 정보를 찾지 못했어요. 지역 목록으로 안내합니다.');
         }

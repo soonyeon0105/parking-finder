@@ -14,6 +14,11 @@
 (functions/ev/[pslug]/[slug]/[id].js)이 요청 시점에 서버에서 완성된 HTML을
 내보낸다(안 A — 설계 #948 §4). URL·서버 HTML·OG·사이트맵은 정적 때와 같다.
 
+상태 표시는 빌드 시점 값을 HTML에 넣되, 화면에서는 상태 전용 본문
+(Worker parking-ev-status + D1, scripts/ev_status.py)으로 갈아끼운다 —
+assets/ev-status.js(목록·시도 페이지)·Functions(상세)·ev-nearby.js(내 주변).
+상태만 바뀌면 이 스크립트를 다시 돌릴 필요가 없다(refresh --publish 경로).
+
 입력: data/ev_stations.json (prepare_ev.py 산출)
 실행: python3 scripts/build_site.py --base https://parking.9welfare.com
       python3 scripts/prepare_ev.py
@@ -32,6 +37,7 @@ from pathlib import Path
 BASE = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(BASE / "scripts"))
 import build_site as bs
+import ev_status
 
 PER_PAGE = 60
 
@@ -106,12 +112,18 @@ def station_card(s, path, detail_url=None) -> str:
         badges.append(f'<span class="badge">급속 {s["f"]}기</span>')
     if s["s"]:
         badges.append(f'<span class="badge">완속 {s["s"]}기</span>')
+    # 상태 배지는 상태 JSON 분리 대상 — ev-status.js 가 최신 상태로 갈아끼울 수
+    # 있게 전용 span 에 담는다. 안에는 빌드 시점 값을 넣어 둬서, JS가 없거나
+    # 상태 응답이 실패해도 표시는 빌드 시점 기준으로 남는다.
     if avail_stale(s):
-        badges.append('<span class="badge unknown">상태 확인 중</span>')
+        status_badge = '<span class="badge unknown">상태 확인 중</span>'
     elif s["a"]:
-        badges.append(f'<span class="badge ev">지금 충전 가능 {s["a"]}대</span>')
+        status_badge = f'<span class="badge ev">지금 충전 가능 {s["a"]}대</span>'
     elif avail_unknown(s):
-        badges.append('<span class="badge unknown">상태 모름</span>')
+        status_badge = '<span class="badge unknown">상태 모름</span>'
+    else:
+        status_badge = ''
+    badges.append(f'<span class="ev-live-badge">{status_badge}</span>')
     meta = []
     if s.get("op"):
         meta.append(f'<li><b>운영</b> {bs.esc(s["op"])}</li>')
@@ -137,15 +149,15 @@ def station_card(s, path, detail_url=None) -> str:
     if s.get("note"):
         extra += f'<p class="note-line">안내: {bs.esc(s["note"])}</p>'
     addr = s["addr"] + (f' {s["ad"]}' if s.get("ad") else "")
-    return f"""<article class="card ev-card" id="st-{bs.esc(s['id'])}">
+    return f"""<article class="card ev-card" id="st-{bs.esc(s['id'])}" data-evsid="{bs.esc(s['id'])}">
   <div class="lot-head">
     <h3>{name_html}</h3>
     <div class="badges">{''.join(badges)}</div>
   </div>
   <p class="addr">{bs.esc(addr)}</p>
   <ul class="meta">{''.join(meta)}</ul>
-  <p class="fee-line">{avail_text(s)} · 충전 중 {s['c']}대 · 점검·운영중지 {s['dn']}대 · 상태 미확인 {s['un']}대
-  {upd_span(s)}</p>
+  <p class="fee-line"><span class="ev-live-fee">{avail_text(s)} · 충전 중 {s['c']}대 · 점검·운영중지 {s['dn']}대 · 상태 미확인 {s['un']}대
+  {upd_span(s)}</span></p>
   {detail}{extra}
   <div class="actions">
     <a class="btn solid" href="{bs.esc(kakao)}" target="_blank" rel="nofollow noopener">카카오맵</a>
@@ -485,7 +497,9 @@ def build_ev_nearby_index(ev, meta, detail_url_by_id=None):
     고른다 — assets/ev-nearby.js 가 상자를 0.15도 넓혀 대조해 시·도 경계 너머
     10km 안 충전소도 놓치지 않는다.
     행 배열: [이름, 위도(5자리), 경도(5자리), 급속, 완속, 지금 충전 가능,
-              상태 확인 시각, 주소(상세 포함), 지역 인덱스, 상세 페이지 경로(없으면 "")].
+              상태 확인 시각, 주소(상세 포함), 지역 인덱스, 상세 페이지 경로(없으면 ""),
+              충전소 id]. id는 상태 JSON 분리에서 최신 상태를 덮어쓸 때 쓴다
+              (assets/ev-nearby.js 가 지역 상태 본문을 읽어 행을 갈아끼운다).
     지역 경로는 파일별 'r' 배열에 한 번만 싣는다. 거리 계산은 전부 브라우저에서 하고 방문자 위치는
     서버로 보내지도 저장하지도 않는다 — 주차장 nearby.json 과 같은 원칙.
     """
@@ -500,7 +514,7 @@ def build_ev_nearby_index(ev, meta, detail_url_by_id=None):
             addr = s["addr"] + (f' {s["ad"]}' if s.get("ad") else "")
             pack["rows"].append([s["nm"], lat, lng, s["f"], s["s"], s["a"],
                                  s.get("cf") or "", addr, ridx,
-                                 detail_url_by_id.get(s["id"], "")])
+                                 detail_url_by_id.get(s["id"], ""), s["id"]])
             b = pack["bbox"]
             pack["bbox"] = ([min(b[0], lat), min(b[1], lng), max(b[2], lat), max(b[3], lng)]
                             if b else [lat, lng, lat, lng])
@@ -729,7 +743,7 @@ def main():
             f'<td class="num">{len(r["stations"]):,}곳</td>'
             f'<td class="num">{sum(s["f"] for s in r["stations"]):,}기</td>'
             f'<td class="num">{sum(s["s"] for s in r["stations"]):,}기</td>'
-            f'<td class="num">{sum(1 for s in r["stations"] if s["a"]):,}곳</td></tr>'
+            f'<td class="num" data-ev-region="{r["pslug"]}-{r["slug"]}">{sum(1 for s in r["stations"] if s["a"]):,}곳</td></tr>'
             for r in sorted(regs, key=lambda x: x["name"]))
         body = f"""
 <h1>{bs.esc(prov)} 전기차 충전소</h1>
@@ -737,11 +751,12 @@ def main():
 지역을 고르면 충전소 목록과 지금 충전 가능한 대수를 확인할 수 있습니다.</p>
 <div class="grid-2">{''.join(cards)}</div>
 <h2>시·군·구별 충전소 수</h2>
-<table class="data">
+<table class="data" data-ev-status-summary="{ev_status.STATUS_BASE_URL}/ev-status-summary.json">
 <thead><tr><th>시·군·구</th><th class="num">충전소</th><th class="num">급속</th><th class="num">완속</th><th class="num">지금 충전 가능 있는 곳</th></tr></thead>
 <tbody>{rows}</tbody>
 </table>
 <p style="margin-top:16px"><a class="btn" href="{bs.rel(path, f'/parking/{pslug}/')}">← {bs.esc(prov)} 공영주차장 보기</a></p>
+<script src="{bs.rel(path, '/assets/ev-status.js')}?v={bs.asset_ver()}" defer></script>
 """
         pages.append((path, bs.layout(
             title=f"{prov} 전기차 충전소 | {bs.SITE_NAME}",
@@ -793,18 +808,20 @@ def main():
                 head = f"""
 <h1>{bs.esc(r['name'])} 전기차 충전소</h1>
 <p class="lede">{bs.esc(r['prov'])} {bs.esc(r['name'])}의 전기차 충전소 {total:,}곳입니다.
-급속 {n_fast:,}기 · 완속 {n_slow:,}기가 있고, 지금 충전 가능한 충전소가 있는 곳은 {n_avail_st:,}곳입니다.
+급속 {n_fast:,}기 · 완속 {n_slow:,}기가 있고, 지금 충전 가능한 충전소가 있는 곳은 <span data-ev-avail-count>{n_avail_st:,}</span>곳입니다.
 {onsite_line}충전소 정보는 {bs.esc(meta['inv_at'])} 수집 기준입니다.</p>
 {park_link}
 """
             cards = "".join(station_card(s, path, detail_url_by_id.get(s["id"]))
                             for s in chunk)
-            body = (head + f'<div class="list">{"".join(cards)}</div>'
+            status_url = f"{ev_status.STATUS_BASE_URL}/ev-status/{r['pslug']}-{r['slug']}.json"
+            body = (head + f'<div class="list" data-ev-status="{bs.esc(status_url)}">{"".join(cards)}</div>'
                     + pager(base_path, page, n_pages, path)
                     + (park_link if page == n_pages and page != 1 else "")
                     + f'<p class="updated">\'지금 충전 가능\'은 마지막으로 확인된 충전기 상태'
                       f'(충전소별 상태 확인 시각 표기) 기준이라 실제와 다를 수 있습니다. '
-                      f'출처: 한국환경공단 전기자동차 충전소 정보.</p>')
+                      f'출처: 한국환경공단 전기자동차 충전소 정보.</p>'
+                    + f'<script src="{bs.rel(path, "/assets/ev-status.js")}?v={bs.asset_ver()}" defer></script>')
             crumbs = [("홈", "/"), ("전기차 충전소", "/ev/"),
                       (r["prov"], f"/ev/{r['pslug']}/"), (r["name"], "")]
             pages.append((path, bs.layout(
