@@ -68,6 +68,96 @@
    "value_kind": "조사값"
   },
   {
+   "lot_id": "gangseo-gu-001",
+   "file": "busan_gangseo-gu",
+   "set": {
+    "tel": "051-970-4554",
+    "tel_basis": "부산 강서구 교통행정과(교통행정계) (bsgangseo.go.kr 부서안내) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gangseo-gu-002",
+   "file": "busan_gangseo-gu",
+   "set": {
+    "tel": "051-970-4554",
+    "tel_basis": "부산 강서구 교통행정과(교통행정계) (bsgangseo.go.kr 부서안내) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gangseo-gu-003",
+   "file": "busan_gangseo-gu",
+   "set": {
+    "tel": "051-970-4554",
+    "tel_basis": "부산 강서구 교통행정과(교통행정계) (bsgangseo.go.kr 부서안내) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gangseo-gu-004",
+   "file": "busan_gangseo-gu",
+   "set": {
+    "tel": "051-970-4554",
+    "tel_basis": "부산 강서구 교통행정과(교통행정계) (bsgangseo.go.kr 부서안내) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gangseo-gu-005",
+   "file": "busan_gangseo-gu",
+   "set": {
+    "tel": "051-970-4554",
+    "tel_basis": "부산 강서구 교통행정과(교통행정계) (bsgangseo.go.kr 부서안내) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gangseo-gu-006",
+   "file": "busan_gangseo-gu",
+   "set": {
+    "tel": "051-970-4554",
+    "tel_basis": "부산 강서구 교통행정과(교통행정계) (bsgangseo.go.kr 부서안내) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gangseo-gu-007",
+   "file": "busan_gangseo-gu",
+   "set": {
+    "tel": "051-970-4554",
+    "tel_basis": "부산 강서구 교통행정과(교통행정계) (bsgangseo.go.kr 부서안내) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gangseo-gu-008",
+   "file": "busan_gangseo-gu",
+   "set": {
+    "tel": "051-970-4554",
+    "tel_basis": "부산 강서구 교통행정과(교통행정계) (bsgangseo.go.kr 부서안내) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gangseo-gu-s001",
+   "file": "busan_gangseo-gu",
+   "set": {
+    "tel": "051-970-4554",
+    "tel_basis": "부산 강서구 교통행정과(교통행정계) (bsgangseo.go.kr 부서안내) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gangseo-gu-s002",
+   "file": "busan_gangseo-gu",
+   "set": {
+    "tel": "051-970-4554",
+    "tel_basis": "부산 강서구 교통행정과(교통행정계) (bsgangseo.go.kr 부서안내) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
    "lot_id": "jung-gu-010",
    "file": "busan_jung-gu",
    "set": {
@@ -82,6 +172,627 @@
    "set": {
     "tel": "051-310-4515",
     "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 35건 중 32건 동일) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-001",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-002",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-003",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-004",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-005",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-006",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-007",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-008",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-009",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-010",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-011",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-012",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-013",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-014",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-015",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-016",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-017",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-018",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-019",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-020",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-021",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-022",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-023",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-024",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-025",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-026",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-027",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-028",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-029",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-030",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-031",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-032",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-033",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-034",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-035",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-036",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-037",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-038",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-039",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-040",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-041",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-042",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-043",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-044",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-045",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-046",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-047",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-048",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-049",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-050",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-051",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-052",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-053",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-054",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-055",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-056",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-057",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-058",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-059",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-060",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-061",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-062",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-063",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-s001",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-s002",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-s003",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-s004",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-s005",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-chilgok-s006",
+   "file": "chilgok",
+   "set": {
+    "tel": "054-979-6562",
+    "tel_basis": "칠곡군 교통행정과 (chilgok.go.kr 교통정보 관리부서 문의) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -1448,8 +2159,8 @@
    "lot_id": "eunpyeong-s001",
    "file": "eunpyeong",
    "set": {
-    "tel": "02-350-5114",
-    "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 13건 중 12건 동일) (조사값, 확인 2026-11-29)"
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -1484,8 +2195,8 @@
    "lot_id": "gangnam-s002",
    "file": "gangnam",
    "set": {
-    "tel": "1544-3113",
-    "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 62건 중 60건 동일) (조사값, 확인 2026-11-29)"
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -1511,8 +2222,8 @@
    "lot_id": "gangnam-s006",
    "file": "gangnam",
    "set": {
-    "tel": "1544-3113",
-    "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 62건 중 60건 동일) (조사값, 확인 2026-11-29)"
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -3041,8 +3752,8 @@
    "lot_id": "gangseo-001",
    "file": "gangseo",
    "set": {
-    "tel": "02-2065-1575",
-    "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 33건 중 22건 동일) (조사값, 확인 2026-11-29)"
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -3086,8 +3797,8 @@
    "lot_id": "geumcheon-s011",
    "file": "geumcheon",
    "set": {
-    "tel": "02-809-0061",
-    "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 42건 중 29건 동일) (조사값, 확인 2026-11-29)"
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -5903,8 +6614,8 @@
    "lot_id": "guro-s001",
    "file": "guro",
    "set": {
-    "tel": "02-839-4875",
-    "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 22건 중 17건 동일) (조사값, 확인 2026-11-29)"
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -5912,8 +6623,8 @@
    "lot_id": "guro-s002",
    "file": "guro",
    "set": {
-    "tel": "02-839-4875",
-    "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 22건 중 17건 동일) (조사값, 확인 2026-11-29)"
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -5921,8 +6632,8 @@
    "lot_id": "guro-s003",
    "file": "guro",
    "set": {
-    "tel": "02-839-4875",
-    "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 22건 중 17건 동일) (조사값, 확인 2026-11-29)"
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -5939,8 +6650,8 @@
    "lot_id": "gwanak-s004",
    "file": "gwanak",
    "set": {
-    "tel": "02-2081-2600",
-    "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 50건 중 49건 동일) (조사값, 확인 2026-11-29)"
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -20399,6 +21110,519 @@
    "value_kind": "조사값"
   },
   {
+   "lot_id": "gw-jeongseon-001",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-002",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-003",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-004",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-005",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-006",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-007",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-008",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-009",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-010",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-011",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-012",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-013",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-014",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-015",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-016",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-017",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-018",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-019",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-020",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-021",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-022",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-023",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-024",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-025",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-026",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-027",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-028",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-029",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-030",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-031",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-032",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-033",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-034",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-035",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-036",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-037",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-038",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-039",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-040",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-041",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-042",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-043",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-044",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-s001",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-s002",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-s003",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-s004",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-s005",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-s006",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-s007",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-s008",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-s009",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-s010",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-s011",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-s012",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gw-jeongseon-s013",
+   "file": "jeongseon",
+   "set": {
+    "tel": "033-560-2512",
+    "tel_basis": "정선군 교통관리사업소 교통지도(공영주차장 관리) (jeongseon.go.kr 직원소개) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
    "lot_id": "jb-jinan-001",
    "file": "jinan",
    "set": {
@@ -20498,11 +21722,164 @@
    "value_kind": "조사값"
   },
   {
+   "lot_id": "jongno-s001",
+   "file": "jongno",
+   "set": {
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-s002",
+   "file": "jongno",
+   "set": {
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-s003",
+   "file": "jongno",
+   "set": {
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-s006",
+   "file": "jongno",
+   "set": {
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-s010",
+   "file": "jongno",
+   "set": {
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-s011",
+   "file": "jongno",
+   "set": {
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-s012",
+   "file": "jongno",
+   "set": {
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-s013",
+   "file": "jongno",
+   "set": {
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-s014",
+   "file": "jongno",
+   "set": {
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-s016",
+   "file": "jongno",
+   "set": {
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-s018",
+   "file": "jongno",
+   "set": {
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-s019",
+   "file": "jongno",
+   "set": {
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-s020",
+   "file": "jongno",
+   "set": {
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-s021",
+   "file": "jongno",
+   "set": {
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-s022",
+   "file": "jongno",
+   "set": {
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-s023",
+   "file": "jongno",
+   "set": {
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-s024",
+   "file": "jongno",
+   "set": {
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
    "lot_id": "jung-s001",
    "file": "jung",
    "set": {
-    "tel": "02-2280-8360",
-    "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 48건 중 35건 동일) (조사값, 확인 2026-11-29)"
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -20519,8 +21896,8 @@
    "lot_id": "jung-s005",
    "file": "jung",
    "set": {
-    "tel": "02-2280-8360",
-    "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 48건 중 35건 동일) (조사값, 확인 2026-11-29)"
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -20555,8 +21932,8 @@
    "lot_id": "jung-s018",
    "file": "jung",
    "set": {
-    "tel": "02-2280-8360",
-    "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 48건 중 35건 동일) (조사값, 확인 2026-11-29)"
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -20564,8 +21941,8 @@
    "lot_id": "jung-s030",
    "file": "jung",
    "set": {
-    "tel": "02-2280-8360",
-    "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 48건 중 35건 동일) (조사값, 확인 2026-11-29)"
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -20600,8 +21977,8 @@
    "lot_id": "jung-s034",
    "file": "jung",
    "set": {
-    "tel": "02-2280-8360",
-    "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 48건 중 35건 동일) (조사값, 확인 2026-11-29)"
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -24515,8 +25892,8 @@
    "lot_id": "seongdong-s001",
    "file": "seongdong",
    "set": {
-    "tel": "02-2204-7970",
-    "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 27건 중 27건 동일) (조사값, 확인 2026-11-29)"
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -28013,6 +29390,411 @@
    "value_kind": "조사값"
   },
   {
+   "lot_id": "yp-001",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-002",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-003",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-004",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-005",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-006",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-007",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-008",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-009",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-010",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-011",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-012",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-013",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-014",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-015",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-016",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-017",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-018",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-019",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-020",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-021",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-022",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-023",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-024",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-025",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-028",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-029",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-030",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-031",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-032",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-033",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-034",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-035",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-036",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-037",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-039",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-040",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-041",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-042",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-043",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-044",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-045",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-046",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-047",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yp-s048",
+   "file": "yangpyeong",
+   "set": {
+    "tel": "031-770-3761",
+    "tel_basis": "양평군 교통지도팀 주차장관리 담당 (yp21.go.kr 직원전화번호) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
    "lot_id": "jn-yeongam-001",
    "file": "yeongam",
    "set": {
@@ -28391,6 +30173,1032 @@
    "value_kind": "조사값"
   },
   {
+   "lot_id": "gb-yeongcheon-001",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-002",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-003",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-004",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-005",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-006",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-007",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-008",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-009",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-010",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-011",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-012",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-013",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-014",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-015",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-016",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-017",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-018",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-019",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-020",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-021",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-022",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-023",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-024",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-025",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-026",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-027",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-028",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-029",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-030",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-031",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-032",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-033",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-034",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-035",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-036",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-037",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-038",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-039",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-040",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-041",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-042",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-043",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-044",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-045",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-046",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-047",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-048",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-049",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-050",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-051",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-052",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-053",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-054",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-055",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-056",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-057",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-058",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-059",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-060",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-061",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-062",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-063",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-064",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-065",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-066",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-067",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-068",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-070",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-071",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-072",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-073",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-074",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-075",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-076",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-077",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-078",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-079",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-080",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-081",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-082",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-083",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-084",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-085",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-086",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-087",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-088",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-089",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-090",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-091",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-092",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-093",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-094",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-095",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-096",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-097",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-098",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-099",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-100",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-101",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-s001",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-s002",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-s003",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-s004",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-s005",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-s006",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-s007",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-s008",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-s009",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-s010",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-s011",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-s012",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-s013",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "gb-yeongcheon-s014",
+   "file": "yeongcheon",
+   "set": {
+    "tel": "054-330-6000",
+    "tel_basis": "영천시청 대표전화 (bis.yc.go.kr 찾아오시는 길) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
    "lot_id": "gb-yeongdeok-001",
    "file": "yeongdeok",
    "set": {
@@ -28430,8 +31238,8 @@
    "lot_id": "yeongdeungpo-s001",
    "file": "yeongdeungpo",
    "set": {
-    "tel": "02-2677-1401",
-    "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 32건 중 28건 동일) (조사값, 확인 2026-11-29)"
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -28439,8 +31247,8 @@
    "lot_id": "yeongdeungpo-s002",
    "file": "yeongdeungpo",
    "set": {
-    "tel": "02-2677-1401",
-    "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 32건 중 28건 동일) (조사값, 확인 2026-11-29)"
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -28448,8 +31256,8 @@
    "lot_id": "yeongdeungpo-s003",
    "file": "yeongdeungpo",
    "set": {
-    "tel": "02-2677-1401",
-    "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 32건 중 28건 동일) (조사값, 확인 2026-11-29)"
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -28457,8 +31265,8 @@
    "lot_id": "yeongdeungpo-s004",
    "file": "yeongdeungpo",
    "set": {
-    "tel": "02-2677-1401",
-    "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 32건 중 28건 동일) (조사값, 확인 2026-11-29)"
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -28466,8 +31274,8 @@
    "lot_id": "yeongdeungpo-s005",
    "file": "yeongdeungpo",
    "set": {
-    "tel": "02-2677-1401",
-    "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 32건 중 28건 동일) (조사값, 확인 2026-11-29)"
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -28475,8 +31283,8 @@
    "lot_id": "yeongdeungpo-s006",
    "file": "yeongdeungpo",
    "set": {
-    "tel": "02-2677-1401",
-    "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 32건 중 28건 동일) (조사값, 확인 2026-11-29)"
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -28484,8 +31292,8 @@
    "lot_id": "yeongdeungpo-s007",
    "file": "yeongdeungpo",
    "set": {
-    "tel": "02-2677-1401",
-    "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 32건 중 28건 동일) (조사값, 확인 2026-11-29)"
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -28493,8 +31301,8 @@
    "lot_id": "yeongdeungpo-s008",
    "file": "yeongdeungpo",
    "set": {
-    "tel": "02-2677-1401",
-    "tel_basis": "표준데이터 동일 시군구 관리주체 다수 등록 번호(동시군구 32건 중 28건 동일) (조사값, 확인 2026-11-29)"
+    "tel": "02-2290-6449",
+    "tel_basis": "서울시설공단 주차시설운영처 (sisul.or.kr 공영주차장 문의전화) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -29525,11 +32333,128 @@
    "value_kind": "조사값"
   },
   {
+   "lot_id": "yn-029",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-036",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-033",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-030",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-039",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-007",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-034",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-037",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-035",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
    "lot_id": "yn-008",
    "file": "yongin",
    "set": {
     "tel": "031-338-6581",
     "tel_basis": "전국주차장정보표준데이터 개별 등록 번호 (기준일 2026-04-24) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-027",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-028",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-021",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-006",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -29543,11 +32468,317 @@
    "value_kind": "조사값"
   },
   {
+   "lot_id": "yn-032",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-038",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-031",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
    "lot_id": "yn-010",
    "file": "yongin",
    "set": {
     "tel": "031-338-6581",
     "tel_basis": "전국주차장정보표준데이터 개별 등록 번호 (기준일 2026-04-24) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-063",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-064",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-026",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-060",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-066",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-067",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-069",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-062",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-023",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-068",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-061",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-025",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-024",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-057",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-065",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-058",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-059",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-123",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-051",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-125",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-050",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-056",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-127",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-124",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-126",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-053",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-054",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-129",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-052",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-128",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "yn-055",
+   "file": "yongin",
+   "set": {
+    "tel": "031-338-6581",
+    "tel_basis": "용인도시공사 공영주차장 (park.yuc.co.kr) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
   },
@@ -29559,86 +32790,106 @@
     "tel_basis": "전국주차장정보표준데이터 개별 등록 번호 (기준일 2026-09-22) (조사값, 확인 2026-11-29)"
    },
    "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-001",
+   "file": "jongno",
+   "set": {
+    "tel": "02-6048-1374",
+    "tel_basis": "종로구시설관리공단 공영주차장 (ijongno.co.kr 사업소개·park.ijongno.co.kr 납부안내) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-002",
+   "file": "jongno",
+   "set": {
+    "tel": "02-6048-1374",
+    "tel_basis": "종로구시설관리공단 공영주차장 (ijongno.co.kr 사업소개·park.ijongno.co.kr 납부안내) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-003",
+   "file": "jongno",
+   "set": {
+    "tel": "02-6048-1374",
+    "tel_basis": "종로구시설관리공단 공영주차장 (ijongno.co.kr 사업소개·park.ijongno.co.kr 납부안내) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-006",
+   "file": "jongno",
+   "set": {
+    "tel": "02-6048-1374",
+    "tel_basis": "종로구시설관리공단 공영주차장 (ijongno.co.kr 사업소개·park.ijongno.co.kr 납부안내) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-s005",
+   "file": "jongno",
+   "set": {
+    "tel": "02-6048-1374",
+    "tel_basis": "종로구시설관리공단 공영주차장 (ijongno.co.kr 사업소개·park.ijongno.co.kr 납부안내) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-s007",
+   "file": "jongno",
+   "set": {
+    "tel": "02-6048-1374",
+    "tel_basis": "종로구시설관리공단 공영주차장 (ijongno.co.kr 사업소개·park.ijongno.co.kr 납부안내) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-s008",
+   "file": "jongno",
+   "set": {
+    "tel": "02-6048-1374",
+    "tel_basis": "종로구시설관리공단 공영주차장 (ijongno.co.kr 사업소개·park.ijongno.co.kr 납부안내) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-s009",
+   "file": "jongno",
+   "set": {
+    "tel": "02-6048-1374",
+    "tel_basis": "종로구시설관리공단 공영주차장 (ijongno.co.kr 사업소개·park.ijongno.co.kr 납부안내) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-s015",
+   "file": "jongno",
+   "set": {
+    "tel": "02-6048-1374",
+    "tel_basis": "종로구시설관리공단 공영주차장 (ijongno.co.kr 사업소개·park.ijongno.co.kr 납부안내) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
+  },
+  {
+   "lot_id": "jongno-s017",
+   "file": "jongno",
+   "set": {
+    "tel": "02-6048-1374",
+    "tel_basis": "종로구시설관리공단 공영주차장 (ijongno.co.kr 사업소개·park.ijongno.co.kr 납부안내) (조사값, 확인 2026-11-29)"
+   },
+   "value_kind": "조사값"
   }
  ],
  "unfilled": [
-  {
-   "file": "yeongcheon",
-   "count": 114,
-   "samples": [
-    "고경면행정복지센터 부설주차장",
-    "과전1 공영주차장",
-    "교촌1 공영주차장"
-   ],
-   "reason": "공식 관리기관 번호 미확인 — 추가 조사 필요"
-  },
-  {
-   "file": "chilgok",
-   "count": 69,
-   "samples": [
-    "금화계곡",
-    "다부동전적비",
-    "가산산성 남문"
-   ],
-   "reason": "공식 관리기관 번호 미확인 — 추가 조사 필요"
-  },
-  {
-   "file": "jeongseon",
-   "count": 57,
-   "samples": [
-    "강원랜드사무실 옆(우측)",
-    "강원랜드사무실 옆(좌측)",
-    "고한 제1공영주차장(신라장 앞)"
-   ],
-   "reason": "공식 관리기관 번호 미확인 — 추가 조사 필요"
-  },
-  {
-   "file": "yongin",
-   "count": 47,
-   "samples": [
-    "남사도서관",
-    "남사레스피아",
-    "동부레스피아"
-   ],
-   "reason": "공식 관리기관 번호 미확인 — 추가 조사 필요"
-  },
-  {
-   "file": "yangpyeong",
-   "count": 45,
-   "samples": [
-    "강상다목적복지회관 주차장",
-    "강상면 다목적체육관 주차장",
-    "강하주민자치센터"
-   ],
-   "reason": "공식 관리기관 번호 미확인 — 추가 조사 필요"
-  },
-  {
-   "file": "jongno",
-   "count": 27,
-   "samples": [
-    "서인사마당",
-    "비봉",
-    "명광교회옆"
-   ],
-   "reason": "공식 관리기관 번호 미확인 — 추가 조사 필요"
-  },
-  {
-   "file": "busan_gangseo-gu",
-   "count": 10,
-   "samples": [
-    "유통단지1로40번길공영주차장",
-    "대항공영 주차장",
-    "천성~외양포간도로2공구 공영주차장"
-   ],
-   "reason": "공식 관리기관 번호 미확인 — 추가 조사 필요"
-  },
   {
    "file": "cheonan",
    "count": 1,
    "samples": [
     "5단지시장주차장"
    ],
-   "reason": "공식 관리기관 번호 미확인 — 추가 조사 필요"
+   "reason": "관리 주체가 성정5단지시장상인회(민간 상인회)로 확인 — 공식 기관 번호 없음, 상인회 연락처 미공개"
   }
  ]
 }
