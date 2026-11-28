@@ -206,10 +206,19 @@
     {
      "name": "함안군 보도 '함안공영주차타워 유료화 시행' (2023-08-07, 뉴스핌)",
      "url": "https://newspim.com/news/view/20230807000650"
+    },
+    {
+     "name": "함안군 주차장 조례(경상남도함안군조례 제2902호, 시행 2024-10-16) — 유료화 법적 근거 원문",
+     "url": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1977587"
+    },
+    {
+     "name": "월간인물 2023-08-07 동일 보도(보조)",
+     "url": "https://www.monthlypeople.com/news/articleView.html?idxno=623266"
     }
    ],
    "value_kind": "조사값",
-   "confidence": "조사값 — 군 공식 유료화 보도"
+   "confidence": "조사값 — 군 공식 유료화 보도",
+   "note": "함안군청 보도자료 원문은 haman.go.kr 검색으로 미발견(2026-11-29 기준). 뉴스핌 보도 + 조례 원문으로 대체 보완."
   },
   {
    "id": "gn-haman-002",
