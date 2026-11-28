@@ -1,7 +1,7 @@
 {
  "package": "item3_city_discounts_curated",
  "date": "2026-11-28",
- "note": "city_discounts 미보유 도시에 기존 큐레이션 discounts(=prepare_data.py *_DISCOUNTS, 조례·공식 안내 기반)를 승격. 일반 차량 0% 행 제외. batches auto1/auto2 잠정 자동추출치는 이 패키지로 대체.",
+ "note": "city_discounts 미보유 도시에 기존 큐레이션 discounts(=prepare_data.py *_DISCOUNTS, 조례·공식 안내 기반)를 승격. 일반 차량 0% 행 제외. batches auto1/auto2 잠정 자동추출치는 이 패키지로 대체. 고성군은 조례 본문 제4조에서 직접 추출해 추가.",
  "cities": [
   {
    "city": "안동시",
@@ -56,7 +56,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -100,7 +100,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -144,7 +144,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -184,7 +184,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -258,7 +258,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -292,7 +292,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -326,7 +326,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -366,7 +366,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -416,7 +416,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "경차",
     "다자녀"
@@ -505,7 +505,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -543,7 +543,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -581,7 +581,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해",
     "다자녀"
@@ -622,7 +622,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -716,7 +716,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -790,7 +790,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -834,7 +834,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해",
     "다자녀"
@@ -893,7 +893,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -919,7 +919,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해",
     "다자녀"
@@ -960,7 +960,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -988,7 +988,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -1014,7 +1014,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -1060,7 +1060,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -1092,7 +1092,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -1130,7 +1130,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "경차",
     "저공해",
@@ -1220,7 +1220,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "경차"
    ]
@@ -1260,7 +1260,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -1336,7 +1336,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -1374,7 +1374,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -1442,7 +1442,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -1474,7 +1474,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해"
    ]
@@ -1550,7 +1550,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -1582,7 +1582,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -1646,7 +1646,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -1702,7 +1702,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -1746,7 +1746,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -1814,7 +1814,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "경차",
     "다자녀"
@@ -1855,7 +1855,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -1887,7 +1887,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -1949,7 +1949,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -1975,7 +1975,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -2027,7 +2027,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -2071,7 +2071,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해",
     "다자녀"
@@ -2172,7 +2172,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -2248,7 +2248,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -2340,7 +2340,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -2392,7 +2392,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해"
    ]
@@ -2426,7 +2426,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -2514,7 +2514,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -2560,7 +2560,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -2618,7 +2618,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -2646,7 +2646,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -2704,7 +2704,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해",
     "다자녀"
@@ -2769,7 +2769,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해",
     "다자녀"
@@ -2822,7 +2822,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -2850,7 +2850,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해",
     "다자녀"
@@ -2891,7 +2891,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -2935,7 +2935,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -2973,7 +2973,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -3005,7 +3005,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -3049,7 +3049,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -3123,7 +3123,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -3179,7 +3179,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해",
     "다자녀"
@@ -3238,7 +3238,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -3318,7 +3318,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -3356,7 +3356,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -3400,7 +3400,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -3432,7 +3432,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -3526,7 +3526,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -3584,7 +3584,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -3610,7 +3610,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "장애인",
     "경차",
@@ -3653,7 +3653,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -3705,7 +3705,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -3769,7 +3769,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해"
    ]
@@ -3797,7 +3797,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -3861,7 +3861,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -3905,7 +3905,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -3951,7 +3951,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -3983,7 +3983,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -4017,7 +4017,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "경차",
     "다자녀"
@@ -4058,7 +4058,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -4096,7 +4096,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해",
     "다자녀"
@@ -4125,7 +4125,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -4163,7 +4163,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -4201,7 +4201,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "경차",
     "다자녀"
@@ -4254,7 +4254,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -4304,7 +4304,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -4372,7 +4372,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -4406,7 +4406,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -4462,7 +4462,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -4502,7 +4502,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "경차",
     "저공해",
@@ -4568,7 +4568,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해",
     "다자녀"
@@ -4603,7 +4603,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -4665,7 +4665,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -4727,7 +4727,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -4771,7 +4771,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -4799,7 +4799,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -4839,7 +4839,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -4865,7 +4865,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -4927,7 +4927,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -4955,7 +4955,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -5017,7 +5017,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -5081,7 +5081,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -5139,7 +5139,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -5189,7 +5189,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -5245,7 +5245,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -5307,7 +5307,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -5351,7 +5351,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "경차",
     "다자녀"
@@ -5416,7 +5416,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -5474,7 +5474,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해",
     "다자녀"
@@ -5545,7 +5545,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해",
     "다자녀"
@@ -5574,7 +5574,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "경차",
     "다자녀"
@@ -5627,7 +5627,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해"
    ]
@@ -5697,7 +5697,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해",
     "다자녀"
@@ -5762,7 +5762,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -5802,7 +5802,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -5852,7 +5852,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -5916,7 +5916,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -5954,7 +5954,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -6000,7 +6000,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -6044,7 +6044,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -6082,7 +6082,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -6132,7 +6132,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -6158,7 +6158,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해",
     "다자녀"
@@ -6199,7 +6199,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -6243,7 +6243,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -6277,7 +6277,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -6333,7 +6333,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -6391,7 +6391,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해"
    ]
@@ -6473,7 +6473,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -6501,7 +6501,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -6547,7 +6547,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -6610,7 +6610,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -6678,7 +6678,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -6740,7 +6740,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -6766,7 +6766,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -6798,7 +6798,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -6860,7 +6860,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -6912,7 +6912,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -7034,7 +7034,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해",
     "다자녀"
@@ -7075,7 +7075,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -7125,7 +7125,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -7205,7 +7205,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -7269,7 +7269,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -7309,7 +7309,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -7341,7 +7341,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -7369,7 +7369,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -7433,7 +7433,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -7471,7 +7471,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -7515,7 +7515,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해",
     "다자녀"
@@ -7544,7 +7544,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -7600,7 +7600,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -7632,7 +7632,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해"
    ]
@@ -7666,7 +7666,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해"
    ]
@@ -7724,7 +7724,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -7786,7 +7786,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -7826,7 +7826,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -7888,7 +7888,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해"
    ]
@@ -7916,7 +7916,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -7954,7 +7954,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -8010,7 +8010,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -8084,7 +8084,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해"
    ]
@@ -8112,7 +8112,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -8152,7 +8152,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해",
     "다자녀"
@@ -8211,7 +8211,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -8243,7 +8243,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -8299,7 +8299,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해",
     "다자녀"
@@ -8358,7 +8358,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -8380,7 +8380,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해",
     "다자녀"
@@ -8439,7 +8439,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -8477,7 +8477,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -8559,7 +8559,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -8611,7 +8611,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -8645,7 +8645,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -8673,7 +8673,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해",
     "다자녀"
@@ -8786,7 +8786,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "저공해",
     "다자녀"
@@ -8815,7 +8815,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": [
     "다자녀"
    ]
@@ -8855,7 +8855,7 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
   },
   {
@@ -8893,14 +8893,43 @@
     "scripts/prepare_data.py 기존 큐레이션(조례·공식 안내 기반 조사)"
    ],
    "value_kind": "조사값",
-   "confidence": "확인(기존 조사 반영)",
+   "confidence": "조사값",
    "missing_categories": []
+  },
+  {
+   "city": "고성군",
+   "slug": "goseong",
+   "set": {
+    "city_discounts": [
+     {
+      "label": "장애인·국가유공자 50%",
+      "rate": 0.5,
+      "exempt_min": 0,
+      "note": "「고성군 주차장 조례」 제4조제3호 — 장애인 및 국가유공자가 사용하는 자동차 주차요금의 100분의 50 감면 (조사값, 확인 2026-11-28, law.go.kr ordinSeq 1940583)"
+     },
+     {
+      "label": "경차 50%",
+      "rate": 0.5,
+      "exempt_min": 0,
+      "note": "「고성군 주차장 조례」 제4조제4호 — 경형자동차(1,000cc이하) 주차요금의 100분의 50 감면 (조사값, 확인 2026-11-28)"
+     },
+     {
+      "label": "저공해·환경친화적 자동차 50% (전기차 충전 면제)",
+      "rate": 0.5,
+      "exempt_min": 0,
+      "note": "「고성군 주차장 조례」 제4조제5호·제7호 — 저공해자동차 표지 부착 차량·환경친화적 자동차 50% 감면, 전기자동차는 충전 목적 주차 시 면제 (조사값, 확인 2026-11-28)"
+     }
+    ]
+   },
+   "source": [
+    "law.go.kr 고성군 주차장 조례 본문 (ordinSeq 1940583, 제4조 주차요금의 감면)"
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값",
+   "missing_categories": [
+    "다자녀"
+   ]
   }
  ],
- "uncovered": [
-  {
-   "slug": "goseong",
-   "city": "고성군"
-  }
- ]
+ "uncovered": []
 }
