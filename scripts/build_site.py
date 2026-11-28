@@ -9661,6 +9661,22 @@ def _monthly_value(info, key) -> str:
     return esc(v.strip()) if isinstance(v, str) and v.strip() else "신청 정보 확인 중"
 
 
+def _monthly_source_links(info) -> str:
+    """공식 출처 URL을 안전한 링크로 표시하고, 확인 중인 항목은 텍스트로 남긴다."""
+    links = []
+    for item in (info or {}).get("source_urls") or []:
+        if not isinstance(item, dict):
+            continue
+        label = str(item.get("label") or "").strip()
+        url = str(item.get("url") or "").strip()
+        if label and url.startswith("https://"):
+            links.append(f'<a href="{esc(url)}" target="_blank" rel="nofollow noopener">{esc(label)}</a>')
+    if links:
+        return " · ".join(links)
+    source = (info or {}).get("source") or ""
+    return esc(source.strip()) if isinstance(source, str) and source.strip() else "신청 정보 확인 중"
+
+
 def monthly_block(city, lot, path) -> str:
     """상세페이지 월주차(정기권) 신청 정보 블록 — 파일럿 도시만(P3-2 v1.2).
 
@@ -9679,7 +9695,14 @@ def monthly_block(city, lot, path) -> str:
     if fee.get("monthly"):
         m = fee["monthly"]
         if city["city"] == "안산시":
-            price_bits.append(f"월 {won(m)}(분기 {won(m * 3)} 단위 결제)")
+            # Only show independently verified official quarterly bands; do not
+            # synthesize a quarterly charge for facility-specific monthly values.
+            quarterly_by_monthly = {80000: 240000, 50000: 150000, 40000: 120000, 20000: 60000}
+            quarterly = quarterly_by_monthly.get(m)
+            if quarterly:
+                price_bits.append(f"월 {won(m)}(공식 분기 {won(quarterly)} 단위 결제)")
+            else:
+                price_bits.append(f"월 {won(m)}(분기 결제액 확인 중)")
         elif fee.get("monthly_night"):
             price_bits.append(f"전일 월 {won(m)}")
         else:
@@ -9697,9 +9720,9 @@ def monthly_block(city, lot, path) -> str:
     else:
         link = "신청 정보 확인 중"
     confirmed = (info.get("confirmed_at") or "").strip()
-    source = (info.get("source") or "").strip()
-    check = (f"정보 확인일 {esc(confirmed)} · 출처: {esc(source)}"
-             if confirmed and source else "신청 정보 확인 중")
+    source_links = _monthly_source_links(info)
+    check = (f"정보 확인일 {esc(confirmed)} · 출처: {source_links}"
+             if confirmed and source_links else "신청 정보 확인 중")
     rows = [
         ("월정기 가격", price),
         ("계약 단위", _monthly_value(info, "contract_unit")),
@@ -19816,9 +19839,9 @@ def build_monthly_hub(site):
                     f"{esc(portal_name)} 바로가기</a>"
                     if portal_url and portal_name else "신청 정보 확인 중")
             confirmed = (info.get("confirmed_at") or "").strip()
-            source = (info.get("source") or "").strip()
-            check = (f"정보 확인일 {esc(confirmed)} · 출처: {esc(source)}"
-                     if confirmed and source else "신청 정보 확인 중")
+            source_links = _monthly_source_links(info)
+            check = (f"정보 확인일 {esc(confirmed)} · 출처: {source_links}"
+                     if confirmed and source_links else "신청 정보 확인 중")
             rows = [
                 ("신청 기관", _monthly_value(info, "agency")),
                 ("신청 시기", _monthly_value(info, "apply_period")),
@@ -19850,8 +19873,8 @@ def build_monthly_hub(site):
 <div class="prose">
 <h1>월주차·정기권 신청 정보 모아보기</h1>
 <p class="lede">안산·부천·성남·시흥·수원 공영주차장의 월주차(정기권) 신청 기관·신청 시기·신청 방법·연락처를
-한곳에 모았습니다. 계약 단위가 도시마다 다릅니다 — 안산은 분기(3개월) 단위, 부천은 월 단위·1년 계약,
-성남은 대기등록 순번제, 시흥은 6개월 계약·권역별 연 2회 추첨, 수원은 대기자 순번제 또는 연 3회 추첨입니다.</p>
+한곳에 모았습니다. 계약 단위·모집 일정과 배정 방식은 도시와 주차장마다 다르며, 성남·수원의 추첨 및 대기 허용 여부와
+시흥의 권역별 일정은 해당 기관의 최신 공지를 확인하세요.</p>
 <p class="updated">파일럿 5개 도시 · 정보 확인일 2026-11-28 · 요금은 각 주차장의 등록값 기준이며 최종 기준은 각 도시공사·지자체 안내입니다.</p>
 <nav class="prov-chips" aria-label="파일럿 도시 바로가기">{''.join(chips)}</nav>
 {''.join(sections)}
