@@ -1,0 +1,319 @@
+{
+ "package": "item1_fee_research",
+ "city": "잔여 조사분(영주·영천·김해·청주·함안·울릉·울진·성동)",
+ "batch": "20261128-7",
+ "created_at": "2026-11-28 (KST)",
+ "value_kind": "조사값",
+ "apply_rule": "항목1 마감 — 잔여 12곳 조사. 9곳 채움(잠정 3 포함), 3곳 미상 유지.",
+ "city_caveat": "미상 유지 3곳: gb-yeongcheon-011 충혼탑 부설(영천, 유료 등록이나 금액 근거 없음), gn-gimhae-052 생림·085 서김해 화물차고지(김해, 요금 공고 확인 불가·월주차 전용/일반차 불가 특기만) — 관리기관(영천시청·김해시 교통정책과) 확인 필요.",
+ "entries": [
+  {
+   "id": "gb-yeongju-041",
+   "mgmt_no": "356-2-000049",
+   "name": "하망동 공설시장 주차타워",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "daily_fee": null,
+     "monthly": null,
+     "basis": "영주시청 공영주차장 안내 '시장 내 공영노외주차장' 유료 명시. 참고 요금: 30분까지 500원·초과 30분마다 500원. 운영 4~10월 08~21시·11~3월 09~21시, 공휴일·국경일 무료 (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "영주시청 공영주차장 안내(시장 내 공영노외주차장 목록·참고 요금)",
+     "url": "https://www.yeongju.go.kr/open_content/main/page.do?mnu_uid=4096"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 시청 공식 목록에 '하망동 공설시장 주차타워' 유료 명시"
+  },
+  {
+   "id": "gb-yeongju-030",
+   "mgmt_no": "356-2-000050",
+   "name": "영주동 골목시장 주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "daily_fee": null,
+     "monthly": null,
+     "basis": "시장 내 공영주차장 동일 참고 요금(30분 500원·30분당 500원) 추정. 영주시청 공식 목록에는 이 명칭 미기재(인근 영주365시장·후생시장 등은 유료 명시) (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "영주시청 공영주차장 안내",
+     "url": "https://www.yeongju.go.kr/open_content/main/page.do?mnu_uid=4096"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 시청 공식 목록에 '골목시장' 명칭 없음. 시장 내 유료 동일요금 추정"
+  },
+  {
+   "id": "gb-yeongcheon-011",
+   "mgmt_no": "357-3-000001",
+   "name": "충혼탑 부설주차장",
+   "set": {
+    "fee": {
+     "type": "미상",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": null,
+     "basis": "std '유료' 등록이나 금액 0원·공란. 영천시 공식 요금 근거 확보 실패 — 현장 확인 필요 (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (기준일 2026-07-03)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "미상 유지",
+   "confidence": "미상 유지 — 유료 등록이나 금액 근거 없음"
+  },
+  {
+   "id": "gn-gimhae-052",
+   "mgmt_no": "385-2-000075",
+   "name": "생림화물자동차 공영차고지",
+   "set": {
+    "fee": {
+     "type": "미상",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": null,
+     "basis": "화물자동차 전용 공영차고지(std 특기사항 '일반차불가'). '유료' 등록이나 금액 전부 공란, 김해시 요금 공고 확인 실패 — 현장 확인 필요 (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (기준일 2026-04-22)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "미상 유지",
+   "confidence": "미상 유지 — 화물차고지 요금 공고 확인 불가"
+  },
+  {
+   "id": "gn-gimhae-085",
+   "mgmt_no": "385-2-000060",
+   "name": "서김해화물자동차 주차장",
+   "set": {
+    "fee": {
+     "type": "미상",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": null,
+     "basis": "화물자동차 전용(std 특기사항 '월 주차만 가능'). '유료' 등록이나 금액 전부 공란, 김해시 요금 공고 확인 실패 — 현장 확인 필요 (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (기준일 2026-04-22)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "미상 유지",
+   "confidence": "미상 유지 — 화물차고지 요금 공고 확인 불가"
+  },
+  {
+   "id": "cj-cheongju-140",
+   "mgmt_no": "271-2-000025",
+   "name": "오송역A주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 30,
+     "base_fee": 1400,
+     "unit_min": 10,
+     "unit_fee": 700,
+     "daily_fee": 10000,
+     "monthly": 80000,
+     "free_min": 10,
+     "basis": "코레일네트웍스(KNPARK) 운영 오송역A: 최초 30분 1,400원·10분당 700원·1일 최대 10,000원·월 정기권 80,000원(A·D만 판매, 전월 21일 선착순)·회차 10분 무료. 철도이용 30%·경차/저공해/유공자/장애인/다자녀 50%(중복 불가) (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "KNPARK 코레일네트웍스 오송역A 주차장 안내",
+     "url": "https://www.knpark.com/parkInfo/parkInfoDetail.do?pluNo=130176"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 운영사 공식 요금표"
+  },
+  {
+   "id": "cj-cheongju-141",
+   "mgmt_no": "271-2-000026",
+   "name": "오송역C주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 30,
+     "base_fee": 1400,
+     "unit_min": 10,
+     "unit_fee": 700,
+     "daily_fee": 10000,
+     "monthly": null,
+     "free_min": 10,
+     "basis": "코레일네트웍스 운영 오송역C: A와 동일 요금(30분 1,400원·10분당 700원·1일 10,000원·회차 10분 무료). 월 정기권은 A·D만 판매로 C는 미판매 (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "KNPARK 코레일네트웍스 오송역A 주차장 안내(A·C·D 동일 요금)",
+     "url": "https://www.knpark.com/parkInfo/parkInfoDetail.do?pluNo=130176"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 운영사 공식(A·C·D 동일 요금). 월정기 C 미판매"
+  },
+  {
+   "id": "gn-haman-006",
+   "mgmt_no": "390-2-000043",
+   "name": "함안공영주차타워",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 15,
+     "unit_fee": 300,
+     "daily_fee": 3000,
+     "monthly": 50000,
+     "monthly_day": 40000,
+     "monthly_night": 30000,
+     "basis": "함안군 공식 보도(2023-08-01 유료화 시행): 최초 30분 500원·초과 15분당 300원·1일 최대 3,000원·월 주간 40,000원·야간 30,000원·주야간 50,000원. std 등록 '60분 500원'은 불완전 등록으로 대체 (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "함안군 보도 '함안공영주차타워 유료화 시행' (2023-08-07, 뉴스핌)",
+     "url": "https://newspim.com/news/view/20230807000650"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 군 공식 유료화 보도"
+  },
+  {
+   "id": "gn-haman-002",
+   "mgmt_no": "390-2-000018",
+   "name": "가야재래시장유료주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 60,
+     "base_fee": 3000,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": null,
+     "basis": "std 등록 '기본 60분 3,000원'만 존재. 함안군 조례 별표1 대조 불가(별표 열람 실패) — 추가요금·1일권 미상 (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (기준일 2026-04-16)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — std 등록값만 근거, 조례 별표 대조 실패. 추가요금 미상"
+  },
+  {
+   "id": "gb-ulleung-004",
+   "mgmt_no": "373-2-000003",
+   "name": "저동공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 30,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "daily_fee": 7000,
+     "monthly": 50000,
+     "monthly_night": 40000,
+     "basis": "「울릉군 주차장 조례」 제2246호(시행 2026-04-20) 별표1: 울릉읍 1급지 30분 500원·10분당 300원·1일 7,000원·월 주간 50,000원·야간 40,000원. std 등록(급지 2·30분 300원·10분 100원·일 3,000원·월 40,000원)은 별표 어느 급지와도 불일치해 조례 적용 (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "울릉군 주차장 조례 제2246호 별표1 (law.go.kr ordinSeq 2125269)",
+     "url": "https://law.go.kr/LSW/ordinInfoP.do?ordinSeq=2125269"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 조례 별표 적용(울릉읍=1급지). std 급지등록 2급지와 상이"
+  },
+  {
+   "id": "gb-uljin-025",
+   "mgmt_no": "372-3-000001",
+   "name": "울진군청 공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 60,
+     "base_fee": 0,
+     "unit_min": 30,
+     "unit_fee": 500,
+     "daily_fee": 2000,
+     "monthly": null,
+     "free_min": 60,
+     "basis": "std 등록 혼합: 최초 60분 무료·초과 30분당 500원·1일 2,000원(3시간 적용), 유료운영시간 07:00~22:00 (std 기준일 2026-04-20). 부설(군청)이라 조례 별표 직접 적용 아님 (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (기준일 2026-04-20)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값 채택(혼합 구조 일관)"
+  },
+  {
+   "id": "seongdong-004",
+   "mgmt_no": "",
+   "name": "마장동(평면)",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 5,
+     "base_fee": 150,
+     "unit_min": 5,
+     "unit_fee": 150,
+     "daily_fee": null,
+     "monthly": 80000,
+     "monthly_day": 70000,
+     "monthly_night": 30000,
+     "basis": "성동구청 공영주차장 안내(수정일 2026-06-29): 마장동평면(노외, 무학로14길45) 시간주차 5분당 150원·월 전일 80,000원·주간 70,000원·야간 30,000원 (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "성동구청 공영주차장 안내",
+     "url": "https://www.sd.go.kr/main/contents.do?key=5163"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 구청 공식 안내"
+  }
+ ]
+}

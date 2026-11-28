@@ -1,0 +1,674 @@
+{
+ "package": "item1_fee_research",
+ "city": "기타(12개 시군구 잔여)",
+ "batch": "20261128-6",
+ "created_at": "2026-11-28 (KST)",
+ "value_kind": "조사값",
+ "apply_rule": "fee.type '미상' 해소 — std 등록값(월정기·특기사항)으로 24곳 채움(대부분 정기권 전용). 잔여 12곳은 별도 조사.",
+ "city_caveat": "대부분 std 특기사항 '정기권/월정기 전용' 근거. 서울 중구 2곳은 거주민 전용(외부 이용 불가), 계양·안산 5곳은 화물차 전용, 화성 2곳은 캠핑카 전용(임시). gmy-021 밤일부락은 시간+월정기 병행(2시간 이후 10분당 400원 가산).",
+ "entries": [
+  {
+   "id": "jung-010",
+   "mgmt_no": "101-2-000021",
+   "name": "새싹마을 공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 140000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "거주민 월정기 전용(시간 주차 없음). 월 140,000원 (std 기준일 2026-10-08, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  },
+  {
+   "id": "jung-017",
+   "mgmt_no": "101-2-000002",
+   "name": "충현어린이공원 공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 140000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "거주민 월정기 전용(시간 주차 없음). 월 140,000원 (std 기준일 2026-10-08, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  },
+  {
+   "id": "namdong-009",
+   "mgmt_no": "165-2-000126",
+   "name": "상인천중학교(부설)(정기차량전용)",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 10000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "학교 부설(상인천중) 정기차량 전용. 월 10,000원 (std 기준일 2026-10-15, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  },
+  {
+   "id": "namdong-014",
+   "mgmt_no": "165-3-000130",
+   "name": "신명여자고등학교(부설)/정기차량전용",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 10000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "학교 부설(신명여고) 정기차량 전용. 월 10,000원 (std 기준일 2026-10-15, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  },
+  {
+   "id": "namdong-021",
+   "mgmt_no": "165-2-000127",
+   "name": "간석초등학교(부설)(정기차량전용)",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 10000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "학교 부설(간석초) 정기차량 전용. 월 10,000원 (std 기준일 2026-10-15, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  },
+  {
+   "id": "yeongdeungpo-020",
+   "mgmt_no": "118-2-000025",
+   "name": "신길7동공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 65000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월정기만 운영(시간주차불가, std 특기사항). 월 65,000원 (std 기준일 2026-10-20, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  },
+  {
+   "id": "hs-074",
+   "mgmt_no": "233-2-000118",
+   "name": "하길리 캠핑카(임시)",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 60000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "캠핑카 전용(임시). 6개월 정기권, 월 환산 60,000원 (std 기준일 2026-10-20, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  },
+  {
+   "id": "hs-077",
+   "mgmt_no": "233-2-000115",
+   "name": "동탄 캠핑카(임시)",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 100000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "캠핑카 전용(임시), 화성시민 전용. 월 100,000원 — 소형/대형 요금 상이(std 특기사항), 등록값은 1급지 기준 (std 기준일 2026-10-20, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값 — 소형/대형 요금 상이, 등록 월가만 확보",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  },
+  {
+   "id": "guro-008",
+   "mgmt_no": "116-2-000015",
+   "name": "고척동 삼덕마을",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 50000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "정기권 전용(std 특기사항 '정기권전용'). 월 50,000원 — 42차 판정과 정합 (std 기준일 2026-04-16, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  },
+  {
+   "id": "guro-009",
+   "mgmt_no": "116-2-000014",
+   "name": "고척동 소규모",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 50000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "정기권 전용(std 특기사항 '정기권전용'). 월 50,000원 — 42차 판정과 정합 (std 기준일 2026-04-16, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  },
+  {
+   "id": "gpo-s074",
+   "mgmt_no": "225-1-000001",
+   "name": "동백길공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 70000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월정기 전용(std 특기사항). 월 70,000원 (std 기준일 2026-04-16, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  },
+  {
+   "id": "gmy-001",
+   "mgmt_no": "213-2-000009",
+   "name": "광명5동 한진1길",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 90000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용(시간 요금 미게시). 월 90,000원 (std 기준일 2026-04-17, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  },
+  {
+   "id": "gmy-007",
+   "mgmt_no": "213-2-000007",
+   "name": "뜨락",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 120000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용(시간 요금 미게시). 월 120,000원 (std 기준일 2026-04-17, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  },
+  {
+   "id": "gmy-021",
+   "mgmt_no": "213-2-000012",
+   "name": "밤일부락 소형",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 10,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 300,
+     "daily_fee": null,
+     "monthly": 50000,
+     "basis": "월 정기권 50,000원 + 시간주차 병행(std 특기사항: 2시간 이내 10분당 300원, 2시간 초과 10분당 400원) (std 기준일 2026-04-17, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  },
+  {
+   "id": "gyeyang-025",
+   "mgmt_no": "167-2-000033",
+   "name": "계양IC 화물 차고지",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 84000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월정기 화물 전용주차장(std 특기사항). 월 84,000원 (std 기준일 2026-05-21, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  },
+  {
+   "id": "gyeyang-033",
+   "mgmt_no": "167-2-000034",
+   "name": "서운동 공영 차고지",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 84000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "화물 차고지 월정기 전용(std 특기사항 '화물'). 월 84,000원 (std 기준일 2026-05-21, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  },
+  {
+   "id": "as-020",
+   "mgmt_no": "216-2-000001",
+   "name": "부곡동 화물전용주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 90000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "화물차 전용 차고지, 월정기 전용. 월 90,000원 (std 기준일 2026-04-27, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  },
+  {
+   "id": "as-046",
+   "mgmt_no": "216-2-000051",
+   "name": "월피동 화물주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 90000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "화물차 전용 차고지, 월정기 전용. 월 90,000원 (std 기준일 2026-04-27, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  },
+  {
+   "id": "as-064",
+   "mgmt_no": "216-2-000002",
+   "name": "팔곡동 화물차고지",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 90000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "화물차 전용 차고지, 월정기 전용. 월 90,000원 (std 기준일 2026-04-27, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  },
+  {
+   "id": "hn-011",
+   "mgmt_no": "227-2-000028",
+   "name": "덕풍스포츠센터 공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 40000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "정기권 전용 노외 1급지. 승용 월 주야간 40,000원(주간 30,000·야간 20,000). 특기사항 정합(42차 판정) (std 기준일 2026-04-16, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  },
+  {
+   "id": "hn-s030",
+   "mgmt_no": "227-1-000024",
+   "name": "미사리대형차전용주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 120000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "정기권 전용 노상 3급지 대형차 전용. 대형 월 주야간 120,000원(주간 90,000·야간 60,000). 특기사항 정합 (std 기준일 2026-04-16, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  },
+  {
+   "id": "hn-s037",
+   "mgmt_no": "227-1-000026",
+   "name": "초광산단로 공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 70000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "정기권 전용 노상 1급지. 월 70,000원 (std 기준일 2026-04-16, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  },
+  {
+   "id": "gb-andong-007",
+   "mgmt_no": "354-2-000280",
+   "name": "도산서원",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 1440,
+     "base_fee": 2000,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": 2000,
+     "monthly": null,
+     "basis": "도산서원 주차장 — 1일권형: 기본 1440분(1일) 2,000원·1일 2,000원, 대형 4,000원(std 특기사항) (std 기준일 2026-10-13, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  },
+  {
+   "id": "yeonsu-008",
+   "mgmt_no": "164-2-000016",
+   "name": "송도동 공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 120,
+     "base_fee": 0,
+     "unit_min": 15,
+     "unit_fee": 200,
+     "daily_fee": 10000,
+     "monthly": null,
+     "basis": "송도동 공영 — std 등록: 최초 120분 무료·15분당 200원·1일 10,000원·월정기 0(미운영) (std 기준일 2026-04-21, 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "전국주차장정보표준데이터 (data.go.kr 15012896)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — std 등록값·특기사항 기반"
+  }
+ ]
+}

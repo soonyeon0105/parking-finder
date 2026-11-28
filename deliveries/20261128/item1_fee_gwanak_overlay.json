@@ -1,0 +1,711 @@
+{
+ "package": "item1_fee_research",
+ "city": "관악구",
+ "batch": "20261128-1",
+ "created_at": "2026-11-28 (KST)",
+ "value_kind": "조사값",
+ "apply_rule": "기존 fee.type '미상' → 유료(월정기 전용) 재분류 + monthly 유지. 시간·일 요금은 없음(None)으로 명시.",
+ "city_caveat": "관악구시설관리공단(gwanakgongdan.or.kr, smartparking)은 해외 IP 차단·JS SPA로 대조 불가. 참고: 거주자우선주차 결제시스템(gwanak.parkinghome.com) 요금표는 공영주차장 전일 6개월 300,000원(월 50,000원 환산)으로, std 월정기 40,000원(21곳)과 불일치 — 월정기 금액 공단 확인 팔로업 필요.",
+ "entries": [
+  {
+   "id": "gwanak-001",
+   "mgmt_no": "120-2-000037",
+   "name": "남현동제2공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 40000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '거주자주차제 전용'; 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-004",
+   "mgmt_no": "120-2-000033",
+   "name": "낙성대제3공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 40000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '거주자주차제 전용'; 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-008",
+   "mgmt_no": "120-2-000031",
+   "name": "봉림중공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 40000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '거주자주차제 전용'; 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-010",
+   "mgmt_no": "120-2-000035",
+   "name": "인헌동제1공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 40000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '거주자주차제 전용'; 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-011",
+   "mgmt_no": "120-2-000036",
+   "name": "인헌동제2공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 40000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '거주자주차제 전용'; 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-012",
+   "mgmt_no": "120-2-000034",
+   "name": "중앙동제1공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 40000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '거주자주차제 전용'; 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-013",
+   "mgmt_no": "120-2-000032",
+   "name": "청룡동제1공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 40000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '거주자주차제 전용'; 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-017",
+   "mgmt_no": "120-2-000026",
+   "name": "난곡동제2공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 40000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '거주자주차제 전용'; 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-018",
+   "mgmt_no": "120-2-000030",
+   "name": "난곡마당공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 40000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '거주자주차제 전용'; 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-020",
+   "mgmt_no": "120-2-000007",
+   "name": "난우중공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 50000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '거주자주차제 전용'; 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-021",
+   "mgmt_no": "120-2-000029",
+   "name": "난향공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 50000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '추첨식 월정기 주차제 전용'; 조사값, 확인 2026-11-28). 추첨식 월정기 주차제 전용(std 특기사항)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-022",
+   "mgmt_no": "120-2-000014",
+   "name": "난향동제1공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 40000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '거주자주차제 전용'; 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-024",
+   "mgmt_no": "120-2-000016",
+   "name": "대학동제1공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 40000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '거주자주차제 전용'; 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-025",
+   "mgmt_no": "120-2-000017",
+   "name": "미성동제1공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 40000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '거주자주차제 전용'; 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-026",
+   "mgmt_no": "120-2-000018",
+   "name": "미성동제2공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 40000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '거주자주차제 전용'; 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-027",
+   "mgmt_no": "120-2-000019",
+   "name": "미성동제3공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 40000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '거주자주차제 전용'; 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-028",
+   "mgmt_no": "120-2-000008",
+   "name": "미성동제4공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 50000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '거주자주차제 전용'; 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-030",
+   "mgmt_no": "120-2-000024",
+   "name": "삼성동제2공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 50000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '추첨식 월정기 주차제 전용'; 조사값, 확인 2026-11-28). 추첨식 월정기 주차제 전용(std 특기사항)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-031",
+   "mgmt_no": "120-2-000025",
+   "name": "서림동제1공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 40000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '거주자주차제 전용'; 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-035",
+   "mgmt_no": "120-2-000012",
+   "name": "신사동제2공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 40000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '거주자주차제 전용'; 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-036",
+   "mgmt_no": "120-2-000013",
+   "name": "신사동제3공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 40000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '거주자주차제 전용'; 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-038",
+   "mgmt_no": "120-2-000020",
+   "name": "신원동제1공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 40000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '거주자주차제 전용'; 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-039",
+   "mgmt_no": "120-2-000023",
+   "name": "신원동제2공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 40000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '거주자주차제 전용'; 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-042",
+   "mgmt_no": "120-2-000015",
+   "name": "조원동제3공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 40000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '거주자주차제 전용'; 조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  },
+  {
+   "id": "gwanak-s002",
+   "mgmt_no": "120-1-000012",
+   "name": "낙성대제2공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_hours": null,
+     "daily_fee": null,
+     "monthly": 100000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월 정기권 전용 — 시간 주차요금 없음 (std 특기사항 '추첨식 월정기 주차제 전용'; 조사값, 확인 2026-11-28). std 특기사항 원문은 '추첨식 월정기 주차자제 전용'(원문 그대로, '주차제' 오기로 보임). 노상 월정기 전용."
+    }
+   },
+   "source": {
+    "name": "전국주차장정보표준데이터(data.go.kr #15012896) 특기사항 — 제공기관: 서울특별시 관악구",
+    "checked_at": "2026-11-28",
+    "std_base_date": "2026-10-19"
+   },
+   "value_kind": "조사값",
+   "confidence": "잠정 — 운영기관(관악구시설관리공단) 대조 불가(공단 사이트 해외 접근 차단). std 지자체 등록 특기사항 근거."
+  }
+ ]
+}

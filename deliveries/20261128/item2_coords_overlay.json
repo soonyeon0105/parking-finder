@@ -1,0 +1,1465 @@
+{
+ "package": "item2_coords_geocode",
+ "batch": "20261128-1",
+ "created_at": "2026-11-28 (KST)",
+ "method": "T-06: 지번/도로명 지오코딩 후 반환 주소가 등록 주소와 번지까지 일치할 때만 채택(조사값). 본번 일치·부번 불일치/동·리 수준 일치는 잠정으로 표시해 좌표 후보와 사유를 함께 남김. 불일치는 미상 유지+사유.",
+ "counts": {
+  "채택": 44,
+  "잠정": 31,
+  "미상": 3
+ },
+ "entries": [
+  {
+   "id": "ca-asan-033",
+   "set": {
+    "lat": 36.7778683,
+    "lng": 126.9334706
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청남도 아산시 신창면 읍내리 290-5. 291-1",
+    "returned_address": "290-5 Eumnae-ri, Sinchang-myeon, Asan-si, Chungcheongnam-do, South Korea"
+   }
+  },
+  {
+   "id": "ca-gongju-002",
+   "set": {
+    "lat": 36.3264207,
+    "lng": 127.1372894
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청남도 공주시 화헌리 234-2",
+    "returned_address": "234-2 Hwaheon-ri, Gyeryong-myeon, Gongju, Chungcheongnam-do, South Korea"
+   }
+  },
+  {
+   "id": "ca-gongju-024",
+   "set": {
+    "lat": 36.4209943,
+    "lng": 127.1203767
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 본번 일치·부번 불일치(135-3): 135 Geumhak-dong, Gongju, Chungcheongnam-do, South Korea",
+   "evidence": {
+    "query": "충청남도 공주시 금학동 135-3",
+    "returned_address": "135 Geumhak-dong, Gongju, Chungcheongnam-do, South Korea"
+   }
+  },
+  {
+   "id": "ca-gongju-080",
+   "set": {
+    "lat": 36.4701913,
+    "lng": 127.1364526
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 동·리/도로 수준 일치: Singwan-dong, Gongju-si, Chungcheongnam-do, South Korea",
+   "evidence": {
+    "query": "충청남도 공주시 신관동 416-2",
+    "returned_address": "Singwan-dong, Gongju-si, Chungcheongnam-do, South Korea"
+   }
+  },
+  {
+   "id": "ca-gongju-135",
+   "set": {
+    "lat": 36.5514328,
+    "lng": 126.9537034
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 본번 일치·부번 불일치(303-7): 303-14 Seongnam-ri, Yugu-eup, Gongju, Chungcheongnam-do, South Korea",
+   "evidence": {
+    "query": "충청남도 공주시 유구읍 석남리 303-7",
+    "returned_address": "303-14 Seongnam-ri, Yugu-eup, Gongju, Chungcheongnam-do, South Korea"
+   }
+  },
+  {
+   "id": "ca-hongseong-033",
+   "set": {
+    "lat": 36.5901592,
+    "lng": 126.6626562
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청남도 홍성군 홍성읍 남장리 121-8",
+    "returned_address": "121-8 Namjang-ri, Hongseong-eup, Hongseong, Chungcheongnam-do, South Korea"
+   }
+  },
+  {
+   "id": "ca-hongseong-s004",
+   "set": {
+    "lat": 36.501903,
+    "lng": 126.6278175
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 동·리/도로 수준 일치: Gwangcheon-ri, Gwangcheon-eup, Hongseong-gun, Chungcheongnam-do, South Korea",
+   "evidence": {
+    "query": "충청남도 홍성군 광천읍 광천리 587",
+    "returned_address": "Gwangcheon-ri, Gwangcheon-eup, Hongseong-gun, Chungcheongnam-do, South Korea"
+   }
+  },
+  {
+   "id": "ca-taean-003",
+   "set": {
+    "lat": 36.6739431,
+    "lng": 126.2968718
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 본번 일치·부번 불일치(1185-5): 1185-3 Dalsan-ri, Nam-myeon, Taean-gun, Chungcheongnam-do, South Korea",
+   "evidence": {
+    "query": "충청남도 태안군 달산리 1185-5",
+    "returned_address": "1185-3 Dalsan-ri, Nam-myeon, Taean-gun, Chungcheongnam-do, South Korea"
+   }
+  },
+  {
+   "id": "ca-yesan-036",
+   "set": {
+    "lat": 36.6891281,
+    "lng": 126.8316583
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청남도 예산군 산성리 334-6",
+    "returned_address": "334-6 Sanseong-ri, Yesan-eup, Yesan-gun, Chungcheongnam-do, South Korea"
+   }
+  },
+  {
+   "id": "ca-yesan-050",
+   "set": {
+    "lat": 36.6795631,
+    "lng": 126.8365425
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청남도 예산군 주교리 125-5",
+    "returned_address": "125-5 Jugyo-ri, Yesan-eup, Yesan-gun, Chungcheongnam-do, South Korea"
+   }
+  },
+  {
+   "id": "ca-yesan-052",
+   "set": {
+    "lat": 36.6778651,
+    "lng": 126.8477488
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청남도 예산군 예산리 375-1",
+    "returned_address": "375-1 Yesan-ri, Yesan-eup, Yesan-gun, Chungcheongnam-do, South Korea"
+   }
+  },
+  {
+   "id": "ca-yesan-057",
+   "set": {
+    "lat": 36.6755692,
+    "lng": 126.8484133
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청남도 예산군 대회리 232-19 일원",
+    "returned_address": "232-19 Daehoe-ri, Yesan-eup, Yesan-gun, Chungcheongnam-do, South Korea"
+   }
+  },
+  {
+   "id": "ca-yesan-s001",
+   "set": {
+    "lat": 36.6857943,
+    "lng": 126.7417777
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청남도 예산군 신가리 264-4 일원",
+    "returned_address": "264-4 Sin-ga-ri, Sapgyo, Yesan-gun, Chungcheongnam-do, South Korea"
+   }
+  },
+  {
+   "id": "ca-yesan-s002",
+   "set": {
+    "lat": 36.6749721,
+    "lng": 126.8509999
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청남도 예산군 예산리 329-18번지",
+    "returned_address": "329-18 Yesan-ri, Yesan-eup, Yesan-gun, Chungcheongnam-do, South Korea"
+   }
+  },
+  {
+   "id": "ca-yesan-s005",
+   "set": {
+    "lat": 36.7207949,
+    "lng": 126.8403167
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청남도 예산군 신례원리 565-5 일원",
+    "returned_address": "565-5 Sillyewon-ri, Yesan-eup, Yesan-gun, Chungcheongnam-do, South Korea"
+   }
+  },
+  {
+   "id": "cj-cheongju-029",
+   "set": {
+    "lat": 36.6348919,
+    "lng": 127.4969239
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 본번 일치·부번 불일치(121-2): 121-1 Daeseong-dong, Sangdang-gu, Cheongju, Chungcheongbuk-do, South Korea",
+   "evidence": {
+    "query": "충청북도 청주시 상당구 대성동 121-2",
+    "returned_address": "121-1 Daeseong-dong, Sangdang-gu, Cheongju, Chungcheongbuk-do, South Korea"
+   }
+  },
+  {
+   "id": "cj-cheongju-034",
+   "set": {
+    "lat": 36.6255484,
+    "lng": 127.3289253
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청북도 청주시 흥덕구 오송옵 만수리 609",
+    "returned_address": "609 Mansu-ri, Osong-eup, Heungdeok-gu, Cheongju, Chungcheongbuk-do, South Korea"
+   }
+  },
+  {
+   "id": "cj-cheongju-149",
+   "set": {
+    "lat": 36.6577749,
+    "lng": 127.370709
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청북도 청주시 흥덕구 옥산면 오산리 561",
+    "returned_address": "561-1 Osan-ri, Oksan-myeon, Heungdeok-gu, Cheongju, Chungcheongbuk-do, South Korea"
+   }
+  },
+  {
+   "id": "cj-cheongju-159",
+   "set": {
+    "lat": 36.7313266,
+    "lng": 127.4017919
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청북도 청주시 청원구 용두리 15-13번지",
+    "returned_address": "15-13 Yongdu-ri, Ochang-eup, Cheongwon-gu, Cheongju, Chungcheongbuk-do, South Korea"
+   }
+  },
+  {
+   "id": "cj-cheongju-199",
+   "set": {
+    "lat": 36.6269274,
+    "lng": 127.4467973
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청북도 청주시 흥덕구 장구봉로137번길 67",
+    "returned_address": "67 Janggubong-ro 137beon-gil, Heungdeok-gu, Cheongju, Chungcheongbuk-do, South Korea"
+   }
+  },
+  {
+   "id": "cj-cheongju-s214",
+   "set": {
+    "lat": 36.6209098,
+    "lng": 127.3676496
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청북도 청주시 흥덕구 월곡길 38",
+    "returned_address": "38 Wolgok-gil, Gangnae-myeon, Heungdeok-gu, Cheongju, Chungcheongbuk-do, South Korea"
+   }
+  },
+  {
+   "id": "cj-cheongju-s216",
+   "set": {
+    "lat": 36.7421482,
+    "lng": 127.4544927
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청북도 청주시 청원구 두릉유리로 1137-1",
+    "returned_address": "1137-1 Dureungyuri-ro, Ochang-eup, Cheongwon-gu, Cheongju, Chungcheongbuk-do, South Korea"
+   }
+  },
+  {
+   "id": "cj-cheongju-s219",
+   "set": {
+    "lat": 36.6428031,
+    "lng": 127.4573916
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청북도 청주시 흥덕구 직지대로582번길 6",
+    "returned_address": "6 Jikji-daero 582beon-gil, Heungdeok-gu, Cheongju, Chungcheongbuk-do, South Korea"
+   }
+  },
+  {
+   "id": "cj-cheongju-s220",
+   "set": {
+    "lat": 36.7016665,
+    "lng": 127.4209483
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청북도 청주시 청원구 과학산업3로 105",
+    "returned_address": "105 Gwahaksaneop 3-ro, Ochang-eup, Cheongwon-gu, Cheongju, Chungcheongbuk-do, South Korea"
+   }
+  },
+  {
+   "id": "cj-cheongju-s221",
+   "set": {
+    "lat": 36.709899,
+    "lng": 127.4157403
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청북도 청주시 청원구 과학산업2로 283",
+    "returned_address": "283 Gwahaksaneop 2-ro, Ochang-eup, Cheongwon-gu, Cheongju, Chungcheongbuk-do, South Korea"
+   }
+  },
+  {
+   "id": "cj-cheongju-s224",
+   "set": {
+    "lat": 36.6593131,
+    "lng": 127.3623847
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청북도 청주시 흥덕구 덕촌덕절길 68",
+    "returned_address": "68 Deokchondeokjeol-gil, Oksan-myeon, Heungdeok-gu, Cheongju, Chungcheongbuk-do, South Korea"
+   }
+  },
+  {
+   "id": "cj-cheongju-s225",
+   "set": {
+    "lat": 36.6593131,
+    "lng": 127.3623847
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청북도 청주시 흥덕구 덕촌덕절길 68",
+    "returned_address": "68 Deokchondeokjeol-gil, Oksan-myeon, Heungdeok-gu, Cheongju, Chungcheongbuk-do, South Korea"
+   }
+  },
+  {
+   "id": "cj-cheongju-s226",
+   "set": {
+    "lat": 36.6100704,
+    "lng": 127.3259238
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청북도 청주시 흥덕구 가로수로 188-7",
+    "returned_address": "188-7 Garosu-ro, Osong-eup, Heungdeok-gu, Cheongju, Chungcheongbuk-do, South Korea"
+   }
+  },
+  {
+   "id": "cj-cheongju-s232",
+   "set": {
+    "lat": 36.6645535,
+    "lng": 127.3757298
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청북도 청주시 흥덕구 옥산시내1길 43",
+    "returned_address": "43 Oksansinae 1-gil, Oksan-myeon, Heungdeok-gu, Cheongju, Chungcheongbuk-do, South Korea"
+   }
+  },
+  {
+   "id": "cj-cheongju-s234",
+   "set": {
+    "lat": 36.6209098,
+    "lng": 127.3676496
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청북도 청주시 흥덕구 월곡길 38",
+    "returned_address": "38 Wolgok-gil, Gangnae-myeon, Heungdeok-gu, Cheongju, Chungcheongbuk-do, South Korea"
+   }
+  },
+  {
+   "id": "cj-cheongju-s237",
+   "set": {
+    "lat": 36.6259784,
+    "lng": 127.326166
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청북도 청주시 흥덕구 연제만수길 20",
+    "returned_address": "20 Yeonjemansu-gil, Osong-eup, Heungdeok-gu, Cheongju, Chungcheongbuk-do, South Korea"
+   }
+  },
+  {
+   "id": "cj-cheongju-s238",
+   "set": {
+    "lat": 36.7408507,
+    "lng": 127.4545348
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "충청북도 청주시 청원구 두릉유리로 1130",
+    "returned_address": "1130 Dureungyuri-ro, Ochang-eup, Cheongwon-gu, Cheongju, Chungcheongbuk-do, South Korea"
+   }
+  },
+  {
+   "id": "gb-gyeongju-084",
+   "set": {
+    "lat": 35.9827171,
+    "lng": 129.2272213
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 본번 일치·부번 불일치(1413-3): 1413 Geungye-ri, Angang-eup, Gyeongju, Gyeongsangbuk-do, South Korea",
+   "evidence": {
+    "query": "경상북도 경주시 안강읍 근계리 1413-3번지",
+    "returned_address": "1413 Geungye-ri, Angang-eup, Gyeongju, Gyeongsangbuk-do, South Korea"
+   }
+  },
+  {
+   "id": "gb-gyeongju-108",
+   "set": {
+    "lat": 35.8657116,
+    "lng": 129.2024071
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 본번 일치·부번 불일치(607-1): 607 Geumjang-ri, Hyeongok-myeon, Gyeongju, Gyeongsangbuk-do, South Korea",
+   "evidence": {
+    "query": "경상북도 경주시 현곡면 금장리 607-1번지",
+    "returned_address": "607 Geumjang-ri, Hyeongok-myeon, Gyeongju, Gyeongsangbuk-do, South Korea"
+   }
+  },
+  {
+   "id": "gb-gyeongju-115",
+   "set": {
+    "lat": 35.8360327,
+    "lng": 129.2104018
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 본번 일치·부번 불일치(304-12): 304-4 Hwangnam-dong, Gyeongju, Gyeongsangbuk-do, South Korea",
+   "evidence": {
+    "query": "경상북도 경주시 황남동 304-12번지",
+    "returned_address": "304-4 Hwangnam-dong, Gyeongju, Gyeongsangbuk-do, South Korea"
+   }
+  },
+  {
+   "id": "gb-gyeongsan-003",
+   "set": {
+    "lat": 35.83153040000001,
+    "lng": 128.7451568
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "경상북도 경산시 계양동 247-3",
+    "returned_address": "247-3 Gyeyang-dong, Gyeongsan, Gyeongsangbuk-do, South Korea"
+   }
+  },
+  {
+   "id": "gb-gyeongsan-063",
+   "set": {
+    "lat": 35.8717848,
+    "lng": 128.8184035
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "경상북도 경산시 진량읍 신상리 427-5",
+    "returned_address": "427-5 Sinsang-ri, Jillyang-eup, Gyeongsan, Gyeongsangbuk-do, South Korea"
+   }
+  },
+  {
+   "id": "gb-gyeongsan-s064",
+   "set": null,
+   "reason": "반환 주소 불일치: South Korea, Gyeongsan, Jungbang-dong, 1",
+   "value_kind": "미상 유지",
+   "confidence": "미상 — T-06 주소 일치 실패, 현장/지도 수작업 확인 필요"
+  },
+  {
+   "id": "gb-gyeongsan-s065",
+   "set": null,
+   "reason": "반환 주소 불일치: South Korea, Gyeongsan, Jungbang-dong, 1",
+   "value_kind": "미상 유지",
+   "confidence": "미상 — T-06 주소 일치 실패, 현장/지도 수작업 확인 필요"
+  },
+  {
+   "id": "gb-gyeongsan-s066",
+   "set": {
+    "lat": 35.823033,
+    "lng": 128.7393495
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 동·리/도로 수준 일치: Jungang-dong, Gyeongsan-si, Gyeongsangbuk-do, South Korea",
+   "evidence": {
+    "query": "경상북도 경산시 중앙동 886",
+    "returned_address": "Jungang-dong, Gyeongsan-si, Gyeongsangbuk-do, South Korea"
+   }
+  },
+  {
+   "id": "gn-goseong-002",
+   "set": {
+    "lat": 34.9722715,
+    "lng": 128.3229433
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 본번 일치·부번 불일치(203-1): 203 Seongnae-ri, Goseong-eup, Goseong, Gyeongsangnam-do, South Korea",
+   "evidence": {
+    "query": "경상남도 고성군 고성읍 성내리 203-1",
+    "returned_address": "203 Seongnae-ri, Goseong-eup, Goseong, Gyeongsangnam-do, South Korea"
+   }
+  },
+  {
+   "id": "gn-goseong-004",
+   "set": {
+    "lat": 34.9716161,
+    "lng": 128.3172685
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 본번 일치·부번 불일치(261-2): 261 Seooe-ri, Goseong-eup, Goseong, Gyeongsangnam-do, South Korea",
+   "evidence": {
+    "query": "경상남도 고성군 고성읍 서외리 261-2",
+    "returned_address": "261 Seooe-ri, Goseong-eup, Goseong, Gyeongsangnam-do, South Korea"
+   }
+  },
+  {
+   "id": "gw-gangneung-082",
+   "set": {
+    "lat": 37.7585472,
+    "lng": 128.9015863
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 동·리/도로 수준 일치: Okcheon-dong, Gangneung-si, Gangwon-do, South Korea",
+   "evidence": {
+    "query": "강원특별자치도 강릉시 옥천동 244",
+    "returned_address": "Okcheon-dong, Gangneung-si, Gangwon-do, South Korea"
+   }
+  },
+  {
+   "id": "gw-hongcheon-008",
+   "set": {
+    "lat": 37.6896491,
+    "lng": 127.8873904
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 본번 일치·부번 불일치(51-20): 51-6 Sinjangdae-ri, Hongcheon-eup, Hongcheon, Gangwon-do, South Korea",
+   "evidence": {
+    "query": "강원특별자치도 홍천군 홍천읍 신장대리 51-20",
+    "returned_address": "51-6 Sinjangdae-ri, Hongcheon-eup, Hongcheon, Gangwon-do, South Korea"
+   }
+  },
+  {
+   "id": "gw-hongcheon-015",
+   "set": {
+    "lat": 37.6926634,
+    "lng": 127.8858682
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 본번 일치·부번 불일치(67-4): 67 Huimang-ri, Hongcheon-eup, Hongcheon, Gangwon-do, South Korea",
+   "evidence": {
+    "query": "강원특별자치도 홍천군 홍천읍 희망리 67-4",
+    "returned_address": "67 Huimang-ri, Hongcheon-eup, Hongcheon, Gangwon-do, South Korea"
+   }
+  },
+  {
+   "id": "jb-iksan-s012",
+   "set": {
+    "lat": 35.9501762,
+    "lng": 126.9585309
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "전북특별자치도 익산시 인북로 52길 6에서 익산시 인북로 36길 28 사이",
+    "returned_address": "6 Inbuk-ro 52-gil, Iksan, Jeonbuk State, South Korea"
+   }
+  },
+  {
+   "id": "jb-iksan-s019",
+   "set": {
+    "lat": 35.9462152,
+    "lng": 126.9695673
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "전북특별자치도 익산시 선화로 361에서 익산시 영등동 679-31 사이(GS그린주유소 ~ 동부시장오거리)",
+    "returned_address": "361 Seonhwa-ro, Iksan, Jeonbuk State, South Korea"
+   }
+  },
+  {
+   "id": "jb-iksan-s036",
+   "set": {
+    "lat": 35.9564926,
+    "lng": 126.9713836
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 동·리/도로 수준 일치: Muwang-ro, Iksan-si, Jeonbuk State, South Korea",
+   "evidence": {
+    "query": "전북특별자치도 익산시 무왕로 216-84에서 익산시 선화로73길 38 사이(만나김밥분식 ~ 부송 파리바게뜨)",
+    "returned_address": "Muwang-ro, Iksan-si, Jeonbuk State, South Korea"
+   }
+  },
+  {
+   "id": "jb-iksan-s040",
+   "set": {
+    "lat": 35.9429086,
+    "lng": 126.9377375
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 동·리/도로 수준 일치: 238-67 Songhak-dong, Iksan, Jeonbuk State, South Korea",
+   "evidence": {
+    "query": "전북특별자치도 익산시 송학동 238-6에서 익산시 송학동 235-8 사이(익산역 회전교차로 ~ 송학사거리)",
+    "returned_address": "238-67 Songhak-dong, Iksan, Jeonbuk State, South Korea"
+   }
+  },
+  {
+   "id": "jb-iksan-s070",
+   "set": {
+    "lat": 35.9465354,
+    "lng": 126.9312802
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "전북특별자치도 익산시 오산면 선화로 4길 66에서 익산시 오산면 선화로 4길 45 사이(장신휴먼시아1차A 후문 ~ 사랑키움주간보호센터)",
+    "returned_address": "66 Seonhwa-ro 4-gil, Osan-myeon, Iksan, Jeonbuk State, South Korea"
+   }
+  },
+  {
+   "id": "jb-iksan-s072",
+   "set": {
+    "lat": 35.9345105,
+    "lng": 126.9565435
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 동·리/도로 수준 일치: Juhyeon-ro, Iksan-si, Jeonbuk State, South Korea",
+   "evidence": {
+    "query": "전북특별자치도 익산시 주현로 172-3에서 익산시 주현로 10 사이(마동 사거리 ~ 스파리스)",
+    "returned_address": "Juhyeon-ro, Iksan-si, Jeonbuk State, South Korea"
+   }
+  },
+  {
+   "id": "jb-iksan-s080",
+   "set": {
+    "lat": 35.93512339999999,
+    "lng": 126.9449296
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 동·리/도로 수준 일치: 144-1 Pyeonghwa-dong, Iksan, Jeonbuk State, South Korea",
+   "evidence": {
+    "query": "전북특별자치도 익산시 평화동 144-10에서 익산시 학곤로 10-1 사이(평화삼거리 ~ 전북모터스 평화지점)",
+    "returned_address": "144-1 Pyeonghwa-dong, Iksan, Jeonbuk State, South Korea"
+   }
+  },
+  {
+   "id": "jj-jeju-396",
+   "set": {
+    "lat": 33.468404,
+    "lng": 126.3846323
+   },
+   "source": [
+    {
+     "name": "지오코딩(2026-11-18 배치, Google Maps) — 지오코딩(지번)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 2026-11-18 배치 채택이나 검증 등급 review(주소 미일치), 반환 주소: 1779-2 Susan-ri, Aewol-eup, Cheju, Jeju-do, South Korea",
+   "evidence": {
+    "query": "제주특별자치도 제주시 애월읍 수산리 1779-8",
+    "returned_address": "1779-2 Susan-ri, Aewol-eup, Cheju, Jeju-do, South Korea",
+    "agree": []
+   }
+  },
+  {
+   "id": "jn-boseong-039",
+   "set": null,
+   "reason": "반환 주소 불일치: Boseong station, Boseong, South Korea",
+   "value_kind": "미상 유지",
+   "confidence": "미상 — T-06 주소 일치 실패, 현장/지도 수작업 확인 필요"
+  },
+  {
+   "id": "jn-jindo-009",
+   "set": {
+    "lat": 34.562429,
+    "lng": 126.2762445
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 동·리/도로 수준 일치: Nokjin-ri, Gunnae-myeon, Jindo-gun, Jeollanam-do, South Korea",
+   "evidence": {
+    "query": "전남광주통합특별시 진도군 군내면 녹진리 산 2-80",
+    "returned_address": "Nokjin-ri, Gunnae-myeon, Jindo-gun, Jeollanam-do, South Korea"
+   }
+  },
+  {
+   "id": "jn-naju-027",
+   "set": {
+    "lat": 35.1006027,
+    "lng": 126.7479513
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "전라남도 나주시 노안면 유곡리 59번지",
+    "returned_address": "59 Yugok-ri, Noan-myeon, Naju, Jeollanam-do, South Korea"
+   }
+  },
+  {
+   "id": "jn-sinan-014",
+   "set": {
+    "lat": 34.5639143,
+    "lng": 126.0506489
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "전남광주통합특별시 신안군 신의면 하태서리 산 83-2번지",
+    "returned_address": "산83-2 Hataeseo-ri, Sinui-myeon, Sinan-gun, Jeollanam-do, South Korea"
+   }
+  },
+  {
+   "id": "jn-sinan-055",
+   "set": {
+    "lat": 34.8806099,
+    "lng": 126.2970639
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "전남광주통합특별시 신안군 압해읍 신용리 112번지",
+    "returned_address": "산112-3 Sinyong-ri, Aphae-eup, Sinan-gun, Jeollanam-do, South Korea"
+   }
+  },
+  {
+   "id": "jn-sinan-093",
+   "set": {
+    "lat": 34.909828,
+    "lng": 126.0520103
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "전남광주통합특별시 신안군 자은면 송산리 산 65번지",
+    "returned_address": "산65 Songsan-ri, Jaeun-myeon, Sinan-gun, Jeollanam-do, South Korea"
+   }
+  },
+  {
+   "id": "jn-sinan-094",
+   "set": {
+    "lat": 34.9191822,
+    "lng": 126.0723851
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 동·리/도로 수준 일치: Hanun-ri, Jaeun-myeon, Sinan-gun, Jeollanam-do, South Korea",
+   "evidence": {
+    "query": "전남광주통합특별시 신안군 자은면 한운리 산 231-2번지",
+    "returned_address": "Hanun-ri, Jaeun-myeon, Sinan-gun, Jeollanam-do, South Korea"
+   }
+  },
+  {
+   "id": "jn-sinan-095",
+   "set": {
+    "lat": 34.9191822,
+    "lng": 126.0723851
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 동·리/도로 수준 일치: Hanun-ri, Jaeun-myeon, Sinan-gun, Jeollanam-do, South Korea",
+   "evidence": {
+    "query": "전남광주통합특별시 신안군 자은면 한운리 산 231-2번지",
+    "returned_address": "Hanun-ri, Jaeun-myeon, Sinan-gun, Jeollanam-do, South Korea"
+   }
+  },
+  {
+   "id": "jn-sinan-096",
+   "set": {
+    "lat": 34.8500035,
+    "lng": 126.0395922
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "전남광주통합특별시 신안군 자은면 유각리 산 239번지",
+    "returned_address": "산239 Yugak-ri, Jaeun-myeon, Sinan-gun, Jeollanam-do, South Korea"
+   }
+  },
+  {
+   "id": "jn-sinan-098",
+   "set": {
+    "lat": 34.8792121,
+    "lng": 125.9952923
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "전남광주통합특별시 신안군 자은면 백산리 산271 신안자연휴양림",
+    "returned_address": "산271 Baeksan-ri, Jaeun-myeon, Sinan-gun, Jeollanam-do, South Korea"
+   }
+  },
+  {
+   "id": "jn-sinan-102",
+   "set": {
+    "lat": 34.6386686,
+    "lng": 126.1452186
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "전남광주통합특별시 신안군 장산면 대리 95-1번지",
+    "returned_address": "95-1 Dae-ri, Jangsan-myeon, Sinan-gun, Jeollanam-do, South Korea"
+   }
+  },
+  {
+   "id": "jn-sinan-105",
+   "set": {
+    "lat": 34.6421513,
+    "lng": 126.1419057
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "전남광주통합특별시 신안군 장산면 도창리 780번지",
+    "returned_address": "780-1 Dochang-ri, Jangsan-myeon, Sinan-gun, Jeollanam-do, South Korea"
+   }
+  },
+  {
+   "id": "jn-sinan-115",
+   "set": {
+    "lat": 34.970621,
+    "lng": 126.1371417
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "전남광주통합특별시 신안군 증도면 우전리 산 1번지",
+    "returned_address": "산1 Ujeon-ri, Jeungdo-myeon, Sinan-gun, Jeollanam-do, South Korea"
+   }
+  },
+  {
+   "id": "jn-sinan-118",
+   "set": {
+    "lat": 35.0562979,
+    "lng": 126.2069822
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "전남광주통합특별시 신안군 지도읍 읍내리 350-16번지",
+    "returned_address": "350-16 Eumnae-ri, Jido-eup, Sinan-gun, Jeollanam-do, South Korea"
+   }
+  },
+  {
+   "id": "jn-sinan-121",
+   "set": {
+    "lat": 35.026779,
+    "lng": 126.1693108
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "전남광주통합특별시 신안군 지도읍 탄동리 산 113-4번지",
+    "returned_address": "산113-4 Tandong-ri, Jido-eup, Sinan-gun, Jeollanam-do, South Korea"
+   }
+  },
+  {
+   "id": "jn-sinan-138",
+   "set": {
+    "lat": 34.579364,
+    "lng": 126.0209185
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "전남광주통합특별시 신안군 하의면 어은리 산 268번지",
+    "returned_address": "산268 Eoeun-ri, Haui-myeon, Sinan-gun, Jeollanam-do, South Korea"
+   }
+  },
+  {
+   "id": "jn-sinan-149",
+   "set": {
+    "lat": 34.6855497,
+    "lng": 125.4264265
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 본번 일치·부번 불일치(488-15): 488 Jin-ri, Heuksan-myeon, Sinan-gun, Jeollanam-do, South Korea",
+   "evidence": {
+    "query": "전남광주통합특별시 신안군 흑산면 진리 488-15번지",
+    "returned_address": "488 Jin-ri, Heuksan-myeon, Sinan-gun, Jeollanam-do, South Korea"
+   }
+  },
+  {
+   "id": "jn-sinan-150",
+   "set": {
+    "lat": 34.6486997,
+    "lng": 125.4201775
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 번지 일치",
+   "evidence": {
+    "query": "전남광주통합특별시 신안군 흑산면 사리 산 1-5번지",
+    "returned_address": "산1-5 Sa-ri, Heuksan-myeon, Sinan-gun, Jeollanam-do, South Korea"
+   }
+  },
+  {
+   "id": "jn-yeonggwang-025",
+   "set": {
+    "lat": 35.3647953,
+    "lng": 126.4356838
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 본번 일치·부번 불일치(650-4): 650-3 Jinnae-ri, Beopseong-myeon, Yeong-gwang, Jeollanam-do, South Korea",
+   "evidence": {
+    "query": "전라남도 영광군 법성면진내리650-4",
+    "returned_address": "650-3 Jinnae-ri, Beopseong-myeon, Yeong-gwang, Jeollanam-do, South Korea"
+   }
+  },
+  {
+   "id": "jn-yeonggwang-065",
+   "set": {
+    "lat": 35.3984914,
+    "lng": 126.4457955
+   },
+   "source": [
+    {
+     "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 동·리/도로 수준 일치: Sangha-gil, Hongnong-eup, Yeonggwang-gun, Jeollanam-do, South Korea",
+   "evidence": {
+    "query": "전라남도 영광군 홍농읍 상하길 230",
+    "returned_address": "Sangha-gil, Hongnong-eup, Yeonggwang-gun, Jeollanam-do, South Korea"
+   }
+  },
+  {
+   "id": "us-ulju-gun-018",
+   "set": {
+    "lat": 35.536375,
+    "lng": 129.0966336
+   },
+   "source": [
+    {
+     "name": "지오코딩(2026-11-18 배치, Google Maps) — 지오코딩(지번)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 2026-11-18 배치 채택이나 검증 등급 review(주소 미일치), 반환 주소: Samnam-myeon, Ulju-gun, Ulsan, South Korea",
+   "evidence": {
+    "query": "울산광역시 울주군 삼남면 가천리 1212-9",
+    "returned_address": "Samnam-myeon, Ulju-gun, Ulsan, South Korea",
+    "agree": []
+   }
+  },
+  {
+   "id": "us-ulju-gun-s004",
+   "set": {
+    "lat": 35.554341,
+    "lng": 129.2197416
+   },
+   "source": [
+    {
+     "name": "지오코딩(2026-11-18 배치, Google Maps) — 지오코딩(지번)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 2026-11-18 배치 채택이나 검증 등급 review(주소 미일치), 반환 주소: Cheonsang-ri, Beomseo-eup, Ulju-gun, Ulsan, South Korea",
+   "evidence": {
+    "query": "울산광역시 울주군 범서읍 천상리",
+    "returned_address": "Cheonsang-ri, Beomseo-eup, Ulju-gun, Ulsan, South Korea",
+    "agree": []
+   }
+  },
+  {
+   "id": "us-ulju-gun-s009",
+   "set": {
+    "lat": 35.4100714,
+    "lng": 129.3529914
+   },
+   "source": [
+    {
+     "name": "지오코딩(2026-11-18 배치, Google Maps) — 지오코딩(지번)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 2026-11-18 배치 채택이나 검증 등급 review(주소 미일치), 반환 주소: 95-2 Dang-wol-ri, Onsan-eup, Ulju-gun, Ulsan, South Korea",
+   "evidence": {
+    "query": "울산광역시 울주군 온산읍 당월리 95-3",
+    "returned_address": "95-2 Dang-wol-ri, Onsan-eup, Ulju-gun, Ulsan, South Korea",
+    "agree": []
+   }
+  },
+  {
+   "id": "yeongjong-006",
+   "set": {
+    "lat": 37.4820017,
+    "lng": 126.510672
+   },
+   "source": [
+    {
+     "name": "지오코딩(2026-11-18 배치, Google Maps) — 지오코딩(도로명)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 2026-11-18 배치 채택이나 검증 등급 review(주소 미일치), 반환 주소: 14 Neopdi-ro 66beon-gil, Jung-gu, Incheon, South Korea",
+   "evidence": {
+    "query": "인천광역시 영종구 넙디로66번길 14",
+    "returned_address": "14 Neopdi-ro 66beon-gil, Jung-gu, Incheon, South Korea",
+    "agree": []
+   }
+  },
+  {
+   "id": "yeongjong-008",
+   "set": {
+    "lat": 37.5000629,
+    "lng": 126.5358479
+   },
+   "source": [
+    {
+     "name": "지오코딩(2026-11-18 배치, Google Maps) — 지오코딩(지번)",
+     "url": ""
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 2026-11-18 배치 채택이나 검증 등급 review(주소 미일치), 반환 주소: Yeongjongdo, Incheon",
+   "evidence": {
+    "query": "인천광역시 영종구 운서동 2930-1",
+    "returned_address": "Yeongjongdo, Incheon",
+    "agree": []
+   }
+  }
+ ]
+}

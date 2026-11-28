@@ -1,0 +1,404 @@
+{
+ "package": "item1_fee_research",
+ "city": "부천시",
+ "batch": "20261128-4",
+ "created_at": "2026-11-28 (KST)",
+ "value_kind": "조사값",
+ "apply_rule": "fee.type '미상' 해소 — 11곳 모두 std 특기사항 '월정기 전용' + 부천주차포털 정기권 급지표로 월 정기가 채움. 화물 1곳은 미상 유지.",
+ "city_caveat": "부천 공영 정기권은 무작위 추첨제(매월 1~20일 신청, 21일 배정, 이용기간 1년). 야간 정기권 이용시간 20:00~익일 08:00. 전화 032-340-0925(부천도시공사 주차사업부) — 항목5 전화번호 채우기에 활용 가능.",
+ "entries": [
+  {
+   "id": "bc-029",
+   "mgmt_no": "000-3-000001",
+   "name": "교통정보센터",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 50000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "부설(공공시설) 월정기 전용. std 급지 3·특기사항 '월정기 전용'. 포털 정기권 추첨 대상(7월) 확인. 노외 3급지 전일제 50,000원 적용 (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "부천주차포털 공영주차장 요금(급지별) 안내",
+     "url": "https://parking.bcits.go.kr/main/select_parking_guide.do"
+    },
+    {
+     "name": "부천주차포털 공영주차장 정기권 신청 안내(전일/주간/야간 유형·추첨제)",
+     "url": "https://parking.bcits.go.kr/seasonticket/appl_guide.do"
+    },
+    {
+     "name": "전국주차장정보표준데이터 특기사항 '월정기 전용'·급지구분 (기준일 2026-04-16)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 부설주차장이라 노외 급지표 적용은 추정(부설 정기권 기본 40,000원 구간도 존재)"
+  },
+  {
+   "id": "bc-033",
+   "mgmt_no": "000-2-000069",
+   "name": "구소사경찰서별관",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 30000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "야간 월정기 전용(std 특기사항). 야간(20~08시) 정기권 적용. std 급지 '기타'라 3급지 야간 30,000원 추정 (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "부천주차포털 공영주차장 요금(급지별) 안내",
+     "url": "https://parking.bcits.go.kr/main/select_parking_guide.do"
+    },
+    {
+     "name": "부천주차포털 공영주차장 정기권 신청 안내(전일/주간/야간 유형·추첨제)",
+     "url": "https://parking.bcits.go.kr/seasonticket/appl_guide.do"
+    },
+    {
+     "name": "전국주차장정보표준데이터 특기사항 '월정기 전용'·급지구분 (기준일 2026-04-16)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — std 급지구분 '기타'로 급지표 매칭 불가. 3급지 야간 추정값"
+  },
+  {
+   "id": "bc-051",
+   "mgmt_no": "000-2-000051",
+   "name": "오정동2호",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 50000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월정기 전용(시간·일 주차 미운영). 노외 3급지 전일제 정기권 50,000원/월 (부천주차포털 급지표, 추첨제). 40차 판정에서 포털 실가격 50,000원 확인 이력 (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "부천주차포털 공영주차장 요금(급지별) 안내",
+     "url": "https://parking.bcits.go.kr/main/select_parking_guide.do"
+    },
+    {
+     "name": "부천주차포털 공영주차장 정기권 신청 안내(전일/주간/야간 유형·추첨제)",
+     "url": "https://parking.bcits.go.kr/seasonticket/appl_guide.do"
+    },
+    {
+     "name": "전국주차장정보표준데이터 특기사항 '월정기 전용'·급지구분 (기준일 2026-04-16)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 포털 등록가 50,000원(40차)과 급지표 정합"
+  },
+  {
+   "id": "bc-052",
+   "mgmt_no": "000-2-000050",
+   "name": "오정동1호",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 50000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월정기 전용(시간·일 주차 미운영). 노외 3급지 전일제 정기권 50,000원/월 (부천주차포털 급지표, 추첨제) (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "부천주차포털 공영주차장 요금(급지별) 안내",
+     "url": "https://parking.bcits.go.kr/main/select_parking_guide.do"
+    },
+    {
+     "name": "부천주차포털 공영주차장 정기권 신청 안내(전일/주간/야간 유형·추첨제)",
+     "url": "https://parking.bcits.go.kr/seasonticket/appl_guide.do"
+    },
+    {
+     "name": "전국주차장정보표준데이터 특기사항 '월정기 전용'·급지구분 (기준일 2026-04-16)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값"
+  },
+  {
+   "id": "bc-060",
+   "mgmt_no": "000-2-000042",
+   "name": "송내파인",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 50000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월정기 전용(시간·일 주차 미운영). 노외 3급지 전일제 정기권 50,000원/월 (부천주차포털 급지표, 추첨제) (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "부천주차포털 공영주차장 요금(급지별) 안내",
+     "url": "https://parking.bcits.go.kr/main/select_parking_guide.do"
+    },
+    {
+     "name": "부천주차포털 공영주차장 정기권 신청 안내(전일/주간/야간 유형·추첨제)",
+     "url": "https://parking.bcits.go.kr/seasonticket/appl_guide.do"
+    },
+    {
+     "name": "전국주차장정보표준데이터 특기사항 '월정기 전용'·급지구분 (기준일 2026-04-16)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값"
+  },
+  {
+   "id": "bc-077",
+   "mgmt_no": "000-2-000025",
+   "name": "삼정1호",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 50000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월정기 전용(시간·일 주차 미운영). 노외 3급지 전일제 정기권 50,000원/월 (부천주차포털 급지표, 추첨제) (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "부천주차포털 공영주차장 요금(급지별) 안내",
+     "url": "https://parking.bcits.go.kr/main/select_parking_guide.do"
+    },
+    {
+     "name": "부천주차포털 공영주차장 정기권 신청 안내(전일/주간/야간 유형·추첨제)",
+     "url": "https://parking.bcits.go.kr/seasonticket/appl_guide.do"
+    },
+    {
+     "name": "전국주차장정보표준데이터 특기사항 '월정기 전용'·급지구분 (기준일 2026-04-16)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값"
+  },
+  {
+   "id": "bc-086",
+   "mgmt_no": "000-2-000016",
+   "name": "무지개고가",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 70000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월정기 전용. 노외 2급지 전일제 정기권 70,000원/월 (부천주차포털 급지표, 추첨제) (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "부천주차포털 공영주차장 요금(급지별) 안내",
+     "url": "https://parking.bcits.go.kr/main/select_parking_guide.do"
+    },
+    {
+     "name": "부천주차포털 공영주차장 정기권 신청 안내(전일/주간/야간 유형·추첨제)",
+     "url": "https://parking.bcits.go.kr/seasonticket/appl_guide.do"
+    },
+    {
+     "name": "전국주차장정보표준데이터 특기사항 '월정기 전용'·급지구분 (기준일 2026-04-16)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값"
+  },
+  {
+   "id": "bc-091",
+   "mgmt_no": "000-2-000011",
+   "name": "도당교1호",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 30000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "야간 월정기 전용(std 특기사항). 노외 3급지 야간(20~08시) 정기권 30,000원/월 (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "부천주차포털 공영주차장 요금(급지별) 안내",
+     "url": "https://parking.bcits.go.kr/main/select_parking_guide.do"
+    },
+    {
+     "name": "부천주차포털 공영주차장 정기권 신청 안내(전일/주간/야간 유형·추첨제)",
+     "url": "https://parking.bcits.go.kr/seasonticket/appl_guide.do"
+    },
+    {
+     "name": "전국주차장정보표준데이터 특기사항 '월정기 전용'·급지구분 (기준일 2026-04-16)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값"
+  },
+  {
+   "id": "bc-097",
+   "mgmt_no": "000-2-000005",
+   "name": "구소새울어울마당",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 30000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "야간 월정기 전용(std 특기사항). 노외 3급지 야간(20~08시) 정기권 30,000원/월 (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "부천주차포털 공영주차장 요금(급지별) 안내",
+     "url": "https://parking.bcits.go.kr/main/select_parking_guide.do"
+    },
+    {
+     "name": "부천주차포털 공영주차장 정기권 신청 안내(전일/주간/야간 유형·추첨제)",
+     "url": "https://parking.bcits.go.kr/seasonticket/appl_guide.do"
+    },
+    {
+     "name": "전국주차장정보표준데이터 특기사항 '월정기 전용'·급지구분 (기준일 2026-04-16)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값"
+  },
+  {
+   "id": "bc-063",
+   "mgmt_no": "000-2-000039",
+   "name": "송내IC 화물",
+   "set": {
+    "fee": {
+     "type": "미상",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": null,
+     "basis": "월정기 전용<화물>(std 특기사항) — 화물차 전용 월정기. 포털 요금표는 승용차 기준이고 화물차는 배율 적용(2.5톤↑ 1.5배·4.5톤↑ 2배)이라 실가격 미확인 (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "부천주차포털 공영주차장 요금(급지별) 안내",
+     "url": "https://parking.bcits.go.kr/main/select_parking_guide.do"
+    },
+    {
+     "name": "부천주차포털 공영주차장 정기권 신청 안내(전일/주간/야간 유형·추첨제)",
+     "url": "https://parking.bcits.go.kr/seasonticket/appl_guide.do"
+    },
+    {
+     "name": "전국주차장정보표준데이터 특기사항 '월정기 전용'·급지구분 (기준일 2026-04-16)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "미상 유지",
+   "confidence": "미상 유지 — 화물 월정기 실가격 확인 불가(포털 배율표만 존재)"
+  },
+  {
+   "id": "bc-street-001",
+   "mgmt_no": "000-1-000008",
+   "name": "샛말길",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": 50000,
+     "ticket_only": true,
+     "monthly_only": true,
+     "cap_na": true,
+     "basis": "월정기 전용 노상. 노상 3급지 정기권 50,000원/월 (부천주차포털 급지표) (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "부천주차포털 공영주차장 요금(급지별) 안내",
+     "url": "https://parking.bcits.go.kr/main/select_parking_guide.do"
+    },
+    {
+     "name": "부천주차포털 공영주차장 정기권 신청 안내(전일/주간/야간 유형·추첨제)",
+     "url": "https://parking.bcits.go.kr/seasonticket/appl_guide.do"
+    },
+    {
+     "name": "전국주차장정보표준데이터 특기사항 '월정기 전용'·급지구분 (기준일 2026-04-16)",
+     "url": "https://www.data.go.kr/data/15012896"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값"
+  }
+ ]
+}

@@ -1,0 +1,729 @@
+{
+ "package": "item1_fee_research",
+ "city": "포항시",
+ "batch": "20261128-3",
+ "created_at": "2026-11-28 (KST)",
+ "value_kind": "조사값",
+ "apply_rule": "fee.type '미상' 해소 — 공단 급지표(조례 기준)+lot별 현황으로 21곳 유료·1곳 무료 채움.",
+ "city_caveat": "노상 월정기 2027-01-01 일괄 종료(공단 공지 2026-11-20): 시내노상 monthly 100,000원은 2026-12-31까지 유효. 모든 lot 5분 이내 면제. 시간대(주간 06~22시)는 조례 기준.",
+ "entries": [
+  {
+   "id": "gb-pohang-009",
+   "mgmt_no": "350-2-000005",
+   "name": "대도 공영주차장 (남구 대도동 71-5)",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 20,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "daily_fee": 5000,
+     "monthly": 50000,
+     "monthly_day": 50000,
+     "monthly_night": 30000,
+     "free_min": 5,
+     "basis": "2급지 노외 — 2급지 승용차 기준 최초 20분 500원·초과 10분당 200원·1일 5,000원·5분 이내 면제·월 정기 주간 50,000원·야간 30,000원(공단 게시 월정기 가능 노외 7개소 포함) (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "포항시시설관리공단 공영주차장 요금안내(급지별 요금표·급지 구분)",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglotfee_1.do"
+    },
+    {
+     "name": "공단 공지 '시내노상 공영주차장 월 정기주차 종료 사전안내'(2026-11-20) — 노상 월정기 2026-12-31 종료, 월정기 가능 노외 7개소(죽도시장4·5, 대이동, 이동4, 상도, 대도, 대해시장)",
+     "url": "https://www.phsisul.org/sisul_24/sub/notice_view.do?prc=read&prcValue=d5b5ea9c0e4a71708d5b13c6cbcf499c"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값"
+  },
+  {
+   "id": "gb-pohang-012",
+   "mgmt_no": "350-2-000008",
+   "name": "대이동 공영주차장(4공원)",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 20,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "daily_fee": 5000,
+     "monthly": 50000,
+     "monthly_day": 50000,
+     "monthly_night": 30000,
+     "free_min": 5,
+     "basis": "2급지 노외 — 2급지 승용차 기준 최초 20분 500원·초과 10분당 200원·1일 5,000원·5분 이내 면제·월 정기 주간 50,000원·야간 30,000원(공단 게시 월정기 가능 노외 7개소 포함) (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "포항시시설관리공단 공영주차장 요금안내(급지별 요금표·급지 구분)",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglotfee_1.do"
+    },
+    {
+     "name": "공단 공지 '시내노상 공영주차장 월 정기주차 종료 사전안내'(2026-11-20) — 노상 월정기 2026-12-31 종료, 월정기 가능 노외 7개소(죽도시장4·5, 대이동, 이동4, 상도, 대도, 대해시장)",
+     "url": "https://www.phsisul.org/sisul_24/sub/notice_view.do?prc=read&prcValue=d5b5ea9c0e4a71708d5b13c6cbcf499c"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값"
+  },
+  {
+   "id": "gb-pohang-034",
+   "mgmt_no": "351-2-000007",
+   "name": "영일대2 공영주차장 (북구 두호동 1002-1)",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 20,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "daily_fee": 7000,
+     "monthly": null,
+     "monthly_day": null,
+     "monthly_night": null,
+     "free_min": 5,
+     "basis": "영일대2(1급지 두호동 노외) — 1급지(죽도시장·영일대 인근) 승용차 기준 최초 20분 500원·초과 10분당 200원·5분 이내 면제. 공단 현황: 1일 7,000원. 12:00~21:00·일요일 무료개방, 2026-03부터 24시간 무인운영 (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "포항시시설관리공단 공영주차장 주차장별 현황",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglot_1.do"
+    },
+    {
+     "name": "포항시시설관리공단 공영주차장 요금안내(급지별 요금표·급지 구분)",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglotfee_1.do"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값"
+  },
+  {
+   "id": "gb-pohang-037",
+   "mgmt_no": "350-2-000006",
+   "name": "남부시장 공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 20,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "daily_fee": 5000,
+     "monthly": null,
+     "monthly_day": null,
+     "monthly_night": null,
+     "free_min": 5,
+     "basis": "2급지 노외 — 2급지 승용차 기준 최초 20분 500원·초과 10분당 200원·1일 5,000원·5분 이내 면제. 월정기는 공단 게시 이용가능 노외 7개소에 미포함 (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "포항시시설관리공단 공영주차장 요금안내(급지별 요금표·급지 구분)",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglotfee_1.do"
+    },
+    {
+     "name": "공단 공지 '시내노상 공영주차장 월 정기주차 종료 사전안내'(2026-11-20) — 노상 월정기 2026-12-31 종료, 월정기 가능 노외 7개소(죽도시장4·5, 대이동, 이동4, 상도, 대도, 대해시장)",
+     "url": "https://www.phsisul.org/sisul_24/sub/notice_view.do?prc=read&prcValue=d5b5ea9c0e4a71708d5b13c6cbcf499c"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값"
+  },
+  {
+   "id": "gb-pohang-039",
+   "mgmt_no": "350-2-000001",
+   "name": "상도 공영주차장 (남구 상도동 595-19)",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 20,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "daily_fee": 5000,
+     "monthly": 50000,
+     "monthly_day": 50000,
+     "monthly_night": 30000,
+     "free_min": 5,
+     "basis": "2급지 노외 — 2급지 승용차 기준 최초 20분 500원·초과 10분당 200원·1일 5,000원·5분 이내 면제·월 정기 주간 50,000원·야간 30,000원(공단 게시 월정기 가능 노외 7개소 포함) (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "포항시시설관리공단 공영주차장 요금안내(급지별 요금표·급지 구분)",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglotfee_1.do"
+    },
+    {
+     "name": "공단 공지 '시내노상 공영주차장 월 정기주차 종료 사전안내'(2026-11-20) — 노상 월정기 2026-12-31 종료, 월정기 가능 노외 7개소(죽도시장4·5, 대이동, 이동4, 상도, 대도, 대해시장)",
+     "url": "https://www.phsisul.org/sisul_24/sub/notice_view.do?prc=read&prcValue=d5b5ea9c0e4a71708d5b13c6cbcf499c"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값"
+  },
+  {
+   "id": "gb-pohang-058",
+   "mgmt_no": "350-2-000103",
+   "name": "연일시장 공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 20,
+     "base_fee": 300,
+     "unit_min": 10,
+     "unit_fee": 100,
+     "daily_fee": 4000,
+     "monthly": 50000,
+     "monthly_day": 50000,
+     "monthly_night": 30000,
+     "free_min": 5,
+     "basis": "3급지(읍·면) 노외 — 최초 20분 300원·초과 10분당 100원·1일 4,000원·월 주간 50,000원·야간 30,000원·5분 이내 면제. 2026-03부터 24시간 무인운영(연일전통시장) (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "포항시시설관리공단 공영주차장 요금안내(급지별 요금표·급지 구분)",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglotfee_1.do"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값"
+  },
+  {
+   "id": "gb-pohang-071",
+   "mgmt_no": "350-2-000007",
+   "name": "대이동 공영주차장(3공원)",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 20,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "daily_fee": 5000,
+     "monthly": null,
+     "monthly_day": null,
+     "monthly_night": null,
+     "free_min": 5,
+     "basis": "2급지 노외 — 2급지 승용차 기준 최초 20분 500원·초과 10분당 200원·1일 5,000원·5분 이내 면제. 월정기는 공단 게시 이용가능 노외 7개소에 미포함 (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "포항시시설관리공단 공영주차장 요금안내(급지별 요금표·급지 구분)",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglotfee_1.do"
+    },
+    {
+     "name": "공단 공지 '시내노상 공영주차장 월 정기주차 종료 사전안내'(2026-11-20) — 노상 월정기 2026-12-31 종료, 월정기 가능 노외 7개소(죽도시장4·5, 대이동, 이동4, 상도, 대도, 대해시장)",
+     "url": "https://www.phsisul.org/sisul_24/sub/notice_view.do?prc=read&prcValue=d5b5ea9c0e4a71708d5b13c6cbcf499c"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값"
+  },
+  {
+   "id": "gb-pohang-082",
+   "mgmt_no": "351-2-000002",
+   "name": "오거리 공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 20,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "daily_fee": 7000,
+     "monthly": null,
+     "monthly_day": null,
+     "monthly_night": null,
+     "free_min": 5,
+     "basis": "오거리 노외 — 급지표상 '죽도시장오거리 노외' 1급지로 추정, 1급지(죽도시장·영일대 인근) 승용차 기준 최초 20분 500원·초과 10분당 200원·5분 이내 면제·1일 7,000원 (조사값, 확인 2026-11-28). (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "포항시시설관리공단 공영주차장 요금안내(급지별 요금표·급지 구분)",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglotfee_1.do"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 급지표 명칭(죽도시장오거리)과 lot 명칭(오거리) 유사 매칭. 주소 대조 불가."
+  },
+  {
+   "id": "gb-pohang-088",
+   "mgmt_no": "351-2-000003",
+   "name": "죽도어시장 공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 20,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "daily_fee": 7000,
+     "monthly": null,
+     "monthly_day": null,
+     "monthly_night": null,
+     "free_min": 5,
+     "basis": "1급지 노외 — 1급지(죽도시장·영일대 인근) 승용차 기준 최초 20분 500원·초과 10분당 200원·5분 이내 면제·1일 7,000원. 월정기는 공단 게시 이용가능 노외 7개소에 미포함 (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "포항시시설관리공단 공영주차장 요금안내(급지별 요금표·급지 구분)",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglotfee_1.do"
+    },
+    {
+     "name": "공단 공지 '시내노상 공영주차장 월 정기주차 종료 사전안내'(2026-11-20) — 노상 월정기 2026-12-31 종료, 월정기 가능 노외 7개소(죽도시장4·5, 대이동, 이동4, 상도, 대도, 대해시장)",
+     "url": "https://www.phsisul.org/sisul_24/sub/notice_view.do?prc=read&prcValue=d5b5ea9c0e4a71708d5b13c6cbcf499c"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값"
+  },
+  {
+   "id": "gb-pohang-089",
+   "mgmt_no": "351-2-000001",
+   "name": "칠성천 공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 20,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "daily_fee": 7000,
+     "monthly": null,
+     "monthly_day": null,
+     "monthly_night": null,
+     "free_min": 5,
+     "basis": "1급지 노외 — 1급지(죽도시장·영일대 인근) 승용차 기준 최초 20분 500원·초과 10분당 200원·5분 이내 면제·1일 7,000원. 월정기는 공단 게시 이용가능 노외 7개소에 미포함 (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "포항시시설관리공단 공영주차장 요금안내(급지별 요금표·급지 구분)",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglotfee_1.do"
+    },
+    {
+     "name": "공단 공지 '시내노상 공영주차장 월 정기주차 종료 사전안내'(2026-11-20) — 노상 월정기 2026-12-31 종료, 월정기 가능 노외 7개소(죽도시장4·5, 대이동, 이동4, 상도, 대도, 대해시장)",
+     "url": "https://www.phsisul.org/sisul_24/sub/notice_view.do?prc=read&prcValue=d5b5ea9c0e4a71708d5b13c6cbcf499c"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값"
+  },
+  {
+   "id": "gb-pohang-128",
+   "mgmt_no": "350-2-000002",
+   "name": "송도 동빈내항 공영주차장",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 20,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "daily_fee": 5000,
+     "monthly": null,
+     "monthly_day": null,
+     "monthly_night": null,
+     "free_min": 5,
+     "basis": "송도 동빈내항 노외 — 급지표상 '송도삼일' 2급지로 추정, 2급지 승용차 기준 최초 20분 500원·초과 10분당 200원·1일 5,000원·5분 이내 면제 (조사값, 확인 2026-11-28). (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "포항시시설관리공단 공영주차장 요금안내(급지별 요금표·급지 구분)",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglotfee_1.do"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "잠정 — 급지표 명칭(송도삼일)과 lot 명칭 유사 매칭. 주소 대조 불가."
+  },
+  {
+   "id": "gb-pohang-s009",
+   "mgmt_no": "351-1-000005",
+   "name": "시내노상 5구역",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 20,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "daily_fee": 10900,
+     "monthly": 100000,
+     "monthly_day": 100000,
+     "monthly_night": null,
+     "free_min": 5,
+     "basis": "시내노상(1급지) — 1급지(죽도시장·영일대 인근) 승용차 기준 최초 20분 500원·초과 10분당 200원·5분 이내 면제. 공단 현황: 1일 10,900원·월 100,000원(29면, 06~22시). 10:00~19:00·일요일 무료개방. ※노상 월정기 2027-01-01 일괄 종료(공단 공지 2026-11-20) (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "포항시시설관리공단 공영주차장 주차장별 현황",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglot_1.do"
+    },
+    {
+     "name": "포항시시설관리공단 공영주차장 요금안내(급지별 요금표·급지 구분)",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglotfee_1.do"
+    },
+    {
+     "name": "공단 공지 '시내노상 공영주차장 월 정기주차 종료 사전안내'(2026-11-20) — 노상 월정기 2026-12-31 종료, 월정기 가능 노외 7개소(죽도시장4·5, 대이동, 이동4, 상도, 대도, 대해시장)",
+     "url": "https://www.phsisul.org/sisul_24/sub/notice_view.do?prc=read&prcValue=d5b5ea9c0e4a71708d5b13c6cbcf499c"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 공단 lot별 현황 + 급지표 정합"
+  },
+  {
+   "id": "gb-pohang-s010",
+   "mgmt_no": "351-1-000006",
+   "name": "시내노상 6구역",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 20,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "daily_fee": 10900,
+     "monthly": 100000,
+     "monthly_day": 100000,
+     "monthly_night": null,
+     "free_min": 5,
+     "basis": "시내노상(1급지) — 1급지(죽도시장·영일대 인근) 승용차 기준 최초 20분 500원·초과 10분당 200원·5분 이내 면제. 공단 현황: 1일 10,900원·월 100,000원(29면, 06~22시). 10:00~19:00·일요일 무료개방. ※노상 월정기 2027-01-01 일괄 종료(공단 공지 2026-11-20) (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "포항시시설관리공단 공영주차장 주차장별 현황",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglot_1.do"
+    },
+    {
+     "name": "포항시시설관리공단 공영주차장 요금안내(급지별 요금표·급지 구분)",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglotfee_1.do"
+    },
+    {
+     "name": "공단 공지 '시내노상 공영주차장 월 정기주차 종료 사전안내'(2026-11-20) — 노상 월정기 2026-12-31 종료, 월정기 가능 노외 7개소(죽도시장4·5, 대이동, 이동4, 상도, 대도, 대해시장)",
+     "url": "https://www.phsisul.org/sisul_24/sub/notice_view.do?prc=read&prcValue=d5b5ea9c0e4a71708d5b13c6cbcf499c"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 공단 lot별 현황 + 급지표 정합"
+  },
+  {
+   "id": "gb-pohang-s014",
+   "mgmt_no": "351-1-000010",
+   "name": "북부시장 노상",
+   "set": {
+    "fee": {
+     "type": "무료",
+     "base_min": null,
+     "base_fee": null,
+     "unit_min": null,
+     "unit_fee": null,
+     "daily_fee": null,
+     "monthly": null,
+     "free_min": null,
+     "basis": "공단 현황 페이지 '북부시장 앞 노상 공영주차장' 운영시간 '무료개방' 표기 — 무료 운영 (조사값, 확인 2026-11-28). std '유료' 등록과 불일치, 공단 현행 페이지 우선."
+    }
+   },
+   "source": [
+    {
+     "name": "포항시시설관리공단 공영주차장 주차장별 현황",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglot_1.do"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 공단 현황 페이지 무료개방 표기. std(유료)와 충돌, 공단 우선."
+  },
+  {
+   "id": "gb-pohang-s025",
+   "mgmt_no": "351-1-000001",
+   "name": "시내노상 1구역",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 20,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "daily_fee": 10900,
+     "monthly": 100000,
+     "monthly_day": 100000,
+     "monthly_night": null,
+     "free_min": 5,
+     "basis": "시내노상(1급지) — 1급지(죽도시장·영일대 인근) 승용차 기준 최초 20분 500원·초과 10분당 200원·5분 이내 면제. 공단 현황: 1일 10,900원·월 100,000원(29면, 06~22시). 10:00~19:00·일요일 무료개방. ※노상 월정기 2027-01-01 일괄 종료(공단 공지 2026-11-20) (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "포항시시설관리공단 공영주차장 주차장별 현황",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglot_1.do"
+    },
+    {
+     "name": "포항시시설관리공단 공영주차장 요금안내(급지별 요금표·급지 구분)",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglotfee_1.do"
+    },
+    {
+     "name": "공단 공지 '시내노상 공영주차장 월 정기주차 종료 사전안내'(2026-11-20) — 노상 월정기 2026-12-31 종료, 월정기 가능 노외 7개소(죽도시장4·5, 대이동, 이동4, 상도, 대도, 대해시장)",
+     "url": "https://www.phsisul.org/sisul_24/sub/notice_view.do?prc=read&prcValue=d5b5ea9c0e4a71708d5b13c6cbcf499c"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 공단 lot별 현황 + 급지표 정합"
+  },
+  {
+   "id": "gb-pohang-s026",
+   "mgmt_no": "351-1-000002",
+   "name": "시내노상 2구역",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 20,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "daily_fee": 10900,
+     "monthly": 100000,
+     "monthly_day": 100000,
+     "monthly_night": null,
+     "free_min": 5,
+     "basis": "시내노상(1급지) — 1급지(죽도시장·영일대 인근) 승용차 기준 최초 20분 500원·초과 10분당 200원·5분 이내 면제. 공단 현황: 1일 10,900원·월 100,000원(29면, 06~22시). 10:00~19:00·일요일 무료개방. ※노상 월정기 2027-01-01 일괄 종료(공단 공지 2026-11-20) (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "포항시시설관리공단 공영주차장 주차장별 현황",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglot_1.do"
+    },
+    {
+     "name": "포항시시설관리공단 공영주차장 요금안내(급지별 요금표·급지 구분)",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglotfee_1.do"
+    },
+    {
+     "name": "공단 공지 '시내노상 공영주차장 월 정기주차 종료 사전안내'(2026-11-20) — 노상 월정기 2026-12-31 종료, 월정기 가능 노외 7개소(죽도시장4·5, 대이동, 이동4, 상도, 대도, 대해시장)",
+     "url": "https://www.phsisul.org/sisul_24/sub/notice_view.do?prc=read&prcValue=d5b5ea9c0e4a71708d5b13c6cbcf499c"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 공단 lot별 현황 + 급지표 정합"
+  },
+  {
+   "id": "gb-pohang-s039",
+   "mgmt_no": "351-1-000011",
+   "name": "영일대해수욕장 노상",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 20,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "daily_fee": 10900,
+     "monthly": null,
+     "monthly_day": null,
+     "monthly_night": null,
+     "free_min": 5,
+     "basis": "영일대 노상(1급지) — 1급지(죽도시장·영일대 인근) 승용차 기준 최초 20분 500원·초과 10분당 200원·5분 이내 면제. 공단 현황: 1일 10,900원. 12:00~21:00·일요일 무료개방 (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "포항시시설관리공단 공영주차장 주차장별 현황",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglot_1.do"
+    },
+    {
+     "name": "포항시시설관리공단 공영주차장 요금안내(급지별 요금표·급지 구분)",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglotfee_1.do"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값"
+  },
+  {
+   "id": "gb-pohang-s130",
+   "mgmt_no": "351-1-000007",
+   "name": "시내노상 7구역",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 20,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "daily_fee": 10900,
+     "monthly": 100000,
+     "monthly_day": 100000,
+     "monthly_night": null,
+     "free_min": 5,
+     "basis": "시내노상(1급지) — 1급지(죽도시장·영일대 인근) 승용차 기준 최초 20분 500원·초과 10분당 200원·5분 이내 면제. 공단 현황: 1일 10,900원·월 100,000원(29면, 06~22시). 10:00~19:00·일요일 무료개방. ※노상 월정기 2027-01-01 일괄 종료(공단 공지 2026-11-20) (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "포항시시설관리공단 공영주차장 주차장별 현황",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglot_1.do"
+    },
+    {
+     "name": "포항시시설관리공단 공영주차장 요금안내(급지별 요금표·급지 구분)",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglotfee_1.do"
+    },
+    {
+     "name": "공단 공지 '시내노상 공영주차장 월 정기주차 종료 사전안내'(2026-11-20) — 노상 월정기 2026-12-31 종료, 월정기 가능 노외 7개소(죽도시장4·5, 대이동, 이동4, 상도, 대도, 대해시장)",
+     "url": "https://www.phsisul.org/sisul_24/sub/notice_view.do?prc=read&prcValue=d5b5ea9c0e4a71708d5b13c6cbcf499c"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 공단 lot별 현황 + 급지표 정합"
+  },
+  {
+   "id": "gb-pohang-s131",
+   "mgmt_no": "351-1-000008",
+   "name": "시내노상 8구역",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 20,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "daily_fee": 10900,
+     "monthly": 100000,
+     "monthly_day": 100000,
+     "monthly_night": null,
+     "free_min": 5,
+     "basis": "시내노상(1급지) — 1급지(죽도시장·영일대 인근) 승용차 기준 최초 20분 500원·초과 10분당 200원·5분 이내 면제. 공단 현황: 1일 10,900원·월 100,000원(29면, 06~22시). 10:00~19:00·일요일 무료개방. ※노상 월정기 2027-01-01 일괄 종료(공단 공지 2026-11-20) (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "포항시시설관리공단 공영주차장 주차장별 현황",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglot_1.do"
+    },
+    {
+     "name": "포항시시설관리공단 공영주차장 요금안내(급지별 요금표·급지 구분)",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglotfee_1.do"
+    },
+    {
+     "name": "공단 공지 '시내노상 공영주차장 월 정기주차 종료 사전안내'(2026-11-20) — 노상 월정기 2026-12-31 종료, 월정기 가능 노외 7개소(죽도시장4·5, 대이동, 이동4, 상도, 대도, 대해시장)",
+     "url": "https://www.phsisul.org/sisul_24/sub/notice_view.do?prc=read&prcValue=d5b5ea9c0e4a71708d5b13c6cbcf499c"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 공단 lot별 현황 + 급지표 정합"
+  },
+  {
+   "id": "gb-pohang-s150",
+   "mgmt_no": "351-1-000009",
+   "name": "죽도어시장 앞 노상",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 20,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "daily_fee": 10900,
+     "monthly": null,
+     "monthly_day": null,
+     "monthly_night": null,
+     "free_min": 5,
+     "basis": "죽도어시장 앞 노상(1급지) — 1급지(죽도시장·영일대 인근) 승용차 기준 최초 20분 500원·초과 10분당 200원·5분 이내 면제. 공단 현황: 1일 10,900원. 10:00~19:00·월요일 무료개방 (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "포항시시설관리공단 공영주차장 주차장별 현황",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglot_1.do"
+    },
+    {
+     "name": "포항시시설관리공단 공영주차장 요금안내(급지별 요금표·급지 구분)",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglotfee_1.do"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값"
+  },
+  {
+   "id": "gb-pohang-s151",
+   "mgmt_no": "351-1-000004",
+   "name": "시내노상 4구역",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 20,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "daily_fee": 10900,
+     "monthly": 100000,
+     "monthly_day": 100000,
+     "monthly_night": null,
+     "free_min": 5,
+     "basis": "시내노상(1급지) — 1급지(죽도시장·영일대 인근) 승용차 기준 최초 20분 500원·초과 10분당 200원·5분 이내 면제. 공단 현황: 1일 10,900원·월 100,000원(29면, 06~22시). 10:00~19:00·일요일 무료개방. ※노상 월정기 2027-01-01 일괄 종료(공단 공지 2026-11-20) (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "포항시시설관리공단 공영주차장 주차장별 현황",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglot_1.do"
+    },
+    {
+     "name": "포항시시설관리공단 공영주차장 요금안내(급지별 요금표·급지 구분)",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglotfee_1.do"
+    },
+    {
+     "name": "공단 공지 '시내노상 공영주차장 월 정기주차 종료 사전안내'(2026-11-20) — 노상 월정기 2026-12-31 종료, 월정기 가능 노외 7개소(죽도시장4·5, 대이동, 이동4, 상도, 대도, 대해시장)",
+     "url": "https://www.phsisul.org/sisul_24/sub/notice_view.do?prc=read&prcValue=d5b5ea9c0e4a71708d5b13c6cbcf499c"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 공단 lot별 현황 + 급지표 정합"
+  },
+  {
+   "id": "gb-pohang-s213",
+   "mgmt_no": "351-1-000003",
+   "name": "시내노상 3구역",
+   "set": {
+    "fee": {
+     "type": "유료",
+     "base_min": 20,
+     "base_fee": 500,
+     "unit_min": 10,
+     "unit_fee": 200,
+     "daily_fee": 10900,
+     "monthly": 100000,
+     "monthly_day": 100000,
+     "monthly_night": null,
+     "free_min": 5,
+     "basis": "시내노상(1급지) — 1급지(죽도시장·영일대 인근) 승용차 기준 최초 20분 500원·초과 10분당 200원·5분 이내 면제. 공단 현황: 1일 10,900원·월 100,000원(29면, 06~22시). 10:00~19:00·일요일 무료개방. ※노상 월정기 2027-01-01 일괄 종료(공단 공지 2026-11-20) (조사값, 확인 2026-11-28)."
+    }
+   },
+   "source": [
+    {
+     "name": "포항시시설관리공단 공영주차장 주차장별 현황",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglot_1.do"
+    },
+    {
+     "name": "포항시시설관리공단 공영주차장 요금안내(급지별 요금표·급지 구분)",
+     "url": "https://www.phsisul.org/sisul_24/sub/parkinglotfee_1.do"
+    },
+    {
+     "name": "공단 공지 '시내노상 공영주차장 월 정기주차 종료 사전안내'(2026-11-20) — 노상 월정기 2026-12-31 종료, 월정기 가능 노외 7개소(죽도시장4·5, 대이동, 이동4, 상도, 대도, 대해시장)",
+     "url": "https://www.phsisul.org/sisul_24/sub/notice_view.do?prc=read&prcValue=d5b5ea9c0e4a71708d5b13c6cbcf499c"
+    }
+   ],
+   "value_kind": "조사값",
+   "confidence": "조사값 — 공단 lot별 현황 + 급지표 정합"
+  }
+ ]
+}
