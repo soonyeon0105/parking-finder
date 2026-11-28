@@ -1226,6 +1226,83 @@ if SITE_BASE + "/404.html" in locs:
     fails.append("사이트맵에 404 포함")
 print(f"도시별 확장 규칙 검사 완료 (페이지 {len(pages)} · 사이트맵 {len(locs)})")
 
+# 월주차(정기권) 신청 정보 (P3-2 v1.2) — 파일럿 5개 도시(안산·부천·성남·시흥·수원).
+# 원천 data/monthly_parking.json. 5종 정보(신청 기관·신청 시기·신청 방식·연락처·확인일)
+# 전건에 출처·확인일이 있고, 상세페이지 블록은 가격 있음/없음 표기 규칙을 지키며 빈칸이
+# 없어야 한다. dist 파일 수는 Cloudflare Pages 상한 20,000개 아래여야 한다(PR #154 교훈).
+_mo_data = json.loads((BASE / "data" / "monthly_parking.json").read_text())
+_mo_cities = _mo_data.get("cities") or {}
+_mo_pilot = ("안산시", "부천시", "성남시", "시흥시", "수원시")
+for _mo_name in _mo_pilot:
+    _mo_info = _mo_cities.get(_mo_name) or {}
+    for _mo_key in ("agency", "apply_period", "apply_method", "contact",
+                    "confirmed_at", "source"):
+        if not (_mo_info.get(_mo_key) or "").strip():
+            fails.append(f"월주차 정보 누락: {_mo_name} {_mo_key}")
+    if not (_mo_info.get("portal_url") or "").strip().startswith("https://"):
+        fails.append(f"월주차 신청 링크 누락: {_mo_name}")
+_mo_city_by_name = {c["city"]: c for c in CITIES}
+_mo_detail = 0
+_mo_price_ok = 0
+_mo_noprice_ok = 0
+for _mo_lot in LOTS:
+    _mo_name = _mo_lot.get("city")
+    if _mo_name not in _mo_cities:
+        continue
+    if _mo_lot["fee"]["type"] == "무료" or (_mo_lot.get("spaces") or 0) < 50:
+        continue
+    _mo_city = _mo_city_by_name[_mo_name]
+    _mo_rel = (f"parking/{_mo_lot.get('province_slug') or _mo_city.get('province_slug')}/"
+               f"{_mo_city['slug']}/{_mo_lot['id']}/index.html")
+    _mo_p = DIST / _mo_rel
+    if not _mo_p.exists():
+        fails.append(f"월주차 파일럿 상세페이지 없음: {_mo_rel}")
+        continue
+    _mo_detail += 1
+    _mo_html = _mo_p.read_text()
+    if "월주차(정기권) 신청 정보" not in _mo_html:
+        fails.append(f"월주차 블록 없음: {_mo_rel}")
+        continue
+    _mo_block = _mo_html.split("월주차(정기권) 신청 정보", 1)[1].split("</table>", 1)[0]
+    if "<td></td>" in _mo_block or "<td> </td>" in _mo_block:
+        fails.append(f"월주차 블록 빈칸 있음: {_mo_rel}")
+    _mo_info = _mo_cities[_mo_name]
+    for _mo_key in ("agency", "contact", "confirmed_at"):
+        _mo_v = (_mo_info.get(_mo_key) or "").strip()
+        if _mo_v and html_lib.escape(_mo_v, quote=True) not in _mo_html:
+            fails.append(f"월주차 블록 정보 누락({_mo_key}): {_mo_rel}")
+    if (_mo_info.get("portal_url") or "").strip() not in _mo_html:
+        fails.append(f"월주차 블록 신청 링크 누락: {_mo_rel}")
+    _mo_fee = _mo_lot["fee"]
+    if _mo_fee.get("monthly") or _mo_fee.get("monthly_night") or _mo_fee.get("monthly_all"):
+        _mo_price_ok += 1
+        if "월주차 가격 확인 중" in _mo_block:
+            fails.append(f"월주차 가격 있는데 '확인 중' 표기: {_mo_rel}")
+    else:
+        _mo_noprice_ok += 1
+        if "월주차 가격 확인 중" not in _mo_block:
+            fails.append(f"월주차 가격 없는데 '확인 중' 표기 없음: {_mo_rel}")
+_mo_hub = DIST / "monthly" / "index.html"
+if not _mo_hub.exists():
+    fails.append("월주차 모아보기 페이지 없음: /monthly/")
+else:
+    _mo_hub_html = _mo_hub.read_text()
+    for _mo_name in _mo_pilot:
+        if _mo_name not in _mo_hub_html:
+            fails.append(f"월주차 모아보기에서 도시 누락: {_mo_name}")
+        _mo_info = _mo_cities.get(_mo_name) or {}
+        for _mo_key in ("agency", "apply_period", "apply_method", "contact", "confirmed_at"):
+            _mo_v = (_mo_info.get(_mo_key) or "").strip()
+            if _mo_v and html_lib.escape(_mo_v, quote=True) not in _mo_hub_html:
+                fails.append(f"월주차 모아보기 정보 누락({_mo_name} {_mo_key})")
+    if "<td></td>" in _mo_hub_html or "<td> </td>" in _mo_hub_html:
+        fails.append("월주차 모아보기: 빈칸 셀 있음")
+_mo_n_files = sum(1 for _ in DIST.rglob("*") if _.is_file())
+if _mo_n_files >= 20000:
+    fails.append(f"dist 파일 수 Cloudflare Pages 상한(20,000) 초과: {_mo_n_files:,}개")
+print(f"월주차 검사 완료 (파일럿 상세 {_mo_detail}곳 · 가격 있음 {_mo_price_ok}곳 · "
+      f"가격 확인 중 {_mo_noprice_ok}곳 · dist {_mo_n_files:,}개)")
+
 # ---------------------------------------------------------------- EV 상세 Functions 생성물 (안 A)
 # 정적 검사는 Functions 경로를 직접 실행하지 못하므로, 생성물을 검사한다:
 # 지역별 JSON(충전소 전량·상세 대상 표시·근처 주차장), 템플릿(토큰 완비),

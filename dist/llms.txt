@@ -7,6 +7,7 @@
 - [홈 — 지역별 공영주차장 요금계산기](https://parking.9welfare.com/)
 - [지역 전체 목록 — 시·도·시·군·구·동](https://parking.9welfare.com/parking/regions/)
 - [무료 개방 주차장 모아보기](https://parking.9welfare.com/parking/free/)
+- [월주차·정기권 신청 정보 모아보기](https://parking.9welfare.com/monthly/)
 - [전기차 충전소 찾기](https://parking.9welfare.com/ev/)
 - [내 주변 전기차 충전소](https://parking.9welfare.com/ev/nearby/)
 - [데이터 출처와 계산 기준](https://parking.9welfare.com/about/)

@@ -48,6 +48,8 @@ GA_MEASUREMENT_ID = ""                        # data/site.json 의 ga_measuremen
 ADSENSE = {"client": "", "slot_top": "", "slot_inline": "", "enabled": False}
 EV_NEARBY: dict = {}        # data/ev_nearby.json 의 lots — 주차장 id → 근처 충전소(prepare_ev.py 산출)
 EV_META: dict = {}          # data/ev_nearby.json 의 meta — 수집 시각·기준 거리·집계
+MONTHLY_FILE = BASE / "data" / "monthly_parking.json"   # 파일럿 도시 월주차(정기권) 신청 정보(P3-2 v1.2)
+MONTHLY: dict = {}          # data/monthly_parking.json 의 cities — 도시명 → 월주차 신청 정보(5종)
 ERROR_REPORT_FORM_URL = (                     # 오류 제보 구글 폼 (이메일 자동 수집 꺼짐 · 지역/주차장명·오류 유형·상세 내용 3개 항목)
     "https://docs.google.com/forms/d/e/"
     "1FAIpQLSfRQ0lo_FnZ9PqQ25CU6e43cfrc5_QHDEITMn8lUG9VNgirCw/viewform"
@@ -9653,6 +9655,69 @@ def detail_description(city, lot) -> str:
             + ". 요금 계산기·운영시간·감면 정보를 공공데이터로 정리했습니다.")
 
 
+def _monthly_value(info, key) -> str:
+    """월주차 정보 항목 — 없으면 '신청 정보 확인 중'(빈칸 금지, P3-2)."""
+    v = (info or {}).get(key)
+    return esc(v.strip()) if isinstance(v, str) and v.strip() else "신청 정보 확인 중"
+
+
+def monthly_block(city, lot, path) -> str:
+    """상세페이지 월주차(정기권) 신청 정보 블록 — 파일럿 도시만(P3-2 v1.2).
+
+    무료 주차장은 상세페이지 대상이 아니라서 이 함수에 닿지 않지만, 혹시 닿아도 블록을 내지 않는다.
+    가격은 DB 값 그대로 표시만 한다(판정 절차 외 요금 변경 금지).
+    """
+    info = MONTHLY.get(city["city"])
+    if not info:
+        return ""
+    fee = lot["fee"]
+    if fee.get("type") == "무료":
+        return ""
+    # 가격 — 전일/야간이 따로 있으면 둘 다 적는다(시흥 전일·야간 2종).
+    # 안산은 월 단위가 아니라 분기(3개월) 단위 판매 — DB 월 환산액에 분기 결제액을 병기한다.
+    price_bits = []
+    if fee.get("monthly"):
+        m = fee["monthly"]
+        if city["city"] == "안산시":
+            price_bits.append(f"월 {won(m)}(분기 {won(m * 3)} 단위 결제)")
+        elif fee.get("monthly_night"):
+            price_bits.append(f"전일 월 {won(m)}")
+        else:
+            price_bits.append(f"월 {won(m)}")
+    if fee.get("monthly_night"):
+        price_bits.append(f"야간 월 {won(fee['monthly_night'])}")
+    if fee.get("monthly_all"):
+        price_bits.append(f"주야간 월 {won(fee['monthly_all'])}")
+    price = " · ".join(price_bits) if price_bits else "월주차 가격 확인 중"
+    portal_url = (info.get("portal_url") or "").strip()
+    portal_name = (info.get("portal_name") or "").strip()
+    if portal_url and portal_name:
+        link = (f'<a href="{esc(portal_url)}" target="_blank" rel="nofollow noopener">'
+                f"{esc(portal_name)} 바로가기</a>")
+    else:
+        link = "신청 정보 확인 중"
+    confirmed = (info.get("confirmed_at") or "").strip()
+    source = (info.get("source") or "").strip()
+    check = (f"정보 확인일 {esc(confirmed)} · 출처: {esc(source)}"
+             if confirmed and source else "신청 정보 확인 중")
+    rows = [
+        ("월정기 가격", price),
+        ("계약 단위", _monthly_value(info, "contract_unit")),
+        ("신청 기관", _monthly_value(info, "agency")),
+        ("신청 시기", _monthly_value(info, "apply_period")),
+        ("신청 방식", _monthly_value(info, "apply_method")),
+        ("연락처", _monthly_value(info, "contact")),
+        ("신청 링크", link),
+        ("확인일", check),
+    ]
+    body_rows = "".join(f"<tr><td>{label}</td><td>{v}</td></tr>" for label, v in rows)
+    return (f"<h2>월주차(정기권) 신청 정보</h2>\n"
+            f'<table class="data">\n  <tbody>{body_rows}</tbody>\n</table>\n'
+            f'<p>월정기 요금은 이 주차장의 등록값 기준이며, 신청·잔여 구획·감면 적용은 '
+            f"신청 기관에서 최종 확인하세요. 다른 도시의 월주차 정보는 "
+            f'<a href="{rel(path, "/monthly/")}">월주차·정기권 모아보기</a>에서 볼 수 있습니다.</p>\n')
+
+
 def build_lot_detail(city, lot, site, existing_paths, dong_path=None):
     """큰 유료 주차장 1곳의 개별 상세페이지. 시·동 페이지와 같은 계산기·카드를 재사용한다."""
     path = detail_path(city, lot)
@@ -9770,9 +9835,14 @@ def build_lot_detail(city, lot, site, existing_paths, dong_path=None):
             qa.append((f"{name} 주차요금은 얼마인가요?",
                        f"{name}의 요금은 공개 데이터에 등록되어 있지 않아 현장 확인이 필요합니다."))
     if fee.get("monthly") and fee["type"] == "유료":
+        _mo = MONTHLY.get(city["city"]) or {}
+        _mo_tail = ""
+        if _mo.get("portal_name"):
+            _mo_tail = (f" 신청은 {_mo['portal_name']}에서 할 수 있습니다. 자세한 신청 시기와 방법은 "
+                        f"아래 '월주차(정기권) 신청 정보' 표를 보세요.")
         qa.append((f"{name} 월정기 요금은 얼마인가요?",
                    f"월정기 요금은 월 {won(fee['monthly'])}입니다. 신청 방법과 잔여 구획은 "
-                   f"관리기관({lot.get('manager') or '관리기관'})에 확인하세요."))
+                   f"관리기관({lot.get('manager') or '관리기관'})에 확인하세요.{_mo_tail}"))
     qa.append((f"{name} 운영시간은 어떻게 되나요?",
                f"{name}은(는) {hours_text(lot)} 운영합니다."))
     if lot["free_days"].get("sat") or lot["free_days"].get("sun"):
@@ -9863,7 +9933,7 @@ def build_lot_detail(city, lot, site, existing_paths, dong_path=None):
 
 <h2>시간별 예상 요금 (평일·일반 차량)</h2>
 {est_block}
-{free_block}{ev_block(lot, path)}
+{free_block}{ev_block(lot, path)}{monthly_block(city, lot, path)}
 <h2>감면 안내 — {esc(city['city'])} 공통</h2>
 <ul>{disc_items}</ul>
 <p class="updated">감면은 {esc(city['city'])} 조례 기준의 공통 안내입니다. 이 주차장에서 실제로 적용되는
@@ -19713,6 +19783,99 @@ def build_about(site):
         jsonld=[jsonld_breadcrumb(crumbs, path), about_ld])
 
 
+def build_monthly_hub(site):
+    """ /monthly/ — 월주차·정기권 신청 정보 모아보기 (P3-2 v1.2, 파일럿 5개 도시).
+
+    도시별 5종 정보(신청 기관·신청 시기·신청 방식·연락처·확인일)를 한곳에 모은다.
+    미확인 항목은 '신청 정보 확인 중'으로 표기하고 도시를 빼지 않는다.
+    """
+    path = "/monthly/"
+    order = ["안산시", "부천시", "성남시", "시흥시", "수원시"]
+    city_by_name = {c["city"]: c for c in site["cities"]}
+    sections = []
+    chips = []
+    for name in order:
+        info = MONTHLY.get(name)
+        city = city_by_name.get(name)
+        if city is None:
+            continue
+        lots = city.get("_lots") or []
+        n_paid = sum(1 for l in lots if l["fee"]["type"] == "유료")
+        n_monthly = sum(1 for l in lots
+                        if l["fee"].get("monthly") or l["fee"].get("monthly_night")
+                        or l["fee"].get("monthly_all"))
+        if not info:
+            rows = [(k, "신청 정보 확인 중") for k in
+                    ("신청 기관", "신청 시기", "신청 방식", "연락처")]
+            rows.append(("신청 링크", "신청 정보 확인 중"))
+            rows.append(("확인일", "신청 정보 확인 중"))
+        else:
+            portal_url = (info.get("portal_url") or "").strip()
+            portal_name = (info.get("portal_name") or "").strip()
+            link = (f'<a href="{esc(portal_url)}" target="_blank" rel="nofollow noopener">'
+                    f"{esc(portal_name)} 바로가기</a>"
+                    if portal_url and portal_name else "신청 정보 확인 중")
+            confirmed = (info.get("confirmed_at") or "").strip()
+            source = (info.get("source") or "").strip()
+            check = (f"정보 확인일 {esc(confirmed)} · 출처: {esc(source)}"
+                     if confirmed and source else "신청 정보 확인 중")
+            rows = [
+                ("신청 기관", _monthly_value(info, "agency")),
+                ("신청 시기", _monthly_value(info, "apply_period")),
+                ("신청 방식", _monthly_value(info, "apply_method")),
+                ("계약 단위", _monthly_value(info, "contract_unit")),
+                ("월정기 요금표", _monthly_value(info, "price_note")),
+            ]
+            # 부가 항목(감면·결제·환불)은 확인된 도시만 행으로 싣는다 — 없는 항목을
+            # '확인 중'으로 채우지 않는다(5종 핵심 정보만 '확인 중' 표기 대상이다).
+            for _label, _key in (("감면", "discount"), ("결제", "payment"), ("환불", "refund")):
+                if (info.get(_key) or "").strip():
+                    rows.append((_label, _monthly_value(info, _key)))
+            rows += [
+                ("연락처", _monthly_value(info, "contact")),
+                ("신청 링크", link),
+                ("확인일", check),
+            ]
+            if (info.get("extra_note") or "").strip():
+                rows.append(("참고", esc(info["extra_note"].strip())))
+        body_rows = "".join(f"<tr><td>{label}</td><td>{v}</td></tr>" for label, v in rows)
+        slug = city["slug"]
+        chips.append(f'<a class="pchip" href="#monthly-{esc(slug)}">{esc(name)}</a>')
+        sections.append(
+            f'<h2 id="monthly-{esc(slug)}">{esc(name)} — 월주차(정기권) 신청 정보</h2>\n'
+            f"<p>공영주차장 {len(lots):,}곳 · 유료 {n_paid}곳 · 월주차 가격 등록 {n_monthly}곳. "
+            f'<a href="{rel(path, city_path(city))}">{esc(name)} 공영주차장 전체 보기 →</a></p>\n'
+            f'<table class="data">\n  <tbody>{body_rows}</tbody>\n</table>\n')
+    body = f"""
+<div class="prose">
+<h1>월주차·정기권 신청 정보 모아보기</h1>
+<p class="lede">안산·부천·성남·시흥·수원 공영주차장의 월주차(정기권) 신청 기관·신청 시기·신청 방법·연락처를
+한곳에 모았습니다. 계약 단위가 도시마다 다릅니다 — 안산은 분기(3개월) 단위, 부천은 월 단위·1년 계약,
+성남은 대기등록 순번제, 시흥은 6개월 계약·권역별 연 2회 추첨, 수원은 대기자 순번제 또는 연 3회 추첨입니다.</p>
+<p class="updated">파일럿 5개 도시 · 정보 확인일 2026-11-28 · 요금은 각 주차장의 등록값 기준이며 최종 기준은 각 도시공사·지자체 안내입니다.</p>
+<nav class="prov-chips" aria-label="파일럿 도시 바로가기">{''.join(chips)}</nav>
+{''.join(sections)}
+<h2>안내</h2>
+<ul>
+  <li>이 페이지는 파일럿 5개 도시만 다룹니다. 다른 도시의 월주차 정보는 확인되는 대로 추가합니다.</li>
+  <li>월정기 요금은 각 주차장 상세 페이지의 등록값이 기준입니다. 주차장별 요금·잔여 구획·감면 적용은 신청 기관에서 최종 확인하세요.</li>
+  <li>신청 시기가 다가오면 해당 도시 주차장 상세 페이지의 '월주차(정기권) 신청 정보' 표에서 신청 링크를 바로 열 수 있습니다.</li>
+</ul>
+</div>
+"""
+    crumbs = [("홈", "/"), ("월주차·정기권", "")]
+    hub_ld = {"@context": "https://schema.org", "@type": "CollectionPage",
+              "name": f"월주차·정기권 신청 정보 모아보기 — {SITE_NAME}",
+              "url": SITE_BASE + path,
+              "description": "안산·부천·성남·시흥·수원 공영주차장 월주차(정기권) 신청 기관·신청 시기·신청 방법·연락처 안내"}
+    return path, layout(
+        title=f"월주차·정기권 신청 정보 모아보기 — 안산·부천·성남·시흥·수원 | {SITE_NAME}",
+        description=("안산·부천·성남·시흥·수원 공영주차장 월주차(정기권) 신청 기관·신청 시기·신청 방법·연락처를 "
+                     "한곳에 모았습니다. 계약 단위(분기·1년·대기 순번제·6개월·연 3회 추첨)와 신청 링크를 함께 안내합니다."),
+        path=path, body=body, crumbs=crumbs, nav_active="", city=None,
+        jsonld=[jsonld_breadcrumb(crumbs, path), hub_ld])
+
+
 def build_contact(site):
     """ /contact/ — 문의 안내. 개인 이름·이메일은 드러내지 않고 익명 구글 폼만 둔다."""
     path = "/contact/"
@@ -20308,6 +20471,22 @@ def load_ev() -> tuple[dict, dict]:
     return data.get("lots") or {}, data.get("meta") or {}
 
 
+def load_monthly() -> dict:
+    """data/monthly_parking.json — 파일럿 도시의 월주차(정기권) 신청 정보(도시별 5종:
+    신청 기관·신청 시기·신청 방식·연락처·확인일 + 계약 단위·포털 링크·출처).
+
+    파일이 없거나 깨지면 빈 dict를 돌려 월주차 블록·모아보기 전체를 끈다(빌드는 계속된다).
+    """
+    if not MONTHLY_FILE.exists():
+        return {}
+    try:
+        data = json.loads(MONTHLY_FILE.read_text())
+    except (json.JSONDecodeError, OSError):
+        return {}
+    cities = data.get("cities") or {}
+    return cities if isinstance(cities, dict) else {}
+
+
 def legacy_dong_redirects(site) -> list:
     """수원시에서 2026-11-18 이전에 만들었던 1~2곳짜리 동 페이지 18개 → 구 허브로 301.
 
@@ -20355,7 +20534,7 @@ def buyeo_redirects(pages) -> list:
 
 def main():
     global BUILD_TS, SITE_BASE, SNAPSHOT_TS, SITE_CITIES, GA_MEASUREMENT_ID
-    global PROVINCE_ORDER, HOLIDAYS, ADSENSE, EV_NEARBY, EV_META
+    global PROVINCE_ORDER, HOLIDAYS, ADSENSE, EV_NEARBY, EV_META, MONTHLY
     ap = argparse.ArgumentParser()
     ap.add_argument("--base", default=SITE_BASE)
     args = ap.parse_args()
@@ -20374,6 +20553,9 @@ def main():
     if EV_META:
         print(f"전기차 충전소 연결: 근처 충전소가 있는 주차장 {EV_META.get('n_lots_near', 0)}곳 · "
               f"충전 가능(안에 있음) {EV_META.get('n_lots_onsite', 0)}곳")
+    MONTHLY = load_monthly()
+    if MONTHLY:
+        print(f"월주차 신청 정보 연결: 파일럿 {len(MONTHLY)}개 도시")
     for l in site["lots"]:
         if l["id"] in EV_NEARBY:
             l["ev"] = EV_NEARBY[l["id"]]
@@ -20423,7 +20605,8 @@ def main():
 
     pages = [build_landing(site), build_privacy(site),
              build_free_hub(site), build_regions(site),
-             build_about(site), build_contact(site), build_terms(site)]
+             build_about(site), build_monthly_hub(site),
+             build_contact(site), build_terms(site)]
     pages += [build_province_hub(prov, site) for prov in province_order(site)]
     pages += [build_province_free(prov, site) for prov in province_order(site)]
     for city in site["cities"]:
@@ -20592,6 +20775,7 @@ def main():
         f"- [홈 — 지역별 공영주차장 요금계산기]({SITE_BASE}/)",
         f"- [지역 전체 목록 — 시·도·시·군·구·동]({SITE_BASE}/parking/regions/)",
         f"- [무료 개방 주차장 모아보기]({SITE_BASE}/parking/free/)",
+        f"- [월주차·정기권 신청 정보 모아보기]({SITE_BASE}/monthly/)",
         f"- [전기차 충전소 찾기]({SITE_BASE}/ev/)",
         f"- [내 주변 전기차 충전소]({SITE_BASE}/ev/nearby/)",
         f"- [데이터 출처와 계산 기준]({SITE_BASE}/about/)",
