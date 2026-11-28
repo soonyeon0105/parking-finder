@@ -20418,6 +20418,7 @@ def main():
     # 개별 상세페이지 — 큰 유료 주차장 전부(운영자 결정 2026-11-20). 시·동 페이지가
     # 다 만들어진 뒤에 붙여야 동 페이지 존재 여부를 보고 역링크를 걸 수 있다.
     existing_paths = {p for p, _ in pages}
+    detail_paths = set()
     n_detail = 0
     for city in site["cities"]:
         # 동 페이지 경로 맵 — 본문 루프와 같은 조건(동 미상·최소 곳수)으로 만든 것만.
@@ -20450,6 +20451,7 @@ def main():
                 city, lot, site, existing_paths,
                 dong_path=dong_paths.get((lot.get("gu"), lot.get("dong")))))
             existing_paths.add(p)
+            detail_paths.add(p)
             n_detail += 1
     print(f"개별 상세페이지: {n_detail}개")
 
@@ -20480,20 +20482,34 @@ def main():
     lastmod_tag = f"<lastmod>{lastmod}</lastmod>" if re.match(r"^\d{4}-\d{2}-\d{2}$", lastmod) else ""
     low_prio = {"/privacy/": ("yearly", "0.3"), "/about/": ("monthly", "0.4"),
                 "/contact/": ("yearly", "0.3"), "/terms/": ("yearly", "0.2")}
-    urls = []
+    # 사이트맵 분리 (2026-11-28, 구글 색인 회복 대응): 핵심(홈·목록·허브)은
+    # sitemap-core.xml, 개별 상세페이지는 sitemap-lots.xml로 나눠 sitemap.xml을
+    # 인덱스로 둔다. 페이지를 빼거나 noindex를 거는 게 아니라 제출 목록의
+    # 구성만 나누는 것 — 상세도 인덱스를 통해 그대로 발견된다.
+    core_urls, lot_urls = [], []
     for p, _ in pages:
         if p in low_prio:
             freq, prio = low_prio[p]
-            urls.append(f"  <url><loc>{SITE_BASE}{p}</loc>{lastmod_tag}<changefreq>{freq}</changefreq>"
-                        f"<priority>{prio}</priority></url>")
+            entry = (f"  <url><loc>{SITE_BASE}{p}</loc>{lastmod_tag}<changefreq>{freq}</changefreq>"
+                     f"<priority>{prio}</priority></url>")
+            core_urls.append(entry)
             continue
         prio = "1.0" if p == "/" else ("0.9" if p.count("/") <= 4 else "0.7")
-        urls.append(f"  <url><loc>{SITE_BASE}{p}</loc>{lastmod_tag}<changefreq>weekly</changefreq>"
-                    f"<priority>{prio}</priority></url>")
-    urls = "\n".join(urls)
+        entry = (f"  <url><loc>{SITE_BASE}{p}</loc>{lastmod_tag}<changefreq>weekly</changefreq>"
+                 f"<priority>{prio}</priority></url>")
+        (lot_urls if p in detail_paths else core_urls).append(entry)
+    urlset_head = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    (DIST / "sitemap-core.xml").write_text(urlset_head + "\n".join(core_urls) + "\n</urlset>\n")
+    (DIST / "sitemap-lots.xml").write_text(urlset_head + "\n".join(lot_urls) + "\n</urlset>\n")
     (DIST / "sitemap.xml").write_text(
-        f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}\n</urlset>\n')
-    (DIST / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE_BASE}/sitemap.xml\n")
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"  <sitemap><loc>{SITE_BASE}/sitemap-core.xml</loc>{lastmod_tag}</sitemap>\n"
+        f"  <sitemap><loc>{SITE_BASE}/sitemap-lots.xml</loc>{lastmod_tag}</sitemap>\n"
+        "</sitemapindex>\n")
+    (DIST / "robots.txt").write_text(
+        f"User-agent: *\nAllow: /\nSitemap: {SITE_BASE}/sitemap.xml\nSitemap: {SITE_BASE}/sitemap-core.xml\n")
+    print(f"사이트맵: 핵심 {len(core_urls)}개 + 상세 {len(lot_urls)}개 (인덱스 분리)")
 
     print(f"생성 완료: {len(pages)}페이지 + 404.html + {NAVER_VERIFICATION_FILE} · dist/")
     for p, _ in pages:

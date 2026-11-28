@@ -17,6 +17,23 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 BASE = Path(__file__).resolve().parent.parent
 DIST = BASE / "dist"
+
+
+def _sitemap_text():
+    """sitemap.xml이 인덱스면 참조 파일을 합쳐서 반환한다 (2026-11-28 분리 개편 대응)."""
+    sm = (DIST / "sitemap.xml").read_text()
+    if "<sitemapindex" in sm:
+        parts = [sm]
+        for _m in re.findall(r"<loc>([^<]+)</loc>", sm):
+            _rel = _m.replace(SITE_BASE + "/", "")
+            _p = DIST / _rel
+            if _p.exists():
+                parts.append(_p.read_text())
+        return "\n".join(parts)
+    return sm
+
+
+_SITEMAP_TEXT = _sitemap_text()
 DATA = json.loads((BASE / "data" / "site.json").read_text())
 CITIES = DATA["cities"]
 LOTS = DATA["lots"]
@@ -270,7 +287,7 @@ else:
     for word in ("지역·주차장명", "오류 유형", "자동으로 모으지 않습니다"):
         if word not in h_priv:
             fails.append(f"privacy: 폼 안내 '{word}' 없음")
-if "https://parking.9welfare.com/privacy/" not in (DIST / "sitemap.xml").read_text():
+if "https://parking.9welfare.com/privacy/" not in _SITEMAP_TEXT:
     fails.append("사이트맵에 /privacy/ 없음")
 
 foot_re = re.compile(r'<footer class="site-foot">.*?</footer>', re.S)
@@ -1184,8 +1201,8 @@ for city in CITIES:
             fails.append(f"{city['city']} {href}#lot-{num}: 링크 이름 '{label}' ≠ 카드 '{m_card.group(1)}'")
 
 # 4) 사이트맵 = 실제 페이지 집합 (404 제외, 중복 없음)
-sm = (DIST / "sitemap.xml").read_text()
-locs = re.findall(r"<loc>([^<]+)</loc>", sm)
+sm = _SITEMAP_TEXT
+locs = [u for u in re.findall(r"<loc>([^<]+)</loc>", sm) if not u.endswith(".xml")]
 want_urls = set()
 for p in pages:
     rel = p.relative_to(DIST).as_posix().replace("/index.html", "/")
@@ -3540,7 +3557,7 @@ for _slug, _n in (("sineup-dong", 29), ("soheul-eup", 14), ("ildong-myeon", 5)):
 for _slug in ("gwanin-myeon", "seondan-dong", "gasan-myeon", "naechon-myeon"):
     if (_ph_root / _slug / "index.html").exists():
         fails.append(f"포천시 카드 3곳 미만인 동 페이지가 만들어짐: {_slug}")
-if "parking.9welfare.com/parking/gyeonggi/pocheon/" not in (DIST / "sitemap.xml").read_text():
+if "parking.9welfare.com/parking/gyeonggi/pocheon/" not in _SITEMAP_TEXT:
     fails.append("포천시 주소가 사이트맵에 없음")
 
 
@@ -3712,7 +3729,7 @@ for _slug in ("gocheon-dong", "cheonggye-dong", "wanggok-dong", "wolam-dong", "c
 for _u in ("https://parking.9welfare.com/parking/gyeonggi/uiwang/",
            "https://parking.9welfare.com/parking/gyeonggi/uiwang/street-parking/",
            "https://parking.9welfare.com/parking/gyeonggi/uiwang/naeson-dong/"):
-    if _u not in (DIST / "sitemap.xml").read_text():
+    if _u not in _SITEMAP_TEXT:
         fails.append(f"의왕시 주소가 사이트맵에 없음: {_u}")
 
 # ---------------------------------------------------------------- 여주시 (T-03 Phase 25)
@@ -3895,7 +3912,7 @@ for _slug in ("sang-dong", "chang-dong", "samgyo-dong", "ohak-dong", "jeombong-d
 for _u in ("https://parking.9welfare.com/parking/gyeonggi/yeoju/",
            "https://parking.9welfare.com/parking/gyeonggi/yeoju/street-parking/",
            "https://parking.9welfare.com/parking/gyeonggi/yeoju/hongmun-dong/"):
-    if _u not in (DIST / "sitemap.xml").read_text():
+    if _u not in _SITEMAP_TEXT:
         fails.append(f"여주시 주소가 사이트맵에 없음: {_u}")
 
 # ---------------------------------------------------------------- 동두천시 (T-03 Phase 26)
@@ -4065,7 +4082,7 @@ for _slug in ("jihaeng-dong", "gwangam-dong", "dongducheon-dong"):
 for _u in ("https://parking.9welfare.com/parking/gyeonggi/dongducheon/",
            "https://parking.9welfare.com/parking/gyeonggi/dongducheon/street-parking/",
            "https://parking.9welfare.com/parking/gyeonggi/dongducheon/saengyeon-dong/"):
-    if _u not in (DIST / "sitemap.xml").read_text():
+    if _u not in _SITEMAP_TEXT:
         fails.append(f"동두천시 주소가 사이트맵에 없음: {_u}")
 
 
@@ -4224,7 +4241,7 @@ for _slug, _n in (("munwon-dong", 20), ("gwacheon-dong", 18), ("juam-dong", 13),
 for _u in ("https://parking.9welfare.com/parking/gyeonggi/gwacheon/",
            "https://parking.9welfare.com/parking/gyeonggi/gwacheon/street-parking/",
            "https://parking.9welfare.com/parking/gyeonggi/gwacheon/munwon-dong/"):
-    if _u not in (DIST / "sitemap.xml").read_text():
+    if _u not in _SITEMAP_TEXT:
         fails.append(f"과천시 주소가 사이트맵에 없음: {_u}")
 
 
@@ -4383,7 +4400,7 @@ for _slug, _n in (("gapyeong-eup", 16), ("cheongpyeong-myeon", 11), ("jojong-mye
 for _u in ("https://parking.9welfare.com/parking/gyeonggi/gapyeong/",
            "https://parking.9welfare.com/parking/gyeonggi/gapyeong/street-parking/",
            "https://parking.9welfare.com/parking/gyeonggi/gapyeong/gapyeong-eup/"):
-    if _u not in (DIST / "sitemap.xml").read_text():
+    if _u not in _SITEMAP_TEXT:
         fails.append(f"가평군 주소가 사이트맵에 없음: {_u}")
 
 
@@ -4516,7 +4533,7 @@ for _slug, _n in (("yangpyeong-eup", 9), ("yangseo-myeon", 11), ("yongmun-myeon"
 for _u in ("https://parking.9welfare.com/parking/gyeonggi/yangpyeong/",
            "https://parking.9welfare.com/parking/gyeonggi/yangpyeong/street-parking/",
            "https://parking.9welfare.com/parking/gyeonggi/yangpyeong/yangpyeong-eup/"):
-    if _u not in (DIST / "sitemap.xml").read_text():
+    if _u not in _SITEMAP_TEXT:
         fails.append(f"양평군 주소가 사이트맵에 없음: {_u}")
 
 
@@ -4618,7 +4635,7 @@ elif _yc_eup.read_text().count('class="card lot') != 7:
 for _u in ("https://parking.9welfare.com/parking/gyeonggi/yeoncheon/",
            "https://parking.9welfare.com/parking/gyeonggi/yeoncheon/jeongok-eup/",
            "https://parking.9welfare.com/parking/gyeonggi/yeoncheon/street-parking/"):
-    if _u not in (DIST / "sitemap.xml").read_text():
+    if _u not in _SITEMAP_TEXT:
         fails.append(f"연천군 주소가 사이트맵에 없음: {_u}")
 
 # ---------------------------------------------------------------- 서울특별시 자치구 (T-03 Phase 30)
@@ -4915,7 +4932,7 @@ for _u in ("https://parking.9welfare.com/parking/seoul/jongno/",
            "https://parking.9welfare.com/parking/seoul/gwanak/",
            "https://parking.9welfare.com/parking/seoul/gwanak/sillim-dong/",
            "https://parking.9welfare.com/parking/seoul/gwanak/street-parking/"):
-    if _u not in (DIST / "sitemap.xml").read_text():
+    if _u not in _SITEMAP_TEXT:
         fails.append(f"서울 주소가 사이트맵에 없음: {_u}")
 
 
@@ -5122,7 +5139,7 @@ for _u in ("https://parking.9welfare.com/parking/incheon/michuhol/",
            "https://parking.9welfare.com/parking/incheon/ongjin/",
            "https://parking.9welfare.com/parking/incheon/ongjin/yeongheung-myeon/",
            "https://parking.9welfare.com/parking/incheon/ongjin/street-parking/"):
-    if _u not in (DIST / "sitemap.xml").read_text():
+    if _u not in _SITEMAP_TEXT:
         fails.append(f"인천 주소가 사이트맵에 없음: {_u}")
 
 # ---------------------------------------------------------------- 부산광역시 구 (T-03 Phase 37)
@@ -5387,7 +5404,7 @@ for _u in ("https://parking.9welfare.com/parking/busan/jung-gu/",
            "https://parking.9welfare.com/parking/busan/gijang-gun/gijang-eup/",
            "https://parking.9welfare.com/parking/busan/gijang-gun/ilgwang-eup/",
            "https://parking.9welfare.com/parking/busan/gijang-gun/street-parking/"):
-    if _u not in (DIST / "sitemap.xml").read_text():
+    if _u not in _SITEMAP_TEXT:
         fails.append(f"부산 주소가 사이트맵에 없음: {_u}")
 
 
@@ -5583,7 +5600,7 @@ for _u in ("https://parking.9welfare.com/parking/daegu/jung-gu/",
            "https://parking.9welfare.com/parking/daegu/buk-gu/chilseong-dong/",
            "https://parking.9welfare.com/parking/daegu/buk-gu/sangyeok-dong/",
            "https://parking.9welfare.com/parking/daegu/buk-gu/street-parking/"):
-    if _u not in (DIST / "sitemap.xml").read_text():
+    if _u not in _SITEMAP_TEXT:
         fails.append(f"대구 주소가 사이트맵에 없음: {_u}")
 
 # ---------------------------------------------------------------- 대전광역시 구 (T-03 Phase 42)
@@ -5750,7 +5767,7 @@ for _u in ("https://parking.9welfare.com/parking/daejeon/dong-gu/",
            "https://parking.9welfare.com/parking/daejeon/yuseong-gu/street-parking/",
            "https://parking.9welfare.com/parking/daejeon/daedeok-gu/songchon-dong/",
            "https://parking.9welfare.com/parking/daejeon/daedeok-gu/free/"):
-    if _u not in (DIST / "sitemap.xml").read_text():
+    if _u not in _SITEMAP_TEXT:
         fails.append(f"대전 주소가 사이트맵에 없음: {_u}")
 
 # ---------------------------------------------------------------- 세종·제주 (T-03 Phase 45)
@@ -5908,7 +5925,7 @@ _landing = (DIST / "index.html").read_text()
 for _anchor in ("#sejong", "#jeju"):
     if f'id="{_anchor.lstrip("#")}"' not in _landing:
         fails.append(f"랜딩에 시·도 묶음({_anchor}) 없음")
-_sm_text = (DIST / "sitemap.xml").read_text()
+_sm_text = _SITEMAP_TEXT
 for _u in ("https://parking.9welfare.com/parking/sejong/sejong-si/",
            "https://parking.9welfare.com/parking/sejong/sejong-si/jochiwon-eup/",
            "https://parking.9welfare.com/parking/sejong/sejong-si/street-parking/",
@@ -6123,7 +6140,7 @@ for _u in ("https://parking.9welfare.com/parking/gwangju/dong-gu/",
            "https://parking.9welfare.com/parking/gwangju/buk-gu/munheung-dong/",
            "https://parking.9welfare.com/parking/gwangju/gwangsan-gu/songjeong-dong/",
            "https://parking.9welfare.com/parking/gwangju/gwangsan-gu/free/"):
-    if _u not in (DIST / "sitemap.xml").read_text():
+    if _u not in _SITEMAP_TEXT:
         fails.append(f"광주 주소가 사이트맵에 없음: {_u}")
 
 # ---------------------------------------------------------------- 울산광역시 구·군 (T-03 Phase 44)
@@ -6326,7 +6343,7 @@ for _u in ("https://parking.9welfare.com/parking/ulsan/jung-gu/",
            "https://parking.9welfare.com/parking/ulsan/ulju-gun/beomseo-eup/",
            "https://parking.9welfare.com/parking/ulsan/ulju-gun/street-parking/",
            "https://parking.9welfare.com/parking/ulsan/ulju-gun/free/"):
-    if _u not in (DIST / "sitemap.xml").read_text():
+    if _u not in _SITEMAP_TEXT:
         fails.append(f"울산 주소가 사이트맵에 없음: {_u}")
 
 
