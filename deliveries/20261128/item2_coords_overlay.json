@@ -1436,7 +1436,8 @@
      "query": "울산광역시 울주군 삼남읍 가천리 871-16",
      "returned": "871-6 Gacheon-ri, Samnam-eup (35.5258015,129.0847285, ROOFTOP)",
      "verdict": "본번 불일치(871-16 → 871-6 반환)로 T-06 기준 미상 유지"
-    }
+    },
+    "official_recheck": "2026-11-29 브라우저 재대조: 공식 현황 29번 \"삼남 High Tech Valley 주차장 노외 삼남읍 가천리 871-16, 55면\" 동일 확인"
    },
    "verification": "울주군 공식 공영주차장 안내 대조(2026-11-29): 위치 삼남읍 가천리 871-16"
   },
@@ -1457,7 +1458,7 @@
     }
    ],
    "value_kind": "조사값",
-   "confidence": "조사값 — 확정(공식 지자체 주차장 목록 주소 일치, 클라우드 브라우저 대조 2026-11-29)",
+   "confidence": "조사값 — 확정(공식 지자체 주차장 목록 주소 일치, 클라우드 브라우저 대조 2026-11-29) [재대조 2026-11-29, 브라우저] 울주군 공식 페이지(tour.ulju.ulsan.kr mId=0505050000) 동일 내용 재확인",
    "evidence": {
     "query": "울산광역시 울주군 범서읍 천상리",
     "returned_address": "Cheonsang-ri, Beomseo-eup, Ulju-gun, Ulsan, South Korea",
@@ -1482,7 +1483,7 @@
     }
    ],
    "value_kind": "조사값",
-   "confidence": "조사값 — 확정(공식 지자체 주차장 목록 주소 일치, 클라우드 브라우저 대조 2026-11-29)",
+   "confidence": "조사값 — 확정(공식 지자체 주차장 목록 주소 일치, 클라우드 브라우저 대조 2026-11-29) [재대조 2026-11-29, 브라우저] 울주군 공식 페이지(tour.ulju.ulsan.kr mId=0505050000) 동일 내용 재확인",
    "evidence": {
     "query": "울산광역시 울주군 온산읍 당월리 95-3",
     "returned_address": "95-2 Dang-wol-ri, Onsan-eup, Ulju-gun, Ulsan, South Korea",
