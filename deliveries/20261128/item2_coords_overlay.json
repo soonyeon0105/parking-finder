@@ -5,8 +5,8 @@
  "method": "T-06: 지번/도로명 지오코딩 후 반환 주소가 등록 주소와 번지까지 일치할 때만 채택(조사값). 본번 일치·부번 불일치/동·리 수준 일치는 잠정으로 표시해 좌표 후보와 사유를 함께 남김. 불일치는 미상 유지+사유.",
  "counts": {
   "채택": 44,
-  "잠정": 31,
-  "미상": 3
+  "잠정": 12,
+  "미상": 22
  },
  "entries": [
   {
@@ -79,7 +79,7 @@
     }
    ],
    "value_kind": "조사값",
-   "confidence": "잠정 — 동·리/도로 수준 일치: Singwan-dong, Gongju-si, Chungcheongnam-do, South Korea",
+   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
    "evidence": {
     "query": "충청남도 공주시 신관동 416-2",
     "returned_address": "Singwan-dong, Gongju-si, Chungcheongnam-do, South Korea"
@@ -98,7 +98,7 @@
     }
    ],
    "value_kind": "조사값",
-   "confidence": "잠정 — 본번 일치·부번 불일치(303-7): 303-14 Seongnam-ri, Yugu-eup, Gongju, Chungcheongnam-do, South Korea",
+   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
    "evidence": {
     "query": "충청남도 공주시 유구읍 석남리 303-7",
     "returned_address": "303-14 Seongnam-ri, Yugu-eup, Gongju, Chungcheongnam-do, South Korea"
@@ -136,7 +136,7 @@
     }
    ],
    "value_kind": "조사값",
-   "confidence": "잠정 — 동·리/도로 수준 일치: Gwangcheon-ri, Gwangcheon-eup, Hongseong-gun, Chungcheongnam-do, South Korea",
+   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
    "evidence": {
     "query": "충청남도 홍성군 광천읍 광천리 587",
     "returned_address": "Gwangcheon-ri, Gwangcheon-eup, Hongseong-gun, Chungcheongnam-do, South Korea"
@@ -649,7 +649,7 @@
     }
    ],
    "value_kind": "조사값",
-   "confidence": "잠정 — 본번 일치·부번 불일치(607-1): 607 Geumjang-ri, Hyeongok-myeon, Gyeongju, Gyeongsangbuk-do, South Korea",
+   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
    "evidence": {
     "query": "경상북도 경주시 현곡면 금장리 607-1번지",
     "returned_address": "607 Geumjang-ri, Hyeongok-myeon, Gyeongju, Gyeongsangbuk-do, South Korea"
@@ -739,7 +739,7 @@
     }
    ],
    "value_kind": "조사값",
-   "confidence": "잠정 — 동·리/도로 수준 일치: Jungang-dong, Gyeongsan-si, Gyeongsangbuk-do, South Korea",
+   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
    "evidence": {
     "query": "경상북도 경산시 중앙동 886",
     "returned_address": "Jungang-dong, Gyeongsan-si, Gyeongsangbuk-do, South Korea"
@@ -815,7 +815,7 @@
     }
    ],
    "value_kind": "조사값",
-   "confidence": "잠정 — 본번 일치·부번 불일치(51-20): 51-6 Sinjangdae-ri, Hongcheon-eup, Hongcheon, Gangwon-do, South Korea",
+   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
    "evidence": {
     "query": "강원특별자치도 홍천군 홍천읍 신장대리 51-20",
     "returned_address": "51-6 Sinjangdae-ri, Hongcheon-eup, Hongcheon, Gangwon-do, South Korea"
@@ -891,7 +891,7 @@
     }
    ],
    "value_kind": "조사값",
-   "confidence": "잠정 — 동·리/도로 수준 일치: Muwang-ro, Iksan-si, Jeonbuk State, South Korea",
+   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
    "evidence": {
     "query": "전북특별자치도 익산시 무왕로 216-84에서 익산시 선화로73길 38 사이(만나김밥분식 ~ 부송 파리바게뜨)",
     "returned_address": "Muwang-ro, Iksan-si, Jeonbuk State, South Korea"
@@ -910,7 +910,7 @@
     }
    ],
    "value_kind": "조사값",
-   "confidence": "잠정 — 동·리/도로 수준 일치: 238-67 Songhak-dong, Iksan, Jeonbuk State, South Korea",
+   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
    "evidence": {
     "query": "전북특별자치도 익산시 송학동 238-6에서 익산시 송학동 235-8 사이(익산역 회전교차로 ~ 송학사거리)",
     "returned_address": "238-67 Songhak-dong, Iksan, Jeonbuk State, South Korea"
@@ -948,7 +948,7 @@
     }
    ],
    "value_kind": "조사값",
-   "confidence": "잠정 — 동·리/도로 수준 일치: Juhyeon-ro, Iksan-si, Jeonbuk State, South Korea",
+   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
    "evidence": {
     "query": "전북특별자치도 익산시 주현로 172-3에서 익산시 주현로 10 사이(마동 사거리 ~ 스파리스)",
     "returned_address": "Juhyeon-ro, Iksan-si, Jeonbuk State, South Korea"
@@ -967,7 +967,7 @@
     }
    ],
    "value_kind": "조사값",
-   "confidence": "잠정 — 동·리/도로 수준 일치: 144-1 Pyeonghwa-dong, Iksan, Jeonbuk State, South Korea",
+   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
    "evidence": {
     "query": "전북특별자치도 익산시 평화동 144-10에서 익산시 학곤로 10-1 사이(평화삼거리 ~ 전북모터스 평화지점)",
     "returned_address": "144-1 Pyeonghwa-dong, Iksan, Jeonbuk State, South Korea"
@@ -986,7 +986,7 @@
     }
    ],
    "value_kind": "조사값",
-   "confidence": "잠정 — 2026-11-18 배치 채택이나 검증 등급 review(주소 미일치), 반환 주소: 1779-2 Susan-ri, Aewol-eup, Cheju, Jeju-do, South Korea",
+   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
    "evidence": {
     "query": "제주특별자치도 제주시 애월읍 수산리 1779-8",
     "returned_address": "1779-2 Susan-ri, Aewol-eup, Cheju, Jeju-do, South Korea",
@@ -1298,7 +1298,7 @@
     }
    ],
    "value_kind": "조사값",
-   "confidence": "잠정 — 본번 일치·부번 불일치(488-15): 488 Jin-ri, Heuksan-myeon, Sinan-gun, Jeollanam-do, South Korea",
+   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
    "evidence": {
     "query": "전남광주통합특별시 신안군 흑산면 진리 488-15번지",
     "returned_address": "488 Jin-ri, Heuksan-myeon, Sinan-gun, Jeollanam-do, South Korea"
@@ -1336,7 +1336,7 @@
     }
    ],
    "value_kind": "조사값",
-   "confidence": "잠정 — 본번 일치·부번 불일치(650-4): 650-3 Jinnae-ri, Beopseong-myeon, Yeong-gwang, Jeollanam-do, South Korea",
+   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
    "evidence": {
     "query": "전라남도 영광군 법성면진내리650-4",
     "returned_address": "650-3 Jinnae-ri, Beopseong-myeon, Yeong-gwang, Jeollanam-do, South Korea"
@@ -1355,7 +1355,7 @@
     }
    ],
    "value_kind": "조사값",
-   "confidence": "잠정 — 동·리/도로 수준 일치: Sangha-gil, Hongnong-eup, Yeonggwang-gun, Jeollanam-do, South Korea",
+   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
    "evidence": {
     "query": "전라남도 영광군 홍농읍 상하길 230",
     "returned_address": "Sangha-gil, Hongnong-eup, Yeonggwang-gun, Jeollanam-do, South Korea"
@@ -1374,7 +1374,7 @@
     }
    ],
    "value_kind": "조사값",
-   "confidence": "잠정 — 2026-11-18 배치 채택이나 검증 등급 review(주소 미일치), 반환 주소: Samnam-myeon, Ulju-gun, Ulsan, South Korea",
+   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
    "evidence": {
     "query": "울산광역시 울주군 삼남면 가천리 1212-9",
     "returned_address": "Samnam-myeon, Ulju-gun, Ulsan, South Korea",
@@ -1394,7 +1394,7 @@
     }
    ],
    "value_kind": "조사값",
-   "confidence": "잠정 — 2026-11-18 배치 채택이나 검증 등급 review(주소 미일치), 반환 주소: Cheonsang-ri, Beomseo-eup, Ulju-gun, Ulsan, South Korea",
+   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
    "evidence": {
     "query": "울산광역시 울주군 범서읍 천상리",
     "returned_address": "Cheonsang-ri, Beomseo-eup, Ulju-gun, Ulsan, South Korea",
@@ -1414,7 +1414,7 @@
     }
    ],
    "value_kind": "조사값",
-   "confidence": "잠정 — 2026-11-18 배치 채택이나 검증 등급 review(주소 미일치), 반환 주소: 95-2 Dang-wol-ri, Onsan-eup, Ulju-gun, Ulsan, South Korea",
+   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
    "evidence": {
     "query": "울산광역시 울주군 온산읍 당월리 95-3",
     "returned_address": "95-2 Dang-wol-ri, Onsan-eup, Ulju-gun, Ulsan, South Korea",
@@ -1434,7 +1434,7 @@
     }
    ],
    "value_kind": "조사값",
-   "confidence": "잠정 — 2026-11-18 배치 채택이나 검증 등급 review(주소 미일치), 반환 주소: 14 Neopdi-ro 66beon-gil, Jung-gu, Incheon, South Korea",
+   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
    "evidence": {
     "query": "인천광역시 영종구 넙디로66번길 14",
     "returned_address": "14 Neopdi-ro 66beon-gil, Jung-gu, Incheon, South Korea",
@@ -1454,7 +1454,7 @@
     }
    ],
    "value_kind": "조사값",
-   "confidence": "잠정 — 2026-11-18 배치 채택이나 검증 등급 review(주소 미일치), 반환 주소: Yeongjongdo, Incheon",
+   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
    "evidence": {
     "query": "인천광역시 영종구 운서동 2930-1",
     "returned_address": "Yeongjongdo, Incheon",
