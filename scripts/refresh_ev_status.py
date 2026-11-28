@@ -42,6 +42,9 @@ prepare_ev.py 가 하루 1회 전수 재구축(지역·근처 주차장까지 �
   재생성하지 않고 git 커밋·Pages 배포도 일어나지 않는다(시간당 push 는
   Pages 무료 월 빌드 500회를 넘기고, 재생성분 커밋은 1회 약 38.6MB 씩
   저장소를 불어낸다).
+  발행 직후에는 Worker를 실제로 다시 읽어 응답 정상 여부와 본문의 확인
+  시각이 이번 사이클과 같은지 확인한다(verify_published) — 읽기가 조용히
+  실패하면 옛 값이 그대로 보이므로, 어긋나면 실행 자체를 실패로 만든다.
   --no-build 없이 실행하면 종전처럼 build_ev.py 까지 다시 실행하는 수동
   전체 갱신이다(사이트맵의 기존 EV 항목을 걷어낸 뒤 실행).
 
@@ -71,6 +74,46 @@ KST = ZoneInfo("Asia/Seoul")
 ONSITE_M = 100  # (구 거리 기준 — 'on' 판정은 prepare_ev.station_onsite 시설 일치로 대체됨)
 NEARBY_M = 1000
 NEARBY_MAX = 3
+
+_BROWSER_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+               "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
+
+
+def verify_published(expected_at: str, sample_key: str):
+    """발행 뒤 되읽기 확인 — 상태 응답 Worker를 실제로 읽어 ① 응답이 정상인지
+    ② 본문 머리의 확인 시각('at')이 이번 사이클 시각과 같은지 확인한다.
+
+    읽기에 실패하면 페이지·상세는 옛 값(빌드 시점 값)을 그대로 보여 주므로
+    겉으로는 멀쩡해 보인다 — 그래서 발행 직후 여기서 잡아내지 않으면 낡은
+    상태가 조용히 남는다. 하나라도 어긋나면 SystemExit 로 실행을 실패시킨다
+    (크론이 실패로 보고한다)."""
+    import time
+
+    targets = [f"{ev_status.STATUS_BASE_URL}/ev-status-summary.json",
+               f"{ev_status.STATUS_BASE_URL}/ev-status/{sample_key}.json"]
+    for url in targets:
+        data, last_err = None, None
+        for _attempt in range(3):
+            try:
+                # 이 VM에서는 urllib 큰 응답이 잘리는 일이 잦아 curl로 읽는다.
+                r = subprocess.run(
+                    ["curl", "-s", "--fail", "--max-time", "30",
+                     "-H", f"User-Agent: {_BROWSER_UA}", url],
+                    capture_output=True, text=True)
+                if r.returncode != 0:
+                    raise RuntimeError(f"curl rc={r.returncode}")
+                data = json.loads(r.stdout)
+                break
+            except Exception as e:  # noqa: BLE001 — 잘린 본문·일시 오류는 재시도
+                last_err = e
+                time.sleep(3)
+        if data is None:
+            raise SystemExit(f"발행 뒤 되읽기 확인 실패: {url} 응답 오류 ({last_err})")
+        if data.get("at") != expected_at:
+            raise SystemExit(
+                f"발행 뒤 되읽기 확인 실패: {url} 확인 시각 {data.get('at')!r} "
+                f"!= 이번 사이클 {expected_at!r}")
+    print(f"발행 뒤 되읽기 확인: Worker 응답 정상 · 확인 시각 {expected_at} 일치")
 
 # 저장된 ch 행 라벨 → 상태 코드 (STAT_LABEL 역매핑). 미갱신 충전소의 집계
 # 재유도용 — 라벨은 refresh 전 데이터가 가진 마지막 확인 상태 그대로이다.
@@ -334,6 +377,8 @@ def main():
         print(f"상태 발행: 본문 {len(payloads)}개 {total_kb:.0f}KB 중 "
               f"바뀐 {stats['changed']}개({stats['bytes'] / 1e3:.0f}KB)를 D1에 반영 · "
               f"삭제 {stats['deleted']}개")
+        sample_key = sorted(k for k in payloads if k != "summary")[0]
+        verify_published(ev_status.status_at(ev), sample_key)
     else:
         print(f"상태 본문: {len(payloads)}개 {total_kb:.0f}KB (--publish 없음, 발행 생략)")
 
