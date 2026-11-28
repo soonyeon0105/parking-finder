@@ -7771,6 +7771,20 @@ def calculator(lots, default_day="weekday", default_minutes=120, path="", mode="
 </section>"""
 
 
+def ev_name_suffix(lot) -> str:
+    """주차장 이름 바로 옆 ⚡ 표시 — 그 주차장 안에 충전소가 있는 곳만.
+
+    내 주변 찾기 카드(nearby.js)와 같은 모양·기준을 쓴다: 시설 일치 충전소의
+    충전기 합계(f+s)를 함께 적는다. 거리만 가까운 남의 시설은 표시하지 않는다.
+    """
+    ev = lot.get("ev")
+    if not ev or not ev.get("on"):
+        return ""
+    n = (ev.get("f") or 0) + (ev.get("s") or 0)
+    return (' <span class="ev-inline" role="img" aria-label="전기차 충전소 있음">⚡</span>'
+            f'<span class="ev-count">충전기 {n}대</span>')
+
+
 def lot_card(lot, idx, default_day="weekday", default_minutes=120, link_detail=True, default_entry=720):
     res = price_for(lot, default_minutes, default_day, entry=default_entry)
     if res["state"] == "bus_only":
@@ -7887,7 +7901,7 @@ def lot_card(lot, idx, default_day="weekday", default_minutes=120, link_detail=T
     lines.append(f'<p class="fee-line">자료 기준일: {esc(lot["base_date"])}</p>')
 
     kakao, naver = map_links(lot)
-    name_html = esc(lot['name'])
+    name_html = esc(lot['name']) + ev_name_suffix(lot)
     if link_detail and is_detail_target(lot):
         _city = city_of(lot)
         if _city:
@@ -9781,7 +9795,7 @@ def build_lot_detail(city, lot, site, existing_paths, dong_path=None):
                 '  <p>이 주차장은 관광버스 전용입니다. <b>승용차는 주차할 수 없습니다.</b></p>\n'
                 '</section>\n') if lot.get("bus_only") else ""
     body = f"""
-<h1>{esc(lot_display_name(name))}</h1>
+<h1>{esc(lot_display_name(name))}{ev_name_suffix(lot)}</h1>
 <p class="lede">{esc(addr)}에 있는 {esc(lot['ptype'] or '공영')}주차장입니다. {lot['spaces']:,}면 규모이며,
 요금·월정기·운영시간·감면 정보를 공공데이터로 정리했습니다. {lede_tail}</p>
 <p class="updated">자료 기준일 {esc(lot['base_date'])} · 관리 {esc(lot.get('manager') or '-')}</p>
