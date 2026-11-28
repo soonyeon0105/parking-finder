@@ -4,9 +4,9 @@
  "created_at": "2026-11-28 (KST)",
  "method": "T-06: 지번/도로명 지오코딩 후 반환 주소가 등록 주소와 번지까지 일치할 때만 채택(조사값). 본번 일치·부번 불일치/동·리 수준 일치는 잠정으로 표시해 좌표 후보와 사유를 함께 남김. 불일치는 미상 유지+사유.",
  "counts": {
-  "채택": 44,
+  "채택": 51,
   "잠정": 12,
-  "미상": 22
+  "미상": 15
  },
  "entries": [
   {
@@ -57,14 +57,19 @@
     {
      "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
      "url": ""
+    },
+    {
+     "name": "공식 지자체 공영주차장 현황 페이지 (브라우저 렌더링 대조)",
+     "url": "https://www.gongju.go.kr/kr/sub06_09_06.do"
     }
    ],
    "value_kind": "조사값",
-   "confidence": "잠정 — 본번 일치·부번 불일치(135-3): 135 Geumhak-dong, Gongju, Chungcheongnam-do, South Korea",
+   "confidence": "조사값 — 확정(공식 지자체 주차장 목록 주소 일치, 클라우드 브라우저 대조 2026-11-29)",
    "evidence": {
     "query": "충청남도 공주시 금학동 135-3",
     "returned_address": "135 Geumhak-dong, Gongju, Chungcheongnam-do, South Korea"
-   }
+   },
+   "verification": "공주시 공식 공영주차장 현황: \"금학동 공영주차장(2) 금학동 135-3 (141면)\" — 일치"
   },
   {
    "id": "ca-gongju-080",
@@ -95,14 +100,19 @@
     {
      "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
      "url": ""
+    },
+    {
+     "name": "공주시 공영주차장 현황",
+     "url": "https://www.gongju.go.kr/kr/sub06_09_06.do"
     }
    ],
    "value_kind": "조사값",
-   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
+   "confidence": "미상 — 공주시 공식 공영주차장 현황에 석남리 303-7 없음(근접: 유구 중앙골목 석남리 300-2, 유구석남 석남리 377). 등록 번지 오기 가능",
    "evidence": {
     "query": "충청남도 공주시 유구읍 석남리 303-7",
     "returned_address": "303-14 Seongnam-ri, Yugu-eup, Gongju, Chungcheongnam-do, South Korea"
-   }
+   },
+   "verification": "공주시 공식 현황 대조(2026-11-29)"
   },
   {
    "id": "ca-hongseong-033",
@@ -812,14 +822,19 @@
     {
      "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
      "url": ""
+    },
+    {
+     "name": "공식 지자체 공영주차장 현황 페이지 (브라우저 렌더링 대조)",
+     "url": "https://www.hongcheon.go.kr/www/contents.do?key=1574"
     }
    ],
    "value_kind": "조사값",
-   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
+   "confidence": "조사값 — 확정(공식 지자체 주차장 목록 주소 일치, 클라우드 브라우저 대조 2026-11-29)",
    "evidence": {
     "query": "강원특별자치도 홍천군 홍천읍 신장대리 51-20",
     "returned_address": "51-6 Sinjangdae-ri, Hongcheon-eup, Hongcheon, Gangwon-do, South Korea"
-   }
+   },
+   "verification": "홍천군 공식 공영주차장 현황: \"신장대리 구홍천문화원 공영노외주차장 홍천읍 신장대리 51-20번지 일원\" — 일치(지오코딩 51-6은 인접 번지, 51-20 기준)"
   },
   {
    "id": "gw-hongcheon-015",
@@ -831,14 +846,19 @@
     {
      "name": "Google 지오코딩 (tools maps geocode, 2026-11-28)",
      "url": ""
+    },
+    {
+     "name": "공식 지자체 공영주차장 현황 페이지 (브라우저 렌더링 대조)",
+     "url": "https://www.hongcheon.go.kr/www/contents.do?key=1574"
     }
    ],
    "value_kind": "조사값",
-   "confidence": "잠정 — 본번 일치·부번 불일치(67-4): 67 Huimang-ri, Hongcheon-eup, Hongcheon, Gangwon-do, South Korea",
+   "confidence": "조사값 — 확정(공식 지자체 주차장 목록 주소 일치, 클라우드 브라우저 대조 2026-11-29)",
    "evidence": {
     "query": "강원특별자치도 홍천군 홍천읍 희망리 67-4",
     "returned_address": "67 Huimang-ri, Hongcheon-eup, Hongcheon, Gangwon-do, South Korea"
-   }
+   },
+   "verification": "홍천군 공식: \"희망리 제3공영노외주차장 홍천읍 희망리 67-4번지 일원\" — 일치"
   },
   {
    "id": "jb-iksan-s012",
@@ -1371,15 +1391,20 @@
     {
      "name": "지오코딩(2026-11-18 배치, Google Maps) — 지오코딩(지번)",
      "url": ""
+    },
+    {
+     "name": "울주군 공영주차장 안내",
+     "url": "http://tour.ulju.ulsan.kr/ulju/contents.do?mId=0505050000"
     }
    ],
    "value_kind": "조사값",
-   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
+   "confidence": "미상 — 등록 주소 오류 확인. 울주군 공식: \"삼남 High Tech Valley 주차장 노외 삼남읍 가천리 871-16\". 등록(삼남면 가천리 1212-9)은 부지 번지 오기로 판단. 좌표는 871-16 재지오코딩 필요",
    "evidence": {
     "query": "울산광역시 울주군 삼남면 가천리 1212-9",
     "returned_address": "Samnam-myeon, Ulju-gun, Ulsan, South Korea",
     "agree": []
-   }
+   },
+   "verification": "울주군 공식 공영주차장 안내 대조(2026-11-29): 위치 삼남읍 가천리 871-16"
   },
   {
    "id": "us-ulju-gun-s004",
@@ -1391,15 +1416,20 @@
     {
      "name": "지오코딩(2026-11-18 배치, Google Maps) — 지오코딩(지번)",
      "url": ""
+    },
+    {
+     "name": "공식 지자체 공영주차장 현황 페이지 (브라우저 렌더링 대조)",
+     "url": "http://tour.ulju.ulsan.kr/ulju/contents.do?mId=0505050000"
     }
    ],
    "value_kind": "조사값",
-   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
+   "confidence": "조사값 — 확정(공식 지자체 주차장 목록 주소 일치, 클라우드 브라우저 대조 2026-11-29)",
    "evidence": {
     "query": "울산광역시 울주군 범서읍 천상리",
     "returned_address": "Cheonsang-ri, Beomseo-eup, Ulju-gun, Ulsan, South Korea",
     "agree": []
-   }
+   },
+   "verification": "울주군 공식 공영주차장 안내: \"천상 노상 공영주차장 노상 범서읍 천상리 일원\" — 등록 주소와 일치"
   },
   {
    "id": "us-ulju-gun-s009",
@@ -1411,15 +1441,20 @@
     {
      "name": "지오코딩(2026-11-18 배치, Google Maps) — 지오코딩(지번)",
      "url": ""
+    },
+    {
+     "name": "공식 지자체 공영주차장 현황 페이지 (브라우저 렌더링 대조)",
+     "url": "http://tour.ulju.ulsan.kr/ulju/contents.do?mId=0505050000"
     }
    ],
    "value_kind": "조사값",
-   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
+   "confidence": "조사값 — 확정(공식 지자체 주차장 목록 주소 일치, 클라우드 브라우저 대조 2026-11-29)",
    "evidence": {
     "query": "울산광역시 울주군 온산읍 당월리 95-3",
     "returned_address": "95-2 Dang-wol-ri, Onsan-eup, Ulju-gun, Ulsan, South Korea",
     "agree": []
-   }
+   },
+   "verification": "울주군 공식: \"온산 당월노상 노상 온산읍 당월리 95-3\" — 등록 주소·번지 일치(지오코딩 95-2 인접값, 노상 구간상 유효)"
   },
   {
    "id": "yeongjong-006",
@@ -1431,15 +1466,20 @@
     {
      "name": "지오코딩(2026-11-18 배치, Google Maps) — 지오코딩(도로명)",
      "url": ""
+    },
+    {
+     "name": "공식 지자체 공영주차장 현황 페이지 (브라우저 렌더링 대조)",
+     "url": "https://www.yeongjong.go.kr/main/life/open_parking/list.do"
     }
    ],
    "value_kind": "조사값",
-   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
+   "confidence": "조사값 — 확정(공식 지자체 주차장 목록 주소 일치, 클라우드 브라우저 대조 2026-11-29)",
    "evidence": {
     "query": "인천광역시 영종구 넙디로66번길 14",
     "returned_address": "14 Neopdi-ro 66beon-gil, Jung-gu, Incheon, South Korea",
     "agree": []
-   }
+   },
+   "verification": "영종구 공식 공영주차장 현황: \"넙디 2 공영주차장 넙디로66번길 14\" — 일치"
   },
   {
    "id": "yeongjong-008",
@@ -1451,15 +1491,20 @@
     {
      "name": "지오코딩(2026-11-18 배치, Google Maps) — 지오코딩(지번)",
      "url": ""
+    },
+    {
+     "name": "공식 지자체 공영주차장 현황 페이지 (브라우저 렌더링 대조)",
+     "url": "https://www.yeongjong.go.kr/main/life/open_parking/list.do"
     }
    ],
    "value_kind": "조사값",
-   "confidence": "미상 — 공식 대조 불가(좌표는 참고값으로만 보관, 확정 아님). 뮤즈3 1차 검증 ② 반영",
+   "confidence": "조사값 — 확정(공식 지자체 주차장 목록 주소 일치, 클라우드 브라우저 대조 2026-11-29)",
    "evidence": {
     "query": "인천광역시 영종구 운서동 2930-1",
     "returned_address": "Yeongjongdo, Incheon",
     "agree": []
-   }
+   },
+   "verification": "영종구 공식: \"넙디 4 공영주차장 운서동 2930-1\" — 일치"
   }
  ]
 }
