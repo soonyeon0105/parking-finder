@@ -1,0 +1,18 @@
+--- a/scripts/build_site.py
++++ b/scripts/build_site.py
+@@ -5842,10 +5842,12 @@ def is_county(city) -> bool:
+ 
+ 
+ def city_path(city) -> str:
+-    return f"/parking/{city['province_slug']}/{city['slug']}/"
++    # 공개 URL은 public_slug(없으면 slug)를 사용 — 내부 식별자(internal_slug)와 분리.
++    # 강원 고성: internal_slug='gangwon_goseong', public_slug='goseong' 유지(뮤즈 결정 #1903).
++    return f"/parking/{city['province_slug']}/{city.get('public_slug') or city['slug']}/"
+ 
+ 
+ def district_path(city, d) -> str:
+-    return f"/parking/{city['province_slug']}/{d['slug']}/"
++    return f"/parking/{city['province_slug']}/{d.get('public_slug') or d['slug']}/"
+ 
+ 
+ def street_path(city) -> str:

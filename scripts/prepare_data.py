@@ -102042,7 +102042,8 @@ GWGOSEONG_DISCOUNTS = [
 
 GWGOSEONG_CONF = {
     "city": "고성군",
-    "slug": "gangwon_goseong",
+    "slug": "goseong",
+    "internal_slug": "gangwon_goseong",
     "manager": "강원특별자치도 고성군",
     "manager_inquiry": "고성군청(033-680-3021)",
     "ordinance": ("고성군 주차장 설치 및 관리 조례", GWGOSEONG_ORD_URL, GWGOSEONG_ORD_NOTE),
@@ -102547,13 +102548,14 @@ def build_gangwon_goseong():
             "region": {"province": GWGOSEONG_PROVINCE, "city": conf["city"]},
             "sources": sources,
         },
-        "districts": [{"name": "고성군", "slug": "gangwon_goseong"}],
+        "districts": [{"name": "고성군", "slug": "goseong"}],
         "lots": lots,
         "quality": quality,
         "fee_table": fee_table,
     }
     payload.update({
-        "slug": conf["slug"], "province": GWGOSEONG_PROVINCE,
+        "slug": conf["slug"], "internal_slug": conf["internal_slug"],
+        "public_slug": conf["slug"], "province": GWGOSEONG_PROVINCE,
         "province_slug": GWGOSEONG_PROVINCE_SLUG,
         "dong_page_min_lots": 3, "city": conf["city"],
         "weekend_free_pages": False,
