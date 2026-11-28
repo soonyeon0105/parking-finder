@@ -1,0 +1,199 @@
+{
+ "package": "item1_gwanak_monthly_clarification",
+ "date": "2026-11-29",
+ "value_kind": "조사값",
+ "issue": "표준데이터 월정기 40,000원 vs 공단 환산 50,000원 불일치 지적(뮤즈3)",
+ "resolution": "둘 다 공단 공식 요금표와 정합. 노상 거주자우선 주차구획 전일 240,000원/6개월(월 40,000원)·주간 180,000원·야간 120,000원 / 노외 공영주차장 전일 300,000원/6개월(월 50,000원)·주간 180,000원. 40,000원은 거주자우선 전일 월 환산, 50,000원은 공영주차장 전일 월 환산으로 대상이 다름. 데이터 값 변경 없음.",
+ "resident_lots_confirmed_40000": [
+  {
+   "lot_id": "gwanak-001",
+   "name": "남현동제2공영주차장",
+   "current_monthly": 40000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-004",
+   "name": "낙성대제3공영주차장",
+   "current_monthly": 40000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-008",
+   "name": "봉림중공영주차장",
+   "current_monthly": 40000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-010",
+   "name": "인헌동제1공영주차장",
+   "current_monthly": 40000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-011",
+   "name": "인헌동제2공영주차장",
+   "current_monthly": 40000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-012",
+   "name": "중앙동제1공영주차장",
+   "current_monthly": 40000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-013",
+   "name": "청룡동제1공영주차장",
+   "current_monthly": 40000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-017",
+   "name": "난곡동제2공영주차장",
+   "current_monthly": 40000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-018",
+   "name": "난곡마당공영주차장",
+   "current_monthly": 40000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-020",
+   "name": "난우중공영주차장",
+   "current_monthly": 50000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-021",
+   "name": "난향공영주차장",
+   "current_monthly": 50000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-022",
+   "name": "난향동제1공영주차장",
+   "current_monthly": 40000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-024",
+   "name": "대학동제1공영주차장",
+   "current_monthly": 40000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-025",
+   "name": "미성동제1공영주차장",
+   "current_monthly": 40000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-026",
+   "name": "미성동제2공영주차장",
+   "current_monthly": 40000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-027",
+   "name": "미성동제3공영주차장",
+   "current_monthly": 40000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-028",
+   "name": "미성동제4공영주차장",
+   "current_monthly": 50000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-030",
+   "name": "삼성동제2공영주차장",
+   "current_monthly": 50000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-031",
+   "name": "서림동제1공영주차장",
+   "current_monthly": 40000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-035",
+   "name": "신사동제2공영주차장",
+   "current_monthly": 40000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-036",
+   "name": "신사동제3공영주차장",
+   "current_monthly": 40000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-038",
+   "name": "신원동제1공영주차장",
+   "current_monthly": 40000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-039",
+   "name": "신원동제2공영주차장",
+   "current_monthly": 40000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-042",
+   "name": "조원동제3공영주차장",
+   "current_monthly": 40000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  },
+  {
+   "lot_id": "gwanak-s002",
+   "name": "낙성대제2공영주차장",
+   "current_monthly": 100000,
+   "official_monthly": 40000,
+   "verdict": "정합(거주자우선 전일 240,000원/6개월 = 40,000원/월)"
+  }
+ ],
+ "source": [
+  {
+   "name": "관악구시설관리공단 거주자우선주차 공식 사이트 주차요금 안내",
+   "url": "https://gwanak.parkinghome.com/user/guide/payment_frame_content.aspx?MENU=F"
+  },
+  {
+   "name": "동일 내용 모바일 안내",
+   "url": "https://gwanak.parkinghome.com/m/guide.aspx"
+  },
+  {
+   "name": "관악구청 공식 안내(공단 사이트 연결 확인)",
+   "url": "https://www.gwanak.go.kr/site/gwanak/08/10801020302002016051207.jsp"
+  }
+ ],
+ "checked_at": "2026-11-29"
+}
