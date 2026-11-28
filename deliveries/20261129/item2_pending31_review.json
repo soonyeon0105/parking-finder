@@ -1,0 +1,267 @@
+{
+ "package": "item2_pending31_official_review",
+ "date": "2026-11-29",
+ "value_kind": "조사값",
+ "scope": "항목2 좌표 [잠정] 31곳 공식 출처 대조(뮤즈/사용자 지시)",
+ "method": "지자체·공단 공식 주차장 안내 페이지 직접 판독 시도(web_fetch). 대부분 JS 렌더링 페이지라 자동 판독 불가 → 검색 색인 스니펫으로 공식 페이지 존재 확인 후, 공공데이터 재가공 보조 소스와 등록 주소 대조",
+ "official_pages_checked": [
+  {
+   "city": "울주군",
+   "url": "http://tour.ulju.ulsan.kr/ulju/contents.do?mId=0505050000",
+   "result": "페이지 존재 확인, 본문 테이블은 JS 렌더링으로 판독 불가"
+  },
+  {
+   "city": "영종구",
+   "url": "https://www.yeongjong.go.kr/main/life/open_parking/list.do",
+   "result": "페이지 존재 확인, 본문 테이블은 JS 렌더링으로 판독 불가"
+  },
+  {
+   "city": "홍천군",
+   "url": "https://www.hongcheon.go.kr/www/contents.do?key=1574",
+   "result": "페이지 존재 확인, 본문 테이블은 JS 렌더링으로 판독 불가"
+  },
+  {
+   "city": "공주시",
+   "url": "https://gongju.go.kr/kr/sub06_09_06.do",
+   "result": "페이지 존재 확인, 본문 테이블은 JS 렌더링으로 판독 불가"
+  },
+  {
+   "city": "경주시",
+   "url": "https://its.gyeongju.go.kr/pisinfo.do",
+   "result": "페이지 존재 확인, 본문 테이블은 JS 렌더링으로 판독 불가"
+  },
+  {
+   "city": "강릉시",
+   "url": "https://www.gn.go.kr/its/selectParkingMapWebListView.do?key=4264&searchLocType=GPZ",
+   "result": "페이지 존재 확인, 본문 테이블은 JS 렌더링으로 판독 불가"
+  },
+  {
+   "city": "익산시",
+   "url": "http://its.iksan.go.kr/info/facilityInfo.do",
+   "result": "페이지 존재 확인, 본문 테이블은 JS 렌더링으로 판독 불가"
+  }
+ ],
+ "results": [
+  {
+   "lot_id": "ca-gongju-024",
+   "verdict": "잠정 유지 — 등록 주소와 일치하는 보조 근거(공공데이터 재가공) 확인. 공식 지자체 페이지는 JS 렌더링으로 자동 판독 불가",
+   "secondary_sources": [
+    {
+     "name": "kimgoon 286-2-000152",
+     "url": "https://car.kimgoon.kr/parking/detail/286-2-000152"
+    },
+    {
+     "name": "bebop81",
+     "url": "https://parking.bebop81.com/parking/chungcheongnam-do/gongju-si/geumhak-dong/"
+    }
+   ]
+  },
+  {
+   "lot_id": "ca-gongju-080",
+   "verdict": "미상 — 공식 출처·보조 근거 모두 미확인(지오코딩 값은 참고로만 보관)"
+  },
+  {
+   "lot_id": "ca-gongju-135",
+   "verdict": "미상 — 주소 상충",
+   "note": "등록 석남리 303-7 vs odibom 등록정보 300-2 vs 지오코딩 303-14 — 3자 불일치, 재조사 필요(odibom: https://odibom.com/places/parking/286-2-000080)"
+  },
+  {
+   "lot_id": "ca-hongseong-s004",
+   "verdict": "미상 — 공식 출처·보조 근거 모두 미확인(지오코딩 값은 참고로만 보관)"
+  },
+  {
+   "lot_id": "ca-taean-003",
+   "verdict": "잠정 유지 — 등록 주소와 일치하는 보조 근거(공공데이터 재가공) 확인. 공식 지자체 페이지는 JS 렌더링으로 자동 판독 불가",
+   "secondary_sources": [
+    {
+     "name": "locategrid 299-2-000034",
+     "url": "https://www.locategrid.com/주차장/남면-우체국-옆-주차장-태안군-남면-14366/"
+    },
+    {
+     "name": "동네맵",
+     "url": "https://dongnemap.kr/parking/남면-우체국-옆-주차장-태안군/"
+    }
+   ]
+  },
+  {
+   "lot_id": "cj-cheongju-029",
+   "verdict": "잠정 유지 — 등록 주소와 일치하는 보조 근거(공공데이터 재가공) 확인. 공식 지자체 페이지는 JS 렌더링으로 자동 판독 불가",
+   "secondary_sources": [
+    {
+     "name": "ttpk",
+     "url": "https://festival.ttpk.co.kr/parking/385907"
+    }
+   ]
+  },
+  {
+   "lot_id": "gb-gyeongju-084",
+   "verdict": "잠정 유지 — 등록 주소와 일치하는 보조 근거(공공데이터 재가공) 확인. 공식 지자체 페이지는 JS 렌더링으로 자동 판독 불가",
+   "secondary_sources": [
+    {
+     "name": "동네맵(근계리 1413-3 일치)",
+     "url": "https://dongnemap.kr/parking/안강-근계1리-공용주차장-경주시/"
+    }
+   ]
+  },
+  {
+   "lot_id": "gb-gyeongju-108",
+   "verdict": "미상 — 공식 출처·보조 근거 모두 미확인(지오코딩 값은 참고로만 보관)"
+  },
+  {
+   "lot_id": "gb-gyeongju-115",
+   "verdict": "잠정 유지 — 등록 주소와 일치하는 보조 근거(공공데이터 재가공) 확인. 공식 지자체 페이지는 JS 렌더링으로 자동 판독 불가",
+   "secondary_sources": [
+    {
+     "name": "ttpk(공공데이터)",
+     "url": "https://festival.ttpk.co.kr/parking/387520"
+    },
+    {
+     "name": "모레넥스 STD-352-2-000106",
+     "url": "https://travel.morenex.kr/parking/STD-352-2-000106-6bb739e3b4"
+    }
+   ]
+  },
+  {
+   "lot_id": "gb-gyeongsan-s066",
+   "verdict": "미상 — 공식 출처·보조 근거 모두 미확인(지오코딩 값은 참고로만 보관)"
+  },
+  {
+   "lot_id": "gn-goseong-002",
+   "verdict": "잠정 유지 — 등록 주소와 일치하는 보조 근거(공공데이터 재가공) 확인. 공식 지자체 페이지는 JS 렌더링으로 자동 판독 불가",
+   "secondary_sources": [
+    {
+     "name": "kimgoon 392-2-000002",
+     "url": "https://car.kimgoon.kr/parking/detail/392-2-000002"
+    }
+   ]
+  },
+  {
+   "lot_id": "gn-goseong-004",
+   "verdict": "잠정 유지 — 등록 주소와 일치하는 보조 근거(공공데이터 재가공) 확인. 공식 지자체 페이지는 JS 렌더링으로 자동 판독 불가",
+   "secondary_sources": [
+    {
+     "name": "kimgoon 392-2-000003",
+     "url": "https://car.kimgoon.kr/parking/detail/392-2-000003"
+    },
+    {
+     "name": "3minhealth",
+     "url": "https://parking.3minhealth.com/gyeongnam/goseong-gun/pdc4c8e2b1/"
+    }
+   ]
+  },
+  {
+   "lot_id": "gw-gangneung-082",
+   "verdict": "잠정 유지 — 등록 주소와 일치하는 보조 근거(공공데이터 재가공) 확인. 공식 지자체 페이지는 JS 렌더링으로 자동 판독 불가",
+   "secondary_sources": [
+    {
+     "name": "동네맵(공공데이터·브이월드 기반)",
+     "url": "https://dongnemap.kr/parking/동부시장-공영-주차장-강릉시/"
+    },
+    {
+     "name": "모레넥스 STD-252-2-000154",
+     "url": "https://travel.morenex.kr/parking/STD-252-2-000154-97ae54f361"
+    }
+   ]
+  },
+  {
+   "lot_id": "gw-hongcheon-008",
+   "verdict": "미상 — 공식 출처·보조 근거 모두 미확인(지오코딩 값은 참고로만 보관)"
+  },
+  {
+   "lot_id": "gw-hongcheon-015",
+   "verdict": "잠정 유지 — 등록 주소와 일치하는 보조 근거(공공데이터 재가공) 확인. 공식 지자체 페이지는 JS 렌더링으로 자동 판독 불가",
+   "secondary_sources": [
+    {
+     "name": "EV충전소 자료(희망리 67-4 일치)",
+     "url": "https://festival.ttpk.co.kr/ev-chargers/3763"
+    }
+   ]
+  },
+  {
+   "lot_id": "jb-iksan-s036",
+   "verdict": "미상 — 공식 출처·보조 근거 모두 미확인(지오코딩 값은 참고로만 보관)"
+  },
+  {
+   "lot_id": "jb-iksan-s040",
+   "verdict": "미상 — 공식 출처·보조 근거 모두 미확인(지오코딩 값은 참고로만 보관)"
+  },
+  {
+   "lot_id": "jb-iksan-s072",
+   "verdict": "미상 — 공식 출처·보조 근거 모두 미확인(지오코딩 값은 참고로만 보관)"
+  },
+  {
+   "lot_id": "jb-iksan-s080",
+   "verdict": "미상 — 공식 출처·보조 근거 모두 미확인(지오코딩 값은 참고로만 보관)"
+  },
+  {
+   "lot_id": "jj-jeju-396",
+   "verdict": "미상 — 공식 출처·보조 근거 모두 미확인(지오코딩 값은 참고로만 보관)"
+  },
+  {
+   "lot_id": "jn-jindo-009",
+   "verdict": "잠정 유지 — 공식 부분 확인",
+   "note": "진도군 공식 관광안내상 진도타워 위치는 군내면 만금길 112-41(jindo.go.kr/tour/sub.cs?m=11). 등록 지번 녹진리 산 2-80과의 지번-도로명 대조 필요"
+  },
+  {
+   "lot_id": "jn-sinan-094",
+   "verdict": "잠정 유지 — 등록 주소와 일치하는 보조 근거(공공데이터 재가공) 확인. 공식 지자체 페이지는 JS 렌더링으로 자동 판독 불가",
+   "secondary_sources": [
+    {
+     "name": "bebop81(한운리 산 231-2 일치)",
+     "url": "https://parking.bebop81.com/parking/jeollanam-do/sinan-gun/jaeun-myeon/"
+    }
+   ]
+  },
+  {
+   "lot_id": "jn-sinan-095",
+   "verdict": "잠정 유지 — 등록 주소와 일치하는 보조 근거(공공데이터 재가공) 확인. 공식 지자체 페이지는 JS 렌더링으로 자동 판독 불가",
+   "secondary_sources": [
+    {
+     "name": "모레넥스 STD-345-2-000090(한운리 산 231-2 일치)",
+     "url": "https://travel.morenex.kr/parking/STD-345-2-000090-5e25e617c1"
+    }
+   ]
+  },
+  {
+   "lot_id": "jn-sinan-149",
+   "verdict": "미상 — 공식 출처·보조 근거 모두 미확인(지오코딩 값은 참고로만 보관)"
+  },
+  {
+   "lot_id": "jn-yeonggwang-025",
+   "verdict": "미상 — 공식 출처·보조 근거 모두 미확인(지오코딩 값은 참고로만 보관)"
+  },
+  {
+   "lot_id": "jn-yeonggwang-065",
+   "verdict": "미상 — 공식 출처·보조 근거 모두 미확인(지오코딩 값은 참고로만 보관)"
+  },
+  {
+   "lot_id": "us-ulju-gun-018",
+   "verdict": "미상 — 주소 상충",
+   "note": "등록 가천리 1212-9 vs siteinfor 1212-8 — 부번 1차이, 확인 필요(siteinfor: https://siteinfor.co.kr/parking/삼남-high-tech-valley-주차장/)"
+  },
+  {
+   "lot_id": "us-ulju-gun-s004",
+   "verdict": "미상 — 공식 출처·보조 근거 모두 미확인(지오코딩 값은 참고로만 보관)"
+  },
+  {
+   "lot_id": "us-ulju-gun-s009",
+   "verdict": "미상 — 공식 출처·보조 근거 모두 미확인(지오코딩 값은 참고로만 보관)"
+  },
+  {
+   "lot_id": "yeongjong-006",
+   "verdict": "미상 — 공식 출처·보조 근거 모두 미확인(지오코딩 값은 참고로만 보관)"
+  },
+  {
+   "lot_id": "yeongjong-008",
+   "verdict": "미상 — 공식 출처·보조 근거 모두 미확인(지오코딩 값은 참고로만 보관)"
+  }
+ ],
+ "summary": {
+  "잠정 유지(보조 근거 일치)": 11,
+  "잠정 유지(공식 부분 확인)": 1,
+  "미상(주소 상충)": 2,
+  "미상(근거 없음)": 17,
+  "total": 31
+ },
+ "note": "미상 처리된 곳의 기존 지오코딩 좌표는 삭제하지 않고 참고값으로 유지. 공식 대조를 완료하려면 브라우저 렌더링(클라우드 브라우저)으로 위 공식 페이지들을 열어 주차장별 위치를 대조해야 함. push 없음."
+}
