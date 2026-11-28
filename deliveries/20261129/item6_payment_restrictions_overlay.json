@@ -112727,6 +112727,294 @@
    },
    "value_kind": "조사값",
    "basis": "여수시 도시관리공단 통합주차포털 주차요금 사전결제 안내(웹 PC/모바일 결제), parking.yumcorp.or.kr/prepayment/info. 현장 결제수단 공식 미명시 (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-001",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-002",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-003",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-004",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-005",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-006",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-007",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-008",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-009",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-010",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-011",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-012",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-013",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-014",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-015",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-016",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-017",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-018",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-019",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-020",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-021",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-022",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-023",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-024",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-025",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-026",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-027",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-028",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-029",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-030",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-s001",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
+  },
+  {
+   "lot_id": "seodaemun-s002",
+   "file": "seodaemun",
+   "set": {
+    "pay": "카드·간편결제·휴대폰결제(모바일·PC)"
+   },
+   "value_kind": "조사값",
+   "basis": "서대문구시설관리공단 주차포털 방문주차장 이용안내: \"납부 방법: 카드결제, 간편결제, 휴대폰결제(모바일,PC)\", rparking.sscmc.or.kr/Visit/Guide (조사값, 확인 2026-11-29, 브라우저 렌더링)"
   }
  ],
  "vehicle_restriction_fills": [
@@ -112821,11 +113109,6 @@
   {
    "city": "taean",
    "count": 37,
-   "reason": "유료 주차장, 결제수단 공식 확인 필요(운영 주체별 조사 대상)"
-  },
-  {
-   "city": "seodaemun",
-   "count": 32,
    "reason": "유료 주차장, 결제수단 공식 확인 필요(운영 주체별 조사 대상)"
   },
   {
