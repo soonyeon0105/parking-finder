@@ -1170,7 +1170,7 @@
    "base_date": "2026-10-08",
    "manager": "서울특별시 중구청",
    "note": "",
-   "notice": "거주민 월 정기권 전용 주차장이라 시간 주차를 할 수 없습니다(월 정기권 140,000원) · 구영(중구청 직영·위탁) 주차장",
+   "notice": "거주민 월 정기권 전용 주차장이라 시간 주차를 할 수 없습니다(월 주간 100,000원·야간 40,000원) · 구영(중구청 직영·위탁) 주차장",
    "fee": {
     "grade": 3,
     "grade_label": "3급지",
@@ -1189,21 +1189,23 @@
     "daily_fee": null,
     "prepaid_day": null,
     "prepaid_weekend": null,
-    "monthly": 140000,
-    "monthly_day": null,
-    "monthly_night": null,
+    "monthly": null,
+    "monthly_day": 100000,
+    "monthly_night": 40000,
     "monthly_all": null,
     "monthly_label": "거주민 월 정기권",
     "category": null,
     "std": null,
-    "type": "미상",
+    "type": "유료",
     "raw_type": "유료",
     "mixed": false,
     "pay": "",
     "portal_free_now": false,
     "flat_day": false,
-    "ticket_only": false,
-    "basis": "거주민 월 정기권 전용 — 시간 주차요금 없음"
+    "ticket_only": true,
+    "basis": "거주민 월 정기권 전용 — 시간 주차 없음. 서울 중구자치신문(중구시설관리공단 발표) 확인(2026-11-28): 기존 월정기 주차 등록 차량만 이용 가능. 월 정기권은 통합 140,000원권이 아니라 주간 100,000원·야간 40,000원 별도(중구시설관리공단 시설표, 쿠키 대조 2026-11-29, #1861 판정). 근거: data/raw/49cha_fee_overlay_20261128.json",
+    "monthly_only": true,
+    "cap_na": true
    },
    "oper": {
     "weekday": true,
@@ -1259,7 +1261,8 @@
    "udc_id": null,
    "price_key": null,
    "city": "중구",
-   "city_slug": "jung"
+   "city_slug": "jung",
+   "free_tags": []
   },
   {
    "id": "jung-011",
@@ -2002,7 +2005,7 @@
    "base_date": "2026-10-08",
    "manager": "서울특별시 중구청",
    "note": "",
-   "notice": "거주민 월 정기권 전용 주차장이라 시간 주차를 할 수 없습니다(월 정기권 140,000원) · 구영(중구청 직영·위탁) 주차장",
+   "notice": "거주민 월 정기권 전용 주차장이라 시간 주차를 할 수 없습니다 · 구영(중구청 직영·위탁) 주차장",
    "fee": {
     "grade": 3,
     "grade_label": "3급지",
@@ -2091,7 +2094,8 @@
    "udc_id": null,
    "price_key": null,
    "city": "중구",
-   "city_slug": "jung"
+   "city_slug": "jung",
+   "free_tags": []
   },
   {
    "id": "jung-018",

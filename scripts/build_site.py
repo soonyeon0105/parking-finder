@@ -6134,6 +6134,10 @@ def fee_text(lot) -> str:
         return "무료"
     if f.get("monthly_only"):
         # 아산시 캠핑용자동차 전용주차장 — 월정기 전용(시간제 없음).
+        # 주간·야간이 별도인 곳(중구 새싹마을, #1861 판정)은 둘을 나눠 적는다.
+        if f.get("monthly_day") and f.get("monthly_night"):
+            return (f"월정기 전용 · 주간 {won(f['monthly_day'])} · 야간 {won(f['monthly_night'])}"
+                    + (f"({f['monthly_label']})" if f.get("monthly_label") else ""))
         return (f"월정기 전용 · 월 {won(f['monthly'])}"
                 + (f"({f['monthly_label']})" if f.get("monthly_label") else ""))
     if f.get("grade_label") == "청사 부설" and f.get("free_min"):

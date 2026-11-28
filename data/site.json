@@ -402033,7 +402033,7 @@
    "base_date": "2026-10-08",
    "manager": "서울특별시 중구청",
    "note": "",
-   "notice": "거주민 월 정기권 전용 주차장이라 시간 주차를 할 수 없습니다(월 정기권 140,000원) · 구영(중구청 직영·위탁) 주차장",
+   "notice": "거주민 월 정기권 전용 주차장이라 시간 주차를 할 수 없습니다(월 주간 100,000원·야간 40,000원) · 구영(중구청 직영·위탁) 주차장",
    "fee": {
     "grade": 3,
     "grade_label": "3급지",
@@ -402052,21 +402052,23 @@
     "daily_fee": null,
     "prepaid_day": null,
     "prepaid_weekend": null,
-    "monthly": 140000,
-    "monthly_day": null,
-    "monthly_night": null,
+    "monthly": null,
+    "monthly_day": 100000,
+    "monthly_night": 40000,
     "monthly_all": null,
     "monthly_label": "거주민 월 정기권",
     "category": null,
     "std": null,
-    "type": "미상",
+    "type": "유료",
     "raw_type": "유료",
     "mixed": false,
     "pay": "",
     "portal_free_now": false,
     "flat_day": false,
-    "ticket_only": false,
-    "basis": "거주민 월 정기권 전용 — 시간 주차요금 없음"
+    "ticket_only": true,
+    "basis": "거주민 월 정기권 전용 — 시간 주차 없음. 서울 중구자치신문(중구시설관리공단 발표) 확인(2026-11-28): 기존 월정기 주차 등록 차량만 이용 가능. 월 정기권은 통합 140,000원권이 아니라 주간 100,000원·야간 40,000원 별도(중구시설관리공단 시설표, 쿠키 대조 2026-11-29, #1861 판정). 근거: data/raw/49cha_fee_overlay_20261128.json",
+    "monthly_only": true,
+    "cap_na": true
    },
    "oper": {
     "weekday": true,
@@ -402921,7 +402923,7 @@
    "base_date": "2026-10-08",
    "manager": "서울특별시 중구청",
    "note": "",
-   "notice": "거주민 월 정기권 전용 주차장이라 시간 주차를 할 수 없습니다(월 정기권 140,000원) · 구영(중구청 직영·위탁) 주차장",
+   "notice": "거주민 월 정기권 전용 주차장이라 시간 주차를 할 수 없습니다 · 구영(중구청 직영·위탁) 주차장",
    "fee": {
     "grade": 3,
     "grade_label": "3급지",
@@ -1949313,13 +1949315,13 @@
    "note": "",
    "notice": null,
    "fee": {
-    "type": "미상",
-    "base_min": null,
-    "base_fee": null,
-    "unit_min": null,
-    "unit_fee": null,
-    "daily_fee": null,
-    "daily_hours": null,
+    "type": "무료",
+    "base_min": 0,
+    "base_fee": 0,
+    "unit_min": 0,
+    "unit_fee": 0,
+    "daily_fee": 0,
+    "daily_hours": 0,
     "cap_fee": null,
     "cap_src": null,
     "monthly": null,
@@ -1949347,7 +1949349,7 @@
      "day": null,
      "monthly": null
     },
-    "basis": "표준데이터에는 ‘유료’로 등록돼 있으나 기본요금이 0원으로 등록돼 있어 요금을 계산할 수 없다 — 실제 요금은 영천시청(054-330-6264) 확인이 필요하다"
+    "basis": "영천시 공식 주차장 현황에 충혼탑 부설주차장(교촌동 205-1)이 무료로 표시됨(쿠키 대조 2026-11-29, #1861 판정). 목록 갱신일·운영 시간제한은 미확인이라 확인된 범위 내에서만 무료로 표기한다. 근거: data/raw/49cha_fee_overlay_20261128.json"
    },
    "oper": {
     "weekday": true,
@@ -1949409,7 +1949411,9 @@
    "free_day_note": null,
    "free_window_min": null,
    "free_window_raw": null,
-   "free_tags": [],
+   "free_tags": [
+    "무료"
+   ],
    "access": "general",
    "access_note": null,
    "province_slug": "gyeongbuk"
@@ -2046604,11 +2046608,11 @@
    "note": "유료운영시간 07:00-22:00",
    "notice": "승용차 5부제를 시행하는 구간입니다",
    "fee": {
-    "type": "미상",
-    "base_min": null,
-    "base_fee": null,
-    "unit_min": null,
-    "unit_fee": null,
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
     "daily_fee": null,
     "daily_hours": null,
     "cap_fee": null,
@@ -2046621,10 +2046625,10 @@
     "grade_label": null,
     "std_grade": "1",
     "deduct_min": null,
-    "free_min": null,
+    "free_min": 60,
     "ticket_only": false,
     "flat_day": false,
-    "mixed": true,
+    "mixed": false,
     "progressive": false,
     "steps": null,
     "steps_label": null,
@@ -2046638,7 +2046642,7 @@
      "day": 2000,
      "monthly": null
     },
-    "basis": "표준데이터의 등록 요금(기본 60분 0원·추가 30분 500원·1일 2,000원·월 공란)은, 이 곳이 부설주차장이라 「울진군주차장조례」 별표 1(노상·노외 공영주차장 요금표)의 적용 대상이 아니고 별표 1의 어느 급지와도 일치하지 않아 요금 미상으로 표기한다 — 실제 요금은 울진군청(054-789-6392) 확인이 필요하다"
+    "basis": "울진군청 부설주차장 관리 규정 — 울진군 공식 보도자료(2019-06-26, '울진군청 주차장 규정 일부 변경 시행')로 확인(2026-11-28): 유료 운영 07:00~22:00, 1시간 이내 면제, 이후 30분마다 500원, 월 정기권 없음(폐지). 1일 2,000원은 액수·대상이 미확인이라 반영하지 않는다(쿠키 대조 2026-11-29, #1861 판정). 근거: data/raw/49cha_fee_overlay_20261128.json"
    },
    "oper": {
     "weekday": true,

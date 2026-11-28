@@ -2851,11 +2851,11 @@
    "note": "유료운영시간 07:00-22:00",
    "notice": "승용차 5부제를 시행하는 구간입니다",
    "fee": {
-    "type": "미상",
-    "base_min": null,
-    "base_fee": null,
-    "unit_min": null,
-    "unit_fee": null,
+    "type": "유료",
+    "base_min": 60,
+    "base_fee": 0,
+    "unit_min": 30,
+    "unit_fee": 500,
     "daily_fee": null,
     "daily_hours": null,
     "cap_fee": null,
@@ -2868,10 +2868,10 @@
     "grade_label": null,
     "std_grade": "1",
     "deduct_min": null,
-    "free_min": null,
+    "free_min": 60,
     "ticket_only": false,
     "flat_day": false,
-    "mixed": true,
+    "mixed": false,
     "progressive": false,
     "steps": null,
     "steps_label": null,
@@ -2885,7 +2885,7 @@
      "day": 2000,
      "monthly": null
     },
-    "basis": "표준데이터의 등록 요금(기본 60분 0원·추가 30분 500원·1일 2,000원·월 공란)은, 이 곳이 부설주차장이라 「울진군주차장조례」 별표 1(노상·노외 공영주차장 요금표)의 적용 대상이 아니고 별표 1의 어느 급지와도 일치하지 않아 요금 미상으로 표기한다 — 실제 요금은 울진군청(054-789-6392) 확인이 필요하다"
+    "basis": "울진군청 부설주차장 관리 규정 — 울진군 공식 보도자료(2019-06-26, '울진군청 주차장 규정 일부 변경 시행')로 확인(2026-11-28): 유료 운영 07:00~22:00, 1시간 이내 면제, 이후 30분마다 500원, 월 정기권 없음(폐지). 1일 2,000원은 액수·대상이 미확인이라 반영하지 않는다(쿠키 대조 2026-11-29, #1861 판정). 근거: data/raw/49cha_fee_overlay_20261128.json"
    },
    "oper": {
     "weekday": true,
@@ -2942,7 +2942,8 @@
    "price_key": null,
    "city": "울진군",
    "city_slug": "uljin",
-   "zone": null
+   "zone": null,
+   "free_tags": []
   },
   {
    "id": "gb-uljin-026",

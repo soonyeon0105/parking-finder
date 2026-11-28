@@ -8816,6 +8816,86 @@ def apply_fee_fix_20261124(lots):
     return fixed
 
 
+FEE_FIX_20261128_49 = {
+    # 울진군청 공영주차장(부설) — 울진군 부설주차장 관리 규정. 울진군 공식 보도자료
+    # (2019-06-26) '울진군청 주차장 규정 일부 변경 시행': 유료 07:00~22:00,
+    # 1시간 이내 면제, 이후 30분마다 500원, 월 정기권 폐지.
+    # 2026-11-29 쿠키 대조(#1853): 시간 요금까지만 확인. 1일 2,000원은 액수·대상
+    # 미확인이라 반영하지 않는다(#1861 판정).
+    "gb-uljin-025": {
+        "fee": {"type": "유료", "base_min": 60, "base_fee": 0, "free_min": 60,
+                "unit_min": 30, "unit_fee": 500, "daily_fee": None, "mixed": False},
+        "basis": ("set",
+                  "울진군청 부설주차장 관리 규정 — 울진군 공식 보도자료(2019-06-26, '울진군청 주차장 규정 일부 변경 시행')로 확인(2026-11-28): 유료 운영 07:00~22:00, 1시간 이내 면제, 이후 30분마다 500원, 월 정기권 없음(폐지). 1일 2,000원은 액수·대상이 미확인이라 반영하지 않는다(쿠키 대조 2026-11-29, #1861 판정). 근거: data/raw/49cha_fee_overlay_20261128.json"),
+    },
+    # 서울 중구 새싹마을 — 거주민 월정기 전용 확정.
+    # 중구자치신문(중구시설관리공단 발표): '기존 월정기 주차 등록 차량만 이용 가능'.
+    # 2026-11-29 쿠키 대조(#1853): 월 140,000원 통합권이 아니라 주간 100,000원·
+    # 야간 40,000원 별도(공단 시설표 새싹마을경로당 9번) — 이 기준으로 정정(#1861 판정).
+    # 확정 형태는 군포 gpo-007(월정기 전용)과 같다.
+    "jung-010": {
+        "fee": {"type": "유료", "ticket_only": True, "monthly_only": True, "cap_na": True,
+                "monthly": None, "monthly_day": 100000, "monthly_night": 40000, "monthly_all": None},
+        "notice": "거주민 월 정기권 전용 주차장이라 시간 주차를 할 수 없습니다(월 주간 100,000원·야간 40,000원) · 구영(중구청 직영·위탁) 주차장",
+        "basis": ("set",
+                  "거주민 월 정기권 전용 — 시간 주차 없음. 서울 중구자치신문(중구시설관리공단 발표) 확인(2026-11-28): 기존 월정기 주차 등록 차량만 이용 가능. 월 정기권은 통합 140,000원권이 아니라 주간 100,000원·야간 40,000원 별도(중구시설관리공단 시설표, 쿠키 대조 2026-11-29, #1861 판정). 근거: data/raw/49cha_fee_overlay_20261128.json"),
+    },
+    # 서울 중구 충현어린이공원 — 미확인 유지(#1861 판정). 요금은 건드리지 않고,
+    # 안내 문구에 남은 미확인 금액(월 정기권 140,000원)만 뺀다. 140,000원 통합권은
+    # 쿠키 대조(#1853)에서 시설 매핑이 확인되지 않아 미확인이다.
+    "jung-017": {
+        "notice": "거주민 월 정기권 전용 주차장이라 시간 주차를 할 수 없습니다 · 구영(중구청 직영·위탁) 주차장",
+    },
+    # 영천 충혼탑 부설주차장 — 영천시 공식 주차장 현황에 무료로 표시됨(교촌동 205-1).
+    # 목록 갱신일·운영 시간제한은 미확인이라 확인된 범위 내에서만 무료로 표기한다(#1861 판정).
+    "gb-yeongcheon-011": {
+        "fee": {"type": "무료", "base_min": 0, "base_fee": 0, "unit_min": 0, "unit_fee": 0,
+                "daily_fee": 0, "daily_hours": 0, "mixed": False},
+        "basis": ("set",
+                  "영천시 공식 주차장 현황에 충혼탑 부설주차장(교촌동 205-1)이 무료로 표시됨(쿠키 대조 2026-11-29, #1861 판정). 목록 갱신일·운영 시간제한은 미확인이라 확인된 범위 내에서만 무료로 표기한다. 근거: data/raw/49cha_fee_overlay_20261128.json"),
+    },
+}
+
+
+def apply_fee_fix_20261128_49(lots):
+    """2026-11-28 49차 잔여 요금 확정분 (김해·영천·함안·울진·중구).
+    2026-11-29 쿠키 대조(#1853)·판정(#1861)으로 정정: 울진 1일 요금 미반영,
+    함안 2곳 조례 요금 적용 보류(미상 유지), 중구 새싹마을 주간 100,000원·
+    야간 40,000원 별도 정정, 영천 충혼탑 무료 표기, 충현어린이공원 미상 유지.
+    김해 화물차고지 2건은 공식 공개 자료로 확정하지 못해 이 dict에 넣지 않았다.
+
+    apply_fee_fix_20261124 뒤에 부른다. 도시 빌더와 build_site_payload 양쪽에서
+    부른다 — 도시 파일과 site.json이 어긋나지 않게 같은 오버레이를 적용한다.
+    근거 전문: data/raw/49cha_fee_overlay_20261128.json.
+    """
+    fixed = []
+    for lot in lots:
+        spec = FEE_FIX_20261128_49.get(lot["id"])
+        if spec is None:
+            continue
+        for key, val in spec.get("fee", {}).items():
+            lot["fee"][key] = val
+        basis = spec.get("basis")
+        if basis:
+            mode, text = basis
+            if mode == "set":
+                lot["fee"]["basis"] = text
+            else:
+                cur = lot["fee"].get("basis") or ""
+                if text not in cur:
+                    lot["fee"]["basis"] = (cur + " " + text).strip()
+        if spec.get("notice") is not None:
+            lot["notice"] = spec["notice"]
+        tags = lot.get("free_tags") or []
+        if lot["fee"]["type"] == "무료" and "무료" not in tags:
+            tags.append("무료")
+        if lot["fee"]["type"] != "무료" and "무료" in tags:
+            tags.remove("무료")
+        lot["free_tags"] = tags
+        fixed.append(lot["id"])
+    return fixed
+
+
 def apply_coord_fix(lots):
     """T-06: 표준데이터에 좌표가 비어 있는 주차장을 검증된 지오코딩 결과로 채운다.
 
@@ -8879,6 +8959,8 @@ def build_site_payload(cities):
         apply_fee_fix_20261123(c["lots"])
         # 2026-11-24 요금 정정(40~45차 판정분) — 11-23 정정 뒤에 불러야 최종값이 이긴다.
         apply_fee_fix_20261124(c["lots"])
+        # 2026-11-28 요금 정정(49차 잔여 확정분) — 가장 마지막에 불러야 최종값이 이긴다.
+        apply_fee_fix_20261128_49(c["lots"])
         lots.extend(c["lots"])
     coord_fix = apply_coord_fix(lots)
     hours_fixed = apply_hours_fix(lots)
@@ -21435,6 +21517,8 @@ def build_seoul_district(gu: str):
     apply_fee_fix_20261123(lots)
     # 2026-11-24 요금 정정 (40~45차 판정분).
     apply_fee_fix_20261124(lots)
+    # 2026-11-28 요금 정정 (49차 잔여 확정분 — 중구 월정기 전용 2곳).
+    apply_fee_fix_20261128_49(lots)
 
     fee_table = seoul_fee_table(gu, conf, lots)
     quality = check_quality_seoul(gu, rows_all, rows_std, lots, excluded, merged,
@@ -77696,6 +77780,8 @@ def build_haman():
                     f"data/raw/haman-ordinance-b1.hwp)",
         },
     ]
+    # 2026-11-28 요금 정정 (49차 잔여 확정분 — 함안 2곳 조례 별표 1 확정).
+    apply_fee_fix_20261128_49(lots)
     payload = {
         "meta": {
             "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
@@ -83053,6 +83139,8 @@ def build_yeongcheon():
                     f"data/raw/yeongcheon-ordinance-b1.hwp)",
         },
     ]
+    # 2026-11-29 요금 정정 (49차 잔여 확정분 — 영천 충혼탑 부설 무료 표기, #1861 판정).
+    apply_fee_fix_20261128_49(lots)
     payload = {
         "meta": {
             "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
@@ -94326,6 +94414,8 @@ def build_uljin():
                     f"data/raw/uljin-ordinance-b1.hwpx)",
         },
     ]
+    # 2026-11-28 요금 정정 (49차 잔여 확정분 — 울진군청 부설 관리 규정 확정).
+    apply_fee_fix_20261128_49(lots)
     payload = {
         "meta": {
             "generated_at": NOW.strftime("%Y-%m-%d %H:%M"),
