@@ -41,3 +41,4 @@ User-agent: *
 Allow: /
 Sitemap: https://parking.9welfare.com/sitemap.xml
 Sitemap: https://parking.9welfare.com/sitemap-core.xml
+Sitemap: https://parking.9welfare.com/sitemap-ev.xml

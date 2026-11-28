@@ -5,7 +5,7 @@
 중심은 주차+충전 결합(주차장 상세의 근처 충전소 블록·목록의 '전기차 충전 가능'
 필터 — build_site.py)이고, 이 스크립트의 지역 목록은 충전소 단독 확인용으로
 간소하게 만든다. build_site.py 를 먼저 실행해 dist/ 가 만들어진 뒤에 실행하고,
-만든 주소는 dist/sitemap.xml 에 덧붙인다.
+만든 주소는 dist/sitemap-ev.xml 에 모으고, sitemap.xml 인덱스가 참조한다.
 
 충전소 단독 상세 페이지(/ev/{도}/{구}/{충전소 id}/)는 정적 파일로 만들지 않는다
 (PR #154: 23,456개 정적 생성 → Pages 배포 파일 상한 20,000개 초과로 배포 실패).
@@ -837,11 +837,12 @@ def main():
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(html_text, encoding="utf-8")
 
-    # 사이트맵에 EV 주소 덧붙이기 (build_site.py 가 만든 sitemap.xml 의 </urlset> 앞).
+    # 사이트맵 — EV 주소는 별도 sitemap-ev.xml 로 분리한다 (2026-11-28).
+    # build_site.py 가 sitemap.xml 을 인덱스(sitemap-core·sitemap-lots 참조)로
+    # 바꾼 뒤로는 sitemap.xml 에 직접 덧붙일 수 없어, EV 전용 파일을 만들고
+    # 인덱스와 robots.txt 가 그 파일을 가리키게 한다.
     # 상세 페이지는 우선순위 0.6 — 목록·허브(0.7~0.9)보다 낮게 둔다.
-    # 합계 6,396 + 상세 23,456 ≈ 29,852개로 50,000개 상한 안에 든다.
-    sm_path = dist / "sitemap.xml"
-    sm = sm_path.read_text(encoding="utf-8")
+    # 목록 1,822 + 상세 ~23,456 ≈ 25,000개로 파일당 50,000개 상한 안에 든다.
     lastmod = (meta.get("inv_collected") or "")[:10]
     lastmod_tag = f"<lastmod>{lastmod}</lastmod>" if lastmod else ""
     detail_set = set(detail_paths)
@@ -850,7 +851,30 @@ def main():
         f"  <url><loc>{bs.SITE_BASE}{p}</loc>{lastmod_tag}<changefreq>weekly</changefreq>"
         f"<priority>{'0.9' if p == '/ev/' else '0.6' if p in detail_set else '0.7'}</priority></url>"
         for p in all_ev_paths)
-    sm_path.write_text(sm.replace("</urlset>", urls + "\n</urlset>"), encoding="utf-8")
+    urlset_head = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+                   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
+    (dist / "sitemap-ev.xml").write_text(urlset_head + urls + "\n</urlset>\n",
+                                         encoding="utf-8")
+    # 인덱스(sitemap.xml)에 sitemap-ev.xml 참조가 없으면 넣는다
+    # (build_site.py 가 넣는 경우와 중복되지 않게 존재 여부를 확인한다).
+    sm_path = dist / "sitemap.xml"
+    if sm_path.exists():
+        sm = sm_path.read_text(encoding="utf-8")
+        if "sitemap-ev.xml" not in sm and "</sitemapindex>" in sm:
+            ev_entry = (f"  <sitemap><loc>{bs.SITE_BASE}/sitemap-ev.xml</loc>"
+                        f"{lastmod_tag}</sitemap>\n")
+            sm_path.write_text(
+                sm.replace("</sitemapindex>", ev_entry + "</sitemapindex>"),
+                encoding="utf-8")
+    # robots.txt 에도 EV 사이트맵을 알린다 (없을 때만).
+    robots_path = dist / "robots.txt"
+    if robots_path.exists():
+        robots = robots_path.read_text(encoding="utf-8")
+        if "sitemap-ev.xml" not in robots:
+            robots_path.write_text(
+                robots.rstrip("\n") + f"\nSitemap: {bs.SITE_BASE}/sitemap-ev.xml\n",
+                encoding="utf-8")
+    print(f"사이트맵: sitemap-ev.xml 에 EV 주소 {len(all_ev_paths):,}개 기록")
     print(f"전기차 충전소 페이지 생성 완료: {len(pages)}페이지 "
           f"(충전소 {meta['n_stations']:,}곳 · 상세 {len(detail_paths):,}개 Functions)")
 

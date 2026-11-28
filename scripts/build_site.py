@@ -20558,6 +20558,7 @@ def main():
         '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         f"  <sitemap><loc>{SITE_BASE}/sitemap-core.xml</loc>{lastmod_tag}</sitemap>\n"
         f"  <sitemap><loc>{SITE_BASE}/sitemap-lots.xml</loc>{lastmod_tag}</sitemap>\n"
+        f"  <sitemap><loc>{SITE_BASE}/sitemap-ev.xml</loc>{lastmod_tag}</sitemap>\n"
         "</sitemapindex>\n")
     # robots.txt — AI 검색 크롤러 허용을 명시한다(2026-11-28 AI 검색 대응).
     # 기존 전체 허용·사이트맵 줄은 그대로 유지하고, 크롤러별 허용 그룹만 덧붙인다.
@@ -20566,7 +20567,8 @@ def main():
                "CCBot", "Meta-ExternalAgent", "Bytespider", "cohere-ai"]
     robots = "".join(f"User-agent: {b}\nAllow: /\n\n" for b in ai_bots)
     robots += (f"User-agent: *\nAllow: /\nSitemap: {SITE_BASE}/sitemap.xml\n"
-               f"Sitemap: {SITE_BASE}/sitemap-core.xml\n")
+               f"Sitemap: {SITE_BASE}/sitemap-core.xml\n"
+               f"Sitemap: {SITE_BASE}/sitemap-ev.xml\n")
     (DIST / "robots.txt").write_text(robots)
     # llms.txt — AI 검색이 사이트 구조를 한 번에 파악하도록 핵심 페이지만 적는다.
     # 상세 페이지(수천 개)는 전부 적지 않고 유형 + 대표 예시 1개로 대신한다.
